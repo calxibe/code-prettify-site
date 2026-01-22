@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changelog - CodePrettify</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="img/code_32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <img src="img/code_32.png" alt="CodePrettify" class="logo-icon">
+                Code<span>Prettify</span>
+            </a>
+            <nav>
+                <a href="index.html#features">Features</a>
+                <a href="index.html#shortcuts">Shortcuts</a>
+                <a href="changelog.html" class="active">Changelog</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="https://github.com/calxibe/code-prettify-site" target="_blank">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content">
+        <h1>Changelog</h1>
+        <p class="intro">All notable changes to CodePrettify are documented here.</p>
+
+        <!-- Version 1.0.1 -->
+        <div class="version-card">
+            <div class="version-header">
+                <span class="version-number">v1.0.1</span>
+                <span class="version-badge badge-dev">In Development</span>
+                <span class="version-date">Coming Soon</span>
+            </div>
+            
+            <div class="version-section">
+                <h3>✨ New Features</h3>
+                <ul class="feature-list">
+                    <li><strong>Code Statistics Panel</strong> — View file size, line count, and character count. Language-specific stats: JSON (object depth, key count, array sizes), JS (function count, variable count), CSS (selector count, rule count, media queries).</li>
+                    <li><strong>Hex/RGB Color Preview (CSS)</strong> — Color swatches appear next to color values. Click to copy color in different formats. Includes a color picker.</li>
+                    <li><strong>Breadcrumb Navigation (JSON)</strong> — Shows path like <code>root › data › users[0] › name</code> when hovering/clicking. Click any breadcrumb to jump to that level.</li>
+                    <li><strong>Clickable URLs & Imports</strong> — URLs and import statements are now automatically converted to clickable links.</li>
+                </ul>
+            </div>
+            
+            <div class="version-section">
+                <h3>🔧 Improvements</h3>
+                <ul class="feature-list">
+                    <li><strong>Unified Layout</strong> — All modal windows, toolbars, and UI elements now use CSS variables instead of hardcoded colors for consistent theming across themes.</li>
+                    <li><strong>Enhanced Syntax Checker</strong> — Replaced vanilla JavaScript validation with a sandboxed environment for safer and more accurate syntax checking.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Version 1.0.0 -->
+        <div class="version-card">
+            <div class="version-header">
+                <span class="version-number">v1.0.0</span>
+                <span class="version-badge badge-initial">Initial Release</span>
+                <span class="version-date">January 2026</span>
+            </div>
+            
+            <div class="feature-category">
+                <h4>🚀 Smart Automation</h4>
+                <ul>
+                    <li><strong>Auto-Format:</strong> Automatically detects messily formatted code and beautifies it with your preferred indentation</li>
+                    <li><strong>Intelligent Minification Detection:</strong> Analyzes code density—if a file is minified, it formats it automatically; if it's already clean, it adds syntax highlighting</li>
+                    <li><strong>Local File Support:</strong> Works seamlessly on web URLs and local files (<code>file://</code>) opened in the browser</li>
+                    <li><strong>Zero-Flash Loading:</strong> Engineered to prevent raw text from flashing before the beautifier loads</li>
+                </ul>
+            </div>
+            
+            <div class="feature-category">
+                <h4>🛡️ Syntax Validation & Error Checking</h4>
+                <p>Don't just read code—debug it. CodePrettify scans your files for common errors with instant feedback.</p>
+                <ul>
+                    <li><strong>JSON:</strong> Detects syntax errors and provides the exact line number</li>
+                    <li><strong>JavaScript:</strong> Identifies mismatched braces, brackets, and common typos</li>
+                    <li><strong>CSS:</strong> Validates structural integrity</li>
+                    <li><strong>Instant Feedback:</strong> Invalid code triggers non-intrusive toast notifications with error details</li>
+                </ul>
+            </div>
+            
+            <div class="feature-category">
+                <h4>📂 Interactive JSON Viewer</h4>
+                <ul>
+                    <li><strong>Collapsible Data:</strong> Fold arrays and objects to navigate large datasets easily</li>
+                    <li><strong>Smart Previews:</strong> See summary info (e.g., <code>Array(5)</code> or <code>{3 keys}</code>) when blocks are collapsed</li>
+                    <li><strong>Clickable Links:</strong> URLs inside JSON strings automatically become clickable hyperlinks</li>
+                    <li><strong>Expand/Collapse All:</strong> Dedicated buttons to manage massive JSON files instantly</li>
+                </ul>
+            </div>
+            
+            <div class="feature-category">
+                <h4>🛠️ Powerful Toolkit</h4>
+                <ul>
+                    <li><strong>Advanced Search:</strong> Custom search bar (<code>Ctrl+F</code>) with result counting and navigation—works even on huge files</li>
+                    <li><strong>Go To Line:</strong> Jump straight to specific lines (<code>Ctrl+G</code>), perfect for debugging stack traces</li>
+                    <li><strong>Export Options:</strong> Download your file in three formats: Original, Formatted, or Minified</li>
+                    <li><strong>Copy to Clipboard:</strong> Quick one-click copy functionality</li>
+                </ul>
+            </div>
+            
+            <div class="feature-category">
+                <h4>⚙️ Fully Customizable</h4>
+                <ul>
+                    <li><strong>Themes:</strong> Choose between Light, Dark, or Auto (syncs with system)</li>
+                    <li><strong>Format Settings:</strong> Adjustable font size (10-24px), indentation (2 or 4 spaces), and line numbers</li>
+                    <li><strong>Privacy First:</strong> 100% client-side—your code never leaves your browser</li>
+                </ul>
+            </div>
+            
+            <div class="feature-category">
+                <h4>⌨️ Keyboard Shortcuts</h4>
+                <ul>
+                    <li><code>Ctrl+B</code> — Toggle Raw/Pretty view</li>
+                    <li><code>Ctrl+Alt+C</code> — Copy to Clipboard</li>
+                    <li><code>Ctrl+F</code> — Open Search Toolbar</li>
+                    <li><code>Ctrl+G</code> — Go to Line</li>
+                    <li><code>Ctrl+Alt+T</code> — Toggle Toolbar</li>
+                </ul>
+            </div>
+            
+            <div class="feature-category">
+                <h4>🌐 Multi-Language Support</h4>
+                <p>Supports 14 languages including English, Norwegian, German, Spanish, and Chinese.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="changelog.html">Changelog</a>
+                <a href="https://github.com/calxibe/code-prettify-site/issues">Support</a>
+                <a href="https://www.reddit.com/user/calxibe/" target="_blank">Reddit</a>
+                <a href="https://github.com/calxibe/code-prettify-site">GitHub</a>
+            </div>
+            <p class="copyright">&copy; 2026 Steinar Talmoen. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
