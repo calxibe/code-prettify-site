@@ -32,11 +32,28 @@
         <h1>Changelog</h1>
         <p class="intro">All notable changes to CodePrettify are documented here.</p>
 
+        <!-- Version 1.0.3 -->
+        <div class="version-card">
+            <div class="version-header">
+                <span class="version-number">v1.0.3</span>
+                <span class="version-badge badge-latest">Latest</span>
+                <span class="version-date">March 14, 2026</span>
+            </div>
+            
+            <div class="version-section">
+                <h3>🐛 Bug Fixes</h3>
+                <ul class="feature-list">
+                    <li><strong>Prism.js Auto-Highlighting</strong> — Fixed Prism.js running <code>highlightAll()</code> on every website, which could break syntax highlighting on sites like GitHub, Stack Overflow, and MDN. Prism is now set to manual mode so it only highlights within the extension's own container.</li>
+                    <li><strong>CSS Leaking to Other Sites</strong> — Fixed unscoped <code>.token</code> CSS rules (syntax highlighting colors) being injected globally on all pages. All token styles are now scoped under <code>#pretty-container</code> to prevent interference with other websites.</li>
+                    <li><strong>View Source Interference</strong> — Added protocol guards to prevent the extension from activating on <code>view-source:</code>, <code>chrome:</code>, and <code>about:</code> pages.</li>
+                </ul>
+            </div>
+        </div>
+
         <!-- Version 1.0.2 -->
         <div class="version-card">
             <div class="version-header">
                 <span class="version-number">v1.0.2</span>
-                <span class="version-badge badge-latest">Latest</span>
                 <span class="version-date">January 29, 2026</span>
             </div>
             
