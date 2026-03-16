@@ -32,7 +32,7 @@
 
     <main class="content">
       <h1>Privacy Policy</h1>
-      <p class="last-updated">Last Updated: January 20, 2026</p>
+      <p class="last-updated">Last Updated: March 16, 2026</p>
       <p>
         This Privacy Policy describes how CodePrettify ("we", "us", or "our")
         handles your information when you use our browser extension.
@@ -40,37 +40,59 @@
 
       <div class="highlight">
         <strong>Summary:</strong> We do not collect, store, or transmit your
-        code. All formatting and processing happens locally on your device.
+        code to our servers. All formatting and processing happens locally on
+        your device.
       </div>
 
       <h2>1. Data Collection</h2>
       <p><strong>CodePrettify does not collect any personal data.</strong></p>
       <p>
-        When you open a JavaScript (.js), JSON (.json), or CSS (.css) file in
-        your browser, our extension reads the content of that specific tab to
-        apply formatting and syntax highlighting. This process is performed
-        entirely within your browser's memory (Client-Side).
+        When you open a supported raw-code resource in your browser, the
+        extension reads the content of that specific tab to apply formatting,
+        syntax highlighting, search, code folding, statistics, exports, and
+        other viewer features. Supported content includes JavaScript, JSON,
+        CSS, XML, and RSS/Atom feeds, including pages detected by response
+        headers even when the URL has no matching file extension. This process
+        is performed entirely within your browser's memory on your device.
+      </p>
+      <p>
+        To provide the HTTP Context panel and cURL/fetch generator, the
+        extension also reads limited request and response metadata for the
+        active raw-code tab, such as the request URL, status code, content
+        type, content encoding, timing hints, response headers, and a small
+        safe subset of request headers when available (for example
+        <code>Accept</code>, <code>Accept-Language</code>, <code>Origin</code>,
+        and <code>Referer</code>). This metadata is used locally in the current
+        browser session and is not transmitted to us.
       </p>
       <ul>
         <li>We do not send your code to any external server.</li>
+        <li>We do not send captured request or response metadata to any external server.</li>
         <li>We do not track your browsing history.</li>
         <li>We do not store your files.</li>
       </ul>
 
       <h2>2. Local Storage</h2>
       <p>
-        We use your browser's local storage (<code>chrome.storage</code>) solely
-        to save your user preferences, such as:
+        We use your browser's local extension storage
+        (<code>chrome.storage.local</code>) solely to save user preferences,
+        such as:
       </p>
       <ul>
         <li>Theme choice (Light/Dark/Auto)</li>
         <li>Indent size preference</li>
         <li>Whether line numbers are enabled</li>
+        <li>Word wrap, toolbar, minimap, and file-type specific viewer settings</li>
       </ul>
       <p>
-        These settings are stored locally on your device and are synced only
-        across your own signed-in browser instances (if browser sync is
-        enabled).
+        These settings are stored locally on your device. CodePrettify does not
+        use Chrome Sync or any external database for these preferences.
+      </p>
+      <p>
+        Some view state, such as search text, highlighted line, fold state,
+        and display options, may also be written into the page URL hash so you
+        can share or restore the current view. That information stays in the
+        URL on your device unless you choose to copy or share the link.
       </p>
 
       <h2>3. Third-Party Services</h2>
@@ -78,6 +100,11 @@
         The extension utilizes open-source libraries (Prism.js, js-beautify)
         that are bundled directly within the extension. No external CDNs or
         third-party tracking scripts are loaded.
+      </p>
+      <p>
+        The extension website may load standard website assets such as hosted
+        fonts, but the browser extension itself performs its code viewing and
+        formatting features offline using bundled resources.
       </p>
 
       <h2>4. Changes to This Policy</h2>
