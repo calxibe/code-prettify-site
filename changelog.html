@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="img/code_32.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,8 +15,7 @@
     <header>
         <div class="header-inner">
             <a href="index.html" class="logo">
-                <img src="img/code_32.png" alt="CodePrettify" class="logo-icon">
-                Code<span>Prettify</span>
+                <img src="img/code_32.png" alt="CodePrettify" class="logo-icon"><span>Code<span>Prettify</span></span>
             </a>
             <nav>
                 <a href="index.html#features">Features</a>
@@ -32,11 +31,56 @@
         <h1>Changelog</h1>
         <p class="intro">All notable changes to CodePrettify are documented here.</p>
 
+        <!-- Version 1.0.4 -->
+        <div class="version-card">
+            <div class="version-header">
+                <span class="version-number">v1.0.4</span>
+                <span class="version-badge badge-latest">Latest</span>
+                <span class="version-date">Upcoming</span>
+            </div>
+
+            <div class="version-section">
+                <h3>✨ New Features</h3>
+                <ul class="feature-list">
+                    <li><strong>cURL / fetch Generator</strong> — Generate copy-pasteable cURL and <code>fetch()</code> commands for the current URL (including appropriate headers) directly from the More menu in the floating toolbar.</li>
+                    <li><strong>Timestamp Formatter</strong> — Detect Unix timestamps (seconds and milliseconds) and ISO 8601 date strings in JSON values and show human-readable date/time tooltips on hover.</li>
+                    <li><strong>Clickable URLs in JSON</strong> — URL string values in JSON are now detected and rendered as clickable links, including URLs embedded within longer string values, similar to the existing RSS/XML link feature.</li>
+                    <li><strong>Export to CSV</strong> — Convert structured JSON objects/arrays or RSS/XML feeds into downloadable CSV tables directly from the page.</li>
+                    <li><strong>Code Minimap</strong> — A scrollable, syntax-aware minimap injected on the right edge of the screen for quick navigation through large document structures. Can be disabled in settings and automatically hides on short files.</li>
+                    <li><strong>Beautify to Image</strong> — Export a perfectly cropped PNG image of the visible formatted code natively via <code>&lt;canvas&gt;</code>.</li>
+                    <li><strong>Base64 &amp; JWT Decoding</strong> — Inline tooltips that securely decode Base64 payloads and JWT tokens hovering directly over the JSON values.</li>
+                    <li><strong>HTTP Context Panel</strong> — Added a request details panel that shows status code, content type, encoding, response size hints, timing information, and response headers for the currently formatted resource.</li>
+                    <li><strong>JSON Path Tools</strong> — Added a JSON path inspector for the selected breadcrumb path plus query support for quickly locating matching values in large JSON documents.</li>
+                    <li><strong>Shareable View State</strong> — Added URL-hash state sharing so search text, line navigation, fold state, and view settings can be restored from a copied link.</li>
+                </ul>
+            </div>
+
+            <div class="version-section">
+                <h3>🔧 Improvements</h3>
+                <ul class="feature-list">
+                    <li><strong>Toolbar</strong> — Reduced the floating toolbar clutter by moving secondary actions into a compact More menu that opens on hover or keyboard focus.</li>
+                    <li><strong>JSON Interaction Settings</strong> — Split JSON hover breadcrumbs from click-to-open inspector behavior. Hover breadcrumbs are now disabled by default, while JSON inspector on click is enabled by default and configurable in settings.</li>
+                    <li><strong>Performance</strong> — Replaced global CSS/script content script injection with a lightweight detector plus on-demand background injection for supported raw-code pages.</li>
+                    <li><strong>Localization</strong> — Moved runtime UI strings into Chrome/Firefox locale bundles so the extension uses one i18n system instead of a separate <code>lang.json</code> file.</li>
+                    <li><strong>Accessibility</strong> — Improved modal keyboard handling with focus trapping, ESC-to-close behavior, button semantics, and better ARIA labels.</li>
+                    <li><strong>Security</strong> — Tightened the sandbox CSP and added stricter message validation in the syntax-checking sandbox.</li>
+                </ul>
+            </div>
+
+            <div class="version-section">
+                <h3>🐛 Bug Fixes</h3>
+                <ul class="feature-list">
+                    <li><strong>Word Wrap Fix</strong> — Fixed word wrap so it now applies correctly to rendered JSON lines in pretty view instead of being overridden by per-line white-space rules.</li>
+                    <li><strong>Breadcrumb Localization</strong> — Replaced hardcoded breadcrumb tooltip strings such as "Jump to root" and "Copy path" with localized messages from the locale bundles, and propagated the newer JSON settings labels across all locale bundles.</li>
+                    <li><strong>ES Module Validation</strong> — Fixed false syntax error warnings on valid JavaScript files that use ES module <code>import</code>/<code>export</code> statements. The sandbox validator now detects module syntax and skips the classic-script wrapper check.</li>
+                </ul>
+            </div>
+        </div>
+
         <!-- Version 1.0.3 -->
         <div class="version-card">
             <div class="version-header">
                 <span class="version-number">v1.0.3</span>
-                <span class="version-badge badge-latest">Latest</span>
                 <span class="version-date">March 14, 2026</span>
             </div>
             
@@ -54,7 +98,7 @@
         <div class="version-card">
             <div class="version-header">
                 <span class="version-number">v1.0.2</span>
-                <span class="version-date">January 29, 2026</span>
+                <span class="version-date">January 28, 2026</span>
             </div>
             
             <div class="version-section">
@@ -78,7 +122,7 @@
         <div class="version-card">
             <div class="version-header">
                 <span class="version-number">v1.0.1</span>
-                <span class="version-date">January 28, 2026</span>
+                <span class="version-date">January 27, 2026</span>
             </div>
             
             <div class="version-section">
