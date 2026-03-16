@@ -42,12 +42,12 @@
             <div class="version-section">
                 <h3>✨ New Features</h3>
                 <ul class="feature-list">
-                    <li><strong>cURL / fetch Generator</strong> — Generate copy-pasteable cURL and <code>fetch()</code> commands for the current URL (including appropriate headers) directly from the More menu in the floating toolbar.</li>
+                    <li><strong>cURL / fetch Generator</strong> — Generate copy-pasteable cURL and <code>fetch()</code> commands for the current URL, including captured safe request headers such as <code>Accept</code>, <code>Accept-Language</code>, <code>Origin</code>, and <code>Referer</code> when available, directly from the More menu in the floating toolbar.</li>
                     <li><strong>Timestamp Formatter</strong> — Detect Unix timestamps (seconds and milliseconds) and ISO 8601 date strings in JSON values and show human-readable date/time tooltips on hover.</li>
                     <li><strong>Clickable URLs in JSON</strong> — URL string values in JSON are now detected and rendered as clickable links, including URLs embedded within longer string values, similar to the existing RSS/XML link feature.</li>
-                    <li><strong>Export to CSV</strong> — Convert structured JSON objects/arrays or RSS/XML feeds into downloadable CSV tables directly from the page.</li>
+                    <li><strong>Export to CSV</strong> — Convert structured JSON objects/arrays or RSS/Atom feed items into downloadable CSV tables directly from the page.</li>
                     <li><strong>Code Minimap</strong> — A scrollable, syntax-aware minimap injected on the right edge of the screen for quick navigation through large document structures. Can be disabled in settings and automatically hides on short files.</li>
-                    <li><strong>Beautify to Image</strong> — Export a perfectly cropped PNG image of the visible formatted code natively via <code>&lt;canvas&gt;</code>.</li>
+                    <li><strong>Beautify to Image</strong> — Export a cropped PNG rendering of the currently visible formatted code natively via <code>&lt;canvas&gt;</code>.</li>
                     <li><strong>Base64 &amp; JWT Decoding</strong> — Inline tooltips that securely decode Base64 payloads and JWT tokens hovering directly over the JSON values.</li>
                     <li><strong>HTTP Context Panel</strong> — Added a request details panel that shows status code, content type, encoding, response size hints, timing information, and response headers for the currently formatted resource.</li>
                     <li><strong>JSON Path Tools</strong> — Added a JSON path inspector for the selected breadcrumb path plus query support for quickly locating matching values in large JSON documents.</li>
@@ -71,8 +71,8 @@
                 <h3>🐛 Bug Fixes</h3>
                 <ul class="feature-list">
                     <li><strong>Word Wrap Fix</strong> — Fixed word wrap so it now applies correctly to rendered JSON lines in pretty view instead of being overridden by per-line white-space rules.</li>
-                    <li><strong>Breadcrumb Localization</strong> — Replaced hardcoded breadcrumb tooltip strings such as "Jump to root" and "Copy path" with localized messages from the locale bundles, and propagated the newer JSON settings labels across all locale bundles.</li>
-                    <li><strong>ES Module Validation</strong> — Fixed false syntax error warnings on valid JavaScript files that use ES module <code>import</code>/<code>export</code> statements. The sandbox validator now detects module syntax and skips the classic-script wrapper check.</li>
+                    <li><strong>Bug Fix (ES Module Validation)</strong> — Fixed false syntax error warnings on valid JavaScript files that use ES module <code>import</code>/<code>export</code> statements. The sandbox validator now detects module syntax and skips the classic-script wrapper check.</li>
+                    <li><strong>Bug Fix (Breadcrumb Localization)</strong> — Replaced hardcoded breadcrumb tooltip strings such as "Jump to root" and "Copy path" with localized messages from the locale bundles, and propagated the newer JSON settings labels across all locale bundles.</li>
                 </ul>
             </div>
         </div>
