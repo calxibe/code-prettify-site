@@ -1,278 +1,448 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CodePrettify - JS, JSON, CSS & RSS Formatter Extension</title>
-    <meta name="description" content="Transform raw code into a readable, beautiful workspace. Automatically formats, validates, and highlights JavaScript, JSON, CSS, and RSS/Atom files in your browser.">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/code_32.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date);gtag('config','G-S4WNQ48Q7F');</script>
-</head>
-<body>
+    <meta name="description" content="Transform raw code into a readable, beautiful workspace. Automatically formats, validates, and highlights JavaScript, JSON, CSS, and RSS/Atom files in your browser."/>
+    <meta name="application-name" content="CodePrettify" />
+    <meta name="apple-mobile-web-app-title" content="CodePrettify" />
+    <meta name="theme-color" content="#0a0b0f" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://prettify.cloud/" />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta property="og:site_name" content="CodePrettify" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="CodePrettify - JS, JSON, CSS & RSS Formatter Extension" />
+    <meta property="og:description" content="Transform raw code into a readable, beautiful workspace. Automatically formats, validates, and highlights JavaScript, JSON, CSS, and RSS/Atom files in your browser." />
+    <meta property="og:url" content="https://prettify.cloud/" />
+    <meta property="og:image" content="https://prettify.cloud/img/main-screenshot0.png" />
+    <meta property="og:image:alt" content="CodePrettify extension screenshot" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CodePrettify - JS, JSON, CSS & RSS Formatter Extension" />
+    <meta name="twitter:description" content="Transform raw code into a readable, beautiful workspace. Automatically formats, validates, and highlights JavaScript, JSON, CSS, and RSS/Atom files in your browser." />
+    <meta name="twitter:image" content="https://prettify.cloud/img/main-screenshot0.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=block"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-S4WNQ48Q7F");
+    </script>
+  </head>
+  <body>
     <div class="bg-glow"></div>
 
     <header>
-        <div class="header-inner">
-            <a href="#" class="logo">
-                <img src="img/code_32.png" alt="CodePrettify" class="logo-icon"><span>Code<span>Prettify</span></span>
-            </a>
-            <nav>
-                <a href="#features">Features</a>
-                <a href="changelog.html">Changelog</a>
-                <a href="privacy.html">Privacy</a>
-                <a href="https://github.com/calxibe/code-prettify-site/issues" target="_blank">GitHub</a>
-            </nav>
-        </div>
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <img
+            src="img/code_32.png"
+            alt="CodePrettify"
+            class="logo-icon"
+          /><span>Code<span>Prettify</span></span>
+        </a>
+        <nav>
+          <a href="/#features">Features</a>
+          <a href="/changelog.html">Changelog</a>
+          <a href="/privacy.html">Privacy</a>
+          <a
+            href="https://github.com/calxibe/code-prettify-site/issues"
+            target="_blank"
+            >GitHub</a
+          >
+        </nav>
+      </div>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="container">
-                <h1>Transform Raw Code Into<br>a Readable Workspace</h1>
-                
-                <p class="subtitle">
-                    CodePrettify automatically formats, validates, and highlights raw JavaScript, JSON, CSS, and RSS/Atom files the moment you open them. Get an IDE-like experience directly in your browser.
-                </p>
-                
-                <div class="cta-buttons">
-                    <a href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" class="btn btn-primary" target="_blank">
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-                        Install for Chrome
-                    </a>
-                    <a href="https://microsoftedge.microsoft.com/addons/detail/codeprettify-js-json-c/ckmnkbdicbcbajedhngfaamomlgpgchc" class="btn btn-primary" target="_blank">
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M21.86 17.86q.14 0 .25.12.1.13.1.25t-.11.33l-.32.46-.43.53-.44.5q-.21.25-.38.42l-.22.23q-.58.53-1.34 1.04-.76.51-1.6.91-.86.4-1.74.64t-1.67.24q-.9 0-1.69-.28-.8-.28-1.48-.78-.68-.5-1.22-1.17-.53-.66-.92-1.44-.38-.77-.58-1.6-.2-.83-.2-1.67 0-1 .32-1.96.33-.97.87-1.8.14.95.55 1.77.41.82 1.02 1.5.6.68 1.38 1.21.78.54 1.64.9.86.36 1.77.56.92.2 1.8.2 1.12 0 2.18-.24 1.06-.23 2.06-.72l-.06.43q-.07.43-.07.87z"/><path d="M6.5 12.5q0-1.12.33-2.16.32-1.05.91-1.93.59-.89 1.41-1.56.81-.67 1.77-1.07.96-.4 2-.54 1.03-.13 2.07.02-.9.54-1.6 1.31-.7.78-1.17 1.7-.47.92-.7 1.94-.22 1.02-.17 2.07-1.56-.06-2.95-.55-1.38-.49-2.52-1.35-1.13-.86-1.94-2.03-.81-1.18-1.18-2.53.03 1.14.39 2.2.36 1.07.99 1.98.63.9 1.49 1.62.86.71 1.88 1.16-1.41.11-2.67-.25t-2.31-1.08q-1.06-.73-1.81-1.75-.75-1.02-1.13-2.24.36 1.38 1.07 2.54.72 1.16 1.7 2.06.98.9 2.17 1.52 1.19.61 2.5.89-.5.18-1.03.27-.53.1-1.07.1-.57 0-1.13-.1-.55-.11-1.08-.31-.52-.2-1.01-.5-.48-.29-.9-.66-.43-.38-.77-.84-.35-.45-.6-.98-.24-.53-.37-1.1-.13-.56-.13-1.15z"/></svg>
-                        Install for Edge
-                    </a>
-                </div>
+      <section class="hero">
+        <div class="container">
+          <h1>Transform Raw Code Into<br />a Readable Workspace</h1>
 
-                <div class="supported-section">
-                    <div class="supported-box">
-                        <h4>📄 Supported Code Formats</h4>
-                        <div class="format-tags">
-                            <span class="format-tag">JavaScript <code>.js</code></span>
-                            <span class="format-tag">JSON <code>.json</code></span>
-                            <span class="format-tag">CSS <code>.css</code></span>
-                            <span class="format-tag">RSS/Atom <code>.rss</code> <code>.atom</code></span>
-                        </div>
-                    </div>
-                    <div class="supported-box">
-                        <h4>🌐 14 Interface Languages</h4>
-                        <div class="language-tags">
-                            <span class="lang-tag">English</span>
-                            <span class="lang-tag">Norwegian</span>
-                            <span class="lang-tag">Swedish</span>
-                            <span class="lang-tag">Danish</span>
-                            <span class="lang-tag">German</span>
-                            <span class="lang-tag">French</span>
-                            <span class="lang-tag">Spanish</span>
-                            <span class="lang-tag">Italian</span>
-                            <span class="lang-tag">Portuguese</span>
-                            <span class="lang-tag">Russian</span>
-                            <span class="lang-tag">Chinese</span>
-                            <span class="lang-tag">Japanese</span>
-                            <span class="lang-tag">Korean</span>
-                            <span class="lang-tag">Vietnamese</span>
-                        </div>
-                    </div>
-                </div>
+          <p class="subtitle">
+            CodePrettify automatically formats, validates, and highlights raw
+            JavaScript, JSON, CSS, and RSS/Atom files the moment you open them.
+            Get an IDE-like experience directly in your browser.
+          </p>
 
-                <div class="video-section">
-                    <h3 class="video-title">📺 See It In Action</h3>
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/cCFrQbuE4GI" title="CodePrettify Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
-                </div>
+          <div class="cta-buttons">
+            <a
+              href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj"
+              class="btn btn-primary"
+              target="_blank"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                width="20"
+                height="20"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+                />
+              </svg>
+              Install for Chrome
+            </a>
+            <a
+              href="https://microsoftedge.microsoft.com/addons/detail/codeprettify-js-json-c/ckmnkbdicbcbajedhngfaamomlgpgchc"
+              class="btn btn-primary"
+              target="_blank"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                width="20"
+                height="20"
+              >
+                <path
+                  d="M21.86 17.86q.14 0 .25.12.1.13.1.25t-.11.33l-.32.46-.43.53-.44.5q-.21.25-.38.42l-.22.23q-.58.53-1.34 1.04-.76.51-1.6.91-.86.4-1.74.64t-1.67.24q-.9 0-1.69-.28-.8-.28-1.48-.78-.68-.5-1.22-1.17-.53-.66-.92-1.44-.38-.77-.58-1.6-.2-.83-.2-1.67 0-1 .32-1.96.33-.97.87-1.8.14.95.55 1.77.41.82 1.02 1.5.6.68 1.38 1.21.78.54 1.64.9.86.36 1.77.56.92.2 1.8.2 1.12 0 2.18-.24 1.06-.23 2.06-.72l-.06.43q-.07.43-.07.87z"
+                />
+                <path
+                  d="M6.5 12.5q0-1.12.33-2.16.32-1.05.91-1.93.59-.89 1.41-1.56.81-.67 1.77-1.07.96-.4 2-.54 1.03-.13 2.07.02-.9.54-1.6 1.31-.7.78-1.17 1.7-.47.92-.7 1.94-.22 1.02-.17 2.07-1.56-.06-2.95-.55-1.38-.49-2.52-1.35-1.13-.86-1.94-2.03-.81-1.18-1.18-2.53.03 1.14.39 2.2.36 1.07.99 1.98.63.9 1.49 1.62.86.71 1.88 1.16-1.41.11-2.67-.25t-2.31-1.08q-1.06-.73-1.81-1.75-.75-1.02-1.13-2.24.36 1.38 1.07 2.54.72 1.16 1.7 2.06.98.9 2.17 1.52 1.19.61 2.5.89-.5.18-1.03.27-.53.1-1.07.1-.57 0-1.13-.1-.55-.11-1.08-.31-.52-.2-1.01-.5-.48-.29-.9-.66-.43-.38-.77-.84-.35-.45-.6-.98-.24-.53-.37-1.1-.13-.56-.13-1.15z"
+                />
+              </svg>
+              Install for Edge
+            </a>
+          </div>
 
-                <div class="screenshot-gallery">
-                    <div class="screenshot-main">
-                        <img src="img/main-screenshot0.png" alt="CodePrettify Extension Preview" id="main-screenshot">
-                    </div>
-                    <div class="screenshot-tabs">
-                        <div class="screenshot-tab active" onclick="changeScreenshot(0)">
-                            <img src="img/main-screenshot0.png" alt="Screenshot 1">
-                        </div>
-                        <div class="screenshot-tab" onclick="changeScreenshot(1)">
-                            <img src="img/main-screenshot1.png" alt="Screenshot 2">
-                        </div>
-                        <div class="screenshot-tab" onclick="changeScreenshot(2)">
-                            <img src="img/main-screenshot2.png" alt="Screenshot 3">
-                        </div>
-                        <div class="screenshot-tab" onclick="changeScreenshot(3)">
-                            <img src="img/main-screenshot3.png" alt="Screenshot 4">
-                        </div>
-                    </div>
-                </div>
+          <div class="supported-section">
+            <div class="supported-box">
+              <h4>📄 Supported Code Formats</h4>
+              <div class="format-tags">
+                <span class="format-tag">JavaScript <code>.js</code></span>
+                <span class="format-tag">JSON <code>.json</code></span>
+                <span class="format-tag">CSS <code>.css</code></span>
+                <span class="format-tag"
+                  >RSS/Atom <code>.rss</code> <code>.atom</code></span
+                >
+              </div>
             </div>
-        </section>
-
-        <section id="features">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-badge">Features</span>
-                    <h2>Everything You Need</h2>
-                    <p class="section-desc">From diagnostics and JSON inspection to cURL export and large-file navigation, CodePrettify has you covered.</p>
-                </div>
-
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon auto">🚀</div>
-                        <h3>Smart Automation</h3>
-                        <p>Open a raw-code resource and CodePrettify turns it into a readable workspace automatically.</p>
-                        <ul class="feature-list">
-                            <li>Detects supported resources by URL and HTTP content type</li>
-                            <li>Supports JavaScript, JSON, CSS, XML, and RSS/Atom feeds</li>
-                            <li>Intelligent minification detection formats dense files automatically</li>
-                            <li>Works on web URLs and local files (<code>file://</code>) with zero-flash loading</li>
-                        </ul>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon validate">🛡️</div>
-                        <h3>Diagnostics &amp; Validation</h3>
-                        <p>Catch syntax problems and inspect document quality without leaving the page.</p>
-                        <ul class="feature-list">
-                            <li>JSON syntax errors include exact line references</li>
-                            <li>JavaScript and CSS validation provide instant feedback</li>
-                            <li>Diagnostics panel shows syntax status and file-type-specific insights</li>
-                            <li>Warnings flag very long lines, mixed indentation, and other quality issues</li>
-                        </ul>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon json">📂</div>
-                        <h3>Interactive JSON Tools</h3>
-                        <p>Explore, decode, and inspect structured data without losing context.</p>
-                        <ul class="feature-list">
-                            <li>Collapsible arrays and objects for easy navigation</li>
-                            <li>JSON path inspector and query tools for large payloads</li>
-                            <li>Clickable URLs and timestamp tooltips inside JSON values</li>
-                            <li>Base64 and JWT decoding with a dedicated read-only modal</li>
-                        </ul>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon tools">🛠️</div>
-                        <h3>Developer Toolkit</h3>
-                        <p>Practical tools for debugging APIs and working with raw resources efficiently.</p>
-                        <ul class="feature-list">
-                            <li>Generate copy-ready <code>cURL</code> and <code>fetch()</code> commands from the current page</li>
-                            <li>Advanced search with regex support, match counts, and navigation</li>
-                            <li>Go to Line, copy actions, and export tools speed up debugging</li>
-                            <li>Download files as Original, Formatted, Minified, or CSV when data qualifies</li>
-                        </ul>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon customize">🧭</div>
-                        <h3>Large-File Navigation</h3>
-                        <p>Stay oriented in long documents with tools built for real-world payloads.</p>
-                        <ul class="feature-list">
-                            <li>Document Navigator outlines JSON, JavaScript, and XML/RSS structure</li>
-                            <li>Code minimap makes large documents easier to scan and jump through</li>
-                            <li>Expand/Collapse All controls help manage deeply nested content</li>
-                            <li>Restores fold state, search text, highlighted line, and display mode</li>
-                        </ul>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon keyboard">🔒</div>
-                        <h3>100% Privacy First</h3>
-                        <p>Your code stays on your machine. Always.</p>
-                        <ul class="feature-list">
-                            <li>Everything runs client-side in your browser</li>
-                            <li>No servers, no tracking scripts, and no external processing</li>
-                            <li>Request and response metadata stays local to your session</li>
-                            <li>Open source and transparent</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="supported-box">
+              <h4>🌐 14 Interface Languages</h4>
+              <div class="language-tags">
+                <span class="lang-tag">English</span>
+                <span class="lang-tag">Norwegian</span>
+                <span class="lang-tag">Swedish</span>
+                <span class="lang-tag">Danish</span>
+                <span class="lang-tag">German</span>
+                <span class="lang-tag">French</span>
+                <span class="lang-tag">Spanish</span>
+                <span class="lang-tag">Italian</span>
+                <span class="lang-tag">Portuguese</span>
+                <span class="lang-tag">Russian</span>
+                <span class="lang-tag">Chinese</span>
+                <span class="lang-tag">Japanese</span>
+                <span class="lang-tag">Korean</span>
+                <span class="lang-tag">Vietnamese</span>
+              </div>
             </div>
-        </section>
+          </div>
 
-        <section id="shortcuts">
-            <div class="container">
-                <div class="shortcuts-section">
-                    <div class="section-header">
-                        <span class="section-badge">Efficiency</span>
-                        <h2>⌨️ Keyboard Shortcuts</h2>
-                        <p class="section-desc">Master CodePrettify with these quick commands</p>
-                    </div>
-                    
-                    <div class="shortcuts-grid">
-                        <div class="shortcut-item">
-                            <span class="kbd">Ctrl + B</span>
-                            <span class="shortcut-label">Toggle Raw/Pretty</span>
-                        </div>
-                        <div class="shortcut-item">
-                            <span class="kbd">Ctrl + Alt + C</span>
-                            <span class="shortcut-label">Copy to Clipboard</span>
-                        </div>
-                        <div class="shortcut-item">
-                            <span class="kbd">Ctrl + F</span>
-                            <span class="shortcut-label">Open Search</span>
-                        </div>
-                        <div class="shortcut-item">
-                            <span class="kbd">Ctrl + G</span>
-                            <span class="shortcut-label">Go to Line</span>
-                        </div>
-                        <div class="shortcut-item">
-                            <span class="kbd">Ctrl + Alt + T</span>
-                            <span class="shortcut-label">Toggle Toolbar</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="note-box">
-                    <span class="icon">📝</span>
-                    <div>
-                        <h4>Note for Local Files</h4>
-                        <p>To use CodePrettify with local files (e.g., <code>file:///C:/code/data.json</code>), you must enable <strong>"Allow access to file URLs"</strong> in Chrome's extension management page (chrome://extensions).</p>
-                    </div>
-                </div>
+          <div class="video-section">
+            <h3 class="video-title">📺 See It In Action</h3>
+            <div class="video-container">
+              <iframe
+                src="https://www.youtube.com/embed/cCFrQbuE4GI"
+                title="CodePrettify Demo"
+                frameborder="0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                  web-share;
+                "
+                allowfullscreen
+              ></iframe>
             </div>
-        </section>
+          </div>
+
+          <div class="screenshot-gallery">
+            <div class="screenshot-main">
+              <img
+                src="img/main-screenshot0.png"
+                alt="CodePrettify Extension Preview"
+                id="main-screenshot"
+              />
+            </div>
+            <div class="screenshot-tabs">
+              <div class="screenshot-tab active" onclick="changeScreenshot(0)">
+                <img src="img/main-screenshot0.png" alt="Screenshot 1" />
+              </div>
+              <div class="screenshot-tab" onclick="changeScreenshot(1)">
+                <img src="img/main-screenshot1.png" alt="Screenshot 2" />
+              </div>
+              <div class="screenshot-tab" onclick="changeScreenshot(2)">
+                <img src="img/main-screenshot2.png" alt="Screenshot 3" />
+              </div>
+              <div class="screenshot-tab" onclick="changeScreenshot(3)">
+                <img src="img/main-screenshot3.png" alt="Screenshot 4" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-badge">Features</span>
+            <h2>Everything You Need</h2>
+            <p class="section-desc">
+              From diagnostics and JSON inspection to cURL export and large-file
+              navigation, CodePrettify has you covered.
+            </p>
+          </div>
+
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon auto">🚀</div>
+              <h3>Smart Automation</h3>
+              <p>
+                Open a raw-code resource and CodePrettify turns it into a
+                readable workspace automatically.
+              </p>
+              <ul class="feature-list">
+                <li>
+                  Detects supported resources by URL and HTTP content type
+                </li>
+                <li>Supports JavaScript, JSON, CSS, XML, and RSS/Atom feeds</li>
+                <li>
+                  Intelligent minification detection formats dense files
+                  automatically
+                </li>
+                <li>
+                  Works on web URLs and local files (<code>file://</code>) with
+                  zero-flash loading
+                </li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon validate">🛡️</div>
+              <h3>Diagnostics &amp; Validation</h3>
+              <p>
+                Catch syntax problems and inspect document quality without
+                leaving the page.
+              </p>
+              <ul class="feature-list">
+                <li>JSON syntax errors include exact line references</li>
+                <li>JavaScript and CSS validation provide instant feedback</li>
+                <li>
+                  Diagnostics panel shows syntax status and file-type-specific
+                  insights
+                </li>
+                <li>
+                  Warnings flag very long lines, mixed indentation, and other
+                  quality issues
+                </li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon json">📂</div>
+              <h3>Interactive JSON Tools</h3>
+              <p>
+                Explore, decode, and inspect structured data without losing
+                context.
+              </p>
+              <ul class="feature-list">
+                <li>Collapsible arrays and objects for easy navigation</li>
+                <li>JSON path inspector and query tools for large payloads</li>
+                <li>
+                  Clickable URLs and timestamp tooltips inside JSON values
+                </li>
+                <li>
+                  Base64 and JWT decoding with a dedicated read-only modal
+                </li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon tools">🛠️</div>
+              <h3>Developer Toolkit</h3>
+              <p>
+                Practical tools for debugging APIs and working with raw
+                resources efficiently.
+              </p>
+              <ul class="feature-list">
+                <li>
+                  Generate copy-ready <code>cURL</code> and
+                  <code>fetch()</code> commands from the current page
+                </li>
+                <li>
+                  Advanced search with regex support, match counts, and
+                  navigation
+                </li>
+                <li>
+                  Go to Line, copy actions, and export tools speed up debugging
+                </li>
+                <li>
+                  Download files as Original, Formatted, Minified, or CSV when
+                  data qualifies
+                </li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon customize">🧭</div>
+              <h3>Large-File Navigation</h3>
+              <p>
+                Stay oriented in long documents with tools built for real-world
+                payloads.
+              </p>
+              <ul class="feature-list">
+                <li>
+                  Document Navigator outlines JSON, JavaScript, and XML/RSS
+                  structure
+                </li>
+                <li>
+                  Code minimap makes large documents easier to scan and jump
+                  through
+                </li>
+                <li>
+                  Expand/Collapse All controls help manage deeply nested content
+                </li>
+                <li>
+                  Restores fold state, search text, highlighted line, and
+                  display mode
+                </li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon keyboard">🔒</div>
+              <h3>100% Privacy First</h3>
+              <p>Your code stays on your machine. Always.</p>
+              <ul class="feature-list">
+                <li>Everything runs client-side in your browser</li>
+                <li>
+                  No servers, no tracking scripts, and no external processing
+                </li>
+                <li>
+                  Request and response metadata stays local to your session
+                </li>
+                <li>Open source and transparent</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="shortcuts">
+        <div class="container">
+          <div class="shortcuts-section">
+            <div class="section-header">
+              <span class="section-badge">Efficiency</span>
+              <h2>⌨️ Keyboard Shortcuts</h2>
+              <p class="section-desc">
+                Master CodePrettify with these quick commands
+              </p>
+            </div>
+
+            <div class="shortcuts-grid">
+              <div class="shortcut-item">
+                <span class="kbd">Ctrl + B</span>
+                <span class="shortcut-label">Toggle Raw/Pretty</span>
+              </div>
+              <div class="shortcut-item">
+                <span class="kbd">Ctrl + Alt + C</span>
+                <span class="shortcut-label">Copy to Clipboard</span>
+              </div>
+              <div class="shortcut-item">
+                <span class="kbd">Ctrl + F</span>
+                <span class="shortcut-label">Open Search</span>
+              </div>
+              <div class="shortcut-item">
+                <span class="kbd">Ctrl + G</span>
+                <span class="shortcut-label">Go to Line</span>
+              </div>
+              <div class="shortcut-item">
+                <span class="kbd">Ctrl + Alt + T</span>
+                <span class="shortcut-label">Toggle Toolbar</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="note-box">
+            <span class="icon">📝</span>
+            <div>
+              <h4>Note for Local Files</h4>
+              <p>
+                To use CodePrettify with local files (e.g.,
+                <code>file:///C:/code/data.json</code>), you must enable
+                <strong>"Allow access to file URLs"</strong> in Chrome's
+                extension management page (chrome://extensions).
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
-        <div class="footer-inner">
-            <div class="footer-links">
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="changelog.html">Changelog</a>
-                <a href="https://github.com/calxibe/code-prettify-site/issues">Feedback &amp; Issues</a>
-                <a href="https://www.reddit.com/user/calxibe/" target="_blank">Reddit</a>
-                <a href="https://github.com/calxibe/code-prettify-site/issues">GitHub</a>
-            </div>
-            <p class="copyright">&copy; 2026 Steinar Talmoen. All rights reserved.</p>
+      <div class="footer-inner">
+        <div class="footer-links">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/changelog.html">Changelog</a>
+          <a href="https://github.com/calxibe/code-prettify-site/issues"
+            >Feedback &amp; Issues</a
+          >
+          <a href="https://www.reddit.com/user/calxibe/" target="_blank"
+            >Reddit</a
+          >
+          <a href="https://github.com/calxibe/code-prettify-site/issues"
+            >GitHub</a
+          >
         </div>
+        <p class="copyright">
+          &copy; 2026 Steinar Talmoen. All rights reserved.
+        </p>
+      </div>
     </footer>
 
     <script>
-        function changeScreenshot(index) {
-            const mainImg = document.getElementById('main-screenshot');
-            const tabs = document.querySelectorAll('.screenshot-tab');
-            
-            mainImg.src = `img/main-screenshot${index}.png`;
-            
-            tabs.forEach((tab, i) => {
-                tab.classList.toggle('active', i === index);
-            });
-        }
+      function changeScreenshot(index) {
+        const mainImg = document.getElementById("main-screenshot");
+        const tabs = document.querySelectorAll(".screenshot-tab");
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
+        mainImg.src = `img/main-screenshot${index}.png`;
+
+        tabs.forEach((tab, i) => {
+          tab.classList.toggle("active", i === index);
         });
+      }
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
     </script>
-</body>
+  </body>
 </html>

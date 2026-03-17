@@ -1,0 +1,22 @@
+{
+  "name": "CodePrettify",
+  "short_name": "CodePrettify",
+  "description": "Automatically format, validate, and highlight JavaScript, JSON, CSS, XML, and RSS/Atom files in your browser.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a0b0f",
+  "theme_color": "#0a0b0f",
+  "icons": [
+    {
+      "src": "/img/code_128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ]
+}
