@@ -2,43 +2,56 @@
 
 Transform raw code into a readable, beautiful workspace.
 
-CodePrettify automatically formats, validates, and highlights raw JavaScript, JSON, and CSS files the moment you open them. Whether you are viewing a minified API response or a local config file, get an IDE-like experience directly in your browser.
+Website: https://prettify.cloud
+
+CodePrettify automatically formats, validates, and highlights raw JavaScript, JSON, CSS, XML, and RSS/Atom resources the moment you open them. Whether you are viewing a minified API response, a feed, or a local config file, you get an IDE-like experience directly in your browser.
 
 ## 🚀 Smart Automation
 
-*   **Auto-Format:** Automatically detects messily formatted code and beautifies it with your preferred indentation.
-*   **Intelligent Minification Detection:** The extension analyzes code density. If a file is minified, it formats it automatically. If it’s already clean, it simply adds syntax highlighting.
-*   **Local File Support:** Works seamlessly on web URLs and local files (`file://`) opened in the browser.
+*   **Broad Detection:** Detects supported resources by URL pattern and HTTP content type.
+*   **Auto-Format:** Automatically beautifies dense or minified files using your preferred indentation.
+*   **Zero-Flash Loading:** Prevents the raw text from flashing before the viewer is ready.
+*   **Local File Support:** Works on web URLs and local files (`file://`) opened in the browser.
 
-## 🛡️ Syntax Validation & Error Checking
+## 🛡️ Diagnostics & Validation
 
 Don't just read code—debug it. CodePrettify scans your files for common errors:
 
-*   **JSON:** Detects syntax errors and provides the exact line number.
-*   **JavaScript:** Identifies mismatched braces, brackets, and common typos (e.g., `functon` instead of `function`).
-*   **CSS:** Validates structural integrity.
+*   **JSON:** Detects syntax errors and provides exact line references.
+*   **JavaScript & CSS:** Validates structure and reports problems instantly.
+*   **Diagnostics Panel:** Shows syntax status and file-type-specific insights.
+*   **Document Warnings:** Flags very long lines, mixed indentation, and other quality issues.
 
 > **Instant Feedback:** Invalid code triggers a non-intrusive toast notification with error details.
 
-## 📂 Interactive JSON Viewer
+## 📂 Interactive JSON Tools
 
 *   **Collapsible Data:** Fold arrays and objects to navigate large datasets easily.
-*   **Smart Previews:** See summary info (e.g., `Array(5)` or `{3 keys}`) when blocks are collapsed.
-*   **Clickable Links:** URLs inside JSON strings automatically become clickable hyperlinks.
-*   **Expand/Collapse All:** Dedicated buttons to manage massive JSON files instantly.
+*   **Smart Previews:** See summary info such as `Array(5)` or `{3 keys}` when blocks are collapsed.
+*   **JSON Path Tools:** Inspect the current path and query large payloads quickly.
+*   **Value Helpers:** Clickable URLs, timestamp tooltips, and Base64/JWT decoding are built into the viewer.
 
-## 🛠️ Powerful Toolkit
+## 🛠️ Developer Toolkit
 
-*   **Advanced Search:** Custom search bar (`Ctrl+F`) with result counting and navigation—works even on huge files where browser find-in-page fails.
-*   **Go To Line:** Jump straight to specific lines (`Ctrl+G`), perfect for debugging stack traces.
-*   **Export Options:** Download your file in three formats: Original, Formatted, or Minified.
-*   **Zero-Flash Loading:** Engineered to prevent the raw text from "flashing" before the beautifier loads.
+*   **Advanced Search:** Custom search bar (`Ctrl+F`) with result counts, navigation, and regex support.
+*   **Go To Line:** Jump straight to specific lines (`Ctrl+G`) for faster debugging.
+*   **Command Generation:** Generate copy-ready `cURL` and `fetch()` commands from the current page.
+*   **Export Options:** Download content as Original, Formatted, Minified, CSV, or a cropped image when supported.
+*   **HTTP Context Panel:** Inspect request and response details for the current resource.
 
-## ⚙️ Fully Customizable
+## 🧭 Large-File Navigation
+
+*   **Document Navigator:** Browse JSON, JavaScript, and XML/RSS structure from an outline view.
+*   **Code Minimap:** Scan and jump through long files quickly with a syntax-aware minimap.
+*   **Expand/Collapse Controls:** Manage deeply nested content without losing your place.
+*   **Persistent View State:** Restore fold state, search text, highlighted line, and display mode for recently viewed files.
+
+## ⚙️ Customizable & Privacy-First
 
 *   **Themes:** Choose between Light, Dark, or Auto (syncs with system).
-*   **Format Settings:** Adjustable font size (10-24px), indentation (2 or 4 spaces), and line numbers.
-*   **Privacy First:** 100% Client-side. Your code never leaves your browser.
+*   **Viewer Settings:** Adjust font size, indentation, line numbers, word wrap, minimap, toolbar, and file-type-specific behavior.
+*   **Privacy First:** 100% client-side. Your code never leaves your browser.
+*   **Local Metadata Only:** Request and response metadata used for HTTP context and command generation stays in your browser session.
 
 ## ⌨️ Keyboard Shortcuts
 
@@ -56,4 +69,4 @@ To use CodePrettify with local files (e.g., `file:///C:/code/data.json`), you mu
 
 ## Supported Languages
 
-Supports 14 languages including English, Norwegian, German, Spanish, and Chinese.
+Supports 14 interface languages including English, Norwegian, Swedish, Danish, German, French, Spanish, Italian, Portuguese, Russian, Chinese, Japanese, Korean, and Vietnamese.
