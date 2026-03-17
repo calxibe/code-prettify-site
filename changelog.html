@@ -31,12 +31,52 @@
         <h1>Changelog</h1>
         <p class="intro">All notable changes to CodePrettify are documented here.</p>
 
+        <!-- Version 1.0.5 -->
+        <div class="version-card">
+            <div class="version-header">
+                <span class="version-number">v1.0.5</span>
+                <span class="version-badge badge-latest">Latest</span>
+                <span class="version-date">Upcoming</span>
+            </div>
+
+            <div class="version-section">
+                <h3>✨ New Features</h3>
+                <ul class="feature-list">
+                    <li><strong>Base64 &amp; JWT Decode Modal</strong> — Clicking a JSON decode icon now opens a dedicated modal showing both the original encoded value and the decoded content in separate read-only textareas, making long payloads much easier to inspect and copy.</li>
+                    <li><strong>Regex Search</strong> — Added regex support to the floating search bar using <code>/pattern/flags</code> syntax, while keeping plain-text search as the default. Invalid regex input now shows an inline error instead of failing silently.</li>
+                    <li><strong>Persistent View State</strong> — Added capped per-URL state storage in extension local storage so fold state, search text, highlighted line, and display mode are restored automatically for recently viewed files, while keeping the existing shareable URL-hash state.</li>
+                    <li><strong>Document Navigator</strong> — Added a new outline navigator for JSON, JavaScript, and XML/RSS documents so large files can be browsed structurally and jumped to quickly from the More menu.</li>
+                    <li><strong>Diagnostics &amp; Warnings</strong> — Added a diagnostics panel that combines syntax status, document warnings such as very long lines or mixed indentation, and file-type-specific insights for JSON, JS, CSS, and XML/RSS.</li>
+                </ul>
+            </div>
+
+            <div class="version-section">
+                <h3>🔧 Improvements</h3>
+                <ul class="feature-list">
+                    <li><strong>CSV Export Guardrails</strong> — Tightened Download as CSV so it only enables for table-like data. JSON export now requires a top-level array of flat objects, while RSS export requires at least one <code>item</code> or <code>entry</code> with child fields. When the structure does not qualify, the CSV option is disabled and explains why.</li>
+                    <li><strong>CSV Explainability</strong> — Expanded CSV export feedback with readiness details such as detected rows, columns, root type, and unavailable-state reasons in both the download flow and diagnostics panel.</li>
+                    <li><strong>UX (Decode Tooltip Label)</strong> — Updated the hover tooltip for Base64/JWT values to clearly label the content as decoded output before showing the decoded value.</li>
+                </ul>
+            </div>
+
+            <div class="version-section">
+                <h3>🐛 Bug Fixes</h3>
+                <ul class="feature-list">
+                    <li><strong>Bug Fix (JSON Folding State)</strong> — Fixed an intermittent issue where prettified JSON could appear stuck in a collapsed one-line state. JSON folding now uses structural line metadata instead of counting braces/brackets in rendered text, so string values containing <code>{</code>, <code>}</code>, <code>[</code>, or <code>]</code> no longer corrupt expand/collapse behavior or restored fold state.</li>
+                    <li><strong>Bug Fix (cURL Generator on Windows)</strong> — Fixed generated cURL commands failing in Windows shells. The command generator now strips the extension's shareable view-state hash from copied URLs and emits Windows-safe <code>curl.exe</code> commands with compatible quoting for headers and URLs.</li>
+                    <li><strong>Bug Fix (Base64/JWT Decode Rendering)</strong> — Fixed JSON decode affordances not appearing reliably because the structured JSON renderer could fall back to plain Prism output when localized decode labels were not available inside the JSON handler.</li>
+                    <li><strong>Bug Fix (Decode Icon Click Conflict)</strong> — Fixed decode icon clicks also triggering the JSON path inspector. Decode icon interactions are now isolated from the JSON value click handler.</li>
+                    <li><strong>Bug Fix (Decode Modal Selection)</strong> — Fixed the decode modal closing while selecting text inside its textareas. The modal now closes only when clicking outside the modal surface.</li>
+                    <li><strong>Bug Fix (XML Loader Crash)</strong> — Fixed the lightweight page loader crashing on some raw XML and XHTML documents opened from <code>file:</code> URLs because the root element did not expose <code>dataset</code>. The loader now uses a plain root attribute marker instead of <code>documentElement.dataset</code>, so supported XML files can be detected and injected safely.</li>
+                </ul>
+            </div>
+        </div>
+
         <!-- Version 1.0.4 -->
         <div class="version-card">
             <div class="version-header">
                 <span class="version-number">v1.0.4</span>
-                <span class="version-badge badge-latest">Latest</span>
-                <span class="version-date">Upcoming</span>
+                <span class="version-date">March 17, 2026</span>
             </div>
 
             <div class="version-section">
