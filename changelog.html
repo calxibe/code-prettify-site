@@ -84,6 +84,36 @@
         </div>
 
         <div class="version-section">
+          <h3>✨ New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Table View</strong> — Added a Table View for JSON files
+              containing arrays of objects and for XML/RSS files with repeating
+              elements (e.g. RSS feeds, data catalogs). Accessible from the
+              More menu, it renders the data as a sortable, scrollable HTML
+              table with type-aware cell formatting (color-coded nulls,
+              booleans, numbers, strings, and nested objects). Includes
+              search/filter, truncated cells that expand on click, and large
+              datasets load in 500-row chunks with "Load more" and "Load all"
+              buttons. Close with the × button or press ESC. Available in all
+              14 locales.
+            </li>
+            <li>
+              <strong>HTML Table Export</strong> — New download option that
+              exports table-viewable data (JSON arrays or XML repeating
+              elements) as a plain <code>.html</code> file with a basic
+              <code>&lt;table&gt;</code>. Works for both JSON and XML/RSS.
+            </li>
+            <li>
+              <strong>CSV Export for all XML structures</strong> — CSV export
+              now works for any XML file whose data can be displayed as a
+              table, not just RSS/Atom feeds with <code>&lt;item&gt;</code> or
+              <code>&lt;entry&gt;</code> elements.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
           <h3>🐛 Bug Fixes</h3>
           <ul class="feature-list">
             <li>
