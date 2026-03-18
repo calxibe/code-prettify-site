@@ -76,11 +76,73 @@
         All notable changes to CodePrettify are documented here.
       </p>
 
+      <!-- Version 1.0.7 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.7</span>
+          <span class="version-badge badge-upcoming">Upcoming</span>
+        </div>
+
+        <div class="version-section">
+          <h3>🐛 Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Minified ES Module Validation)</strong> — Fixed
+              false <code>Invalid JS syntax detected</code> warnings on valid
+              minified or single-line JavaScript modules ending with top-level
+              <code>export</code> statements. The sandbox validator now
+              recognizes module syntax that appears after minified statement
+              boundaries such as <code>;</code> and <code>}</code> instead of
+              only at the start of a new line.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Version 1.0.6 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.6</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">March 18, 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>✨ New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Settings Shortcuts</strong> — Added a direct
+              <code>Report Issues &amp; Ideas</code> button in the settings
+              modal alongside the changelog link, pointing to
+              <code>https://issues.prettify.cloud</code>.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>🐛 Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Localization — Simplified Chinese)</strong> —
+              Completed the missing Simplified Chinese UI strings for RSS
+              statistics/settings, HTTP context, and JSON path tools, and
+              replaced English fallback text with native labels so the Chinese
+              UI is no longer partially untranslated.
+            </li>
+            <li>
+              <strong>Bug Fix (Localization — Remaining Locales)</strong> —
+              Added the missing RSS statistics and RSS settings strings to the
+              remaining locale bundles so every shipped locale now has full
+              message-key parity with English.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.5 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.5</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">March 17, 2026</span>
         </div>
 
