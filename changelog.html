@@ -76,11 +76,80 @@
         All notable changes to CodePrettify are documented here.
       </p>
 
+      <!-- Version 1.0.10 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.10</span>
+          <span class="version-badge badge-upcoming">Upcoming</span>
+        </div>
+
+        <div class="version-section">
+          <h3>✨ New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>JSONL / NDJSON Support</strong> — Added support for JSON
+              Lines (<code>.jsonl</code>) files and
+              <code>application/x-ndjson</code> /
+              <code>application/jsonl</code> content types. JSONL files are
+              parsed line-by-line and displayed as a JSON array, with full
+              access to all existing JSON features including collapsible tree
+              view, breadcrumb navigation, inspector, table view, CSV export,
+              statistics, diagnostics, and code folding. Validation reports
+              errors per-line. The raw view preserves the original JSONL
+              format.
+            </li>
+            <li>
+              <strong>JSON Path Autocomplete</strong> — The JSON path query
+              input now offers real-time autocomplete suggestions as you type,
+              with keyboard navigation (Arrow keys, Tab/Enter to accept,
+              Escape to dismiss). Suggestions are derived from the actual
+              document structure.
+            </li>
+            <li>
+              <strong>JSON Path Validation</strong> — The query input
+              highlights in red when the typed path is invalid (index out of
+              range, non-existent key), while allowing partial input as the
+              user is still typing.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>🐛 Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Inspector Modal Close)</strong> — Fixed the
+              JSON path inspector modal closing when clicking inside it or
+              selecting text. The modal now only closes when clicking outside
+              it, pressing Escape, or clicking the close button.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>🔧 Improvements</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>UX (Local File Menu)</strong> — Removed the HTTP context
+              and cURL/fetch buttons from the More menu when viewing local
+              files (<code>file://</code> URLs), since there is no HTTP
+              request data to display.
+            </li>
+            <li>
+              <strong>UX (Inspector Result Actions)</strong> — Added a
+              copy-to-clipboard button on each JSON path query result and
+              reduced the button size for a more compact layout.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.9 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.9</span>
-          <span class="version-badge badge-upcoming">Upcoming</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">March 20, 2026</span>
         </div>
 
         <div class="version-section">
@@ -146,7 +215,6 @@
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.8</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">March 19, 2026</span>
         </div>
 
