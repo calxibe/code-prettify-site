@@ -76,11 +76,93 @@
         All notable changes to CodePrettify are documented here.
       </p>
 
+      <!-- Version 1.0.9 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.9</span>
+          <span class="version-badge badge-upcoming">Upcoming</span>
+        </div>
+
+        <div class="version-section">
+          <h3>🐛 Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Toolbar Position on Small Files)</strong> —
+              Fixed the top toolbar buttons (settings, show raw) keeping
+              unnecessary right-side spacing when the minimap is hidden
+              because the file is too small to scroll. The toolbar now adjusts
+              its position together with the minimap visibility.
+            </li>
+            <li>
+              <strong>Bug Fix (Image Export Content Corruption)</strong> —
+              Fixed the PNG image export rendering UI-only elements such as
+              fold toggles (<code>▼</code>) and fold previews
+              (<code>Array(2)</code>, <code>20 keys</code>) into the exported
+              image. The export now strips these decorative elements so the
+              image contains only the actual code.
+            </li>
+            <li>
+              <strong>Bug Fix (Sandbox PostMessage)</strong> — Fixed the
+              sandbox validator reply using a reconstructed origin that could
+              silently fail to deliver responses. The sandbox now always
+              replies with <code>window.parent.postMessage</code> and a
+              wildcard target origin, which is safe because the content script
+              validates responses by unique random id.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Version 1.0.8 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.8</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">March 19, 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>✨ New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Compare with Clipboard (Diff View)</strong> — Added a
+              full-screen split-view diff tool accessible from the More menu
+              or via <code>Ctrl+Alt+D</code>. Paste or type code in the input
+              area and click Compare to see a side-by-side highlighted diff
+              against the current document. Features line-level diff using an
+              LCS algorithm (with a fast fallback for documents over 20,000
+              lines), color-coded added/removed/unchanged lines, synchronized
+              scrolling between panels, line statistics, and a swap-sides
+              button. Close with the × button or press Escape. Available in
+              all 14 locales.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>🐛 Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (XML Declaration &amp; Attributes)</strong> —
+              Fixed the XML declaration
+              (<code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</code>)
+              being silently stripped from XML files after Chrome's DOM parser
+              discarded it during serialization. The declaration is now
+              reconstructed from <code>document.xmlVersion</code> and
+              <code>document.xmlEncoding</code>. Also fixed
+              extension-injected attributes
+              (<code>class="pretty-loader-active"</code>,
+              <code>data-code-prettify-injected</code>) leaking into the
+              captured original source for XML files.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.7 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.7</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">March 19, 2026</span>
         </div>
 
