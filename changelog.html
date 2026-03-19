@@ -84,6 +84,35 @@
         </div>
 
         <div class="version-section">
+          <h3>🔧 Improvements</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Privacy Update (Removed webRequest)</strong> — Removed
+              the <code>webRequest</code> permission and background HTTP
+              caching entirely to strictly adhere to Browser Plugin
+              least-privilege guidelines. The application now exclusively
+              relies on parsing directly readable DOM elements and fallback
+              data, drastically improving compliance without compromising
+              rendering functionality. The HTTP Context and cURL/Fetch
+              generators have been cleanly stripped of unavailable header
+              data.
+            </li>
+            <li>
+              <strong>Shareable View State</strong> — Disabled automatic URL
+              hashing to prevent cluttering browser history. Replaced it with
+              an explicit "Share configuration URL" button in the More actions
+              menu (only visible on non-local web URLs).
+            </li>
+            <li>
+              <strong>UX (cURL/Fetch button visibility)</strong> — The cURL /
+              fetch generator button is now only shown for JSON and RSS/XML
+              files, where it is most relevant, and hidden for JavaScript and
+              CSS views.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
           <h3>🐛 Bug Fixes</h3>
           <ul class="feature-list">
             <li>
