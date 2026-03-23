@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App Changelog - CodePrettify</title>
+    <meta name="description" content="Track the latest CodePrettify desktop app releases for the Microsoft Store." />
+    <meta name="application-name" content="CodePrettify" />
+    <meta name="apple-mobile-web-app-title" content="CodePrettify" />
+    <meta name="theme-color" content="#0a0b0f" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://prettify.cloud/changelog-app.html" />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta property="og:site_name" content="CodePrettify" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="App Changelog - CodePrettify" />
+    <meta property="og:description" content="Track the latest CodePrettify desktop app releases for the Microsoft Store." />
+    <meta property="og:url" content="https://prettify.cloud/changelog-app.html" />
+    <meta property="og:image" content="https://prettify.cloud/img/main-screenshot0.png" />
+    <meta property="og:image:alt" content="CodePrettify extension screenshot" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="App Changelog - CodePrettify" />
+    <meta name="twitter:description" content="Track the latest CodePrettify desktop app releases for the Microsoft Store." />
+    <meta name="twitter:image" content="https://prettify.cloud/img/main-screenshot0.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=block"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-S4WNQ48Q7F");
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <img
+            src="img/code_32.png"
+            alt="CodePrettify"
+            class="logo-icon"
+          /><span>Code<span>Prettify</span></span>
+        </a>
+        <nav>
+          <a href="/#features">Features</a>
+          <a href="/changelog.html" class="active">Changelog</a>
+          <a href="/privacy.html">Privacy</a>
+          <a
+            href="https://github.com/calxibe/code-prettify-site/issues"
+            target="_blank"
+            >GitHub</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="content">
+      <h1>Changelog</h1>
+      <p class="intro">
+        All notable changes to the CodePrettify desktop app are documented here.
+      </p>
+
+      <div class="changelog-tabs">
+        <a class="changelog-tab" href="/changelog.html">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Browser Extension
+        </a>
+        <a class="changelog-tab active" href="/changelog-app.html">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          Microsoft Store App
+        </a>
+      </div>
+
+      <!-- Version 1.0.0 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.0</span>
+          <span class="version-badge badge-upcoming">Coming Soon</span>
+        </div>
+
+        <div class="version-section">
+          <h3>✨ New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Desktop Performance</strong> — Moved the desktop app’s
+              pure data-processing work for JSON/JSONL, XML/RSS, and HTML from
+              the WebView into the C# launcher. The launcher now computes
+              formatted text, validation, diagnostics, statistics, navigator
+              items, CSV/table models, diff results, and minimap line data
+              natively and sends compact results back to the web UI. Initial
+              load now requests only the formatting/validation path, while
+              heavier analysis is loaded on demand when the related tool opens.
+            </li>
+            <li>
+              <strong>Native Menu Bar</strong> — Added a full native Windows
+              menu bar with File, Edit, View, Tools, and Help menus. The menu
+              bar themes automatically with dark/light mode.
+              <ul>
+                <li><strong>File:</strong> Open (Ctrl+O), Save As (Ctrl+S), Close Tab (Ctrl+W), Exit</li>
+                <li><strong>Edit:</strong> Copy Code (Ctrl+Alt+C), Find (Ctrl+F), Go to Line (Ctrl+G)</li>
+                <li><strong>View:</strong> Toggle Beautify (Ctrl+B), Word Wrap, Line Numbers, Minimap, Floating Toolbar (Ctrl+Alt+T), Zoom In/Out, DevTools (F12)</li>
+                <li><strong>Tools:</strong> Document Navigator, Table View, Statistics, Diagnostics, Compare with Clipboard (Ctrl+Alt+D), Settings</li>
+                <li><strong>Help:</strong> About CodePrettify</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Tab Bar</strong> — Added a native tab bar for managing
+              multiple open files. Tabs are created when opening files via the
+              menu, toolbar, drag-and-drop, or context menu. Tabs show file
+              names with close buttons, and support hover effects and an active
+              accent line. The tab bar is hidden when no files are open.
+            </li>
+            <li>
+              <strong>Keyboard Shortcuts</strong> — Added Ctrl+O (Open),
+              Ctrl+S (Save As), and Ctrl+W (Close Tab) shortcuts that work
+              across the native menu and web layer.
+            </li>
+            <li>
+              <strong>TypeScript Support</strong> — Added support for
+              <code>.ts</code>, <code>.mts</code>, and <code>.cts</code>
+              files. TypeScript files are detected by file extension and MIME
+              type, and are formatted and highlighted using the JavaScript
+              handler.
+            </li>
+            <li>
+              <strong>HTML Support</strong> — Added support for
+              <code>.html</code> and <code>.htm</code> files with a dedicated
+              HTML handler featuring syntax highlighting, code folding for
+              matched HTML tag pairs, clickable URLs in attribute values, and a
+              custom HTML formatter with void element and raw text element
+              awareness. HTML is enabled by default in the desktop app. Context
+              menu integration includes <code>.html</code> and
+              <code>.htm</code> on Windows 11.
+            </li>
+            <li>
+              <strong>UI Language Override</strong> — Added a language dropdown
+              to the settings modal that lets users override the automatic
+              system locale with any of the 14 supported languages (English,
+              Dansk, Deutsch, Español, Français, Italiano, 日本語, 한국어, Norsk,
+              Português, Русский, Svenska, Tiếng Việt, 中文). Defaults to
+              Auto (system). Changing the language saves the preference and
+              reloads the page with the chosen locale applied to all UI
+              strings.
+            </li>
+            <li>
+              <strong>Theme Setting</strong> — Added a theme dropdown to the
+              settings modal allowing users to switch between Light, Dark, and
+              Auto (system) themes directly from the settings panel.
+            </li>
+            <li>
+              <strong>CSS Validation Line Numbers</strong> — Rewrote the CSS
+              syntax validator to use a stack-based approach that tracks the
+              exact line and column of each unmatched brace, parenthesis, or
+              bracket. The error toast now shows a clickable line number that
+              jumps to the first error. Strings and comments are correctly
+              skipped to avoid false positives.
+            </li>
+            <li>
+              <strong>JSONL / NDJSON Support</strong> — JSONL files are now
+              parsed line-by-line and displayed as individual records with
+              <code>lineN</code> root paths, preserving the original JSONL
+              structure. All JSON features (collapsible tree, breadcrumb,
+              inspector, table view, CSV export, statistics, diagnostics, code
+              folding) work with JSONL. Validation reports errors per-line. The
+              raw view and original download preserve the JSONL format.
+            </li>
+            <li>
+              <strong>JSON Path Autocomplete</strong> — The JSON path query
+              input now offers real-time autocomplete suggestions as you type,
+              with keyboard navigation (Arrow keys, Tab/Enter to accept,
+              Escape to dismiss). Suggestions are derived from the actual
+              document structure.
+            </li>
+            <li>
+              <strong>JSON Path Validation</strong> — The query input
+              highlights in red when the typed path is invalid (index out of
+              range, non-existent key), while allowing partial input as the
+              user is still typing.
+            </li>
+            <li>
+              <strong>Drag &amp; Drop</strong> — Open files by dragging them
+              onto the app window or clicking the file picker.
+            </li>
+            <li>
+              <strong>File Handler</strong> — When installed, registers as a
+              handler for <code>.js</code>, <code>.json</code>,
+              <code>.css</code>, <code>.xml</code>, <code>.rss</code>, and
+              <code>.atom</code> files.
+            </li>
+            <li>
+              <strong>Context Menu</strong> — On Windows 11, adds
+              “Open with CodePrettify” directly in the File Explorer right-click
+              menu for supported file types.
+            </li>
+            <li>
+              <strong>Loading Indicator</strong> — Shows a spinner while
+              formatting large files, hiding raw content until formatting is
+              complete.
+            </li>
+            <li>
+              <strong>Offline</strong> — Fully functional without an internet
+              connection.
+            </li>
+            <li>
+              <strong>Storage Polyfill</strong> — Storage and i18n APIs are
+              polyfilled using <code>localStorage</code> and fetched locale
+              bundles.
+            </li>
+            <li>
+              All formatting, highlighting, navigation, and tool features are
+              included.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>🐛 Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (In-Place Drag &amp; Drop Reinit)</strong> —
+              Fixed dropping a file onto the middle of an existing desktop tab
+              opening the new file in raw mode. The in-page reinitialization
+              path now resets transient view state before loading the dropped
+              file, so the new document respects the normal prettified/default
+              view flow.
+            </li>
+            <li>
+              <strong>Bug Fix (Language Setting Persistence)</strong> — Fixed
+              the language setting not persisting across page reloads. The
+              reload now waits for the storage write to complete before
+              triggering, preventing a race condition where the old value was
+              read back on reload.
+            </li>
+            <li>
+              <strong>Bug Fix (HTML Formatter Whitespace)</strong> — Fixed the
+              HTML formatter producing extra blank lines when source text
+              between tags contained embedded newlines. Multi-line comments are
+              now split and re-indented per line, and inline text content is
+              properly trimmed before output.
+            </li>
+            <li>
+              <strong>Bug Fix (Clickable URLs Not Opening)</strong> — Fixed
+              clickable URLs in HTML and RSS attribute values not opening in
+              the desktop app. The WebView2 launcher now intercepts
+              <code>target="_blank"</code> link clicks and opens them in the
+              default system browser.
+            </li>
+            <li>
+              <strong>Bug Fix (Inspector Modal Close)</strong> — Fixed the
+              JSON path inspector modal closing when clicking inside it or
+              selecting text. The modal now only closes when clicking outside
+              it, pressing Escape, or clicking the close button.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>🔧 Improvements</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>UX (Inspector Result Actions)</strong> — Added a
+              copy-to-clipboard button on each JSON path query result and
+              reduced the button size for a more compact layout.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-links">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/changelog.html">Changelog</a>
+          <a href="https://github.com/calxibe/code-prettify-site/issues"
+            >Feedback &amp; Issues</a
+          >
+          <a href="https://www.reddit.com/user/calxibe/" target="_blank"
+            >Reddit</a
+          >
+          <a href="https://github.com/calxibe/code-prettify-site/issues"
+            >GitHub</a
+          >
+        </div>
+        <p class="copyright">
+          &copy; 2026 Steinar Talmoen. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

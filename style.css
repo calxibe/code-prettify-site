@@ -764,6 +764,58 @@ section {
 }
 
 /* ===================================
+   Changelog Tabs
+   =================================== */
+.changelog-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 40px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 6px;
+    width: fit-content;
+}
+
+.changelog-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.changelog-tab:hover {
+    color: var(--text);
+    background: rgba(99, 102, 241, 0.1);
+    text-decoration: none;
+}
+
+.changelog-tab.active {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+}
+
+.changelog-tab.active:hover {
+    text-decoration: none;
+}
+
+.changelog-tab svg {
+    flex-shrink: 0;
+}
+
+/* ===================================
    Changelog Page Specific
    =================================== */
 .version-card {
@@ -1003,6 +1055,17 @@ footer {
     
     .version-card {
         padding: 24px 20px;
+    }
+
+    .changelog-tabs {
+        width: 100%;
+    }
+
+    .changelog-tab {
+        flex: 1;
+        justify-content: center;
+        padding: 10px 12px;
+        font-size: 0.85rem;
     }
     
     .footer-inner {

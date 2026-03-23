@@ -76,11 +76,109 @@
         All notable changes to CodePrettify are documented here.
       </p>
 
+      <div class="changelog-tabs">
+        <a class="changelog-tab active" href="/changelog.html">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Browser Extension
+        </a>
+        <a class="changelog-tab" href="/changelog-app.html">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          Microsoft Store App
+        </a>
+      </div>
+
+      <!-- Version 1.0.11 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.11</span>
+          <span class="version-badge badge-upcoming">Upcoming</span>
+        </div>
+
+        <div class="version-section">
+          <h3>✨ New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Welcome Page</strong> — Added a localized
+              welcome/onboarding page that opens automatically on first install
+              and anytime the user clicks the extension toolbar icon. Explains
+              how the extension works, lists supported formats with try-it-now
+              links, highlights key features, keyboard shortcuts, and points
+              users to the settings gear. Localized in all 14 languages.
+            </li>
+            <li>
+              <strong>UI Icons</strong> — Switched the extension UI icons to
+              Font Awesome 7.2 Pro. Toolbar actions, menus, export actions,
+              toasts, and decode affordances now use the bundled Font Awesome
+              assets under <code>css/fa/</code>, and the build keeps only the
+              CSS and WOFF2 files that are actually used.
+            </li>
+            <li>
+              <strong>TypeScript Support</strong> — Added support for
+              <code>.ts</code>, <code>.mts</code>, and <code>.cts</code>
+              files. TypeScript files are detected by file extension and
+              <code>text/typescript</code> /
+              <code>application/typescript</code> content types, and are
+              formatted and highlighted using the JavaScript handler.
+            </li>
+            <li>
+              <strong>UI Language Override</strong> — Added a language dropdown
+              to the settings modal that lets users override the automatic
+              system locale with any of the 14 supported languages (English,
+              Dansk, Deutsch, Español, Français, Italiano, 日本語, 한국어, Norsk,
+              Português, Русский, Svenska, Tiếng Việt, 中文). Defaults to
+              Auto (system). Changing the language saves the preference and
+              reloads the page with the chosen locale applied to all UI
+              strings.
+            </li>
+            <li>
+              <strong>Theme Setting</strong> — Added a theme dropdown to the
+              settings modal allowing users to switch between Light, Dark, and
+              Auto (system) themes directly from the settings panel.
+            </li>
+            <li>
+              <strong>CSS Validation Line Numbers</strong> — Rewrote the CSS
+              syntax validator to use a stack-based approach that tracks the
+              exact line and column of each unmatched brace, parenthesis, or
+              bracket. The error toast now shows a clickable line number that
+              jumps to the first error. Strings and comments are correctly
+              skipped to avoid false positives.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>🐛 Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Language Setting Persistence)</strong> — Fixed
+              the language setting not persisting across page reloads. The
+              reload now waits for <code>chrome.storage.local.set</code> to
+              complete before triggering, preventing a race condition where
+              the old value was read back on reload.
+            </li>
+            <li>
+              <strong>Bug Fix (Line Number Gutter)</strong> — Increased the
+              shared code gutter spacing so formatted code no longer sits
+              cramped against the line-number column. The wider gutter applies
+              to the browser extension and keeps fold toggles aligned.
+            </li>
+            <li>
+              <strong>Bug Fix (CSS Selector Spacing)</strong> — Fixed the
+              shared CSS formatter adding an extra space before
+              <code>{</code> when selectors already had spacing. CSS
+              beautification now normalizes selector-to-brace spacing to a
+              single space.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.10 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.10</span>
-          <span class="version-badge badge-upcoming">Upcoming</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">March 23, 2026</span>
         </div>
 
         <div class="version-section">
@@ -148,7 +246,6 @@
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.9</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">March 20, 2026</span>
         </div>
 
