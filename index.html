@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CodePrettify - JS, JSON, CSS & RSS Formatter Extension</title>
-    <meta name="description" content="Transform raw code into a readable, beautiful workspace. Automatically formats, validates, and highlights JavaScript, JSON, CSS, and RSS/Atom files in your browser."/>
+    <title>CodePrettify - JS, JSON, CSS, YAML & RSS Formatter Extension</title>
+    <meta name="description" content="Transform raw code into a readable, beautiful workspace. Automatically formats, validates, and highlights JavaScript, TypeScript, JSON, CSS, YAML, and XML/RSS files in your browser."/>
     <meta name="application-name" content="CodePrettify" />
     <meta name="apple-mobile-web-app-title" content="CodePrettify" />
     <meta name="theme-color" content="#0a0b0f" />
@@ -18,14 +18,14 @@
     <meta property="og:site_name" content="CodePrettify" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="CodePrettify - JS, JSON, CSS & RSS Formatter Extension" />
-    <meta property="og:description" content="Transform raw code into a readable, beautiful workspace. Automatically formats, validates, and highlights JavaScript, JSON, CSS, and RSS/Atom files in your browser." />
+    <meta property="og:title" content="CodePrettify - JS, JSON, CSS, YAML & RSS Formatter Extension" />
+    <meta property="og:description" content="Transform raw code into a readable, beautiful workspace. Automatically formats, validates, and highlights JavaScript, TypeScript, JSON, CSS, YAML, and XML/RSS files in your browser." />
     <meta property="og:url" content="https://prettify.cloud/" />
     <meta property="og:image" content="https://prettify.cloud/img/main-screenshot0.png" />
     <meta property="og:image:alt" content="CodePrettify extension screenshot" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="CodePrettify - JS, JSON, CSS & RSS Formatter Extension" />
-    <meta name="twitter:description" content="Transform raw code into a readable, beautiful workspace. Automatically formats, validates, and highlights JavaScript, JSON, CSS, and RSS/Atom files in your browser." />
+    <meta name="twitter:title" content="CodePrettify - JS, JSON, CSS, YAML & RSS Formatter Extension" />
+    <meta name="twitter:description" content="Transform raw code into a readable, beautiful workspace. Automatically formats, validates, and highlights JavaScript, TypeScript, JSON, CSS, YAML, and XML/RSS files in your browser." />
     <meta name="twitter:image" content="https://prettify.cloud/img/main-screenshot0.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -79,8 +79,9 @@
 
           <p class="subtitle">
             CodePrettify automatically formats, validates, and highlights raw
-            JavaScript, JSON, CSS, XML, and RSS/Atom files the moment you open
-            them. Get an IDE-like experience directly in your browser.
+            JavaScript, TypeScript, JSON, CSS, YAML, XML, and RSS/Atom files
+            the moment you open them. Get an IDE-like experience directly in
+            your browser.
           </p>
 
           <div class="cta-buttons">
@@ -107,12 +108,12 @@
               <h4>📄 Supported Code Formats</h4>
               <div class="format-tags">
                 <span class="format-tag">JavaScript <code>.js</code> <code>.mjs</code> <code>.cjs</code></span>
+                <span class="format-tag">TypeScript <code>.ts</code> <code>.mts</code> <code>.cts</code></span>
                 <span class="format-tag">JSON <code>.json</code> <code>.jsonl</code></span>
                 <span class="format-tag">CSS <code>.css</code></span>
+                <span class="format-tag">YAML <code>.yaml</code> <code>.yml</code></span>
                 <span class="format-tag">XML <code>.xml</code></span>
-                <span class="format-tag"
-                  >RSS/Atom <code>.rss</code> <code>.atom</code></span
-                >
+                <span class="format-tag">RSS/Atom <code>.rss</code> <code>.atom</code></span>
               </div>
             </div>
             <div class="supported-box">
@@ -206,7 +207,7 @@
                 <li>
                   Detects supported resources by URL and HTTP content type
                 </li>
-                <li>Supports JavaScript, JSON, JSONL, CSS, XML, and RSS/Atom feeds</li>
+                <li>Supports JavaScript, TypeScript, JSON, JSONL, CSS, YAML, XML, and RSS/Atom feeds</li>
                 <li>
                   Intelligent minification detection formats dense files
                   automatically

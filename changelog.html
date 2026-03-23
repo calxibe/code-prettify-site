@@ -87,11 +87,99 @@
         </a>
       </div>
 
+      <!-- Version 1.0.12 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.12</span>
+          <span class="version-badge badge-upcoming">Upcoming</span>
+        </div>
+
+        <div class="version-section">
+          <h3>✨ New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>YAML Support</strong> — Added support for
+              <code>.yaml</code> and <code>.yml</code> files plus common YAML
+              response content types (<code>application/yaml</code>,
+              <code>application/x-yaml</code>, <code>text/yaml</code>,
+              <code>text/x-yaml</code>). YAML documents now load automatically
+              in the extension with syntax highlighting, prettified indentation
+              cleanup, line numbers, export support, search, diff, and the
+              existing toolbar tools.
+            </li>
+            <li>
+              <strong>YAML Settings</strong> — Added a YAML file-type checkbox
+              in settings so you can disable default prettified mode for YAML.
+              When turned off, YAML documents open in raw view by default.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>🔧 Improvements</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Performance (Large Files)</strong> — Replaced DOM parsing
+              with direct <code>insertAdjacentHTML</code> injection across all
+              language handlers (JS, JSON, CSS, XML/RSS, HTML, YAML)
+              eliminating major memory bottlenecks, exponential string concats,
+              and GC thrashing. Files load significantly faster.
+            </li>
+            <li>
+              <strong>Performance (Minimap Render)</strong> — Offloaded code
+              minimap rendering to an internal Canvas element, ending UI
+              blocking main-thread pauses when calculating the preview map.
+            </li>
+            <li>
+              <strong>Performance (Bracket Matching)</strong> — Re-worked JS
+              and JSON bracket hover matching to cache structural positions
+              rather than doing repetitive N-depth DOM queries on every
+              pointermove.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>🐛 Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Locale Encoding Repair</strong> — Fixed corrupted
+              localized UI strings in the Portuguese browser locale so the
+              extension renders the intended text again.
+            </li>
+            <li>
+              <strong>Bug Fix (YAML Settings Selector)</strong> — Fixed the
+              settings modal not selecting <code>.YAML</code> automatically for
+              YAML files. The file-type dropdown now includes YAML so the
+              active file type is shown correctly when opening settings on
+              <code>.yaml</code> and <code>.yml</code> documents.
+            </li>
+            <li>
+              <strong>Bug Fix (Line Scroll Nudge)</strong> — Fixed a UI bug
+              where clicking "Go To Line" or clicking a line number would cause
+              the entire parent container to mysteriously nudge 1 pixel to the
+              left on horizontally scrolled pages due to inconsistent
+              <code>inline</code> behavior in browser
+              <code>scrollIntoView</code> implementations. Replaced with strict
+              Y-axis coordinate scrolling.
+            </li>
+            <li>
+              <strong>Bug Fix (YAML Error Detection)</strong> — The lightweight
+              YAML validator now catches malformed flow collections such as
+              unclosed <code>[</code> / <code>{</code>, unexpected closing
+              tokens, and mismatched flow delimiters so invalid YAML files
+              surface an error toast instead of silently rendering as valid.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.11 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.11</span>
-          <span class="version-badge badge-upcoming">Upcoming</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">March 24, 2026</span>
         </div>
 
         <div class="version-section">
@@ -177,7 +265,6 @@
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.10</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">March 23, 2026</span>
         </div>
 
