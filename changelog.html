@@ -87,11 +87,115 @@
         </a>
       </div>
 
+      <!-- Version 1.0.13 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.13</span>
+          <span class="version-badge badge-upcoming">Upcoming</span>
+        </div>
+
+        <div class="version-section">
+          <h3>✨ New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Export Filenames</strong> — Downloads now use the source
+              file's base name with a <code>HHMMSS</code> timestamp suffix so
+              repeated exports are easier to distinguish. Formatted, minified,
+              and table exports keep a short label before the timestamp, and
+              image export follows the same naming pattern.
+            </li>
+            <li>
+              <strong>Welcome Page (Local Files Note)</strong> — Added a note
+              on the welcome page informing users they must enable "Allow
+              access to file URLs" in Chrome's extension management page
+              (<code>chrome://extensions</code>) to use CodePrettify with
+              local <code>file:///</code> URLs. Localized in all 14 languages.
+            </li>
+            <li>
+              <strong>Code Viewer Migration</strong> — Replaced the in-page
+              content viewer with a bundled CodeMirror 6 surface so raw-code
+              documents now render inside a modern editor engine instead of the
+              previous Prism-driven DOM renderer.
+            </li>
+            <li>
+              <strong>RSS/XML Timestamp Formatter</strong> — RSS and XML date
+              values now show the same human-readable hover tooltip formatting
+              for ISO 8601 and RSS-style publication dates in text nodes and
+              attribute values.
+            </li>
+            <li>
+              <strong>VS Code Theme Pass</strong> — Tuned the shared light and
+              dark editor palettes to track VS Code more closely, including
+              gutter, selection, active-line, fold placeholder, and
+              search-match colors.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>🐛 Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (JSON Inspector &amp; Breadcrumbs with CodeMirror
+              6)</strong> — Fixed several JSON interaction regressions in the
+              shared CodeMirror 6 viewer. Selected paths, copied paths, pasted
+              queries, and autocomplete now normalize consistently to valid
+              <code>$</code>-prefixed JSONPath; clicking a JSON property key
+              maps the clicked editor line back to the correct path and opens
+              the inspector again; value clicks plus gutter and fold clicks no
+              longer trigger it accidentally; inspector result actions now
+              resolve the correct destination line immediately, including
+              top-level arrays; and JSON breadcrumb hover is visible again,
+              stays stable on screen, omits the hover copy button, and still
+              excludes gutter and fold controls.
+            </li>
+            <li>
+              <strong>Bug Fix (JSON Viewer Tools with CodeMirror 6)</strong> —
+              Fixed JSON-only viewer tools that regressed after the shared
+              CodeMirror migration. The Document Navigator now derives its
+              outline from the parsed JSON structure and jumps to the correct
+              formatted lines, and Unix timestamps plus ISO 8601 string values
+              once again show human-readable date/time tooltips in prettified
+              and raw JSON documents.
+            </li>
+            <li>
+              <strong>Bug Fix (CSS Color Picker with CodeMirror 6)</strong> —
+              Restored the CSS color picker in the shared CodeMirror 6 viewer.
+              CSS swatches in read-only documents once again open the popup
+              with live preview and copyable HEX, RGB, and HSL values, and the
+              CSS color picker setting now properly enables or disables those
+              swatches.
+            </li>
+            <li>
+              <strong>Bug Fix (Viewer Layout &amp; Minimap)</strong> — Fixed
+              several browser viewer layout issues in the shared CodeMirror
+              surface. The theme class now updates before the minimap redraw so
+              palette changes apply immediately, the pretty view resets the
+              browser page's default body margin and repaints the minimap
+              background with the active light or dark palette, and short
+              documents now keep their padded content inside the
+              viewport-sized minimum height instead of forcing a page-level
+              vertical scrollbar.
+            </li>
+            <li>
+              <strong>Bug Fix (RSS/XML Browser Rendering)</strong> — Fixed the
+              remaining RSS/XML browser-view regressions after the viewer
+              migration. The minimap no longer crashes on Chromium XML viewer
+              pages because the offscreen cache now uses an XHTML canvas
+              element, and XML, RSS, and Atom documents are routed back through
+              the stable legacy markup renderer after the shared CodeMirror
+              surface exposed a mount failure there.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.12 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.12</span>
-          <span class="version-badge badge-upcoming">Upcoming</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">March 24, 2026</span>
         </div>
 
         <div class="version-section">
@@ -178,7 +282,6 @@
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.11</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">March 24, 2026</span>
         </div>
 
