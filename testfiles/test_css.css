@@ -1,0 +1,30 @@
+/* 
+  String URL: https://example.com/api/v1/resource
+  Unix Timestamp Seconds: 1672531200
+  Unix Timestamp Milliseconds: 1672531200000
+  ISO 8601 Date: 2023-01-01T00:00:00Z
+  JWT Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+  Base64 String: SGVsbG8gV29ybGQhIFRoaXMgaXMgYSB0ZXN0IHN0cmluZyBlbmNvZGVkIGluIGJhc2U2NC4=
+*/
+
+:root {
+  --string-url: "https://example.com/api/v1/resource";
+  --unix-timestamp-sec: 1672531200;
+  --unix-timestamp-ms: 1672531200000;
+  --iso-date: "2023-01-01T00:00:00Z";
+  --jwt-token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
+  --base64-string: "SGVsbG8gV29ybGQhIFRoaXMgaXMgYSB0ZXN0IHN0cmluZyBlbmNvZGVkIGluIGJhc2U2NC4=";
+}
+
+body {
+  background-image: url("https://example.com/api/v1/resource");
+  content: "Visit https://example.com for more info";
+}
+
+.nested-object {
+  margin: 1px 2px;
+}
+
+.nested-object .deep-key {
+  color: blue;
+}

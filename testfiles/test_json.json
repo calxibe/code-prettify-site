@@ -1,0 +1,18 @@
+{
+  "string_url": "https://example.com/api/v1/resource",
+  "string_text_with_url": "Visit https://example.com for more info",
+  "unix_timestamp_seconds": 1672531200,
+  "unix_timestamp_milliseconds": 1672531200000,
+  "iso_8601_date": "2023-01-01T00:00:00Z",
+  "jwt_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+  "base64_string": "SGVsbG8gV29ybGQhIFRoaXMgaXMgYSB0ZXN0IHN0cmluZyBlbmNvZGVkIGluIGJhc2U2NC4=",
+  "nested_object": {
+    "array": [
+      1,
+      2,
+      {
+        "deep_key": "deep_value"
+      }
+    ]
+  }
+}

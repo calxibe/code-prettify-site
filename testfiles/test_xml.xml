@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <string_url>https://example.com/api/v1/resource</string_url>
+    <string_text_with_url>Visit https://example.com for more info</string_text_with_url>
+    <unix_timestamp_seconds>1672531200</unix_timestamp_seconds>
+    <unix_timestamp_milliseconds>1672531200000</unix_timestamp_milliseconds>
+    <iso_8601_date>2023-01-01T00:00:00Z</iso_8601_date>
+    <jwt_token>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</jwt_token>
+    <base64_string>SGVsbG8gV29ybGQhIFRoaXMgaXMgYSB0ZXN0IHN0cmluZyBlbmNvZGVkIGluIGJhc2U2NC4=</base64_string>
+    <nested_object>
+        <item>1</item>
+        <item>2</item>
+        <item>
+            <deep_key>deep_value</deep_key>
+        </item>
+    </nested_object>
+</root>
