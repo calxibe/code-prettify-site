@@ -103,12 +103,20 @@
         <div class="version-header">
           <span class="version-number">v1.0.15</span>
           <span class="version-badge badge-upcoming">Upcoming</span>
-          <span class="version-date"></span>
+          <span class="version-date">March 26, 2026</span>
         </div>
 
         <div class="version-section">
           <h3>New Features</h3>
           <ul class="feature-list">
+            <li>
+              <strong>Welcome Page Sample Links</strong> —
+              Replaced third-party "Try it now" example links on the
+              localized welcome page with hosted sample files from
+              <code>https://prettify.cloud/testfiles/</code>, including both
+              basic and product-list JSON fixtures alongside JSONL, YAML,
+              JavaScript, CSS, and XML samples.
+            </li>
             <li>
               <strong>RSS/XML JWT &amp; Base64 Decoding</strong> —
               JWT tokens and Base64 encoded strings in XML and RSS text
@@ -142,6 +150,13 @@
               handlers still referenced JsonHandler, causing the hover to
               be skipped.
             </li>
+            <li>
+              <strong>Bug Fix (Raw View Toolbar Spacing)</strong> —
+              Fixed the top-right toolbar button keeping minimap padding on
+              raw CSS and other raw-code views when the minimap itself was
+              hidden. The toolbar and content gutter now only reserve
+              right-side space when the minimap is actually visible.
+            </li>
           </ul>
         </div>
       </div>
@@ -158,13 +173,12 @@
           <h3>🐛 Bug Fixes</h3>
           <ul class="feature-list">
             <li>
-              <strong>Bug Fix (JSON JWT &amp; Base64 Decoder)</strong> —
-              Restored the inline JWT and Base64 decode tooltips. The JSON
-              syntax validator now uses an
-              asynchronous text parser plugin to reliably render inline
-              decryption badges for JWT authentication boundaries and large
-              Base64 encoded strings immediately as the code loads into the
-              viewport.
+              <strong>Bug Fix (Inline JWT &amp; Base64 Decode)</strong> —
+              Restored inline JWT and Base64 decode affordances across
+              prettified CodeMirror-backed documents. HTML text nodes and
+              JavaScript string values that render decode widgets now get the
+              same hover tooltip and decode-icon click behavior as the
+              existing JSON and RSS/XML viewers.
             </li>
           </ul>
         </div>
