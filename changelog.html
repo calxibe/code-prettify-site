@@ -98,6 +98,54 @@
         </a>
       </div>
 
+      <!-- Version 1.0.15 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.15</span>
+          <span class="version-badge badge-upcoming">Upcoming</span>
+          <span class="version-date"></span>
+        </div>
+
+        <div class="version-section">
+          <h3>New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>RSS/XML JWT &amp; Base64 Decoding</strong> —
+              JWT tokens and Base64 encoded strings in XML and RSS text
+              content are now detected inline with decode icons and hover
+              tooltips, matching the existing JSON decode feature.
+            </li>
+            <li>
+              <strong>RSS/XML Unix Timestamp Formatting</strong> —
+              Unix timestamps in seconds and milliseconds are now detected
+              in XML/RSS text content and show human-readable date/time
+              hover tooltips alongside ISO 8601 and RFC 822 dates.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (XML Decode Tooltip)</strong> —
+              Fixed the decode hover tooltip crashing with
+              <code>Cannot set properties of undefined</code> on XML pages.
+              Element creation now uses the XHTML namespace so tooltips
+              render correctly in XML document contexts.
+            </li>
+            <li>
+              <strong>Bug Fix (JSON Decode Hover)</strong> —
+              Fixed JSON JWT and Base64 decode hover tooltips silently
+              failing in the browser extension. The decode methods were
+              moved to UiHelper but the container and codeBlock event
+              handlers still referenced JsonHandler, causing the hover to
+              be skipped.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.14 -->
       <div class="version-card">
         <div class="version-header">
@@ -1235,12 +1283,9 @@
           <a href="https://www.reddit.com/user/calxibe/" target="_blank"
             >Reddit</a
           >
-          <a href="https://github.com/calxibe/code-prettify-site/issues"
-            >GitHub</a
-          >
         </div>
         <p class="copyright">
-          &copy; 2026 Steinar Talmoen. All rights reserved.
+          &copy; 2026 FixQuotes. All rights reserved.
         </p>
       </div>
     </footer>
