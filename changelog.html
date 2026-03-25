@@ -87,11 +87,34 @@
         </a>
       </div>
 
+      <!-- Version 1.0.14 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.14</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">March 25, 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>🐛 Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (JSON JWT &amp; Base64 Decoder)</strong> —
+              Restored the inline JWT and Base64 decode tooltips. The JSON
+              syntax validator now uses an
+              asynchronous text parser plugin to reliably render inline
+              decryption badges for JWT authentication boundaries and large
+              Base64 encoded strings immediately as the code loads into the
+              viewport.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.13 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.13</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">March 25, 2026</span>
         </div>
 
@@ -137,9 +160,9 @@
           <h3>🐛 Bug Fixes</h3>
           <ul class="feature-list">
             <li>
-              <strong>Bug Fix (JSON Inspector &amp; Breadcrumbs with CodeMirror
-              6)</strong> — Fixed several JSON interaction regressions in the
-              shared CodeMirror 6 viewer. Selected paths, copied paths, pasted
+              <strong>Bug Fix (JSON Inspector &amp; Breadcrumbs)</strong>
+              — Fixed several JSON interaction regressions. Selected paths,
+              copied paths, pasted
               queries, and autocomplete now normalize consistently to valid
               <code>$</code>-prefixed JSONPath; clicking a JSON property key
               maps the clicked editor line back to the correct path and opens
@@ -151,26 +174,26 @@
               excludes gutter and fold controls.
             </li>
             <li>
-              <strong>Bug Fix (JSON Viewer Tools with CodeMirror 6)</strong> —
-              Fixed JSON-only viewer tools that regressed after the shared
-              CodeMirror migration. The Document Navigator now derives its
+              <strong>Bug Fix (JSON Viewer Tools)</strong> —
+              Fixed JSON-only viewer tools that regressed after the viewer
+              migration. The Document Navigator now derives its
               outline from the parsed JSON structure and jumps to the correct
               formatted lines, and Unix timestamps plus ISO 8601 string values
               once again show human-readable date/time tooltips in prettified
               and raw JSON documents.
             </li>
             <li>
-              <strong>Bug Fix (CSS Color Picker with CodeMirror 6)</strong> —
-              Restored the CSS color picker in the shared CodeMirror 6 viewer.
-              CSS swatches in read-only documents once again open the popup
+              <strong>Bug Fix (CSS Color Picker)</strong> —
+              Restored the CSS color picker. CSS swatches in read-only
+              documents once again open the popup
               with live preview and copyable HEX, RGB, and HSL values, and the
               CSS color picker setting now properly enables or disables those
               swatches.
             </li>
             <li>
               <strong>Bug Fix (Viewer Layout &amp; Minimap)</strong> — Fixed
-              several browser viewer layout issues in the shared CodeMirror
-              surface. The theme class now updates before the minimap redraw so
+              several browser viewer layout issues. The theme class now
+              updates before the minimap redraw so
               palette changes apply immediately, the pretty view resets the
               browser page's default body margin and repaints the minimap
               background with the active light or dark palette, and short
@@ -184,8 +207,8 @@
               migration. The minimap no longer crashes on Chromium XML viewer
               pages because the offscreen cache now uses an XHTML canvas
               element, and XML, RSS, and Atom documents are routed back through
-              the stable legacy markup renderer after the shared CodeMirror
-              surface exposed a mount failure there.
+              the stable legacy markup renderer after the viewer migration
+              exposed a mount failure there.
             </li>
           </ul>
         </div>
