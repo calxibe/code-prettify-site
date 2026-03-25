@@ -118,6 +118,34 @@ nav a.active {
     color: var(--primary-light);
 }
 
+/* Mobile hamburger button */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: var(--text);
+}
+
+.menu-toggle svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.menu-toggle .icon-close {
+    display: none;
+}
+
+.menu-toggle.active .icon-open {
+    display: none;
+}
+
+.menu-toggle.active .icon-close {
+    display: block;
+}
+
 /* ===================================
    Content (Privacy & Changelog pages)
    =================================== */
@@ -1009,8 +1037,39 @@ footer {
    Responsive
    =================================== */
 @media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
     nav {
-        gap: 16px;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: rgba(10, 11, 15, 0.95);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(63, 63, 70, 0.5);
+        padding: 8px 0;
+    }
+
+    nav.open {
+        display: flex;
+    }
+
+    nav a {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+
+    nav a:hover {
+        background: rgba(99, 102, 241, 0.1);
+    }
+
+    .header-inner {
+        position: relative;
     }
     
     .hero {
@@ -1071,5 +1130,11 @@ footer {
     .footer-inner {
         flex-direction: column;
         text-align: center;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
     }
 }

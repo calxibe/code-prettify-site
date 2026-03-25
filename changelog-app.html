@@ -57,6 +57,10 @@
             class="logo-icon"
           /><span>Code<span>Prettify</span></span>
         </a>
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
         <nav>
           <a href="/#features">Features</a>
           <a href="/changelog.html" class="active">Changelog</a>
@@ -69,6 +73,13 @@
         </nav>
       </div>
     </header>
+    <script>
+      document.querySelector('.menu-toggle').addEventListener('click', function () {
+        this.classList.toggle('active');
+        this.setAttribute('aria-expanded', this.classList.contains('active'));
+        document.querySelector('header nav').classList.toggle('open');
+      });
+    </script>
 
     <main class="content">
       <h1>Changelog</h1>
