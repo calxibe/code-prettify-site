@@ -1,12 +1,45 @@
-string_url: https://example.com/api/v1/resource
-string_text_with_url: Visit https://example.com for more info
-unix_timestamp_seconds: 1672531200
-unix_timestamp_milliseconds: 1672531200000
-iso_8601_date: 2023-01-01T00:00:00Z
-jwt_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
-base64_string: SGVsbG8gV29ybGQhIFRoaXMgaXMgYSB0ZXN0IHN0cmluZyBlbmNvZGVkIGluIGJhc2U2NC4=
-nested_object:
-  array:
-    - 1
-    - 2
-    - deep_key: deep_value
+meta:
+  generated_at: 2023-01-01T00:00:00Z
+  generated_at_unix: 1672531200
+  dashboard_url: https://prettify.cloud/changelog.html
+  note: Visit https://prettify.cloud/testfiles/test_json.json for the JSON table demo
+
+defaults: &defaults
+  retries: 3
+  timeout_ms: 1500
+  owner: platform-team
+  headers:
+    x-demo-source: code-prettify
+    x-docs-url: https://docs.example.com/code-prettify/yaml
+
+services:
+  - name: api-gateway
+    <<: *defaults
+    rollout:
+      started_at: 2023-01-01T00:00:00Z
+      finished_at_unix_ms: 1672531200000
+      canary_regions: [eu-north-1, eu-west-1]
+      endpoints:
+        - https://api.example.com/v1/health
+        - https://api.example.com/v1/metrics
+      notes: >-
+        This folded scalar stays readable in raw form and shows how CodePrettify
+        handles long values, nested mappings, and flow collections in YAML.
+
+  - name: worker-cluster
+    <<: *defaults
+    queues:
+      critical: {concurrency: 8, batch_size: 25}
+      bulk: {concurrency: 2, batch_size: 100}
+    release_message: |
+      Queue rebalance completed successfully.
+      No messages were dropped during the handoff.
+
+secrets:
+  jwt_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+  base64_blob: U3RhZ2luZyBzdWNjZXNzZnVsbHkgcHJvbW90ZWQgdG8gcHJvZHVjdGlvbi4=
+
+feature_flags:
+  beautify_by_default: true
+  line_numbers: true
+  floating_toolbar: false

@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root>
-    <string_url>https://example.com/api/v1/resource</string_url>
-    <string_text_with_url>Visit https://example.com for more info</string_text_with_url>
-    <unix_timestamp_seconds>1672531200</unix_timestamp_seconds>
-    <unix_timestamp_milliseconds>1672531200000</unix_timestamp_milliseconds>
-    <iso_8601_date>2023-01-01T00:00:00Z</iso_8601_date>
-    <jwt_token>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</jwt_token>
-    <base64_string>SGVsbG8gV29ybGQhIFRoaXMgaXMgYSB0ZXN0IHN0cmluZyBlbmNvZGVkIGluIGJhc2U2NC4=</base64_string>
-    <nested_object>
-        <item>1</item>
-        <item>2</item>
-        <item>
-            <deep_key>deep_value</deep_key>
-        </item>
-    </nested_object>
-</root>
+<releaseReport generatedAt="2023-01-01T00:00:00Z" generatedAtUnix="1672531200" xmlns:cp="https://prettify.cloud/ns/demo">
+    <metadata>
+        <dashboardUrl>https://prettify.cloud/changelog.html</dashboardUrl>
+        <releaseNotes>Visit https://docs.example.com/code-prettify/releases for deployment notes</releaseNotes>
+        <jwtToken>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</jwtToken>
+        <base64Payload>U2FtcGxlIFhNTCBwYXlsb2FkIGZvciBCYXNlNjQgZGVjb2Rpbmcu</base64Payload>
+        <publishedAt>Sun, 01 Jan 2023 00:00:00 GMT</publishedAt>
+    </metadata>
+    <services>
+        <service name="api-gateway" status="healthy" docs="https://status.example.com/api-gateway">
+            <deployedAt>2023-01-01T00:00:00Z</deployedAt>
+            <deployedAtUnixMs>1672531200000</deployedAtUnixMs>
+            <artifact href="https://cdn.example.com/releases/api-gateway-2023.01.01.tgz" sizeBytes="1843200" />
+            <note><![CDATA[Canary rollout enabled for 10% of traffic across eu-north-1 and eu-west-1.]]></note>
+        </service>
+        <service name="worker-cluster" status="degraded" docs="https://status.example.com/worker-cluster">
+            <deployedAt>2023-01-01T00:15:00Z</deployedAt>
+            <deployedAtUnixMs>1672532100000</deployedAtUnixMs>
+            <artifact href="https://cdn.example.com/releases/worker-cluster-2023.01.01.tgz" sizeBytes="3145728" />
+            <note>Retry queue is draining after a brief spike.</note>
+        </service>
+    </services>
+    <cp:checks>
+        <cp:check target="https://prettify.cloud/testfiles/test_json.json">pass</cp:check>
+        <cp:check target="https://prettify.cloud/testfiles/test_yaml.yaml">pass</cp:check>
+    </cp:checks>
+</releaseReport>

@@ -117,6 +117,38 @@
             </li>
           </ul>
         </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (JavaScript Navigator)</strong> —
+              Fixed the Document Navigator showing an empty outline for
+              JavaScript documents in the shared CodeMirror viewer by
+              deriving navigator items from the displayed source text
+              instead of legacy DOM fold markers.
+            </li>
+            <li>
+              <strong>Bug Fix (Centered Line Navigation)</strong> —
+              Improved line navigation so both Document Navigator jumps and
+              the Go To Line modal center the target line within the active
+              editor viewport when possible.
+            </li>
+            <li>
+              <strong>Bug Fix (HTML Injection Boundary)</strong> —
+              Stopped injecting the desktop-only HTML handler into browser
+              pages so regular HTML documents remain untouched and the
+              extension stays limited to supported raw-code formats.
+            </li>
+            <li>
+              <strong>Bug Fix (Build Packaging)</strong> —
+              Fixed the browser release build so the generated ZIP now
+              places the extension files at the archive root and removes
+              stale Font Awesome SVG entries from the built manifest after
+              asset inlining.
+            </li>
+          </ul>
+        </div>
       </div>
 
       <!-- Version 1.0.15 -->

@@ -106,188 +106,109 @@
         </div>
 
         <div class="version-section">
-          <h3>✨ New Features</h3>
+          <h3>Added</h3>
           <ul class="feature-list">
             <li>
-              <strong>Desktop Performance</strong> — Moved the desktop app’s
-              pure data-processing work for JSON/JSONL, XML/RSS, and HTML from
-              the WebView into the C# launcher. The launcher now computes
-              formatted text, validation, diagnostics, statistics, navigator
-              items, CSV/table models, diff results, and minimap line data
-              natively and sends compact results back to the web UI. Initial
-              load now requests only the formatting/validation path, while
-              heavier analysis is loaded on demand when the related tool opens.
+              Moved the desktop app's pure data-processing work for JSON and
+              JSONL, XML and RSS, and HTML from the WebView into the C#
+              launcher so formatting, validation, diagnostics, statistics,
+              navigator items, CSV and table models, diff results, and minimap
+              line data can be computed natively.
             </li>
             <li>
-              <strong>Native Menu Bar</strong> — Added a full native Windows
-              menu bar with File, Edit, View, Tools, and Help menus. The menu
-              bar themes automatically with dark/light mode.
-              <ul>
-                <li><strong>File:</strong> Open (Ctrl+O), Save As (Ctrl+S), Close Tab (Ctrl+W), Exit</li>
-                <li><strong>Edit:</strong> Copy Code (Ctrl+Alt+C), Find (Ctrl+F), Go to Line (Ctrl+G)</li>
-                <li><strong>View:</strong> Toggle Beautify (Ctrl+B), Word Wrap, Line Numbers, Minimap, Floating Toolbar (Ctrl+Alt+T), Zoom In/Out, DevTools (F12)</li>
-                <li><strong>Tools:</strong> Document Navigator, Table View, Statistics, Diagnostics, Compare with Clipboard (Ctrl+Alt+D), Settings</li>
-                <li><strong>Help:</strong> About CodePrettify</li>
-              </ul>
+              Added a full native Windows menu bar with File, Edit, View,
+              Tools, and Help menus, including shortcuts for Open, Save As,
+              Close Tab, search, line navigation, and compare-with-clipboard.
             </li>
             <li>
-              <strong>Tab Bar</strong> — Added a native tab bar for managing
-              multiple open files. Tabs are created when opening files via the
-              menu, toolbar, drag-and-drop, or context menu. Tabs show file
-              names with close buttons, and support hover effects and an active
-              accent line. The tab bar is hidden when no files are open.
+              Added a native tab bar for managing multiple open files with
+              close buttons, hover states, and an active accent line.
             </li>
             <li>
-              <strong>Keyboard Shortcuts</strong> — Added Ctrl+O (Open),
-              Ctrl+S (Save As), and Ctrl+W (Close Tab) shortcuts that work
+              Added Ctrl+O, Ctrl+S, and Ctrl+W keyboard shortcuts that work
               across the native menu and web layer.
             </li>
             <li>
-              <strong>TypeScript Support</strong> — Added support for
-              <code>.ts</code>, <code>.mts</code>, and <code>.cts</code>
-              files. TypeScript files are detected by file extension and MIME
-              type, and are formatted and highlighted using the JavaScript
-              handler.
+              Added support for TypeScript files using the JavaScript handler.
             </li>
             <li>
-              <strong>HTML Support</strong> — Added support for
-              <code>.html</code> and <code>.htm</code> files with a dedicated
-              HTML handler featuring syntax highlighting, code folding for
-              matched HTML tag pairs, clickable URLs in attribute values, and a
-              custom HTML formatter with void element and raw text element
-              awareness. HTML is enabled by default in the desktop app. Context
-              menu integration includes <code>.html</code> and
-              <code>.htm</code> on Windows 11.
+              Added support for HTML files with a dedicated formatter, code
+              folding for matched tag pairs, and clickable URLs in attribute
+              values.
             </li>
             <li>
-              <strong>UI Language Override</strong> — Added a language dropdown
-              to the settings modal that lets users override the automatic
-              system locale with any of the 14 supported languages (English,
-              Dansk, Deutsch, Español, Français, Italiano, 日本語, 한국어, Norsk,
-              Português, Русский, Svenska, Tiếng Việt, 中文). Defaults to
-              Auto (system). Changing the language saves the preference and
-              reloads the page with the chosen locale applied to all UI
-              strings.
+              Added a language override setting for the 14 supported locales.
             </li>
             <li>
-              <strong>Theme Setting</strong> — Added a theme dropdown to the
-              settings modal allowing users to switch between Light, Dark, and
-              Auto (system) themes directly from the settings panel.
+              Added a theme setting with Light, Dark, and Auto modes.
             </li>
             <li>
-              <strong>CSS Validation Line Numbers</strong> — Rewrote the CSS
-              syntax validator to use a stack-based approach that tracks the
-              exact line and column of each unmatched brace, parenthesis, or
-              bracket. The error toast now shows a clickable line number that
-              jumps to the first error. Strings and comments are correctly
-              skipped to avoid false positives.
+              Reworked CSS syntax validation to report exact line and column
+              locations for unmatched braces, parentheses, and brackets.
             </li>
             <li>
-              <strong>JSONL / NDJSON Support</strong> — JSONL files are now
-              parsed line-by-line and displayed as individual records with
-              <code>lineN</code> root paths, preserving the original JSONL
-              structure. All JSON features (collapsible tree, breadcrumb,
-              inspector, table view, CSV export, statistics, diagnostics, code
-              folding) work with JSONL. Validation reports errors per-line. The
-              raw view and original download preserve the JSONL format.
+              Added JSONL and NDJSON support with line-by-line parsing, JSON
+              tooling, and preservation of the original raw format.
             </li>
             <li>
-              <strong>JSON Path Autocomplete</strong> — The JSON path query
-              input now offers real-time autocomplete suggestions as you type,
-              with keyboard navigation (Arrow keys, Tab/Enter to accept,
-              Escape to dismiss). Suggestions are derived from the actual
-              document structure.
+              Added JSON path autocomplete suggestions and validation feedback
+              in the query input.
             </li>
             <li>
-              <strong>JSON Path Validation</strong> — The query input
-              highlights in red when the typed path is invalid (index out of
-              range, non-existent key), while allowing partial input as the
-              user is still typing.
+              Added drag-and-drop file opening from the landing page and the
+              desktop window.
             </li>
             <li>
-              <strong>Drag &amp; Drop</strong> — Open files by dragging them
-              onto the app window or clicking the file picker.
+              Added installed file-handler support for supported code and data
+              file types.
             </li>
             <li>
-              <strong>File Handler</strong> — When installed, registers as a
-              handler for <code>.js</code>, <code>.json</code>,
-              <code>.css</code>, <code>.xml</code>, <code>.rss</code>, and
-              <code>.atom</code> files.
+              Added a Windows 11 Explorer context-menu entry for opening
+              supported files in CodePrettify.
             </li>
             <li>
-              <strong>Context Menu</strong> — On Windows 11, adds
-              “Open with CodePrettify” directly in the File Explorer right-click
-              menu for supported file types.
+              Added a loading spinner while large files are being prepared.
             </li>
             <li>
-              <strong>Loading Indicator</strong> — Shows a spinner while
-              formatting large files, hiding raw content until formatting is
-              complete.
-            </li>
-            <li>
-              <strong>Offline</strong> — Fully functional without an internet
-              connection.
-            </li>
-            <li>
-              <strong>Storage Polyfill</strong> — Storage and i18n APIs are
-              polyfilled using <code>localStorage</code> and fetched locale
-              bundles.
-            </li>
-            <li>
-              All formatting, highlighting, navigation, and tool features are
-              included.
+              Added offline support with local storage and i18n polyfills.
             </li>
           </ul>
         </div>
 
         <div class="version-section">
-          <h3>🐛 Bug Fixes</h3>
+          <h3>Fixed</h3>
           <ul class="feature-list">
             <li>
-              <strong>Bug Fix (In-Place Drag &amp; Drop Reinit)</strong> —
               Fixed dropping a file onto the middle of an existing desktop tab
-              opening the new file in raw mode. The in-page reinitialization
-              path now resets transient view state before loading the dropped
-              file, so the new document respects the normal prettified/default
-              view flow.
+              opening the new file in raw mode by resetting transient view
+              state during in-page reinitialization.
             </li>
             <li>
-              <strong>Bug Fix (Language Setting Persistence)</strong> — Fixed
-              the language setting not persisting across page reloads. The
-              reload now waits for the storage write to complete before
-              triggering, preventing a race condition where the old value was
-              read back on reload.
+              Fixed the language setting reload flow so it waits for the
+              storage write to complete before reloading.
             </li>
             <li>
-              <strong>Bug Fix (HTML Formatter Whitespace)</strong> — Fixed the
-              HTML formatter producing extra blank lines when source text
-              between tags contained embedded newlines. Multi-line comments are
-              now split and re-indented per line, and inline text content is
-              properly trimmed before output.
+              Fixed the HTML formatter producing extra blank lines when source
+              text between tags contained embedded newlines.
             </li>
             <li>
-              <strong>Bug Fix (Clickable URLs Not Opening)</strong> — Fixed
-              clickable URLs in HTML and RSS attribute values not opening in
-              the desktop app. The WebView2 launcher now intercepts
-              <code>target="_blank"</code> link clicks and opens them in the
-              default system browser.
+              Fixed clickable URLs in HTML and RSS attribute values not opening
+              in the desktop app by routing <code>target="_blank"</code> links
+              to the default system browser.
             </li>
             <li>
-              <strong>Bug Fix (Inspector Modal Close)</strong> — Fixed the
-              JSON path inspector modal closing when clicking inside it or
-              selecting text. The modal now only closes when clicking outside
-              it, pressing Escape, or clicking the close button.
+              Fixed the JSON path inspector modal so clicking inside it or
+              selecting text no longer closes it.
             </li>
           </ul>
         </div>
 
         <div class="version-section">
-          <h3>🔧 Improvements</h3>
+          <h3>Changed</h3>
           <ul class="feature-list">
             <li>
-              <strong>UX (Inspector Result Actions)</strong> — Added a
-              copy-to-clipboard button on each JSON path query result and
-              reduced the button size for a more compact layout.
+              Added copy-to-clipboard actions on JSON path query results and
+              tightened the button layout for a more compact inspector UI.
             </li>
           </ul>
         </div>
