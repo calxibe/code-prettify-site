@@ -179,6 +179,22 @@
           <h3>Fixed</h3>
           <ul class="feature-list">
             <li>
+              Fixed prettified XML and RSS word wrap adding an extra blank
+              continuation line for long values by removing the trailing
+              rendered space from each XML line.
+            </li>
+            <li>
+              Fixed desktop raw view font sizing so the native raw editor now
+              follows the same effective font size as the user-configured web
+              editor setting.
+            </li>
+            <li>
+              Fixed desktop external file reloads getting stuck on loading by
+              reusing in-page reinjection instead of forcing a full WebView
+              navigation, and by guarding WebView suspend calls during tab
+              disposal.
+            </li>
+            <li>
               Fixed dropping a file onto the middle of an existing desktop tab
               opening the new file in raw mode by resetting transient view
               state during in-page reinitialization.
