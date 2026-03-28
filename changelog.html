@@ -132,6 +132,12 @@
               script as valid.
             </li>
             <li>
+              <strong>Bug Fix (Legacy Charset JS Source)</strong> —
+              Fixed valid UTF-8 JavaScript bundles being read as mojibake on
+              some raw browser pages that fell back to legacy document
+              encodings, which could surface false syntax errors.
+            </li>
+            <li>
               <strong>Bug Fix (Release Packaging)</strong> —
               Fixed the browser release build so the packaged extension keeps
               the shared CodeMirror validator bundle while excluding the

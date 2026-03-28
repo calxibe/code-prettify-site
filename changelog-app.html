@@ -199,6 +199,29 @@
               script as valid.
             </li>
             <li>
+              Fixed desktop tab startup sometimes getting stuck on loading
+              when WebView settings sync or initial file delivery raced
+              startup. The launcher now keeps loading the tab even if
+              settings sync fails and retries the file payload before showing
+              an error.
+            </li>
+            <li>
+              Fixed dropping a file into an existing desktop tab keeping
+              stale native file metadata, which could leave the Tools menu
+              and minimap in the previous file mode.
+            </li>
+            <li>
+              Fixed web-layer drag-and-drop in the desktop app reusing
+              another tab solely because the filename matched. Dropped files
+              now stay with the tab they were opened on unless the native
+              launcher has a real file path match.
+            </li>
+            <li>
+              Fixed the standalone app settings shortcut opening the browser
+              extension changelog instead of the Microsoft Store app
+              changelog.
+            </li>
+            <li>
               Fixed prettified XML and RSS word wrap adding an extra blank
               continuation line for long values by removing the trailing
               rendered space from each XML line.
