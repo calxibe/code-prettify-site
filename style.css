@@ -710,6 +710,7 @@ code {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: default;
 }
 
 .screenshot-modal-content img {
@@ -720,6 +721,10 @@ code {
     display: block;
     border-radius: 18px;
     box-shadow: 0 28px 90px rgba(0, 0, 0, 0.48);
+}
+
+.screenshot-modal-caption {
+    display: none;
 }
 
 /* ===================================
@@ -1314,6 +1319,7 @@ footer {
     .screenshot-tabs {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
+        margin-top: 0;
     }
 
     .screenshot-caption {
@@ -1321,8 +1327,7 @@ footer {
     }
 
     .screenshot-stage {
-        padding: 14px;
-        border-radius: 20px;
+        display: none;
     }
 
     .screenshot-tab {
@@ -1336,11 +1341,42 @@ footer {
 
     .screenshot-modal {
         padding: 16px;
+        align-items: flex-start;
     }
 
     .screenshot-modal-content {
+        width: min(680px, calc(100vw - 32px));
         max-width: calc(100vw - 32px);
         max-height: calc(100vh - 32px);
+        display: block;
+        overflow-y: auto;
+        border-radius: 22px;
+        background: rgba(10, 11, 15, 0.96);
+        border: 1px solid rgba(63, 63, 70, 0.8);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+    }
+
+    .screenshot-modal-content img {
+        width: 100%;
+        max-height: none;
+        border-radius: 22px 22px 0 0;
+        box-shadow: none;
+    }
+
+    .screenshot-modal-caption {
+        display: block;
+        padding: 16px 16px 18px;
+    }
+
+    .screenshot-modal-caption h4 {
+        font-size: 1.15rem;
+        color: #fff;
+        margin-bottom: 8px;
+    }
+
+    .screenshot-modal-caption p {
+        margin: 0;
+        color: var(--text-muted);
     }
     
     .btn {
@@ -1549,6 +1585,20 @@ footer {
 @media (max-width: 768px) and (prefers-color-scheme: light) {
     nav {
         background: rgba(255, 255, 255, 0.95);
+    }
+
+    .screenshot-modal-content {
+        background: rgba(255, 255, 255, 0.98);
+        border-color: rgba(212, 212, 216, 0.9);
+        box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+    }
+
+    .screenshot-modal-caption h4 {
+        color: #111827;
+    }
+
+    .screenshot-modal-caption p {
+        color: #4b5563;
     }
 
     nav a:hover {
