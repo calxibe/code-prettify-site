@@ -180,6 +180,25 @@
           <h3>Fixed</h3>
           <ul class="feature-list">
             <li>
+              Fixed the JavaScript syntax checker falsely rejecting some
+              valid minified classic scripts, including
+              <code>moment.min.js</code>, by validating standard scripts with
+              the browser parser before falling back to module-aware parsing
+              when needed.
+            </li>
+            <li>
+              Fixed TypeScript files being validated and rendered as plain
+              JavaScript by tracking the actual script file type for syntax
+              checks, CodeMirror highlighting, and extensionless relative
+              import resolution.
+            </li>
+            <li>
+              Fixed sandbox startup and validation transport failures being
+              reported as successful checks. Diagnostics now surface an
+              unavailable-validation warning instead of silently marking the
+              script as valid.
+            </li>
+            <li>
               Fixed prettified XML and RSS word wrap adding an extra blank
               continuation line for long values by removing the trailing
               rendered space from each XML line.

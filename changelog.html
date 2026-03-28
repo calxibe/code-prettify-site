@@ -99,11 +99,52 @@
         </a>
       </div>
 
+      <!-- Version 1.0.18 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.18</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date"></span>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Classic JavaScript Validation)</strong> —
+              Fixed the syntax checker falsely rejecting some valid minified
+              classic JavaScript files, including real-world bundles such as
+              <code>moment.min.js</code>, by validating standard scripts with
+              the browser parser before falling back to module-aware parsing
+              when needed.
+            </li>
+            <li>
+              <strong>Bug Fix (TypeScript Script Handling)</strong> —
+              Fixed TypeScript documents being validated and linkified as
+              plain JavaScript by preserving the actual script file type for
+              syntax checks and extensionless relative imports.
+            </li>
+            <li>
+              <strong>Bug Fix (Validation Diagnostics)</strong> —
+              Fixed sandbox startup and validation transport failures being
+              reported as successful checks. Diagnostics now surface an
+              unavailable-validation warning instead of silently marking the
+              script as valid.
+            </li>
+            <li>
+              <strong>Bug Fix (Release Packaging)</strong> —
+              Fixed the browser release build so the packaged extension keeps
+              the shared CodeMirror validator bundle while excluding the
+              unused browser <code>js/html.js</code> asset.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.16 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.16</span>
-          <span class="version-badge badge-upcoming">Upcoming</span>
           <span class="version-date"></span>
         </div>
 
@@ -224,7 +265,6 @@
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.14</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">March 25, 2026</span>
         </div>
 
