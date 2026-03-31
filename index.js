@@ -1,11 +1,3 @@
-window.dataLayer = window.dataLayer || [];
-window.gtag = function gtag() {
-  window.dataLayer.push(arguments);
-};
-
-window.gtag("js", new Date());
-window.gtag("config", "G-S4WNQ48Q7F");
-
 const screenshotData = [
   {
     image: "img/feature-js-transform.png",
@@ -72,21 +64,6 @@ const screenshotData = [
       "Dark mode keeps additions, removals, and synchronized panes easy to scan when you are comparing larger payloads late in the day.",
   },
 ];
-
-function initializeMenuToggle() {
-  const menuToggle = document.querySelector(".menu-toggle");
-  const nav = document.querySelector("header nav");
-
-  if (!menuToggle || !nav) {
-    return;
-  }
-
-  menuToggle.addEventListener("click", () => {
-    menuToggle.classList.toggle("active");
-    menuToggle.setAttribute("aria-expanded", menuToggle.classList.contains("active"));
-    nav.classList.toggle("open");
-  });
-}
 
 function initializeScreenshotGallery() {
   const mainImg = document.getElementById("main-screenshot");
@@ -194,7 +171,6 @@ function initializeSmoothScroll() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  initializeMenuToggle();
   initializeScreenshotGallery();
   initializeSmoothScroll();
 });

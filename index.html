@@ -35,11 +35,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <script src="index.js"></script>
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F"
-    ></script>
+    <script src="site.js" defer></script>
+    <script src="index.js" defer></script>
   </head>
   <body>
     <div class="bg-glow"></div>
@@ -462,10 +459,52 @@
               <p>
                 To use CodePrettify with local files (e.g.,
                 <code>file:///C:/code/data.json</code>), you must enable
-                <strong>"Allow access to file URLs"</strong> in Chrome's
-                extension management page (chrome://extensions).
+                <strong>"Allow access to file URLs"</strong> in your browser's
+                extension management page, such as <code>chrome://extensions</code>
+                or <code>edge://extensions</code>.
               </p>
             </div>
+          </div>
+
+          <div class="privacy-access-card">
+            <div class="privacy-access-copy">
+              <span class="section-badge">Privacy & Access</span>
+              <h3>Why The Extension Needs Page Access</h3>
+              <p>
+                CodePrettify reads supported raw-code pages in the current tab so
+                it can format, validate, compare, search, and export the file you
+                are already viewing. That handling stays local in your browser and
+                is limited to the user-facing features described on this site, in
+                the product UI, and in the browser extension marketplace listings.
+              </p>
+            </div>
+            <div class="privacy-access-points">
+              <div class="privacy-access-item">
+                <h4>What it uses</h4>
+                <p>
+                  Supported page content, the resource URL, browser-reported content type,
+                  character encoding, response-size hints, timing hints, and local settings.
+                </p>
+              </div>
+              <div class="privacy-access-item">
+                <h4>What it does not do</h4>
+                <p>
+                  It does not send your file contents to FixQuotes, sell browsing data,
+                  inject ads, or read request headers, response headers, cookies, or request bodies.
+                </p>
+              </div>
+              <div class="privacy-access-item">
+                <h4>Rare network retry</h4>
+                <p>
+                  If a JavaScript file looks incorrectly decoded with a legacy charset,
+                  CodePrettify may re-request the same URL directly from the site you are on
+                  to recover valid UTF-8 text.
+                </p>
+              </div>
+            </div>
+            <p class="privacy-access-footnote">
+              Full details are in the <a href="privacy.html">privacy policy</a>.
+            </p>
           </div>
         </div>
       </section>
@@ -503,6 +542,9 @@
         <div class="footer-links">
           <a href="privacy.html">Privacy Policy</a>
           <a href="changelog.html">Changelog</a>
+          <button type="button" class="footer-link-button" data-cookie-settings>
+            Cookie Settings
+          </button>
           <a href="https://github.com/calxibe/code-prettify-site/issues"
             >Feedback &amp; Issues</a
           >

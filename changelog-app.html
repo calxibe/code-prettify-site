@@ -35,18 +35,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-S4WNQ48Q7F");
-    </script>
+    <script src="site.js" defer></script>
   </head>
   <body>
     <header>
@@ -74,14 +63,6 @@
         </nav>
       </div>
     </header>
-    <script>
-      document.querySelector('.menu-toggle').addEventListener('click', function () {
-        this.classList.toggle('active');
-        this.setAttribute('aria-expanded', this.classList.contains('active'));
-        document.querySelector('header nav').classList.toggle('open');
-      });
-    </script>
-
     <main class="content">
       <h1>Changelog</h1>
       <p class="intro">
@@ -279,6 +260,9 @@
         <div class="footer-links">
           <a href="privacy.html">Privacy Policy</a>
           <a href="changelog.html">Changelog</a>
+          <button type="button" class="footer-link-button" data-cookie-settings>
+            Cookie Settings
+          </button>
           <a href="https://github.com/calxibe/code-prettify-site/issues"
             >Feedback &amp; Issues</a
           >

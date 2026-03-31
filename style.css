@@ -35,6 +35,10 @@ body {
     overflow-x: hidden;
 }
 
+body.cookie-banner-visible {
+    padding-bottom: 140px;
+}
+
 /* Gradient background effects (index page) */
 .bg-glow {
     position: fixed;
@@ -944,6 +948,133 @@ section {
     color: var(--text);
 }
 
+.limited-use-highlight {
+    margin-top: -8px;
+    border-color: rgba(34, 197, 94, 0.35);
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.12) 0%, rgba(34, 211, 238, 0.08) 100%);
+}
+
+.privacy-access-card {
+    margin-top: 28px;
+    background: linear-gradient(180deg, rgba(14, 18, 28, 0.92) 0%, rgba(24, 24, 27, 0.92) 100%);
+    border: 1px solid rgba(63, 63, 70, 0.9);
+    border-radius: 20px;
+    padding: 32px;
+    text-align: left;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.22);
+}
+
+.privacy-access-copy h3 {
+    font-size: 1.45rem;
+    margin-bottom: 12px;
+}
+
+.privacy-access-copy p {
+    max-width: 760px;
+}
+
+.privacy-access-points {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.privacy-access-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    border-radius: 14px;
+    padding: 18px;
+}
+
+.privacy-access-item h4 {
+    font-size: 0.98rem;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.privacy-access-item p {
+    margin: 0;
+    font-size: 0.92rem;
+}
+
+.privacy-access-footnote {
+    margin: 18px 0 0;
+    font-size: 0.92rem;
+}
+
+.cookie-banner {
+    position: fixed;
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+    z-index: 3000;
+    background: linear-gradient(180deg, rgba(9, 12, 20, 0.98) 0%, rgba(24, 24, 27, 0.98) 100%);
+    border: 1px solid rgba(99, 102, 241, 0.35);
+    border-radius: 16px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.42);
+    padding: 14px 18px;
+}
+
+.cookie-banner[hidden] {
+    display: none;
+}
+
+.cookie-banner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.cookie-banner-copy {
+    max-width: 720px;
+}
+
+.cookie-banner .section-badge {
+    font-size: 0.68rem;
+    letter-spacing: 1.4px;
+    margin-bottom: 6px;
+}
+
+.cookie-banner-copy h3 {
+    font-size: 1.02rem;
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+
+.cookie-banner-copy p {
+    font-size: 0.92rem;
+    line-height: 1.45;
+    margin-bottom: 0;
+}
+
+.cookie-banner-note {
+    margin-top: 8px;
+    font-size: 0.86rem;
+}
+
+.cookie-banner-status {
+    margin-top: 6px;
+    font-size: 0.78rem;
+    line-height: 1.35;
+    color: var(--accent);
+}
+
+.cookie-banner-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    flex-shrink: 0;
+}
+
+.cookie-banner .btn {
+    padding: 10px 16px;
+    font-size: 0.92rem;
+}
+
 /* ===================================
    Changelog Tabs
    =================================== */
@@ -1233,9 +1364,25 @@ footer {
     transition: color 0.2s;
 }
 
+.footer-link-button {
+    appearance: none;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.9rem;
+    padding: 0;
+    transition: color 0.2s;
+}
+
 .footer-links a:hover {
     color: #fff;
     text-decoration: none;
+}
+
+.footer-link-button:hover {
+    color: #fff;
 }
 
 .copyright {
@@ -1305,6 +1452,42 @@ footer {
     .shortcuts-section,
     .validation-section {
         padding: 32px 24px;
+    }
+
+    .privacy-access-card {
+        padding: 24px;
+    }
+
+    body.cookie-banner-visible {
+        padding-bottom: 190px;
+    }
+
+    .cookie-banner {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        padding: 14px;
+    }
+
+    .cookie-banner-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .cookie-banner-actions {
+        width: 100%;
+        flex-direction: row;
+    }
+
+    .cookie-banner .btn {
+        width: auto;
+        flex: 1 1 0;
+        max-width: none;
+    }
+
+    .privacy-access-points {
+        grid-template-columns: 1fr;
     }
     
     .validation-grid {
@@ -1574,6 +1757,20 @@ footer {
     }
 
     .footer-links a:hover {
+        color: #111827;
+    }
+
+    .footer-link-button:hover {
+        color: #111827;
+    }
+
+    .cookie-banner {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(244, 244, 245, 0.98) 100%);
+        border-color: rgba(79, 70, 229, 0.22);
+        box-shadow: 0 28px 70px rgba(15, 23, 42, 0.12);
+    }
+
+    .cookie-banner-copy h3 {
         color: #111827;
     }
 

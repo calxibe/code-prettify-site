@@ -4,7 +4,7 @@ Transform raw code into a readable, beautiful workspace.
 
 Website: https://prettify.cloud
 
-CodePrettify automatically formats, validates, and highlights raw JavaScript, JSON, CSS, XML, and RSS/Atom resources the moment you open them. Whether you are viewing a minified API response, a feed, or a local config file, you get an IDE-like experience directly in your browser.
+CodePrettify automatically formats, validates, and highlights raw JavaScript, TypeScript, JSON, JSONL, YAML, CSS, XML, and RSS/Atom resources the moment you open them. Whether you are viewing a minified API response, a feed, or a local config file, you get an IDE-like experience directly in your browser.
 
 ## 🚀 Smart Automation
 
@@ -37,7 +37,7 @@ Don't just read code—debug it. CodePrettify scans your files for common errors
 *   **Go To Line:** Jump straight to specific lines (`Ctrl+G`) for faster debugging.
 *   **Command Generation:** Generate copy-ready `cURL` and `fetch()` commands from the current page.
 *   **Export Options:** Download content as Original, Formatted, Minified, CSV, or a cropped image when supported.
-*   **HTTP Context Panel:** Inspect request and response details for the current resource.
+*   **HTTP Context Panel:** Inspect the current resource URL, content type, character encoding, size details, and timing hints.
 
 ## 🧭 Large-File Navigation
 
@@ -50,8 +50,15 @@ Don't just read code—debug it. CodePrettify scans your files for common errors
 
 *   **Themes:** Choose between Light, Dark, or Auto (syncs with system).
 *   **Viewer Settings:** Adjust font size, indentation, line numbers, word wrap, minimap, toolbar, and file-type-specific behavior.
-*   **Privacy First:** 100% client-side. Your code never leaves your browser.
-*   **Local Metadata Only:** Request and response metadata used for HTTP context and command generation stays in your browser session.
+*   **Privacy First:** CodePrettify handles supported page content locally and does not send it to FixQuotes servers.
+*   **Local Metadata Only:** Resource URLs and viewer metadata used for HTTP context and command generation stay in your browser session.
+*   **Rare Charset Recovery:** If a JavaScript file appears to be decoded with a legacy charset, the extension may re-request the same URL directly from the site you are already visiting to recover valid UTF-8 text.
+
+## Access & Privacy
+
+CodePrettify needs access to the current raw-code page so it can format, validate, compare, search, and export the file you are already viewing. It does not sell browsing data, use it for advertising, or send supported page content to our servers. Full details are available in the privacy policy at https://prettify.cloud/privacy.html.
+
+Supported page access is limited to the extension's user-facing features. In rare JavaScript encoding-recovery cases, the browser may re-request the same URL directly from the origin site to recover valid UTF-8 bytes.
 
 ## ⌨️ Keyboard Shortcuts
 
@@ -65,7 +72,7 @@ Don't just read code—debug it. CodePrettify scans your files for common errors
 
 ## 📝 Note for Local Files
 
-To use CodePrettify with local files (e.g., `file:///C:/code/data.json`), you must manually enable "Allow access to file URLs" in the Chrome Extensions management page.
+To use CodePrettify with local files (e.g., `file:///C:/code/data.json`), you must manually enable "Allow access to file URLs" in your browser's extension management page, such as `chrome://extensions` or `edge://extensions`.
 
 ## Supported Languages
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Privacy Policy - CodePrettify</title>
-    <meta name="description" content="CodePrettify processes code locally on your device and does not collect personal data." />
+    <meta name="description" content="CodePrettify handles supported page content locally on your device to provide viewer features and does not transmit that content to our servers." />
     <meta name="application-name" content="CodePrettify" />
     <meta name="apple-mobile-web-app-title" content="CodePrettify" />
     <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
@@ -20,13 +20,13 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Privacy Policy - CodePrettify" />
-    <meta property="og:description" content="CodePrettify processes code locally on your device and does not collect personal data." />
+    <meta property="og:description" content="CodePrettify handles supported page content locally on your device to provide viewer features and does not transmit that content to our servers." />
     <meta property="og:url" content="https://prettify.cloud/privacy.html" />
     <meta property="og:image" content="https://prettify.cloud/img/feature-http-context.png" />
     <meta property="og:image:alt" content="CodePrettify HTTP context panel showing response metadata and timing details" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Privacy Policy - CodePrettify" />
-    <meta name="twitter:description" content="CodePrettify processes code locally on your device and does not collect personal data." />
+    <meta name="twitter:description" content="CodePrettify handles supported page content locally on your device to provide viewer features and does not transmit that content to our servers." />
     <meta name="twitter:image" content="https://prettify.cloud/img/feature-http-context.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,18 +35,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-S4WNQ48Q7F");
-    </script>
+    <script src="site.js" defer></script>
   </head>
   <body>
     <header>
@@ -74,14 +63,6 @@
         </nav>
       </div>
     </header>
-    <script>
-      document.querySelector('.menu-toggle').addEventListener('click', function () {
-        this.classList.toggle('active');
-        this.setAttribute('aria-expanded', this.classList.contains('active'));
-        document.querySelector('header nav').classList.toggle('open');
-      });
-    </script>
-
     <main class="content">
       <h1>Privacy Policy</h1>
       <p class="last-updated">Last Updated: March 31, 2026</p>
@@ -92,15 +73,31 @@
       </p>
 
       <div class="highlight">
-        <strong>Summary:</strong> We do not collect, store, or transmit your
-        code to our servers. The browser extension performs its viewer and
-        formatting features locally on your device and, in limited
-        encoding-recovery cases described below, may re-request the same URL
-        from the site you are already visiting.
+        <strong>Summary:</strong> CodePrettify handles supported page content,
+        resource URLs, and related response metadata locally on your device so
+        it can format, inspect, compare, and export raw-code resources. We do
+        not transmit that content or metadata to our servers. In limited
+        encoding-recovery cases described below, the extension may re-request
+        the same URL directly from the site you are already visiting.
       </div>
 
-      <h2>1. Data Collection</h2>
-      <p><strong>CodePrettify does not collect any personal data.</strong></p>
+      <div class="highlight limited-use-highlight">
+          <strong>Marketplace disclosure:</strong> CodePrettify uses access to
+          supported raw-code pages only to provide the viewer features that are
+          described in its browser extension marketplace listings and in the
+          product UI. We do not sell the data, use it for advertising, or let
+          humans read it unless you explicitly choose to share information with
+          us for support.
+      </div>
+
+      <h2>1. Data Handling</h2>
+      <p>
+        <strong>
+          CodePrettify handles supported page content and resource metadata
+          locally to deliver its viewer features, but it does not collect or
+          transmit that information to our servers.
+        </strong>
+      </p>
       <p>
         To determine whether the extension should activate, a lightweight
         loader checks the current page's protocol, URL path, and
@@ -115,8 +112,8 @@
         statistics, exports, and other viewer features. Supported content
         includes JavaScript, TypeScript, JSON, JSONL/NDJSON, YAML, CSS, XML,
         and RSS/Atom feeds, including resources detected by content type even
-        when the URL has no matching file extension. This processing is
-        performed locally within your browser on your device.
+        when the URL has no matching file extension. This handling happens
+        locally within your browser on your device.
       </p>
       <p>
         To provide the HTTP Context panel and cURL/fetch generator, the
@@ -143,7 +140,7 @@
         contents automatically.
       </p>
       <ul>
-        <li>We do not send your code or derived viewer metadata to our servers.</li>
+        <li>We do not send supported page content or derived viewer metadata to our servers.</li>
         <li>
           We do not collect or transmit request headers, response headers,
           cookies, or request bodies to our servers.
@@ -154,7 +151,7 @@
 
       <h2>2. Local Storage</h2>
       <p>
-        We use your browser's local extension storage
+        We use your browser's local extension storage area
         (<code>chrome.storage.local</code>) solely to save user preferences,
         such as:
       </p>
@@ -168,7 +165,7 @@
       </ul>
       <p>
         These settings are stored locally on your device. CodePrettify does not
-        use Chrome Sync or any external database for these preferences.
+        use sync storage or any external database for these preferences.
       </p>
       <p>
         The extension may also store recent per-URL view state locally so it
@@ -210,26 +207,34 @@
 
       <h2>5. Website Analytics</h2>
       <p>
-        The CodePrettify website uses Google Analytics to collect aggregated
-        and anonymized usage statistics. No personally identifiable information
-        is collected. This may include information such as pages visited, time
-        spent on the site, and basic device/browser information.
+        The CodePrettify website loads Google Analytics only if you accept
+        analytics through the cookie consent banner. We store that choice in
+        <code>localStorage</code> on your browser so we can remember whether
+        analytics is allowed on later visits from the same device and browser.
       </p>
       <p>
-        Google Analytics may use cookies or similar technologies to collect
-        this information. This data is used solely to improve the website and
-        user experience.
+        If you accept analytics, Google Analytics may set cookies or use
+        similar technologies to collect aggregated website statistics such as
+        pages visited, time spent on the site, and basic device or browser
+        information. We use that information only to understand and improve the
+        website.
       </p>
       <p>
-        No personal data from the CodePrettify browser extension or desktop
-        application is collected or transmitted to us.
+        If you decline analytics, the site does not load Google Analytics and
+        attempts to clear existing Google Analytics cookies for this host in
+        your browser. You can revisit this choice at any time with the Cookie
+        Settings control in the footer. No personal data from the CodePrettify
+        browser extension or desktop application is collected or transmitted to
+        us.
       </p>
 
       <h2>6. Your Rights</h2>
       <p>
-        Since CodePrettify does not collect or store personal data, there is no
-        personal data to access, modify, or delete. If you have any questions,
-        you may contact us using the information below.
+        CodePrettify does not maintain a server-side database of the supported
+        page content or viewer metadata that it handles locally in your
+        browser. If you have questions about the extension's local data
+        handling or settings storage, you may contact us using the information
+        below.
       </p>
 
       <h2>7. Changes to This Policy</h2>
@@ -260,6 +265,9 @@
         <div class="footer-links">
           <a href="privacy.html">Privacy Policy</a>
           <a href="changelog.html">Changelog</a>
+          <button type="button" class="footer-link-button" data-cookie-settings>
+            Cookie Settings
+          </button>
           <a href="https://github.com/calxibe/code-prettify-site/issues"
             >Feedback &amp; Issues</a
           >
