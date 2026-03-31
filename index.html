@@ -46,7 +46,7 @@
 
     <header>
       <div class="header-inner">
-        <a href="/" class="logo">
+          <a href="index.html" class="logo">
           <img
             src="img/code_32.png"
             alt="CodePrettify"
@@ -58,9 +58,9 @@
           <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
         </button>
         <nav>
-          <a href="/#features">Features</a>
-          <a href="/changelog.html">Changelog</a>
-          <a href="/privacy.html">Privacy</a>
+          <a href="index.html#features">Features</a>
+          <a href="changelog.html">Changelog</a>
+          <a href="privacy.html">Privacy</a>
           <a
             href="https://github.com/calxibe/code-prettify-site/issues"
             target="_blank"
@@ -182,35 +182,36 @@
               <div class="screenshot-main">
                 <button type="button" class="screenshot-open" id="main-screenshot-trigger" aria-label="Open screenshot preview">
                   <img
-                    src="img/feature-http-context.png"
-                    alt="CodePrettify HTTP context panel showing response metadata and headers"
+                    src="img/feature-js-transform.png"
+                    alt="CodePrettify before and after view showing a minified JavaScript bundle transformed into readable formatted code"
                     id="main-screenshot"
                   />
                 </button>
               </div>
               <div class="screenshot-caption">
-                <span class="screenshot-kicker" id="screenshot-kicker">HTTP Context</span>
-                <h4 id="screenshot-title">Inspect the response behind the code</h4>
+                <span class="screenshot-kicker" id="screenshot-kicker">JavaScript</span>
+                <h4 id="screenshot-title">Show the jump from compressed bundles to readable code</h4>
                 <p id="screenshot-description">
-                  See status, content type, encoding, timing hints, and headers
-                  alongside the document you are viewing.
+                  Capture the same minified JavaScript file in raw mode and
+                  prettified mode so visitors can immediately see what the
+                  extension cleans up.
                 </p>
               </div>
             </div>
             <div class="screenshot-tabs">
               <button class="screenshot-tab active" type="button">
                 <span class="screenshot-tab-thumb">
-                  <img src="img/feature-http-context_thumb.png" alt="" aria-hidden="true" />
-                </span>
-                <span class="screenshot-tab-kicker">Inspect</span>
-                <span class="screenshot-tab-label">HTTP Context</span>
-              </button>
-              <button class="screenshot-tab" type="button">
-                <span class="screenshot-tab-thumb">
                   <img src="img/feature-js-transform_thumb.png" alt="" aria-hidden="true" />
                 </span>
                 <span class="screenshot-tab-kicker">Transform</span>
                 <span class="screenshot-tab-label">JavaScript</span>
+              </button>
+              <button class="screenshot-tab" type="button">
+                <span class="screenshot-tab-thumb">
+                  <img src="img/feature-http-context_thumb.png" alt="" aria-hidden="true" />
+                </span>
+                <span class="screenshot-tab-kicker">Inspect</span>
+                <span class="screenshot-tab-label">HTTP Context</span>
               </button>
               <button class="screenshot-tab" type="button">
                 <span class="screenshot-tab-thumb">
@@ -317,7 +318,8 @@
                   Diagnostics panel shows syntax status, warnings, and file-type-specific insights
                 </li>
                 <li>
-                  HTTP context reveals status, content type, encoding, timing hints, and response headers
+                  HTTP context reveals the request URL, content type,
+                  encoding, size details, and timing hints
                 </li>
                 <li>
                   Statistics panels surface file size, line count, and document-specific metrics
@@ -499,13 +501,10 @@
     <footer>
       <div class="footer-inner">
         <div class="footer-links">
-          <a href="/privacy.html">Privacy Policy</a>
-          <a href="/changelog.html">Changelog</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="changelog.html">Changelog</a>
           <a href="https://github.com/calxibe/code-prettify-site/issues"
             >Feedback &amp; Issues</a
-          >
-          <a href="https://www.reddit.com/user/calxibe/" target="_blank"
-            >Reddit</a
           >
         </div>
         <p class="copyright">

@@ -8,20 +8,20 @@ window.gtag("config", "G-S4WNQ48Q7F");
 
 const screenshotData = [
   {
-    image: "img/feature-http-context.png",
-    alt: "CodePrettify HTTP context panel showing response metadata and headers",
-    kicker: "HTTP Context",
-    title: "Inspect the response behind the code",
-    description:
-      "See status, content type, encoding, timing hints, and headers alongside the document you are viewing.",
-  },
-  {
     image: "img/feature-js-transform.png",
     alt: "CodePrettify before and after view showing a minified JavaScript bundle transformed into readable formatted code",
     kicker: "JavaScript",
     title: "Show the jump from compressed bundles to readable code",
     description:
       "Capture the same minified JavaScript file in raw mode and prettified mode so visitors can immediately see what the extension cleans up.",
+  },
+  {
+    image: "img/feature-http-context.png",
+    alt: "CodePrettify HTTP context panel showing URL, metadata, and timing details",
+    kicker: "HTTP Context",
+    title: "Inspect the resource behind the code",
+    description:
+      "See the request URL, content type, encoding, size details, and timing hints alongside the document you are viewing.",
   },
   {
     image: "img/feature-diff-view.png",
