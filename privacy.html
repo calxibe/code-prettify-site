@@ -84,7 +84,7 @@
 
     <main class="content">
       <h1>Privacy Policy</h1>
-      <p class="last-updated">Last Updated: March 25, 2026</p>
+      <p class="last-updated">Last Updated: March 31, 2026</p>
       <p>
         This Privacy Policy describes how CodePrettify ("we", "us", or "our")
         handles your information when you use our desktop application and
@@ -93,39 +93,63 @@
 
       <div class="highlight">
         <strong>Summary:</strong> We do not collect, store, or transmit your
-        code to our servers. All formatting and processing happens locally on
-        your device.
+        code to our servers. The browser extension performs its viewer and
+        formatting features locally on your device and, in limited
+        encoding-recovery cases described below, may re-request the same URL
+        from the site you are already visiting.
       </div>
 
       <h2>1. Data Collection</h2>
       <p><strong>CodePrettify does not collect any personal data.</strong></p>
       <p>
+        To determine whether the extension should activate, a lightweight
+        loader checks the current page's protocol, URL path, and
+        browser-reported content type locally in your browser. Full viewer
+        assets are injected only when the page appears to be a supported
+        raw-code resource.
+      </p>
+      <p>
         When you open a supported raw-code resource in your browser, the
         extension reads the content of that specific tab to apply formatting,
-        syntax highlighting, search, code folding, statistics, exports, and
-        other viewer features. Supported content includes JavaScript, JSON, CSS,
-        XML, and RSS/Atom feeds, including pages detected by response headers
-        even when the URL has no matching file extension. This process is
-        performed entirely within your browser's memory on your device.
+        syntax highlighting, search, code folding, diagnostics, compare tools,
+        statistics, exports, and other viewer features. Supported content
+        includes JavaScript, TypeScript, JSON, JSONL/NDJSON, YAML, CSS, XML,
+        and RSS/Atom feeds, including resources detected by content type even
+        when the URL has no matching file extension. This processing is
+        performed locally within your browser on your device.
       </p>
       <p>
         To provide the HTTP Context panel and cURL/fetch generator, the
-        extension also reads limited request and response metadata for the
-        active raw-code tab, such as the request URL, status code, content type,
-        content encoding, timing hints, response headers, and a small safe
-        subset of request headers when available (for example
-        <code>Accept</code>, <code>Accept-Language</code>, <code>Origin</code>,
-        and <code>Referer</code>). This metadata is used locally in the current
-        browser session and is not transmitted to us.
+        extension reads locally available metadata for the active resource,
+        such as the resource URL, browser-reported content type and character
+        encoding, response-size estimates, transfer-size hints, and browser
+        timing metrics. The current cURL/fetch generator uses the resource URL
+        only. The extension does not capture request headers, response headers,
+        cookies, or request bodies for these features.
+      </p>
+      <p>
+        In limited cases, when a JavaScript file appears to have been decoded
+        with a legacy character set and may contain mojibake, the extension may
+        re-fetch the same URL from the original website to recover the correct
+        UTF-8 text. That request goes directly from your browser to the website
+        you are already visiting and may include your normal browser
+        credentials for that site. The fetched data is processed locally and is
+        not transmitted to CodePrettify or our servers.
+      </p>
+      <p>
+        Clipboard features are user initiated. The extension writes text to
+        your clipboard only when you use a copy or share action, and the
+        compare tool uses text you paste manually instead of reading clipboard
+        contents automatically.
       </p>
       <ul>
-        <li>We do not send your code to any external server.</li>
+        <li>We do not send your code or derived viewer metadata to our servers.</li>
         <li>
-          We do not send captured request or response metadata to any external
-          server.
+          We do not collect or transmit request headers, response headers,
+          cookies, or request bodies to our servers.
         </li>
-        <li>We do not track your browsing history.</li>
-        <li>We do not store your files.</li>
+        <li>We do not track your browsing history or build browsing profiles.</li>
+        <li>We do not upload or store your files on our servers.</li>
       </ul>
 
       <h2>2. Local Storage</h2>
@@ -136,7 +160,7 @@
       </p>
       <ul>
         <li>Theme choice (Light/Dark/Auto)</li>
-        <li>Indent size preference</li>
+        <li>Language, indent size, and font size preferences</li>
         <li>Whether line numbers are enabled</li>
         <li>
           Word wrap, toolbar, minimap, and file-type specific viewer settings
@@ -147,10 +171,16 @@
         use Chrome Sync or any external database for these preferences.
       </p>
       <p>
-        Some view state, such as search text, highlighted line, fold state, and
-        display options, may also be written into the page URL hash so you can
-        share or restore the current view. That information stays in the URL on
-        your device unless you choose to copy or share the link.
+        The extension may also store recent per-URL view state locally so it
+        can restore your previous view for the same resource. This may include
+        search text, selected JSON path, highlighted line, fold state, and
+        whether you were viewing the original or formatted output.
+      </p>
+      <p>
+        If you choose to copy a shareable URL, the URL hash may include view
+        state such as search text, selected path, highlighted line, fold state,
+        and some viewer settings. That information stays in the copied link and
+        is only shared if you choose to share the URL.
       </p>
 
       <h2>3. Application Behavior</h2>
@@ -166,14 +196,16 @@
 
       <h2>4. Third-Party Services</h2>
       <p>
-        The extension utilizes open-source libraries (Prism.js, js-beautify)
-        that are bundled directly within the extension. No external CDNs or
-        third-party tracking scripts are loaded.
+        The extension utilizes open-source libraries such as CodeMirror 6 and
+        js-beautify that are bundled directly within the extension. No external
+        CDNs or third-party tracking scripts are loaded by the browser
+        extension itself.
       </p>
       <p>
-        The extension website may load standard website assets such as hosted
-        fonts, but the browser extension itself performs its code viewing and
-        formatting features offline using bundled resources.
+        If you choose to open external links from the extension, such as
+        changelog or issue-report pages, your browser connects directly to
+        those websites under their own policies. The extension website may also
+        load standard website assets such as hosted fonts.
       </p>
 
       <h2>5. Website Analytics</h2>
@@ -189,8 +221,8 @@
         user experience.
       </p>
       <p>
-        No personal data from the CodePrettify desktop application is
-        collected or transmitted.
+        No personal data from the CodePrettify browser extension or desktop
+        application is collected or transmitted to us.
       </p>
 
       <h2>6. Your Rights</h2>
@@ -236,7 +268,7 @@
           >
         </div>
         <p class="copyright">
-          &copy; 2026 FixQuotes. All rights reserved.
+          &copy; 2026 FixQuotes. CodePrettify a browser extension by FixQuotes.
         </p>
       </div>
     </footer>
