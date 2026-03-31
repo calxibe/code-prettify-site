@@ -1236,6 +1236,14 @@ section {
     margin-bottom: 16px;
 }
 
+.extension-icon img {
+    width: 42px;
+    height: 42px;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
 .extension-card h3 {
     font-size: 1.15rem;
     font-weight: 700;
