@@ -1208,7 +1208,7 @@ section {
 
 .extensions-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 24px;
     margin-top: 40px;
 }
@@ -1223,6 +1223,12 @@ section {
     text-decoration: none;
     color: var(--text);
     transition: border-color 0.2s, transform 0.2s;
+}
+
+@media (max-width: 1024px) {
+    .extensions-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 .extension-card:hover {

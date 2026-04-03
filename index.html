@@ -1,158 +1,149 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CodePrettify - Make Raw Code Instantly Readable</title>
-    <meta name="description" content="Open raw code, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, inspects, and exports JavaScript, TypeScript, JSON, CSS, YAML, XML, and RSS/Atom files right in your browser."/>
-    <meta name="application-name" content="CodePrettify" />
-    <meta name="apple-mobile-web-app-title" content="CodePrettify" />
-    <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-    <meta name="color-scheme" content="dark light" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <link rel="canonical" href="https://prettify.cloud" />
-    <link rel="icon" href="favicon.ico" sizes="any" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-    <link rel="manifest" href="site.webmanifest" />
-    <meta property="og:site_name" content="CodePrettify" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="CodePrettify - Make Raw Code Instantly Readable" />
-    <meta property="og:description" content="Open raw code, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, inspects, and exports JavaScript, TypeScript, JSON, CSS, YAML, XML, and RSS/Atom files right in your browser." />
-    <meta property="og:url" content="https://prettify.cloud" />
-    <meta property="og:image" content="https://prettify.cloud/img/feature-http-context.png" />
-    <meta property="og:image:alt" content="CodePrettify HTTP context panel showing response metadata and timing details" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="CodePrettify - Make Raw Code Instantly Readable" />
-    <meta name="twitter:description" content="Open raw code, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, inspects, and exports JavaScript, TypeScript, JSON, CSS, YAML, XML, and RSS/Atom files right in your browser." />
-    <meta name="twitter:image" content="https://prettify.cloud/img/feature-http-context.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=block"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <script src="site.js" defer></script>
-    <script src="index.js" defer></script>
-  </head>
-  <body>
-    <div class="bg-glow"></div>
 
-    <header>
-      <div class="header-inner">
-          <a href="index.html" class="logo">
-          <img
-            src="img/code_32.png"
-            alt="CodePrettify"
-            class="logo-icon"
-          /><span>Code<span>Prettify</span></span>
-        </a>
-        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-          <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
-        </button>
-        <nav>
-          <a href="index.html#features">Features</a>
-          <a href="changelog.html">Changelog</a>
-          <a href="privacy.html">Privacy</a>
-          <a
-              href="https://support.prettify.cloud/"
-            target="_blank"
-              >Contact</a
-          >
-        </nav>
-      </div>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodePrettify - Make Raw Code Instantly Readable</title>
+  <meta name="description"
+    content="Open raw code, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, inspects, and exports JavaScript, TypeScript, JSON, CSS, YAML, XML, and RSS/Atom files right in your browser." />
+  <meta name="application-name" content="CodePrettify" />
+  <meta name="apple-mobile-web-app-title" content="CodePrettify" />
+  <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://prettify.cloud" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta property="og:site_name" content="CodePrettify" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="CodePrettify - Make Raw Code Instantly Readable" />
+  <meta property="og:description"
+    content="Open raw code, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, inspects, and exports JavaScript, TypeScript, JSON, CSS, YAML, XML, and RSS/Atom files right in your browser." />
+  <meta property="og:url" content="https://prettify.cloud" />
+  <meta property="og:image" content="https://prettify.cloud/img/feature-http-context.png" />
+  <meta property="og:image:alt"
+    content="CodePrettify HTTP context panel showing response metadata and timing details" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CodePrettify - Make Raw Code Instantly Readable" />
+  <meta name="twitter:description"
+    content="Open raw code, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, inspects, and exports JavaScript, TypeScript, JSON, CSS, YAML, XML, and RSS/Atom files right in your browser." />
+  <meta name="twitter:image" content="https://prettify.cloud/img/feature-http-context.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=block"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="site.js" defer></script>
+  <script src="index.js" defer></script>
+</head>
 
-    <main>
-      <section class="hero">
-        <div class="container">
-          <h1>Make Raw Code<br />Instantly Readable</h1>
+<body>
+  <div class="bg-glow"></div>
 
-          <p class="subtitle">
-            Open a raw API response, minified bundle, or feed and start working
-            immediately. CodePrettify formats the document, surfaces response
-            details, and gives you fast ways to inspect, compare, copy, and
-            export without leaving the browser.
-          </p>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="img/code_32.png" alt="CodePrettify" class="logo-icon" /><span>Code<span>Prettify</span></span>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18" />
+        </svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6 6 18M6 6l12 12" />
+        </svg>
+      </button>
+      <nav>
+        <a href="index.html#features">Features</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="https://support.prettify.cloud/" target="_blank">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-          <p class="hero-proof">
-            Built for JSON payloads, CDN bundles, XML feeds, YAML configs, and
-            local <code>file://</code> documents.
-          </p>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Make Raw Code<br />Instantly Readable</h1>
 
-          <div class="cta-buttons">
-            <a
-              href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj"
-              class="btn btn-primary"
-              target="_blank"
-            >
-              <img src="img/chrome.svg" alt="Chrome" width="20" height="20" />
-              Install for Chrome
-            </a>
-            <a
-              href="https://microsoftedge.microsoft.com/addons/detail/codeprettify-js-json-c/ckmnkbdicbcbajedhngfaamomlgpgchc"
-              class="btn btn-primary"
-              target="_blank"
-            >
-              <img src="img/edge.svg" alt="Edge" width="20" height="20" />
-              Install for Edge
-            </a>
-          </div>
+        <p class="subtitle">
+          Open a raw API response, minified bundle, or feed and start working
+          immediately. CodePrettify formats the document, surfaces response
+          details, and gives you fast ways to inspect, compare, copy, and
+          export without leaving the browser.
+        </p>
 
-          <div class="supported-section">
-            <div class="supported-box">
-              <h4>📄 Supported Code Formats</h4>
-              <div class="format-tags">
-                <span class="format-tag">JavaScript <code>.js</code> <code>.mjs</code> <code>.cjs</code></span>
-                <span class="format-tag">TypeScript <code>.ts</code> <code>.mts</code> <code>.cts</code></span>
-                <span class="format-tag">JSON <code>.json</code> <code>.jsonl</code></span>
-                <span class="format-tag">CSS <code>.css</code></span>
-                <span class="format-tag">YAML <code>.yaml</code> <code>.yml</code></span>
-                <span class="format-tag">XML <code>.xml</code></span>
-                <span class="format-tag">RSS/Atom <code>.rss</code> <code>.atom</code></span>
-              </div>
-              <p>
-                Detects supported files by URL and HTTP content type, including
-                local <code>file://</code> resources when file access is enabled.
-              </p>
+        <p class="hero-proof">
+          Built for JSON payloads, CDN bundles, XML feeds, YAML configs, and
+          local <code>file://</code> documents.
+        </p>
+
+        <div class="cta-buttons">
+          <a href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj"
+            class="btn btn-primary" target="_blank">
+            <img src="img/chrome.svg" alt="Chrome" width="20" height="20" />
+            Install for Chrome
+          </a>
+          <a href="https://microsoftedge.microsoft.com/addons/detail/codeprettify-js-json-c/ckmnkbdicbcbajedhngfaamomlgpgchc"
+            class="btn btn-primary" target="_blank">
+            <img src="img/edge.svg" alt="Edge" width="20" height="20" />
+            Install for Edge
+          </a>
+        </div>
+
+        <div class="supported-section">
+          <div class="supported-box">
+            <h4>📄 Supported Code Formats</h4>
+            <div class="format-tags">
+              <span class="format-tag">JavaScript <code>.js</code> <code>.mjs</code> <code>.cjs</code></span>
+              <span class="format-tag">TypeScript <code>.ts</code> <code>.mts</code> <code>.cts</code></span>
+              <span class="format-tag">JSON <code>.json</code> <code>.jsonl</code></span>
+              <span class="format-tag">CSS <code>.css</code></span>
+              <span class="format-tag">YAML <code>.yaml</code> <code>.yml</code></span>
+              <span class="format-tag">XML <code>.xml</code></span>
+              <span class="format-tag">RSS/Atom <code>.rss</code> <code>.atom</code></span>
             </div>
-            <div class="supported-box">
-              <h4>🌐 14 Interface Languages</h4>
-              <div class="language-tags">
-                <span class="lang-tag">English</span>
-                <span class="lang-tag">Norwegian</span>
-                <span class="lang-tag">Swedish</span>
-                <span class="lang-tag">Danish</span>
-                <span class="lang-tag">German</span>
-                <span class="lang-tag">French</span>
-                <span class="lang-tag">Spanish</span>
-                <span class="lang-tag">Italian</span>
-                <span class="lang-tag">Portuguese</span>
-                <span class="lang-tag">Russian</span>
-                <span class="lang-tag">Chinese</span>
-                <span class="lang-tag">Japanese</span>
-                <span class="lang-tag">Korean</span>
-                <span class="lang-tag">Vietnamese</span>
-              </div>
-              <p>
-                Keep the UI on auto-detect or choose your preferred language,
-                theme, and file-type behavior from settings.
-              </p>
-            </div>
+            <p>
+              Detects supported files by URL and HTTP content type, including
+              local <code>file://</code> resources when file access is enabled.
+            </p>
           </div>
+          <div class="supported-box">
+            <h4>🌐 14 Interface Languages</h4>
+            <div class="language-tags">
+              <span class="lang-tag">English</span>
+              <span class="lang-tag">Norwegian</span>
+              <span class="lang-tag">Swedish</span>
+              <span class="lang-tag">Danish</span>
+              <span class="lang-tag">German</span>
+              <span class="lang-tag">French</span>
+              <span class="lang-tag">Spanish</span>
+              <span class="lang-tag">Italian</span>
+              <span class="lang-tag">Portuguese</span>
+              <span class="lang-tag">Russian</span>
+              <span class="lang-tag">Chinese</span>
+              <span class="lang-tag">Japanese</span>
+              <span class="lang-tag">Korean</span>
+              <span class="lang-tag">Vietnamese</span>
+            </div>
+            <p>
+              Keep the UI on auto-detect or choose your preferred language,
+              theme, and file-type behavior from settings.
+            </p>
+          </div>
+        </div>
 
-          <div class="video-section">
-            <h3 class="video-title">📺 See It In Action</h3>
-            <div class="video-container">
-              <iframe
-                src="https://www.youtube.com/embed/cCFrQbuE4GI"
-                title="CodePrettify Demo"
-                frameborder="0"
-                allow="
+        <div class="video-section">
+          <h3 class="video-title">📺 See It In Action</h3>
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/cCFrQbuE4GI" title="CodePrettify Demo" frameborder="0" allow="
                   accelerometer;
                   autoplay;
                   clipboard-write;
@@ -160,410 +151,406 @@
                   gyroscope;
                   picture-in-picture;
                   web-share;
-                "
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-
-          <div class="screenshot-gallery">
-            <div class="screenshot-header">
-              <span class="section-badge">Feature Tour</span>
-              <h3>A closer look at the workflow</h3>
-              <p>
-                These are the views that matter most when you are inspecting raw
-                responses, comparing revisions, and cleaning up large payloads.
-              </p>
-            </div>
-            <div class="screenshot-stage">
-              <div class="screenshot-main">
-                <button type="button" class="screenshot-open" id="main-screenshot-trigger" aria-label="Open screenshot preview">
-                  <img
-                    src="img/feature-js-transform.png"
-                    alt="CodePrettify before and after view showing a minified JavaScript bundle transformed into readable formatted code"
-                    id="main-screenshot"
-                  />
-                </button>
-              </div>
-              <div class="screenshot-caption">
-                <span class="screenshot-kicker" id="screenshot-kicker">JavaScript</span>
-                <h4 id="screenshot-title">Show the jump from compressed bundles to readable code</h4>
-                <p id="screenshot-description">
-                  Capture the same minified JavaScript file in raw mode and
-                  prettified mode so visitors can immediately see what the
-                  extension cleans up.
-                </p>
-              </div>
-            </div>
-            <div class="screenshot-tabs">
-              <button class="screenshot-tab active" type="button">
-                <span class="screenshot-tab-thumb">
-                  <img src="img/feature-js-transform_thumb.png" alt="" aria-hidden="true" />
-                </span>
-                <span class="screenshot-tab-kicker">Transform</span>
-                <span class="screenshot-tab-label">JavaScript</span>
-              </button>
-              <button class="screenshot-tab" type="button">
-                <span class="screenshot-tab-thumb">
-                  <img src="img/feature-http-context_thumb.png" alt="" aria-hidden="true" />
-                </span>
-                <span class="screenshot-tab-kicker">Inspect</span>
-                <span class="screenshot-tab-label">HTTP Context</span>
-              </button>
-              <button class="screenshot-tab" type="button">
-                <span class="screenshot-tab-thumb">
-                  <img src="img/feature-diff-view_thumb.png" alt="" aria-hidden="true" />
-                </span>
-                <span class="screenshot-tab-kicker">Compare</span>
-                <span class="screenshot-tab-label">Diff View</span>
-              </button>
-              <button class="screenshot-tab" type="button">
-                <span class="screenshot-tab-thumb">
-                  <img src="img/feature-table-view_thumb.png" alt="" aria-hidden="true" />
-                </span>
-                <span class="screenshot-tab-kicker">Explore</span>
-                <span class="screenshot-tab-label">Table View</span>
-              </button>
-              <button class="screenshot-tab" type="button">
-                <span class="screenshot-tab-thumb">
-                  <img src="img/feature-stats-diagnostics_thumb.png" alt="" aria-hidden="true" />
-                </span>
-                <span class="screenshot-tab-kicker">Measure</span>
-                <span class="screenshot-tab-label">Diagnostics</span>
-              </button>
-              <button class="screenshot-tab" type="button">
-                <span class="screenshot-tab-thumb">
-                  <img src="img/feature-settings_thumb.png" alt="" aria-hidden="true" />
-                </span>
-                <span class="screenshot-tab-kicker">Customize</span>
-                <span class="screenshot-tab-label">Settings</span>
-              </button>
-              <button class="screenshot-tab" type="button">
-                <span class="screenshot-tab-thumb">
-                  <img src="img/feature-http-context-dark_thumb.png" alt="" aria-hidden="true" />
-                </span>
-                <span class="screenshot-tab-kicker">Dark Mode</span>
-                <span class="screenshot-tab-label">HTTP Context</span>
-              </button>
-              <button class="screenshot-tab" type="button">
-                <span class="screenshot-tab-thumb">
-                  <img src="img/feature-diff-view-dark_thumb.png" alt="" aria-hidden="true" />
-                </span>
-                <span class="screenshot-tab-kicker">Dark Mode</span>
-                <span class="screenshot-tab-label">Diff View</span>
-              </button>
-            </div>
+                " allowfullscreen></iframe>
           </div>
         </div>
-      </section>
 
-      <div class="screenshot-modal" id="screenshot-modal" hidden>
-        <div class="screenshot-modal-content">
-          <img id="screenshot-modal-image" alt="" />
-          <div class="screenshot-modal-caption">
-            <span class="screenshot-kicker" id="screenshot-modal-kicker"></span>
-            <h4 id="screenshot-modal-title"></h4>
-            <p id="screenshot-modal-description"></p>
+        <div class="screenshot-gallery">
+          <div class="screenshot-header">
+            <span class="section-badge">Feature Tour</span>
+            <h3>A closer look at the workflow</h3>
+            <p>
+              These are the views that matter most when you are inspecting raw
+              responses, comparing revisions, and cleaning up large payloads.
+            </p>
+          </div>
+          <div class="screenshot-stage">
+            <div class="screenshot-main">
+              <button type="button" class="screenshot-open" id="main-screenshot-trigger"
+                aria-label="Open screenshot preview">
+                <img src="img/feature-js-transform.png"
+                  alt="CodePrettify before and after view showing a minified JavaScript bundle transformed into readable formatted code"
+                  id="main-screenshot" />
+              </button>
+            </div>
+            <div class="screenshot-caption">
+              <span class="screenshot-kicker" id="screenshot-kicker">JavaScript</span>
+              <h4 id="screenshot-title">Show the jump from compressed bundles to readable code</h4>
+              <p id="screenshot-description">
+                Capture the same minified JavaScript file in raw mode and
+                prettified mode so visitors can immediately see what the
+                extension cleans up.
+              </p>
+            </div>
+          </div>
+          <div class="screenshot-tabs">
+            <button class="screenshot-tab active" type="button">
+              <span class="screenshot-tab-thumb">
+                <img src="img/feature-js-transform_thumb.png" alt="" aria-hidden="true" />
+              </span>
+              <span class="screenshot-tab-kicker">Transform</span>
+              <span class="screenshot-tab-label">JavaScript</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <img src="img/feature-http-context_thumb.png" alt="" aria-hidden="true" />
+              </span>
+              <span class="screenshot-tab-kicker">Inspect</span>
+              <span class="screenshot-tab-label">HTTP Context</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <img src="img/feature-diff-view_thumb.png" alt="" aria-hidden="true" />
+              </span>
+              <span class="screenshot-tab-kicker">Compare</span>
+              <span class="screenshot-tab-label">Diff View</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <img src="img/feature-table-view_thumb.png" alt="" aria-hidden="true" />
+              </span>
+              <span class="screenshot-tab-kicker">Explore</span>
+              <span class="screenshot-tab-label">Table View</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <img src="img/feature-stats-diagnostics_thumb.png" alt="" aria-hidden="true" />
+              </span>
+              <span class="screenshot-tab-kicker">Measure</span>
+              <span class="screenshot-tab-label">Diagnostics</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <img src="img/feature-settings_thumb.png" alt="" aria-hidden="true" />
+              </span>
+              <span class="screenshot-tab-kicker">Customize</span>
+              <span class="screenshot-tab-label">Settings</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <img src="img/feature-http-context-dark_thumb.png" alt="" aria-hidden="true" />
+              </span>
+              <span class="screenshot-tab-kicker">Dark Mode</span>
+              <span class="screenshot-tab-label">HTTP Context</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <img src="img/feature-diff-view-dark_thumb.png" alt="" aria-hidden="true" />
+              </span>
+              <span class="screenshot-tab-kicker">Dark Mode</span>
+              <span class="screenshot-tab-label">Diff View</span>
+            </button>
           </div>
         </div>
       </div>
+    </section>
 
-      <section id="features">
-        <div class="container">
+    <div class="screenshot-modal" id="screenshot-modal" hidden>
+      <div class="screenshot-modal-content">
+        <img id="screenshot-modal-image" alt="" />
+        <div class="screenshot-modal-caption">
+          <span class="screenshot-kicker" id="screenshot-modal-kicker"></span>
+          <h4 id="screenshot-modal-title"></h4>
+          <p id="screenshot-modal-description"></p>
+        </div>
+      </div>
+    </div>
+
+    <section id="features">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Features</span>
+          <h2>Built For Real Debugging Work</h2>
+          <p class="section-desc">
+            Move from raw response to useful insight in seconds with tools
+            designed for inspection, comparison, and cleanup.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon auto">🚀</div>
+            <h3>Open It And Start Reading</h3>
+            <p>
+              CodePrettify recognizes supported raw-code resources and turns
+              them into a usable workspace immediately.
+            </p>
+            <ul class="feature-list">
+              <li>
+                Detects supported resources by URL and HTTP content type
+              </li>
+              <li>Supports JavaScript, TypeScript, JSON, JSONL, CSS, YAML, XML, and RSS/Atom feeds</li>
+              <li>
+                Intelligent minification detection formats dense files automatically
+              </li>
+              <li>
+                Switch between original, formatted, minified, and raw views without a clumsy page refresh
+              </li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon validate">🛡️</div>
+            <h3>Spot Problems Faster</h3>
+            <p>
+              See what is wrong with the document and what came back from the
+              server in the same place.
+            </p>
+            <ul class="feature-list">
+              <li>JSON syntax errors include exact line references</li>
+              <li>JavaScript and CSS validation provide instant feedback</li>
+              <li>
+                Diagnostics panel shows syntax status, warnings, and file-type-specific insights
+              </li>
+              <li>
+                HTTP context reveals the request URL, content type,
+                encoding, size details, and timing hints
+              </li>
+              <li>
+                Statistics panels surface file size, line count, and document-specific metrics
+              </li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon json">📂</div>
+            <h3>Inspect Structured Data Without Friction</h3>
+            <p>
+              Query, decode, and inspect large structured payloads without
+              losing your place.
+            </p>
+            <ul class="feature-list">
+              <li>Collapsible arrays and objects for easy navigation</li>
+              <li>JSON path inspector and query tools with autocomplete, validation, and copy actions</li>
+              <li>
+                Table View renders JSON arrays and XML or RSS data as sortable, searchable tables
+              </li>
+              <li>
+                Clickable URLs, timestamp tooltips, and inline decode helpers speed up inspection
+              </li>
+              <li>
+                Base64 and JWT decoding opens a dedicated read-only modal for safer analysis
+              </li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon tools">🛠️</div>
+            <h3>Move Cleanly Into The Next Tool</h3>
+            <p>
+              Generate commands, copy the right variant, and export the exact
+              format you need.
+            </p>
+            <ul class="feature-list">
+              <li>
+                Generate copy-ready <code>cURL</code> and <code>fetch()</code> commands from the current page
+              </li>
+              <li>
+                Copy original, formatted, or minified code directly from the toolbar
+              </li>
+              <li>
+                Export as original, formatted, minified, CSV, HTML table, or PNG image
+              </li>
+              <li>
+                Advanced search supports regex, match counts, and fast navigation
+              </li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon customize">🧭</div>
+            <h3>Stay Oriented In Large Files</h3>
+            <p>
+              Navigate long documents confidently, compare revisions, and
+              jump back into the same view later.
+            </p>
+            <ul class="feature-list">
+              <li>
+                Document Navigator outlines JSON, JavaScript, and XML/RSS
+                structure
+              </li>
+              <li>
+                Code minimap makes large documents easier to scan and jump
+                through
+              </li>
+              <li>
+                Compare with Clipboard adds synchronized side-by-side diffing, swap sides, and line stats
+              </li>
+              <li>
+                Restore and share search text, highlighted lines, fold state, and display settings by URL
+              </li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon keyboard">🔒</div>
+            <h3>Fits Your Workflow And Stays Local</h3>
+            <p>Your code stays on your machine, and the viewer adapts to how you work.</p>
+            <ul class="feature-list">
+              <li>Everything runs client-side in your browser</li>
+              <li>
+                No servers, no external processing, and no code leaves your session
+              </li>
+              <li>
+                Choose Light, Dark, or Auto theme and override the UI language when needed
+              </li>
+              <li>Adjust line numbers, word wrap, toolbar, minimap, and file-type-specific behaviors</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="shortcuts">
+      <div class="container">
+        <div class="shortcuts-section">
           <div class="section-header">
-            <span class="section-badge">Features</span>
-            <h2>Built For Real Debugging Work</h2>
+            <span class="section-badge">Efficiency</span>
+            <h2>⌨️ Keyboard Shortcuts</h2>
             <p class="section-desc">
-              Move from raw response to useful insight in seconds with tools
-              designed for inspection, comparison, and cleanup.
+              Master CodePrettify with these quick commands
             </p>
           </div>
 
-          <div class="features-grid">
-            <div class="feature-card">
-              <div class="feature-icon auto">🚀</div>
-              <h3>Open It And Start Reading</h3>
-              <p>
-                CodePrettify recognizes supported raw-code resources and turns
-                them into a usable workspace immediately.
-              </p>
-              <ul class="feature-list">
-                <li>
-                  Detects supported resources by URL and HTTP content type
-                </li>
-                <li>Supports JavaScript, TypeScript, JSON, JSONL, CSS, YAML, XML, and RSS/Atom feeds</li>
-                <li>
-                  Intelligent minification detection formats dense files automatically
-                </li>
-                <li>
-                  Switch between original, formatted, minified, and raw views without a clumsy page refresh
-                </li>
-              </ul>
+          <div class="shortcuts-grid">
+            <div class="shortcut-item">
+              <span class="kbd">Ctrl + B</span>
+              <span class="shortcut-label">Toggle Raw/Pretty</span>
             </div>
-
-            <div class="feature-card">
-              <div class="feature-icon validate">🛡️</div>
-              <h3>Spot Problems Faster</h3>
-              <p>
-                See what is wrong with the document and what came back from the
-                server in the same place.
-              </p>
-              <ul class="feature-list">
-                <li>JSON syntax errors include exact line references</li>
-                <li>JavaScript and CSS validation provide instant feedback</li>
-                <li>
-                  Diagnostics panel shows syntax status, warnings, and file-type-specific insights
-                </li>
-                <li>
-                  HTTP context reveals the request URL, content type,
-                  encoding, size details, and timing hints
-                </li>
-                <li>
-                  Statistics panels surface file size, line count, and document-specific metrics
-                </li>
-              </ul>
+            <div class="shortcut-item">
+              <span class="kbd">Ctrl + Alt + C</span>
+              <span class="shortcut-label">Copy to Clipboard</span>
             </div>
-
-            <div class="feature-card">
-              <div class="feature-icon json">📂</div>
-              <h3>Inspect Structured Data Without Friction</h3>
-              <p>
-                Query, decode, and inspect large structured payloads without
-                losing your place.
-              </p>
-              <ul class="feature-list">
-                <li>Collapsible arrays and objects for easy navigation</li>
-                <li>JSON path inspector and query tools with autocomplete, validation, and copy actions</li>
-                <li>
-                  Table View renders JSON arrays and XML or RSS data as sortable, searchable tables
-                </li>
-                <li>
-                  Clickable URLs, timestamp tooltips, and inline decode helpers speed up inspection
-                </li>
-                <li>
-                  Base64 and JWT decoding opens a dedicated read-only modal for safer analysis
-                </li>
-              </ul>
+            <div class="shortcut-item">
+              <span class="kbd">Ctrl + F</span>
+              <span class="shortcut-label">Open Search</span>
             </div>
-
-            <div class="feature-card">
-              <div class="feature-icon tools">🛠️</div>
-              <h3>Move Cleanly Into The Next Tool</h3>
-              <p>
-                Generate commands, copy the right variant, and export the exact
-                format you need.
-              </p>
-              <ul class="feature-list">
-                <li>
-                  Generate copy-ready <code>cURL</code> and <code>fetch()</code> commands from the current page
-                </li>
-                <li>
-                  Copy original, formatted, or minified code directly from the toolbar
-                </li>
-                <li>
-                  Export as original, formatted, minified, CSV, HTML table, or PNG image
-                </li>
-                <li>
-                  Advanced search supports regex, match counts, and fast navigation
-                </li>
-              </ul>
+            <div class="shortcut-item">
+              <span class="kbd">Ctrl + G</span>
+              <span class="shortcut-label">Go to Line</span>
             </div>
-
-            <div class="feature-card">
-              <div class="feature-icon customize">🧭</div>
-              <h3>Stay Oriented In Large Files</h3>
-              <p>
-                Navigate long documents confidently, compare revisions, and
-                jump back into the same view later.
-              </p>
-              <ul class="feature-list">
-                <li>
-                  Document Navigator outlines JSON, JavaScript, and XML/RSS
-                  structure
-                </li>
-                <li>
-                  Code minimap makes large documents easier to scan and jump
-                  through
-                </li>
-                <li>
-                  Compare with Clipboard adds synchronized side-by-side diffing, swap sides, and line stats
-                </li>
-                <li>
-                  Restore and share search text, highlighted lines, fold state, and display settings by URL
-                </li>
-              </ul>
+            <div class="shortcut-item">
+              <span class="kbd">Ctrl + Alt + D</span>
+              <span class="shortcut-label">Compare / Diff View</span>
             </div>
-
-            <div class="feature-card">
-              <div class="feature-icon keyboard">🔒</div>
-              <h3>Fits Your Workflow And Stays Local</h3>
-              <p>Your code stays on your machine, and the viewer adapts to how you work.</p>
-              <ul class="feature-list">
-                <li>Everything runs client-side in your browser</li>
-                <li>
-                  No servers, no external processing, and no code leaves your session
-                </li>
-                <li>
-                  Choose Light, Dark, or Auto theme and override the UI language when needed
-                </li>
-                <li>Adjust line numbers, word wrap, toolbar, minimap, and file-type-specific behaviors</li>
-              </ul>
+            <div class="shortcut-item">
+              <span class="kbd">Ctrl + Alt + T</span>
+              <span class="shortcut-label">Toggle Toolbar</span>
             </div>
           </div>
         </div>
-      </section>
 
-      <section id="shortcuts">
-        <div class="container">
-          <div class="shortcuts-section">
-            <div class="section-header">
-              <span class="section-badge">Efficiency</span>
-              <h2>⌨️ Keyboard Shortcuts</h2>
-              <p class="section-desc">
-                Master CodePrettify with these quick commands
-              </p>
-            </div>
-
-            <div class="shortcuts-grid">
-              <div class="shortcut-item">
-                <span class="kbd">Ctrl + B</span>
-                <span class="shortcut-label">Toggle Raw/Pretty</span>
-              </div>
-              <div class="shortcut-item">
-                <span class="kbd">Ctrl + Alt + C</span>
-                <span class="shortcut-label">Copy to Clipboard</span>
-              </div>
-              <div class="shortcut-item">
-                <span class="kbd">Ctrl + F</span>
-                <span class="shortcut-label">Open Search</span>
-              </div>
-              <div class="shortcut-item">
-                <span class="kbd">Ctrl + G</span>
-                <span class="shortcut-label">Go to Line</span>
-              </div>
-              <div class="shortcut-item">
-                <span class="kbd">Ctrl + Alt + D</span>
-                <span class="shortcut-label">Compare / Diff View</span>
-              </div>
-              <div class="shortcut-item">
-                <span class="kbd">Ctrl + Alt + T</span>
-                <span class="shortcut-label">Toggle Toolbar</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="note-box">
-            <span class="icon">📝</span>
-            <div>
-              <h4>Note for Local Files</h4>
-              <p>
-                To use CodePrettify with local files (e.g.,
-                <code>file:///C:/code/data.json</code>), you must enable
-                <strong>"Allow access to file URLs"</strong> in your browser's
-                extension management page, such as <code>chrome://extensions</code>
-                or <code>edge://extensions</code>.
-              </p>
-            </div>
-          </div>
-
-          <div class="privacy-access-card">
-            <div class="privacy-access-copy">
-              <span class="section-badge">Privacy & Access</span>
-              <h3>Why The Extension Needs Page Access</h3>
-              <p>
-                CodePrettify reads supported raw-code pages in the current tab so
-                it can format, validate, compare, search, and export the file you
-                are already viewing. That handling stays local in your browser and
-                is limited to the user-facing features described on this site, in
-                the product UI, and in the browser extension marketplace listings.
-              </p>
-            </div>
-            <div class="privacy-access-points">
-              <div class="privacy-access-item">
-                <h4>What it uses</h4>
-                <p>
-                  Supported page content, the resource URL, browser-reported content type,
-                  character encoding, response-size hints, timing hints, and local settings.
-                </p>
-              </div>
-              <div class="privacy-access-item">
-                <h4>What it does not do</h4>
-                <p>
-                  It does not send your file contents to FixQuotes, sell browsing data,
-                  inject ads, or read request headers, response headers, cookies, or request bodies.
-                </p>
-              </div>
-              <div class="privacy-access-item">
-                <h4>Rare network retry</h4>
-                <p>
-                  If a JavaScript file looks incorrectly decoded with a legacy charset,
-                  CodePrettify may re-request the same URL directly from the site you are on
-                  to recover valid UTF-8 text.
-                </p>
-              </div>
-            </div>
-            <p class="privacy-access-footnote">
-              Full details are in the <a href="privacy.html">privacy policy</a>.
+        <div class="note-box">
+          <span class="icon">📝</span>
+          <div>
+            <h4>Note for Local Files</h4>
+            <p>
+              To use CodePrettify with local files (e.g.,
+              <code>file:///C:/code/data.json</code>), you must enable
+              <strong>"Allow access to file URLs"</strong> in your browser's
+              extension management page, such as <code>chrome://extensions</code>
+              or <code>edge://extensions</code>.
             </p>
           </div>
         </div>
-      </section>
 
-      <section id="more-extensions">
-        <div class="container">
-          <div class="section-header">
-            <span class="section-badge">More Extensions</span>
-            <h2>Our Other Extensions</h2>
-            <p class="section-desc">Check out our other free browser extensions</p>
+        <div class="privacy-access-card">
+          <div class="privacy-access-copy">
+            <span class="section-badge">Privacy & Access</span>
+            <h3>Why The Extension Needs Page Access</h3>
+            <p>
+              CodePrettify reads supported raw-code pages in the current tab so
+              it can format, validate, compare, search, and export the file you
+              are already viewing. That handling stays local in your browser and
+              is limited to the user-facing features described on this site, in
+              the product UI, and in the browser extension marketplace listings.
+            </p>
           </div>
-          <div class="extensions-grid">
-            <a href="https://fixguard.org/" class="extension-card" target="_blank" rel="noopener">
-              <div class="extension-icon">
-                <img src="img/plugins/fixguard-logo.svg" alt="" aria-hidden="true" />
-              </div>
-              <h3>FixGuard</h3>
-              <p>Block ads, hide cookie banners, and browse clean with zero tracking.</p>
-            </a>
-            <a href="https://fixquotes.com/docs/browser-extension/" class="extension-card" target="_blank" rel="noopener">
-              <div class="extension-icon">
-                <img src="img/plugins/fixquotes-logo.svg" alt="" aria-hidden="true" />
-              </div>
-              <h3>FixQuotes</h3>
-              <p>Daily quotes on every new tab with scenic backgrounds and dark mode.</p>
-            </a>
-            <a href="https://tabconnect.app/" class="extension-card" target="_blank" rel="noopener">
-              <div class="extension-icon">
-                <img src="img/plugins/tabconnect-logo.svg" alt="" aria-hidden="true" />
-              </div>
-              <h3>TabConnect</h3>
-              <p>Secure tab sharing with short passwords and encrypted remote viewing.</p>
-            </a>
-            <a href="https://notepin.fixquotes.com" class="extension-card" target="_blank" rel="noopener">
-              <div class="extension-icon">
-                <img src="img/plugins/notepin-logo.svg" alt="" aria-hidden="true" />
-              </div>
-              <h3>NotePin</h3>
-              <p>Sticky notes for any page with sync, colors, search, and dark mode.</p>
-            </a>
+          <div class="privacy-access-points">
+            <div class="privacy-access-item">
+              <h4>What it uses</h4>
+              <p>
+                Supported page content, the resource URL, browser-reported content type,
+                character encoding, response-size hints, timing hints, and local settings.
+              </p>
+            </div>
+            <div class="privacy-access-item">
+              <h4>What it does not do</h4>
+              <p>
+                It does not send your file contents to FixQuotes, sell browsing data,
+                inject ads, or read request headers, response headers, cookies, or request bodies.
+              </p>
+            </div>
+            <div class="privacy-access-item">
+              <h4>Rare network retry</h4>
+              <p>
+                If a JavaScript file looks incorrectly decoded with a legacy charset,
+                CodePrettify may re-request the same URL directly from the site you are on
+                to recover valid UTF-8 text.
+              </p>
+            </div>
           </div>
+          <p class="privacy-access-footnote">
+            Full details are in the <a href="privacy.html">privacy policy</a>.
+          </p>
         </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="footer-inner">
-        <div class="footer-links">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="changelog.html">Changelog</a>
-          <a href="https://support.prettify.cloud/"
-            >Feedback &amp; Support</a
-          >
-        </div>
-        <p class="copyright">
-          &copy; 2026 FixQuotes. CodePrettify a browser extension by FixQuotes.
-        </p>
       </div>
-    </footer>
+    </section>
 
-  </body>
+    <section id="more-extensions">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">More Extensions</span>
+          <h2>Our Other Extensions</h2>
+          <p class="section-desc">Check out our other free browser extensions</p>
+        </div>
+        <div class="extensions-grid">
+          <a href="https://fixguard.org/" class="extension-card" target="_blank" rel="noopener">
+            <div class="extension-icon">
+              <img src="img/plugins/fixguard-logo.svg" alt="" aria-hidden="true" />
+            </div>
+            <h3>FixGuard</h3>
+            <p>Block ads, hide cookie banners, and browse clean with zero tracking.</p>
+          </a>
+          <a href="https://fixquotes.com/docs/browser-extension/" class="extension-card" target="_blank" rel="noopener">
+            <div class="extension-icon">
+              <img src="img/plugins/fixquotes-logo.svg" alt="" aria-hidden="true" />
+            </div>
+            <h3>FixQuotes</h3>
+            <p>Daily quotes on every new tab with scenic backgrounds and dark mode.</p>
+          </a>
+          <a href="https://tabconnect.app/" class="extension-card" target="_blank" rel="noopener">
+            <div class="extension-icon">
+              <img src="img/plugins/tabconnect-logo.svg" alt="" aria-hidden="true" />
+            </div>
+            <h3>TabConnect</h3>
+            <p>Secure tab sharing with short passwords and encrypted remote viewing.</p>
+          </a>
+          <a href="https://notepin.fixquotes.com" class="extension-card" target="_blank" rel="noopener">
+            <div class="extension-icon">
+              <img src="img/plugins/notepin-logo.svg" alt="" aria-hidden="true" />
+            </div>
+            <h3>NotePin</h3>
+            <p>Sticky notes for any page with sync, colors, search, and dark mode.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="https://support.prettify.cloud/">Feedback &amp; Support</a>
+      </div>
+      <p class="copyright">
+        &copy; 2026 FixQuotes. CodePrettify a browser extension by FixQuotes.
+      </p>
+    </div>
+  </footer>
+
+</body>
+
 </html>
