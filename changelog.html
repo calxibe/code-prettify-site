@@ -80,11 +80,39 @@
         </a>
       </div>
 
+      <!-- Version 1.0.20 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.20</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date"></span>
+        </div>
+        
+        <div class="version-section">
+          <h3>Improvements</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Settings Sync Storage</strong> —
+              Persistent extension settings now move into browser sync storage
+              so supported browsers can keep CodePrettify preferences aligned
+              across profiles.
+            </li>
+            <li>
+              <strong>Legacy Storage Migration</strong> —
+              Existing local <code>codePrettifySettings</code> and
+              <code>codePrettifyViewStates</code> entries now migrate
+              automatically to the shorter <code>settings</code> and
+              <code>viewStates</code> keys, with cleanup of the old local
+              settings key after migration.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.19 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.19</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date"></span>
         </div>
 
