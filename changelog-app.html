@@ -95,11 +95,70 @@
         </a>
       </div>
 
+      <!-- Version 1.0.1 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.1</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">April 8, 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Added</h3>
+          <ul class="feature-list">
+            <li>
+              Added native support for opening very large desktop files in a paged viewer.
+            </li>
+            <li>
+              Added a dedicated large-CSV desktop view with paging, sticky headers, and page-level search.
+            </li>
+            <li>
+              Added a split CSV view for smaller desktop files so the formatted table and original text can be viewed together.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              Fixed desktop file opening so Explorer launches, file associations, repeated opens, and empty relaunches reuse or reactivate the running window when possible, while still falling back to a new window if the active instance cannot accept the handoff.
+            </li>
+            <li>
+              Fixed large and medium-sized desktop opens so oversized files fall back to the large-file viewer instead of failing silently and regular files appear faster.
+            </li>
+            <li>
+              Fixed renamed files and <code>Original</code> Save As so tabs keep tracking the correct file and preserve the original file format when possible.
+            </li>
+            <li>
+              Fixed CSV viewing so large files no longer show extra columns, smaller split views reliably load the source pane, the lower pane is easier to resize, and table-first opens are faster.
+            </li>
+            <li>
+              Improved desktop startup so the first file becomes interactive sooner and the loading view no longer flashes raw text before the formatted view is ready.
+            </li>
+            <li>
+              Fixed transient success toasts briefly blocking the floating action buttons.
+            </li>
+            <li>
+              Fixed invalid JavaScript diagnostics so line and column details remain visible.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Changed</h3>
+          <ul class="feature-list">
+            <li>
+              Changed desktop CSV handling so smaller CSV files stay in the split viewer while oversized CSV files open in the paged native viewer.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.0 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.0</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-badge badge-initial">Initial Release</span>
           <span class="version-date">April 3, 2026</span>
         </div>
@@ -282,7 +341,7 @@
           >
         </div>
         <p class="copyright">
-          &copy; 2026 FixQuotes. All rights reserved.
+          &copy; 2026 FixQuotes. CodePrettify a application by <a href="https://fixquotes.com/docs/about/" target="_blank">FixQuotes</a>.
         </p>
       </div>
     </footer>
