@@ -95,11 +95,31 @@
         </a>
       </div>
 
+      <!-- Version 1.0.2 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.2</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">April 10, 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              Fixed semicolon-delimited CSV files with raw JSON text in one column so they open correctly in the desktop app.
+            </li>
+            <li>
+              Fixed large-document search navigation so the active result now lands near the middle of the editor viewport when possible, making next and previous result jumps easier to follow.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.1 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.1</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">April 8, 2026</span>
         </div>
 
@@ -114,6 +134,9 @@
             </li>
             <li>
               Added a split CSV view for smaller desktop files so the formatted table and original text can be viewed together.
+            </li>
+            <li>
+              Added a native Tools -&gt; Compare dialog that accepts two file paths, pre-fills the left side from the current tab when possible, remembers the last-used file pair, and opens a dedicated side-by-side compare tab directly for every file pair.
             </li>
           </ul>
         </div>
