@@ -100,12 +100,41 @@
         <div class="version-header">
           <span class="version-number">v1.0.2</span>
           <span class="version-badge badge-latest">Latest</span>
-          <span class="version-date">April 10, 2026</span>
+          <span class="version-date">April 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Added</h3>
+          <ul class="feature-list">
+            <li>
+              Added local-only <code>installedAt</code> and <code>usageCount</code>
+              tracking, counting a document once when prettified view is first
+              shown without counting raw mode or repeated raw and prettify
+              toggles for the same document instance.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Changed</h3>
+          <ul class="feature-list">
+            <li>
+              Renamed the local usage metrics key to <code>usageMetrics</code>
+              and automatically migrate any existing
+              <code>codePrettifyUsageMetrics</code> data forward.
+            </li>
+          </ul>
         </div>
 
         <div class="version-section">
           <h3>Fixed</h3>
           <ul class="feature-list">
+            <li>
+              Fixed sandboxed JavaScript validation leaking page-side security
+              errors on some raw script documents by moving the classic-script
+              syntax check into a worker-backed parse path that never runs
+              top-level page code during validation.
+            </li>
             <li>
               Fixed semicolon-delimited CSV files with raw JSON text in one column so they open correctly in the desktop app.
             </li>
@@ -120,7 +149,7 @@
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.1</span>
-          <span class="version-date">April 8, 2026</span>
+          <span class="version-date">April 2026</span>
         </div>
 
         <div class="version-section">
@@ -183,7 +212,7 @@
         <div class="version-header">
           <span class="version-number">v1.0.0</span>
           <span class="version-badge badge-initial">Initial Release</span>
-          <span class="version-date">April 3, 2026</span>
+          <span class="version-date">April 2026</span>
         </div>
 
         <div class="version-section">
