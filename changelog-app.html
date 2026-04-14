@@ -104,29 +104,6 @@
         </div>
 
         <div class="version-section">
-          <h3>Added</h3>
-          <ul class="feature-list">
-            <li>
-              Added local-only <code>installedAt</code> and <code>usageCount</code>
-              tracking, counting a document once when prettified view is first
-              shown without counting raw mode or repeated raw and prettify
-              toggles for the same document instance.
-            </li>
-          </ul>
-        </div>
-
-        <div class="version-section">
-          <h3>Changed</h3>
-          <ul class="feature-list">
-            <li>
-              Renamed the local usage metrics key to <code>usageMetrics</code>
-              and automatically migrate any existing
-              <code>codePrettifyUsageMetrics</code> data forward.
-            </li>
-          </ul>
-        </div>
-
-        <div class="version-section">
           <h3>Fixed</h3>
           <ul class="feature-list">
             <li>
@@ -140,6 +117,12 @@
             </li>
             <li>
               Fixed large-document search navigation so the active result now lands near the middle of the editor viewport when possible, making next and previous result jumps easier to follow.
+            </li>
+            <li>
+              Fixed export filenames so downloads no longer repeat labels such as <code>formatted</code>, <code>min</code>, or <code>table</code> when the original filename already ends with the same label.
+            </li>
+            <li>
+              Fixed PNG export on long CodeMirror-backed desktop documents so captures stay cropped to the visible code area, keep colored formatting when fallback export is used, and show an error instead of a success toast when nothing can be captured.
             </li>
           </ul>
         </div>

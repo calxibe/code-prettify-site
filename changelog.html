@@ -80,11 +80,38 @@
         </a>
       </div>
 
+      <!-- Version 1.0.23 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.23</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">April 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Export Filenames)</strong> —
+              Fixed export filenames so downloads no longer repeat labels such
+              as <code>formatted</code>, <code>min</code>, or <code>table</code>
+              when the original filename already ends with the same label.
+            </li>
+            <li>
+              <strong>Bug Fix (PNG Export Fallback Feedback)</strong> —
+              Improved image export fallback behavior so highlighted PNG
+              exports keep their colored formatting when the primary DOM
+              capture path is unavailable, and empty captures now show an
+              error state instead of a success toast.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.22 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.22</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">April 2026</span>
         </div>
 
