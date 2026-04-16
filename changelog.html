@@ -80,6 +80,28 @@
         </a>
       </div>
 
+      <!-- Version 1.0.24 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.24</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">April 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>Fixed multiple potential crashes from missing null checks, including in the settings modal, code folding handlers, and CSS color parser.</li>
+            <li>Hardened security by sanitizing ZIP export paths to prevent path traversal and by correctly escaping URLs for fetch command generation.</li>
+            <li>Improved performance by adding memoization to JSON path mapping, reducing the threshold for expensive diff operations, and adding a depth limit to recursive analysis.</li>
+            <li>Replaced all inline <code>onclick</code> event handlers with delegated listeners to improve security and maintainability.</li>
+            <li>Added a timeout to the UTF-8 recovery fetch to prevent indefinite hangs on unresponsive servers.</li>
+            <li>Prevented a potential crash on invalid color values in CSS and ensured the minimap redraws when font size changes.</li>
+            <li>Clarified the browser build and install guidance so manual unpacked installs use the generated build ZIP or source checkout instead of Chrome-managed extension folders that include reserved <code>_metadata</code> files.</li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.23 -->
       <div class="version-card">
         <div class="version-header">
@@ -547,7 +569,7 @@
           <h3>🐛 Bug Fixes</h3>
           <ul class="feature-list">
             <li>
-              <strong>Locale Encoding Repair</strong> — Fixed corrupted
+              <strong>Bug Fix (Locale Encoding Repair)</strong> — Fixed corrupted
               localized UI strings in the Portuguese browser locale so the
               extension renders the intended text again.
             </li>
