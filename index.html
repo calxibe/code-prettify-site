@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CodePrettify - Make Raw Code Instantly Readable</title>
   <meta name="description"
-    content="Open raw code, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, inspects, and exports JavaScript, TypeScript, JSON, CSS, YAML, XML, and RSS/Atom files right in your browser." />
+    content="Open raw code, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, inspects, and exports JavaScript, TypeScript, JSON, JSONL, CSS, YAML, XML, and RSS/Atom files right in your browser — and runs JavaScript against them in a sandboxed Playground." />
   <meta name="application-name" content="CodePrettify" />
   <meta name="apple-mobile-web-app-title" content="CodePrettify" />
   <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
@@ -23,7 +23,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="CodePrettify - Make Raw Code Instantly Readable" />
   <meta property="og:description"
-    content="Open raw code, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, inspects, and exports JavaScript, TypeScript, JSON, CSS, YAML, XML, and RSS/Atom files right in your browser." />
+    content="Open raw code, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, inspects, and exports JavaScript, TypeScript, JSON, JSONL, CSS, YAML, XML, and RSS/Atom files right in your browser — and runs JavaScript against them in a sandboxed Playground." />
   <meta property="og:url" content="https://prettify.cloud" />
   <meta property="og:image" content="https://prettify.cloud/img/feature-http-context.png" />
   <meta property="og:image:alt"
@@ -31,7 +31,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="CodePrettify - Make Raw Code Instantly Readable" />
   <meta name="twitter:description"
-    content="Open raw code, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, inspects, and exports JavaScript, TypeScript, JSON, CSS, YAML, XML, and RSS/Atom files right in your browser." />
+    content="Open raw code, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, inspects, and exports JavaScript, TypeScript, JSON, JSONL, CSS, YAML, XML, and RSS/Atom files right in your browser — and runs JavaScript against them in a sandboxed Playground." />
   <meta name="twitter:image" content="https://prettify.cloud/img/feature-http-context.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -76,8 +76,9 @@
         <p class="subtitle">
           Open a raw API response, minified bundle, or feed and start working
           immediately. CodePrettify formats the document, surfaces response
-          details, and gives you fast ways to inspect, compare, copy, and
-          export without leaving the browser.
+          details, and gives you fast ways to inspect, compare, copy, export,
+          and even run JavaScript against what you are looking at &mdash; all
+          without leaving the browser.
         </p>
 
         <p class="hero-proof">
@@ -400,6 +401,32 @@
           </div>
 
           <div class="feature-card">
+            <div class="feature-icon playground">🧪</div>
+            <h3>Run JavaScript Right There</h3>
+            <p>
+              A sandboxed Playground modal lets you prototype, debug, and poke
+              at the file you are looking at without ever leaving the tab.
+            </p>
+            <ul class="feature-list">
+              <li>
+                Runs code in an isolated Web Worker with configurable 1 / 5 / 15 second timeouts and top-level <code>await</code>
+              </li>
+              <li>
+                Captures <code>console.log</code>, <code>info</code>, <code>warn</code>, <code>error</code>, <code>debug</code>, and <code>console.table</code> (rendered as a real HTML table)
+              </li>
+              <li>
+                Optional &ldquo;Include <em>filename</em>&rdquo; mode brings the current file into scope so you can call its top-level functions
+              </li>
+              <li>
+                Autocomplete for functions, methods, classes, and variables with parameter signatures
+              </li>
+              <li>
+                Code, timeout, and preferences autosave so you can return to your scratchpad from any page
+              </li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
             <div class="feature-icon keyboard">🔒</div>
             <h3>Fits Your Workflow And Stays Local</h3>
             <p>Your code stays on your machine, and the viewer adapts to how you work.</p>
@@ -407,6 +434,9 @@
               <li>Everything runs client-side in your browser</li>
               <li>
                 No servers, no external processing, and no code leaves your session
+              </li>
+              <li>
+                Playground code runs in a null-origin sandbox iframe and a fresh Web Worker per execution &mdash; no access to the host page, the extension, or the network
               </li>
               <li>
                 Choose Light, Dark, or Auto theme and override the UI language when needed
@@ -451,10 +481,20 @@
               <span class="shortcut-label">Compare / Diff View</span>
             </div>
             <div class="shortcut-item">
+              <span class="kbd">Ctrl + Alt + P</span>
+              <span class="shortcut-label">JavaScript Playground</span>
+            </div>
+            <div class="shortcut-item">
               <span class="kbd">Ctrl + Alt + T</span>
               <span class="shortcut-label">Toggle Toolbar</span>
             </div>
           </div>
+
+          <p class="shortcut-note">
+            Inside the Playground, <span class="kbd">Ctrl + Enter</span> runs
+            the code and <span class="kbd">Ctrl + Space</span> forces the
+            autocomplete dropdown.
+          </p>
         </div>
 
         <div class="note-box">

@@ -80,11 +80,188 @@
         </a>
       </div>
 
+      <!-- Version 1.0.27 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.27</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">April 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>JavaScript Playground</strong> &mdash;
+              Added a sandboxed scratchpad accessible from the floating toolbar&apos;s
+              More actions menu or with <code>Ctrl+Alt+P</code>. Runs your code
+              inside a blob Web Worker with configurable 1 / 5 / 15 second
+              timeouts and top-level <code>await</code> support. Captures
+              <code>console.log</code>, <code>info</code>, <code>warn</code>,
+              <code>error</code>, <code>debug</code>, and <code>console.table</code>
+              (rendered as a real HTML table with sticky headers), and reports the
+              return value, execution time, and full stack traces for syntax and
+              runtime errors.
+            </li>
+            <li>
+              <strong>Include Current Document</strong> &mdash;
+              When viewing a JavaScript file, an opt-in
+              &ldquo;Include <em>filename</em>&rdquo; checkbox prepends the
+              displayed source to your Playground code so top-level functions
+              and variables from the page are in scope.
+            </li>
+            <li>
+              <strong>Autocomplete in the Playground</strong> &mdash;
+              A floating suggestion list surfaces functions, methods, classes,
+              and variables extracted from both the Playground buffer and the
+              current document (when the include option is on). Parameter
+              signatures are shown inline, and accepting a callable appends
+              <code>()</code> with the caret placed between the parentheses.
+              Auto-triggers after two characters or with <code>Ctrl+Space</code>,
+              navigate with <code>&uarr;</code>/<code>&darr;</code>, accept with
+              <code>Enter</code> or <code>Tab</code>, dismiss with
+              <code>Esc</code>.
+            </li>
+            <li>
+              <strong>Playground Persistence</strong> &mdash;
+              Playground code, timeout, and &ldquo;Include&rdquo; preference
+              autosave to <code>chrome.storage.local</code> five seconds after
+              your last keystroke and immediately on every Run, so you can close
+              the modal, switch tabs, and resume your scratchpad where you left
+              off regardless of which file you open it from.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improvements</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Editable CodeMirror Viewer</strong> &mdash;
+              Opt-in editable mode unlocks in the bundled CodeMirror wrapper so
+              the Playground (and future editors) get history, indent-on-input,
+              bracket matching, folding, and line numbers. Existing read-only
+              viewers are unaffected.
+            </li>
+            <li>
+              <strong>Tab &amp; Shift+Tab Indent</strong> &mdash;
+              Tab and Shift+Tab indent and dedent inside the Playground editor
+              (two-space unit, multi-line aware) instead of cycling focus to the
+              surrounding modal buttons.
+            </li>
+            <li>
+              <strong>Safer Modal Close</strong> &mdash;
+              The Playground modal closes only via <code>Esc</code> or the
+              explicit close button. Backdrop clicks no longer dismiss it, so
+              unsaved scratchpad work stays put.
+            </li>
+            <li>
+              <strong>Playground Scrollbar &amp; Caret</strong> &mdash;
+              Overrode the shared read-only CodeMirror theme inside the
+              Playground so vertical scroll, sensible min-height, and a visible
+              text caret all work correctly in the editable editor.
+            </li>
+            <li>
+              <strong>Textarea Fallback</strong> &mdash;
+              Added a plain <code>&lt;textarea&gt;</code> fallback for the
+              Playground editor if the CodeMirror editable viewer fails to
+              initialize in degraded environments, keeping the feature usable.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Decoration RangeError)</strong> &mdash;
+              Hardened the shared decoration state field in the bundled
+              CodeMirror viewer so a transient out-of-range range set cannot
+              bubble up as an uncaught
+              <code>RangeError: Position X is out of range for changeset of length Y</code>
+              during editor input. Falls back to an empty decoration set instead
+              of crashing.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Version 1.0.26 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.26</span>
+          <span class="version-date">April 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Improvements</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Go To Line Memory</strong> &mdash;
+              The Go To Line modal now remembers the last line number you used
+              during the session and pre-selects it when reopened, so repeated
+              jumps near the same line require less retyping.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (parseInt Radix)</strong> &mdash;
+              Fixed CSS <code>rgb()</code> and <code>rgba()</code> color parsing
+              and the settings modal font size and indent size readers to pass
+              an explicit decimal radix to <code>parseInt</code>, avoiding
+              ambiguous numeric parsing on values with leading zeros.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Version 1.0.25 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.25</span>
+          <span class="version-date">April 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Loader Fallback)</strong> &mdash;
+              Fixed the loader so normal HTML pages served on extension-like
+              routes such as <code>.json</code> or <code>.ts</code> are no
+              longer briefly hidden before CodePrettify decides not to activate.
+            </li>
+            <li>
+              <strong>Bug Fix (XML Source Round-trip)</strong> &mdash;
+              Fixed XML source round-tripping in the browser viewer so
+              downloading the original XML preserves legitimate source
+              attributes instead of stripping values that happened to match
+              CodePrettify loader markers.
+            </li>
+            <li>
+              <strong>Bug Fix (PNG Export Scope Selector)</strong> &mdash;
+              Fixed PNG export options so the &ldquo;As shown in browser&rdquo;
+              and &ldquo;Full code&rdquo; scope selector is now available across
+              supported PNG-exportable document types, with the selected scope
+              applied consistently.
+            </li>
+            <li>
+              <strong>Bug Fix (Download Modal CSV Details)</strong> &mdash;
+              Fixed the download modal so CSV readiness details are hidden while
+              the PNG export options panel is open.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.24 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.24</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">April 2026</span>
         </div>
 
@@ -106,7 +283,6 @@
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.23</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">April 2026</span>
         </div>
 

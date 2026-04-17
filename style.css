@@ -845,6 +845,7 @@ section {
 .feature-icon.tools { background: rgba(245, 158, 11, 0.15); }
 .feature-icon.customize { background: rgba(168, 85, 247, 0.15); }
 .feature-icon.keyboard { background: rgba(99, 102, 241, 0.15); }
+.feature-icon.playground { background: rgba(236, 72, 153, 0.15); }
 
 .feature-card h3 {
     font-size: 1.25rem;
