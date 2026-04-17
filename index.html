@@ -211,6 +211,13 @@
             </button>
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
+                <img src="img/feature-js-playground_thumb.png" alt="" aria-hidden="true" />
+              </span>
+              <span class="screenshot-tab-kicker">Debug</span>
+              <span class="screenshot-tab-label">Playground</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
                 <img src="img/feature-http-context_thumb.png" alt="" aria-hidden="true" />
               </span>
               <span class="screenshot-tab-kicker">Inspect</span>
@@ -353,49 +360,27 @@
           </div>
 
           <div class="feature-card">
-            <div class="feature-icon tools">🛠️</div>
-            <h3>Move Cleanly Into The Next Tool</h3>
+            <div class="feature-icon tools">🧭</div>
+            <h3>Navigate, Compare &amp; Export</h3>
             <p>
-              Generate commands, copy the right variant, and export the exact
-              format you need.
+              Move through large documents, compare revisions, copy the right
+              variant, and export the exact format you need.
             </p>
             <ul class="feature-list">
               <li>
-                Generate copy-ready <code>cURL</code> and <code>fetch()</code> commands from the current page
+                Document Navigator and syntax-aware code minimap make long files easy to scan and jump through
               </li>
               <li>
-                Copy original, formatted, or minified code directly from the toolbar
+                Full-screen side-by-side diff (<code>Ctrl+Alt+D</code>) with synchronized scrolling, line stats, and swap sides
               </li>
               <li>
-                Export as original, formatted, minified, CSV, HTML table, or PNG image
+                Advanced search with regex (<code>/pattern/flags</code>), result counting, and Go To Line (<code>Ctrl+G</code>)
               </li>
               <li>
-                Advanced search supports regex, match counts, and fast navigation
-              </li>
-            </ul>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon customize">🧭</div>
-            <h3>Stay Oriented In Large Files</h3>
-            <p>
-              Navigate long documents confidently, compare revisions, and
-              jump back into the same view later.
-            </p>
-            <ul class="feature-list">
-              <li>
-                Document Navigator outlines JSON, JavaScript, and XML/RSS
-                structure
+                Copy original, formatted, or minified code, and export as CSV, HTML table, or PNG image
               </li>
               <li>
-                Code minimap makes large documents easier to scan and jump
-                through
-              </li>
-              <li>
-                Compare with Clipboard adds synchronized side-by-side diffing, swap sides, and line stats
-              </li>
-              <li>
-                Restore and share search text, highlighted lines, fold state, and display settings by URL
+                Generate copy-ready <code>cURL</code> and <code>fetch()</code> commands and share a view-state URL with teammates
               </li>
             </ul>
           </div>
@@ -488,13 +473,15 @@
               <span class="kbd">Ctrl + Alt + T</span>
               <span class="shortcut-label">Toggle Toolbar</span>
             </div>
+            <div class="shortcut-item">
+              <span class="kbd">Ctrl + Enter</span>
+              <span class="shortcut-label">Run Playground Code</span>
+            </div>
+            <div class="shortcut-item">
+              <span class="kbd">Ctrl + Space</span>
+              <span class="shortcut-label">Force Autocomplete</span>
+            </div>
           </div>
-
-          <p class="shortcut-note">
-            Inside the Playground, <span class="kbd">Ctrl + Enter</span> runs
-            the code and <span class="kbd">Ctrl + Space</span> forces the
-            autocomplete dropdown.
-          </p>
         </div>
 
         <div class="note-box">

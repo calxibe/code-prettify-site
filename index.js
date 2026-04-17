@@ -8,6 +8,14 @@ const screenshotData = [
       "Capture the same minified JavaScript file in raw mode and prettified mode so visitors can immediately see what the extension cleans up.",
   },
   {
+    image: "img/feature-js-playground.png",
+    alt: "CodePrettify JavaScript Playground modal running code against a minified admin bundle, with console output and a return value captured in a sandboxed Web Worker",
+    kicker: "Playground",
+    title: "Prototype and debug JavaScript against the file you are viewing",
+    description:
+      "A sandboxed Playground runs your code in an isolated Web Worker, captures console output (including console.table), and can pull the current document into scope so you can call its top-level functions directly.",
+  },
+  {
     image: "img/feature-http-context.png",
     alt: "CodePrettify HTTP context panel showing URL, metadata, and timing details",
     kicker: "HTTP Context",
