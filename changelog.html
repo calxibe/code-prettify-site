@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Changelog - CodePrettify</title>
-    <meta name="description" content="Track the latest CodePrettify releases, including new features, diagnostics, search improvements, and export updates." />
+    <meta name="description" content="Track the latest CodePrettify releases, including the JavaScript Playground and Runtime Inspect panel, diagnostics, search improvements, and export updates." />
     <meta name="application-name" content="CodePrettify" />
     <meta name="apple-mobile-web-app-title" content="CodePrettify" />
     <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
@@ -20,13 +20,13 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Changelog - CodePrettify" />
-    <meta property="og:description" content="Track the latest CodePrettify releases, including new features, diagnostics, search improvements, and export updates." />
+    <meta property="og:description" content="Track the latest CodePrettify releases, including the JavaScript Playground and Runtime Inspect panel, diagnostics, search improvements, and export updates." />
     <meta property="og:url" content="https://prettify.cloud/changelog.html" />
     <meta property="og:image" content="https://prettify.cloud/img/feature-http-context.png" />
     <meta property="og:image:alt" content="CodePrettify HTTP context panel showing response metadata and timing details" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Changelog - CodePrettify" />
-    <meta name="twitter:description" content="Track the latest CodePrettify releases, including new features, diagnostics, search improvements, and export updates." />
+    <meta name="twitter:description" content="Track the latest CodePrettify releases, including the JavaScript Playground and Runtime Inspect panel, diagnostics, search improvements, and export updates." />
     <meta name="twitter:image" content="https://prettify.cloud/img/feature-http-context.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -137,6 +137,62 @@
               inline &ldquo;Note &mdash; the document is available as the
               <code>json</code> variable in your code.&rdquo; banner is
               shown above the output panel while the option is active.
+            </li>
+            <li>
+              <strong>Quick-Access Toolbar Buttons</strong> &mdash;
+              CodePrettify now learns which &ldquo;More actions&rdquo; items
+              you use most. Every time you open one of the modals from the
+              &#8942; menu a per-action counter is saved to browser sync
+              storage, and once you&apos;ve used an action more than ten
+              times it&apos;s promoted to a dedicated toolbar button
+              immediately after the More button &mdash; up to three at a
+              time. The list is filtered by the current file type, so
+              &ldquo;JSON path inspector&rdquo; only surfaces on JSON
+              documents and &ldquo;Inspect Runtime&rdquo; only on
+              JavaScript. Counts persist across devices when sync storage
+              is available, so your personal shortcuts follow you between
+              profiles. Counts also tick up when the action is triggered by
+              a keyboard shortcut, not just menu clicks.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Playground Error Line Numbers)</strong> &mdash;
+              Syntax errors in the Playground used to report line numbers
+              from the worker&apos;s internal harness rather than your
+              actual code &mdash; a typo on line 1 could surface as
+              &ldquo;line 184&rdquo;. Error messages now use the line
+              number in your combined buffer, label the location as
+              &ldquo;in your code&rdquo; or &ldquo;in included
+              document&rdquo; when the &ldquo;Include {filename}&rdquo;
+              option is active, and echo the actual text of the offending
+              line beneath the error so you can see at a glance what the
+              parser tripped on.
+            </li>
+            <li>
+              <strong>Bug Fix (ES Modules with Block Comments)</strong> &mdash;
+              Fixed the Playground / Inspect preprocessor occasionally
+              corrupting files that contained <code>import</code> or
+              <code>export</code> example lines inside multi-line
+              <code>/* &hellip; */</code> comments. The preprocessor now
+              emits only comment-neutral replacements, so rewriting inside
+              comments is a no-op and can no longer leak into executable
+              code as phantom parse errors on lines the user never wrote.
+            </li>
+            <li>
+              <strong>Bug Fix (Sandbox Initialisation Warning)</strong> &mdash;
+              Silenced a sporadic
+              <code>Unsafe attempt to load URL &hellip;/sandbox.html from
+              frame with URL &hellip;/sandbox.html</code> console warning
+              by consolidating the JS validator and the Playground / Inspect
+              harness onto a single shared sandbox iframe bridge. Each page
+              now creates the iframe exactly once and routes all validation,
+              execution, and inspection traffic through a single message
+              listener with per-request timeouts.
             </li>
           </ul>
         </div>
