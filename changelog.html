@@ -80,11 +80,126 @@
         </a>
       </div>
 
+      <!-- Version 1.0.28 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.28</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">April 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Runtime Inspect Panel</strong> &mdash;
+              On JavaScript files, a new More actions entry
+              (<code>Ctrl+Alt+I</code>) runs the current document in the
+              existing sandbox iframe through a blob Web Worker and reports
+              every top-level declaration with its captured value. Variables
+              show their final value, functions their parameter signature,
+              classes are listed, and any runtime or syntax errors are
+              surfaced at the top. Each row is a jump-to-line button and the
+              panel also shows any <code>console.*</code> output emitted
+              during load.
+            </li>
+            <li>
+              <strong>Inline Value Annotations</strong> &mdash;
+              After Inspect runs, each top-level <code>let</code>,
+              <code>const</code>, <code>var</code>, <code>function</code>,
+              and <code>class</code> declaration gets a small muted arrow
+              with a summary of its captured value at end-of-line
+              (<code>let total = price * 1.25;   &rarr; 125</code>). A
+              &ldquo;Show values inline in the viewer&rdquo; checkbox in the
+              Inspect modal toggles them live, and a dedicated
+              &ldquo;Clear inline values&rdquo; entry is added to the More
+              actions menu for quick dismissal.
+            </li>
+            <li>
+              <strong>Hover Tooltips in the Viewer</strong> &mdash;
+              After Inspect runs, hovering any identifier reference in the
+              main JavaScript viewer pops a tooltip showing the captured
+              <code>name &rarr; value</code> for that symbol. Works on every
+              usage, not just at the declaration. Tooltips flip around the
+              cursor to stay inside the viewport and disappear when you
+              leave the editor, scroll, or press &ldquo;Clear inline
+              values&rdquo;.
+            </li>
+            <li>
+              <strong>Include JSON &amp; JSON Lines in the Playground</strong> &mdash;
+              The Playground&apos;s &ldquo;Include {filename}&rdquo; option
+              now works on <code>.json</code> files &mdash; the parsed
+              payload is prepended as <code>const json = &hellip;;</code>
+              &mdash; and on <code>.jsonl</code> files, which become
+              <code>const json = [ &hellip;records ]</code> with malformed
+              lines skipped. The variable is always called <code>json</code>
+              regardless of filename, autocomplete surfaces it, and an
+              inline &ldquo;Note &mdash; the document is available as the
+              <code>json</code> variable in your code.&rdquo; banner is
+              shown above the output panel while the option is active.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improvements</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>ES Module Syntax in the Sandbox</strong> &mdash;
+              Both the Playground and Inspect harnesses now neutralize ES
+              module syntax before the code reaches the classic Worker, so
+              real-world module files no longer fail with
+              <code>Cannot use import statement outside a module</code>.
+              Static <code>import</code> statements are rewritten into
+              local <code>const</code> stubs, re-exports and export lists
+              are stripped, <code>export</code> keywords are dropped from
+              declarations, dynamic <code>import(&hellip;)</code> resolves
+              to <code>{}</code>, <code>import.meta</code> becomes an empty
+              object, and a <code>self.require</code> stub is injected so
+              CommonJS files also keep running.
+            </li>
+            <li>
+              <strong>Editable CodeMirror API</strong> &mdash;
+              The bundled viewer gains two opt-in decoration channels:
+              <code>setInlineAnnotations</code> /
+              <code>clearInlineAnnotations</code> /
+              <code>hasInlineAnnotations</code> for end-of-line widgets, and
+              <code>setHoverValues</code> / <code>clearHoverValues</code> /
+              <code>hasHoverValues</code> for cursor-driven identifier
+              tooltips. Both fields map defensively through changes so
+              stale ranges can never surface as uncaught errors during
+              input.
+            </li>
+            <li>
+              <strong>Symbol Extraction with Line Numbers</strong> &mdash;
+              <code>extractJsSymbolsFromCode</code> now carries every
+              captured symbol&apos;s 1-based source line, computed with a
+              precomputed line-offset table and binary search. This powers
+              the Inspect panel&apos;s jump-to-line buttons, the inline
+              annotation placement, and refines the Playground&apos;s
+              autocomplete ordering.
+            </li>
+            <li>
+              <strong>Refreshed Settings Shortcuts Overview</strong> &mdash;
+              The settings modal&apos;s Keyboard Shortcuts section now
+              includes <code>Ctrl+Alt+P</code> (JavaScript Playground) and,
+              when viewing a JavaScript file, <code>Ctrl+Alt+I</code>
+              (Inspect Runtime). Shortcuts that don&apos;t apply to the
+              current file type stay out of sight.
+            </li>
+            <li>
+              Registered the <code>fa-eraser</code> and
+              <code>fa-magnifying-glass-chart</code> Font Awesome solid
+              icons used by the new toolbar entries.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.27 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.27</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">April 2026</span>
         </div>
 
