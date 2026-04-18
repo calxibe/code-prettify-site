@@ -95,11 +95,103 @@
         </a>
       </div>
 
+      <!-- Version 1.0.4 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.4</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">April 2026</span>
+        </div>
+ 
+        <div class="version-section">
+          <h3>Added</h3>
+          <ul class="feature-list">
+            <li>
+              Added a <strong>JavaScript Playground</strong> (floating toolbar &rarr; More actions &rarr; "JavaScript Playground", or <code>Ctrl+Alt+P</code>) for JavaScript, JSON, and JSONL files. Write and run code inside a sandboxed worker with captured <code>console.log</code> / <code>console.table</code> output, the return value (top-level <code>await</code> supported), syntax and runtime errors, and execution timing. Choose a 1 / 5 / 15 second timeout and CodePrettify remembers your last buffer, timeout, and "Include" preference across sessions.
+            </li>
+            <li>
+              Added an <strong>"Include {filename}" option</strong> to the Playground. On a JavaScript file it prepends the document so its top-level functions and variables are in scope. On a JSON or JSONL file it exposes the parsed data as a <code>json</code> variable (with malformed JSONL lines skipped) and a banner at the top of the output reminds you what's available.
+            </li>
+            <li>
+              Added <strong>autocomplete</strong> to the Playground editor. Suggestions are drawn from both the Playground buffer and the included document, triggered after typing two characters or on <code>Ctrl+Space</code>. Navigate with Up/Down, accept with Enter or Tab, dismiss with Escape. Function suggestions insert <code>()</code> with the caret placed between the parentheses.
+            </li>
+            <li>
+              Added a <strong>Runtime Inspect panel</strong> (<code>Ctrl+Alt+I</code>, JavaScript files only) that runs the current file in the sandbox and lists every top-level declaration with its final value. Variables show their captured value, functions show their parameter signature, classes are listed, and each row has a jump-to-line button that takes you to the declaration.
+            </li>
+            <li>
+              Added <strong>inline value annotations</strong> in the main JavaScript viewer. After you run Inspect, each top-level <code>let</code> / <code>const</code> / <code>var</code> / <code>function</code> / <code>class</code> picks up a small arrow at end of line with a summary of its captured value (<code>let total = price * 1.25;&nbsp;&rarr; 125</code>). A checkbox in the Inspect modal toggles them live, and a "Clear inline values" entry in the More menu wipes them when you're done.
+            </li>
+            <li>
+              Added a <strong>hover tooltip</strong> that follows the cursor over any identifier reference and shows its captured <code>name &rarr; value</code> after Inspect has run. Hover anywhere a variable or function is <em>used</em> — not just where it's declared — to see its value without scrolling back to the declaration.
+            </li>
+            <li>
+              Added <strong>quick-access buttons</strong> to the floating toolbar. Every time you open a modal (by menu click, keyboard shortcut, or otherwise), CodePrettify bumps a counter. Once you've used an action more than 10 times <em>and</em> it's available for the current file type, the top three most-used actions are promoted to buttons right after the ⋯ button, so your most common workflow is always a single click away.
+            </li>
+            <li>
+              Refreshed the settings modal's keyboard shortcuts overview with the two new ones (<code>Ctrl+Alt+P</code> and <code>Ctrl+Alt+I</code>). The Inspect entry only shows up on JavaScript files, so shortcuts that don't apply to the current view stay out of sight.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Changed</h3>
+          <ul class="feature-list">
+            <li>
+              Playground output now renders <code>console.table(data, columns)</code> as a real HTML table with sticky header, hover rows, and horizontal scrolling on wide tables.
+            </li>
+            <li>
+              The Playground modal no longer closes on a backdrop click so in-progress code can't be lost by accident — use Escape or the close button. Inside the editor, Tab and Shift+Tab now indent / dedent instead of moving keyboard focus.
+            </li>
+            <li>
+              The Playground and Inspect harnesses now accept real-world ES module files. Static <code>import</code> / <code>export</code> is rewritten into local stubs before the code is handed to the classic worker, so running or inspecting a module file no longer fails at parse time with <code>SyntaxError: Cannot use import statement outside a module</code>. Dynamic <code>import(...)</code>, <code>import.meta</code>, and CommonJS <code>require</code> get safe stubs too.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Performance</h3>
+          <ul class="feature-list">
+            <li>
+              Raw &harr; Pretty toggles and tab revisits on previously-viewed documents are now instant. Native formatting, validation, diagnostics, navigator, and stats results are memoized for the most recent four documents (keyed by content hash) so the same large JSON or XML file never does the full parse pass twice.
+            </li>
+            <li>
+              The code minimap repaints only the moving viewport band during scroll instead of redrawing every line. Scrolling large files on the minimap is noticeably smoother.
+            </li>
+            <li>
+              File open is faster on slow drives: the encoding-detection pass now reads 16 KB instead of 256 KB (BOM detection only needs the first four bytes), and a latent edge case where a file whose UTF-8 boundary landed mid-character could be misidentified as legacy encoding is fixed.
+            </li>
+            <li>
+              Cold-start time and heavy-document handling improve via <code>PublishReadyToRun</code> and <code>ServerGarbageCollection</code> in the Release build, plus compiled versions of the 30+ regular expressions the native statistics / diagnostics / minimap path uses.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              Fixed the Playground error panel showing line numbers that pointed into the sandbox's internal harness instead of your own code. Errors now report <code>at line N (in your code)</code> or <code>at line N (in included document)</code> and print the actual text of the offending line below the location, so you can tell at a glance what the parser tripped on.
+            </li>
+            <li>
+              Fixed a sporadic <code>Unsafe attempt to load URL&hellip;sandbox.html</code> console error that could appear when the JavaScript validator and the Playground / Inspect harness both tried to create the sandbox iframe at the same time. A single shared sandbox bridge now owns the iframe and routes every request through one message listener.
+            </li>
+            <li>
+              Fixed the Playground / Inspect module-syntax rewriter so an <code>import</code> or <code>export</code> that happened to live inside a block comment no longer leaks a <code>*/</code> into the generated code. Files that ran into bizarre downstream parse errors like <code>Unexpected token '|'</code> on lines the user never wrote now run cleanly.
+            </li>
+            <li>
+              Hardened the bundled editor against a transient <code>RangeError: Position X is out of range</code> that could surface while typing inside the Playground; the editor now falls back to an empty decoration set instead of throwing.
+            </li>
+            <li>
+              The Explorer context-menu "Open with CodePrettify" entry now writes a breadcrumb log to <code>%LOCALAPPDATA%\CodePrettify\shell-ext.log</code> when something goes wrong, so silent failures (missing launcher, blocked file, permission issue) are diagnosable. Explorer itself is still never crashed.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.3 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.3</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">April 2026</span>
         </div>
 
