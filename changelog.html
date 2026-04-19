@@ -80,11 +80,79 @@
         </a>
       </div>
 
+      <!-- Version 1.0.29 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.29</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">April 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Regex Playground</strong> &mdash;
+              A new focused modal (<code>Ctrl+Alt+R</code> or floating toolbar
+              &ldquo;More actions&rdquo;) for testing patterns against the
+              currently displayed document. Enter a pattern without slashes,
+              toggle <code>gimsuy</code> flags, and matches highlight live in
+              the main CodeMirror viewer. A cursor-aware details panel shows
+              capture groups and named groups for the active match. Includes a
+              built-in guide with quick-reference examples you can load with one
+              click, a show/hide toggle remembered in local storage, and a
+              wide-screen layout that docks the guide as a full-height right
+              sidebar. The last 10 patterns are saved to synced storage so
+              recent expressions follow your browser profile.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improvements</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Copy Button Mode Memory</strong> &mdash;
+              The floating Copy button now remembers the last copy mode selected
+              from its dropdown (<code>Original</code>, <code>Formatted</code>,
+              or <code>Minified</code>) in synced settings and reuses that mode
+              on direct clicks. Its tooltip and accessible label reflect the
+              active mode, and the copy confirmation toast names the exact mode
+              that was used.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Regex Playground Backdrop Dismiss)</strong> &mdash;
+              Fixed the Regex Playground closing when clicking outside the
+              modal, matching the safer behavior of the JavaScript Playground
+              and protecting in-progress regex work from accidental dismissal.
+            </li>
+            <li>
+              <strong>Bug Fix (Regex Playground Layout)</strong> &mdash;
+              Fixed the wide-screen Regex Playground layout so the lower
+              match/details area stretches to fill the available modal height
+              instead of leaving unused space.
+            </li>
+            <li>
+              <strong>Bug Fix (Regex Playground Localization)</strong> &mdash;
+              Fixed localized Regex Playground strings across browser locales,
+              including restoring broken non-ASCII characters in languages such
+              as Norwegian, while keeping the help/examples section
+              intentionally English-only.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.28 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.28</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">April 2026</span>
         </div>
 

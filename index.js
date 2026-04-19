@@ -71,6 +71,14 @@ const screenshotData = [
     description:
       "Dark mode keeps additions, removals, and synchronized panes easy to scan when you are comparing larger payloads late in the day.",
   },
+  {
+    image: "img/feature-regex-playground.png",
+    alt: "CodePrettify Regex Playground modal showing live match highlighting, capture groups, and a built-in regex guide panel",
+    kicker: "Regex",
+    title: "Test patterns live against the file you are viewing",
+    description:
+      "The Regex Playground highlights every match in the viewer, shows capture groups for the active match, and includes a built-in guide with quick examples you can load with one click.",
+  },
 ];
 
 function initializeScreenshotGallery() {
