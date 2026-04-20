@@ -24,6 +24,14 @@ const screenshotData = [
       "See the request URL, content type, encoding, size details, and timing hints alongside the document you are viewing.",
   },
   {
+    image: "img/feature-http-client.png",
+    alt: "CodePrettify HTTP Client modal showing a request composer, saved request rail, and JSON response preview",
+    kicker: "HTTP Client",
+    title: "Build, replay, and save requests without leaving the tab",
+    description:
+      "Import cURL, reuse saved requests and environments, and inspect the response body, headers, cookies, or raw output in the same workspace.",
+  },
+  {
     image: "img/feature-diff-view.png",
     alt: "CodePrettify diff view comparing clipboard content with the current document",
     kicker: "Diff View",
@@ -157,6 +165,10 @@ function initializeScreenshotGallery() {
 
   trigger.addEventListener("click", () => {
     openScreenshotModal();
+  });
+
+  modalImage.addEventListener("click", () => {
+    closeScreenshotModal();
   });
 
   modal.addEventListener("click", (event) => {

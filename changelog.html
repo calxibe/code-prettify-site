@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Changelog - CodePrettify</title>
-    <meta name="description" content="Track the latest CodePrettify releases, including the JavaScript Playground and Runtime Inspect panel, diagnostics, search improvements, and export updates." />
+    <meta name="description" content="Track the latest CodePrettify releases, including the new HTTP Client, environment-aware request tools, JavaScript Playground, Runtime Inspect, and export updates." />
     <meta name="application-name" content="CodePrettify" />
     <meta name="apple-mobile-web-app-title" content="CodePrettify" />
     <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
@@ -20,13 +20,13 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Changelog - CodePrettify" />
-    <meta property="og:description" content="Track the latest CodePrettify releases, including the JavaScript Playground and Runtime Inspect panel, diagnostics, search improvements, and export updates." />
+    <meta property="og:description" content="Track the latest CodePrettify releases, including the new HTTP Client, environment-aware request tools, JavaScript Playground, Runtime Inspect, and export updates." />
     <meta property="og:url" content="https://prettify.cloud/changelog.html" />
     <meta property="og:image" content="https://prettify.cloud/img/feature-http-context.png" />
     <meta property="og:image:alt" content="CodePrettify HTTP context panel showing response metadata and timing details" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Changelog - CodePrettify" />
-    <meta name="twitter:description" content="Track the latest CodePrettify releases, including the JavaScript Playground and Runtime Inspect panel, diagnostics, search improvements, and export updates." />
+    <meta name="twitter:description" content="Track the latest CodePrettify releases, including the new HTTP Client, environment-aware request tools, JavaScript Playground, Runtime Inspect, and export updates." />
     <meta name="twitter:image" content="https://prettify.cloud/img/feature-http-context.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -80,11 +80,67 @@
         </a>
       </div>
 
+      <!-- Version 1.0.30 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.30</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">April 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>HTTP Client</strong> &mdash;
+              The old cURL / fetch generator is now a full request editor
+              available on any HTTP page. Build and send requests from one
+              modal with dedicated <code>Params</code>, <code>Auth</code>,
+              <code>Headers</code>, and <code>Body</code> tabs, then inspect
+              the response in <code>Body</code>, <code>Headers</code>,
+              <code>Cookies</code>, and <code>Raw</code> tabs.
+            </li>
+            <li>
+              <strong>Saved Requests and Environments</strong> &mdash;
+              Save named requests per environment, sync them across supported
+              browsers, and use <code>{{variable}}</code> placeholders in URLs,
+              headers, auth fields, and bodies with a live resolved-URL preview
+              before you send.
+            </li>
+            <li>
+              <strong>Import and Copy-As Workflows</strong> &mdash;
+              Import existing cURL commands, then copy the current request as
+              <code>cURL</code>, <code>fetch()</code>, or PowerShell
+              <code>Invoke-RestMethod</code> snippets after editing it.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (HTTP Client Layout and Dialogs)</strong> &mdash;
+              Fixed several usability issues in the new HTTP Client, including
+              hidden sub-dialogs not closing, clipped <code>+ Add</code> rows,
+              double scrollbars, undersized Save/Auth inputs, and the modal
+              jumping while a request is running.
+            </li>
+            <li>
+              <strong>Bug Fix (HTTP Client Feedback)</strong> &mdash;
+              Fixed response header rows running together, improved empty and
+              invalid Import cURL messages, surfaced sync-storage quota errors
+              as visible toasts, and corrected icon fallbacks so toolbar
+              buttons render reliably.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.29 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.29</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">April 2026</span>
         </div>
 

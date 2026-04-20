@@ -768,6 +768,7 @@ code {
     max-height: calc(100vh - 24px);
     object-fit: contain;
     display: block;
+    cursor: zoom-out;
     border-radius: 18px;
     box-shadow: 0 28px 90px rgba(0, 0, 0, 0.48);
 }
