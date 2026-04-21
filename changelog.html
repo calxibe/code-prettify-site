@@ -92,6 +92,15 @@
           <h3>New Features</h3>
           <ul class="feature-list">
             <li>
+              <strong>Launcher Page and Install-only Welcome</strong> &mdash;
+              Clicking the extension icon now opens a dedicated launcher with
+              direct buttons for the prettify editor, <code>HTTP Client</code>,
+              <code>JavaScript Playground</code>, and
+              <code>Regex Playground</code>. The welcome page is now reserved
+              for first install so regular use starts from actionable tools
+              instead of onboarding.
+            </li>
+            <li>
               <strong>HTTP Client</strong> &mdash;
               The old cURL / fetch generator is now a full request editor
               available on any HTTP page. Build and send requests from one
@@ -112,6 +121,35 @@
               Import existing cURL commands, then copy the current request as
               <code>cURL</code>, <code>fetch()</code>, or PowerShell
               <code>Invoke-RestMethod</code> snippets after editing it.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improvements</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Localized Launcher and Welcome</strong> &mdash;
+              The new launcher flow and the refreshed welcome page are now
+              localized across all supported browser languages instead of only
+              shipping complete copy in the initial rollout languages.
+            </li>
+            <li>
+              <strong>Playground Editor Polish</strong> &mdash;
+              The JavaScript Playground editor now keeps the caret visible on
+              blank new lines, and reopening saved Playground content places
+              the cursor at the end of the restored code so you can keep typing
+              immediately.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Performance and UI Stability</strong> &mdash;
+              Fixed overlapping animation frame hook issues, scroll-position loss when toggling formatted views, and restored the "Copy" floating action on HTTP (non-secure) domains via a fallback copy mechanism.
             </li>
           </ul>
         </div>
