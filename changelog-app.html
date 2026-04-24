@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>App Changelog - CodePrettify</title>
-    <meta name="description" content="Track the latest CodePrettify desktop app releases for the Microsoft Store." />
+    <meta name="description" content="Track the latest CodePrettify desktop app releases, including Markdown support, the desktop HTTP Client, Regex Playground upgrades, Table View improvements, and smarter JSON diagnostics." />
     <meta name="application-name" content="CodePrettify" />
     <meta name="apple-mobile-web-app-title" content="CodePrettify" />
     <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
@@ -20,14 +20,14 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="App Changelog - CodePrettify" />
-    <meta property="og:description" content="Track the latest CodePrettify desktop app releases for the Microsoft Store." />
+    <meta property="og:description" content="Track the latest CodePrettify desktop app releases, including Markdown support, the desktop HTTP Client, Regex Playground upgrades, Table View improvements, and smarter JSON diagnostics." />
     <meta property="og:url" content="https://prettify.cloud/changelog-app.html" />
-    <meta property="og:image" content="https://prettify.cloud/img/feature-http-context.png" />
-    <meta property="og:image:alt" content="CodePrettify HTTP context panel showing response metadata and timing details" />
+    <meta property="og:image" content="https://prettify.cloud/img/feature-stats-diagnostics.png" />
+    <meta property="og:image:alt" content="CodePrettify statistics and diagnostics panel showing warnings, request metadata, and document metrics" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="App Changelog - CodePrettify" />
-    <meta name="twitter:description" content="Track the latest CodePrettify desktop app releases for the Microsoft Store." />
-    <meta name="twitter:image" content="https://prettify.cloud/img/feature-http-context.png" />
+    <meta name="twitter:description" content="Track the latest CodePrettify desktop app releases, including Markdown support, the desktop HTTP Client, Regex Playground upgrades, Table View improvements, and smarter JSON diagnostics." />
+    <meta name="twitter:image" content="https://prettify.cloud/img/feature-stats-diagnostics.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -107,13 +107,35 @@
           <h3>Added</h3>
           <ul class="feature-list">
             <li>
-              Ported the browser extension's <strong>HTTP Client</strong> to the desktop app. The old "cURL / fetch" snippet modal is replaced with a full Postman-style composer: Method + URL + Send row, tabbed composer (Params / Auth / Headers / Body), and a response panel with Body / Headers / Cookies / Raw tabs. Save requests to <strong>Collections</strong>, keep a per-request <strong>History</strong>, manage <strong>Environments</strong> with <code>&#123;&#123;variable&#125;&#125;</code> interpolation, import from cURL, and export to cURL / <code>fetch()</code> / PowerShell. Requests run in-process and collections, environments, and replay history persist across sessions.
+              Added <strong>Markdown support</strong> for <code>.md</code> and
+              <code>.markdown</code> files in the desktop app, including a
+              rendered preview, heading outline support, formatting /
+              minifying tools, and Windows file association and Explorer
+              integration.
             </li>
             <li>
-              Ported the browser extension's <strong>Regex Playground</strong> to the desktop app (floating toolbar &rarr; More actions &rarr; "Regex Playground", or <code>Ctrl+Alt+R</code>) &mdash; available on every supported file type. Test patterns live against the current document, flip flags, browse match and capture-group details, step through matches with jump-to-line, and keep a deduplicated history of your 20 most recent patterns. A collapsible learning section covers common tokens, quantifiers, anchors, lookarounds, and named groups, and is remembered per user.
+              Added a full desktop <strong>HTTP Client</strong> to replace the
+              old cURL / fetch snippet modal. Build requests in a Postman-style
+              composer, save collections, reuse history, manage environments
+              with <code>&#123;&#123;variable&#125;&#125;</code>, import cURL, and export to
+              cURL / <code>fetch()</code> / PowerShell.
             </li>
             <li>
-              Added the <strong>Regex Playground</strong> entry to the floating toolbar's "More actions" menu and to the quick-access candidate list, so frequently-used regex testing gets promoted to a one-click button.
+              Expanded the desktop <strong>Regex Playground</strong> with replace
+              mode, live replacement preview, saved patterns, reusable test
+              cases, snippet export, and support across every supported file
+              type.
+            </li>
+            <li>
+              Expanded <strong>Table View</strong> with per-column filters,
+              drag-and-drop column reordering, column type summary chips,
+              selected-row CSV / JSON export, and smoother handling for large
+              tables.
+            </li>
+            <li>
+              Expanded <strong>Statistics &amp; Diagnostics</strong> for JSON with
+              duplicate-key detection, lightweight OpenAPI / JSON Schema
+              checks, suspicious timestamp warnings, and quick-fix guidance.
             </li>
           </ul>
         </div>
@@ -122,10 +144,16 @@
           <h3>Changed</h3>
           <ul class="feature-list">
             <li>
-              The floating toolbar's "cURL / fetch" entry now opens the HTTP Client and is available on every file type, not just remote documents. Existing usage counters for that button are preserved.
+              The <strong>HTTP Client</strong> now adds timeout and cancel
+              controls, timing breakdowns,
+              <code>multipart/form-data</code> and GraphQL body modes, secret
+              masking, and clearer guidance when requests are blocked or fail.
             </li>
             <li>
-              The English locale now ships the full set of HTTP Client, Regex Playground, and environment editor strings from the browser extension alongside the existing desktop-only menu and dialog strings. Other locales continue to fall back to English defaults for the new strings until their translations catch up.
+              The floating toolbar's <strong>cURL / fetch</strong> entry now
+              opens the HTTP Client on every file type, and JavaScript
+              Playground / Runtime Inspect now recognize modern JS / TS symbols
+              more accurately.
             </li>
           </ul>
         </div>
@@ -134,7 +162,8 @@
           <h3>Removed</h3>
           <ul class="feature-list">
             <li>
-              Removed the legacy two-section cURL / fetch snippet modal and its inline command generators. Everything it did is now covered by the HTTP Client composer's built-in export actions.
+              Removed the legacy cURL / fetch snippet modal in favor of the
+              full HTTP Client workflow.
             </li>
           </ul>
         </div>

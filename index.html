@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CodePrettify - Make Raw Code Instantly Readable</title>
   <meta name="description"
-    content="Open raw code, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, inspects, and exports JavaScript, TypeScript, JSON, JSONL, CSS, YAML, XML, and RSS/Atom files right in your browser — and runs JavaScript against them in a sandboxed Playground." />
+    content="Open raw code, Markdown docs, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, inspects, and exports JavaScript, TypeScript, Markdown, JSON, JSONL, CSS, YAML, XML, and RSS/Atom files right in your browser — and runs JavaScript against them in a sandboxed Playground." />
   <meta name="application-name" content="CodePrettify" />
   <meta name="apple-mobile-web-app-title" content="CodePrettify" />
   <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
@@ -23,16 +23,16 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="CodePrettify - Make Raw Code Instantly Readable" />
   <meta property="og:description"
-    content="Open raw code, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, inspects, and exports JavaScript, TypeScript, JSON, JSONL, CSS, YAML, XML, and RSS/Atom files right in your browser — and runs JavaScript against them in a sandboxed Playground." />
+    content="Open raw code, Markdown docs, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, inspects, and exports JavaScript, TypeScript, Markdown, JSON, JSONL, CSS, YAML, XML, and RSS/Atom files right in your browser — and runs JavaScript against them in a sandboxed Playground." />
   <meta property="og:url" content="https://prettify.cloud" />
-  <meta property="og:image" content="https://prettify.cloud/img/feature-http-context.png" />
+  <meta property="og:image" content="https://prettify.cloud/img/feature-json-format.png" />
   <meta property="og:image:alt"
-    content="CodePrettify HTTP context panel showing response metadata and timing details" />
+    content="CodePrettify formatting a structured JSON API response with nested services, metrics, links, arrays, and syntax highlighting" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="CodePrettify - Make Raw Code Instantly Readable" />
   <meta name="twitter:description"
-    content="Open raw code, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, inspects, and exports JavaScript, TypeScript, JSON, JSONL, CSS, YAML, XML, and RSS/Atom files right in your browser — and runs JavaScript against them in a sandboxed Playground." />
-  <meta name="twitter:image" content="https://prettify.cloud/img/feature-http-context.png" />
+    content="Open raw code, Markdown docs, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, inspects, and exports JavaScript, TypeScript, Markdown, JSON, JSONL, CSS, YAML, XML, and RSS/Atom files right in your browser — and runs JavaScript against them in a sandboxed Playground." />
+  <meta name="twitter:image" content="https://prettify.cloud/img/feature-json-format.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -74,16 +74,16 @@
         <h1>Make Raw Code<br />Instantly Readable</h1>
 
         <p class="subtitle">
-          Open a raw API response, minified bundle, or feed and start working
-          immediately. CodePrettify formats the document, surfaces response
-          details, and gives you fast ways to inspect, compare, copy, export,
-          and even run JavaScript against what you are looking at &mdash; all
-          without leaving the browser.
+          Open a raw API response, Markdown document, minified bundle, or feed
+          and start working immediately. CodePrettify formats the document,
+          surfaces response details, and gives you fast ways to inspect,
+          compare, copy, export, and even run JavaScript against what you are
+          looking at &mdash; all without leaving the browser.
         </p>
 
         <p class="hero-proof">
-          Built for JSON payloads, CDN bundles, XML feeds, YAML configs, and
-          local <code>file://</code> documents.
+          Built for JSON payloads, Markdown docs, CDN bundles, XML feeds, YAML
+          configs, and local <code>file://</code> documents.
         </p>
 
         <div class="cta-buttons">
@@ -122,6 +122,7 @@
             <div class="format-tags">
               <span class="format-tag">JavaScript <code>.js</code> <code>.mjs</code> <code>.cjs</code></span>
               <span class="format-tag">TypeScript <code>.ts</code> <code>.mts</code> <code>.cts</code></span>
+              <span class="format-tag">Markdown <code>.md</code> <code>.markdown</code></span>
               <span class="format-tag">JSON <code>.json</code> <code>.jsonl</code></span>
               <span class="format-tag">CSS <code>.css</code></span>
               <span class="format-tag">YAML <code>.yaml</code> <code>.yml</code></span>
@@ -186,23 +187,30 @@
             <div class="screenshot-main">
               <button type="button" class="screenshot-open" id="main-screenshot-trigger"
                 aria-label="Open screenshot preview">
-                <img src="img/feature-js-transform.png"
-                  alt="CodePrettify before and after view showing a minified JavaScript bundle transformed into readable formatted code"
+                <img src="img/feature-json-format.png"
+                  alt="CodePrettify formatting a structured JSON API response with nested services, metrics, links, arrays, and syntax highlighting"
                   id="main-screenshot" />
               </button>
             </div>
             <div class="screenshot-caption">
-              <span class="screenshot-kicker" id="screenshot-kicker">JavaScript</span>
-              <h4 id="screenshot-title">Show the jump from compressed bundles to readable code</h4>
+              <span class="screenshot-kicker" id="screenshot-kicker">JSON</span>
+              <h4 id="screenshot-title">Make complex JSON payloads easy to scan</h4>
               <p id="screenshot-description">
-                Capture the same minified JavaScript file in raw mode and
-                prettified mode so visitors can immediately see what the
-                extension cleans up.
+                Pretty indentation, syntax coloring, folding, clickable links,
+                timestamp hints, and inline helpers turn dense API responses
+                into a readable workspace.
               </p>
             </div>
           </div>
           <div class="screenshot-tabs">
             <button class="screenshot-tab active" type="button">
+              <span class="screenshot-tab-thumb">
+                <img src="img/feature-json-format_thumb.png" alt="" aria-hidden="true" />
+              </span>
+              <span class="screenshot-tab-kicker">Format</span>
+              <span class="screenshot-tab-label">JSON</span>
+            </button>
+            <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
                 <img src="img/feature-js-transform_thumb.png" alt="" aria-hidden="true" />
               </span>
@@ -218,10 +226,10 @@
             </button>
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
-                <img src="img/feature-http-context_thumb.png" alt="" aria-hidden="true" />
+                <img src="img/feature-markdown_thumb.png" alt="" aria-hidden="true" />
               </span>
-              <span class="screenshot-tab-kicker">Inspect</span>
-              <span class="screenshot-tab-label">HTTP Context</span>
+              <span class="screenshot-tab-kicker">Docs</span>
+              <span class="screenshot-tab-label">Markdown</span>
             </button>
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
@@ -257,13 +265,6 @@
               </span>
               <span class="screenshot-tab-kicker">Customize</span>
               <span class="screenshot-tab-label">Settings</span>
-            </button>
-            <button class="screenshot-tab" type="button">
-              <span class="screenshot-tab-thumb">
-                <img src="img/feature-http-context-dark_thumb.png" alt="" aria-hidden="true" />
-              </span>
-              <span class="screenshot-tab-kicker">Dark Mode</span>
-              <span class="screenshot-tab-label">HTTP Context</span>
             </button>
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
@@ -318,7 +319,7 @@
               <li>
                 Detects supported resources by URL and HTTP content type
               </li>
-              <li>Supports JavaScript, TypeScript, JSON, JSONL, CSS, YAML, XML, and RSS/Atom feeds</li>
+              <li>Supports JavaScript, TypeScript, Markdown, JSON, JSONL, CSS, YAML, XML, and RSS/Atom feeds</li>
               <li>
                 Intelligent minification detection formats dense files automatically
               </li>
@@ -339,14 +340,16 @@
               <li>JSON syntax errors include exact line references</li>
               <li>JavaScript and CSS validation provide instant feedback</li>
               <li>
-                Diagnostics panel shows syntax status, warnings, and file-type-specific insights
+                Statistics &amp; Diagnostics surfaces syntax status, warnings,
+                request metadata, and file-type-specific insights in one place
               </li>
               <li>
-                HTTP context reveals the request URL, content type,
-                encoding, size details, and timing hints
+                Request details include the resource URL, content type,
+                encoding, size details, and timing hints when available
               </li>
               <li>
-                Statistics panels surface file size, line count, and document-specific metrics
+                Document metrics surface file size, line count, and
+                format-specific structure details
               </li>
             </ul>
           </div>

@@ -1,5 +1,13 @@
 const screenshotData = [
   {
+    image: "img/feature-json-format.png",
+    alt: "CodePrettify formatting a structured JSON API response with nested services, metrics, links, arrays, and syntax highlighting",
+    kicker: "JSON",
+    title: "Make complex JSON payloads easy to scan",
+    description:
+      "Pretty indentation, syntax coloring, folding, clickable links, timestamp hints, and inline helpers turn dense API responses into a readable workspace.",
+  },
+  {
     image: "img/feature-js-transform.png",
     alt: "CodePrettify before and after view showing a minified JavaScript bundle transformed into readable formatted code",
     kicker: "JavaScript",
@@ -16,12 +24,12 @@ const screenshotData = [
       "A sandboxed Playground runs your code in an isolated Web Worker, captures console output (including console.table), and can pull the current document into scope so you can call its top-level functions directly.",
   },
   {
-    image: "img/feature-http-context.png",
-    alt: "CodePrettify HTTP context panel showing URL, metadata, and timing details",
-    kicker: "HTTP Context",
-    title: "Inspect the resource behind the code",
+    image: "img/feature-markdown.png",
+    alt: "CodePrettify rendered Markdown document showing headings, task lists, tables, links, and code fences",
+    kicker: "Markdown",
+    title: "Read Markdown files as clean formatted documents",
     description:
-      "See the request URL, content type, encoding, size details, and timing hints alongside the document you are viewing.",
+      "Open local or remote Markdown files and get a rendered document view while keeping the same search, copy, diff, diagnostics, and export tools nearby.",
   },
   {
     image: "img/feature-http-client.png",
@@ -49,11 +57,11 @@ const screenshotData = [
   },
   {
     image: "img/feature-stats-diagnostics.png",
-    alt: "CodePrettify statistics and diagnostics modal showing warnings, data insights, and document metrics",
+    alt: "CodePrettify statistics and diagnostics modal showing warnings, request metadata, data insights, and document metrics",
     kicker: "Diagnostics",
-    title: "See document health and structure at a glance",
+    title: "See document health and request details at a glance",
     description:
-      "Open one panel for syntax status, payload warnings, CSV readiness, and file metrics before you export or compare.",
+      "Open one panel for syntax status, payload warnings, request metadata, CSV readiness, and file metrics before you export or compare.",
   },
   {
     image: "img/feature-settings.png",
@@ -62,14 +70,6 @@ const screenshotData = [
     title: "Tune the viewer for each file type",
     description:
       "Choose theme and language, adjust typography, and control behavior like wrapping, minimap, and per-file-type features.",
-  },
-  {
-    image: "img/feature-http-context-dark.png",
-    alt: "CodePrettify dark theme HTTP context panel showing response metadata and timing details",
-    kicker: "Dark Theme",
-    title: "Inspect API responses without getting blasted by light mode",
-    description:
-      "The same HTTP context workflow stays readable in dark theme, with the code view, modals, and minimap all adapting together.",
   },
   {
     image: "img/feature-diff-view-dark.png",

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Changelog - CodePrettify</title>
-    <meta name="description" content="Track the latest CodePrettify releases, including the new HTTP Client, environment-aware request tools, JavaScript Playground, Runtime Inspect, and export updates." />
+    <meta name="description" content="Track the latest CodePrettify releases, including Markdown support, smarter JSON diagnostics, Regex Playground upgrades, Table View improvements, and HTTP Client power-user features." />
     <meta name="application-name" content="CodePrettify" />
     <meta name="apple-mobile-web-app-title" content="CodePrettify" />
     <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
@@ -20,14 +20,14 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Changelog - CodePrettify" />
-    <meta property="og:description" content="Track the latest CodePrettify releases, including the new HTTP Client, environment-aware request tools, JavaScript Playground, Runtime Inspect, and export updates." />
+    <meta property="og:description" content="Track the latest CodePrettify releases, including Markdown support, smarter JSON diagnostics, Regex Playground upgrades, Table View improvements, and HTTP Client power-user features." />
     <meta property="og:url" content="https://prettify.cloud/changelog.html" />
-    <meta property="og:image" content="https://prettify.cloud/img/feature-http-context.png" />
-    <meta property="og:image:alt" content="CodePrettify HTTP context panel showing response metadata and timing details" />
+    <meta property="og:image" content="https://prettify.cloud/img/feature-stats-diagnostics.png" />
+    <meta property="og:image:alt" content="CodePrettify statistics and diagnostics panel showing warnings, request metadata, and document metrics" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Changelog - CodePrettify" />
-    <meta name="twitter:description" content="Track the latest CodePrettify releases, including the new HTTP Client, environment-aware request tools, JavaScript Playground, Runtime Inspect, and export updates." />
-    <meta name="twitter:image" content="https://prettify.cloud/img/feature-http-context.png" />
+    <meta name="twitter:description" content="Track the latest CodePrettify releases, including Markdown support, smarter JSON diagnostics, Regex Playground upgrades, Table View improvements, and HTTP Client power-user features." />
+    <meta name="twitter:image" content="https://prettify.cloud/img/feature-stats-diagnostics.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -80,11 +80,95 @@
         </a>
       </div>
 
+      <!-- Version 1.0.31 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.31</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">April 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Markdown Preview</strong> &mdash;
+              CodePrettify now supports <code>.md</code> and
+              <code>.markdown</code> pages plus Markdown HTTP responses, with a
+              safe rendered preview that keeps embedded HTML visible without
+              executing scripts.
+            </li>
+            <li>
+              <strong>Regex Playground Upgrade</strong> &mdash;
+              The Regex Playground now includes replace mode, live replacement
+              preview, named saved patterns, reusable test cases, and snippet
+              export for JavaScript, C#, and PowerShell.
+            </li>
+            <li>
+              <strong>Table View Upgrade</strong> &mdash;
+              Table View now adds per-column filters, drag-and-drop column
+              reordering, column type summary chips, selected-row CSV / JSON
+              export, and smoother large-table handling.
+            </li>
+            <li>
+              <strong>HTTP Client Upgrade</strong> &mdash;
+              The HTTP Client now includes timeout and cancel controls, timing
+              breakdowns, <code>multipart/form-data</code> and GraphQL body
+              modes, and secret masking in previews, history, and Copy As
+              snippets.
+            </li>
+            <li>
+              <strong>Smarter JSON Diagnostics</strong> &mdash;
+              Statistics &amp; Diagnostics for JSON now flags duplicate keys,
+              suspicious timestamps, and likely OpenAPI / JSON Schema structure
+              issues, with quick-fix guidance in the results.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improvements</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Clearer HTTP Error Guidance</strong> &mdash;
+              HTTP Client failures now distinguish timeout, cancellation, and
+              blocked-response cases with clearer guidance for CORS, mixed
+              content, DNS, certificate, and offline issues.
+            </li>
+            <li>
+              <strong>More Accurate JS Runtime Tools</strong> &mdash;
+              JavaScript Playground autocomplete and Runtime Inspect now
+              understand modern JavaScript and TypeScript declarations more
+              accurately, including destructuring, imports, exports, and code
+              outside strings or comments.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Table View Filtering</strong> &mdash;
+              Filtering large virtualized tables now stays stable after
+              scrolling, and the filter inputs render directly inside the
+              column headers.
+            </li>
+            <li>
+              <strong>Cleaner JS Suggestions and Inspect Results</strong>
+              &mdash; Fixed false JavaScript Playground autocomplete and Runtime
+              Inspect entries that were previously being created from
+              JavaScript-looking text inside strings or comments.
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
       <!-- Version 1.0.30 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.30</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">April 2026</span>
         </div>
 
