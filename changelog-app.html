@@ -145,6 +145,31 @@
               view state now saves and restores the actual viewport line and
               scroll position.
             </li>
+            <li>
+              Fixed search in rendered <strong>Markdown preview</strong> files
+              so visible Markdown text is counted, highlighted, and navigable
+              instead of showing no results.
+            </li>
+            <li>
+              Fixed <strong>Table View</strong> horizontal scrolling on large
+              virtualized CSV files so the table no longer jumps back to the
+              left while scrolling sideways.
+            </li>
+            <li>
+              Fixed sparse CSV column ordering so generated overflow columns
+              such as <code>column8</code>, <code>column9</code>, and
+              <code>column10</code> stay after the real CSV headers.
+            </li>
+            <li>
+              Fixed virtualized <strong>Table View</strong> vertical scrollbar
+              dragging so the scrollbar thumb keeps the requested position and
+              row rendering refreshes after release or scroll idle.
+            </li>
+            <li>
+              Fixed sticky checkbox and row-number cells in
+              <strong>Table View</strong> so they no longer paint over the
+              sticky header row while scrolling.
+            </li>
           </ul>
         </div>
       </div>
