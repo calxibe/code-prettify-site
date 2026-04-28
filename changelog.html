@@ -80,11 +80,80 @@
         </a>
       </div>
 
+      <!-- Version 1.0.33 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.33</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">April 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Changed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Search Without Losing Your Place</strong> &mdash;
+              Typing or pasting in the floating search field now highlights
+              every match and updates the result count without moving the
+              editor viewport. Press Enter, click the new search button, or use
+              the previous / next arrows to navigate explicitly from the current
+              visible position.
+            </li>
+            <li>
+              <strong>Smarter Reload Recovery</strong> &mdash;
+              Per-file view state now keeps only the 10 most recent files and
+              expires entries after one hour, so accidental reload recovery
+              stays useful without stale state piling up.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              Fixed restored search text re-running navigation during reload;
+              saved queries now re-highlight passively so the remembered line
+              position remains intact.
+            </li>
+            <li>
+              Fixed reload recovery storing only explicit highlighted lines;
+              view state now saves and restores the actual viewport line and
+              scroll position.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Version 1.0.32 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.32</span>
+          <span class="version-date">April 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Runtime Inspect Module Neutralization</strong> &mdash;
+              Fixed Runtime Inspect falsely reporting
+              <code>SyntaxError: missing ) after argument list</code> on valid
+              JavaScript bundles that generate <code>import</code> and
+              <code>export</code> module source inside template literals,
+              including <code>es-module-shims</code>. The sandbox module
+              neutralizer now skips strings, comments, and template-literal
+              text before rewriting real module syntax for the classic worker
+              harness.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.31 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.31</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">April 2026</span>
         </div>
 

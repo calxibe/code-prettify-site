@@ -95,11 +95,64 @@
         </a>
       </div>
 
+      <!-- Version 1.0.6 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.6</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">April 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Changed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Search Without Losing Your Place</strong> &mdash;
+              Typing or pasting in the floating search field now highlights
+              every match and updates the result count without moving the
+              editor viewport. Press Enter, click the new search button, or use
+              the previous / next arrows to navigate explicitly from the current
+              visible position.
+            </li>
+            <li>
+              <strong>Smarter Reload Recovery</strong> &mdash;
+              Per-file view state now keeps only the 10 most recent files and
+              expires entries after one hour, so accidental reload recovery
+              stays useful without stale state piling up.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              Fixed a disruptive workflow where refining a search while reading
+              deep inside a large file could jump back to the first occurrence
+              near the top of the document.
+            </li>
+            <li>
+              Fixed saved search text not being restored into the floating
+              search field when reopening or reloading a file.
+            </li>
+            <li>
+              Fixed restored search text re-running navigation during reload;
+              saved queries now re-highlight passively so the remembered line
+              position remains intact.
+            </li>
+            <li>
+              Fixed reload recovery storing only explicit highlighted lines;
+              view state now saves and restores the actual viewport line and
+              scroll position.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.5 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.5</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">April 2026</span>
         </div>
 
