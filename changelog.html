@@ -80,11 +80,76 @@
         </a>
       </div>
 
+      <!-- Version 1.0.37 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.37</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">June 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Security</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Parser-Only Validation</strong> &mdash; Replaced the executor-based syntax validator with a secure parser-only check using Acorn to prevent code execution in the sandbox during document viewing.
+            </li>
+            <li>
+              <strong>Formula Injection Prevention</strong> &mdash; Neutralized formula injections in CSV exports by prefixing formula-triggering characters with a quote.
+            </li>
+            <li>
+              <strong>Credential Redaction</strong> &mdash; HTTP Client history now automatically redacts sensitive headers like Authorization and Cookie before saving.
+            </li>
+            <li>
+              <strong>View State Validation</strong> &mdash; Hardened shared settings URLs by strictly type-validating and range-clamping inputs.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Catastrophic Backtracking Protection</strong> &mdash; Regex Playground now evaluates patterns inside a sandboxed worker with a 1.5-second timeout, preventing app freezes.
+            </li>
+            <li>
+              <strong>HTTP Client Replay Fix</strong> &mdash; Replaying POST/PUT requests from history now correctly restores the request body.
+            </li>
+            <li>
+              <strong>Formatting Safeguards</strong> &mdash; XML/RSS CDATA sections, comments, and CSS string literals are now preserved byte-for-byte during formatting.
+            </li>
+            <li>
+              <strong>Smarter JSON Queries</strong> &mdash; Bracket parsing in JSON Path is now escape-aware, correcting queries on keys containing special characters.
+            </li>
+            <li>
+              <strong>Diagnostics Depth Cap</strong> &mdash; Prevented UI freezes by capping diagnostics traversal depth on highly nested JSON.
+            </li>
+            <li>
+              <strong>General Fixes</strong> &mdash; Resolved NDJSON auto-detection, modal scroll locking, document-level event listener leaks, and duplicate injection bugs.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Changed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Excel-Friendly CSVs</strong> &mdash; CSV exports now use UTF-8 BOM and CRLF line endings to display correctly in Excel.
+            </li>
+            <li>
+              <strong>Improved Table Exports</strong> &mdash; HTML table exports now respect active filtering, search query, sorting, and column arrangements.
+            </li>
+            <li>
+              <strong>Optimized Theme Syncing</strong> &mdash; The welcome and launcher pages now fully align with user-configured light and dark themes.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.36 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.36</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">May 2026</span>
         </div>
 

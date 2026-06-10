@@ -95,11 +95,88 @@
         </a>
       </div>
 
+      <!-- Version 1.0.9 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.9</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">June 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Security</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Parser-Only Validation</strong> &mdash; Replaced the executor-based syntax validator with a secure parser-only check using Acorn to prevent code execution in the sandbox during document viewing.
+            </li>
+            <li>
+              <strong>Formula Injection Prevention</strong> &mdash; Neutralized formula injections in CSV exports by prefixing formula-triggering characters with a quote.
+            </li>
+            <li>
+              <strong>Credential Redaction</strong> &mdash; HTTP Client history now automatically redacts sensitive headers like Authorization and Cookie before saving.
+            </li>
+            <li>
+              <strong>View State Validation</strong> &mdash; Hardened shared settings URLs by strictly type-validating and range-clamping inputs.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed &amp; Changed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Catastrophic Backtracking Protection</strong> &mdash; Regex Playground now evaluates patterns inside a sandboxed worker with a 1.5-second timeout, preventing app freezes.
+            </li>
+            <li>
+              <strong>HTTP Client Replay Fix</strong> &mdash; Replaying POST/PUT requests from history now correctly restores the request body.
+            </li>
+            <li>
+              <strong>Formatting Safeguards</strong> &mdash; XML/RSS CDATA sections, comments, and CSS string literals are now preserved byte-for-byte during formatting.
+            </li>
+            <li>
+              <strong>Smarter JSON Queries</strong> &mdash; Bracket parsing in JSON Path is now escape-aware, correcting queries on keys containing special characters.
+            </li>
+            <li>
+              <strong>Excel-Friendly CSVs</strong> &mdash; CSV exports now use UTF-8 BOM and CRLF line endings to display correctly in Excel.
+            </li>
+            <li>
+              <strong>Improved Table Exports</strong> &mdash; HTML table exports now respect active filtering, search query, sorting, and column arrangements.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Desktop App (Native Layer)</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Session Restore &amp; Recent Files</strong> &mdash; The app now remembers window size, position, maximized state, and open tabs across launches, and includes a "Recent Files" menu.
+            </li>
+            <li>
+              <strong>Save in Place (Ctrl+S)</strong> &mdash; Writes the active document back to its original path and encoding, prompting with warnings if modified externally.
+            </li>
+            <li>
+              <strong>Compare from Explorer</strong> &mdash; Select two files in Windows Explorer and right-click to compare them side-by-side.
+            </li>
+            <li>
+              <strong>Status Bar Overrides</strong> &mdash; Re-open files with custom encoding or convert line endings (CRLF/LF) directly from the status bar.
+            </li>
+            <li>
+              <strong>Large-File Enhancements</strong> &mdash; Cross-page search now continues past the current page, and a new Go To Line/Row tool (Ctrl+G) pages automatically to the right location.
+            </li>
+            <li>
+              <strong>WebView &amp; Pipe Hardening</strong> &mdash; Secured local WebView message routing, disabled browser-level password autosaves/autofill, and restricted single-instance IPC pipe access to the current user.
+            </li>
+            <li>
+              <strong>Layout &amp; Performance Fixes</strong> &mdash; Enabled per-monitor DPI awareness, improved title bar OS-theme integration, resolved Explorer shell DLL COM reference leaks, and optimized memory usage during file scans.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.8 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.8</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">May 2026</span>
         </div>
 
