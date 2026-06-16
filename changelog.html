@@ -80,11 +80,76 @@
         </a>
       </div>
 
+      <!-- Version 1.0.38 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.38</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">June 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Added</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>TOML Support</strong> &mdash; Open, format, and validate TOML files, now with full syntax highlighting.
+            </li>
+            <li>
+              <strong>Cross-Format Conversion</strong> &mdash; Convert the open document between JSON, YAML, and TOML and download the result, right from the Download dialog.
+            </li>
+            <li>
+              <strong>JSON with Comments (JSONC)</strong> &mdash; Files with comments and trailing commas (like tsconfig.json) now format and validate correctly instead of showing as raw text.
+            </li>
+            <li>
+              <strong>Command Palette</strong> &mdash; Press Ctrl+Shift+P to fuzzy-search and run any viewer action straight from the keyboard.
+            </li>
+            <li>
+              <strong>Open Local Files</strong> &mdash; Drag and drop or pick a file on the launcher or welcome page to view it instantly &mdash; no extra browser permission needed.
+            </li>
+            <li>
+              <strong>Rating &amp; Feedback Prompt</strong> &mdash; A gentle, dismissible prompt invites long-time users to leave a review or share feedback, shown at most once.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Security</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Safer Links &amp; Requests</strong> &mdash; Links in CSS files and HTTP Client requests are now limited to safe http(s) URLs, blocking javascript:, file:, data:, and similar schemes.
+            </li>
+            <li>
+              <strong>Tighter Secret Handling</strong> &mdash; Saved secrets stay masked across every environment, and very large HTTP responses are capped so a huge reply can't overwhelm the extension.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improved &amp; Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Launcher Opens Tools in a New Tab</strong> &mdash; Picking a tool from the launcher now opens it in a new tab and leaves the launcher open, so you can launch several in a row.
+            </li>
+            <li>
+              <strong>More Accurate Diagnostics</strong> &mdash; Corrected XML/RSS line numbering, several diagnostics edge cases (deep schemas, timestamps, Base64 detection), and a flickering JSON breadcrumb tooltip.
+            </li>
+            <li>
+              <strong>Smoother Editing</strong> &mdash; As-you-type search is debounced, the color picker is steadier, and CSV and table exports keep a consistent column order.
+            </li>
+            <li>
+              <strong>More Reliable Tools</strong> &mdash; Runtime Inspect now captures modern const/let/class code, Export JSON no longer stalls on a false secrets warning, and the document outline recognizes more declaration styles.
+            </li>
+            <li>
+              <strong>Faster &amp; Steadier</strong> &mdash; Smoother scrolling with a sharper high-DPI minimap, quicker Statistics &amp; Diagnostics and diff/compare, plus assorted rendering and stability fixes.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.37 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.37</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">June 2026</span>
         </div>
 

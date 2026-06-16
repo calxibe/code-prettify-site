@@ -95,11 +95,82 @@
         </a>
       </div>
 
+      <!-- Version 1.0.10 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.10</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">June 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Added</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>TOML Support</strong> &mdash; Open TOML files with native validation and full syntax highlighting; .toml files get file associations and the right-click "Open with CodePrettify" entry.
+            </li>
+            <li>
+              <strong>Cross-Format Conversion</strong> &mdash; Re-serialize the open document to JSON, YAML, or TOML from the Export / Download dialog.
+            </li>
+            <li>
+              <strong>JSON with Comments (JSONC)</strong> &mdash; Files with comments and trailing commas (like tsconfig.json) now format and validate correctly, with .jsonc recognized for file open and the context menu.
+            </li>
+            <li>
+              <strong>Command Palette</strong> &mdash; Press Ctrl+Shift+P to fuzzy-search and run any viewer action from the keyboard.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Security</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Safer Links &amp; Requests</strong> &mdash; Links in CSS files and HTTP Client requests are now limited to safe http(s) URLs.
+            </li>
+            <li>
+              <strong>Tighter Secret Handling</strong> &mdash; Saved secrets stay masked across every environment, and very large HTTP responses are capped.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improved &amp; Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Sharper Icons</strong> &mdash; Several toolbar and menu icons that showed as blank boxes (Regex Playground, Runtime Inspect, HTTP Client) now render correctly.
+            </li>
+            <li>
+              <strong>More Accurate Diagnostics</strong> &mdash; Corrected XML/RSS line numbering, several diagnostics edge cases, and a flickering JSON breadcrumb tooltip.
+            </li>
+            <li>
+              <strong>Smoother Editing</strong> &mdash; As-you-type search is debounced, the color picker is steadier, CSV and table exports keep a consistent column order, and several formatter glitches are fixed.
+            </li>
+            <li>
+              <strong>More Reliable Tools</strong> &mdash; Runtime Inspect now captures modern const/let/class code, Export JSON no longer stalls on a false secrets warning, and the document outline recognizes more declaration styles.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Desktop App</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Reliable Save</strong> &mdash; Saving in place no longer reloads the document and loses your scroll position or the "Saved" confirmation.
+            </li>
+            <li>
+              <strong>Correct Encoding &amp; BOM</strong> &mdash; Choosing "UTF-8 with BOM" or UTF-16 now writes the byte-order mark, plain "UTF-8" no longer adds one, and a save that would lose characters in a legacy encoding is now flagged.
+            </li>
+            <li>
+              <strong>Safer Edits &amp; Search</strong> &mdash; Better handling of external file changes while you are editing, and large-file "find next" now lands on the correct match.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.9 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.9</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">June 2026</span>
         </div>
 

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CodePrettify - Make Raw Code Instantly Readable</title>
   <meta name="description"
-    content="Open raw code, Markdown docs, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, inspects, and exports JavaScript, TypeScript, Markdown, JSON, JSONL, CSS, YAML, XML, and RSS/Atom files right in your browser — and runs JavaScript against them in a sandboxed Playground." />
+    content="Open raw code, Markdown docs, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, converts, inspects, and exports JavaScript, TypeScript, Markdown, JSON, JSONC, JSONL, TOML, CSS, YAML, XML, and RSS/Atom files right in your browser — and runs JavaScript against them in a sandboxed Playground." />
   <meta name="application-name" content="CodePrettify" />
   <meta name="apple-mobile-web-app-title" content="CodePrettify" />
   <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
@@ -23,7 +23,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="CodePrettify - Make Raw Code Instantly Readable" />
   <meta property="og:description"
-    content="Open raw code, Markdown docs, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, inspects, and exports JavaScript, TypeScript, Markdown, JSON, JSONL, CSS, YAML, XML, and RSS/Atom files right in your browser — and runs JavaScript against them in a sandboxed Playground." />
+    content="Open raw code, Markdown docs, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, converts, inspects, and exports JavaScript, TypeScript, Markdown, JSON, JSONC, JSONL, TOML, CSS, YAML, XML, and RSS/Atom files right in your browser — and runs JavaScript against them in a sandboxed Playground." />
   <meta property="og:url" content="https://prettify.cloud" />
   <meta property="og:image" content="https://prettify.cloud/img/feature-json-format.png" />
   <meta property="og:image:alt"
@@ -31,7 +31,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="CodePrettify - Make Raw Code Instantly Readable" />
   <meta name="twitter:description"
-    content="Open raw code, Markdown docs, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, inspects, and exports JavaScript, TypeScript, Markdown, JSON, JSONL, CSS, YAML, XML, and RSS/Atom files right in your browser — and runs JavaScript against them in a sandboxed Playground." />
+    content="Open raw code, Markdown docs, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, converts, inspects, and exports JavaScript, TypeScript, Markdown, JSON, JSONC, JSONL, TOML, CSS, YAML, XML, and RSS/Atom files right in your browser — and runs JavaScript against them in a sandboxed Playground." />
   <meta name="twitter:image" content="https://prettify.cloud/img/feature-json-format.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -83,7 +83,7 @@
 
         <p class="hero-proof">
           Built for JSON payloads, Markdown docs, CDN bundles, XML feeds, YAML
-          configs, and local <code>file://</code> documents.
+          and TOML configs, and local <code>file://</code> documents.
         </p>
 
         <div class="cta-buttons">
@@ -123,7 +123,8 @@
               <span class="format-tag">JavaScript <code>.js</code> <code>.mjs</code> <code>.cjs</code></span>
               <span class="format-tag">TypeScript <code>.ts</code> <code>.mts</code> <code>.cts</code></span>
               <span class="format-tag">Markdown <code>.md</code> <code>.markdown</code></span>
-              <span class="format-tag">JSON <code>.json</code> <code>.jsonl</code></span>
+              <span class="format-tag">JSON <code>.json</code> <code>.jsonc</code> <code>.jsonl</code> <code>.ndjson</code></span>
+              <span class="format-tag">TOML <code>.toml</code></span>
               <span class="format-tag">CSS <code>.css</code></span>
               <span class="format-tag">YAML <code>.yaml</code> <code>.yml</code></span>
               <span class="format-tag">XML <code>.xml</code></span>
@@ -319,7 +320,7 @@
               <li>
                 Detects supported resources by URL and HTTP content type
               </li>
-              <li>Supports JavaScript, TypeScript, Markdown, JSON, JSONL, CSS, YAML, XML, and RSS/Atom feeds</li>
+              <li>Supports JavaScript, TypeScript, Markdown, JSON, JSON&nbsp;with&nbsp;Comments (JSONC), JSONL, TOML, CSS, YAML, XML, and RSS/Atom feeds</li>
               <li>
                 Intelligent minification detection formats dense files automatically
               </li>
@@ -394,7 +395,10 @@
                 Advanced search with regex (<code>/pattern/flags</code>), result counting, and Go To Line (<code>Ctrl+G</code>)
               </li>
               <li>
-                Copy original, formatted, or minified code, and export as CSV, HTML table, or PNG image
+                Command Palette (<code>Ctrl+Shift+P</code>) to fuzzy-find and run any viewer action from the keyboard
+              </li>
+              <li>
+                Copy original, formatted, or minified code; convert and download between JSON, YAML, and TOML; and export as CSV, HTML table, or PNG image
               </li>
               <li>
                 Generate copy-ready <code>cURL</code> and <code>fetch()</code> commands and share a view-state URL with teammates
@@ -479,6 +483,10 @@
               <span class="shortcut-label">Go to Line</span>
             </div>
             <div class="shortcut-item">
+              <span class="kbd">Ctrl + Shift + P</span>
+              <span class="shortcut-label">Command Palette</span>
+            </div>
+            <div class="shortcut-item">
               <span class="kbd">Ctrl + Alt + D</span>
               <span class="shortcut-label">Compare / Diff View</span>
             </div>
@@ -510,11 +518,13 @@
           <div>
             <h4>Note for Local Files</h4>
             <p>
-              To use CodePrettify with local files (e.g.,
+              To open local files in place (e.g.,
               <code>file:///C:/code/data.json</code>), you must enable
               <strong>"Allow access to file URLs"</strong> in your browser's
               extension management page, such as <code>chrome://extensions</code>
-              or <code>edge://extensions</code>.
+              or <code>edge://extensions</code>. Or open any supported file with
+              no permission at all by dragging it onto &mdash; or picking it from
+              &mdash; the upload field on the extension's launcher and welcome pages.
             </p>
           </div>
         </div>

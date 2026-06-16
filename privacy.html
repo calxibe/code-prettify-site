@@ -65,7 +65,7 @@
     </header>
     <main class="content">
       <h1>Privacy Policy</h1>
-      <p class="last-updated">Last Updated: April 1, 2026</p>
+      <p class="last-updated">Last Updated: June 16, 2026</p>
       <p>
         This Privacy Policy describes how CodePrettify ("we", "us", or "our")
         handles your information when you use our desktop application and
@@ -110,10 +110,13 @@
         extension reads the content of that specific tab to apply formatting,
         syntax highlighting, search, code folding, diagnostics, compare tools,
         statistics, exports, and other viewer features. Supported content
-        includes JavaScript, TypeScript, JSON, JSONL/NDJSON, YAML, CSS, XML,
-        and RSS/Atom feeds, including resources detected by content type even
-        when the URL has no matching file extension. This handling happens
-        locally within your browser on your device.
+        includes JavaScript, TypeScript, Markdown, JSON, JSON with Comments
+        (JSONC), JSONL/NDJSON, TOML, YAML, CSS, XML, and RSS/Atom feeds,
+        including resources detected by content type even when the URL has no
+        matching file extension. You can also open a file you explicitly pick or
+        drag onto the extension's launcher or welcome page; that file is read in
+        your browser and shown in the viewer. This handling happens locally
+        within your browser on your device.
       </p>
       <p>
         To provide request metadata inside Statistics &amp; Diagnostics, the
@@ -151,7 +154,7 @@
       <h2>2. Local Storage</h2>
       <p>
         We use your browser's local extension storage area
-        (<code>chrome.storage.local</code>) solely to save user preferences,
+        (<code>chrome.storage.local</code>) to save your preferences,
         such as:
       </p>
       <ul>
@@ -165,6 +168,14 @@
       <p>
         These settings are stored locally on your device. CodePrettify does not
         use sync storage or any external database for these preferences.
+      </p>
+      <p>
+        To show an occasional, dismissible prompt asking whether you are enjoying
+        CodePrettify, the extension also keeps two local counters &mdash; when it
+        was first installed and how many times it has been used &mdash; and the
+        date on which you responded to or dismissed that prompt. These
+        values stay in your browser's local storage, are never transmitted to us,
+        and are used only to decide whether and when to show the one-time prompt.
       </p>
       <p>
         The extension may also store recent per-URL view state locally so it
