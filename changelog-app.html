@@ -95,11 +95,55 @@
         </a>
       </div>
 
+      <!-- Version 1.0.12 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.12</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">July 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Markdown always opens rendered</strong> &mdash; A remembered &ldquo;show raw&rdquo; choice could leave every Markdown file opening as raw source. Markdown now always opens in the rendered preview (with no raw flash on the way in), while the raw source stays one click away from the toolbar toggle.
+            </li>
+            <li>
+              <strong>Inline code in the Markdown preview</strong> &mdash; Back-tick <code>code</code> spans now render inline the way they should, instead of stretching into full-width boxes on their own line.
+            </li>
+            <li>
+              <strong>Exact numbers in the Table view and CSV export</strong> &mdash; Very large whole numbers (such as Snowflake/BigInt ids) and high-precision decimals now keep their exact value instead of being rounded or rewritten in scientific notation, matching what the JSON viewer shows.
+            </li>
+            <li>
+              <strong>Large files stay responsive</strong> &mdash; Formatting, validating, and comparing very large documents now runs in the background, so the window no longer freezes while it works.
+            </li>
+            <li>
+              <strong>Reliable session restore</strong> &mdash; A rare shutdown timing issue could reopen the app with no tabs and a stale window position; your open tabs and window placement are now saved reliably on close.
+            </li>
+            <li>
+              <strong>Better encoding detection</strong> &mdash; A file that contains the odd NUL byte is no longer mistaken for UTF-16 and garbled on open.
+            </li>
+            <li>
+              <strong>HTML formatting</strong> &mdash; Tags with a <code>&gt;</code> inside an attribute value (for example <code>title="1 &gt; 0"</code>) are no longer split and corrupted when you format the document.
+            </li>
+            <li>
+              <strong>Settings</strong> &mdash; Changing the font size now also resizes open comparison views, and a custom indent width is no longer reset when you save unrelated changes.
+            </li>
+            <li>
+              <strong>Opening files</strong> &mdash; A file whose name begins with <code>--</code> now opens instead of being silently ignored.
+            </li>
+            <li>
+              <strong>Reliability</strong> &mdash; Internal hardening: background requests can no longer hang, view toggles can no longer desync, and more error paths are logged for diagnosis.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.11 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.11</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">July 2026</span>
         </div>
 
