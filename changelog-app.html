@@ -107,7 +107,16 @@
           <h3>Improved</h3>
           <ul class="feature-list">
             <li>
-              <strong>Clearer view toggle</strong> &mdash; The Prettify/Raw button is now a two-state switch that shows both options with the current one highlighted, so it is obvious which view you are in. The wording adapts to the file &mdash; Rendered/Source for Markdown and XML/RSS, Prettified/Raw for code and data.
+              <strong>Clearer view toggle</strong> &mdash; The Prettify/Raw button is now a two-state switch that shows both options with the current one highlighted, so it is obvious which view you are in. The wording adapts to the file &mdash; Rendered/Source for Markdown and XML/RSS, Prettified/Raw for code and data &mdash; and the raw view uses the same switch, so both views look and behave alike.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Syntax warning could be missed</strong> &mdash; Invalid JavaScript files could open without the invalid-code warning: the syntax check could give up while its sandbox was still loading during startup. The check now waits properly and re-runs in the background if needed, so the warning still shows a moment later.
             </li>
           </ul>
         </div>

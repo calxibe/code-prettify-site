@@ -105,6 +105,15 @@
             </li>
           </ul>
         </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Syntax warning could be missed</strong> &mdash; On pages with a heavy first render, the JavaScript syntax check could give up while its sandbox was still loading, and the invalid-code warning never appeared. The check now waits properly and re-runs in the background if needed, so the warning still shows a moment later.
+            </li>
+          </ul>
+        </div>
       </div>
 
       <!-- Version 1.0.42 -->
