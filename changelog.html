@@ -80,11 +80,46 @@
         </a>
       </div>
 
+      <!-- Version 1.0.44 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.44</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">July 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Added</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Local JSON Schema Validator</strong> &mdash; Paste a schema to check the open JSON or JSONC document against common keywords and local <code>$ref</code> references. Nothing is fetched or uploaded, validation is cooperatively scheduled and capped, and every violation can jump to its JSON path and source line.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Security</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Private Markdown previews</strong> &mdash; Remote and network images are now shown as explicit links instead of loading automatically, so opening an untrusted Markdown file cannot silently contact an external host. Safe embedded images can still render.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Launcher source context</strong> &mdash; Launching a tool from a <code>.jsonc</code>, <code>.toml</code>, or supported extensionless resource now keeps the current document as its source instead of losing the context.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.43 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.43</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">July 2026</span>
         </div>
 

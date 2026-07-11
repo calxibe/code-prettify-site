@@ -95,11 +95,55 @@
         </a>
       </div>
 
+      <!-- Version 1.0.14 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.14</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">July 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Added</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Local JSON Schema Validator</strong> &mdash; Paste a schema to check the open JSON or JSONC document against common keywords and local <code>$ref</code> references. Nothing is fetched or uploaded, validation is cooperatively scheduled and capped, and every violation can jump to its JSON path and source line. It is available from the viewer and the native Tools menu.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Security</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Private Markdown previews</strong> &mdash; Remote and network images are now shown as explicit links instead of loading automatically, so opening an untrusted Markdown file cannot silently contact an external host. Safe embedded images can still render.
+            </li>
+            <li>
+              <strong>Safer CSV conversion</strong> &mdash; Native JSON/XML-to-CSV conversion now neutralizes formula-like text cells without changing genuine negative numbers, preventing spreadsheet software from treating untrusted text as a formula.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Reliable save in place</strong> &mdash; <code>Ctrl+S</code> now saves the JavaScript view that is actually visible and synchronizes the web document, raw view, native tab, and future-save baseline, so a later save cannot restore stale text.
+            </li>
+            <li>
+              <strong>Safer JSONC saves</strong> &mdash; Saving formatted JSONC now warns that comments and trailing commas will be removed, with No as the safe default.
+            </li>
+            <li>
+              <strong>Consistent file entry points</strong> &mdash; <code>.jsonc</code> and <code>.toml</code> now work through the native and landing-page file pickers, installed file handlers, and Explorer integration.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.13 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.13</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">July 2026</span>
         </div>
 
