@@ -65,7 +65,7 @@
     </header>
     <main class="content">
       <h1>Privacy Policy</h1>
-      <p class="last-updated">Last Updated: June 16, 2026</p>
+      <p class="last-updated">Last Updated: July 14, 2026</p>
       <p>
         This Privacy Policy describes how CodePrettify ("we", "us", or "our")
         handles your information when you use our desktop application and
@@ -78,7 +78,9 @@
         it can format, inspect, compare, and export raw-code resources. We do
         not transmit that content or metadata to our servers. In limited
         encoding-recovery cases described below, the extension may re-request
-        the same URL directly from the site you are already visiting.
+        the same URL directly from the site you are already visiting. If you
+        explicitly use the HTTP Client, your browser sends the request you
+        compose directly to the target URL; CodePrettify does not proxy it.
       </div>
 
       <div class="highlight limited-use-highlight">
@@ -136,6 +138,14 @@
         not transmitted to CodePrettify or our servers.
       </p>
       <p>
+        The extension's HTTP Client sends a request only after you choose
+        <strong>Send</strong>. The method, target URL, headers, body, and any
+        credentials you provide are sent directly from your browser to that
+        target service and are subject to the target service's privacy policy.
+        CodePrettify does not proxy, inspect, or receive those requests or
+        responses on our servers.
+      </p>
+      <p>
         Clipboard features are user initiated. The extension writes text to
         your clipboard only when you use a copy or share action, and the
         compare tool uses text you paste manually instead of reading clipboard
@@ -153,9 +163,7 @@
 
       <h2>2. Local Storage</h2>
       <p>
-        We use your browser's local extension storage area
-        (<code>chrome.storage.local</code>) to save your preferences,
-        such as:
+        We use browser extension storage to save preferences such as:
       </p>
       <ul>
         <li>Theme choice (Light/Dark/Auto)</li>
@@ -166,8 +174,14 @@
         </li>
       </ul>
       <p>
-        These settings are stored locally on your device. CodePrettify does not
-        use sync storage or any external database for these preferences.
+        Viewer preferences and counts used to arrange frequently used actions
+        may use <code>chrome.storage.sync</code> when it is available, so they
+        can follow browser profiles signed into the same browser account. The
+        browser vendor operates that sync service; CodePrettify does not receive
+        the data. Synced settings do not include viewed document content,
+        resource URLs, per-URL view state, HTTP Client requests, responses, or
+        credentials. Local storage is used as a fallback when sync is
+        unavailable.
       </p>
       <p>
         To show an occasional, dismissible prompt asking whether you are enjoying
@@ -182,6 +196,19 @@
         can restore your previous view for the same resource. This may include
         search text, selected JSON path, highlighted line, fold state, and
         whether you were viewing the original or formatted output.
+      </p>
+      <p>
+        HTTP Client saved requests, environments, secret variables, and
+        privacy-sanitized replay history are stored only in
+        <code>chrome.storage.local</code>. The current version migrates saved
+        requests and environments written to sync storage by an older release
+        back to local storage and removes the synced copy. Replay history omits request bodies,
+        credential headers, URL credentials, and sensitive query parameters.
+        CodePrettify does not separately encrypt saved local request or
+        environment values, so access to your browser profile should be
+        protected.
+        JavaScript Playground state and Regex Playground history are also kept
+        locally because they may contain text you entered.
       </p>
       <p>
         If you choose to copy a shareable URL, the URL hash may include view
@@ -213,6 +240,12 @@
         changelog or issue-report pages, your browser connects directly to
         those websites under their own policies. The extension website may also
         load standard website assets such as hosted fonts.
+      </p>
+      <p>
+        If you use the HTTP Client, the API or website you select is a
+        third-party service and receives the request directly from your browser.
+        Review that service's policy before sending credentials or sensitive
+        data.
       </p>
 
       <h2>5. Your Rights</h2>

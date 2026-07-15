@@ -103,6 +103,21 @@
             <li>
               <strong>Private Markdown previews</strong> &mdash; Remote and network images are now shown as explicit links instead of loading automatically, so opening an untrusted Markdown file cannot silently contact an external host. Safe embedded images can still render.
             </li>
+            <li>
+              <strong>Hardened viewer boundary</strong> &mdash; Live HTML pages are rejected even when their URL ends in a supported source extension. Privileged HTTP actions require a verified top-level viewer and a trusted user gesture, and launcher tools return only to the exact verified source tab.
+            </li>
+            <li>
+              <strong>Offline, fail-closed sandboxes</strong> &mdash; JavaScript and regular-expression execution now validates its private bridge, stays in bounded workers, locks down network primitives, and uses a connection-denying sandbox policy. Syntax-aware module handling no longer rewrites import-like text inside literals, templates, comments, or regular expressions.
+            </li>
+            <li>
+              <strong>Local-only HTTP secrets</strong> &mdash; Saved requests, environments, secret variables, and replay history are migrated out of sync storage. Sensitive headers, query values, URL credentials, and bodies are omitted from history; encoded and inactive secrets remain masked.
+            </li>
+            <li>
+              <strong>Bounded hostile-input handling</strong> &mdash; Search and JSON Schema validation reject dangerous regular expressions before execution, while Security Scan remains responsive on large near-match-heavy documents and clearly labels partial scans.
+            </li>
+            <li>
+              <strong>Secure build dependency</strong> &mdash; The build-time esbuild dependency is updated to <code>0.28.1</code>, containing the Windows development-server path-traversal fix.
+            </li>
           </ul>
         </div>
 
@@ -111,6 +126,24 @@
           <ul class="feature-list">
             <li>
               <strong>Launcher source context</strong> &mdash; Launching a tool from a <code>.jsonc</code>, <code>.toml</code>, or supported extensionless resource now keeps the current document as its source instead of losing the context.
+            </li>
+            <li>
+              <strong>No source-URL mutation</strong> &mdash; Tools focus the original verified viewer instead of reopening it with a control query parameter. Signed/API URLs are preserved, duplicate requests are avoided, and local uploaded or <code>file://</code> viewers work correctly.
+            </li>
+            <li>
+              <strong>Reliable HTTP Client</strong> &mdash; A completed response is retained even if history storage fails. Concurrent history writes, timeout/cancel reporting, save errors, duplicate auth headers, URL credentials, and cURL <code>-I</code>/<code>-G</code> imports are handled correctly.
+            </li>
+            <li>
+              <strong>Lossless formatting</strong> &mdash; JSON Lines records, YAML block scalars, CSS strings and data URLs, XML mixed content/CDATA/<code>xml:space</code>, Markdown code blocks and hard breaks, and fractional TOML times no longer change during formatting or minification. Unterminated JSONC comments are rejected.
+            </li>
+            <li>
+              <strong>Correct structured-data tools</strong> &mdash; Large numeric literals, dates, semantic array identities, mixed tables, <code>__proto__</code> keys, exact schema multiples, IPv6, <code>-0</code>, and quoted property paths now produce correct results. Unsupported <code>unevaluatedProperties</code> is reported instead of silently ignored.
+            </li>
+            <li>
+              <strong>Stable view state</strong> &mdash; Rapid Raw/Prettified switching cannot apply stale formatting. CodeMirror folds, deep scroll position, live Auto theme, multi-tab settings, and per-URL state restore reliably.
+            </li>
+            <li>
+              <strong>UI and accessibility fixes</strong> &mdash; Modal focus restoration and repeated shortcuts, debounced and one-character search, 10,000-result truncation, Markdown minimaps, hidden-toolbar palette actions, 320 px layouts, keyboard menus, local-viewer reloads, legacy settings, labels, and live status regions are corrected.
             </li>
           </ul>
         </div>

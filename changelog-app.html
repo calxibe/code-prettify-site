@@ -95,11 +95,159 @@
         </a>
       </div>
 
+      <!-- Version 1.0.16 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.16</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">July 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Added</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Paste &amp; Prettify</strong> &mdash; Press <code>Ctrl+N</code> to open clipboard text in a new unsaved tab. JSON/JSONC, JSON Lines, JavaScript/TypeScript, YAML, TOML, Markdown/text, CSV, CSS, XML/RSS/Atom, and HTML are detected from a bounded sample, with an explicit selector for ambiguous content.
+            </li>
+            <li>
+              <strong>Semantic compare</strong> &mdash; JSON, JSONC, JSON Lines, YAML, and TOML can now be compared by structure instead of formatting or key order. Identity-aware arrays, safe text fallback, JSON jump-to-line, Previous/Next Difference, and Ignore Whitespace make both clipboard and native file comparison easier to navigate.
+            </li>
+            <li>
+              <strong>Useful HTTP responses</strong> &mdash; HTTP Client responses can now be copied, saved with a safe content-aware filename, or opened as a new CodePrettify tab.
+            </li>
+            <li>
+              <strong>Complete native Tools menu</strong> &mdash; Diagnostics, Export, JavaScript Playground, Runtime Inspect, Regex Playground, JSON Path, HTTP Client, and Security Scan are now available directly from the application menu.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Security</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Validator hardening parity</strong> &mdash; The desktop JSON Schema Validator now carries the browser extension 1.0.44 fixes for exact <code>multipleOf</code> checks, unsupported <code>unevaluatedProperties</code>, strict formats and paths, negative zero, and hostile regular expressions.
+            </li>
+            <li>
+              <strong>Token-aware sandbox rewriting</strong> &mdash; JavaScript and TypeScript module neutralization no longer rewrites module-like text inside strings, comments, templates, or regular expressions, with a conservative fallback for syntax the tokenizer cannot parse.
+            </li>
+            <li>
+              <strong>Bounded scanning and response tabs</strong> &mdash; Security Scan clearly marks partial, capped work, while HTTP response tabs use a 50 MiB UTF-8 bridge limit, safe leaf filenames, a type allowlist, and recognized-source validation.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improved</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Crash-safe workspace recovery</strong> &mdash; Session checkpoints are saved atomically while the app runs. Bounded rolling diagnostics identify an unclean previous run, redact profile paths, and flush exceptions synchronously.
+            </li>
+            <li>
+              <strong>Recoverable viewers</strong> &mdash; A failed WebView offers Retry and Open Raw, can recreate its controller without losing the tab, and can retry Prettified later. Hidden landing failures repair quietly, while file watchers recover with bounded backoff and check for missed edits.
+            </li>
+            <li>
+              <strong>Keyboard and assistive access</strong> &mdash; Native tabs and status segments now expose screen-reader objects, keyboard actions, visible focus, and high-contrast colors. The web surface honors forced colors and reduced motion, and <code>Ctrl+Tab</code> / <code>Ctrl+Page Down</code> cycle tabs.
+            </li>
+            <li>
+              <strong>Restore-session control</strong> &mdash; Settings now exposes Restore previous session. Fresh profiles still open every supported family in its Prettified, Rendered, or Table view until Raw or Source is chosen explicitly.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>No dead-end viewer failures</strong> &mdash; A crashed CoreWebView2 can still be mapped to its owning tab, and a <code>FileSystemWatcher.Error</code> no longer silently disables change detection for that tab.
+            </li>
+            <li>
+              <strong>Reliable format handling</strong> &mdash; Large pasted JSON Lines data is detected from a bounded 100-line sample, TOML and JSON Lines format correctly before comparison, and YAML semantic compare loads its parser only when needed.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Version 1.0.15 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.15</span>
+          <span class="version-date">July 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Security</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Stronger execution sandbox</strong> &mdash; JavaScript and TypeScript validation, Playground, Runtime Inspect, and regex work now use an opaque script-only iframe, restrictive CSP, private authenticated message channel, and fail-closed navigation handling. Network-capable worker APIs are disabled before document code runs, preserving the app's offline boundary even when you explicitly execute an untrusted file.
+            </li>
+            <li>
+              <strong>Patched build tooling</strong> &mdash; The app now builds with esbuild 0.28.1, including the fix for the Windows development-server path traversal issue in the previous dependency.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improved</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Complete file-type defaults</strong> &mdash; Settings now covers JSON/JSONC/JSON Lines, JavaScript/TypeScript, YAML, TOML, Markdown, CSV, CSS, XML/RSS/Atom, and HTML, with a default-view choice for every family. Clean profiles start Prettified, Rendered, or in the CSV Table as appropriate, while an explicit Raw or Source choice remains saved.
+            </li>
+            <li>
+              <strong>Search with a hidden toolbar</strong> &mdash; <code>Ctrl+F</code> and native Find temporarily reveal and focus the search controls without changing your saved toolbar preference, then hide them again when search is cleared or dismissed. Pending searches are canceled when the document changes so an old query cannot affect the next file.
+            </li>
+            <li>
+              <strong>Faster, calmer startup</strong> &mdash; The visible landing page no longer competes with a second hidden WebView. Editor prewarming waits until the visible view is ready and the app is idle, remains deferred while tabs are loading, and the icon stylesheet is no longer fetched and parsed twice.
+            </li>
+            <li>
+              <strong>Active tab restored first</strong> &mdash; The previously active file becomes usable before inactive session tabs restore serially in the background. Background restoration preserves saved order and never steals a later user selection.
+            </li>
+            <li>
+              <strong>More deterministic releases</strong> &mdash; Build dependencies are pinned, conflicting build modes are rejected, production batch failures propagate correctly, clean per-architecture launcher builds exclude old publish outputs from dependency resolution, and bundle verification checks exact WebView2 versions alongside Store identity, signer, and package metadata.
+            </li>
+            <li>
+              <strong>Startup regression measurements</strong> &mdash; Desktop automation now reports precise startup milestones and separate fresh-cache and warm-cache landing results.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Edit &gt; Find works reliably</strong> &mdash; The app now waits for the native menu to close before returning keyboard focus to Search, targets the visible Table search field in Table view, and keeps Find available for native large-file tabs.
+            </li>
+            <li>
+              <strong>Consistent saved views</strong> &mdash; JSON and JSON Lines now agree between the native startup preview and web viewer, Markdown respects an explicit Source choice, and a missing or empty native cache no longer replaces preferences that still survive in the WebView profile. Malformed view maps fall back safely, and an older open tab cannot roll back a newer settings change.
+            </li>
+            <li>
+              <strong>Reliable reopen after the last tab</strong> &mdash; Opening a file immediately after closing the final tab no longer leaves the new tab displaying the landing page. Landing and document startup are kept separate, and a page cannot report a document ready before its file content is loaded.
+            </li>
+            <li>
+              <strong>Reliable dialog lifecycle</strong> &mdash; Closing or replacing a dialog restores focus only to a connected, visible control, and global shortcuts no longer fire behind it or while you type. Replacing a document now runs each open feature's cleanup and unregisters old handlers before removing overlays, so scrolling and shortcuts cannot remain locked by a detached dialog.
+            </li>
+            <li>
+              <strong>Production packaging restored</strong> &mdash; The JSON Schema Validator module is now included in the build's exhaustive JavaScript minification list; the 1.0.14 source otherwise stopped every production build before creating an MSIX.
+            </li>
+            <li>
+              <strong>Safe settings and session writes</strong> &mdash; A writer that times out waiting for the cross-process lock now skips the write instead of proceeding unlocked, while unique temporary files and atomic replacement protect persisted state from concurrent instances and failed commits.
+            </li>
+            <li>
+              <strong>Strict app handoff</strong> &mdash; Single-instance and Explorer messages reject malformed UTF-8 and oversized payloads rather than accepting a truncated path list; official senders fall back to a local window when a handoff cannot fit safely.
+            </li>
+            <li>
+              <strong>Atomic Save As</strong> &mdash; Original and binary saves now use short, independently named sibling temporary files and atomic replacement, preserving an existing destination on failure, cleaning up incomplete files, and supporting valid near-limit NTFS filenames.
+            </li>
+            <li>
+              <strong>Consistent WebView2 packaging</strong> &mdash; App packages no longer mix stale Core and WinForms assemblies with a newer native loader. Production builds now reject any package whose WebView2 components do not all match the pinned version.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.14 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.14</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">July 2026</span>
         </div>
 
