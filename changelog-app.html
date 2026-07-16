@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>App Changelog - CodePrettify</title>
-    <meta name="description" content="Track the latest CodePrettify desktop app releases, including Markdown support, the desktop HTTP Client, Regex Playground upgrades, Table View improvements, and smarter JSON diagnostics." />
+    <meta name="description" content="Track the latest CodePrettify desktop app releases, including the .NET 10 LTS migration, self-contained Windows launchers, workspace recovery, and local developer tools." />
     <meta name="application-name" content="CodePrettify" />
     <meta name="apple-mobile-web-app-title" content="CodePrettify" />
     <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
@@ -20,13 +20,13 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="App Changelog - CodePrettify" />
-    <meta property="og:description" content="Track the latest CodePrettify desktop app releases, including Markdown support, the desktop HTTP Client, Regex Playground upgrades, Table View improvements, and smarter JSON diagnostics." />
+    <meta property="og:description" content="Track the latest CodePrettify desktop app releases, including the .NET 10 LTS migration, self-contained Windows launchers, workspace recovery, and local developer tools." />
     <meta property="og:url" content="https://prettify.cloud/changelog-app.html" />
     <meta property="og:image" content="https://prettify.cloud/img/feature-stats-diagnostics.png" />
     <meta property="og:image:alt" content="CodePrettify statistics and diagnostics panel showing warnings, request metadata, and document metrics" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="App Changelog - CodePrettify" />
-    <meta name="twitter:description" content="Track the latest CodePrettify desktop app releases, including Markdown support, the desktop HTTP Client, Regex Playground upgrades, Table View improvements, and smarter JSON diagnostics." />
+    <meta name="twitter:description" content="Track the latest CodePrettify desktop app releases, including the .NET 10 LTS migration, self-contained Windows launchers, workspace recovery, and local developer tools." />
     <meta name="twitter:image" content="https://prettify.cloud/img/feature-stats-diagnostics.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -95,11 +95,114 @@
         </a>
       </div>
 
+      <!-- Version 1.1.2 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.1.2</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">July 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Improved</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Useful included scripts</strong> &mdash; The JavaScript Playground now defaults to <strong>Safe definitions</strong>, retaining top-level functions and passive values while skipping page startup that depends on <code>window</code>, <code>document</code>, the DOM, jQuery, or page-provided globals. <strong>Run entire file</strong> remains available explicitly.
+            </li>
+            <li>
+              <strong>Console-style results</strong> &mdash; A final expression such as <code>fApiUrl('test')</code> now displays its value automatically without requiring an explicit <code>return</code>.
+            </li>
+            <li>
+              <strong>Accurate environment guidance</strong> &mdash; The Playground now clearly identifies its Web Worker runtime and explains that DOM APIs, Node.js APIs, and local files are unavailable.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Security</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Isolation preserved</strong> &mdash; Safe definitions use strict syntax analysis and preserve source lines for diagnostics. Code still runs only in the offline, terminable Worker; no page-DOM, iframe, network, or synthetic-page access was added.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Version 1.1.1 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.1.1</span>
+          <span class="version-date">July 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Security</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Explicit production signing</strong> &mdash; Production builds no longer fall back to the development certificate. They require either a certificate-store thumbprint or an explicit PFX/password pair, redact configured passwords from signing errors, and support an optional RFC 3161 timestamp service. Unsigned production output requires a deliberate <code>--allow-unsigned</code> opt-in.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improved</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>.NET 10 LTS foundation</strong> &mdash; The native Windows launcher, Explorer context-menu handler, and native regression projects have moved from .NET 8 to .NET 10 LTS. A repository-level <code>global.json</code> pins the current SDK 10.0.302 security patch with patch roll-forward so development and release builds select the same supported toolchain.
+            </li>
+            <li>
+              <strong>Reliable first launch</strong> &mdash; The x64 and Arm64 desktop launchers are self-contained, so the main app starts after a clean installation without a separately installed .NET runtime. The optional Explorer right-click component remains framework-dependent because .NET does not support self-contained COM components. CodePrettify detects its exact .NET 10 prerequisite after startup and, when missing, keeps the app usable while offering Microsoft's architecture-specific installer; the check is also available from Help.
+            </li>
+            <li>
+              <strong>WebView2 recovery</strong> &mdash; Clean Windows installations that do not yet have Microsoft Edge WebView2 Runtime now get a dedicated recovery screen instead of an unusable shell. It opens Microsoft's small, architecture-detecting Evergreen Bootstrapper and keeps a Retry action available after installation.
+            </li>
+            <li>
+              <strong>Strict, isolated builds</strong> &mdash; The build entry point requires an explicit mode, rejects unknown or conflicting options, and validates the AppX version before creating version-derived paths. A process lock and unique temporary work tree keep concurrent architecture builds from sharing or deleting one another's output.
+            </li>
+            <li>
+              <strong>Transactional releases</strong> &mdash; Candidate x64 and Arm64 packages are bundled, the bundle identity, version, architectures, and required signature are verified, and the packaged minified x64 web runtime is tested before publication. Development builds promote those three package artifacts together; production also includes the matching source ZIP in the same four-artifact transaction. A publication failure restores the previous release set instead of leaving mixed or partial artifacts.
+            </li>
+            <li>
+              <strong>Complete source archives</strong> &mdash; Production ZIPs now include the build scripts, lockfiles, Markdown documentation, tests, and .NET SDK pin needed to reproduce the app. Sorted, stable entries are written to a temporary ZIP and join the package artifacts in the production release transaction, while dependencies, generated output, packages, certificates, and test results stay excluded.
+            </li>
+            <li>
+              <strong>Safer development install</strong> &mdash; The installer performs a complete x64/Arm64 build, requires the exact manifest-version bundle, and verifies its identity, architectures, .NET deployment, WebView2 payload, signature, and development-certificate thumbprint before replacing the existing installation. Architecture-specific builds stay package-only.
+            </li>
+            <li>
+              <strong>Current WebView2 SDK</strong> &mdash; The pinned Microsoft WebView2 SDK is updated from 1.0.3967.48 to 1.0.4078.44, with exact Core, WinForms, and native-loader parity checked during packaging.
+            </li>
+            <li>
+              <strong>Complete distribution notices</strong> &mdash; App packages now carry the licenses and third-party notices for their bundled JavaScript parsers, Tomlyn, WebView2, self-contained .NET runtime, and embedded Font Awesome Pro icon subset.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Reliable Paste &amp; Prettify detection</strong> &mdash; Strong JavaScript and TypeScript syntax now outranks permissive CSS, YAML, TOML, and CSV shapes, so minified bundles and object-heavy functions open under the correct formatter. Detection is debounced, large JSON Lines input uses .NET 10's streaming multi-value reader, and HTML fragments, modern CSS selectors, BOM-prefixed input, and code-like structured values avoid the previous collisions.
+            </li>
+            <li>
+              <strong>Accurate large-document navigation</strong> &mdash; Document Navigator jumps to the selected object in large and minified JSON arrays instead of repeatedly selecting the first object near line 2.
+            </li>
+            <li>
+              <strong>Consistent JavaScript actions</strong> &mdash; JavaScript and TypeScript documents expose Document Navigator from the floating More actions menu as well as the native Tools menu.
+            </li>
+            <li>
+              <strong>Precise copy confirmations</strong> &mdash; Native Edit menu copy commands identify whether original, formatted, or minified content was copied, matching the floating copy menu.
+            </li>
+            <li>
+              <strong>Clear Playground capability errors</strong> &mdash; JavaScript Playground and Runtime Inspect now identify Node.js/CommonJS modules, Node-only globals, and local-file access as unavailable instead of surfacing misleading follow-on type errors. Browser-only guidance is shown up front, and runtime failures point to the included document or Playground code without exposing internal Worker locations; the filesystem and network sandbox remains unchanged.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.16 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.16</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">July 2026</span>
         </div>
 
