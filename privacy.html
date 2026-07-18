@@ -208,7 +208,9 @@
         environment values, so access to your browser profile should be
         protected.
         JavaScript Playground state and Regex Playground history are also kept
-        locally because they may contain text you entered.
+        locally because they may contain text you entered. Custom test text in
+        Regex Playground is different: it remains only in the active viewer
+        session and is not written to history, settings, or extension storage.
       </p>
       <p>
         If you choose to copy a shareable URL, the URL hash may include view
@@ -221,7 +223,9 @@
       <p>
         The CodePrettify desktop application operates entirely locally on your
         device. It does not transmit any data to external servers and does not
-        collect telemetry.
+        collect telemetry. Custom Regex Playground test text remains only in
+        the active tab session and is not saved to application settings or
+        Regex Playground history.
       </p>
       <p>
         CodePrettify does not require an internet connection to perform its

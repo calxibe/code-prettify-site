@@ -95,11 +95,100 @@
         </a>
       </div>
 
+      <!-- Version 1.1.3 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.1.3</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">July 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Added</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Offline Data Converter</strong> &mdash; One dedicated tool now prettifies, minifies, stringifies, parses, escapes, and unescapes JSON; converts JSON to and from XML, CSV, YAML, and TSV; and encodes or decodes Base64 and URL-encoded text.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improved</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>One conversion workflow</strong> &mdash; Formatting, structured-data conversion, and text encoding now share a dedicated input/output experience instead of requiring separate tools or a download-only conversion path.
+            </li>
+            <li>
+              <strong>Consistent action feedback</strong> &mdash; Data Converter, Regex Playground, and Security Scan now confirm copy actions on the clicked button. Disabled controls, button order, live status messages, reduced-motion behavior, high-contrast styling, notification severity, and keyboard navigation for interactive tool rows and menus are consistent across tools.
+            </li>
+            <li>
+              <strong>Actions where they belong</strong> &mdash; Data Converter places <strong>Convert</strong> beside the operation selector and groups <strong>Copy</strong> and <strong>Download</strong> with the output they act on.
+            </li>
+            <li>
+              <strong>Guided operation choices</strong> &mdash; Only conversions proven incompatible with the current document are disabled, with an explanation. Unknown input and lazy-loaded YAML operations stay selectable until they can be validated.
+            </li>
+            <li>
+              <strong>Flexible regex input</strong> &mdash; Regex Playground switches between the displayed document and session-local custom text, and copies the complete <code>/pattern/flags</code> expression. Custom test text is never persisted to history or settings.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Reliable conversion state</strong> &mdash; Empty CSV and TSV inputs now produce valid <code>[]</code> JSON, while closing, changing, or reopening a conversion during lazy YAML startup cleanly cancels the old work.
+            </li>
+            <li>
+              <strong>Lossless-number guardrails</strong> &mdash; JSON, YAML, and typed XML numbers that cannot be represented without changing value are rejected instead of rounded. YAML aliases, nesting, node count, and generated output are bounded against runaway expansion.
+            </li>
+            <li>
+              <strong>Reliable clipboard and failure feedback</strong> &mdash; Copying falls back when the Clipboard API is missing or rejects a request, restores repeated button feedback correctly, and always surfaces localized failures. HTTP Client export failures no longer report success, and selection drags cannot accidentally close dismissible tool modals.
+            </li>
+            <li>
+              <strong>Visible copied state</strong> &mdash; Copied-success buttons remain visibly green while hovered, focused, or pressed, including in dark theme.
+            </li>
+            <li>
+              <strong>Accurate JSON errors</strong> &mdash; Data Converter validates JSON syntax before lossless-number checks, so JavaScript and other invalid JSON report a syntax error instead of a misleading <code>-0</code> or numeric-corruption warning.
+            </li>
+            <li>
+              <strong>Prominent conversion failures</strong> &mdash; Blocking conversion failures appear in an accessible in-modal alert with the detailed cause.
+            </li>
+            <li>
+              <strong>Reliable alert icons</strong> &mdash; Converter alert icons render in DEV/source and packaged runtime views, with regression coverage preventing the runtime icon subset from drifting out of sync.
+            </li>
+            <li>
+              <strong>Worker-safe regex highlights</strong> &mdash; Document highlighting paints match ranges precomputed by the timeout-controlled worker instead of executing the pattern again in the viewer, so hostile expressions cannot bypass the timeout and block the UI during decoration.
+            </li>
+            <li>
+              <strong>Stable Regex Playground layout</strong> &mdash; The guide remains in a right-hand panel at normal desktop widths, and hiding it immediately reclaims the panel's space instead of leaving an empty gap.
+            </li>
+            <li>
+              <strong>Stable modal geometry</strong> &mdash; Opening a dialog on a document with a classic scrollbar preserves its occupied gutter, so the editor, minimap, floating toolbar, and horizontal scrollbar stay in place while background scrolling is locked. The reserved rail now matches the light or dark modal backdrop instead of exposing a white canvas strip, while scrolling dialogs retain their native track color.
+            </li>
+            <li>
+              <strong>HTTP Client spacing</strong> &mdash; The HTTP Client includes its padding inside its declared width and keeps symmetric backdrop margins instead of being flex-shrunk into an edge-to-edge dialog.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Security</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Local processing</strong> &mdash; Every Data Converter operation runs locally and offline; input and output are never uploaded or sent to a remote conversion service.
+            </li>
+            <li>
+              <strong>Safer spreadsheet export</strong> &mdash; CSV and TSV conversion neutralizes formula-leading text cells before they reach spreadsheet software.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.1.2 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.1.2</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">July 2026</span>
         </div>
 
