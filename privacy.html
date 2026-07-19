@@ -34,36 +34,38 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=block"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
-    <script src="site.js" defer></script>
+    <link rel="stylesheet" href="style.css?v=20260719-6" />
+    <script src="site.js?v=20260719" defer></script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header>
       <div class="header-inner">
           <a href="index.html" class="logo">
           <img
             src="img/code_32.png"
-            alt="CodePrettify"
+            alt=""
             class="logo-icon"
           /><span>Code<span>Prettify</span></span>
         </a>
-        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation">
           <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
           <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
         </button>
-        <nav>
+        <nav id="site-navigation" aria-label="Primary navigation">
           <a href="index.html#features">Features</a>
+          <a href="pricing.html">Price</a>
           <a href="changelog.html">Changelog</a>
-          <a href="privacy.html" class="active">Privacy</a>
+          <a href="manual.html">Manual</a>
           <a
               href="https://support.prettify.cloud/"
-            target="_blank"
+            target="_blank" rel="noopener"
               >Contact</a
           >
         </nav>
       </div>
     </header>
-    <main class="content">
+    <main id="main-content" class="content">
       <h1>Privacy Policy</h1>
       <p class="last-updated">Last Updated: July 14, 2026</p>
       <p>
@@ -284,6 +286,8 @@
     <footer>
       <div class="footer-inner">
         <div class="footer-links">
+          <a href="pricing.html">Pricing</a>
+          <a href="manual.html">User Manual</a>
           <a href="privacy.html">Privacy Policy</a>
           <a href="changelog.html">Changelog</a>
           <a href="https://support.prettify.cloud/"
@@ -291,7 +295,7 @@
           >
         </div>
         <p class="copyright">
-          &copy; 2026 FixQuotes. CodePrettify a browser extension by <a href="https://fixquotes.com/docs/about/" target="_blank">FixQuotes</a>.
+          &copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.
         </p>
       </div>
     </footer>

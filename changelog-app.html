@@ -34,36 +34,38 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=block"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
-    <script src="site.js" defer></script>
+    <link rel="stylesheet" href="style.css?v=20260719-6" />
+    <script src="site.js?v=20260719" defer></script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header>
       <div class="header-inner">
           <a href="index.html" class="logo">
           <img
             src="img/code_32.png"
-            alt="CodePrettify"
+            alt=""
             class="logo-icon"
           /><span>Code<span>Prettify</span></span>
         </a>
-        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation">
           <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
           <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
         </button>
-        <nav>
+        <nav id="site-navigation" aria-label="Primary navigation">
           <a href="index.html#features">Features</a>
+          <a href="pricing.html">Price</a>
           <a href="changelog.html" class="active">Changelog</a>
-          <a href="privacy.html">Privacy</a>
+          <a href="manual.html">Manual</a>
           <a
               href="https://support.prettify.cloud/"
-            target="_blank"
+            target="_blank" rel="noopener"
               >Contact</a
           >
         </nav>
       </div>
     </header>
-    <main class="content">
+    <main id="main-content" class="content">
       <h1>Changelog</h1>
       <p class="intro">
         All notable changes to the CodePrettify desktop app are documented here.
@@ -95,11 +97,37 @@
         </a>
       </div>
 
+      <!-- Version 1.1.5 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.1.5</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">July 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Improved</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Cleaner compact toolbar</strong> &mdash; Narrow app windows hide the three adaptive quick-action shortcuts and their divider, retain the intended side margins, and keep copy, search, go-to-line, and More uncluttered. Every hidden shortcut remains available from the More menu.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Responsive Security Scan</strong> &mdash; The scan now opens at its intended wide, viewport-responsive size instead of inheriting the generic 400px modal limit, and its height fits the findings instead of leaving a large empty area. <strong>Copy endpoints</strong> stays on one line, while compact windows and longer translated labels use a clean stacked header; long scans still grow to the viewport limit and scroll.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.1.4 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.1.4</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">July 2026</span>
         </div>
 
@@ -1343,6 +1371,8 @@
     <footer>
       <div class="footer-inner">
         <div class="footer-links">
+          <a href="pricing.html">Pricing</a>
+          <a href="manual.html">User Manual</a>
           <a href="privacy.html">Privacy Policy</a>
           <a href="changelog.html">Changelog</a>
           <a href="https://support.prettify.cloud/"
@@ -1350,7 +1380,7 @@
           >
         </div>
         <p class="copyright">
-          &copy; 2026 FixQuotes. CodePrettify a application by <a href="https://fixquotes.com/docs/about/" target="_blank">FixQuotes</a>.
+          &copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.
         </p>
       </div>
     </footer>

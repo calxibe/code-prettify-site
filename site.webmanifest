@@ -1,7 +1,7 @@
 {
   "name": "CodePrettify",
   "short_name": "CodePrettify",
-  "description": "Automatically format, validate, and highlight JavaScript, JSON, CSS, XML, and RSS/Atom files in your browser.",
+  "description": "Format, validate, compare, convert, inspect, and export code and data with the CodePrettify browser extension and Windows app.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

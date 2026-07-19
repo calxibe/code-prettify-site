@@ -107,6 +107,7 @@ function initializeScreenshotGallery() {
   }
 
   let activeScreenshotIndex = 0;
+  let modalReturnFocus = null;
   const screenshotMobileQuery = window.matchMedia("(max-width: 768px)");
 
   const updateScreenshot = (index) => {
@@ -144,13 +145,19 @@ function initializeScreenshotGallery() {
     activeScreenshotIndex = index;
     modalImage.src = selected.image;
     modalImage.alt = selected.alt;
+    modalReturnFocus = document.activeElement;
     modal.hidden = false;
     document.body.classList.add("screenshot-modal-open");
+    modal.focus({ preventScroll: true });
   };
 
   const closeScreenshotModal = () => {
     modal.hidden = true;
     document.body.classList.remove("screenshot-modal-open");
+    if (modalReturnFocus && typeof modalReturnFocus.focus === "function") {
+      modalReturnFocus.focus();
+    }
+    modalReturnFocus = null;
   };
 
   tabs.forEach((tab, index) => {
@@ -167,18 +174,16 @@ function initializeScreenshotGallery() {
     openScreenshotModal();
   });
 
-  modalImage.addEventListener("click", () => {
-    closeScreenshotModal();
-  });
-
-  modal.addEventListener("click", (event) => {
-    if (event.target === modal) {
-      closeScreenshotModal();
-    }
-  });
+  modal.addEventListener("click", closeScreenshotModal);
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && !modal.hidden) {
       closeScreenshotModal();
+      return;
+    }
+
+    if (event.key === "Tab" && !modal.hidden) {
+      event.preventDefault();
+      modal.focus({ preventScroll: true });
     }
   });
 
@@ -186,13 +191,17 @@ function initializeScreenshotGallery() {
 }
 
 function initializeSmoothScroll() {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", (event) => {
       event.preventDefault();
       const target = document.querySelector(anchor.getAttribute("href"));
 
       if (target) {
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        target.scrollIntoView({
+          behavior: prefersReducedMotion.matches ? "auto" : "smooth",
+          block: "start",
+        });
       }
     });
   });

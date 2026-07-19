@@ -38,20 +38,21 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=block"
     rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <script src="site.js" defer></script>
-  <script src="index.js" defer></script>
+  <link rel="stylesheet" href="style.css?v=20260719-6" />
+  <script src="site.js?v=20260719" defer></script>
+  <script src="index.js?v=20260719-2" defer></script>
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <div class="bg-glow"></div>
 
   <header>
     <div class="header-inner">
       <a href="index.html" class="logo">
-        <img src="img/code_32.png" alt="CodePrettify" class="logo-icon" /><span>Code<span>Prettify</span></span>
+        <img src="img/code_32.png" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span>
       </a>
-      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation">
         <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M3 12h18M3 6h18M3 18h18" />
         </svg>
@@ -59,16 +60,17 @@
           <path d="M18 6 6 18M6 6l12 12" />
         </svg>
       </button>
-      <nav>
+      <nav id="site-navigation" aria-label="Primary navigation">
         <a href="index.html#features">Features</a>
+        <a href="pricing.html">Price</a>
         <a href="changelog.html">Changelog</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="https://support.prettify.cloud/" target="_blank">Contact</a>
+        <a href="manual.html">Manual</a>
+        <a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero">
       <div class="container">
         <h1>Make Raw Code<br />Instantly Readable</h1>
@@ -97,24 +99,17 @@
             <img src="img/edge.svg" alt="Edge" width="20" height="20" />
             Install for Edge
           </a>
-        </div>
-
-        <div class="release-card">
-          <div class="release-card-copy">
-            <span class="section-badge">Now On Windows</span>
-            <h3>CodePrettify for Windows is live on Microsoft Store</h3>
-            <p>
-              Install the desktop app when you want the same formatting,
-              validation, search, diff, and export workflow for local files
-              with native tabs and menus.
-            </p>
-          </div>
           <a href="https://apps.microsoft.com/detail/9p0lp3pt6j7d"
             class="btn btn-secondary store-cta" target="_blank" rel="noopener">
             <img src="img/microsoft.svg" alt="Microsoft" width="20" height="20" />
-            Get it on Microsoft Store
+            App in Microsoft Store
           </a>
         </div>
+
+        <p class="hero-manual-link hero-resource-links">
+          Already installed? <a href="manual.html">Explore the complete user manual</a>.
+          Still deciding? <a href="pricing.html">See the $0 pricing and feature comparison</a>.
+        </p>
 
         <div class="supported-section">
           <div class="supported-box">
@@ -129,10 +124,12 @@
               <span class="format-tag">YAML <code>.yaml</code> <code>.yml</code></span>
               <span class="format-tag">XML <code>.xml</code></span>
               <span class="format-tag">RSS/Atom <code>.rss</code> <code>.atom</code></span>
+              <span class="format-tag">CSV <code>.csv</code> <small>App only</small></span>
+              <span class="format-tag">HTML <code>.html</code> <code>.htm</code> <small>App only</small></span>
             </div>
             <p>
-              Detects supported files by URL and HTTP content type, including
-              local <code>file://</code> resources when file access is enabled.
+              The extension detects supported files by URL and HTTP content type.
+              The Windows app adds CSV and HTML plus native local-file workflows.
             </p>
           </div>
           <div class="supported-box">
@@ -163,7 +160,7 @@
         <div class="video-section">
           <h3 class="video-title">📺 See It In Action</h3>
           <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/cCFrQbuE4GI" title="CodePrettify Demo" frameborder="0" allow="
+            <iframe src="https://www.youtube-nocookie.com/embed/cCFrQbuE4GI" title="CodePrettify Demo" loading="lazy" frameborder="0" allow="
                   accelerometer;
                   autoplay;
                   clipboard-write;
@@ -286,7 +283,8 @@
       </div>
     </section>
 
-    <div class="screenshot-modal" id="screenshot-modal" hidden>
+    <div class="screenshot-modal" id="screenshot-modal" role="dialog" aria-modal="true"
+      aria-labelledby="screenshot-modal-title" aria-describedby="screenshot-modal-description" tabindex="-1" hidden>
       <div class="screenshot-modal-content">
         <img id="screenshot-modal-image" alt="" />
         <div class="screenshot-modal-caption">
@@ -440,9 +438,9 @@
             <h3>Fits Your Workflow And Stays Local</h3>
             <p>Your code stays on your machine, and the viewer adapts to how you work.</p>
             <ul class="feature-list">
-              <li>Everything runs client-side in your browser</li>
+              <li>Formatting, validation, conversion, inspection, and playground tools run client-side</li>
               <li>
-                No servers, no external processing, and no code leaves your session
+                Only an HTTP request you explicitly send from the HTTP Client leaves your device; CodePrettify does not proxy it
               </li>
               <li>
                 Playground code runs in a null-origin sandbox iframe and a fresh Web Worker per execution &mdash; no access to the host page, the extension, or the network
@@ -623,12 +621,14 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-links">
+        <a href="pricing.html">Pricing</a>
+        <a href="manual.html">User Manual</a>
         <a href="privacy.html">Privacy Policy</a>
         <a href="changelog.html">Changelog</a>
         <a href="https://support.prettify.cloud/">Feedback &amp; Support</a>
       </div>
       <p class="copyright">
-        &copy; 2026 FixQuotes. CodePrettify a browser extension by <a href="https://fixquotes.com/docs/about/" target="_blank">FixQuotes</a>.
+        &copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.
       </p>
     </div>
   </footer>

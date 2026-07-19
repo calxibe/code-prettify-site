@@ -4,6 +4,12 @@ Turn raw code, data, documentation, API responses, and feeds into a readable wor
 
 Website: [prettify.cloud](https://prettify.cloud)
 
+Complete guide: [User Manual](manual.html)
+
+Current offer and competitor comparison: [Pricing](pricing.html)
+
+From the workspace root, run `npm run test:site` to validate internal links, pricing and manual content, mobile navigation, dialog focus, and horizontal layout at 320/375/768/769/800px.
+
 CodePrettify is available as a browser extension and as a Windows desktop application. Both products use a CodeMirror 6 viewer and share the core formatting, validation, inspection, conversion, comparison, and playground workflows. The desktop application adds native tabs, menus, file dialogs, and explicit CSV and HTML file support.
 
 ## Supported formats
@@ -23,7 +29,7 @@ CSV and HTML are intentionally desktop-only. Activating the extension on ordinar
 
 - Format dense or minified documents automatically and switch between Prettified/Raw or Rendered/Source views.
 - Search with result navigation, jump to a line, fold code, and scan large files with the minimap.
-- Use Document Navigator for structured JSON, JavaScript/TypeScript symbols, and XML/RSS outlines.
+- Use Document Navigator for JSON and XML/RSS outlines in both products; the Windows app additionally exposes JSON Lines, JavaScript/TypeScript symbols, and Markdown headings.
 - Inspect sortable table views for supported structured data.
 - Preserve useful view state such as search text, folds, highlighted line, and display mode.
 - Open local files from the extension launcher with drag-and-drop or a file picker; no `file://` permission is needed for that workflow.
@@ -87,3 +93,5 @@ The interface supports 14 languages: English, Norwegian, Swedish, Danish, German
 
 - [Browser extension changelog](changelog.html)
 - [Windows application changelog](changelog-app.html)
+
+When product behavior changes, update `manual.html` alongside the implementation. Keep the Browser Extension / Windows App availability labels explicit where the two products differ.
