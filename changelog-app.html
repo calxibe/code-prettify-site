@@ -95,11 +95,40 @@
         </a>
       </div>
 
+      <!-- Version 1.1.4 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.1.4</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">July 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Responsive Data Converter sizing</strong> &mdash; The desktop app now preserves the intended viewport-scaled editor height instead of collapsing both editors to their minimum size.
+            </li>
+            <li>
+              <strong>Compact-window layout</strong> &mdash; Stacked input and output panels remain separate, the modal stays inside the viewport, and the work area scrolls when both editors cannot fit at once.
+            </li>
+            <li>
+              <strong>Paste &amp; Prettify dark mode</strong> &mdash; The native dialog now consistently themes its title bar, file-type selector, editor border and scrollbars, and both actions. Responsive sizing wraps long text and keeps <strong>Open</strong> visible in compact windows and at higher display scaling.
+            </li>
+            <li>
+              <strong>Localized Paste &amp; Prettify</strong> &mdash; The title, instructions, field labels, detection status, supported type names, actions, accessibility text, and oversized-clipboard warning are available in all 14 application languages.
+            </li>
+            <li>
+              <strong>Reliable last-tab close</strong> &mdash; Closing the only open tab restores the open-file landing screen instead of revealing the closed document and its validation alert. Landing-page file choices are handed directly to their dedicated tab, avoiding duplicate formatting work, with a defensive native restore if the landing document was changed.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.1.3 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.1.3</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">July 2026</span>
         </div>
 
