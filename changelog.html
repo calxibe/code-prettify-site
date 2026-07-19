@@ -92,7 +92,7 @@
           <h3>Added</h3>
           <ul class="feature-list">
             <li>
-              <strong>Permanent What&rsquo;s New opt-out</strong> &mdash; The update modal now offers <strong>Never show again</strong>. The preference stays local to this browser installation, clears pending prompts immediately, and remains respected by future extension versions. A failed save keeps the modal open and reports the error.
+              <strong>Permanent What&rsquo;s New opt-out</strong> &mdash; The update modal now offers <strong>Never show again</strong>. The preference stays local to this browser installation, clears pending prompts immediately, and remains respected by future extension versions. It also saves correctly if the extension refreshes while an older update modal remains open; a genuine failed save keeps the modal open and reports the error.
             </li>
           </ul>
         </div>
@@ -102,6 +102,9 @@
           <ul class="feature-list">
             <li>
               <strong>Compact Data Converter layout</strong> &mdash; Stacked input and output panels remain separate and the work area scrolls instead of allowing the editors to overlap in short or narrow browser windows.
+            </li>
+            <li>
+              <strong>Reliable update opt-out</strong> &mdash; <strong>Never show again</strong> now saves from an already-open older update dialog after the extension refreshes, rather than mistaking the harmless version difference for a storage failure.
             </li>
           </ul>
         </div>

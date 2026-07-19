@@ -1,79 +1,89 @@
 # CodePrettify
 
-Transform raw code into a readable, beautiful workspace.
+Turn raw code, data, documentation, API responses, and feeds into a readable workspace.
 
-Website: https://prettify.cloud
+Website: [prettify.cloud](https://prettify.cloud)
 
-CodePrettify automatically formats, validates, and highlights raw JavaScript, TypeScript, JSON, JSONL, YAML, CSS, XML, and RSS/Atom resources the moment you open them. Whether you are viewing a minified API response, a feed, or a local config file, you get an IDE-like experience directly in your browser.
+CodePrettify is available as a browser extension and as a Windows desktop application. Both products use a CodeMirror 6 viewer and share the core formatting, validation, inspection, conversion, comparison, and playground workflows. The desktop application adds native tabs, menus, file dialogs, and explicit CSV and HTML file support.
 
-## 🚀 Smart Automation
+## Supported formats
 
-*   **Broad Detection:** Detects supported resources by URL pattern and HTTP content type.
-*   **Auto-Format:** Automatically beautifies dense or minified files using your preferred indentation.
-*   **Zero-Flash Loading:** Prevents the raw text from flashing before the viewer is ready.
-*   **Local File Support:** Works on web URLs and local files (`file://`) opened in the browser.
+The browser extension recognizes raw resources by URL and HTTP content type for:
 
-## 🛡️ Diagnostics & Validation
+- JavaScript and TypeScript (`.js`, `.mjs`, `.cjs`, `.ts`, `.mts`, `.cts`)
+- JSON, JSON with Comments, and JSON Lines (`.json`, `.jsonc`, `.jsonl`, `.ndjson`)
+- YAML and TOML (`.yaml`, `.yml`, `.toml`)
+- Markdown (`.md`, `.markdown`)
+- CSS
+- XML, RSS, and Atom
 
-Don't just read code—debug it. CodePrettify scans your files for common errors:
+CSV and HTML are intentionally desktop-only. Activating the extension on ordinary HTML pages would interfere with websites, while browsers normally download CSV responses instead of showing a page the extension can enhance.
 
-*   **JSON:** Detects syntax errors and provides exact line references.
-*   **JavaScript & CSS:** Validates structure and reports problems instantly.
-*   **Diagnostics Panel:** Shows syntax status and file-type-specific insights.
-*   **Document Warnings:** Flags very long lines, mixed indentation, and other quality issues.
+## Reading and navigation
 
-> **Instant Feedback:** Invalid code triggers a non-intrusive toast notification with error details.
+- Format dense or minified documents automatically and switch between Prettified/Raw or Rendered/Source views.
+- Search with result navigation, jump to a line, fold code, and scan large files with the minimap.
+- Use Document Navigator for structured JSON, JavaScript/TypeScript symbols, and XML/RSS outlines.
+- Inspect sortable table views for supported structured data.
+- Preserve useful view state such as search text, folds, highlighted line, and display mode.
+- Open local files from the extension launcher with drag-and-drop or a file picker; no `file://` permission is needed for that workflow.
 
-## 📂 Interactive JSON Tools
+## Validation and inspection
 
-*   **Collapsible Data:** Fold arrays and objects to navigate large datasets easily.
-*   **Smart Previews:** See summary info such as `Array(5)` or `{3 keys}` when blocks are collapsed.
-*   **JSON Path Tools:** Inspect the current path and query large payloads quickly.
-*   **Value Helpers:** Clickable URLs, timestamp tooltips, and Base64/JWT decoding are built into the viewer.
+- See syntax errors, line references, suspicious-content warnings, document statistics, and format-specific diagnostics.
+- Inspect and query JSON paths with autocomplete and copy actions.
+- Validate JSON and JSONC against a local JSON Schema without fetching remote references or uploading the document.
+- Decode useful values such as timestamps, Base64 data, and JWT payloads from the viewer.
+- Render Markdown with raw HTML disabled. Network image sources are shown as links instead of being loaded automatically.
 
-## 🛠️ Developer Toolkit
+## Developer tools
 
-*   **Advanced Search:** Custom search bar (`Ctrl+F`) with result counts, navigation, and regex support.
-*   **Go To Line:** Jump straight to specific lines (`Ctrl+G`) for faster debugging.
-*   **Command Generation:** Generate copy-ready `cURL` and `fetch()` commands from the current page.
-*   **Export Options:** Download content as Original, Formatted, Minified, CSV, or a cropped image when supported.
-*   **HTTP Context Panel:** Inspect the current resource URL, content type, character encoding, size details, and timing hints.
+- Compare the current document with pasted text using text or supported semantic comparison modes.
+- Run JavaScript in a fresh, sandboxed Web Worker with console output, top-level `await`, and source-mapped errors. The worker has no DOM, extension API, Node.js module, local-file, or network access.
+- Test regular expressions against the current document or session-local custom text, inspect capture groups, and copy the complete `/pattern/flags` expression.
+- Compose requests in the HTTP Client, import cURL, manage local environments and saved requests, inspect responses, and copy cURL, `fetch()`, or PowerShell commands.
+- Use the command palette (`Ctrl+Shift+P`) to find the actions relevant to the current document.
 
-## 🧭 Large-File Navigation
+## Conversion and export
 
-*   **Document Navigator:** Browse JSON, JavaScript, and XML/RSS structure from an outline view.
-*   **Code Minimap:** Scan and jump through long files quickly with a syntax-aware minimap.
-*   **Expand/Collapse Controls:** Manage deeply nested content without losing your place.
-*   **Persistent View State:** Restore fold state, search text, highlighted line, and display mode for recently viewed files.
+The offline Data Converter supports:
 
-## ⚙️ Customizable & Privacy-First
+- Prettify, minify, stringify, parse, escape, and unescape JSON
+- JSON to and from XML, CSV, YAML, and TSV
+- Base64 and URL encoding and decoding
 
-*   **Themes:** Choose between Light, Dark, or Auto (syncs with system).
-*   **Viewer Settings:** Adjust font size, indentation, line numbers, word wrap, minimap, toolbar, and file-type-specific behavior.
-*   **Privacy First:** CodePrettify handles supported page content locally and does not send it to FixQuotes servers.
-*   **Local Metadata Only:** Resource URLs and viewer metadata used for HTTP context and command generation stay in your browser session.
-*   **Rare Charset Recovery:** If a JavaScript file appears to be decoded with a legacy charset, the extension may re-request the same URL directly from the site you are already visiting to recover valid UTF-8 text.
+Documents can also be copied or exported as original, formatted, or minified text. Supported structured data can be exported as CSV or an HTML table, and supported views can be captured as an image.
 
-## Access & Privacy
+## Privacy and page access
 
-CodePrettify needs access to the current raw-code page so it can format, validate, compare, search, and export the file you are already viewing. It does not sell browsing data, use it for advertising, or send supported page content to our servers. Full details are available in the privacy policy at https://prettify.cloud/privacy.html.
+Viewer, formatting, validation, conversion, comparison, inspection, and playground processing stay on the device. CodePrettify does not sell browsing data, use it for advertising, or send supported page content to FixQuotes servers.
 
-Supported page access is limited to the extension's user-facing features. In rare JavaScript encoding-recovery cases, the browser may re-request the same URL directly from the origin site to recover valid UTF-8 bytes.
+The browser extension needs access to the current raw-code page so it can detect and enhance supported resources across sites. The HTTP Client makes a network request only after the user presses **Send**, and only to the URL displayed in its request composer. In rare JavaScript character-encoding recovery cases, the extension may request the same resource URL directly from its existing origin to recover valid UTF-8 bytes.
 
-## ⌨️ Keyboard Shortcuts
+See the full [privacy policy](https://prettify.cloud/privacy.html) for details.
+
+## Keyboard shortcuts
 
 | Shortcut | Action |
 | :--- | :--- |
-| `Ctrl` + `B` | Toggle Raw/Pretty view |
-| `Ctrl` + `Alt` + `C` | Copy to Clipboard |
-| `Ctrl` + `F` | Open Search Toolbar |
-| `Ctrl` + `G` | Go to Line |
-| `Ctrl` + `Alt` + `T` | Toggle Toolbar |
+| `Ctrl+B` | Toggle the formatted/rendered and raw/source views |
+| `Ctrl+Alt+C` | Copy code |
+| `Ctrl+F` | Search |
+| `Ctrl+G` | Go to line |
+| `Ctrl+Alt+T` | Toggle the floating toolbar |
+| `Ctrl+Alt+D` | Compare with clipboard |
+| `Ctrl+Shift+P` | Open the command palette |
 
-## 📝 Note for Local Files
+## Installation
 
-To use CodePrettify with local files (e.g., `file:///C:/code/data.json`), you must manually enable "Allow access to file URLs" in your browser's extension management page, such as `chrome://extensions` or `edge://extensions`.
+- Install the browser extension from the [Chrome Web Store](https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj).
+- Install the Windows application from the [Microsoft Store](https://apps.microsoft.com/detail/9p0lp3pt6j7d).
 
-## Supported Languages
+Opening a local file through the extension launcher requires no special browser permission. To activate CodePrettify directly on a `file://` URL, enable **Allow access to file URLs** for the extension in the browser's extension-management page.
 
-Supports 14 interface languages including English, Norwegian, Swedish, Danish, German, French, Spanish, Italian, Portuguese, Russian, Chinese, Japanese, Korean, and Vietnamese.
+## Languages and release notes
+
+The interface supports 14 languages: English, Norwegian, Swedish, Danish, German, French, Spanish, Italian, Portuguese, Russian, Chinese, Japanese, Korean, and Vietnamese.
+
+- [Browser extension changelog](changelog.html)
+- [Windows application changelog](changelog-app.html)
