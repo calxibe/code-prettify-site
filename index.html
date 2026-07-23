@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CodePrettify - Make Raw Code Instantly Readable</title>
-  <meta name="description" content="Open raw code, Markdown docs, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, converts, inspects, and exports JavaScript, TypeScript, Markdown, JSON, JSONC, JSONL, TOML, CSS, YAML, XML, and RSS/Atom files right in your browser — and runs JavaScript against them in a sandboxed Playground." />
+  <meta name="description" content="Format and inspect raw code, repair structured data, and generate TypeScript, Zod, C#, Java, Kotlin, Python, Go, Rust, Swift, Dart, or JSON Schema from JSON samples locally with CodePrettify." />
   <meta name="application-name" content="CodePrettify" />
   <meta name="apple-mobile-web-app-title" content="CodePrettify" />
   <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
@@ -22,7 +22,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="CodePrettify - Make Raw Code Instantly Readable" />
   <meta property="og:description"
-    content="Open raw code, Markdown docs, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, converts, inspects, and exports JavaScript, TypeScript, Markdown, JSON, JSONC, JSONL, TOML, CSS, YAML, XML, and RSS/Atom files right in your browser — and runs JavaScript against them in a sandboxed Playground." />
+    content="Format and inspect raw code, repair structured data, and generate typed models or JSON Schema from JSON samples locally with CodePrettify." />
   <meta property="og:url" content="https://prettify.cloud" />
   <meta property="og:image" content="https://prettify.cloud/img/feature-json-format.png" />
   <meta property="og:image:alt"
@@ -30,16 +30,16 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="CodePrettify - Make Raw Code Instantly Readable" />
   <meta name="twitter:description"
-    content="Open raw code, Markdown docs, API responses, and feeds in a readable workspace. CodePrettify formats, validates, compares, converts, inspects, and exports JavaScript, TypeScript, Markdown, JSON, JSONC, JSONL, TOML, CSS, YAML, XML, and RSS/Atom files right in your browser — and runs JavaScript against them in a sandboxed Playground." />
+    content="Format and inspect raw code, repair structured data, and generate typed models or JSON Schema from JSON samples locally with CodePrettify." />
   <meta name="twitter:image" content="https://prettify.cloud/img/feature-json-format.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=block"
     rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260719-6" />
+  <link rel="stylesheet" href="style.css?v=20260721-8" />
   <script src="site.js?v=20260719" defer></script>
-  <script src="index.js?v=20260719-2" defer></script>
+  <script src="index.js?v=20260721-6" defer></script>
 </head>
 
 <body>
@@ -78,8 +78,9 @@
           Open a raw API response, Markdown document, minified bundle, or feed
           and start working immediately. CodePrettify formats the document,
           surfaces response details, and gives you fast ways to inspect,
-          compare, copy, export, and even run JavaScript against what you are
-          looking at &mdash; all without leaving the browser.
+          compare, generate typed code from JSON, copy, export, and even run
+          JavaScript against what you are looking at &mdash; all without leaving
+          the browser.
         </p>
 
         <p class="hero-proof">
@@ -176,36 +177,52 @@
             <span class="section-badge">Feature Tour</span>
             <h3>A closer look at the workflow</h3>
             <p>
-              These are the views that matter most when you are inspecting raw
-              responses, comparing revisions, and cleaning up large payloads.
+              See how CodePrettify formats, generates, repairs, transforms,
+              compares, and inspects real developer data without leaving the page.
             </p>
           </div>
-          <div class="screenshot-stage">
-            <div class="screenshot-main">
-              <button type="button" class="screenshot-open" id="main-screenshot-trigger"
-                aria-label="Open screenshot preview">
-                <img src="img/feature-json-format.png"
-                  alt="CodePrettify formatting a structured JSON API response with nested services, metrics, links, arrays, and syntax highlighting"
-                  id="main-screenshot" />
-              </button>
-            </div>
-            <div class="screenshot-caption">
-              <span class="screenshot-kicker" id="screenshot-kicker">JSON</span>
-              <h4 id="screenshot-title">Make complex JSON payloads easy to scan</h4>
-              <p id="screenshot-description">
-                Pretty indentation, syntax coloring, folding, clickable links,
-                timestamp hints, and inline helpers turn dense API responses
-                into a readable workspace.
-              </p>
-            </div>
-          </div>
           <div class="screenshot-tabs">
-            <button class="screenshot-tab active" type="button">
+            <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
                 <img src="img/feature-json-format_thumb.png" alt="" aria-hidden="true" />
               </span>
               <span class="screenshot-tab-kicker">Format</span>
               <span class="screenshot-tab-label">JSON</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <img src="img/feature-json-to-code_thumb.png" alt="" aria-hidden="true" />
+              </span>
+              <span class="screenshot-tab-kicker">Generate</span>
+              <span class="screenshot-tab-label">JSON to Code</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <img src="img/feature-workbench-repair_thumb.png" alt="" aria-hidden="true" />
+              </span>
+              <span class="screenshot-tab-kicker">JSON</span>
+              <span class="screenshot-tab-label">Repair</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <img src="img/feature-workbench-transform_thumb.png" alt="" aria-hidden="true" />
+              </span>
+              <span class="screenshot-tab-kicker">JSON</span>
+              <span class="screenshot-tab-label">Transform</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <img src="img/feature-data-converter-utilities_thumb.png" alt="" aria-hidden="true" />
+              </span>
+              <span class="screenshot-tab-kicker">Utilities</span>
+              <span class="screenshot-tab-label">Data Converter</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <img src="img/feature-security-scan_thumb.png" alt="" aria-hidden="true" />
+              </span>
+              <span class="screenshot-tab-kicker">Inspect</span>
+              <span class="screenshot-tab-label">Security Scan</span>
             </button>
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
@@ -283,15 +300,42 @@
     </section>
 
     <div class="screenshot-modal" id="screenshot-modal" role="dialog" aria-modal="true"
-      aria-labelledby="screenshot-modal-title" aria-describedby="screenshot-modal-description" tabindex="-1" hidden>
-      <div class="screenshot-modal-content">
-        <img id="screenshot-modal-image" alt="" />
-        <div class="screenshot-modal-caption">
-          <span class="screenshot-kicker" id="screenshot-modal-kicker"></span>
-          <h4 id="screenshot-modal-title"></h4>
-          <p id="screenshot-modal-description"></p>
+      aria-labelledby="screenshot-modal-title"
+      aria-describedby="screenshot-modal-description screenshot-modal-instructions" tabindex="-1" hidden>
+      <figure class="screenshot-modal-content">
+        <button class="screenshot-modal-nav screenshot-modal-prev" id="screenshot-modal-prev" type="button"
+          aria-label="Previous screenshot">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M15 18 9 12l6-6"></path>
+          </svg>
+        </button>
+        <div class="screenshot-modal-image-wrap">
+          <img id="screenshot-modal-image" alt="" />
+          <button class="screenshot-modal-close" id="screenshot-modal-close" type="button"
+            aria-label="Close screenshot viewer">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-      </div>
+        <button class="screenshot-modal-nav screenshot-modal-next" id="screenshot-modal-next" type="button"
+          aria-label="Next screenshot">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="m9 18 6-6-6-6"></path>
+          </svg>
+        </button>
+        <figcaption class="screenshot-modal-caption" aria-live="polite" aria-atomic="true">
+          <div class="screenshot-modal-caption-heading">
+            <div class="screenshot-modal-caption-meta">
+              <span class="screenshot-kicker" id="screenshot-modal-kicker"></span>
+              <span class="screenshot-modal-counter" id="screenshot-modal-counter"></span>
+            </div>
+            <h4 id="screenshot-modal-title"></h4>
+          </div>
+          <p id="screenshot-modal-description"></p>
+        </figcaption>
+      </figure>
+      <p class="sr-only" id="screenshot-modal-instructions">
+        Use the left and right arrow keys to browse screenshots. Press Escape to close.
+      </p>
     </div>
 
     <section id="features">
@@ -301,11 +345,31 @@
           <h2>Built For Real Debugging Work</h2>
           <p class="section-desc">
             Move from raw response to useful insight in seconds with tools
-            designed for inspection, comparison, and cleanup.
+            designed for inspection, generation, comparison, and cleanup.
           </p>
         </div>
 
         <div class="features-grid">
+          <article class="feature-card feature-card-wide" id="json-to-code-feature">
+            <div class="feature-icon codegen" aria-hidden="true">✨</div>
+            <span class="section-badge">New &middot; Local-only</span>
+            <h3>Turn JSON Samples Into Production-Ready Code</h3>
+            <p>
+              Paste a JSON sample once and generate clean typed models or a schema without creating an account,
+              installing another converter, or uploading the payload anywhere.
+            </p>
+            <ul class="feature-list feature-list-columns">
+              <li>Eleven targets: TypeScript, Zod, C#, Java, Kotlin, Python/Pydantic, Go, Rust, Swift, Dart, and JSON Schema</li>
+              <li>Uses every record in a sample array to distinguish required, optional, and nullable fields</li>
+              <li>Creates nested models, safe identifiers, and exact JSON field-name mappings automatically</li>
+              <li>Adjust the root name and package or namespace, then copy, export, or open the result as a document</li>
+            </ul>
+            <div class="feature-card-actions">
+              <a class="feature-cta" href="manual.html#json-to-code">See how JSON to Code works</a>
+              <a class="feature-cta feature-cta-secondary" href="changelog.html">Read the release notes</a>
+            </div>
+          </article>
+
           <div class="feature-card">
             <div class="feature-icon auto">🚀</div>
             <h3>Open It And Start Reading</h3>
@@ -392,13 +456,16 @@
                 Full-screen side-by-side diff (<code>Ctrl+Alt+D</code>) with synchronized scrolling, line stats, and swap sides &mdash; plus a Semantic mode that compares the data structure itself, so reformatting or reordering keys no longer shows up as noise
               </li>
               <li>
+                Built-in Data Converter tabs for SHA-256/384/512 and HMAC, Unix/ISO timestamp conversion, and secure UUID v4, UUID v7, or ULID generation
+              </li>
+              <li>
                 Advanced search with regex (<code>/pattern/flags</code>), result counting, and Go To Line (<code>Ctrl+G</code>)
               </li>
               <li>
                 Command Palette (<code>Ctrl+Shift+P</code>) to fuzzy-find and run any viewer action from the keyboard
               </li>
               <li>
-                Copy original, formatted, or minified code; use the offline Data Converter for JSON formatting and escaping, JSON to/from XML, CSV, YAML, or TSV, and Base64 or URL encoding; and export as CSV, HTML table, or PNG image
+                Copy original, formatted, or minified code; use the offline Data Converter for structured formats, Base64 or URL encoding, hashes and HMACs, timestamps, UUIDs, and ULIDs; and export as CSV, HTML table, or PNG image
               </li>
               <li>
                 Generate copy-ready <code>cURL</code> and <code>fetch()</code> commands and share a view-state URL with teammates
@@ -437,7 +504,7 @@
             <h3>Fits Your Workflow And Stays Local</h3>
             <p>Your code stays on your machine, and the viewer adapts to how you work.</p>
             <ul class="feature-list">
-              <li>Formatting, validation, conversion, inspection, and playground tools run client-side</li>
+              <li>Formatting, validation, conversion, JSON-to-code generation, inspection, and playground tools run client-side</li>
               <li>
                 Only an HTTP request you explicitly send from the HTTP Client leaves your device; CodePrettify does not proxy it
               </li>

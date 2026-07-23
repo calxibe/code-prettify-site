@@ -8,6 +8,46 @@ const screenshotData = [
       "Pretty indentation, syntax coloring, folding, clickable links, timestamp hints, and inline helpers turn dense API responses into a readable workspace.",
   },
   {
+    image: "img/feature-json-to-code.png",
+    alt: "CodePrettify JSON to Code Generator showing a deployment-event JSON sample beside generated TypeScript interfaces",
+    kicker: "JSON to Code",
+    title: "Generate typed models directly from real JSON samples",
+    description:
+      "Infer nested TypeScript, Zod, C#, Java, Kotlin, Pydantic, Go, Rust, Swift, Dart, or JSON Schema output locally, then copy, export, or open it as a document.",
+  },
+  {
+    image: "img/feature-workbench-repair.png",
+    alt: "CodePrettify JSON Repair and Transform repair tab showing messy input, a repair report, and clean JSON output",
+    kicker: "JSON repair",
+    title: "Recover useful data from copied, logged, or hand-edited payloads",
+    description:
+      "Remove fences and surrounding prose, repair common JSON-like syntax problems, and review every change before continuing with the clean result.",
+  },
+  {
+    image: "img/feature-workbench-transform.png",
+    alt: "CodePrettify JSON Repair and Transform tab showing a filter and sort recipe beside its live JSON result",
+    kicker: "JSON transform",
+    title: "Build a transformation recipe with a live result",
+    description:
+      "Filter, select, rename, sort, flatten, group, aggregate, or limit structured rows in an ordered pipeline without changing the original document.",
+  },
+  {
+    image: "img/feature-data-converter-utilities.png",
+    alt: "CodePrettify Data Converter with Hash and HMAC selected and populated hexadecimal and Base64 SHA-256 output",
+    kicker: "Data Converter",
+    title: "Convert, hash, and generate in one focused workspace",
+    description:
+      "Convert structured or encoded text, create SHA-256, SHA-384, SHA-512, or HMAC output, convert Unix and ISO timestamps, and generate secure UUID or ULID values.",
+  },
+  {
+    image: "img/feature-security-scan.png",
+    alt: "CodePrettify Security Scan showing masked secret findings and detected API endpoints from the current JavaScript file",
+    kicker: "Security Scan",
+    title: "Surface secrets and endpoints before code leaves your screen",
+    description:
+      "Scan the current document locally for credential-shaped values, URLs, files, and API routes, then jump to the exact source line that needs review.",
+  },
+  {
     image: "img/feature-js-transform.png",
     alt: "CodePrettify before and after view showing a minified JavaScript bundle transformed into readable formatted code",
     kicker: "JavaScript",
@@ -90,52 +130,25 @@ const screenshotData = [
 ];
 
 function initializeScreenshotGallery() {
-  const mainImg = document.getElementById("main-screenshot");
   const tabs = Array.from(document.querySelectorAll(".screenshot-tab"));
-  const kicker = document.getElementById("screenshot-kicker");
-  const title = document.getElementById("screenshot-title");
-  const description = document.getElementById("screenshot-description");
-  const trigger = document.getElementById("main-screenshot-trigger");
   const modal = document.getElementById("screenshot-modal");
   const modalImage = document.getElementById("screenshot-modal-image");
   const modalKicker = document.getElementById("screenshot-modal-kicker");
   const modalTitle = document.getElementById("screenshot-modal-title");
   const modalDescription = document.getElementById("screenshot-modal-description");
+  const modalCounter = document.getElementById("screenshot-modal-counter");
+  const modalClose = document.getElementById("screenshot-modal-close");
+  const modalPrevious = document.getElementById("screenshot-modal-prev");
+  const modalNext = document.getElementById("screenshot-modal-next");
 
-  if (!mainImg || !kicker || !title || !description || !trigger || !modal || !modalImage || !modalKicker || !modalTitle || !modalDescription || tabs.length === 0) {
+  if (!modal || !modalImage || !modalKicker || !modalTitle || !modalDescription || !modalCounter || !modalClose || !modalPrevious || !modalNext || tabs.length === 0) {
     return;
   }
 
   let activeScreenshotIndex = 0;
   let modalReturnFocus = null;
-  const screenshotMobileQuery = window.matchMedia("(max-width: 768px)");
 
-  const updateScreenshot = (index) => {
-    const selected = screenshotData[index];
-
-    if (!selected) {
-      return;
-    }
-
-    activeScreenshotIndex = index;
-    mainImg.src = selected.image;
-    mainImg.alt = selected.alt;
-    kicker.textContent = selected.kicker;
-    title.textContent = selected.title;
-    description.textContent = selected.description;
-    modalKicker.textContent = selected.kicker;
-    modalTitle.textContent = selected.title;
-    modalDescription.textContent = selected.description;
-    trigger.setAttribute("aria-label", `Open screenshot preview: ${selected.title}`);
-
-    tabs.forEach((tab, tabIndex) => {
-      const isActive = tabIndex === index;
-      tab.classList.toggle("active", isActive);
-      tab.setAttribute("aria-pressed", isActive ? "true" : "false");
-    });
-  };
-
-  const openScreenshotModal = (index = activeScreenshotIndex) => {
+  const showScreenshot = (index) => {
     const selected = screenshotData[index];
 
     if (!selected) {
@@ -145,10 +158,24 @@ function initializeScreenshotGallery() {
     activeScreenshotIndex = index;
     modalImage.src = selected.image;
     modalImage.alt = selected.alt;
+    modalKicker.textContent = selected.kicker;
+    modalTitle.textContent = selected.title;
+    modalDescription.textContent = selected.description;
+    modalCounter.textContent = `${index + 1} / ${screenshotData.length}`;
+
+    tabs.forEach((tab, tabIndex) => {
+      const isActive = tabIndex === index;
+      tab.classList.toggle("active", isActive);
+      tab.setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+  };
+
+  const openScreenshotModal = (index) => {
     modalReturnFocus = document.activeElement;
+    showScreenshot(index);
     modal.hidden = false;
     document.body.classList.add("screenshot-modal-open");
-    modal.focus({ preventScroll: true });
+    modalClose.focus({ preventScroll: true });
   };
 
   const closeScreenshotModal = () => {
@@ -160,34 +187,77 @@ function initializeScreenshotGallery() {
     modalReturnFocus = null;
   };
 
-  tabs.forEach((tab, index) => {
-    tab.addEventListener("click", () => {
-      updateScreenshot(index);
+  const moveScreenshot = (offset) => {
+    const nextIndex = (activeScreenshotIndex + offset + screenshotData.length) % screenshotData.length;
+    showScreenshot(nextIndex);
+  };
 
-      if (screenshotMobileQuery.matches) {
-        openScreenshotModal(index);
-      }
+  tabs.forEach((tab, index) => {
+    const selected = screenshotData[index];
+    tab.setAttribute("aria-haspopup", "dialog");
+    tab.setAttribute("aria-pressed", "false");
+    if (selected) {
+      tab.setAttribute("aria-label", `Open screenshot: ${selected.title}`);
+    }
+
+    tab.addEventListener("click", () => {
+      openScreenshotModal(index);
     });
   });
 
-  trigger.addEventListener("click", () => {
-    openScreenshotModal();
+  modalClose.addEventListener("click", closeScreenshotModal);
+  modalPrevious.addEventListener("click", () => {
+    moveScreenshot(-1);
+  });
+  modalNext.addEventListener("click", () => {
+    moveScreenshot(1);
+  });
+  modalImage.addEventListener("click", closeScreenshotModal);
+
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      closeScreenshotModal();
+    }
   });
 
-  modal.addEventListener("click", closeScreenshotModal);
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && !modal.hidden) {
+    if (modal.hidden) {
+      return;
+    }
+
+    if (event.key === "Escape") {
       closeScreenshotModal();
       return;
     }
 
-    if (event.key === "Tab" && !modal.hidden) {
+    if (event.key === "ArrowLeft") {
       event.preventDefault();
-      modal.focus({ preventScroll: true });
+      moveScreenshot(-1);
+      return;
+    }
+
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      moveScreenshot(1);
+      return;
+    }
+
+    if (event.key !== "Tab") {
+      return;
+    }
+
+    const focusableElements = [modalPrevious, modalClose, modalNext];
+    const firstFocusable = focusableElements[0];
+    const lastFocusable = focusableElements[focusableElements.length - 1];
+
+    if (event.shiftKey && document.activeElement === firstFocusable) {
+      event.preventDefault();
+      lastFocusable.focus({ preventScroll: true });
+    } else if (!event.shiftKey && document.activeElement === lastFocusable) {
+      event.preventDefault();
+      firstFocusable.focus({ preventScroll: true });
     }
   });
-
-  updateScreenshot(0);
 }
 
 function initializeSmoothScroll() {

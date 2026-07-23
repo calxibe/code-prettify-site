@@ -29,7 +29,7 @@ CSV and HTML are intentionally desktop-only. Activating the extension on ordinar
 
 - Format dense or minified documents automatically and switch between Prettified/Raw or Rendered/Source views.
 - Search with result navigation, jump to a line, fold code, and scan large files with the minimap.
-- Use Document Navigator for JSON and XML/RSS outlines in both products; the Windows app additionally exposes JSON Lines, JavaScript/TypeScript symbols, and Markdown headings.
+- Use Document Navigator for JSON, JavaScript/TypeScript, and XML/RSS outlines in both products; the Windows app additionally exposes JSON Lines and Markdown headings.
 - Inspect sortable table views for supported structured data.
 - Preserve useful view state such as search text, folds, highlighted line, and display mode.
 - Open local files from the extension launcher with drag-and-drop or a file picker; no `file://` permission is needed for that workflow.
@@ -57,6 +57,9 @@ The offline Data Converter supports:
 - Prettify, minify, stringify, parse, escape, and unescape JSON
 - JSON to and from XML, CSV, YAML, and TSV
 - Base64 and URL encoding and decoding
+- SHA-256, SHA-384, SHA-512, and HMAC generation with hex and Base64 output
+- Unix seconds, Unix milliseconds, and timezone-explicit ISO 8601 conversion
+- UUID v4, UUID v7, and ULID generation
 
 Documents can also be copied or exported as original, formatted, or minified text. Supported structured data can be exported as CSV or an HTML table, and supported views can be captured as an image.
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Manual - CodePrettify Browser Extension and Windows App</title>
-    <meta name="description" content="The complete CodePrettify user manual: install, format, search, inspect, compare, convert, validate, export, run JavaScript, test regex, send HTTP requests, and troubleshoot the browser extension and Windows app." />
+    <meta name="description" content="The complete CodePrettify user manual: format, repair, transform, inspect, compare, convert JSON to code, validate, export, and troubleshoot data in the browser extension and Windows app." />
     <meta name="application-name" content="CodePrettify" />
     <meta name="apple-mobile-web-app-title" content="CodePrettify" />
     <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
@@ -20,18 +20,18 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="CodePrettify User Manual" />
-    <meta property="og:description" content="A detailed guide to every major function in the CodePrettify browser extension and Windows app." />
+    <meta property="og:description" content="A detailed guide to every major function, including JSON to Code Generator and JSON Repair &amp; Transform, in the CodePrettify browser extension and Windows app." />
     <meta property="og:url" content="https://prettify.cloud/manual.html" />
     <meta property="og:image" content="https://prettify.cloud/img/feature-json-format.png" />
     <meta property="og:image:alt" content="CodePrettify displaying a formatted JSON document" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="CodePrettify User Manual" />
-    <meta name="twitter:description" content="Learn every major function in the CodePrettify browser extension and Windows app." />
+    <meta name="twitter:description" content="Learn every major function, including local JSON-to-code generation and structured-data repair, in the CodePrettify browser extension and Windows app." />
     <meta name="twitter:image" content="https://prettify.cloud/img/feature-json-format.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css?v=20260719-6" />
+    <link rel="stylesheet" href="style.css?v=20260721-1" />
     <script src="site.js?v=20260719" defer></script>
     <script src="manual.js?v=20260719-3" defer></script>
   </head>
@@ -105,6 +105,8 @@
             <a href="#schema-validator">JSON Schema Validator</a>
             <a href="#analysis-tools">Statistics, diagnostics, security</a>
             <a href="#data-converter">Data Converter</a>
+            <a href="#json-to-code">JSON to Code Generator</a>
+            <a href="#structured-workbench">JSON Repair &amp; Transform</a>
             <a href="#copy-export">Copy and Export</a>
             <a href="#compare">Compare</a>
             <a href="#javascript-playground">JavaScript Playground</a>
@@ -190,22 +192,23 @@
             <h3>Editor and status</h3>
             <p>Line numbers, word wrap, folding, the minimap, and the floating toolbar can be enabled independently. The editor status reports line and character totals; the app adds cursor line/column, selected character count, detected type, encoding, and line-ending style.</p>
             <h3>Floating toolbar</h3>
-            <p>The toolbar combines the copy menu, live search, Go to Line, and More Actions. Up to three tools you repeatedly use can become adaptive quick buttons. On narrow windows those learned buttons are hidden to keep the core controls on one row; all tools remain in More Actions or the Command Palette.</p>
+            <p>The toolbar combines the copy menu, live search, Go to Line, and More Actions. <strong>More Actions</strong> is split into two groups: <strong>For this file</strong> contains actions that analyze or operate on the active document, including Export, Statistics &amp; Diagnostics, Security Scan, HTTP Context when response metadata is available, and, when folding is available, Collapse All and Expand All, plus tools specific to the detected format. Collapse All and Expand All share one paired row because both operate on the same active document. <strong>General tools</strong> contains always-available utilities that work without the open document, including Compare, JSON to Code Generator, JSON Repair &amp; Transform, JavaScript Playground, Data Converter, Regex Playground, and HTTP Client. Compare, JSON to Code Generator, JSON Repair &amp; Transform, and JavaScript Playground can load a compatible current document, but that remains optional. The general column is visually subdued until hovered or focused. On wider windows, the primary file-actions column is centered above the More Actions button; constrained windows keep the menu inside the viewport, and very narrow windows stack both groups. For example, JSON adds Table View, JSON Path Inspector, and Schema Validator, while JavaScript adds Document Navigator and Inspect Runtime to the file group.</p>
+            <p>Up to three tools you repeatedly use can become adaptive quick buttons. On narrow windows those learned buttons are hidden to keep the core controls on one row; all tools remain in More Actions or the Command Palette.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
                 <button type="button" class="manual-screenshot-open" id="manual-screenshot-workspace"
-                  data-full-src="img/manual/viewer-workspace.png" data-title="Viewer workspace"
-                  aria-label="Open full-size screenshot: Viewer workspace and floating toolbar" aria-haspopup="dialog"
+                  data-full-src="img/manual/viewer-workspace.png" data-title="More Actions for the current file and general tools"
+                  aria-label="Open full-size screenshot: two-column More Actions menu" aria-haspopup="dialog"
                   aria-controls="manual-screenshot-modal">
                   <img src="img/manual/viewer-workspace_thumb.png"
-                    alt="Formatted JSON in the CodePrettify viewer with line numbers, folding, minimap, view switcher, and floating toolbar"
+                    alt="CodePrettify two-column More Actions menu separating tools for the current JSON file from always-available general tools"
                     width="320" height="200" loading="lazy" decoding="async" />
                   <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
                 </button>
               </figure>
             </div>
             <h3>Command Palette</h3>
-            <p>Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> and type part of an action name. The palette only lists actions that are valid for the current document, making it the fastest way to find less-visible functions such as Security Scan.</p>
+            <p>Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> and type part of an action name. Document-specific commands follow the active format, while general tools such as JSON to Code Generator and JSON Repair &amp; Transform stay available everywhere. This is also the fastest way to find less-visible functions such as Security Scan.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
                 <button type="button" class="manual-screenshot-open" id="manual-screenshot-command-palette"
@@ -226,7 +229,7 @@
             <h3>Automatic activation</h3>
             <p>The extension examines the resource URL and response content type. Supported raw documents are enhanced automatically; ordinary web pages are not. Disabling a type in Settings affects newly opened resources.</p>
             <h3>Launcher and local files</h3>
-            <p>The launcher can open a supported file by picker or drag-and-drop without broad file access. It can also start the Editor, HTTP Client, JavaScript Playground, Regex Playground, or Data Converter. If the current tab is not a supported source, tools start with a sample. Launcher files are limited to 10 MiB and support UTF-8, UTF-16 LE/BE BOMs, strict UTF-8, then Windows-1252 fallback.</p>
+            <p>The launcher can open a supported file by picker or drag-and-drop without broad file access. It can also start the Editor, JSON to Code Generator, HTTP Client, JavaScript Playground, Regex Playground, or Data Converter. If the current tab is not a supported source, tools start with a sample or empty input as appropriate. Launcher files are limited to 10 MiB and support UTF-8, UTF-16 LE/BE BOMs, strict UTF-8, then Windows-1252 fallback.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
                 <button type="button" class="manual-screenshot-open" id="manual-screenshot-extension-launcher"
@@ -282,7 +285,7 @@
               <div class="manual-card"><h3>File</h3><p>Open, Paste &amp; Prettify, Save, Save As, Recent Files/Clear Recent, Close Tab, and Exit.</p></div>
               <div class="manual-card"><h3>Edit</h3><p>Copy Original, Copy Formatted, Copy Minified, Find, and Go to Line. Copy feedback names the selected representation.</p></div>
               <div class="manual-card"><h3>View</h3><p>Toggle Beautify, Word Wrap, Line Numbers, Minimap, Floating Toolbar, Zoom In, and Zoom Out.</p></div>
-              <div class="manual-card"><h3>Tools</h3><p>Document Navigator, Table View, JSON Schema Validator, Statistics, Diagnostics, Data Converter, Export, JavaScript Playground, Inspect Runtime, Regex Playground, JSON Path, HTTP Client, Security Scan, file/clipboard Compare, and Settings.</p></div>
+              <div class="manual-card"><h3>Tools</h3><p>Document Navigator, Table View, JSON Schema Validator, Statistics, Diagnostics, JSON Repair &amp; Transform, Data Converter, JSON to Code Generator, Export, JavaScript Playground, Inspect Runtime, Regex Playground, JSON Path, HTTP Client, Security Scan, file/clipboard Compare, and Settings.</p></div>
               <div class="manual-card"><h3>Help</h3><p>Manual, Changelog, Report Issues &amp; Ideas, Explorer Integration Runtime, and About.</p></div>
             </div>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
@@ -292,7 +295,7 @@
                   aria-label="Open full-size screenshot: Windows Tools menu" aria-haspopup="dialog"
                   aria-controls="manual-screenshot-modal">
                   <img src="img/manual/windows-tools-menu_thumb.png"
-                    alt="The CodePrettify for Windows Tools menu listing document navigation, conversion, comparison, playground, inspection, and settings commands"
+                    alt="The CodePrettify for Windows Tools menu listing JSON Repair and Transform, navigation, conversion, comparison, inspection, and settings commands"
                     width="320" height="200" loading="lazy" decoding="async" />
                   <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
                 </button>
@@ -468,7 +471,7 @@
               </figure>
             </div>
             <h3>Security Scan</h3>
-            <p>Run Security Scan from the Command Palette (or Tools in the app). It looks locally for likely cloud/API keys, tokens, private-key blocks, credential-bearing URLs, connection strings, API routes, paths, and file references. Findings are masked, severity-sorted, and linked to source; <strong>Copy endpoints</strong> copies only the endpoint list.</p>
+            <p>Run Security Scan from the Command Palette (or Tools in the app). It looks locally for likely cloud/API keys, tokens, private-key blocks, credential-bearing URLs, connection strings, API routes, paths, and file references. Findings are masked, severity-sorted, and linked to source. Selecting a finding reveals any folded parent blocks and centers the exact displayed line while leaving unrelated folds closed; <strong>Copy endpoints</strong> copies only the endpoint list.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
                 <button type="button" class="manual-screenshot-open" id="manual-screenshot-security-scan"
@@ -486,8 +489,14 @@
           </section>
 
           <section id="data-converter" class="manual-topic" data-products="shared browser app">
-            <div class="manual-heading-row"><div><span class="manual-eyebrow">18 local transformations</span><h2>Data Converter</h2></div><span class="product-badge product-shared">Both products</span></div>
-            <p>Open Data Converter from More Actions, the Command Palette, Tools, or the extension launcher. <strong>Use document</strong> loads the active text. Choose an operation and press the Convert button beside it. <strong>Reverse</strong> moves the output into input and selects the inverse. Copy and Download sit together beside output.</p>
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Transform, encode, hash, and generate</span><h2>Data Converter</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <p>Open Data Converter from More Actions, the Command Palette, Tools, or the extension launcher. Its four tabs keep related conversion utilities together: <strong>Convert</strong>, <strong>Hash &amp; HMAC</strong>, <strong>Timestamp</strong>, and <strong>ID Generator</strong>. On Convert, <strong>Use document</strong> loads the active text. Choose an operation and press the Convert button beside it. <strong>Reverse</strong> moves the output into input and selects the inverse. Copy and Download sit together beside output.</p>
+            <h3>Hash &amp; HMAC</h3>
+            <p>Choose the <strong>Hash &amp; HMAC</strong> tab to create SHA-256, SHA-384, or SHA-512 output from pasted text or the current document. Hash mode produces a normal digest. HMAC mode also requires a secret key and produces a keyed authentication code. Both hex and Base64 representations can be copied. Text and keys are interpreted as UTF-8, remain in memory only for the open page, are never saved or transmitted, and are capped at 16 MiB each.</p>
+            <h3>Unix / ISO timestamps</h3>
+            <p>The <strong>Timestamp</strong> tab converts Unix seconds, Unix milliseconds, or ISO 8601 values with <code>Z</code> or an explicit UTC offset. Auto-detection distinguishes normal Unix seconds from millisecond values; choose the unit explicitly for unusual or far-future numbers. Results include UTC ISO 8601, Unix seconds, Unix milliseconds, and local system time. Ambiguous date strings without a timezone are rejected instead of silently assuming one.</p>
+            <h3>UUID &amp; ULID generation</h3>
+            <p>The <strong>ID Generator</strong> creates 1&ndash;100 UUID v4, UUID v7, or ULID values per batch. UUID v4 is random; UUID v7 and ULID embed the current Unix-millisecond timestamp and use monotonic random portions so a same-millisecond batch remains lexicographically sorted. Generation requires the platform&rsquo;s cryptographically secure random source and never falls back to <code>Math.random()</code>.</p>
             <div class="manual-table-wrap">
               <table class="manual-table manual-converter-table">
                 <thead><tr><th>Operation</th><th>What it does</th></tr></thead>
@@ -531,6 +540,128 @@
             <p class="manual-limit"><strong>Limits:</strong> 10 Mi characters input, 32 Mi characters output, plus bounded YAML nodes/depth. Base64 decode must produce valid UTF-8.</p>
           </section>
 
+          <section id="json-to-code" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">From sample data to a usable model</span><h2>JSON to Code Generator</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <p>JSON to Code Generator is a general tool, so it remains available in More Actions and the Command Palette for every file type. The extension also exposes it from the launcher, and the Windows app includes it in Tools. Paste any strict JSON sample, choose <strong>Example</strong>, or use <strong>Use document</strong> when the active document contains JSON. Generation runs entirely on the device.</p>
+            <ol>
+              <li>Enter one JSON object, value, or array of sample records in <strong>JSON sample</strong>.</li>
+              <li>Choose a <strong>Target</strong>, set the <strong>Root type name</strong>, and, where supported, adjust the package or namespace.</li>
+              <li>Optionally enable <strong>Make every property optional</strong>. Otherwise, properties missing from some array samples become optional automatically, while an explicit <code>null</code> becomes nullable.</li>
+              <li>Review the live generated code and any inference warning, then Copy, Export, or Open as document.</li>
+            </ol>
+            <p>The example below converts an advanced order payload—with nested customer data, line items, nullable discounts, tracking events, payment totals, tags, and metadata—into ready-to-use C# models with <code>System.Text.Json</code> annotations and a project namespace.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-json-to-code-csharp"
+                  data-full-src="img/manual/json-to-code-csharp.png"
+                  aria-label="Open full-size screenshot: Advanced JSON order data converted into ready-to-use C# models"
+                  aria-controls="manual-screenshot-modal">
+                  <img src="img/manual/json-to-code-csharp_thumb.png"
+                    alt="JSON to Code Generator converting an advanced nested order payload into annotated C# models"
+                    loading="lazy" width="320" height="200" />
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+            <div class="manual-table-wrap">
+              <table class="manual-table">
+                <thead><tr><th>Target</th><th>Generated result</th></tr></thead>
+                <tbody>
+                  <tr><td>TypeScript</td><td>Nested exported interfaces and root aliases with unions, optional fields, and exact source keys.</td></tr>
+                  <tr><td>Zod</td><td>Composable schemas plus an inferred TypeScript root type.</td></tr>
+                  <tr><td>C#, Java, Kotlin</td><td>Records or data classes with JSON field-name annotations and namespace/package support.</td></tr>
+                  <tr><td>Python / Pydantic</td><td>Pydantic models with aliases for source keys that are not valid Python identifiers.</td></tr>
+                  <tr><td>Go, Rust, Swift, Dart</td><td>Native model declarations with json, Serde, Codable, or json_serializable mappings.</td></tr>
+                  <tr><td>JSON Schema</td><td>A Draft 2020-12 schema with definitions, required fields, arrays, unions, and nullability.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <h3>Inference behavior</h3>
+            <p>Nested objects become named models. When the root is an array, all array entries contribute to inference rather than only the first record. Different compatible shapes are merged; genuinely mixed values become unions where the target supports them and a safe general type where it does not. Empty arrays cannot reveal their element type, so the generator reports a warning and uses the target's safe unknown type. Property names such as <code>user-id</code>, reserved words, and other invalid identifiers receive the target's normal field-mapping annotation instead of changing the JSON contract.</p>
+            <p class="manual-limit"><strong>Limits:</strong> input is capped at 5 Mi characters, generated output at 16 Mi characters, nesting at 100 levels, and inspected JSON values at 100,000. Invalid or incomplete JSON reports its line and column when available. Limits fail closed and never alter the source document.</p>
+          </section>
+
+          <section id="structured-workbench" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Repair first, transform second</span><h2>JSON Repair &amp; Transform</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <p>Open <strong>JSON Repair &amp; Transform</strong> from <strong>General tools</strong> in More Actions or from the Command Palette; the Windows app also exposes it directly in <strong>Tools</strong>. It is always available because pasted JSON-like input can be used independently of the active document. A compatible current document remains an optional starting point through <strong>Use document</strong>. All processing stays on the device. Its two tabs are designed as one workflow: review and normalize the source in <strong>Repair &amp; Salvage</strong>, then pass that result to <strong>Transform</strong>. Both tabs retain the same dialog height when switching, and the Repair input, repaired output, and live Transform result use the shared compact code-text scale while preserving useful editor space.</p>
+
+            <h3>Repair &amp; Salvage</h3>
+            <ol>
+              <li>Review or replace <strong>Input to analyze</strong>. <strong>Use document</strong> restores the active document text.</li>
+              <li>For JSON Lines only, enable <strong>Allow partial-record salvage</strong> if you deliberately want invalid records excluded. Leave it off when every record must survive.</li>
+              <li>Choose <strong>Analyze &amp; repair</strong>. Review the confidence, each recorded repair, warnings, and any discarded source-line numbers before using the result.</li>
+              <li>Copy or download the repaired JSON, or choose <strong>Use result in Transform</strong>.</li>
+            </ol>
+            <p>The repair engine can remove a byte-order mark or Markdown fence, extract the first balanced object/array from surrounding prose, remove JavaScript comments, convert single-quoted strings, quote unquoted object keys, replace recognized JavaScript/Python literals, remove trailing commas or a final semicolon, and escape raw controls inside strings. Every applied change appears in the report; extraction and semantic literal replacement lower confidence so they receive extra scrutiny.</p>
+            <p class="manual-limit"><strong>Partial salvage is destructive:</strong> invalid JSON Lines records are never discarded silently. Without explicit opt-in, one invalid record blocks the result. With opt-in, the report identifies every excluded line. Truncated JSON, missing brackets/separators, and repairs that cannot be made safely are rejected.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-workbench-repair"
+                  data-full-src="img/manual/structured-workbench-repair.png" data-title="JSON Repair &amp; Transform — Repair &amp; Salvage"
+                  aria-label="Open full-size screenshot: JSON Repair and Transform repair report"
+                  aria-haspopup="dialog" aria-controls="manual-screenshot-modal">
+                  <img src="img/manual/structured-workbench-repair_thumb.png"
+                    alt="JSON Repair and Transform repairing messy JSON-like data and listing every recorded change"
+                    loading="lazy" decoding="async" width="320" height="200" />
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+
+            <h3>Inputs normalized for the pipeline</h3>
+            <div class="manual-table-wrap">
+              <table class="manual-table manual-workbench-format-table">
+                <thead><tr><th>Input format</th><th>JSON normalization</th></tr></thead>
+                <tbody>
+                  <tr><td>JSON, JSONC-style data, JavaScript object-style data</td><td>Validated or repaired into JSON with a change report.</td></tr>
+                  <tr><td>JSON Lines / NDJSON</td><td>Validated or repaired record by record and retained as an array for transformation.</td></tr>
+                  <tr><td>CSV</td><td>Parsed into an array of JSON objects.</td></tr>
+                  <tr><td>YAML</td><td>Parsed and normalized to compatible JSON values.</td></tr>
+                  <tr><td>TOML</td><td>Parsed and normalized to a JSON object.</td></tr>
+                  <tr><td>XML or RSS/Atom feed</td><td>Converted to CodePrettify&rsquo;s ordered JSON representation.</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Build a transformation pipeline</h3>
+            <p>After choosing <strong>Use result in Transform</strong>, the guided workspace shows the recipe builder beside a <strong>Live result</strong>. Common transformations are one-click choices under <strong>Add a transformation</strong>; less common choices stay under <strong>More transformations</strong>. Each step includes a plain-language summary, and <strong>Field</strong> controls suggest fields detected in the current data with their types and sample values. Labels, helper text, fields, and actions follow the same compact form scale used by other CodePrettify dialogs. Move steps up or down to change the result, remove individual steps, or choose <strong>Clear all</strong>. The most recent pipeline recipe is retained locally, while the source document itself is never modified.</p>
+            <p>An incomplete step does not empty or damage the preview: the previous valid result remains visible and the status explains which field or value is still needed. If a completed step removes every row, a prominent <strong>No rows matched</strong> explanation identifies that step and offers to remove it.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-workbench-transform"
+                  data-full-src="img/manual/structured-workbench-transform.png" data-title="JSON Repair &amp; Transform — Transform"
+                  aria-label="Open full-size screenshot: JSON Repair and Transform recipe"
+                  aria-haspopup="dialog" aria-controls="manual-screenshot-modal">
+                  <img src="img/manual/structured-workbench-transform_thumb.png"
+                    alt="JSON Repair and Transform applying filter and sort steps while showing the live JSON result"
+                    loading="lazy" decoding="async" width="320" height="200" />
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+            <div class="manual-table-wrap">
+              <table class="manual-table manual-workbench-operation-table">
+                <thead><tr><th>Operation</th><th>What it does</th></tr></thead>
+                <tbody>
+                  <tr><td>Filter rows</td><td>Keeps array rows matching equality, comparison, text/array containment, prefix/suffix, or existence conditions. A nested-array field matches when any nested item satisfies the condition.</td></tr>
+                  <tr><td>Select fields</td><td>Creates a smaller object from one or more comma-separated paths.</td></tr>
+                  <tr><td>Remove fields</td><td>Deletes one or more selected paths from copied records.</td></tr>
+                  <tr><td>Rename field</td><td>Moves a value from a source path to a new target path.</td></tr>
+                  <tr><td>Sort rows</td><td>Sorts an array by a path in ascending or descending order while preserving equal-value order.</td></tr>
+                  <tr><td>Unique rows</td><td>Keeps the first row for each distinct path value, or each distinct full row when no path is supplied.</td></tr>
+                  <tr><td>Flatten array field</td><td>Expands an array-valued field into separate copied rows.</td></tr>
+                  <tr><td>Group and aggregate</td><td>Groups by a path and calculates Count, Sum, Average, Minimum, or Maximum from an optional value path.</td></tr>
+                  <tr><td>Limit rows</td><td>Returns a count of rows after an optional offset.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>In most cases, choose a detected field instead of writing a path. The label <strong>any item</strong> represents an array wildcard: <code>owners[].name</code> checks the <code>name</code> of every item in <code>owners</code>. Filter also accepts the forgiving form <code>owners.name</code> and crosses the array automatically. Advanced paths use familiar dot/index notation such as <code>customer.address.city</code>, <code>items[0].sku</code>, or <code>$[&quot;odd.key&quot;]</code>. Filter values accept JSON literals such as <code>true</code>, <code>42</code>, <code>null</code>, arrays, and objects; other text remains a string. Use <code>&quot;&quot;</code> to match an empty string.</p>
+            <p>Use <strong>Copy</strong>, <strong>Download</strong>/<strong>Save</strong>, or <strong>Open as document</strong> when the live output is ready. Opening the result creates a separate document or tab; it does not replace the source.</p>
+
+            <h3>Safety limits</h3>
+            <p class="manual-limit"><strong>Fail-closed safeguards:</strong> input is limited to 10 Mi characters, output to 20 Mi characters, structure to 250,000 nodes and 512 nesting levels, pipelines to 32 steps, and array output to 250,000 rows. Unsafe integers, lossy or non-finite numbers, overflowing aggregations, and prototype-sensitive path segments are rejected. Limits cannot be bypassed by partial-record salvage.</p>
+          </section>
+
           <section id="copy-export" class="manual-topic" data-products="shared browser app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Take the result with you</span><h2>Copy and Export</h2></div><span class="product-badge product-shared">Both products</span></div>
             <h3>Copy</h3>
@@ -547,13 +678,14 @@
 
           <section id="compare" class="manual-topic" data-products="shared browser app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Spot changes</span><h2>Compare</h2></div><span class="product-badge product-shared">Both products</span></div>
-            <h3>Compare with Clipboard</h3>
+            <h3>Compare any two sources</h3>
             <ol>
               <li>Open Compare or press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>D</kbd>.</li>
-              <li>Paste/type the second document. Choose Semantic mode when offered or Text mode for exact line changes.</li>
-              <li>Use Previous/Next Difference and Swap Sides. Text mode can ignore whitespace and synchronizes panes.</li>
+              <li>The left input starts with the current document and the right input starts empty. Edit or paste either side; each side has its own <strong>Use current document</strong> and <strong>Clear</strong> controls.</li>
+              <li>Use <strong>Swap sides</strong> before comparing to exchange the actual inputs, then choose Semantic mode when offered or Text mode for exact line changes. Semantic availability is detected from the two inputs, not from the open file.</li>
+              <li>After comparing, use Previous/Next Difference, Swap Sides, or <strong>Edit inputs</strong>. Text mode can ignore whitespace and synchronizes panes.</li>
             </ol>
-            <p>Semantic comparison supports JSON/JSONC/JSON Lines/YAML/TOML where parsing succeeds. It ignores formatting and object-key order. Arrays with unique <code>id</code>, <code>_id</code>, <code>uuid</code>, or <code>guid</code> values are matched by identity; other arrays are positional. Extremely large change sets are capped and invalid inputs fall back to text.</p>
+            <p>Semantic comparison supports JSON/JSONC/JSON Lines/YAML/TOML where parsing succeeds, even if the active document is JavaScript, CSS, or another format. It ignores formatting and object-key order. Arrays with unique <code>id</code>, <code>_id</code>, <code>uuid</code>, or <code>guid</code> values are matched by identity; other arrays are positional. Extremely large change sets are capped and invalid inputs fall back to text. A structured change can jump to an editor line only while the corresponding left or right source still exactly matches the current document; independently pasted or edited text never produces a misleading jump. When the sources are identical, both Semantic and Text modes place the no-differences message horizontally in the center of the result viewport.</p>
             <h3>Compare files (app)</h3>
             <p>The Windows app can browse two files, prefill the current file, remember the pair, and open a dedicated comparison tab. Selecting exactly two supported files in Explorer can expose the Compare command.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
@@ -705,6 +837,7 @@
               </figure>
             </div>
             <p>Extension settings apply immediately and are stored through browser storage; app settings are local. They are not synchronized between products.</p>
+            <p>Inputs, dropdowns, textareas, buttons, and icon buttons throughout CodePrettify use the same small, medium, and large control scale, so padding, type size, field height, and click targets remain consistent when moving between Settings and tools. Technical textareas in Compare, JSON to Code Generator, JSON Repair &amp; Transform, Data Converter, Schema Validator, HTTP Client, Regex, the JavaScript Playground fallback, and JSON decode all use one compact 13px code-text scale and monospace stack. Modal titles, section headings, field labels, help text, and status messages also share one typography system. Task-specific layouts, state colors, badges, editor viewport heights, and result panes remain specialized where their purpose requires it.</p>
           </section>
 
           <section id="large-files-encoding" class="manual-topic" data-products="app">
@@ -751,7 +884,7 @@
           <section id="privacy-security" class="manual-topic" data-products="shared browser app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Know what leaves the device</span><h2>Privacy and security</h2></div><span class="product-badge product-shared">Both products</span></div>
             <ul>
-              <li>Formatting, validation, conversion, statistics, search, comparison, schema checks, security scanning, and playground/regex processing stay on the device.</li>
+              <li>Formatting, validation, conversion, JSON-to-code inference and generation, JSON Repair &amp; Transform, statistics, search, comparison, schema checks, security scanning, and playground/regex processing stay on the device.</li>
               <li>The HTTP Client is the intentional network exception: the request is sent directly to the displayed target only after you press Send. CodePrettify does not proxy it.</li>
               <li>Playground and Runtime Inspect use an isolated worker with no page DOM, extension API, local-file, Node, or network capability.</li>
               <li>Markdown suppresses automatic remote image loading. Remote JSON Schema references are never fetched.</li>
@@ -770,6 +903,7 @@
               <div><h3>The JavaScript file needs document, fs, or fetch</h3><p>That code cannot run in the secure worker. Use Safe definitions and call a pure function, paste an isolated function into the scratchpad, or test it in its intended browser/Node environment.</p></div>
               <div><h3>An HTTP request fails</h3><p>Verify resolved variables, authentication placement, URL, timeout, and response size. The extension remains subject to browser CORS and credential restrictions. Use generated cURL/PowerShell to compare outside the browser.</p></div>
               <div><h3>A conversion option is disabled</h3><p>The compatibility check has proven the current input is unsuitable. Read the reason: common causes are invalid JSON, nested data for CSV/TSV, unsafe JSON numbers, invalid UTF-8 Base64, or a lossy YAML/XML construct.</p></div>
+              <div><h3>Repair &amp; Salvage refuses the input</h3><p>JSON Repair &amp; Transform only returns a result when it can produce bounded, safely representable JSON. Review missing brackets or separators, truncated records, unsafe numbers, and nesting/size limits. Enable partial JSON Lines salvage only when excluding the reported broken records is acceptable.</p></div>
               <div><h3>The Windows app will not show its viewer</h3><p>The main package includes .NET 10, but Microsoft Edge WebView2 Evergreen is required. Use the recovery screen to install WebView2 and Retry. Explorer integration is optional and may separately require Microsoft.NETCore.App 10.x.</p></div>
             </div>
             <div class="manual-support-row">

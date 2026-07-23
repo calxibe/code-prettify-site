@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Changelog - CodePrettify</title>
-    <meta name="description" content="Track the latest CodePrettify releases, including Markdown support, smarter JSON diagnostics, Regex Playground upgrades, Table View improvements, and HTTP Client power-user features." />
+    <meta name="description" content="Track the latest CodePrettify browser extension releases, including JSON to Code Generator, JSON Repair &amp; Transform, and local developer tools." />
     <meta name="application-name" content="CodePrettify" />
     <meta name="apple-mobile-web-app-title" content="CodePrettify" />
     <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
@@ -20,13 +20,13 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Changelog - CodePrettify" />
-    <meta property="og:description" content="Track the latest CodePrettify releases, including Markdown support, smarter JSON diagnostics, Regex Playground upgrades, Table View improvements, and HTTP Client power-user features." />
+    <meta property="og:description" content="Track the latest CodePrettify browser extension releases, including JSON to Code Generator, JSON Repair &amp; Transform, and local developer tools." />
     <meta property="og:url" content="https://prettify.cloud/changelog.html" />
     <meta property="og:image" content="https://prettify.cloud/img/feature-stats-diagnostics.png" />
     <meta property="og:image:alt" content="CodePrettify statistics and diagnostics panel showing warnings, request metadata, and document metrics" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Changelog - CodePrettify" />
-    <meta name="twitter:description" content="Track the latest CodePrettify releases, including Markdown support, smarter JSON diagnostics, Regex Playground upgrades, Table View improvements, and HTTP Client power-user features." />
+    <meta name="twitter:description" content="Track the latest CodePrettify browser extension releases, including JSON to Code Generator and local structured-data tools." />
     <meta name="twitter:image" content="https://prettify.cloud/img/feature-stats-diagnostics.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -34,7 +34,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=block"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css?v=20260719-6" />
+    <link rel="stylesheet" href="style.css?v=20260721-1" />
     <script src="site.js?v=20260719" defer></script>
   </head>
   <body>
@@ -91,10 +91,43 @@
         </div>
 
         <div class="version-section">
+          <h3>Added</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>JSON to Code Generator</strong> &mdash; Paste strict JSON, load the active JSON document, or start from an example and generate TypeScript, Zod, C#, Java/Jackson, Kotlin, Python/Pydantic, Go, Rust/Serde, Swift Codable, Dart/json_serializable, or JSON Schema. Multiple array records improve optional/nullable inference; nested models, source-key mappings, root naming, package/namespace controls, copy, export, and open-as-document actions are included. Everything runs locally.
+            </li>
+            <li>
+              <strong>Data Converter utilities</strong> &mdash; Data Converter now includes dedicated Convert, Hash &amp; HMAC, Timestamp, and ID Generator tabs. Create SHA-256, SHA-384, or SHA-512 hashes and HMACs with hex and Base64 output; convert Unix seconds, Unix milliseconds, and timezone-explicit ISO 8601 values; or generate secure UUID v4, time-sortable UUID v7, and ULIDs without adding more entries to General Tools. Compare remains focused on comparing two sources. Processing stays local, and UUID v7/ULID batches remain monotonic.
+            </li>
+            <li>
+              <strong>JSON Repair &amp; Transform</strong> &mdash; Paste JSON-like input or optionally load a compatible current document, normalize it into a local JSON model, then build a live ordered recipe with Filter, Select, Remove, Rename, Sort, Unique, Flatten, Group/Aggregate, and Limit/Offset. Recipes are retained locally, never alter the source document, and results can be copied, downloaded, or opened separately.
+            </li>
+            <li>
+              <strong>Repair &amp; Salvage</strong> &mdash; Recover common copied, logged, or hand-edited structured-data damage with a reviewable report. It handles Markdown fences and surrounding prose, comments, single-quoted strings, unquoted keys, trailing commas, JavaScript/Python literals, raw string controls, and JSON Lines records. Excluding broken JSON Lines records is always an explicit opt-in and reports every discarded source line.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
           <h3>Improved</h3>
           <ul class="feature-list">
             <li>
               <strong>Cleaner compact toolbar</strong> &mdash; Narrow browser windows hide the three adaptive quick-action shortcuts and their divider, retain the intended side margins, and keep copy, search, go-to-line, and More uncluttered. Every hidden shortcut remains available from the More menu.
+            </li>
+            <li>
+              <strong>General-tool availability</strong> &mdash; Structured Data Workbench is renamed to JSON Repair &amp; Transform and is now always available in More Actions, the Command Palette, and adaptive quick actions. Users can paste independent JSON-like input from any document type, while a compatible current document remains an optional starting point.
+            </li>
+            <li>
+              <strong>Two-column More Actions</strong> &mdash; The extension separates actions for the active document from reusable utilities. Export, table/navigation/schema tools, Statistics &amp; Diagnostics, Security Scan, and Collapse/Expand stay in the primary left column; JavaScript keeps its lightweight Document Navigator and separate Inspect Runtime workflow there too. Compare, JSON to Code Generator, JSON Repair &amp; Transform, JavaScript Playground, Data Converter, Regex Playground, and HTTP Client are always available in the visually quieter general-tools column. Share configuration URL stays with the active web document because it captures that document&rsquo;s viewer state. On wider screens the primary column is centered above the More Actions button, while constrained layouts stay inside the viewport and very narrow windows stack both groups.
+            </li>
+            <li>
+              <strong>Paired folding controls</strong> &mdash; Collapse All and Expand All now share one equal-width row beneath the active-document tools, shortening the menu while preserving separate keyboard-accessible actions.
+            </li>
+            <li>
+              <strong>General-purpose Compare</strong> &mdash; Compare now opens as a two-source workbench. The left input starts with the current document, while both sides remain independently editable and can be cleared, restored from the document, or swapped before comparison. Semantic JSON/JSONC/JSON Lines/YAML/TOML mode is detected from the two inputs even when another file type is open, and a semantic result links back to the editor only while the matching source is still the current document. Identical Semantic and Text results show one horizontal, centered empty state across the result viewport.
+            </li>
+            <li>
+              <strong>Guided JSON Repair &amp; Transform experience</strong> &mdash; Transform uses a focused recipe-and-result layout with one-click common actions, advanced actions tucked under More transformations, detected field suggestions with samples, plain-language conditions and step summaries, and direct recovery guidance when no rows match. Incomplete steps leave the last valid preview intact. Repair and Transform keep one stable dialog height, while their code textareas use compact type without collapsing the editor viewport.
             </li>
             <li>
               <strong>Feature-focused update notes</strong> &mdash; Maintenance-only updates without a cataloged major feature are acknowledged silently instead of opening a generic What&rsquo;s New card.
@@ -106,7 +139,31 @@
           <h3>Fixed</h3>
           <ul class="feature-list">
             <li>
+              <strong>Universal tab styling</strong> &mdash; Collections/History, request-composer tabs, and response tabs in HTTP Client now use the same shared compact tab component as Data Converter. The duplicated HTTP-only tab appearance has been removed.
+            </li>
+            <li>
+              <strong>HTTP Client startup after extension updates</strong> &mdash; An already-open page with a stale, invalidated extension storage context no longer aborts while opening HTTP Client. The modal opens from its in-memory state; reloading the page restores saved collections, environments, history, and request execution.
+            </li>
+            <li>
+              <strong>Unified interface controls</strong> &mdash; Settings and tools now share small, medium, and large scales for inputs, selects, textareas, buttons, and icon buttons. Every visible technical textarea in Compare, JSON to Code Generator, JSON Repair &amp; Transform, Data Converter, Schema Validator, HTTP Client, Regex, JavaScript Playground fallback, and JSON decode uses the same compact 13px code-text scale and monospace stack. Modal titles, section headings, field labels, help text, and status messages use shared typography, while task-specific layout, state colors, and editor sizing remain specialized.
+            </li>
+            <li>
+              <strong>Nested-array filtering</strong> &mdash; Fields such as <code>owners[].name</code> now test every item in the nested array, while the forgiving <code>owners.name</code> form works too. The field picker describes this as &ldquo;any item&rdquo; instead of requiring users to discover wildcard syntax.
+            </li>
+            <li>
               <strong>Responsive Security Scan</strong> &mdash; The scan now opens at its intended wide, viewport-responsive size instead of inheriting the generic 400px modal limit, and its height fits the findings instead of leaving a large empty area. <strong>Copy endpoints</strong> stays on one line, while compact windows and longer translated labels use a clean stacked header; long scans still grow to the viewport limit and scroll.
+            </li>
+            <li>
+              <strong>Exact finding navigation</strong> &mdash; Selecting a Security Scan result now reveals its folded parent blocks before centering and highlighting the exact source line. Unrelated folds stay collapsed, and other line-linked tools receive the same correction.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Security</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Local, fail-closed processing</strong> &mdash; JSON Repair &amp; Transform input and results never leave the device. Unsafe or lossy numbers, prototype-sensitive paths, excessive nesting, oversized input/output, excessive nodes or rows, and overlong recipes are rejected instead of being silently changed or allowed to consume unbounded resources.
             </li>
           </ul>
         </div>
