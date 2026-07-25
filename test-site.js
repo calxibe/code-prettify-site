@@ -919,6 +919,63 @@ async function checkFeatureGuides(page, baseUrl) {
   }
 }
 
+async function checkFeatureCodeContrast(page, baseUrl) {
+  await page.setViewportSize({ width: 1280, height: 900 });
+
+  for (const colorScheme of ["light", "dark"]) {
+    await page.emulateMedia({ colorScheme });
+    await page.goto(`${baseUrl}/json-formatter-browser-extension.html`, { waitUntil: "domcontentloaded" });
+    const state = await page.evaluate(() => {
+      const channelValues = (color) => (color.match(/[\d.]+/g) || []).slice(0, 3).map(Number);
+      const luminance = (color) => {
+        const channels = channelValues(color).map((value) => {
+          const normalized = value / 255;
+          return normalized <= 0.03928 ? normalized / 12.92 : ((normalized + 0.055) / 1.055) ** 2.4;
+        });
+        return (0.2126 * channels[0]) + (0.7152 * channels[1]) + (0.0722 * channels[2]);
+      };
+      const contrast = (foreground, background) => {
+        const lighter = Math.max(luminance(foreground), luminance(background));
+        const darker = Math.min(luminance(foreground), luminance(background));
+        return (lighter + 0.05) / (darker + 0.05);
+      };
+      const cards = Array.from(document.querySelectorAll(".feature-example-card"));
+      const rawPre = cards[0].querySelector(".feature-code");
+      const rawCode = rawPre.querySelector("code");
+      const formattedPre = cards[1].querySelector(".feature-code");
+      const accent = formattedPre.querySelector(".code-accent");
+      const success = formattedPre.querySelector(".code-success");
+      const preStyle = getComputedStyle(formattedPre);
+      const codeStyle = getComputedStyle(rawCode);
+      const background = preStyle.backgroundColor;
+      const cardBottom = cards[0].getBoundingClientRect().bottom;
+      const preBottom = rawPre.getBoundingClientRect().bottom;
+      return {
+        accentContrast: contrast(getComputedStyle(accent).color, background),
+        cardDisplay: getComputedStyle(cards[0]).display,
+        codeBackground: codeStyle.backgroundColor,
+        codeBorderRadius: codeStyle.borderRadius,
+        codeDisplay: codeStyle.display,
+        codePadding: codeStyle.padding,
+        normalContrast: contrast(preStyle.color, background),
+        rawCardBottomGap: Math.abs(cardBottom - preBottom),
+        successContrast: contrast(getComputedStyle(success).color, background),
+      };
+    });
+
+    assert(state.cardDisplay === "flex", `${colorScheme} feature sample card no longer fills its code panel`);
+    assert(state.codeDisplay === "block", `${colorScheme} feature code is not a stable block`);
+    assert(state.codeBackground === "rgba(0, 0, 0, 0)", `${colorScheme} feature code has an opaque inline background`);
+    assert(state.codePadding === "0px" && state.codeBorderRadius === "0px", `${colorScheme} feature code inherited inline-code decoration`);
+    assert(state.rawCardBottomGap <= 1, `${colorScheme} raw code panel leaves an empty card area`);
+    assert(state.normalContrast >= 7, `${colorScheme} feature code text contrast is below 7:1`);
+    assert(state.accentContrast >= 4.5, `${colorScheme} feature code accent contrast is below 4.5:1`);
+    assert(state.successContrast >= 4.5, `${colorScheme} feature code success contrast is below 4.5:1`);
+  }
+
+  await page.emulateMedia({ colorScheme: "light" });
+}
+
 async function main() {
   const server = createServer();
   await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
@@ -941,6 +998,7 @@ async function main() {
     await checkManualScreenshots(page, baseUrl);
     await checkHomepageScreenshotGallery(page, baseUrl);
     await checkFeatureGuides(page, baseUrl);
+    await checkFeatureCodeContrast(page, baseUrl);
     await checkScreenshotDialog(page, baseUrl);
     console.log(`Website checks passed for ${PAGES.length} pages.`);
   } finally {
