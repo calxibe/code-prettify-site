@@ -4,7 +4,47 @@ const path = require("node:path");
 const { chromium } = require("playwright");
 
 const SITE_ROOT = __dirname;
-const PAGES = ["index.html", "pricing.html", "manual.html", "privacy.html", "changelog.html", "changelog-app.html"];
+const FEATURE_GUIDES = [
+  {
+    page: "json-formatter-browser-extension.html",
+    canonical: "https://prettify.cloud/json-formatter-browser-extension.html",
+    screenshots: ["feature-json-format.png", "feature-json-path-inspector.png", "feature-schema-validator.png"],
+  },
+  {
+    page: "json-to-code-generator.html",
+    canonical: "https://prettify.cloud/json-to-code-generator.html",
+    screenshots: ["feature-json-to-code.png", "feature-json-to-code-pydantic.png"],
+  },
+  {
+    page: "json-repair-transform.html",
+    canonical: "https://prettify.cloud/json-repair-transform.html",
+    screenshots: ["feature-workbench-repair.png", "feature-workbench-transform.png"],
+  },
+  {
+    page: "markdown-viewer-browser-extension.html",
+    canonical: "https://prettify.cloud/markdown-viewer-browser-extension.html",
+    screenshots: ["feature-markdown.png", "feature-markdown-source.png"],
+  },
+  {
+    page: "regex-playground.html",
+    canonical: "https://prettify.cloud/regex-playground.html",
+    screenshots: ["feature-regex-playground.png", "feature-regex-replace.png"],
+  },
+  {
+    page: "http-client-browser-extension.html",
+    canonical: "https://prettify.cloud/http-client-browser-extension.html",
+    screenshots: ["feature-http-client.png", "feature-http-client-headers.png"],
+  },
+];
+const PAGES = [
+  "index.html",
+  ...FEATURE_GUIDES.map(({ page }) => page),
+  "pricing.html",
+  "manual.html",
+  "privacy.html",
+  "changelog.html",
+  "changelog-app.html",
+];
 const INSTALL_URLS = [
   "https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj",
   "https://microsoftedge.microsoft.com/addons/detail/codeprettify-js-json-c/ckmnkbdicbcbajedhngfaamomlgpgchc",
@@ -128,7 +168,9 @@ async function checkInternalLinks(page, baseUrl) {
     for (const href of links) {
       if (!href || /^(?:https?:|mailto:|#)/i.test(href)) continue;
       const [filePart, fragment] = href.split("#");
-      const targetFile = filePart || pageName;
+      const targetFile = filePart === "/"
+        ? "index.html"
+        : (filePart ? filePart.replace(/^\/+/, "") : pageName);
       assert(fs.existsSync(path.join(SITE_ROOT, targetFile)), `${pageName} links to missing file ${targetFile}`);
       if (fragment) {
         const targetHtml = fs.readFileSync(path.join(SITE_ROOT, targetFile), "utf8");
@@ -280,9 +322,9 @@ async function checkHomepageResourceLinks(page, baseUrl) {
   assert(jsonToCode.text.includes("TypeScript") && jsonToCode.text.includes("JSON Schema"), "Homepage JSON-to-Code spotlight is missing its target range");
   assert(jsonToCode.text.includes("Local-only") && jsonToCode.text.includes("uploading"), "Homepage JSON-to-Code spotlight does not explain local processing");
   assert(jsonToCode.links.includes("manual.html#json-to-code"), "Homepage JSON-to-Code spotlight does not link to the manual");
-  assert(jsonToCode.links.includes("changelog.html"), "Homepage JSON-to-Code spotlight does not link to release notes");
+  assert(jsonToCode.links.includes("json-to-code-generator.html"), "Homepage JSON-to-Code spotlight does not link to the in-depth guide");
   assert(jsonToCode.width > 900, "Homepage JSON-to-Code spotlight does not span the desktop feature grid");
-  assert(metaDescription?.includes("TypeScript") && metaDescription?.includes("JSON Schema"), "Homepage metadata does not advertise JSON-to-Code generation");
+  assert(metaDescription?.includes("JSON") && metaDescription?.includes("generate typed code"), "Homepage metadata does not advertise JSON tooling and typed-code generation");
 
   const storeButton = page.locator(".cta-buttons .store-cta");
   await storeButton.hover();
@@ -806,6 +848,77 @@ async function checkHomepageScreenshotGallery(page, baseUrl) {
   }
 }
 
+async function checkFeatureGuides(page, baseUrl) {
+  const captureScript = fs.readFileSync(path.join(SITE_ROOT, "..", "browser", "capture-extension-screenshots.js"), "utf8");
+  const declaredScreenshots = new Set();
+
+  for (const guide of FEATURE_GUIDES) {
+    await page.setViewportSize({ width: 1280, height: 900 });
+    await page.goto(`${baseUrl}/${guide.page}`, { waitUntil: "domcontentloaded" });
+    const state = await page.evaluate(() => {
+      const content = document.querySelector("main")?.textContent.replace(/\s+/g, " ").trim() || "";
+      const images = Array.from(document.querySelectorAll(".feature-hero-shot img, .feature-guide-shot img"), (image) => ({
+        alt: image.getAttribute("alt") || "",
+        height: Number(image.getAttribute("height") || 0),
+        loading: image.getAttribute("loading"),
+        src: image.getAttribute("src") || "",
+        width: Number(image.getAttribute("width") || 0),
+      }));
+      const schemas = Array.from(document.querySelectorAll('script[type="application/ld+json"]'), (script) => {
+        try {
+          return JSON.parse(script.textContent);
+        } catch {
+          return null;
+        }
+      });
+      const schemaItems = schemas
+        .filter(Boolean)
+        .flatMap((schema) => Array.isArray(schema["@graph"]) ? schema["@graph"] : [schema]);
+      return {
+        canonical: document.querySelector('link[rel="canonical"]')?.href || "",
+        description: document.querySelector('meta[name="description"]')?.content || "",
+        h1: document.querySelector("h1")?.textContent.replace(/\s+/g, " ").trim() || "",
+        images,
+        schemaTypes: schemaItems.map((schema) => schema["@type"]),
+        schemasValid: schemas.every(Boolean),
+        title: document.title,
+        words: content.split(/\s+/).filter(Boolean).length,
+      };
+    });
+
+    assert(state.title.length >= 35 && state.title.length <= 90, `${guide.page} needs a descriptive page title`);
+    assert(state.description.length >= 110 && state.description.length <= 190, `${guide.page} needs a useful meta description`);
+    assert(state.canonical === guide.canonical, `${guide.page} has the wrong canonical URL`);
+    assert(state.h1.length >= 25, `${guide.page} needs a descriptive H1`);
+    assert(state.words >= 650, `${guide.page} is not in-depth enough (${state.words} words)`);
+    assert(state.schemasValid, `${guide.page} contains invalid JSON-LD`);
+    assert(state.schemaTypes.includes("SoftwareApplication"), `${guide.page} is missing SoftwareApplication structured data`);
+    assert(state.schemaTypes.includes("BreadcrumbList"), `${guide.page} is missing BreadcrumbList structured data`);
+    assert(state.images.length >= 2, `${guide.page} needs at least two product screenshots`);
+
+    for (const requiredFile of guide.screenshots) {
+      assert(state.images.some(({ src }) => src === `img/${requiredFile}`), `${guide.page} is missing ${requiredFile}`);
+      declaredScreenshots.add(requiredFile);
+    }
+    for (const image of state.images) {
+      assert(image.alt.length >= 30, `${guide.page} has a screenshot without descriptive alternative text`);
+      assert(image.width === 1280 && image.height === 800, `${guide.page} screenshots need explicit 1280x800 dimensions`);
+      if (!image.src.includes(guide.screenshots[0])) {
+        assert(image.loading === "lazy", `${guide.page} secondary screenshots should load lazily`);
+      }
+    }
+  }
+
+  for (const file of declaredScreenshots) {
+    const imagePath = path.join(SITE_ROOT, "img", file);
+    assert(fs.existsSync(imagePath), `Feature guide screenshot is missing: ${file}`);
+    assert(fs.statSync(imagePath).size > 1000, `Feature guide screenshot is unexpectedly small: ${file}`);
+    const dimensions = readPngDimensions(imagePath);
+    assert(dimensions.width === 1280 && dimensions.height === 800, `${file} must be 1280x800`);
+    assert(captureScript.includes(`'${file}'`), `Screenshot generator does not declare ${file}`);
+  }
+}
+
 async function main() {
   const server = createServer();
   await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
@@ -827,6 +940,7 @@ async function main() {
     await checkStructuredWorkbenchDocumentation(page, baseUrl);
     await checkManualScreenshots(page, baseUrl);
     await checkHomepageScreenshotGallery(page, baseUrl);
+    await checkFeatureGuides(page, baseUrl);
     await checkScreenshotDialog(page, baseUrl);
     console.log(`Website checks passed for ${PAGES.length} pages.`);
   } finally {

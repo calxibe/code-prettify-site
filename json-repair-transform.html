@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Repair Invalid JSON and Transform Data Locally | CodePrettify</title>
+  <meta name="description" content="Repair common JSON-like syntax problems, review every change, then filter, select, rename, sort, flatten, group, aggregate, or limit structured data locally." />
+  <meta name="application-name" content="CodePrettify" />
+  <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://prettify.cloud/json-repair-transform.html" />
+  <link rel="icon" href="favicon.ico?v=20260725" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20260725" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260725" />
+  <meta property="og:site_name" content="CodePrettify" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Repair Invalid JSON and Transform Data Locally" />
+  <meta property="og:description" content="Recover useful JSON, inspect the repair report, and build a repeatable transformation recipe without uploading the data." />
+  <meta property="og:url" content="https://prettify.cloud/json-repair-transform.html" />
+  <meta property="og:image" content="https://prettify.cloud/img/feature-workbench-repair.png" />
+  <meta property="og:image:alt" content="CodePrettify repairing a messy JSON-like payload and explaining the changes" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Repair Invalid JSON and Transform Data Locally" />
+  <meta name="twitter:description" content="Repair first, review the changes, then transform the clean data." />
+  <meta name="twitter:image" content="https://prettify.cloud/img/feature-workbench-repair.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=20260725-2" />
+  <script src="site.js?v=20260719" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "CodePrettify JSON Repair & Transform",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Chrome, Edge, Windows",
+          "url": "https://prettify.cloud/json-repair-transform.html",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "CodePrettify", "item": "https://prettify.cloud/" },
+            { "@type": "ListItem", "position": 2, "name": "JSON Repair & Transform", "item": "https://prettify.cloud/json-repair-transform.html" }
+          ]
+        }
+      ]
+    }
+  </script>
+</head>
+<body class="feature-detail-body">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="bg-glow"></div>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo"><img src="img/code_32.png?v=20260725" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span></a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
+      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#feature-guides">Features</a><a href="pricing.html">Price</a><a href="changelog.html">Changelog</a><a href="manual.html">Manual</a><a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a></nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="feature-detail-main">
+    <nav class="feature-breadcrumb" aria-label="Breadcrumb"><a href="/">CodePrettify</a><span aria-hidden="true">/</span><span>JSON Repair &amp; Transform</span></nav>
+    <section class="feature-detail-hero">
+      <div>
+        <span class="feature-detail-eyebrow">Recover, review, reshape</span>
+        <h1>Turn almost-JSON into data you can trust again</h1>
+        <p class="feature-detail-lead">Copied logs, AI output, hand-edited configuration, and fenced snippets often look like JSON while failing a strict parser. CodePrettify repairs common problems, shows what changed, and lets you continue into a visual transformation recipe.</p>
+        <div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="manual.html#structured-workbench">Read the manual section</a></div>
+        <ul class="feature-proof-list"><li>Explicit repair report</li><li>Original stays unchanged</li><li>Ordered recipes</li><li>Local processing</li></ul>
+      </div>
+      <figure class="feature-hero-shot"><img src="img/feature-workbench-repair.png" alt="JSON Repair and Transform showing messy input, repaired JSON, and a detailed repair report" width="1280" height="800" fetchpriority="high" /><figcaption>Code fences, surrounding prose, unquoted keys, single quotes, Python values, and trailing commas are repaired with a visible report.</figcaption></figure>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="repair-sample-title">
+      <div class="feature-detail-heading"><span class="section-badge">Repair example</span><h2 id="repair-sample-title">Recover the useful payload without guessing silently</h2><p>The repair tool is designed for recognizable JSON-like input. It does not invent missing business data or pretend an ambiguous document is correct.</p></div>
+      <div class="feature-example-grid">
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">Captured input</span><h3>Valid intent, invalid JSON</h3><p>The payload is wrapped in prose and a Markdown fence, uses JavaScript-style keys and quotes, and contains Python constants.</p></div>
+          <pre class="feature-code"><code>Captured application payload:
+```json
+{
+  service: 'api-gateway',
+  environment: 'production',
+  enabled: True,
+  regions: ['eu-north-1',],
+  fallback: None,
+}
+```</code></pre>
+        </article>
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">Repaired JSON</span><h3>Strict, parseable output</h3><p>The result uses quoted keys and strings, JSON booleans and null, and no trailing commas.</p></div>
+          <pre class="feature-code"><code>{
+  "service": "api-gateway",
+  "environment": "production",
+  "enabled": <span class="code-success">true</span>,
+  "regions": [
+    "eu-north-1"
+  ],
+  "fallback": <span class="code-accent">null</span>
+}</code></pre>
+        </article>
+      </div>
+      <div class="feature-privacy-note"><span class="feature-privacy-icon" aria-hidden="true">i</span><div><strong>Review the report before using the result.</strong><p>The workbench lists the repairs it applied. If the source is incomplete or semantically ambiguous, confirm the values against the originating system.</p></div></div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="repair-types-title">
+      <div class="feature-detail-heading"><span class="section-badge">Common repairs</span><h2 id="repair-types-title">Problems the repair pass can recognize</h2></div>
+      <div class="feature-capability-grid">
+        <article class="feature-capability"><h3>Wrappers and noise</h3><ul><li>Markdown code fences</li><li>Surrounding prose</li><li>JSONP-style wrappers</li><li>Escaped JSON strings</li></ul></article>
+        <article class="feature-capability"><h3>Quotes and keys</h3><ul><li>Single-quoted strings</li><li>Smart quotes</li><li>Unquoted object keys</li><li>Missing escape characters</li></ul></article>
+        <article class="feature-capability"><h3>Delimiters</h3><ul><li>Missing commas</li><li>Trailing commas</li><li>Missing closing brackets</li><li>Truncated structures when recoverable</li></ul></article>
+        <article class="feature-capability"><h3>Foreign constants</h3><ul><li><code>True</code> and <code>False</code></li><li><code>None</code></li><li>Special whitespace</li><li>Ellipsis in arrays and objects</li></ul></article>
+        <article class="feature-capability"><h3>Copied expressions</h3><ul><li>Concatenated strings</li><li>Common MongoDB wrappers</li><li>Newline-delimited records</li><li>Comments where safely removable</li></ul></article>
+        <article class="feature-capability"><h3>Safety boundaries</h3><ul><li>Bounded input and traversal</li><li>No network requests</li><li>No mutation of the open document</li><li>Explicit error when recovery is unsafe</li></ul></article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="transform-title">
+      <div class="feature-detail-heading"><span class="section-badge">Transform example</span><h2 id="transform-title">Build a recipe and watch the result update</h2><p>Once the input is valid structured data, add operations in order. Each step receives the result of the previous step, and the live output explains how many rows and steps remain.</p></div>
+      <div class="feature-shot-grid">
+        <figure class="feature-guide-shot"><img src="img/feature-workbench-repair.png" alt="JSON repair interface with input, repair report, and clean output" width="1280" height="800" loading="lazy" /><figcaption>Repair produces a clean result and a human-readable list of changes.</figcaption></figure>
+        <figure class="feature-guide-shot"><img src="img/feature-workbench-transform.png" alt="JSON transformation recipe filtering administrators and sorting them by request count" width="1280" height="800" loading="lazy" /><figcaption>A filter for <code>role = Admin</code> followed by descending request count returns two rows from six.</figcaption></figure>
+      </div>
+      <div class="feature-step-grid">
+        <article class="feature-step"><span class="feature-step-number">1</span><h3>Filter the rows</h3><p>Keep only records that match a field, comparison operator, and value.</p></article>
+        <article class="feature-step"><span class="feature-step-number">2</span><h3>Sort the result</h3><p>Order matching rows by requests, timestamp, name, or another selected field.</p></article>
+        <article class="feature-step"><span class="feature-step-number">3</span><h3>Continue or export</h3><p>Add another operation, copy the JSON, export it, or open the result as a new document.</p></article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="transform-ops-title">
+      <div class="feature-detail-heading"><span class="section-badge">Recipe operations</span><h2 id="transform-ops-title">Compose the transformation you actually need</h2></div>
+      <div class="feature-capability-grid">
+        <article class="feature-capability"><h3>Shape columns</h3><p>Select fields, remove fields, or rename properties while keeping a readable step history.</p></article>
+        <article class="feature-capability"><h3>Control rows</h3><p>Filter, sort, limit, or remove duplicates from arrays of objects.</p></article>
+        <article class="feature-capability"><h3>Reshape nesting</h3><p>Flatten nested objects when downstream tools expect a simpler record shape.</p></article>
+        <article class="feature-capability"><h3>Summarize data</h3><p>Group rows and calculate aggregates for quick inspection or export.</p></article>
+        <article class="feature-capability"><h3>Reorder safely</h3><p>Move or remove steps and let the workbench recalculate the result from the original input.</p></article>
+        <article class="feature-capability"><h3>Keep provenance clear</h3><p>The source document remains intact. The transformed output is a separate result you explicitly copy, export, or open.</p></article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="repair-faq-title">
+      <div class="feature-detail-heading"><span class="section-badge">FAQ</span><h2 id="repair-faq-title">Repair and transform questions</h2></div>
+      <div class="feature-detail-faq">
+        <details><summary>Will the repair tool invent missing values?</summary><p>No. It repairs recognizable syntax and wrapper problems. It does not fabricate domain values that are absent from the source.</p></details>
+        <details><summary>Does repair overwrite the current file?</summary><p>No. The original remains unchanged until you deliberately copy, export, or open the repaired result.</p></details>
+        <details><summary>Can I transform an object as well as an array?</summary><p>The available operations depend on the input shape. Row-oriented operations are most useful for arrays of objects; object and nesting operations apply where their required shape exists.</p></details>
+        <details><summary>Can I reuse a recipe?</summary><p>The workbench exposes the ordered steps in the active session. For repeatable automation outside the UI, copy the resulting data or translate the visible recipe into application code.</p></details>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="repair-related-title">
+      <div class="feature-detail-heading"><span class="section-badge">Related guides</span><h2 id="repair-related-title">Continue with clean data</h2></div>
+      <div class="feature-related-grid">
+        <a class="feature-related-card" href="json-formatter-browser-extension.html"><h3>JSON Formatter and Viewer</h3><p>Inspect the repaired document with folding, JSONPath, diagnostics, table view, and schema validation.</p><span>Explore the JSON viewer →</span></a>
+        <a class="feature-related-card" href="json-to-code-generator.html"><h3>JSON to Code Generator</h3><p>Generate typed models after repairing and normalizing representative samples.</p><span>Explore code generation →</span></a>
+        <a class="feature-related-card" href="manual.html#structured-workbench"><h3>Complete Manual</h3><p>Review every repair control, transform operation, limit, and output action.</p><span>Open the manual →</span></a>
+      </div>
+    </section>
+
+    <section class="feature-page-cta" aria-labelledby="repair-cta-title"><h2 id="repair-cta-title">Recover the payload before you rewrite it by hand</h2><p>Paste the JSON-like text, inspect the repair report, and continue into a visible transformation workflow on your device.</p><div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="pricing.html">See $0 early access</a></div></section>
+  </main>
+
+  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
+</body>
+</html>

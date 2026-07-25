@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Markdown Viewer Extension for Local and Raw .md Files | CodePrettify</title>
+  <meta name="description" content="Render local or remote Markdown files in Chrome and Edge, switch between rendered and source views, search, navigate headings, compare, inspect, and export locally." />
+  <meta name="application-name" content="CodePrettify" />
+  <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://prettify.cloud/markdown-viewer-browser-extension.html" />
+  <link rel="icon" href="favicon.ico?v=20260725" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20260725" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260725" />
+  <meta property="og:site_name" content="CodePrettify" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Read Local and Remote Markdown Files in the Browser" />
+  <meta property="og:description" content="Render headings, tables, tasks, links, code fences, footnotes, and lists, with the exact source one click away." />
+  <meta property="og:url" content="https://prettify.cloud/markdown-viewer-browser-extension.html" />
+  <meta property="og:image" content="https://prettify.cloud/img/feature-markdown.png" />
+  <meta property="og:image:alt" content="CodePrettify rendering a Markdown document with tables and task lists" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Read Local and Remote Markdown Files in the Browser" />
+  <meta name="twitter:description" content="Rendered Markdown and exact source stay one click apart." />
+  <meta name="twitter:image" content="https://prettify.cloud/img/feature-markdown.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=20260725-2" />
+  <script src="site.js?v=20260719" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "CodePrettify Markdown Viewer",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Chrome, Edge, Windows",
+          "url": "https://prettify.cloud/markdown-viewer-browser-extension.html",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "CodePrettify", "item": "https://prettify.cloud/" },
+            { "@type": "ListItem", "position": 2, "name": "Markdown Viewer", "item": "https://prettify.cloud/markdown-viewer-browser-extension.html" }
+          ]
+        }
+      ]
+    }
+  </script>
+</head>
+<body class="feature-detail-body">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="bg-glow"></div>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo"><img src="img/code_32.png?v=20260725" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span></a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
+      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#feature-guides">Features</a><a href="pricing.html">Price</a><a href="changelog.html">Changelog</a><a href="manual.html">Manual</a><a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a></nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="feature-detail-main">
+    <nav class="feature-breadcrumb" aria-label="Breadcrumb"><a href="/">CodePrettify</a><span aria-hidden="true">/</span><span>Markdown Viewer</span></nav>
+    <section class="feature-detail-hero">
+      <div>
+        <span class="feature-detail-eyebrow">Rendered document, exact source</span>
+        <h1>Read Markdown without leaving the file behind</h1>
+        <p class="feature-detail-lead">Open a raw <code>.md</code> or <code>.markdown</code> file and CodePrettify turns it into a readable document while preserving a one-click Source view. Search, navigate headings, compare versions, inspect diagnostics, and export from the same tab.</p>
+        <div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="manual.html#format-behavior">Read the manual section</a></div>
+        <ul class="feature-proof-list"><li>Local and remote files</li><li>Rendered / Source</li><li>Safe raw HTML</li><li>Private images</li></ul>
+      </div>
+      <figure class="feature-hero-shot"><img src="img/feature-markdown.png" alt="Rendered Markdown document showing headings, a table, escaped pipes, and a task list" width="1280" height="800" fetchpriority="high" /><figcaption>GitHub-flavored tables, task lists, code, links, headings, and common document structure become easy to scan.</figcaption></figure>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="markdown-open-title">
+      <div class="feature-detail-heading"><span class="section-badge">Open files</span><h2 id="markdown-open-title">Use the workflow that matches where the document lives</h2></div>
+      <div class="feature-step-grid">
+        <article class="feature-step"><span class="feature-step-number">1</span><h3>Remote raw Markdown</h3><p>Open a URL ending in <code>.md</code> or a response served with a Markdown content type. CodePrettify recognizes the document and renders it.</p></article>
+        <article class="feature-step"><span class="feature-step-number">2</span><h3>Local file through the launcher</h3><p>Drag a Markdown file onto the extension launcher or use the picker. This route does not require broad <code>file://</code> permission.</p></article>
+        <article class="feature-step"><span class="feature-step-number">3</span><h3>Direct file URL</h3><p>If you prefer opening <code>file://</code> URLs directly, enable “Allow access to file URLs” for CodePrettify in the browser’s extension settings.</p></article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="markdown-both-title">
+      <div class="feature-detail-heading"><span class="section-badge">Two views</span><h2 id="markdown-both-title">Rendered for reading. Source for verification.</h2><p>The rendered view helps you understand the document. The Source view confirms the exact Markdown characters, table delimiters, task markers, links, and code fences that produced it.</p></div>
+      <div class="feature-shot-grid">
+        <figure class="feature-guide-shot"><img src="img/feature-markdown.png" alt="Markdown rendered as a clean document with tables and checked tasks" width="1280" height="800" loading="lazy" /><figcaption>Rendered view presents the document as headings, paragraphs, tables, and task lists.</figcaption></figure>
+        <figure class="feature-guide-shot"><img src="img/feature-markdown-source.png" alt="The exact Markdown source for the same tables and task-list document" width="1280" height="800" loading="lazy" /><figcaption>Source view exposes the exact pipes, backslashes, brackets, and Markdown markers.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="markdown-sample-title">
+      <div class="feature-detail-heading"><span class="section-badge">Example</span><h2 id="markdown-sample-title">Check syntax that often breaks in copied documents</h2><p>Tables and task lists are useful test cases because one missing pipe, escape, or bracket changes the rendered meaning.</p></div>
+      <div class="feature-example-grid">
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">Markdown source</span><h3>Table, escaped pipe, and tasks</h3><p>The source remains available when you need to diagnose why a row or checkbox did not render as expected.</p></div>
+          <pre class="feature-code"><code>| Tool | File types | Expected behavior |
+| --- | --- | --- |
+| Diagnostics | JSON | Warns about duplicate keys |
+| Markdown Preview | MD | Renders formatted content |
+
+| Name | Value |
+| --- | --- |
+| Escaped pipe | alpha \| beta |
+
+- [x] Add Markdown samples
+- [ ] Review visual rendering</code></pre>
+        </article>
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">Reading checklist</span><h3>What to verify in the rendered result</h3><p>Use the two views together instead of guessing whether the source or the renderer caused a surprising layout.</p></div>
+          <pre class="feature-code"><code><span class="code-success">✓</span> Header and separator rows align
+<span class="code-success">✓</span> Escaped pipe stays inside one cell
+<span class="code-success">✓</span> Checked task is visibly complete
+<span class="code-success">✓</span> Unchecked task remains open
+<span class="code-success">✓</span> Inline code does not become a column
+<span class="code-success">✓</span> Source is unchanged by rendering</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="markdown-render-title">
+      <div class="feature-detail-heading"><span class="section-badge">Rendering behavior</span><h2 id="markdown-render-title">Useful Markdown features with deliberate safety limits</h2></div>
+      <div class="feature-capability-grid">
+        <article class="feature-capability"><h3>Document structure</h3><ul><li>Headings and anchor links</li><li>Paragraphs and blockquotes</li><li>Ordered and unordered lists</li><li>Horizontal rules</li></ul></article>
+        <article class="feature-capability"><h3>GitHub-flavored patterns</h3><ul><li>Tables with alignment</li><li>Task lists</li><li>Strikethrough</li><li>Footnotes and back-references</li></ul></article>
+        <article class="feature-capability"><h3>Developer content</h3><ul><li>Inline code</li><li>Fenced code blocks</li><li>Links</li><li>Hard line breaks</li></ul></article>
+        <article class="feature-capability"><h3>Navigation</h3><ul><li>Search the rendered text</li><li>Document Navigator for headings</li><li>Minimap and scroll position</li><li>Shareable view state</li></ul></article>
+        <article class="feature-capability"><h3>Review tools</h3><ul><li>Rendered / Source toggle</li><li>Text comparison</li><li>Statistics and diagnostics</li><li>Copy and export</li></ul></article>
+        <article class="feature-capability"><h3>Safe defaults</h3><ul><li>Embedded HTML remains inert</li><li>Network images are not loaded silently</li><li>Remote image sources become explicit links</li><li>Safe embedded images can render</li></ul></article>
+      </div>
+      <div class="feature-privacy-note"><span class="feature-privacy-icon" aria-hidden="true">✓</span><div><strong>Opening a document should not contact every host it mentions.</strong><p>Remote Markdown image URLs are shown as links instead of loading automatically. That prevents an untrusted document from silently revealing that it was opened.</p></div></div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="markdown-faq-title">
+      <div class="feature-detail-heading"><span class="section-badge">FAQ</span><h2 id="markdown-faq-title">Markdown viewer questions</h2></div>
+      <div class="feature-detail-faq">
+        <details><summary>Does this edit Markdown?</summary><p>The browser extension is primarily a viewer and inspection workspace. Source remains read-only; copy or export content when you want to continue in an editor.</p></details>
+        <details><summary>Will embedded HTML execute?</summary><p>No. Raw HTML is not executed as active page content in the Markdown preview.</p></details>
+        <details><summary>Why is a remote image shown as a link?</summary><p>Automatically fetching it could disclose your IP address and document-open event to an external server. CodePrettify keeps that network action explicit.</p></details>
+        <details><summary>Can I compare two Markdown documents?</summary><p>Yes. Use Compare for a text diff between the current document and pasted content.</p></details>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="markdown-related-title">
+      <div class="feature-detail-heading"><span class="section-badge">Related guides</span><h2 id="markdown-related-title">More tools for text-heavy files</h2></div>
+      <div class="feature-related-grid">
+        <a class="feature-related-card" href="regex-playground.html"><h3>Regex Playground</h3><p>Search and test patterns against Markdown source or session-local custom text.</p><span>Explore Regex Playground →</span></a>
+        <a class="feature-related-card" href="json-formatter-browser-extension.html"><h3>JSON Formatter and Viewer</h3><p>Use the same viewer, search, compare, diagnostics, and export ideas with structured data.</p><span>Explore the JSON viewer →</span></a>
+        <a class="feature-related-card" href="manual.html#format-behavior"><h3>Complete Manual</h3><p>See Markdown alongside every other supported format and shared workspace tool.</p><span>Open the manual →</span></a>
+      </div>
+    </section>
+
+    <section class="feature-page-cta" aria-labelledby="markdown-cta-title"><h2 id="markdown-cta-title">Make the next README easier to read</h2><p>Open the file as a document, keep its exact source nearby, and use the same search and inspection tools as the rest of CodePrettify.</p><div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="pricing.html">See $0 early access</a></div></section>
+  </main>
+
+  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
+</body>
+</html>

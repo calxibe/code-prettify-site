@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local HTTP Client in Chrome, Edge and Windows | CodePrettify</title>
+  <meta name="description" content="Compose and replay HTTP requests, import cURL, use local environments, inspect response bodies, headers, cookies, timing, and raw output, and copy cURL, fetch, or PowerShell." />
+  <meta name="application-name" content="CodePrettify" />
+  <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://prettify.cloud/http-client-browser-extension.html" />
+  <link rel="icon" href="favicon.ico?v=20260725" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20260725" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260725" />
+  <meta property="og:site_name" content="CodePrettify" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="A Local HTTP Client Inside CodePrettify" />
+  <meta property="og:description" content="Build requests, import cURL, use environments, and inspect body, headers, cookies, timing, and raw response data." />
+  <meta property="og:url" content="https://prettify.cloud/http-client-browser-extension.html" />
+  <meta property="og:image" content="https://prettify.cloud/img/feature-http-client.png" />
+  <meta property="og:image:alt" content="CodePrettify HTTP Client showing a GET request and formatted JSON response" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="A Local HTTP Client Inside CodePrettify" />
+  <meta name="twitter:description" content="Compose, send, inspect, save, and copy requests without opening a separate API tool." />
+  <meta name="twitter:image" content="https://prettify.cloud/img/feature-http-client.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=20260725-2" />
+  <script src="site.js?v=20260719" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "CodePrettify HTTP Client",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Chrome, Edge, Windows",
+          "url": "https://prettify.cloud/http-client-browser-extension.html",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "CodePrettify", "item": "https://prettify.cloud/" },
+            { "@type": "ListItem", "position": 2, "name": "HTTP Client", "item": "https://prettify.cloud/http-client-browser-extension.html" }
+          ]
+        }
+      ]
+    }
+  </script>
+</head>
+<body class="feature-detail-body">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="bg-glow"></div>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo"><img src="img/code_32.png?v=20260725" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span></a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
+      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#feature-guides">Features</a><a href="pricing.html">Price</a><a href="changelog.html">Changelog</a><a href="manual.html">Manual</a><a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a></nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="feature-detail-main">
+    <nav class="feature-breadcrumb" aria-label="Breadcrumb"><a href="/">CodePrettify</a><span aria-hidden="true">/</span><span>HTTP Client</span></nav>
+    <section class="feature-detail-hero">
+      <div>
+        <span class="feature-detail-eyebrow">Requests beside the response</span>
+        <h1>Build and inspect HTTP requests without changing tools</h1>
+        <p class="feature-detail-lead">Compose a request with params, authorization, headers, and several body modes; import cURL; use local environments; save useful requests; and inspect response body, headers, cookies, raw output, status, size, and timing in one workspace.</p>
+        <div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="manual.html#http-client">Read the manual section</a></div>
+        <ul class="feature-proof-list"><li>Import cURL</li><li>Local environments</li><li>Saved requests</li><li>Response inspection</li></ul>
+      </div>
+      <figure class="feature-hero-shot"><img src="img/feature-http-client.png" alt="HTTP Client with a GET request, query parameter, status, timing, and formatted JSON response" width="1280" height="800" fetchpriority="high" /><figcaption>A request and its formatted JSON response remain visible together, including status, size, content type, and timing.</figcaption></figure>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="http-flow-title">
+      <div class="feature-detail-heading"><span class="section-badge">Request flow</span><h2 id="http-flow-title">Compose, send, inspect, reuse</h2></div>
+      <div class="feature-step-grid">
+        <article class="feature-step"><span class="feature-step-number">1</span><h3>Build or import</h3><p>Choose the method and URL, add query params, auth, headers, and a body, or import an existing cURL command.</p></article>
+        <article class="feature-step"><span class="feature-step-number">2</span><h3>Send deliberately</h3><p>Set a timeout, inspect the resolved URL and environment values, then press Send. Network activity begins only after that action.</p></article>
+        <article class="feature-step"><span class="feature-step-number">3</span><h3>Inspect and save</h3><p>Review the body, headers, cookies, and raw response; save the request or copy it as cURL, <code>fetch()</code>, or PowerShell.</p></article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="http-example-title">
+      <div class="feature-detail-heading"><span class="section-badge">Example</span><h2 id="http-example-title">Turn a simple GET into a reproducible request</h2><p>The client keeps structured controls and copyable code aligned so you can move between interactive debugging and a script.</p></div>
+      <div class="feature-example-grid">
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">Request</span><h3>GET with a query parameter</h3><p>Environment variables can replace stable values while the resolved URL stays visible before sending.</p></div>
+          <pre class="feature-code"><code>Method: GET
+URL: {{baseUrl}}/v1/products
+Params:
+  view = summary
+Headers:
+  Accept = application/json
+Timeout:
+  30000 ms</code></pre>
+        </article>
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">Copy as fetch</span><h3>Carry the verified request into code</h3><p>Generated snippets reflect the active method, resolved URL, headers, auth, and body choices.</p></div>
+          <pre class="feature-code"><code>const response = await fetch(
+  <span class="code-accent">"https://api.example.com/v1/products?view=summary"</span>,
+  {
+    method: "GET",
+    headers: {
+      Accept: "application/json"
+    }
+  }
+);
+
+const data = await response.json();</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="http-response-title">
+      <div class="feature-detail-heading"><span class="section-badge">Response inspection</span><h2 id="http-response-title">The body is only one part of the answer</h2><p>Status, content type, response headers, cookies, timing, and the raw response can explain behavior that a formatted JSON body cannot. Compare these views when investigating caching, authentication, redirects, content negotiation, compressed responses, or a server that returns useful diagnostics outside the body.</p></div>
+      <div class="feature-shot-grid">
+        <figure class="feature-guide-shot"><img src="img/feature-http-client.png" alt="HTTP response body rendered as formatted JSON in CodePrettify HTTP Client" width="1280" height="800" loading="lazy" /><figcaption>Body view formats a successful JSON response and keeps request controls visible above it.</figcaption></figure>
+        <figure class="feature-guide-shot"><img src="img/feature-http-client-headers.png" alt="HTTP response headers including cache-control, content-type, date, and connection details" width="1280" height="800" loading="lazy" /><figcaption>Headers view exposes caching, content type, date, connection, and transfer behavior beside the request.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="http-controls-title">
+      <div class="feature-detail-heading"><span class="section-badge">Capabilities</span><h2 id="http-controls-title">Enough request control for daily API investigation</h2></div>
+      <div class="feature-capability-grid">
+        <article class="feature-capability"><h3>Methods and URLs</h3><ul><li>Common HTTP methods</li><li>Query parameter editor</li><li>Resolved environment preview</li><li>URL validation</li></ul></article>
+        <article class="feature-capability"><h3>Authorization</h3><ul><li>Bearer token</li><li>Basic authentication</li><li>API key presets</li><li>Custom headers</li></ul></article>
+        <article class="feature-capability"><h3>Request bodies</h3><ul><li>Raw text and JSON</li><li>Form URL encoded</li><li>Multipart form data</li><li>GraphQL</li></ul></article>
+        <article class="feature-capability"><h3>Response views</h3><ul><li>Formatted body</li><li>Headers</li><li>Cookies</li><li>Raw response</li></ul></article>
+        <article class="feature-capability"><h3>Reuse</h3><ul><li>Saved requests</li><li>Local environments</li><li>Import and export JSON</li><li>Import cURL and copy snippets</li></ul></article>
+        <article class="feature-capability"><h3>Control and feedback</h3><ul><li>Timeout and cancel</li><li>Status, type, and size</li><li>Timing breakdown</li><li>CORS and network error guidance</li></ul></article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="http-privacy-title">
+      <div class="feature-detail-heading"><span class="section-badge">Privacy and storage</span><h2 id="http-privacy-title">Know what leaves the device</h2></div>
+      <div class="feature-capability-grid">
+        <article class="feature-capability"><h3>Explicit network action</h3><p>The client contacts the URL displayed in the composer only after you press Send. The destination service receives the request directly.</p></article>
+        <article class="feature-capability"><h3>Local saved data</h3><p>Saved requests, environments, and replay history are stored locally. Protect the browser profile if those values contain secrets.</p></article>
+        <article class="feature-capability"><h3>Sanitized history</h3><p>Replay history omits request bodies, credential headers, URL credentials, and sensitive query parameters.</p></article>
+      </div>
+      <div class="feature-privacy-note"><span class="feature-privacy-icon" aria-hidden="true">!</span><div><strong>Local storage is not separate secret encryption.</strong><p>Use environment values carefully, avoid saving credentials you do not need, and review the target service’s policy before sending sensitive data.</p></div></div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="http-faq-title">
+      <div class="feature-detail-heading"><span class="section-badge">FAQ</span><h2 id="http-faq-title">HTTP Client questions</h2></div>
+      <div class="feature-detail-faq">
+        <details><summary>Can the browser extension bypass CORS?</summary><p>No. The target server’s CORS policy still determines whether the response is exposed to the browser. CodePrettify reports likely CORS failures with targeted guidance.</p></details>
+        <details><summary>When is a request sent?</summary><p>Only when you press Send. Editing the URL, importing cURL, changing an environment, or copying a snippet does not send the request.</p></details>
+        <details><summary>Are saved secrets encrypted separately?</summary><p>No. Protect your browser or Windows profile and avoid persisting sensitive values unnecessarily.</p></details>
+        <details><summary>Can I move a request into a script?</summary><p>Yes. Copy the active request as cURL, JavaScript <code>fetch()</code>, or PowerShell and review the generated command before running it.</p></details>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="http-related-title">
+      <div class="feature-detail-heading"><span class="section-badge">Related guides</span><h2 id="http-related-title">Inspect what the API returns</h2></div>
+      <div class="feature-related-grid">
+        <a class="feature-related-card" href="json-formatter-browser-extension.html"><h3>JSON Formatter and Viewer</h3><p>Query, validate, compare, convert, and export the JSON responses you are investigating.</p><span>Explore JSON inspection →</span></a>
+        <a class="feature-related-card" href="json-to-code-generator.html"><h3>JSON to Code Generator</h3><p>Turn a representative API response into typed client or server models.</p><span>Explore code generation →</span></a>
+        <a class="feature-related-card" href="manual.html#http-client"><h3>Complete Manual</h3><p>Review auth modes, bodies, environments, storage, history, imports, exports, and error behavior.</p><span>Open the manual →</span></a>
+      </div>
+    </section>
+
+    <section class="feature-page-cta" aria-labelledby="http-cta-title"><h2 id="http-cta-title">Keep the request and response in one workspace</h2><p>Compose the call, inspect more than the body, and copy a reproducible request when the investigation is complete.</p><div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="pricing.html">See $0 early access</a></div></section>
+  </main>
+
+  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
+</body>
+</html>

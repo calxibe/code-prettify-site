@@ -31,7 +31,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css?v=20260724-1" />
+    <link rel="stylesheet" href="style.css?v=20260725-2" />
     <script src="site.js?v=20260719" defer></script>
     <script src="manual.js?v=20260719-3" defer></script>
   </head>
@@ -39,7 +39,7 @@
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header>
       <div class="header-inner">
-        <a href="index.html" class="logo">
+        <a href="/" class="logo">
           <img src="img/code_32.png?v=20260725" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span>
         </a>
         <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation">
@@ -47,7 +47,7 @@
           <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg>
         </button>
         <nav id="site-navigation" aria-label="Primary navigation">
-          <a href="index.html#features">Features</a>
+          <a href="/#feature-guides">Features</a>
           <a href="pricing.html">Price</a>
           <a href="changelog.html">Changelog</a>
           <a href="manual.html" class="active" aria-current="page">Manual</a>
@@ -356,6 +356,7 @@
               <div><h3>TOML</h3><p>Parsed TOML can be canonically reserialized, except source containing sub-millisecond temporal precision is kept unchanged to avoid truncation. “Minified” TOML is canonical serialization without comments/blank lines, not a compact grammar.</p></div>
               <div><h3>Markdown</h3><p>Rendered mode supports links, task lists, footnotes, selected emoji shortcodes, and heading anchors. Raw HTML is escaped, dangerous schemes are blocked, and remote images become inert links/placeholders so viewing a document makes no automatic image request. Minification only collapses safe repeated blank lines.</p></div>
             </div>
+            <p class="manual-deep-link"><strong>In-depth guide:</strong> See local and remote file workflows, rendered/source examples, and privacy behavior in <a href="markdown-viewer-browser-extension.html">Markdown Viewer for Chrome, Edge, and Windows</a>.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
                 <button type="button" class="manual-screenshot-open" id="manual-screenshot-markdown"
@@ -386,6 +387,7 @@
               <li>Run the query. Copy the current path or a compact JSON/display value, or select a result to jump to its source line.</li>
             </ol>
             <p class="manual-limit"><strong>Scope:</strong> the inspector intentionally does not implement filters, slices, recursive descent, or script expressions. It renders at most 200 results and autocomplete shows at most 50 keys.</p>
+            <p class="manual-deep-link"><strong>In-depth guide:</strong> Follow a complete JSON workflow with formatting, folding, JSONPath samples, schema validation, comparison, and export in <a href="json-formatter-browser-extension.html">JSON Formatter and Viewer</a>.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
                 <button type="button" class="manual-screenshot-open" id="manual-screenshot-json-path"
@@ -436,6 +438,7 @@
             </ol>
             <p>Core types, enum/const, numeric/string/object/array constraints, composition, conditionals, dependencies, safe regular expressions, and common formats are supported. Validation is completely local.</p>
             <p class="manual-limit"><strong>Limits:</strong> schema input is capped at 2 MiB, with depth 80, 100 reported errors, 100,000 validation operations, and about 2.5 seconds. Only local <code>#</code> references/anchors are resolved; remote schemas are never downloaded. <code>unevaluatedProperties</code> is reported as unsupported.</p>
+            <p class="manual-deep-link"><strong>In-depth guide:</strong> See a real schema produce path- and line-specific violations in <a href="json-formatter-browser-extension.html#json-query-title">JSON query and validation examples</a>.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
                 <button type="button" class="manual-screenshot-open" id="manual-screenshot-schema-validator"
@@ -579,11 +582,13 @@
             <h3>Inference behavior</h3>
             <p>Nested objects become named models. When the root is an array, all array entries contribute to inference rather than only the first record. Different compatible shapes are merged; genuinely mixed values become unions where the target supports them and a safe general type where it does not. Empty arrays cannot reveal their element type, so the generator reports a warning and uses the target's safe unknown type. Property names such as <code>user-id</code>, reserved words, and other invalid identifiers receive the target's normal field-mapping annotation instead of changing the JSON contract.</p>
             <p class="manual-limit"><strong>Limits:</strong> input is capped at 5 Mi characters, generated output at 16 Mi characters, nesting at 100 levels, and inspected JSON values at 100,000. Invalid or incomplete JSON reports its line and column when available. Limits fail closed and never alter the source document.</p>
+            <p class="manual-deep-link"><strong>In-depth guide:</strong> Compare TypeScript and Python/Pydantic output from the same multi-sample payload in <a href="json-to-code-generator.html">JSON to Code Generator</a>.</p>
           </section>
 
           <section id="structured-workbench" class="manual-topic" data-products="shared browser app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Repair first, transform second</span><h2>JSON Repair &amp; Transform</h2></div><span class="product-badge product-shared">Both products</span></div>
             <p>Open <strong>JSON Repair &amp; Transform</strong> from <strong>General tools</strong> in More Actions or from the Command Palette; the Windows app also exposes it directly in <strong>Tools</strong>. It is always available because pasted JSON-like input can be used independently of the active document. A compatible current document remains an optional starting point through <strong>Use document</strong>. All processing stays on the device. Its two tabs are designed as one workflow: review and normalize the source in <strong>Repair &amp; Salvage</strong>, then pass that result to <strong>Transform</strong>. Both tabs retain the same dialog height when switching, and the Repair input, repaired output, and live Transform result use the shared compact code-text scale while preserving useful editor space.</p>
+            <p class="manual-deep-link"><strong>In-depth guide:</strong> Walk through fenced, Python-style JSON repair and a filter-and-sort recipe in <a href="json-repair-transform.html">JSON Repair &amp; Transform</a>.</p>
 
             <h3>Repair &amp; Salvage</h3>
             <ol>
@@ -770,6 +775,7 @@
               </figure>
             </div>
             <p class="manual-limit"><strong>Safety:</strong> patterns run only in a worker, time out after roughly 1.5 seconds, and stop after 500 matches. This prevents a catastrophic expression from freezing the viewer.</p>
+            <p class="manual-deep-link"><strong>In-depth guide:</strong> See live named-group matches, replacement preview, tests, and language snippets in <a href="regex-playground.html">Regex Playground</a>.</p>
           </section>
 
           <section id="http-client" class="manual-topic" data-products="shared browser app">
@@ -801,6 +807,7 @@
             </div>
             <p class="manual-limit"><strong>Limits and behavior:</strong> URL credentials are rejected, cache is disabled, redirects are followed, and bodies are capped at 50 MiB with truncation reported. The browser extension is also subject to browser CORS/credential policy. A timeout of 0 disables timeout; maximum differs by product (five minutes in the extension, ten in the app).</p>
             <p>Local storage is bounded: the extension allows up to 500 collection entries, 50 environments, and 200 variables per environment; the app uses 100 entries, 20 environments, and 50 variables per environment. History is capped and strips/redacts credentials, sensitive headers/query values, request bodies, and unsafe error text before replay data is stored.</p>
+            <p class="manual-deep-link"><strong>In-depth guide:</strong> Follow a complete request from params and environment values through formatted body, headers, timing, and copyable snippets in <a href="http-client-browser-extension.html">HTTP Client</a>.</p>
           </section>
 
           <section id="settings" class="manual-topic" data-products="shared browser app">

@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CodePrettify - Make Raw Code Instantly Readable</title>
-  <meta name="description" content="Format and inspect raw code, repair structured data, and generate TypeScript, Zod, C#, Java, Kotlin, Python, Go, Rust, Swift, Dart, or JSON Schema from JSON samples locally with CodePrettify." />
+  <title>JSON Formatter &amp; Developer Tools for Chrome and Windows | CodePrettify</title>
+  <meta name="description" content="Format, inspect, query, validate, repair, compare, convert, and generate typed code from JSON locally with CodePrettify for Chrome, Edge, and Windows." />
   <meta name="application-name" content="CodePrettify" />
   <meta name="apple-mobile-web-app-title" content="CodePrettify" />
   <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
@@ -20,7 +20,7 @@
   <meta property="og:site_name" content="CodePrettify" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="CodePrettify - Make Raw Code Instantly Readable" />
+  <meta property="og:title" content="JSON Formatter &amp; Developer Tools for Chrome and Windows" />
   <meta property="og:description"
     content="Format and inspect raw code, repair structured data, and generate typed models or JSON Schema from JSON samples locally with CodePrettify." />
   <meta property="og:url" content="https://prettify.cloud" />
@@ -28,7 +28,7 @@
   <meta property="og:image:alt"
     content="CodePrettify formatting a structured JSON API response with nested services, metrics, links, arrays, and syntax highlighting" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="CodePrettify - Make Raw Code Instantly Readable" />
+  <meta name="twitter:title" content="JSON Formatter &amp; Developer Tools for Chrome and Windows" />
   <meta name="twitter:description"
     content="Format and inspect raw code, repair structured data, and generate typed models or JSON Schema from JSON samples locally with CodePrettify." />
   <meta name="twitter:image" content="https://prettify.cloud/img/feature-json-format.png" />
@@ -37,9 +37,26 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=block"
     rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260724-1" />
+  <link rel="stylesheet" href="style.css?v=20260725-2" />
   <script src="site.js?v=20260719" defer></script>
   <script src="index.js?v=20260721-6" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "CodePrettify",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Chrome, Edge, Windows",
+      "url": "https://prettify.cloud/",
+      "description": "A local JSON formatter, viewer, validator, repair and transformation workbench, code generator, and developer toolkit for browser and Windows.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+  </script>
 </head>
 
 <body>
@@ -48,7 +65,7 @@
 
   <header>
     <div class="header-inner">
-      <a href="index.html" class="logo">
+      <a href="/" class="logo">
         <img src="img/code_32.png?v=20260725" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span>
       </a>
       <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation">
@@ -60,7 +77,7 @@
         </svg>
       </button>
       <nav id="site-navigation" aria-label="Primary navigation">
-        <a href="index.html#features">Features</a>
+        <a href="/#feature-guides">Features</a>
         <a href="pricing.html">Price</a>
         <a href="changelog.html">Changelog</a>
         <a href="manual.html">Manual</a>
@@ -72,15 +89,14 @@
   <main id="main-content">
     <section class="hero">
       <div class="container">
-        <h1>Make Raw Code<br />Instantly Readable</h1>
+        <h1>Format, Inspect &amp; Repair<br />JSON Locally</h1>
 
         <p class="subtitle">
-          Open a raw API response, Markdown document, minified bundle, or feed
-          and start working immediately. CodePrettify formats the document,
-          surfaces response details, and gives you fast ways to inspect,
-          compare, generate typed code from JSON, copy, export, and even run
-          JavaScript against what you are looking at &mdash; all without leaving
-          the browser.
+          Turn raw JSON responses and local files into a searchable, foldable
+          developer workspace. Query paths, validate schemas, repair messy data,
+          compare changes, generate typed code, and export the result locally.
+          The same viewer also handles JavaScript, Markdown, XML, YAML, TOML,
+          CSS, and feeds without leaving the browser.
         </p>
 
         <p class="hero-proof">
@@ -338,6 +354,51 @@
       </p>
     </div>
 
+    <section id="feature-guides" class="feature-guides">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">In-depth feature guides</span>
+          <h2>See the complete workflow, not only the feature name</h2>
+          <p class="section-desc">
+            Each guide uses real product screenshots, concrete samples, and
+            practical usage notes. The one-page manual remains the complete reference.
+          </p>
+        </div>
+        <div class="feature-related-grid">
+          <a class="feature-related-card" href="json-formatter-browser-extension.html">
+            <h3>JSON Formatter &amp; Viewer</h3>
+            <p>Format raw responses, navigate nested data, query JSONPath, validate schemas, compare, convert, and export.</p>
+            <span>Explore the JSON workflow →</span>
+          </a>
+          <a class="feature-related-card" href="json-to-code-generator.html">
+            <h3>JSON to Code Generator</h3>
+            <p>Infer TypeScript, Zod, Pydantic, C#, Java, Kotlin, Go, Rust, Swift, Dart, or JSON Schema locally.</p>
+            <span>Explore code generation →</span>
+          </a>
+          <a class="feature-related-card" href="json-repair-transform.html">
+            <h3>JSON Repair &amp; Transform</h3>
+            <p>Recover common JSON-like syntax, review the repair report, and build an ordered transformation recipe.</p>
+            <span>Explore repair and transform →</span>
+          </a>
+          <a class="feature-related-card" href="markdown-viewer-browser-extension.html">
+            <h3>Markdown Viewer</h3>
+            <p>Read local or remote Markdown as a rendered document and keep the exact source one click away.</p>
+            <span>Explore Markdown viewing →</span>
+          </a>
+          <a class="feature-related-card" href="regex-playground.html">
+            <h3>Regex Playground</h3>
+            <p>Inspect live matches and groups, preview replacements, keep test cases, and copy reusable snippets.</p>
+            <span>Explore Regex Playground →</span>
+          </a>
+          <a class="feature-related-card" href="http-client-browser-extension.html">
+            <h3>HTTP Client</h3>
+            <p>Compose and replay requests, use local environments, and inspect response body, headers, cookies, and timing.</p>
+            <span>Explore the HTTP Client →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <section id="features">
       <div class="container">
         <div class="section-header">
@@ -365,8 +426,8 @@
               <li>Adjust the root name and package or namespace, then copy, export, or open the result as a document</li>
             </ul>
             <div class="feature-card-actions">
-              <a class="feature-cta" href="manual.html#json-to-code">See how JSON to Code works</a>
-              <a class="feature-cta feature-cta-secondary" href="changelog.html">Read the release notes</a>
+              <a class="feature-cta" href="json-to-code-generator.html">Explore JSON to Code in depth</a>
+              <a class="feature-cta feature-cta-secondary" href="manual.html#json-to-code">Open the manual section</a>
             </div>
           </article>
 
@@ -389,6 +450,10 @@
                 Switch between original, formatted, minified, and raw views with a clear two-state Rendered/Raw toggle &mdash; no clumsy page refresh
               </li>
             </ul>
+            <div class="feature-card-actions">
+              <a class="feature-cta" href="json-formatter-browser-extension.html">Explore the JSON workflow</a>
+              <a class="feature-cta feature-cta-secondary" href="json-repair-transform.html">Repair and transform JSON</a>
+            </div>
           </div>
 
           <div class="feature-card">

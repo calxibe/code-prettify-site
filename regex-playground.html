@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Regex Tester with Live Matches, Replace Preview &amp; Snippets | CodePrettify</title>
+  <meta name="description" content="Test regular expressions locally, inspect capture groups, preview replacements, save patterns and tests, and export JavaScript, C#, or PowerShell snippets." />
+  <meta name="application-name" content="CodePrettify" />
+  <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://prettify.cloud/regex-playground.html" />
+  <link rel="icon" href="favicon.ico?v=20260725" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20260725" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260725" />
+  <meta property="og:site_name" content="CodePrettify" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Regex Tester with Live Matches and Replace Preview" />
+  <meta property="og:description" content="Test patterns against the open document, inspect groups, preview replacements, keep test cases, and copy language-specific snippets." />
+  <meta property="og:url" content="https://prettify.cloud/regex-playground.html" />
+  <meta property="og:image" content="https://prettify.cloud/img/feature-regex-playground.png" />
+  <meta property="og:image:alt" content="CodePrettify Regex Playground showing live matches and named capture groups" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Regex Tester with Live Matches and Replace Preview" />
+  <meta name="twitter:description" content="Move from a pattern to verified matches, replacements, tests, and reusable snippets." />
+  <meta name="twitter:image" content="https://prettify.cloud/img/feature-regex-playground.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=20260725-2" />
+  <script src="site.js?v=20260719" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "CodePrettify Regex Playground",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Chrome, Edge, Windows",
+          "url": "https://prettify.cloud/regex-playground.html",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "CodePrettify", "item": "https://prettify.cloud/" },
+            { "@type": "ListItem", "position": 2, "name": "Regex Playground", "item": "https://prettify.cloud/regex-playground.html" }
+          ]
+        }
+      ]
+    }
+  </script>
+</head>
+<body class="feature-detail-body">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="bg-glow"></div>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo"><img src="img/code_32.png?v=20260725" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span></a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
+      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#feature-guides">Features</a><a href="pricing.html">Price</a><a href="changelog.html">Changelog</a><a href="manual.html">Manual</a><a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a></nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="feature-detail-main">
+    <nav class="feature-breadcrumb" aria-label="Breadcrumb"><a href="/">CodePrettify</a><span aria-hidden="true">/</span><span>Regex Playground</span></nav>
+    <section class="feature-detail-hero">
+      <div>
+        <span class="feature-detail-eyebrow">Match, explain, replace, reuse</span>
+        <h1>Test a regular expression against the file you are reading</h1>
+        <p class="feature-detail-lead">Open Regex Playground from the current document, enter a pattern, and see every match highlighted in the viewer. Inspect numbered and named groups, preview replacements, keep test cases, and copy a working snippet for JavaScript, C#, or PowerShell.</p>
+        <div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="manual.html#regex-playground">Read the manual section</a></div>
+        <ul class="feature-proof-list"><li>Current document or custom text</li><li>Named groups</li><li>Replace preview</li><li>Snippet export</li></ul>
+      </div>
+      <figure class="feature-hero-shot"><img src="img/feature-regex-playground.png" alt="Regex Playground matching JavaScript assignments with named capture-group details" width="1280" height="800" fetchpriority="high" /><figcaption>The active match stays connected to its highlighted location in the document and exposes its capture groups.</figcaption></figure>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="regex-flow-title">
+      <div class="feature-detail-heading"><span class="section-badge">Workflow</span><h2 id="regex-flow-title">Move from a pattern to evidence</h2><p>A match count is useful, but a reliable pattern needs context, capture-group inspection, negative cases, and a replacement or code path you can verify.</p></div>
+      <div class="feature-step-grid">
+        <article class="feature-step"><span class="feature-step-number">1</span><h3>Choose the test input</h3><p>Use the open document so matches highlight in context, or switch to custom text that remains only in the active session.</p></article>
+        <article class="feature-step"><span class="feature-step-number">2</span><h3>Inspect every match</h3><p>Enable flags, move through the result list, and review complete matches, numbered groups, and named groups.</p></article>
+        <article class="feature-step"><span class="feature-step-number">3</span><h3>Make it reusable</h3><p>Preview a replacement, add pass/fail test cases, save the pattern, and copy a language-specific snippet.</p></article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="regex-sample-title">
+      <div class="feature-detail-heading"><span class="section-badge">Example</span><h2 id="regex-sample-title">Find assignment targets in minified JavaScript</h2><p>A named group makes the result self-describing and gives the replacement preview a stable reference.</p></div>
+      <div class="feature-example-grid">
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">Pattern</span><h3>Capture a valid identifier before equals</h3><p>The global flag finds every assignment-like occurrence in the current document.</p></div>
+          <pre class="feature-code"><code>(?&lt;<span class="code-accent">name</span>&gt;[A-Za-z_$][\w$]*)\s*=</code></pre>
+        </article>
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">Selected match</span><h3>Inspect the complete value and named group</h3><p>Clicking a result connects the list, details panel, and source highlight.</p></div>
+          <pre class="feature-code"><code>Complete match: <span class="code-success">services =</span>
+Group 1: services
+Named group:
+  name: services
+
+Flags: g
+Source: current document</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="regex-replace-title">
+      <div class="feature-detail-heading"><span class="section-badge">Match and replace</span><h2 id="regex-replace-title">Preview the transformation before copying it</h2><p>Advanced mode keeps replacement output, test cases, and snippet export in the same workspace as the live matches.</p></div>
+      <div class="feature-shot-grid">
+        <figure class="feature-guide-shot"><img src="img/feature-regex-playground.png" alt="Regex match results and named capture groups for JavaScript source" width="1280" height="800" loading="lazy" /><figcaption>Start with real matches and inspect the active capture groups.</figcaption></figure>
+        <figure class="feature-guide-shot"><img src="img/feature-regex-replace.png" alt="Regex Playground showing named-group replacement preview, test cases, and snippet export" width="1280" height="800" loading="lazy" /><figcaption>Advanced mode shows the replacement preview and ready-to-adapt JavaScript, C#, and PowerShell snippets.</figcaption></figure>
+      </div>
+      <div class="feature-capability-grid">
+        <article class="feature-capability"><h3>Prove the expected cases</h3><p>Add short examples for the ordinary values the pattern must accept. Keep each case focused so a future failure tells you which boundary changed instead of merely reporting that one large sample no longer matches.</p></article>
+        <article class="feature-capability"><h3>Protect the boundaries</h3><p>Test empty values, punctuation, whitespace, line breaks, Unicode, and the start or end of the input when they matter. These are where a broad character class or a misplaced anchor usually becomes visible.</p></article>
+        <article class="feature-capability"><h3>Record negative cases</h3><p>Include believable text that must not match, not only obviously unrelated strings. A passing positive case proves the pattern can find something; a passing negative case helps prove that it finds the right thing.</p></article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="regex-tools-title">
+      <div class="feature-detail-heading"><span class="section-badge">Tools</span><h2 id="regex-tools-title">Keep the pattern understandable after today</h2></div>
+      <div class="feature-capability-grid">
+        <article class="feature-capability"><h3>Flags</h3><ul><li>Global <code>g</code></li><li>Ignore case <code>i</code></li><li>Multiline <code>m</code></li><li>Dot all, Unicode, and sticky</li></ul></article>
+        <article class="feature-capability"><h3>Match details</h3><ul><li>Complete match value</li><li>Numbered groups</li><li>Named groups</li><li>Jump to the highlighted source</li></ul></article>
+        <article class="feature-capability"><h3>Replacement</h3><ul><li>Live preview</li><li>Numbered references such as <code>$1</code></li><li>Named references such as <code>$&lt;name&gt;</code></li><li>No mutation of the source document</li></ul></article>
+        <article class="feature-capability"><h3>Test cases</h3><ul><li>Examples expected to match</li><li>Examples expected not to match</li><li>Visible pass/fail summary</li><li>Regression checks beside the pattern</li></ul></article>
+        <article class="feature-capability"><h3>Saved patterns</h3><ul><li>Optional names</li><li>Remembered pattern and flags</li><li>Reusable history</li><li>Local storage only</li></ul></article>
+        <article class="feature-capability"><h3>Snippet export</h3><ul><li>JavaScript <code>RegExp</code></li><li>C# <code>Regex</code></li><li>PowerShell <code>-match</code> and replacement</li><li>Copy the complete expression</li></ul></article>
+      </div>
+      <div class="feature-privacy-note"><span class="feature-privacy-icon" aria-hidden="true">✓</span><div><strong>Custom test text remains session-local.</strong><p>It is not written to pattern history, settings, or extension storage. Saved patterns and test definitions are stored locally and may be sensitive if you include private examples in them.</p></div></div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="regex-faq-title">
+      <div class="feature-detail-heading"><span class="section-badge">FAQ</span><h2 id="regex-faq-title">Regex Playground questions</h2></div>
+      <div class="feature-detail-faq">
+        <details><summary>Does the replacement modify my document?</summary><p>No. Replacement is a preview. Copy the result when you are satisfied with it.</p></details>
+        <details><summary>Can I test text unrelated to the current file?</summary><p>Yes. Switch the input to Custom text. That text stays only in the active viewer session.</p></details>
+        <details><summary>Why use test cases if the live document matches?</summary><p>A live match proves the pattern works for today’s sample. Positive and negative test cases help show that it still behaves correctly after the pattern changes.</p></details>
+        <details><summary>Are all JavaScript regex features supported?</summary><p>The pattern is evaluated by the installed runtime. Feature support therefore follows the browser or WebView2 JavaScript engine in use.</p></details>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="regex-related-title">
+      <div class="feature-detail-heading"><span class="section-badge">Related guides</span><h2 id="regex-related-title">Use patterns with real developer files</h2></div>
+      <div class="feature-related-grid">
+        <a class="feature-related-card" href="markdown-viewer-browser-extension.html"><h3>Markdown Viewer</h3><p>Test patterns against exact Markdown source while keeping a rendered document view nearby.</p><span>Explore Markdown viewing →</span></a>
+        <a class="feature-related-card" href="json-formatter-browser-extension.html"><h3>JSON Formatter and Viewer</h3><p>Use ordinary search, regex search, JSONPath, and schema validation for different kinds of questions.</p><span>Explore JSON inspection →</span></a>
+        <a class="feature-related-card" href="manual.html#regex-playground"><h3>Complete Manual</h3><p>Review storage behavior, keyboard access, pattern history, test cases, and snippet controls.</p><span>Open the manual →</span></a>
+      </div>
+    </section>
+
+    <section class="feature-page-cta" aria-labelledby="regex-cta-title"><h2 id="regex-cta-title">Test the pattern where the text already is</h2><p>Open Regex Playground from the document, inspect the matches in context, and leave with a replacement or snippet you have actually checked.</p><div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="pricing.html">See $0 early access</a></div></section>
+  </main>
+
+  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
+</body>
+</html>
