@@ -10,6 +10,9 @@ Current offer and competitor comparison: [Pricing](pricing.html)
 
 From the workspace root, run `npm run test:site` to validate internal links, pricing and manual content, mobile navigation, dialog focus, and horizontal layout at 320/375/768/769/800px.
 
+Run `npm run screenshots:manual` to rebuild the manual's browser-rendered
+images and the three native Windows screenshots from the current app source.
+
 CodePrettify is available as a browser extension and as a Windows desktop application. Both products use a CodeMirror 6 viewer and share the core formatting, validation, inspection, conversion, comparison, and playground workflows. The desktop application adds native tabs, menus, file dialogs, and explicit CSV and HTML file support.
 
 ## Supported formats
