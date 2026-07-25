@@ -29,8 +29,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260725-3" />
+  <link rel="stylesheet" href="style.css?v=20260725-4" />
   <script src="site.js?v=20260719" defer></script>
+  <script src="feature-guide.js?v=20260725-1" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -78,12 +79,66 @@
       <figure class="feature-hero-shot"><img src="img/feature-markdown.png" alt="Rendered Markdown document showing headings, a table, escaped pipes, and a task list" width="1280" height="800" fetchpriority="high" /><figcaption>GitHub-flavored tables, task lists, code, links, headings, and common document structure become easy to scan.</figcaption></figure>
     </section>
 
+    <nav class="feature-learning-nav" aria-label="Lessons in this Markdown guide">
+      <strong>Learn on this page</strong>
+      <div class="feature-learning-links">
+        <a href="#markdown-open-title">Open a document</a>
+        <a href="#markdown-tutorial-title">Review a README step by step</a>
+        <a href="#markdown-sample-title">Debug the source</a>
+        <a href="#markdown-debug-title">Solve rendering problems</a>
+        <a href="#markdown-faq-title">Understand safe rendering</a>
+      </div>
+    </nav>
+
     <section class="feature-detail-section" aria-labelledby="markdown-open-title">
       <div class="feature-detail-heading"><span class="section-badge">Open files</span><h2 id="markdown-open-title">Use the workflow that matches where the document lives</h2></div>
       <div class="feature-step-grid">
         <article class="feature-step"><span class="feature-step-number">1</span><h3>Remote raw Markdown</h3><p>Open a URL ending in <code>.md</code> or a response served with a Markdown content type. CodePrettify recognizes the document and renders it.</p></article>
         <article class="feature-step"><span class="feature-step-number">2</span><h3>Local file through the launcher</h3><p>Drag a Markdown file onto the extension launcher or use the picker. This route does not require broad <code>file://</code> permission.</p></article>
         <article class="feature-step"><span class="feature-step-number">3</span><h3>Direct file URL</h3><p>If you prefer opening <code>file://</code> URLs directly, enable “Allow access to file URLs” for CodePrettify in the browser’s extension settings.</p></article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="markdown-tutorial-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Hands-on tutorial</span>
+        <h2 id="markdown-tutorial-title">Review a README as both a reader and an author</h2>
+        <p>This workflow helps you understand the document first, then verify the exact Markdown that produced it. Use any project README containing headings, links, a table, a task list, and a fenced code example.</p>
+      </div>
+      <ol class="feature-tutorial-steps">
+        <li>
+          <div><h3>Open the file with the least permission necessary</h3><p>For a downloaded README, drag it onto the extension launcher or choose it with the file picker. For a repository’s raw Markdown URL, open that URL directly. Enable broad <code>file://</code> access only if direct local URLs are part of your normal workflow.</p></div>
+        </li>
+        <li>
+          <div><h3>Read the rendered outline before inspecting punctuation</h3><p>Scan the title, introduction, installation steps, examples, and troubleshooting sections. Open <strong>Document Navigator</strong> when available and jump between headings. This gives you the author’s intended hierarchy before you investigate how it was encoded.</p></div>
+        </li>
+        <li>
+          <div><h3>Search for the concept, not the Markdown marker</h3><p>Press <kbd>Ctrl</kbd>+<kbd>F</kbd> and search for a command, option, or error message. In Rendered view, search follows the readable document. Use this to answer “where is configuration explained?” before searching the source for backticks or link syntax.</p></div>
+        </li>
+        <li>
+          <div><h3>Toggle to Source when the rendering is surprising</h3><p>Press <kbd>Ctrl</kbd>+<kbd>B</kbd> or use the Rendered/Source control. Inspect the exact heading markers, pipes, list indentation, brackets, escapes, and fence delimiters. Rendering does not rewrite the source, so the two views remain safe to compare.</p></div>
+        </li>
+        <li>
+          <div><h3>Trace one table row from source to output</h3><p>Find a rendered cell containing a literal pipe. In Source view, confirm that the pipe is escaped as <code>\|</code> and that the header has a separator row. Then return to Rendered view and verify the text remains in one cell.</p></div>
+        </li>
+        <li>
+          <div><h3>Verify tasks and fenced code deliberately</h3><p>Check that <code>- [x]</code> is rendered as complete, <code>- [ ]</code> remains open, and the closing code fence uses at least as many backticks as the opening fence. A missing fence can make the rest of a document look like code.</p></div>
+        </li>
+        <li>
+          <div><h3>Compare another revision before exporting</h3><p>Open <strong>Compare</strong> and paste the previous or proposed Markdown. Review the text diff for changed wording, links, code, and structure. Copy or export the source when another editor needs Markdown; use the rendered document only as the reading view.</p></div>
+        </li>
+      </ol>
+      <div class="feature-practice-lab">
+        <h3>Practice: review a short release note</h3>
+        <p>Create or open a Markdown file with a heading, three changes, one fenced command, a compatibility table, and two tasks. Move through these checks in order.</p>
+        <ul class="feature-checklist">
+          <li>The heading appears in the document outline.</li>
+          <li>The command remains inside a fenced code block.</li>
+          <li>Every table row has the expected number of cells.</li>
+          <li>A literal pipe stays inside its intended cell.</li>
+          <li>Completed and open tasks render differently.</li>
+          <li>The source is byte-for-byte unchanged after viewing.</li>
+        </ul>
       </div>
     </section>
 
@@ -122,6 +177,34 @@
 <span class="code-success">✓</span> Source is unchanged by rendering</code></pre>
         </article>
       </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="markdown-debug-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Debugging lesson</span>
+        <h2 id="markdown-debug-title">Diagnose the source from the visible symptom</h2>
+        <p>When the rendered document looks wrong, start with the smallest source rule that could produce that symptom. The table below gives you a repeatable debugging order.</p>
+      </div>
+      <div class="feature-guide-table-wrap">
+        <table class="feature-guide-table">
+          <thead><tr><th>Rendered symptom</th><th>Inspect in Source</th><th>What to learn</th></tr></thead>
+          <tbody>
+            <tr><td>A table appears as ordinary paragraphs</td><td>Confirm the header, separator row, and balanced pipe structure.</td><td>A visual table requires a syntactically valid header boundary.</td></tr>
+            <tr><td>One cell became two columns</td><td>Look for an unescaped literal pipe and change it to <code>\|</code> where appropriate.</td><td>Delimiters have structural meaning unless escaped.</td></tr>
+            <tr><td>The rest of the document looks like code</td><td>Find the opening fence and verify a matching closing fence.</td><td>Block syntax changes how all following lines are parsed.</td></tr>
+            <tr><td>A checkbox remains plain text</td><td>Check the list marker, spaces, and exact <code>[ ]</code> or <code>[x]</code> syntax.</td><td>Task syntax extends a normal list item; it does not stand alone.</td></tr>
+            <tr><td>A remote image is shown as a link</td><td>Confirm that the source uses a remote image URL.</td><td>This is an intentional privacy boundary, not a rendering failure.</td></tr>
+            <tr><td>Raw HTML is displayed rather than executed</td><td>Inspect the HTML block in Source.</td><td>CodePrettify keeps embedded HTML inert so a document cannot become an active web page.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="feature-troubleshooting-grid">
+        <article class="feature-learning-card"><h3>The extension did not recognize the file</h3><p>Check the <code>.md</code> or <code>.markdown</code> URL, response content type, and Markdown setting. A repository’s normal HTML page is different from its raw-file URL.</p></article>
+        <article class="feature-learning-card"><h3>A heading link jumps somewhere unexpected</h3><p>Compare the generated heading anchor with duplicate or punctuated headings. Use Document Navigator to confirm the outline and the destination visible in the rendered document.</p></article>
+        <article class="feature-learning-card"><h3>A remote link is blocked</h3><p>Inspect the scheme. Safe ordinary links remain clickable, while dangerous schemes are deliberately blocked. Rendering a document should not grant it script execution.</p></article>
+        <article class="feature-learning-card"><h3>You need to edit the file</h3><p>The browser extension is an inspection workspace. Copy or export the source into your editor, make the change there, then reopen or compare the revised document.</p></article>
+      </div>
+      <p class="feature-learning-outcome"><strong>Learning outcome:</strong> you should be able to move from a visual Markdown problem to the exact delimiter, block boundary, escape, or safety rule responsible for it.</p>
     </section>
 
     <section class="feature-detail-section" aria-labelledby="markdown-render-title">

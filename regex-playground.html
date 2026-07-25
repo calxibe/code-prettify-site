@@ -29,8 +29,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260725-3" />
+  <link rel="stylesheet" href="style.css?v=20260725-4" />
   <script src="site.js?v=20260719" defer></script>
+  <script src="feature-guide.js?v=20260725-1" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -78,6 +79,17 @@
       <figure class="feature-hero-shot"><img src="img/feature-regex-playground.png" alt="Regex Playground matching JavaScript assignments with named capture-group details" width="1280" height="800" fetchpriority="high" /><figcaption>The active match stays connected to its highlighted location in the document and exposes its capture groups.</figcaption></figure>
     </section>
 
+    <nav class="feature-learning-nav" aria-label="Lessons in this regular expression guide">
+      <strong>Learn on this page</strong>
+      <div class="feature-learning-links">
+        <a href="#regex-flow-title">Build a pattern</a>
+        <a href="#regex-tutorial-title">Follow a complete example</a>
+        <a href="#regex-replace-title">Replace and test</a>
+        <a href="#regex-flags-title">Choose flags</a>
+        <a href="#regex-faq-title">Troubleshoot</a>
+      </div>
+    </nav>
+
     <section class="feature-detail-section" aria-labelledby="regex-flow-title">
       <div class="feature-detail-heading"><span class="section-badge">Workflow</span><h2 id="regex-flow-title">Move from a pattern to evidence</h2><p>A match count is useful, but a reliable pattern needs context, capture-group inspection, negative cases, and a replacement or code path you can verify.</p></div>
       <div class="feature-step-grid">
@@ -107,6 +119,56 @@ Source: current document</code></pre>
       </div>
     </section>
 
+    <section class="feature-detail-section" aria-labelledby="regex-tutorial-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Hands-on tutorial</span>
+        <h2 id="regex-tutorial-title">Turn environment assignments into named, tested matches</h2>
+        <p>This lesson starts with a small environment-style document, captures the key and value separately, previews a replacement, and records tests that protect the pattern from future edits.</p>
+      </div>
+      <ol class="feature-tutorial-steps">
+        <li>
+          <div>
+            <h3>Choose Custom text and paste a controlled sample</h3>
+            <p>Open Regex Playground with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>R</kbd> or from General tools, then choose <strong>Custom text</strong>. Custom text remains in the active session and is useful while you learn because unrelated document content cannot create surprise matches.</p>
+            <pre class="feature-code"><code>API_URL=https://api.example.com
+TIMEOUT_MS=5000
+DEBUG=true
+not an assignment</code></pre>
+          </div>
+        </li>
+        <li>
+          <div><h3>Start with line boundaries and one complete match</h3><p>Enter <code>^[A-Z][A-Z0-9_]*=.*$</code> without surrounding slash characters. Enable multiline <code>m</code> so <code>^</code> and <code>$</code> apply to each line, then enable global <code>g</code> so the result list contains all three assignments instead of only the first.</p></div>
+        </li>
+        <li>
+          <div><h3>Replace anonymous pieces with named groups</h3><p>Change the pattern to <code>^(?&lt;key&gt;[A-Z][A-Z0-9_]*)=(?&lt;value&gt;.*)$</code>. Select a match and verify that the details show the complete line plus named groups <code>key</code> and <code>value</code>. Named groups make later replacement text and generated snippets easier to understand.</p></div>
+        </li>
+        <li>
+          <div><h3>Inspect every match in its original context</h3><p>Move through the three result rows. Confirm that <code>not an assignment</code> is excluded and that the value group may contain punctuation such as <code>:</code>, <code>/</code>, and periods. When using Current document, selecting a result also jumps to its highlighted source location.</p></div>
+        </li>
+        <li>
+          <div><h3>Preview a named-group replacement</h3><p>Open <strong>Advanced</strong> and enter <code>"$&lt;key&gt;": "$&lt;value&gt;"</code> as the replacement. The preview should turn each assignment into a JSON-like property line. Replacement is a preview only; it does not mutate the document or custom text.</p></div>
+        </li>
+        <li>
+          <div><h3>Add tests for both success and rejection</h3><p>Add a match assertion for <code>PORT=8080</code>, a no-match assertion for <code>lowercase=value</code>, and a count-equals assertion of three for the complete sample. If you depend on the exact replacement, add a replacement-equals test as well.</p></div>
+        </li>
+        <li>
+          <div><h3>Copy the complete expression or a language snippet</h3><p>Review the displayed <code>/pattern/gm</code> form, save the pattern with a meaningful name, and copy JavaScript, C#, or PowerShell output. Generated code is a handoff: run it against the same positive and negative cases in the destination runtime before shipping it.</p></div>
+        </li>
+      </ol>
+      <div class="feature-practice-lab">
+        <h3>Practice: make the pattern stricter without breaking it</h3>
+        <p>Try each change separately and watch the live results and tests. Restore the pattern when a negative case begins to match.</p>
+        <ul class="feature-checklist">
+          <li>Allow spaces around the equals sign without capturing them.</li>
+          <li>Reject an empty key while still allowing an empty value.</li>
+          <li>Add a line beginning with <code>#</code> and prove it does not match.</li>
+          <li>Add a value containing another equals sign and inspect the captured value.</li>
+          <li>Disable multiline and explain why only whole-input anchors remain.</li>
+          <li>Remove global and explain why the result list stops after the first match.</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="feature-detail-section" aria-labelledby="regex-replace-title">
       <div class="feature-detail-heading"><span class="section-badge">Match and replace</span><h2 id="regex-replace-title">Preview the transformation before copying it</h2><p>Advanced mode keeps replacement output, test cases, and snippet export in the same workspace as the live matches.</p></div>
       <div class="feature-shot-grid">
@@ -118,6 +180,34 @@ Source: current document</code></pre>
         <article class="feature-capability"><h3>Protect the boundaries</h3><p>Test empty values, punctuation, whitespace, line breaks, Unicode, and the start or end of the input when they matter. These are where a broad character class or a misplaced anchor usually becomes visible.</p></article>
         <article class="feature-capability"><h3>Record negative cases</h3><p>Include believable text that must not match, not only obviously unrelated strings. A passing positive case proves the pattern can find something; a passing negative case helps prove that it finds the right thing.</p></article>
       </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="regex-flags-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Pattern design lesson</span>
+        <h2 id="regex-flags-title">Choose flags because the input demands them</h2>
+        <p>Flags change the meaning or traversal of the expression. Enable each one for a reason you can explain rather than copying a familiar bundle of letters.</p>
+      </div>
+      <div class="feature-guide-table-wrap">
+        <table class="feature-guide-table">
+          <thead><tr><th>Flag</th><th>Use it when</th><th>Common surprise</th></tr></thead>
+          <tbody>
+            <tr><td><code>g</code> global</td><td>You need every match, a full replacement preview, or an accurate count.</td><td>Without it, a correct pattern may appear to find only the first occurrence.</td></tr>
+            <tr><td><code>i</code> ignore case</td><td>Letter case is not meaningful in the source.</td><td>It can accept values that a case-sensitive identifier or protocol should reject.</td></tr>
+            <tr><td><code>m</code> multiline</td><td><code>^</code> and <code>$</code> should refer to each line.</td><td>It does not make the dot character cross line breaks.</td></tr>
+            <tr><td><code>s</code> dot all</td><td>A dot should include newline characters inside a multi-line value.</td><td>A broad <code>.*</code> can consume much more text than intended.</td></tr>
+            <tr><td><code>u</code> Unicode</td><td>The pattern uses Unicode-aware escapes or must treat code points correctly.</td><td>Some older runtimes or copied snippets may support a different feature set.</td></tr>
+            <tr><td><code>y</code> sticky</td><td>Matching must begin exactly at the current engine position.</td><td>It is useful for tokenizers but surprising for ordinary document search.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="feature-troubleshooting-grid">
+        <article class="feature-learning-card"><h3>The expression is valid but finds nothing</h3><p>Check input source, case, anchors, and flags. Test a smaller literal fragment, then rebuild the boundary rules around a known match.</p></article>
+        <article class="feature-learning-card"><h3>A match consumes too much text</h3><p>Inspect greedy quantifiers such as <code>.*</code>. Use a narrower character class, a reluctant quantifier, or a clear delimiter when the input has one.</p></article>
+        <article class="feature-learning-card"><h3>The replacement looks right but the document is unchanged</h3><p>That is intentional. Replacement is a preview. Copy the result only after its test cases and visible output are correct.</p></article>
+        <article class="feature-learning-card"><h3>A complex pattern times out</h3><p>Simplify nested repetition and ambiguous alternatives. Patterns run in a worker, stop after roughly 1.5 seconds, and cap results at 500 so a catastrophic expression cannot freeze the viewer.</p></article>
+      </div>
+      <p class="feature-learning-outcome"><strong>Learning outcome:</strong> you should be able to explain the input, boundaries, groups, flags, positive cases, negative cases, and replacement behavior of a pattern before copying it into code.</p>
     </section>
 
     <section class="feature-detail-section" aria-labelledby="regex-tools-title">

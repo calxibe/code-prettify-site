@@ -29,8 +29,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260725-3" />
+  <link rel="stylesheet" href="style.css?v=20260725-4" />
   <script src="site.js?v=20260719" defer></script>
+  <script src="feature-guide.js?v=20260725-1" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -78,6 +79,17 @@
       <figure class="feature-hero-shot"><img src="img/feature-http-client.png" alt="HTTP Client with a GET request, query parameter, status, timing, and formatted JSON response" width="1280" height="800" fetchpriority="high" /><figcaption>A request and its formatted JSON response remain visible together, including status, size, content type, and timing.</figcaption></figure>
     </section>
 
+    <nav class="feature-learning-nav" aria-label="Lessons in this HTTP Client guide">
+      <strong>Learn on this page</strong>
+      <div class="feature-learning-links">
+        <a href="#http-flow-title">Understand the request flow</a>
+        <a href="#http-tutorial-title">Send a request step by step</a>
+        <a href="#http-response-title">Read the response</a>
+        <a href="#http-debug-title">Diagnose failures</a>
+        <a href="#http-privacy-title">Handle secrets safely</a>
+      </div>
+    </nav>
+
     <section class="feature-detail-section" aria-labelledby="http-flow-title">
       <div class="feature-detail-heading"><span class="section-badge">Request flow</span><h2 id="http-flow-title">Compose, send, inspect, reuse</h2></div>
       <div class="feature-step-grid">
@@ -118,12 +130,85 @@ const data = await response.json();</code></pre>
       </div>
     </section>
 
+    <section class="feature-detail-section" aria-labelledby="http-tutorial-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Hands-on tutorial</span>
+        <h2 id="http-tutorial-title">Build, send, inspect, and preserve one API request</h2>
+        <p>Use an API you are authorized to call. The example uses a development base URL and a products route; replace those values with your own service while keeping the same learning sequence.</p>
+      </div>
+      <ol class="feature-tutorial-steps">
+        <li>
+          <div><h3>Open HTTP Client and choose the environment first</h3><p>Launch HTTP Client from General tools, the extension launcher, or the Windows Tools menu. Create or select a development environment and add <code>baseUrl</code> with a value such as <code>https://api.example.com</code>. Use a non-secret variable first so you can see how resolution works safely.</p></div>
+        </li>
+        <li>
+          <div><h3>Compose the URL from stable and changing parts</h3><p>Choose <strong>GET</strong> and enter <code>{{baseUrl}}/v1/products</code>. Add a query parameter named <code>view</code> with value <code>summary</code>. Inspect the resolved URL before sending; a missing or misspelled variable should be fixed now, not diagnosed after a network error.</p></div>
+        </li>
+        <li>
+          <div><h3>State what representation you expect</h3><p>Add <code>Accept: application/json</code>. Leave authorization and body set to None for this lesson unless your endpoint requires them. Set a practical timeout such as 30,000 ms so a stalled request does not remain active indefinitely.</p></div>
+        </li>
+        <li>
+          <div><h3>Send deliberately and observe the transition</h3><p>Review method, resolved URL, params, and headers, then press <strong>Send</strong>. This is the point where network activity begins. The action changes to Cancel while active; editing the request, importing cURL, or generating a snippet does not send anything.</p></div>
+        </li>
+        <li>
+          <div><h3>Read status and metadata before the body</h3><p>Start with the status code, duration, size, and content type. A 200 JSON response supports the Body workflow below. A redirect, 401, 404, 415, or HTML content type changes the question you should ask before inspecting individual fields.</p></div>
+        </li>
+        <li>
+          <div><h3>Compare formatted Body, Raw, and Headers</h3><p>Use Body to understand structured JSON, Raw to verify the exact response text, and Headers to inspect caching, content type, dates, rate limits, and server behavior. Check Cookies only when the response actually uses them and your product’s browser policy exposes them.</p></div>
+        </li>
+        <li>
+          <div><h3>Copy a reproducible handoff and save only what is useful</h3><p>Copy the verified request as cURL, <code>fetch()</code>, or PowerShell and review it for credentials before running or sharing it. Save the request or add it to a collection when it is worth repeating. Give it a name that describes the behavior being tested, not simply “GET request.”</p></div>
+        </li>
+      </ol>
+      <div class="feature-practice-lab">
+        <h3>Practice: turn the GET into a controlled JSON POST</h3>
+        <p>Duplicate the request instead of overwriting your working GET. Change one concern at a time and inspect the generated snippet after each change.</p>
+        <ul class="feature-checklist">
+          <li>Change the method to POST and select the JSON body mode.</li>
+          <li>Add a small valid JSON object and verify its syntax.</li>
+          <li>Confirm <code>Content-Type: application/json</code> is present.</li>
+          <li>Add authorization only if your own endpoint requires it.</li>
+          <li>Send to a development or test endpoint you control.</li>
+          <li>Review status, response content type, and Raw before trusting Body.</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="feature-detail-section" aria-labelledby="http-response-title">
       <div class="feature-detail-heading"><span class="section-badge">Response inspection</span><h2 id="http-response-title">The body is only one part of the answer</h2><p>Status, content type, response headers, cookies, timing, and the raw response can explain behavior that a formatted JSON body cannot. Compare these views when investigating caching, authentication, redirects, content negotiation, compressed responses, or a server that returns useful diagnostics outside the body.</p></div>
       <div class="feature-shot-grid">
         <figure class="feature-guide-shot"><img src="img/feature-http-client.png" alt="HTTP response body rendered as formatted JSON in CodePrettify HTTP Client" width="1280" height="800" loading="lazy" /><figcaption>Body view formats a successful JSON response and keeps request controls visible above it.</figcaption></figure>
         <figure class="feature-guide-shot"><img src="img/feature-http-client-headers.png" alt="HTTP response headers including cache-control, content-type, date, and connection details" width="1280" height="800" loading="lazy" /><figcaption>Headers view exposes caching, content type, date, connection, and transfer behavior beside the request.</figcaption></figure>
       </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="http-debug-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Response lesson</span>
+        <h2 id="http-debug-title">Let the status, headers, and timing choose the next question</h2>
+        <p>A formatted body is useful only after you know what kind of response you received. Use this order to avoid debugging application data when the real problem is authentication, routing, media type, browser policy, or server availability.</p>
+      </div>
+      <div class="feature-guide-table-wrap">
+        <table class="feature-guide-table">
+          <thead><tr><th>Signal</th><th>Investigate next</th><th>Useful evidence to capture</th></tr></thead>
+          <tbody>
+            <tr><td>200–299 success</td><td>Confirm content type, body shape, headers, and whether the response matches the requested representation.</td><td>Status, response body, relevant headers, and duration.</td></tr>
+            <tr><td>301, 302, 307, or 308 redirect</td><td>Inspect the final URL and redirect behavior; confirm the method was preserved where required.</td><td>Location-related headers, final response, and copied request.</td></tr>
+            <tr><td>401 or 403</td><td>Check auth type, token value, API-key placement, scopes, environment selection, and target host.</td><td>Sanitized request details and response authentication headers—never the secret itself.</td></tr>
+            <tr><td>404</td><td>Check the resolved base URL, route version, path variables, and whether the resource exists in this environment.</td><td>Resolved URL, method, and response body.</td></tr>
+            <tr><td>400 or 415</td><td>Review JSON syntax, body mode, <code>Content-Type</code>, required fields, and encoding.</td><td>Sanitized body, request headers, and server validation message.</td></tr>
+            <tr><td>429</td><td>Inspect rate-limit and retry headers, then reduce or delay requests.</td><td>Limit, remaining, reset, and retry values.</td></tr>
+            <tr><td>500–599</td><td>Separate a reproducible client request from a server-side failure.</td><td>Request ID, timestamp, status, duration, and sanitized request snippet.</td></tr>
+            <tr><td>CORS or browser network failure</td><td>Compare with generated cURL or PowerShell outside the browser. The extension cannot bypass the target server’s CORS policy.</td><td>Browser error, target origin, method, and server CORS configuration.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="feature-troubleshooting-grid">
+        <article class="feature-learning-card"><h3>A variable remains unresolved</h3><p>Confirm the active environment, exact variable spelling, and braces. Resolve the URL before adding authentication or body complexity.</p></article>
+        <article class="feature-learning-card"><h3>Body view is empty or unreadable</h3><p>Check status, content type, size, and Raw. A HEAD response, empty success, binary payload, or HTML error page may not have a formatted JSON body.</p></article>
+        <article class="feature-learning-card"><h3>The same call works in cURL but not the extension</h3><p>Compare generated commands and then inspect CORS, browser credential policy, cookies, redirects, and headers the browser is allowed to expose.</p></article>
+        <article class="feature-learning-card"><h3>The request contains sensitive values</h3><p>Avoid screenshots and exports that expose credentials. History is sanitized, but saved environments and requests remain local profile data rather than a separate encrypted secrets vault.</p></article>
+      </div>
+      <p class="feature-learning-outcome"><strong>Learning outcome:</strong> you should be able to preserve one reproducible request, explain when network activity occurs, and diagnose a failure from status and metadata before guessing at the body.</p>
     </section>
 
     <section class="feature-detail-section" aria-labelledby="http-controls-title">

@@ -29,8 +29,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260725-3" />
+  <link rel="stylesheet" href="style.css?v=20260725-4" />
   <script src="site.js?v=20260719" defer></script>
+  <script src="feature-guide.js?v=20260725-1" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -87,6 +88,17 @@
       </figure>
     </section>
 
+    <nav class="feature-learning-nav" aria-label="Lessons in this JSON to code guide">
+      <strong>Learn on this page</strong>
+      <div class="feature-learning-links">
+        <a href="#codegen-process-title">Prepare samples</a>
+        <a href="#codegen-tutorial-title">Generate a model step by step</a>
+        <a href="#codegen-targets-title">Compare targets</a>
+        <a href="#codegen-review-title">Review the output</a>
+        <a href="#codegen-faq-title">Troubleshoot</a>
+      </div>
+    </nav>
+
     <section class="feature-detail-section" aria-labelledby="codegen-process-title">
       <div class="feature-detail-heading"><span class="section-badge">Process</span><h2 id="codegen-process-title">Use representative data, not an invented model</h2><p>The quality of an inferred model depends on the samples. Give the generator enough real variation to distinguish required fields, optional fields, arrays, nested objects, integers, decimals, booleans, and nulls.</p></div>
       <div class="feature-step-grid">
@@ -133,6 +145,67 @@ export type DeploymentEvent =
       </div>
     </section>
 
+    <section class="feature-detail-section" aria-labelledby="codegen-tutorial-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Hands-on tutorial</span>
+        <h2 id="codegen-tutorial-title">Generate an honest model from varied order samples</h2>
+        <p>The goal is not merely to produce code. It is to give the generator enough evidence to describe required, optional, nullable, nested, and repeated values without hiding uncertainty.</p>
+      </div>
+      <ol class="feature-tutorial-steps">
+        <li>
+          <div><h3>Open the generator from the document or as a general tool</h3><p>With JSON already open, choose <strong>More Actions → General tools → JSON to Code Generator</strong> and select <strong>Use document</strong>. You can also launch the generator first and paste a sample. Using the document avoids an extra copy and keeps the source nearby for verification.</p></div>
+        </li>
+        <li>
+          <div>
+            <h3>Supply variation deliberately</h3>
+            <p>Use an array of representative objects. This small practice sample proves that <code>discountCode</code> is conditional, <code>shippedAt</code> can be null, and <code>tags</code> contains strings even though one array is empty.</p>
+            <pre class="feature-code"><code>[
+  {
+    "id": 1001,
+    "status": "processing",
+    "discountCode": "SUMMER",
+    "shippedAt": null,
+    "tags": ["priority"]
+  },
+  {
+    "id": 1002,
+    "status": "shipped",
+    "shippedAt": "2026-07-24T14:32:00Z",
+    "tags": []
+  }
+]</code></pre>
+          </div>
+        </li>
+        <li>
+          <div><h3>Name the domain concept, not the transport detail</h3><p>Set a root name such as <code>Order</code>, not <code>Response</code> or <code>Data</code>, unless the wrapper itself is the model you intend to keep. For package- or namespace-based targets, enter the destination used by your project so generated declarations arrive in the right context.</p></div>
+        </li>
+        <li>
+          <div><h3>Generate the first target and read the evidence</h3><p>Choose TypeScript and generate. Confirm that the root remains an array, <code>discountCode</code> is optional because it is absent from one record, <code>shippedAt</code> permits null, and <code>tags</code> is a string array. If a result surprises you, inspect the input evidence before editing the generated code.</p></div>
+        </li>
+        <li>
+          <div><h3>Switch targets without changing the sample</h3><p>Choose Python + Pydantic, Zod, C#, or another target. Compare how each ecosystem expresses the same optional and nullable evidence. The syntax changes, but the inferred shape should remain consistent unless a language lacks a direct equivalent and must use a safer general type.</p></div>
+        </li>
+        <li>
+          <div><h3>Read warnings as missing knowledge</h3><p>An empty array in every sample cannot reveal an element type. Genuinely mixed values may require a union or general type. A property seen in only one record becomes optional. Add another trustworthy sample when you have evidence; do not add invented values simply to silence a warning.</p></div>
+        </li>
+        <li>
+          <div><h3>Copy or open the result, then verify it in the project</h3><p>Copy, export with the suggested extension, or open the generated output as a CodePrettify document. Compile it, run your serializer, and test representative payloads. Generated models are a starting point: domain validation, naming conventions, precision, date parsing, and framework configuration still belong to your application.</p></div>
+        </li>
+      </ol>
+      <div class="feature-practice-lab">
+        <h3>Practice: change one piece of evidence at a time</h3>
+        <p>Duplicate the sample and make one controlled change, then regenerate. This is the fastest way to learn how inference reacts.</p>
+        <ul class="feature-checklist">
+          <li>Add a third object without <code>shippedAt</code> and observe optional plus nullable behavior.</li>
+          <li>Add a third record with a decimal total and inspect the numeric type.</li>
+          <li>Add a numeric priority beside a string priority and inspect the mixed-value warning or union.</li>
+          <li>Use a key such as <code>user-id</code> and inspect the target’s alias or field mapping.</li>
+          <li>Make every <code>tags</code> array empty and read the unknown-element warning.</li>
+          <li>Generate JSON Schema and compare its required list with the typed target.</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="feature-detail-section" aria-labelledby="codegen-targets-title">
       <div class="feature-detail-heading"><span class="section-badge">Targets</span><h2 id="codegen-targets-title">Switch languages without changing the sample</h2><p>The same inference model drives every output target. That makes it easy to compare how TypeScript, validation schemas, backend models, systems languages, and mobile types express the same data.</p></div>
       <div class="feature-shot-grid">
@@ -157,6 +230,34 @@ export type DeploymentEvent =
         <article class="feature-capability"><h3>Safe limits</h3><p>Input size, output size, depth, and inspected values are capped so a pathological sample cannot lock the interface indefinitely.</p></article>
       </div>
       <div class="feature-privacy-note"><span class="feature-privacy-icon" aria-hidden="true">✓</span><div><strong>Generation happens locally.</strong><p>The JSON sample is not sent to an inference API. This is deterministic model generation performed by the installed CodePrettify runtime.</p></div></div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="codegen-review-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Review lesson</span>
+        <h2 id="codegen-review-title">Know what to accept, change, and verify</h2>
+        <p>Inference describes observed JSON; it cannot know the complete business contract. Review the generated result by separating facts proved by the sample from rules that only your application knows.</p>
+      </div>
+      <div class="feature-guide-table-wrap">
+        <table class="feature-guide-table">
+          <thead><tr><th>Generated decision</th><th>Why it happened</th><th>What you should verify</th></tr></thead>
+          <tbody>
+            <tr><td>Required property</td><td>The property appeared in every object sample.</td><td>Can the real API omit it in errors, partial responses, or older versions?</td></tr>
+            <tr><td>Optional property</td><td>At least one sampled object omitted it, or “all optional” was selected.</td><td>Is absence different from an explicit null in your domain?</td></tr>
+            <tr><td>Nullable or union type</td><td>The sample contained null or incompatible value kinds.</td><td>Should the application accept every observed type, or reject inconsistent source data?</td></tr>
+            <tr><td>Integer versus general number</td><td>Observed values were whole numbers or included fractions.</td><td>Could IDs exceed safe numeric precision, and should monetary values use a decimal type?</td></tr>
+            <tr><td>Nested model name</td><td>A repeated object shape became a reusable declaration.</td><td>Does the generated name match your domain vocabulary and project conventions?</td></tr>
+            <tr><td>Aliased property</td><td>The JSON key was invalid or reserved in the target language.</td><td>Does the serializer annotation preserve the exact source key during round trips?</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="feature-troubleshooting-grid">
+        <article class="feature-learning-card"><h3>Too many optional properties</h3><p>Check whether unrelated object shapes were placed in the same array or whether sparse partial responses were mixed with full records. Separate different domain types when they should not be merged.</p></article>
+        <article class="feature-learning-card"><h3>An array has an unknown element type</h3><p>At least one trustworthy sample needs a populated array. If no example exists, keep the safe unknown type and refine it from the API contract rather than guessing.</p></article>
+        <article class="feature-learning-card"><h3>The root type looks awkward</h3><p>Inspect whether the sample root is an array, a wrapper object, or the entity itself. Rename the root for the concept your code will use and keep transport wrappers only when they matter.</p></article>
+        <article class="feature-learning-card"><h3>The code compiles but validation is weak</h3><p>Type declarations do not automatically enforce runtime rules. Use Zod or JSON Schema when runtime validation is required, then add domain constraints the sample could not infer.</p></article>
+      </div>
+      <p class="feature-learning-outcome"><strong>Learning outcome:</strong> you should be able to point to the sample evidence behind every optional, nullable, nested, array, and mixed-value decision—and identify which domain rules still require human review.</p>
     </section>
 
     <section class="feature-detail-section" aria-labelledby="codegen-faq-title">

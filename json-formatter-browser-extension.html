@@ -29,8 +29,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260725-3" />
+  <link rel="stylesheet" href="style.css?v=20260725-4" />
   <script src="site.js?v=20260719" defer></script>
+  <script src="feature-guide.js?v=20260725-1" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -114,6 +115,17 @@
       </figure>
     </section>
 
+    <nav class="feature-learning-nav" aria-label="Lessons in this JSON guide">
+      <strong>Learn on this page</strong>
+      <div class="feature-learning-links">
+        <a href="#json-workflow-title">Open and navigate</a>
+        <a href="#json-tutorial-title">Follow a complete investigation</a>
+        <a href="#json-query-title">Query and validate</a>
+        <a href="#json-tool-choice-title">Choose the right tool</a>
+        <a href="#json-faq-title">Troubleshoot</a>
+      </div>
+    </nav>
+
     <section class="feature-detail-section" aria-labelledby="json-workflow-title">
       <div class="feature-detail-heading">
         <span class="section-badge">Workflow</span>
@@ -176,6 +188,68 @@
       </div>
     </section>
 
+    <section class="feature-detail-section" aria-labelledby="json-tutorial-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Hands-on tutorial</span>
+        <h2 id="json-tutorial-title">Investigate a slow service response from start to finish</h2>
+        <p>Use the deployment payload shown on this page as the scenario: several services report status and latency, and you need to find the unhealthy entry, understand its location, and decide whether the response still follows its contract.</p>
+      </div>
+      <ol class="feature-tutorial-steps">
+        <li>
+          <div><h3>Open the response in Prettified view</h3><p>Visit the raw API URL, drag the saved response onto the extension launcher, or open it in the Windows app. Confirm that the top-right view toggle says <strong>Prettified</strong>. If you opened a local <code>file://</code> URL directly and nothing happens, use the launcher or enable file URL access for the extension.</p></div>
+        </li>
+        <li>
+          <div><h3>Learn the shape before searching values</h3><p>Collapse the document, then expand only the root and <code>services</code> array. This tells you whether the response is an object, which top-level sections exist, and where repeated service records begin. For a large document, open <strong>Document Navigator</strong> and filter its paths instead of scrolling.</p></div>
+        </li>
+        <li>
+          <div><h3>Find the symptom in context</h3><p>Press <kbd>Ctrl</kbd>+<kbd>F</kbd> and search for <code>degraded</code>. Move through the result count and inspect the surrounding service name, metrics, and release data. Ordinary search is the fastest choice when you know a value but not its exact JSON path.</p></div>
+        </li>
+        <li>
+          <div><h3>Ask a repeatable structural question</h3><p>Open <strong>More Actions → JSON Path Inspector</strong>, enter <code>$.services[*].name</code>, and run the query. The result list should contain one value for every service name. Select a result to connect the extracted value to its source line, then copy either an individual value or the complete result.</p></div>
+        </li>
+        <li>
+          <div>
+            <h3>Check the response against a small contract</h3>
+            <p>Open <strong>Schema Validator</strong> and paste a schema that requires every service to have an owner and a healthy status. Run validation and read each result as <em>path → rule → source line</em>. A useful validator result tells you both what rule failed and where the offending value lives.</p>
+            <pre class="feature-code"><code>{
+  "type": "object",
+  "required": ["services"],
+  "properties": {
+    "services": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "owner"],
+        "properties": {
+          "status": { "enum": ["healthy"] }
+        }
+      }
+    }
+  }
+}</code></pre>
+          </div>
+        </li>
+        <li>
+          <div><h3>Switch perspective when the array behaves like a table</h3><p>Open <strong>Table View</strong> for the service array. Search a region or owner, sort the latency column descending, and compare records without repeatedly expanding objects. Return to the structured viewer when you need nested values that do not fit naturally into columns.</p></div>
+        </li>
+        <li>
+          <div><h3>Separate real changes from formatting noise</h3><p>Copy a second response, open <strong>Compare</strong>, and choose semantic JSON comparison when key order or whitespace changed. Review additions, removals, and changed values, then copy or export only after you understand which representation—original, formatted, or transformed—you need.</p></div>
+        </li>
+      </ol>
+      <div class="feature-practice-lab">
+        <h3>Practice checkpoint</h3>
+        <p>Repeat the workflow with one of your own API responses. You are finished when you can answer these questions without manually reading every line.</p>
+        <ul class="feature-checklist">
+          <li>What is the root type and which arrays contain repeated records?</li>
+          <li>Which source line contains the first degraded status?</li>
+          <li>What does <code>$.services[*].name</code> return?</li>
+          <li>Which schema rule produces each reported violation?</li>
+          <li>Which service has the highest latency in Table View?</li>
+          <li>Which values truly changed between two responses?</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="feature-detail-section" aria-labelledby="json-query-title">
       <div class="feature-detail-heading">
         <span class="section-badge">Query and validate</span>
@@ -199,6 +273,34 @@
           <p>CodePrettify does not fetch remote schema references. Paste the schema you intend to trust, use local <code>#</code> references, and validate the current document in place.</p>
         </div>
       </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="json-tool-choice-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Decision guide</span>
+        <h2 id="json-tool-choice-title">Choose the smallest tool that answers the question</h2>
+        <p>Several tools can inspect JSON, but they solve different problems. Start with the least complex option and move to a structural tool only when the question demands it.</p>
+      </div>
+      <div class="feature-guide-table-wrap">
+        <table class="feature-guide-table">
+          <thead><tr><th>Your question</th><th>Start with</th><th>What a useful result looks like</th></tr></thead>
+          <tbody>
+            <tr><td>“Where does this text or identifier appear?”</td><td>Find with <kbd>Ctrl</kbd>+<kbd>F</kbd></td><td>A highlighted value with match count and surrounding fields.</td></tr>
+            <tr><td>“Give me the same field from every record.”</td><td>JSON Path Inspector</td><td>A repeatable path such as <code>$.services[*].name</code> and a list of matched values.</td></tr>
+            <tr><td>“Does this payload follow our expected contract?”</td><td>Schema Validator</td><td>Zero violations, or precise paths and line numbers for every failed rule.</td></tr>
+            <tr><td>“Which rows are slow, missing, or out of order?”</td><td>Table View</td><td>A filtered or sorted array where differences are visible by column.</td></tr>
+            <tr><td>“What changed between releases?”</td><td>Semantic Compare</td><td>Changed data values without whitespace and key-order noise.</td></tr>
+            <tr><td>“Is the payload unusually deep or structurally suspicious?”</td><td>Statistics &amp; Diagnostics</td><td>Depth, counts, syntax status, duplicate-key warnings, and other structural evidence.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="feature-troubleshooting-grid">
+        <article class="feature-learning-card"><h3>The extension did not activate</h3><p>Confirm the resource is raw JSON rather than an HTML page, check that JSON is enabled in Settings, and reload. For a local file, use the launcher when direct file URL permission is unavailable.</p></article>
+        <article class="feature-learning-card"><h3>The query returns no values</h3><p>Inspect the root shape and spelling first. A document rooted at an array needs a different starting path than an object containing a <code>services</code> property.</p></article>
+        <article class="feature-learning-card"><h3>Schema results look overwhelming</h3><p>Begin with one required field or one enum rule, validate, then add constraints gradually. This separates a wrong schema assumption from a genuinely invalid payload.</p></article>
+        <article class="feature-learning-card"><h3>The formatted result should not replace the source</h3><p>Formatting changes presentation, not the original response. Choose the original, formatted, converted, or transformed representation explicitly when copying or exporting.</p></article>
+      </div>
+      <p class="feature-learning-outcome"><strong>Learning outcome:</strong> you should be able to move from “this response is too large to read” to a specific path, source line, validation rule, or changed value—and explain how you found it.</p>
     </section>
 
     <section class="feature-detail-section" aria-labelledby="json-capabilities-title">

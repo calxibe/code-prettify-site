@@ -874,14 +874,31 @@ async function checkFeatureGuides(page, baseUrl) {
       const schemaItems = schemas
         .filter(Boolean)
         .flatMap((schema) => Array.isArray(schema["@graph"]) ? schema["@graph"] : [schema]);
+      const learningLinks = Array.from(document.querySelectorAll(".feature-learning-links a"), (link) => {
+        const href = link.getAttribute("href") || "";
+        return {
+          href,
+          hasTarget: href.startsWith("#") && Boolean(document.querySelector(href)),
+        };
+      });
+      const screenshotButtons = Array.from(document.querySelectorAll(".feature-screenshot-open"), (button) => ({
+        controls: button.getAttribute("aria-controls"),
+        hasZoomLabel: Boolean(button.querySelector(".manual-screenshot-zoom")),
+        popup: button.getAttribute("aria-haspopup"),
+      }));
       return {
         canonical: document.querySelector('link[rel="canonical"]')?.href || "",
         description: document.querySelector('meta[name="description"]')?.content || "",
+        guideTables: document.querySelectorAll(".feature-guide-table").length,
         h1: document.querySelector("h1")?.textContent.replace(/\s+/g, " ").trim() || "",
         images,
+        learningLinks,
+        practiceLabs: document.querySelectorAll(".feature-practice-lab").length,
         schemaTypes: schemaItems.map((schema) => schema["@type"]),
         schemasValid: schemas.every(Boolean),
+        screenshotButtons,
         title: document.title,
+        tutorialSteps: document.querySelectorAll(".feature-tutorial-steps > li").length,
         words: content.split(/\s+/).filter(Boolean).length,
       };
     });
@@ -890,11 +907,21 @@ async function checkFeatureGuides(page, baseUrl) {
     assert(state.description.length >= 110 && state.description.length <= 190, `${guide.page} needs a useful meta description`);
     assert(state.canonical === guide.canonical, `${guide.page} has the wrong canonical URL`);
     assert(state.h1.length >= 25, `${guide.page} needs a descriptive H1`);
-    assert(state.words >= 650, `${guide.page} is not in-depth enough (${state.words} words)`);
+    assert(state.words >= 1400, `${guide.page} is not educationally in-depth enough (${state.words} words)`);
+    assert(state.learningLinks.length >= 5, `${guide.page} needs a useful lesson outline`);
+    assert(state.learningLinks.every(({ hasTarget }) => hasTarget), `${guide.page} has a lesson-outline link without a target`);
+    assert(state.tutorialSteps >= 7, `${guide.page} needs a complete step-by-step tutorial`);
+    assert(state.practiceLabs >= 1, `${guide.page} needs a practical learning exercise`);
+    assert(state.guideTables >= 1, `${guide.page} needs a decision, review, or troubleshooting reference`);
     assert(state.schemasValid, `${guide.page} contains invalid JSON-LD`);
     assert(state.schemaTypes.includes("SoftwareApplication"), `${guide.page} is missing SoftwareApplication structured data`);
     assert(state.schemaTypes.includes("BreadcrumbList"), `${guide.page} is missing BreadcrumbList structured data`);
     assert(state.images.length >= 2, `${guide.page} needs at least two product screenshots`);
+    assert(state.screenshotButtons.length === state.images.length, `${guide.page} does not make every screenshot clickable`);
+    assert(
+      state.screenshotButtons.every(({ controls, hasZoomLabel, popup }) => controls === "screenshot-modal" && hasZoomLabel && popup === "dialog"),
+      `${guide.page} screenshot controls are missing accessible full-size-viewer metadata`
+    );
 
     for (const requiredFile of guide.screenshots) {
       assert(state.images.some(({ src }) => src === `img/${requiredFile}`), `${guide.page} is missing ${requiredFile}`);
@@ -907,6 +934,23 @@ async function checkFeatureGuides(page, baseUrl) {
         assert(image.loading === "lazy", `${guide.page} secondary screenshots should load lazily`);
       }
     }
+
+    const firstScreenshotButton = page.locator(".feature-screenshot-open").first();
+    const screenshotModal = page.locator("#screenshot-modal");
+    const modalImage = page.locator("#screenshot-modal-image");
+    await firstScreenshotButton.click();
+    assert(await screenshotModal.isVisible(), `${guide.page} screenshot viewer did not open`);
+    const firstModalSource = await modalImage.getAttribute("src");
+    assert(firstModalSource?.includes(guide.screenshots[0]), `${guide.page} screenshot viewer opened the wrong full-size image`);
+    await page.keyboard.press("ArrowRight");
+    const secondModalSource = await modalImage.getAttribute("src");
+    assert(secondModalSource && secondModalSource !== firstModalSource, `${guide.page} screenshot viewer did not navigate with ArrowRight`);
+    await page.keyboard.press("Escape");
+    assert(!(await screenshotModal.isVisible()), `${guide.page} screenshot viewer did not close with Escape`);
+    assert(
+      await firstScreenshotButton.evaluate((button) => document.activeElement === button),
+      `${guide.page} screenshot viewer did not restore focus`
+    );
   }
 
   for (const file of declaredScreenshots) {
@@ -976,6 +1020,46 @@ async function checkFeatureCodeContrast(page, baseUrl) {
   await page.emulateMedia({ colorScheme: "light" });
 }
 
+async function checkFeatureScreenshotMobile(page, baseUrl) {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.emulateMedia({ colorScheme: "light" });
+  await page.goto(`${baseUrl}/regex-playground.html`, { waitUntil: "domcontentloaded" });
+  await page.locator(".feature-screenshot-open").nth(1).click();
+
+  const layout = await page.evaluate(() => {
+    const modal = document.getElementById("screenshot-modal");
+    const image = document.getElementById("screenshot-modal-image");
+    const close = document.getElementById("screenshot-modal-close");
+    const previous = document.getElementById("screenshot-modal-prev");
+    const next = document.getElementById("screenshot-modal-next");
+    const imageRect = image.getBoundingClientRect();
+    const closeRect = close.getBoundingClientRect();
+    const previousRect = previous.getBoundingClientRect();
+    const nextRect = next.getBoundingClientRect();
+    const withinViewport = (rect) => (
+      rect.left >= -1
+      && rect.top >= -1
+      && rect.right <= window.innerWidth + 1
+      && rect.bottom <= window.innerHeight + 1
+    );
+    return {
+      bodyLocked: document.body.classList.contains("screenshot-modal-open"),
+      closeVisible: withinViewport(closeRect),
+      imageVisible: imageRect.width > 0 && imageRect.height > 0 && withinViewport(imageRect),
+      modalVisible: !modal.hidden,
+      nextVisible: withinViewport(nextRect),
+      previousVisible: withinViewport(previousRect),
+    };
+  });
+
+  assert(layout.modalVisible && layout.bodyLocked, "Mobile feature screenshot viewer did not open correctly");
+  assert(layout.imageVisible, "Mobile feature screenshot is clipped outside the viewport");
+  assert(layout.closeVisible, "Mobile feature screenshot close control is outside the viewport");
+  assert(layout.previousVisible && layout.nextVisible, "Mobile feature screenshot navigation is outside the viewport");
+  await page.keyboard.press("Escape");
+  assert(!(await page.locator("#screenshot-modal").isVisible()), "Mobile feature screenshot viewer did not close");
+}
+
 async function main() {
   const server = createServer();
   await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
@@ -999,6 +1083,7 @@ async function main() {
     await checkHomepageScreenshotGallery(page, baseUrl);
     await checkFeatureGuides(page, baseUrl);
     await checkFeatureCodeContrast(page, baseUrl);
+    await checkFeatureScreenshotMobile(page, baseUrl);
     await checkScreenshotDialog(page, baseUrl);
     console.log(`Website checks passed for ${PAGES.length} pages.`);
   } finally {

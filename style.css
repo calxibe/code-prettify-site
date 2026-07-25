@@ -2505,7 +2505,8 @@ kbd {
     background: rgba(10, 11, 15, 0.45);
 }
 
-.manual-screenshot-open {
+.manual-screenshot-open,
+.feature-screenshot-open {
     position: relative;
     display: block;
     width: 100%;
@@ -2518,12 +2519,14 @@ kbd {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.manual-screenshot-open:hover {
+.manual-screenshot-open:hover,
+.feature-screenshot-open:hover {
     transform: translateY(-2px);
     box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
 }
 
-.manual-screenshot-open img {
+.manual-screenshot-open img,
+.feature-screenshot-open img {
     display: block;
     width: 100%;
     height: auto;
@@ -2532,7 +2535,8 @@ kbd {
     transition: transform 0.2s ease;
 }
 
-.manual-screenshot-open:hover img {
+.manual-screenshot-open:hover img,
+.feature-screenshot-open:hover img {
     transform: scale(1.025);
 }
 
@@ -2773,7 +2777,8 @@ kbd {
         border-color: #d4d4d8;
     }
 
-    .manual-screenshot-open {
+    .manual-screenshot-open,
+    .feature-screenshot-open {
         background: #fff;
     }
 
@@ -3503,6 +3508,8 @@ kbd {
     .feature-card:hover,
     .manual-screenshot-open:hover,
     .manual-screenshot-open:hover img,
+    .feature-screenshot-open:hover,
+    .feature-screenshot-open:hover img,
     .screenshot-tab:hover .screenshot-tab-thumb img,
     .screenshot-tab.active .screenshot-tab-thumb img {
         transform: none;
@@ -3655,6 +3662,254 @@ kbd {
 .feature-detail-section + .feature-detail-section {
     border-top: 1px solid rgba(63, 63, 70, 0.55);
     margin-top: 84px;
+}
+
+.feature-learning-nav {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 18px 28px;
+    align-items: center;
+    padding: 22px 24px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(var(--primary-rgb), 0.12), transparent 34%),
+        rgba(24, 24, 27, 0.72);
+}
+
+.feature-learning-nav > strong {
+    color: var(--text);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.feature-learning-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.feature-learning-links a {
+    padding: 7px 10px;
+    border: 1px solid rgba(var(--primary-light-rgb), 0.24);
+    border-radius: 999px;
+    color: var(--primary-light);
+    background: rgba(var(--primary-rgb), 0.08);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.feature-learning-links a:hover,
+.feature-learning-links a:focus-visible {
+    border-color: rgba(var(--primary-light-rgb), 0.7);
+    background: rgba(var(--primary-rgb), 0.16);
+    outline: none;
+}
+
+.feature-tutorial-steps {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    counter-reset: feature-tutorial-step;
+    list-style: none;
+}
+
+.feature-tutorial-steps > li {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+    padding: 22px 24px;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    background: rgba(24, 24, 27, 0.64);
+    counter-increment: feature-tutorial-step;
+}
+
+.feature-tutorial-steps > li::before {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border: 1px solid rgba(var(--primary-light-rgb), 0.42);
+    border-radius: 10px;
+    color: var(--primary-light);
+    background: rgba(var(--primary-rgb), 0.12);
+    content: counter(feature-tutorial-step);
+    font-weight: 800;
+}
+
+.feature-tutorial-steps h3 {
+    margin: 0;
+    color: var(--text);
+    font-size: 1.05rem;
+}
+
+.feature-tutorial-steps p {
+    margin: 8px 0 0;
+    color: var(--text-muted);
+    font-size: 0.94rem;
+    line-height: 1.7;
+}
+
+.feature-tutorial-steps .feature-code {
+    margin-top: 14px;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 10px;
+}
+
+.feature-learning-grid,
+.feature-troubleshooting-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.feature-learning-card {
+    min-width: 0;
+    padding: 22px 24px;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    background: rgba(24, 24, 27, 0.64);
+}
+
+.feature-learning-card h3 {
+    margin: 0;
+    color: var(--text);
+    font-size: 1rem;
+}
+
+.feature-learning-card p {
+    margin: 9px 0 0;
+    color: var(--text-muted);
+    font-size: 0.91rem;
+    line-height: 1.68;
+}
+
+.feature-learning-card ul {
+    margin: 12px 0 0;
+    padding-left: 20px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.68;
+}
+
+.feature-practice-lab {
+    margin-top: 24px;
+    padding: 26px;
+    border: 1px solid rgba(var(--primary-light-rgb), 0.28);
+    border-radius: 17px;
+    background:
+        radial-gradient(circle at 90% 10%, rgba(var(--primary-rgb), 0.13), transparent 30%),
+        rgba(18, 20, 25, 0.88);
+}
+
+.feature-practice-lab h3 {
+    margin: 0;
+    color: var(--text);
+    font-size: 1.2rem;
+}
+
+.feature-practice-lab > p {
+    max-width: 820px;
+    margin: 10px 0 0;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.feature-checklist {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 18px;
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.feature-checklist li {
+    position: relative;
+    padding-left: 26px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+.feature-checklist li::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--primary-light);
+    content: "✓";
+    font-weight: 900;
+}
+
+.feature-guide-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+}
+
+.feature-guide-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(24, 24, 27, 0.64);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+.feature-guide-table th,
+.feature-guide-table td {
+    padding: 15px 17px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+}
+
+.feature-guide-table tr:last-child td {
+    border-bottom: 0;
+}
+
+.feature-guide-table th {
+    color: var(--text);
+    background: rgba(var(--primary-rgb), 0.1);
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.feature-learning-outcome {
+    margin-top: 20px;
+    padding: 18px 20px;
+    border-left: 3px solid var(--primary-light);
+    border-radius: 0 12px 12px 0;
+    color: var(--text-muted);
+    background: rgba(var(--primary-rgb), 0.09);
+    font-size: 0.94rem;
+    line-height: 1.65;
+}
+
+.feature-learning-outcome strong {
+    color: var(--text);
+}
+
+.feature-screenshot-open {
+    border-radius: 0;
+}
+
+.feature-screenshot-open:focus-visible {
+    outline: 3px solid rgba(var(--primary-light-rgb), 0.72);
+    outline-offset: -3px;
+}
+
+.feature-detail-body .screenshot-modal-nav > span {
+    display: block;
+    margin-top: -3px;
+    font-size: 2rem;
+    line-height: 1;
 }
 
 .feature-detail-heading {
@@ -3972,6 +4227,32 @@ kbd {
         font-size: clamp(2.55rem, 14vw, 3.8rem);
     }
 
+    .feature-learning-nav {
+        grid-template-columns: 1fr;
+        padding: 18px;
+    }
+
+    .feature-tutorial-steps > li {
+        grid-template-columns: 36px minmax(0, 1fr);
+        gap: 13px;
+        padding: 18px;
+    }
+
+    .feature-tutorial-steps > li::before {
+        width: 32px;
+        height: 32px;
+    }
+
+    .feature-learning-grid,
+    .feature-troubleshooting-grid,
+    .feature-checklist {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-practice-lab {
+        padding: 20px;
+    }
+
     .feature-detail-actions {
         flex-direction: column;
         align-items: stretch;
@@ -4031,5 +4312,14 @@ kbd {
             radial-gradient(circle at 85% 15%, rgba(34, 211, 238, 0.11), transparent 28%),
             linear-gradient(135deg, rgba(var(--primary-rgb), 0.08), rgba(255, 255, 255, 0.94));
         box-shadow: 0 22px 60px rgba(15, 23, 42, 0.08);
+    }
+
+    .feature-learning-nav,
+    .feature-tutorial-steps > li,
+    .feature-learning-card,
+    .feature-practice-lab,
+    .feature-guide-table {
+        background-color: rgba(255, 255, 255, 0.92);
+        box-shadow: 0 12px 32px rgba(15, 23, 42, 0.05);
     }
 }

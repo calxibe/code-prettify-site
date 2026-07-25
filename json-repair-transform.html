@@ -29,8 +29,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260725-3" />
+  <link rel="stylesheet" href="style.css?v=20260725-4" />
   <script src="site.js?v=20260719" defer></script>
+  <script src="feature-guide.js?v=20260725-1" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -78,6 +79,17 @@
       <figure class="feature-hero-shot"><img src="img/feature-workbench-repair.png" alt="JSON Repair and Transform showing messy input, repaired JSON, and a detailed repair report" width="1280" height="800" fetchpriority="high" /><figcaption>Code fences, surrounding prose, unquoted keys, single quotes, Python values, and trailing commas are repaired with a visible report.</figcaption></figure>
     </section>
 
+    <nav class="feature-learning-nav" aria-label="Lessons in this JSON repair and transform guide">
+      <strong>Learn on this page</strong>
+      <div class="feature-learning-links">
+        <a href="#repair-tutorial-title">Repair safely</a>
+        <a href="#repair-types-title">Understand the report</a>
+        <a href="#transform-tutorial-title">Build a transformation recipe</a>
+        <a href="#repair-decisions-title">Handle failures</a>
+        <a href="#repair-faq-title">Troubleshoot</a>
+      </div>
+    </nav>
+
     <section class="feature-detail-section" aria-labelledby="repair-sample-title">
       <div class="feature-detail-heading"><span class="section-badge">Repair example</span><h2 id="repair-sample-title">Recover the useful payload without guessing silently</h2><p>The repair tool is designed for recognizable JSON-like input. It does not invent missing business data or pretend an ambiguous document is correct.</p></div>
       <div class="feature-example-grid">
@@ -110,15 +122,58 @@
       <div class="feature-privacy-note"><span class="feature-privacy-icon" aria-hidden="true">i</span><div><strong>Review the report before using the result.</strong><p>The workbench lists the repairs it applied. If the source is incomplete or semantically ambiguous, confirm the values against the originating system.</p></div></div>
     </section>
 
+    <section class="feature-detail-section" aria-labelledby="repair-tutorial-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Hands-on repair tutorial</span>
+        <h2 id="repair-tutorial-title">Recover a fenced Python-style payload without hiding the changes</h2>
+        <p>Use the captured input above for this lesson. The important habit is to treat the repair report as evidence, not as a decorative success message.</p>
+      </div>
+      <ol class="feature-tutorial-steps">
+        <li>
+          <div><h3>Open Repair &amp; Salvage</h3><p>Choose <strong>More Actions → General tools → JSON Repair &amp; Transform</strong>, or find it through the Command Palette. In the Windows app, it is also available from <strong>Tools</strong>. Select the <strong>Repair &amp; Salvage</strong> tab.</p></div>
+        </li>
+        <li>
+          <div><h3>Load the exact source you received</h3><p>Paste the complete text, including surrounding prose and code fences, so the report can explain what it removed. If a compatible document is already open, choose <strong>Use document</strong>. Avoid hand-fixing the source first—you would lose the audit trail for those changes.</p></div>
+        </li>
+        <li>
+          <div><h3>Decide whether partial JSON Lines salvage is acceptable</h3><p>Leave <strong>Allow partial-record salvage</strong> off unless the input is JSON Lines and you deliberately accept dropping reported invalid records. With the option off, one bad record blocks the result. With it on, every excluded source line must be reviewed.</p></div>
+        </li>
+        <li>
+          <div><h3>Analyze, then read the repair list in order</h3><p>Choose <strong>Analyze &amp; repair</strong>. For the sample, expect the report to mention the Markdown fence or surrounding text, quoted keys, converted single-quoted strings, Python booleans and null, and removed trailing commas. A change that extracts or semantically replaces content deserves more scrutiny than whitespace cleanup.</p></div>
+        </li>
+        <li>
+          <div><h3>Compare repaired values with their source meaning</h3><p>Verify that <code>True</code> became JSON <code>true</code>, <code>None</code> became <code>null</code>, and every string value remained unchanged. The tool can normalize recognizable syntax; only you can confirm that <code>production</code>, the region, and the enabled state are correct business values.</p></div>
+        </li>
+        <li>
+          <div><h3>Stop when the source is incomplete or ambiguous</h3><p>If the tool rejects truncated input, missing structural separators, unsafe numbers, excessive nesting, or another unbounded case, return to the producing system. A refusal is safer than a plausible-looking document assembled from guesses.</p></div>
+        </li>
+        <li>
+          <div><h3>Pass the reviewed result forward explicitly</h3><p>Copy or download the clean JSON when repair is the only goal. To reshape it, choose <strong>Use result in Transform</strong>. This creates a separate working result; it does not overwrite the original file or the text you pasted.</p></div>
+        </li>
+      </ol>
+      <div class="feature-practice-lab">
+        <h3>Repair review checklist</h3>
+        <p>Before using a repaired payload in code, a database, or another tool, confirm all six points.</p>
+        <ul class="feature-checklist">
+          <li>The extracted object or array is the payload you intended.</li>
+          <li>Every semantic literal replacement has the expected meaning.</li>
+          <li>No JSON Lines record was excluded without explicit approval.</li>
+          <li>Strings, IDs, timestamps, and numeric values survived unchanged.</li>
+          <li>The repaired output parses as strict JSON.</li>
+          <li>The source remains available for comparison or audit.</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="feature-detail-section" aria-labelledby="repair-types-title">
       <div class="feature-detail-heading"><span class="section-badge">Common repairs</span><h2 id="repair-types-title">Problems the repair pass can recognize</h2></div>
       <div class="feature-capability-grid">
-        <article class="feature-capability"><h3>Wrappers and noise</h3><ul><li>Markdown code fences</li><li>Surrounding prose</li><li>JSONP-style wrappers</li><li>Escaped JSON strings</li></ul></article>
-        <article class="feature-capability"><h3>Quotes and keys</h3><ul><li>Single-quoted strings</li><li>Smart quotes</li><li>Unquoted object keys</li><li>Missing escape characters</li></ul></article>
-        <article class="feature-capability"><h3>Delimiters</h3><ul><li>Missing commas</li><li>Trailing commas</li><li>Missing closing brackets</li><li>Truncated structures when recoverable</li></ul></article>
-        <article class="feature-capability"><h3>Foreign constants</h3><ul><li><code>True</code> and <code>False</code></li><li><code>None</code></li><li>Special whitespace</li><li>Ellipsis in arrays and objects</li></ul></article>
-        <article class="feature-capability"><h3>Copied expressions</h3><ul><li>Concatenated strings</li><li>Common MongoDB wrappers</li><li>Newline-delimited records</li><li>Comments where safely removable</li></ul></article>
-        <article class="feature-capability"><h3>Safety boundaries</h3><ul><li>Bounded input and traversal</li><li>No network requests</li><li>No mutation of the open document</li><li>Explicit error when recovery is unsafe</li></ul></article>
+        <article class="feature-capability"><h3>Wrappers and noise</h3><ul><li>Byte-order marks</li><li>Markdown code fences</li><li>Surrounding prose</li><li>First balanced object or array</li></ul></article>
+        <article class="feature-capability"><h3>Quotes and keys</h3><ul><li>Single-quoted strings</li><li>Unquoted object keys</li><li>JavaScript comments</li><li>Raw controls inside strings</li></ul></article>
+        <article class="feature-capability"><h3>Trailing syntax</h3><ul><li>Trailing commas</li><li>A final semicolon</li><li>Recognized JavaScript literals</li><li>Recognized Python literals</li></ul></article>
+        <article class="feature-capability"><h3>JSON Lines</h3><ul><li>Record-by-record validation</li><li>Explicit partial-salvage opt-in</li><li>Discarded source-line reporting</li><li>Array result for transformation</li></ul></article>
+        <article class="feature-capability"><h3>Confidence signals</h3><ul><li>Every repair listed</li><li>Warnings beside the result</li><li>Lower confidence for extraction</li><li>Extra review for semantic replacement</li></ul></article>
+        <article class="feature-capability"><h3>Safety boundaries</h3><ul><li>Truncated or ambiguous input is rejected</li><li>No network requests</li><li>No mutation of the source</li><li>Bounded size, depth, and traversal</li></ul></article>
       </div>
     </section>
 
@@ -135,6 +190,24 @@
       </div>
     </section>
 
+    <section class="feature-detail-section" aria-labelledby="transform-tutorial-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Hands-on transform tutorial</span>
+        <h2 id="transform-tutorial-title">Turn six usage records into a two-row admin report</h2>
+        <p>Follow the recipe shown in the screenshot: keep administrators, order them by request volume, and retain only the fields needed for a short report. Each operation receives the result of the preceding step.</p>
+      </div>
+      <ol class="feature-tutorial-steps">
+        <li><div><h3>Start from reviewed structured data</h3><p>Choose <strong>Use result in Transform</strong> after repair, or load valid JSON, JSON Lines, CSV, YAML, TOML, XML, or feed data. Confirm the live result shows the expected starting row count before adding operations.</p></div></li>
+        <li><div><h3>Add a Filter operation</h3><p>Choose <strong>Filter</strong>, select the <code>role</code> field, use the equality operator, and enter <code>Admin</code>. The field picker uses detected fields, types, and sample values to reduce typing mistakes.</p></div></li>
+        <li><div><h3>Read the intermediate result</h3><p>Confirm that only administrator rows remain and that the status reports two rows from the original six. If no rows match, inspect capitalization, value type, and field path before adding another step.</p></div></li>
+        <li><div><h3>Add Sort after Filter</h3><p>Choose <strong>Sort</strong>, select the request-count field, and use descending order. Because sorting runs after filtering, it orders only the two administrator records instead of doing work on rows that will be removed.</p></div></li>
+        <li><div><h3>Select the report fields</h3><p>Add <strong>Select fields</strong> and keep the user name, role, and request count. The output becomes smaller without changing the original source. Rename a field only when the downstream consumer requires a different key.</p></div></li>
+        <li><div><h3>Test operation order</h3><p>Move <strong>Select fields</strong> above <strong>Sort</strong>. If the selected fields no longer include the sort key, the later step cannot work as intended. Move it back and use this experiment to see why recipe order is part of the transformation.</p></div></li>
+        <li><div><h3>Export the result, not the recipe preview</h3><p>When the live result and row count are correct, copy, export, or open the transformed JSON as a new document. Keep the source and repair report until the output has been checked by its destination.</p></div></li>
+      </ol>
+      <p class="feature-learning-outcome"><strong>Expected result:</strong> two administrator objects, sorted from highest to lowest request count, containing only the fields selected for the report.</p>
+    </section>
+
     <section class="feature-detail-section" aria-labelledby="transform-ops-title">
       <div class="feature-detail-heading"><span class="section-badge">Recipe operations</span><h2 id="transform-ops-title">Compose the transformation you actually need</h2></div>
       <div class="feature-capability-grid">
@@ -144,6 +217,26 @@
         <article class="feature-capability"><h3>Summarize data</h3><p>Group rows and calculate aggregates for quick inspection or export.</p></article>
         <article class="feature-capability"><h3>Reorder safely</h3><p>Move or remove steps and let the workbench recalculate the result from the original input.</p></article>
         <article class="feature-capability"><h3>Keep provenance clear</h3><p>The source document remains intact. The transformed output is a separate result you explicitly copy, export, or open.</p></article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="repair-decisions-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Failure guide</span>
+        <h2 id="repair-decisions-title">Understand when to repair, when to transform, and when to stop</h2>
+      </div>
+      <div class="feature-guide-table-wrap">
+        <table class="feature-guide-table">
+          <thead><tr><th>What you see</th><th>What it means</th><th>Best next action</th></tr></thead>
+          <tbody>
+            <tr><td>High-confidence formatting cleanup</td><td>The tool made bounded syntax changes such as removing a fence or trailing comma.</td><td>Still review the report, then parse or transform the result.</td></tr>
+            <tr><td>Extraction or semantic-literal warning</td><td>The tool selected content from a wrapper or changed Python/JavaScript meaning into JSON.</td><td>Compare each changed value with the source system.</td></tr>
+            <tr><td>Invalid JSON Lines record</td><td>One physical record cannot be parsed safely.</td><td>Fix the source, or opt into partial salvage only when losing the reported line is acceptable.</td></tr>
+            <tr><td>Incomplete transformation step</td><td>A required field, operator, value, or option is missing.</td><td>Complete the step; the previous valid preview remains visible.</td></tr>
+            <tr><td>“No rows matched”</td><td>A completed filter removed every row.</td><td>Check field path, value type, spelling, and operation order, or remove that step.</td></tr>
+            <tr><td>Unsafe or truncated structure</td><td>The tool cannot recover strict JSON without guessing.</td><td>Stop and obtain a complete payload from the producer.</td></tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
