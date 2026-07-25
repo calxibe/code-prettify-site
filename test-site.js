@@ -886,6 +886,18 @@ async function checkFeatureGuides(page, baseUrl) {
         hasZoomLabel: Boolean(button.querySelector(".manual-screenshot-zoom")),
         popup: button.getAttribute("aria-haspopup"),
       }));
+      const screenshotCards = Array.from(document.querySelectorAll(".feature-guide-shot"), (figure) => {
+        const caption = figure.querySelector("figcaption");
+        const figureRect = figure.getBoundingClientRect();
+        const captionRect = caption.getBoundingClientRect();
+        const figureStyle = getComputedStyle(figure);
+        return {
+          captionBottomGap: Math.abs(figureRect.bottom - captionRect.bottom),
+          captionFlexGrow: getComputedStyle(caption).flexGrow,
+          display: figureStyle.display,
+          flexDirection: figureStyle.flexDirection,
+        };
+      });
       return {
         canonical: document.querySelector('link[rel="canonical"]')?.href || "",
         description: document.querySelector('meta[name="description"]')?.content || "",
@@ -897,6 +909,7 @@ async function checkFeatureGuides(page, baseUrl) {
         schemaTypes: schemaItems.map((schema) => schema["@type"]),
         schemasValid: schemas.every(Boolean),
         screenshotButtons,
+        screenshotCards,
         title: document.title,
         tutorialSteps: document.querySelectorAll(".feature-tutorial-steps > li").length,
         words: content.split(/\s+/).filter(Boolean).length,
@@ -921,6 +934,15 @@ async function checkFeatureGuides(page, baseUrl) {
     assert(
       state.screenshotButtons.every(({ controls, hasZoomLabel, popup }) => controls === "screenshot-modal" && hasZoomLabel && popup === "dialog"),
       `${guide.page} screenshot controls are missing accessible full-size-viewer metadata`
+    );
+    assert(
+      state.screenshotCards.every(({ captionBottomGap, captionFlexGrow, display, flexDirection }) => (
+        captionBottomGap <= 1.5
+        && captionFlexGrow === "1"
+        && display === "flex"
+        && flexDirection === "column"
+      )),
+      `${guide.page} screenshot captions leave the figure background exposed`
     );
 
     for (const requiredFile of guide.screenshots) {

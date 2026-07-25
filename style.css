@@ -3638,6 +3638,15 @@ kbd {
     transform: rotate(0.7deg);
 }
 
+.feature-guide-shot {
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-guide-shot > .feature-screenshot-open {
+    flex: 0 0 auto;
+}
+
 .feature-hero-shot img,
 .feature-guide-shot img {
     display: block;
@@ -3653,6 +3662,10 @@ kbd {
     background: rgba(13, 14, 18, 0.96);
     font-size: 0.78rem;
     line-height: 1.5;
+}
+
+.feature-guide-shot figcaption {
+    flex: 1 1 auto;
 }
 
 .feature-detail-section {
