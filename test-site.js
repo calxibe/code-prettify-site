@@ -898,6 +898,13 @@ async function checkFeatureGuides(page, baseUrl) {
           flexDirection: figureStyle.flexDirection,
         };
       });
+      const tableTroubleshootingGaps = Array.from(
+        document.querySelectorAll(".feature-guide-table-wrap + .feature-troubleshooting-grid"),
+        (grid) => {
+          const table = grid.previousElementSibling;
+          return grid.getBoundingClientRect().top - table.getBoundingClientRect().bottom;
+        }
+      );
       return {
         canonical: document.querySelector('link[rel="canonical"]')?.href || "",
         description: document.querySelector('meta[name="description"]')?.content || "",
@@ -910,6 +917,7 @@ async function checkFeatureGuides(page, baseUrl) {
         schemasValid: schemas.every(Boolean),
         screenshotButtons,
         screenshotCards,
+        tableTroubleshootingGaps,
         title: document.title,
         tutorialSteps: document.querySelectorAll(".feature-tutorial-steps > li").length,
         words: content.split(/\s+/).filter(Boolean).length,
@@ -943,6 +951,10 @@ async function checkFeatureGuides(page, baseUrl) {
         && flexDirection === "column"
       )),
       `${guide.page} screenshot captions leave the figure background exposed`
+    );
+    assert(
+      state.tableTroubleshootingGaps.every((gap) => gap >= 23.5),
+      `${guide.page} needs space between its guide table and troubleshooting grid`
     );
 
     for (const requiredFile of guide.screenshots) {
