@@ -46,6 +46,9 @@ const HOMEPAGE_SCREENSHOTS = [
   { file: "feature-regex-playground.png", label: "Regex Playground" },
 ];
 const NEW_HOMEPAGE_SCREENSHOTS = HOMEPAGE_SCREENSHOTS.slice(1, 6);
+const STORE_SCREENSHOTS = [
+  { file: "store-js-transform.png", width: 1280, height: 800 },
+];
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -251,6 +254,10 @@ async function checkPricingPage(page, baseUrl) {
 async function checkHomepageResourceLinks(page, baseUrl) {
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto(`${baseUrl}/index.html`, { waitUntil: "domcontentloaded" });
+  const lightBrandColor = await page.locator(".logo > span > span").evaluate(
+    (element) => getComputedStyle(element).color
+  );
+  assert(lightBrandColor === "rgb(12, 120, 148)", "Light-mode Prettify wordmark does not use the accessible brand color");
   const resourceLinks = await page.evaluate(() => Array.from(document.querySelectorAll(".hero-resource-links a"), (link) => ({
     href: link.getAttribute("href"),
     isButton: link.classList.contains("btn"),
@@ -286,6 +293,64 @@ async function checkHomepageResourceLinks(page, baseUrl) {
   }));
   assert(hoverStyle.transform !== "none", "Microsoft Store CTA is missing the raised hover motion");
   assert(hoverStyle.boxShadow !== "none", "Microsoft Store CTA is missing the install-button hover shadow");
+}
+
+async function checkBrandPalette(page, baseUrl) {
+  await page.setViewportSize({ width: 1280, height: 900 });
+
+  await page.emulateMedia({ colorScheme: "light" });
+  await page.goto(`${baseUrl}/pricing.html`, { waitUntil: "domcontentloaded" });
+  const lightPalette = await page.evaluate(() => {
+    const root = getComputedStyle(document.documentElement);
+    const style = (selector, property) => getComputedStyle(document.querySelector(selector))[property];
+    return {
+      accent: root.getPropertyValue("--accent").trim(),
+      brand: root.getPropertyValue("--brand-prettify").trim(),
+      buttonBackground: style(".btn-primary", "backgroundImage"),
+      comparisonHeader: style(".comparison-table thead .comparison-codeprettify", "backgroundColor"),
+      labelColor: style(".price-card-label", "color"),
+      primary: root.getPropertyValue("--primary").trim(),
+      primaryDark: root.getPropertyValue("--primary-dark").trim(),
+      primaryLight: root.getPropertyValue("--primary-light").trim(),
+    };
+  });
+  assert(lightPalette.primary === "#0c7894", "Light-mode primary color no longer matches the CodePrettify teal");
+  assert(lightPalette.primaryLight === "#0c7894", "Light-mode link color no longer matches the accessible brand teal");
+  assert(lightPalette.primaryDark === "#07566b", "Light-mode primary gradient is missing its dark teal endpoint");
+  assert(lightPalette.accent === "#0c7894" && lightPalette.brand === "#0c7894", "Light-mode accents and wordmark are no longer aligned");
+  assert(
+    lightPalette.buttonBackground.includes("rgb(12, 120, 148)") && lightPalette.buttonBackground.includes("rgb(7, 86, 107)"),
+    "Light-mode primary buttons no longer use the teal brand gradient"
+  );
+  assert(lightPalette.labelColor === "rgb(12, 120, 148)", "Pricing label no longer uses the light-mode brand color");
+  assert(lightPalette.comparisonHeader === "rgb(229, 246, 250)", "Pricing comparison header no longer uses the light cyan surface");
+
+  await page.emulateMedia({ colorScheme: "dark" });
+  await page.goto(`${baseUrl}/index.html`, { waitUntil: "domcontentloaded" });
+  const darkPalette = await page.evaluate(() => {
+    const root = getComputedStyle(document.documentElement);
+    const button = getComputedStyle(document.querySelector(".btn-primary"));
+    const wordmark = getComputedStyle(document.querySelector(".logo > span > span"));
+    return {
+      accent: root.getPropertyValue("--accent").trim(),
+      buttonBackground: button.backgroundImage,
+      primary: root.getPropertyValue("--primary").trim(),
+      primaryDark: root.getPropertyValue("--primary-dark").trim(),
+      primaryLight: root.getPropertyValue("--primary-light").trim(),
+      wordmarkColor: wordmark.color,
+    };
+  });
+  assert(darkPalette.primary === "#22b8e6", "Dark-mode primary color no longer matches the logo arrow");
+  assert(darkPalette.primaryLight === "#63e6ff", "Dark-mode highlight no longer matches the logo arrow");
+  assert(darkPalette.primaryDark === "#0c7894", "Dark-mode primary gradient is missing its teal endpoint");
+  assert(darkPalette.accent === "#55ddf5", "Dark-mode accent no longer matches the CodePrettify wordmark");
+  assert(darkPalette.wordmarkColor === "rgb(85, 221, 245)", "Dark-mode Prettify wordmark no longer uses the brand cyan");
+  assert(
+    darkPalette.buttonBackground.includes("rgb(34, 184, 230)") && darkPalette.buttonBackground.includes("rgb(12, 120, 148)"),
+    "Dark-mode primary buttons no longer use the cyan-to-teal brand gradient"
+  );
+
+  await page.emulateMedia({ colorScheme: "light" });
 }
 
 async function checkMobileMenu(page, baseUrl) {
@@ -371,17 +436,26 @@ async function checkStructuredWorkbenchDocumentation(page, baseUrl) {
   ];
   for (const [fileName, expectedVersion, productPhrase] of changelogs) {
     await page.goto(`${baseUrl}/${fileName}`, { waitUntil: "domcontentloaded" });
-    const latest = await page.locator(".version-card").first().evaluate((card) => ({
+    const releases = await page.locator(".version-card").evaluateAll((cards) => cards.map((card) => ({
       sections: Array.from(card.querySelectorAll(".version-section > h3"), (heading) => heading.textContent.trim()),
       text: card.textContent.replace(/\s+/g, " ").trim(),
       version: card.querySelector(".version-number")?.textContent.trim() || "",
-    }));
-    assert(latest.version === expectedVersion, `${fileName} Workbench notes are not attached to ${expectedVersion}`);
-    assert(latest.sections.includes("Added") && latest.sections.includes("Security"), `${fileName} is missing Added/Security Workbench sections`);
+    })));
+    const release = releases.find((candidate) => candidate.version === expectedVersion);
+    assert(release, `${fileName} is missing ${expectedVersion}`);
+    assert(release.sections.includes("Added") && release.sections.includes("Security"), `${fileName} is missing Added/Security Workbench sections`);
     for (const requiredText of ["JSON Repair & Transform", "Repair & Salvage", "explicit opt-in", "fail-closed processing", "General-tool availability", "Two-column More Actions", "Guided JSON Repair & Transform experience", "Unified interface controls", "Nested-array filtering", productPhrase]) {
-      assert(latest.text.includes(requiredText), `${fileName} latest release is missing: ${requiredText}`);
+      assert(release.text.includes(requiredText), `${fileName} ${expectedVersion} is missing: ${requiredText}`);
     }
   }
+
+  await page.goto(`${baseUrl}/changelog.html`, { waitUntil: "domcontentloaded" });
+  const browserLatest = await page.locator(".version-card").first().evaluate((card) => ({
+    text: card.textContent.replace(/\s+/g, " ").trim(),
+    version: card.querySelector(".version-number")?.textContent.trim() || "",
+  }));
+  assert(browserLatest.version === "v1.0.50", "Browser changelog does not identify v1.0.50 as the latest release");
+  assert(browserLatest.text.includes("New CodePrettify identity"), "Browser v1.0.50 notes are missing the new identity");
 }
 
 async function checkManualScreenshots(page, baseUrl) {
@@ -665,6 +739,14 @@ async function checkHomepageScreenshotGallery(page, baseUrl) {
     }
     assert(captureScript.includes(`'${file}'`), `Screenshot generator does not declare ${file}`);
   }
+  for (const { file, width, height } of STORE_SCREENSHOTS) {
+    const imagePath = path.join(SITE_ROOT, "img", file);
+    assert(fs.existsSync(imagePath), `Store screenshot asset is missing: ${file}`);
+    assert(fs.statSync(imagePath).size > 1000, `Store screenshot asset is unexpectedly small: ${file}`);
+    const dimensions = readPngDimensions(imagePath);
+    assert(dimensions.width === width && dimensions.height === height, `${file} must be ${width}x${height}`);
+    assert(captureScript.includes(`'${file}'`), `Screenshot generator does not declare ${file}`);
+  }
   assert(
     !fs.readFileSync(path.join(SITE_ROOT, "img", "feature-workbench-repair.png")).equals(
       fs.readFileSync(path.join(SITE_ROOT, "img", "feature-workbench-transform.png"))
@@ -731,6 +813,7 @@ async function main() {
   const baseUrl = `http://127.0.0.1:${port}`;
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage();
+  await page.emulateMedia({ colorScheme: "light" });
 
   try {
     for (const pageName of PAGES) await checkPageStructure(page, baseUrl, pageName);
@@ -739,6 +822,7 @@ async function main() {
     await checkMobileMenu(page, baseUrl);
     await checkPricingPage(page, baseUrl);
     await checkHomepageResourceLinks(page, baseUrl);
+    await checkBrandPalette(page, baseUrl);
     await checkManualControls(page, baseUrl);
     await checkStructuredWorkbenchDocumentation(page, baseUrl);
     await checkManualScreenshots(page, baseUrl);
