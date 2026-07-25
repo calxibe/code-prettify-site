@@ -107,14 +107,12 @@
           <pre class="feature-code"><code>(?&lt;<span class="code-accent">name</span>&gt;[A-Za-z_$][\w$]*)\s*=</code></pre>
         </article>
         <article class="feature-example-card">
-          <div class="feature-example-copy"><span class="feature-example-label">Selected match</span><h3>Inspect the complete value and named group</h3><p>Clicking a result connects the list, details panel, and source highlight.</p></div>
-          <pre class="feature-code"><code>Complete match: <span class="code-success">services =</span>
-Group 1: services
-Named group:
-  name: services
-
-Flags: g
-Source: current document</code></pre>
+          <div class="feature-example-copy"><span class="feature-example-label">Match under cursor</span><h3>Inspect the complete value and named group</h3><p>Clicking a result connects the list, details panel, and source highlight.</p></div>
+          <pre class="feature-code"><code>Match 3 of 12 &bull; Line 1, column 5
+<span class="code-success">services =</span>
+Capture groups:
+  $1 services
+  $&lt;name&gt; services</code></pre>
         </article>
       </div>
     </section>
@@ -137,7 +135,7 @@ not an assignment</code></pre>
           </div>
         </li>
         <li>
-          <div><h3>Start with line boundaries and one complete match</h3><p>Enter <code>^[A-Z][A-Z0-9_]*=.*$</code> without surrounding slash characters. Enable multiline <code>m</code> so <code>^</code> and <code>$</code> apply to each line, then enable global <code>g</code> so the result list contains all three assignments instead of only the first.</p></div>
+          <div><h3>Start with line boundaries and one complete match</h3><p>Enter <code>^[A-Z][A-Z0-9_]*=.*$</code> without surrounding slash characters. Enable multiline <code>m</code> so <code>^</code> and <code>$</code> apply to each line, then enable global <code>g</code> so your replacement preview, the copied <code>/pattern/flags</code> expression, and the JavaScript snippet act on all three assignments instead of only the first. (The live result list always shows every occurrence, even without <code>g</code>.)</p></div>
         </li>
         <li>
           <div><h3>Replace anonymous pieces with named groups</h3><p>Change the pattern to <code>^(?&lt;key&gt;[A-Z][A-Z0-9_]*)=(?&lt;value&gt;.*)$</code>. Select a match and verify that the details show the complete line plus named groups <code>key</code> and <code>value</code>. Named groups make later replacement text and generated snippets easier to understand.</p></div>
@@ -164,7 +162,7 @@ not an assignment</code></pre>
           <li>Add a line beginning with <code>#</code> and prove it does not match.</li>
           <li>Add a value containing another equals sign and inspect the captured value.</li>
           <li>Disable multiline and explain why only whole-input anchors remain.</li>
-          <li>Remove global and explain why the result list stops after the first match.</li>
+          <li>Remove global and observe that the result list is unchanged, but the replacement preview now rewrites only the first assignment — the playground always lists every occurrence, while <code>g</code> still governs the copied expression and the JavaScript snippet.</li>
         </ul>
       </div>
     </section>
@@ -192,7 +190,7 @@ not an assignment</code></pre>
         <table class="feature-guide-table">
           <thead><tr><th>Flag</th><th>Use it when</th><th>Common surprise</th></tr></thead>
           <tbody>
-            <tr><td><code>g</code> global</td><td>You need every match, a full replacement preview, or an accurate count.</td><td>Without it, a correct pattern may appear to find only the first occurrence.</td></tr>
+            <tr><td><code>g</code> global</td><td>The replacement, copied expression, or generated code must process every occurrence.</td><td>In the replacement preview and the exported JavaScript snippet, omitting <code>g</code> processes only the first occurrence — even though the playground&rsquo;s match list always shows every one.</td></tr>
             <tr><td><code>i</code> ignore case</td><td>Letter case is not meaningful in the source.</td><td>It can accept values that a case-sensitive identifier or protocol should reject.</td></tr>
             <tr><td><code>m</code> multiline</td><td><code>^</code> and <code>$</code> should refer to each line.</td><td>It does not make the dot character cross line breaks.</td></tr>
             <tr><td><code>s</code> dot all</td><td>A dot should include newline characters inside a multi-line value.</td><td>A broad <code>.*</code> can consume much more text than intended.</td></tr>
@@ -217,8 +215,8 @@ not an assignment</code></pre>
         <article class="feature-capability"><h3>Match details</h3><ul><li>Complete match value</li><li>Numbered groups</li><li>Named groups</li><li>Jump to the highlighted source</li></ul></article>
         <article class="feature-capability"><h3>Replacement</h3><ul><li>Live preview</li><li>Numbered references such as <code>$1</code></li><li>Named references such as <code>$&lt;name&gt;</code></li><li>No mutation of the source document</li></ul></article>
         <article class="feature-capability"><h3>Test cases</h3><ul><li>Examples expected to match</li><li>Examples expected not to match</li><li>Visible pass/fail summary</li><li>Regression checks beside the pattern</li></ul></article>
-        <article class="feature-capability"><h3>Saved patterns</h3><ul><li>Optional names</li><li>Remembered pattern and flags</li><li>Reusable history</li><li>Local storage only</li></ul></article>
-        <article class="feature-capability"><h3>Snippet export</h3><ul><li>JavaScript <code>RegExp</code></li><li>C# <code>Regex</code></li><li>PowerShell <code>-match</code> and replacement</li><li>Copy the complete expression</li></ul></article>
+        <article class="feature-capability"><h3>Saved patterns</h3><ul><li>Optional names</li><li>Remembered pattern, flags, replacement, and tests</li><li>Shared ten-slot saved/recent list</li><li>Local storage only</li></ul></article>
+        <article class="feature-capability"><h3>Snippet export</h3><ul><li>JavaScript <code>RegExp</code></li><li>C# <code>Regex</code></li><li>PowerShell <code>[regex]::new</code> with Matches/Replace</li><li>Copy the complete expression</li></ul></article>
       </div>
       <div class="feature-privacy-note"><span class="feature-privacy-icon" aria-hidden="true">✓</span><div><strong>Custom test text remains session-local.</strong><p>It is not written to pattern history, settings, or extension storage. Saved patterns and test definitions are stored locally and may be sensitive if you include private examples in them.</p></div></div>
     </section>

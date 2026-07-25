@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Repair Invalid JSON and Transform Data Locally | CodePrettify</title>
-  <meta name="description" content="Repair common JSON-like syntax problems, review every change, then filter, select, rename, sort, flatten, group, aggregate, or limit structured data locally." />
+  <meta name="description" content="Repair common JSON-like syntax problems, review every change, then filter, select, remove, rename, sort, deduplicate, flatten, group, aggregate, or limit structured data locally." />
   <meta name="application-name" content="CodePrettify" />
   <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
@@ -136,7 +136,7 @@
           <div><h3>Load the exact source you received</h3><p>Paste the complete text, including surrounding prose and code fences, so the report can explain what it removed. If a compatible document is already open, choose <strong>Use document</strong>. Avoid hand-fixing the source first—you would lose the audit trail for those changes.</p></div>
         </li>
         <li>
-          <div><h3>Decide whether partial JSON Lines salvage is acceptable</h3><p>Leave <strong>Allow partial-record salvage</strong> off unless the input is JSON Lines and you deliberately accept dropping reported invalid records. With the option off, one bad record blocks the result. With it on, every excluded source line must be reviewed.</p></div>
+          <div><h3>Decide whether partial JSON Lines salvage is acceptable</h3><p>Leave the salvage checkbox (<strong>Salvage valid JSON Lines records when some records are invalid</strong>) off unless the input is JSON Lines and you deliberately accept dropping reported invalid records. With the option off, one bad record blocks the result. With it on, every excluded source line must be reviewed.</p></div>
         </li>
         <li>
           <div><h3>Analyze, then read the repair list in order</h3><p>Choose <strong>Analyze &amp; repair</strong>. For the sample, expect the report to mention the Markdown fence or surrounding text, quoted keys, converted single-quoted strings, Python booleans and null, and removed trailing commas. A change that extracts or semantically replaces content deserves more scrutiny than whitespace cleanup.</p></div>
@@ -145,7 +145,7 @@
           <div><h3>Compare repaired values with their source meaning</h3><p>Verify that <code>True</code> became JSON <code>true</code>, <code>None</code> became <code>null</code>, and every string value remained unchanged. The tool can normalize recognizable syntax; only you can confirm that <code>production</code>, the region, and the enabled state are correct business values.</p></div>
         </li>
         <li>
-          <div><h3>Stop when the source is incomplete or ambiguous</h3><p>If the tool rejects truncated input, missing structural separators, unsafe numbers, excessive nesting, or another unbounded case, return to the producing system. A refusal is safer than a plausible-looking document assembled from guesses.</p></div>
+          <div><h3>Stop when the source is incomplete or ambiguous</h3><p>Missing commas, closing brackets, and unterminated strings are repaired but flagged at medium confidence — review those entries carefully. If the tool rejects the input outright (mismatched brackets, unsafe numbers, excessive nesting or size), return to the producing system. A refusal is safer than a plausible-looking document assembled from guesses.</p></div>
         </li>
         <li>
           <div><h3>Pass the reviewed result forward explicitly</h3><p>Copy or download the clean JSON when repair is the only goal. To reshape it, choose <strong>Use result in Transform</strong>. This creates a separate working result; it does not overwrite the original file or the text you pasted.</p></div>
@@ -171,14 +171,15 @@
         <article class="feature-capability"><h3>Wrappers and noise</h3><ul><li>Byte-order marks</li><li>Markdown code fences</li><li>Surrounding prose</li><li>First balanced object or array</li></ul></article>
         <article class="feature-capability"><h3>Quotes and keys</h3><ul><li>Single-quoted strings</li><li>Unquoted object keys</li><li>JavaScript comments</li><li>Raw controls inside strings</li></ul></article>
         <article class="feature-capability"><h3>Trailing syntax</h3><ul><li>Trailing commas</li><li>A final semicolon</li><li>Recognized JavaScript literals</li><li>Recognized Python literals</li></ul></article>
+        <article class="feature-capability"><h3>Structure completion</h3><ul><li>Missing commas inserted</li><li>Missing closing brackets added</li><li>Unterminated strings closed</li><li>Bare decimals given leading zeros</li></ul><p>Inserted commas, added brackets, and closed strings carry medium confidence for extra review.</p></article>
         <article class="feature-capability"><h3>JSON Lines</h3><ul><li>Record-by-record validation</li><li>Explicit partial-salvage opt-in</li><li>Discarded source-line reporting</li><li>Array result for transformation</li></ul></article>
         <article class="feature-capability"><h3>Confidence signals</h3><ul><li>Every repair listed</li><li>Warnings beside the result</li><li>Lower confidence for extraction</li><li>Extra review for semantic replacement</li></ul></article>
-        <article class="feature-capability"><h3>Safety boundaries</h3><ul><li>Truncated or ambiguous input is rejected</li><li>No network requests</li><li>No mutation of the source</li><li>Bounded size, depth, and traversal</li></ul></article>
+        <article class="feature-capability"><h3>Safety boundaries</h3><ul><li>Unresolvable or ambiguous structure is rejected</li><li>Recovered truncations are flagged at medium confidence</li><li>No network requests, no mutation of the source</li><li>Bounded size, depth, and traversal</li></ul></article>
       </div>
     </section>
 
     <section class="feature-detail-section" aria-labelledby="transform-title">
-      <div class="feature-detail-heading"><span class="section-badge">Transform example</span><h2 id="transform-title">Build a recipe and watch the result update</h2><p>Once the input is valid structured data, add operations in order. Each step receives the result of the previous step, and the live output explains how many rows and steps remain.</p></div>
+      <div class="feature-detail-heading"><span class="section-badge">Transform example</span><h2 id="transform-title">Build a recipe and watch the result update</h2><p>Once the input is valid structured data, add operations in order. Each step receives the result of the previous step, and the live output shows how many rows remain and how many steps were applied.</p></div>
       <div class="feature-shot-grid">
         <figure class="feature-guide-shot"><img src="img/feature-workbench-repair.png" alt="JSON repair interface with input, repair report, and clean output" width="1280" height="800" loading="lazy" /><figcaption>Repair produces a clean result and a human-readable list of changes.</figcaption></figure>
         <figure class="feature-guide-shot"><img src="img/feature-workbench-transform.png" alt="JSON transformation recipe filtering administrators and sorting them by request count" width="1280" height="800" loading="lazy" /><figcaption>A filter for <code>role = Admin</code> followed by descending request count returns two rows from six.</figcaption></figure>
@@ -213,7 +214,7 @@
       <div class="feature-capability-grid">
         <article class="feature-capability"><h3>Shape columns</h3><p>Select fields, remove fields, or rename properties while keeping a readable step history.</p></article>
         <article class="feature-capability"><h3>Control rows</h3><p>Filter, sort, limit, or remove duplicates from arrays of objects.</p></article>
-        <article class="feature-capability"><h3>Reshape nesting</h3><p>Flatten nested objects when downstream tools expect a simpler record shape.</p></article>
+        <article class="feature-capability"><h3>Reshape nesting</h3><p>Expand a nested array field into one row per item when downstream tools expect a simpler record shape.</p></article>
         <article class="feature-capability"><h3>Summarize data</h3><p>Group rows and calculate aggregates for quick inspection or export.</p></article>
         <article class="feature-capability"><h3>Reorder safely</h3><p>Move or remove steps and let the workbench recalculate the result from the original input.</p></article>
         <article class="feature-capability"><h3>Keep provenance clear</h3><p>The source document remains intact. The transformed output is a separate result you explicitly copy, export, or open.</p></article>
@@ -245,8 +246,8 @@
       <div class="feature-detail-faq">
         <details><summary>Will the repair tool invent missing values?</summary><p>No. It repairs recognizable syntax and wrapper problems. It does not fabricate domain values that are absent from the source.</p></details>
         <details><summary>Does repair overwrite the current file?</summary><p>No. The original remains unchanged until you deliberately copy, export, or open the repaired result.</p></details>
-        <details><summary>Can I transform an object as well as an array?</summary><p>The available operations depend on the input shape. Row-oriented operations are most useful for arrays of objects; object and nesting operations apply where their required shape exists.</p></details>
-        <details><summary>Can I reuse a recipe?</summary><p>The workbench exposes the ordered steps in the active session. For repeatable automation outside the UI, copy the resulting data or translate the visible recipe into application code.</p></details>
+        <details><summary>Can I transform an object as well as an array?</summary><p>Select, Remove, and Rename work on a single object as well as arrays. Filter, Sort, Unique, Flatten, Group, and Limit need an array of rows and report an error if the current stage is a single object.</p></details>
+        <details><summary>Can I reuse a recipe?</summary><p>Yes — the workbench automatically restores your most recent recipe (stored locally on the device) the next time you open it. For automation outside the UI, translate the visible recipe into application code.</p></details>
       </div>
     </section>
 

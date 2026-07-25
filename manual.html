@@ -138,9 +138,9 @@
               <div class="manual-card">
                 <h3>Browser extension</h3>
                 <ol>
-                  <li>Install from the Chrome Web Store, Microsoft Edge Add-ons, or the supported Firefox distribution.</li>
+                  <li>Install from the Chrome Web Store, Microsoft Edge Add-ons, or the supported Firefox distribution (Firefox 142 or newer).</li>
                   <li>Open a supported raw HTTP/HTTPS resource. CodePrettify recognizes the URL extension or response content type and replaces the plain browser page with its viewer.</li>
-                  <li>For a local file, open the extension launcher and drag the file in or choose it. Direct <code>file://</code> URLs additionally require the browser’s <strong>Allow access to file URLs</strong> permission.</li>
+                  <li>For a local file, click the CodePrettify toolbar button to open the launcher, then drag the file in or choose it. Direct <code>file://</code> URLs additionally require the browser’s <strong>Allow access to file URLs</strong> permission.</li>
                   <li>Use <strong>Prettified</strong>/<strong>Raw</strong>, or <strong>Rendered</strong>/<strong>Source</strong> for markup, to change representation without changing the source file.</li>
                 </ol>
               </div>
@@ -154,7 +154,7 @@
               </div>
             </div>
             <div class="manual-callout">
-              <strong>Non-destructive by default:</strong> changing view, folding, searching, inspecting, or running a tool does not edit the original document. The Windows app writes only when you explicitly save; the extension downloads a new file when you export.
+              <strong>Non-destructive by default:</strong> changing view, folding, searching, inspecting, or running a tool does not edit the original document. The Windows app writes only when you explicitly save or confirm a disk-modifying action such as line-ending conversion; the extension downloads a new file when you export.
             </div>
           </section>
 
@@ -190,10 +190,15 @@
               <li><kbd>Ctrl</kbd>+<kbd>B</kbd> toggles the two views. Your first-install default remains Prettified/Rendered until changed in Settings.</li>
             </ul>
             <h3>Editor and status</h3>
-            <p>Line numbers, word wrap, folding, the minimap, and the floating toolbar can be enabled independently. The editor status reports line and character totals; the app adds cursor line/column, selected character count, detected type, encoding, and line-ending style.</p>
+            <p>Line numbers, word wrap, folding, the minimap, and the floating toolbar can be enabled independently. The Windows app’s status bar reports line and character totals, cursor line/column, selection size, detected type, encoding, and line-ending style; in the extension, line and size totals are available through Statistics &amp; Diagnostics.</p>
             <h3>Floating toolbar</h3>
-            <p>The toolbar combines the copy menu, live search, Go to Line, and More Actions. <strong>More Actions</strong> is split into two groups: <strong>For this file</strong> contains actions that analyze or operate on the active document, including Export, Statistics &amp; Diagnostics, Security Scan, HTTP Context when response metadata is available, and, when folding is available, Collapse All and Expand All, plus tools specific to the detected format. Collapse All and Expand All share one paired row because both operate on the same active document. <strong>General tools</strong> contains always-available utilities that work without the open document, including Compare, JSON to Code Generator, JSON Repair &amp; Transform, JavaScript Playground, Data Converter, Regex Playground, and HTTP Client. Compare, JSON to Code Generator, JSON Repair &amp; Transform, and JavaScript Playground can load a compatible current document, but that remains optional. The general column is visually subdued until hovered or focused. On wider windows, the primary file-actions column is centered above the More Actions button; constrained windows keep the menu inside the viewport, and very narrow windows stack both groups. For example, JSON adds Table View, JSON Path Inspector, and Schema Validator, while JavaScript adds Document Navigator and Inspect Runtime to the file group.</p>
-            <p>Up to three tools you repeatedly use can become adaptive quick buttons. On narrow windows those learned buttons are hidden to keep the core controls on one row; all tools remain in More Actions or the Command Palette.</p>
+            <p>The toolbar exists in the Prettified/Rendered view (it is hidden in Raw/Source) and combines the copy menu, live search, Go to Line, and More Actions. <strong>More Actions</strong> is split into two groups:</p>
+            <ul>
+              <li><strong>For this file</strong> — the heading names the detected format, for example <em>For this file · JSON</em> — contains actions that analyze or operate on the active document: Export, Statistics &amp; Diagnostics, Security Scan, and, when folding is available, Collapse All and Expand All on one paired row, plus tools specific to the detected format. For example, JSON adds Table View, JSON Path Inspector, and Schema Validator, while JavaScript adds Document Navigator and Inspect Runtime. HTTP response metadata and timing, when available, appear as a section inside Statistics &amp; Diagnostics.</li>
+              <li><strong>General tools</strong> contains always-available utilities that work without the open document: Compare, JSON to Code Generator, JSON Repair &amp; Transform, JavaScript Playground, Data Converter, Regex Playground, and HTTP Client. Compare, JSON to Code Generator, JSON Repair &amp; Transform, and JavaScript Playground can load a compatible current document, and Regex Playground tests against the current document by default (switchable to custom text). This column is visually subdued until hovered or focused.</li>
+            </ul>
+            <p>On wider windows, the primary file-actions column is centered above the More Actions button; constrained windows keep the menu inside the viewport, and very narrow windows stack both groups.</p>
+            <p>Up to three tools you repeatedly use can become adaptive quick buttons: an action qualifies after about ten uses, and the three most-used win. On narrow windows those learned buttons are hidden to keep the core controls on one row; all tools remain in More Actions or the Command Palette.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
                 <button type="button" class="manual-screenshot-open" id="manual-screenshot-workspace"
@@ -229,7 +234,7 @@
             <h3>Automatic activation</h3>
             <p>The extension examines the resource URL and response content type. Supported raw documents are enhanced automatically; ordinary web pages are not. Disabling a type in Settings affects newly opened resources.</p>
             <h3>Launcher and local files</h3>
-            <p>The launcher can open a supported file by picker or drag-and-drop without broad file access. It can also start the Editor, JSON to Code Generator, HTTP Client, JavaScript Playground, Regex Playground, or Data Converter. If the current tab is not a supported source, tools start with a sample or empty input as appropriate. Launcher files are limited to 10 MiB and support UTF-8, UTF-16 LE/BE BOMs, strict UTF-8, then Windows-1252 fallback.</p>
+            <p>The launcher can open a supported file by picker or drag-and-drop without broad file access. It can also start the Editor, JSON to Code Generator, HTTP Client, JavaScript Playground, Regex Playground, or Data Converter. If the tab you clicked from is a supported viewer, the tool opens on that document in the same tab; otherwise the tool opens on a hosted sample document in a new tab. Launcher files are limited to 10 MiB. Encoding is detected from a UTF-8 or UTF-16 (LE/BE) byte-order mark; without one, strict UTF-8 is tried with a Windows-1252 fallback.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
                 <button type="button" class="manual-screenshot-open" id="manual-screenshot-extension-launcher"
@@ -244,17 +249,17 @@
               </figure>
             </div>
             <h3>Persisted and shareable state</h3>
-            <p>For the same resource, CodePrettify can restore search text, highlighted line, folds, scroll position, and display settings without changing the URL. <strong>Share Configuration URL</strong> explicitly encodes selected viewer configuration in the hash for an HTTP/HTTPS resource; it does not include the resource body.</p>
+            <p>For the same resource, CodePrettify can restore search text, highlighted line, folds, scroll position, and the Prettified/Raw (or Rendered/Source) choice without changing the URL. This state is short-lived: it is kept for about one hour and only for the ten most recently viewed resources. Display settings follow your global Settings. <strong>Share Configuration URL</strong> explicitly encodes selected viewer configuration, including a settings subset, in the hash for an HTTP/HTTPS resource; it does not include the resource body.</p>
             <h3>What’s New</h3>
-            <p>After a release with substantial new functionality, the extension can show the changes since the last version you used. <strong>Never show again</strong> stores that preference locally. Small maintenance releases do not need their own announcement.</p>
+            <p>After a release with substantial new functionality, the extension can show the changes since the last version you used. The announcement appears once, in the first CodePrettify viewer tab you open after the update, and lists every feature release since the version you last used. <strong>Never show again</strong> stores that preference locally. Small maintenance releases do not need their own announcement.</p>
           </section>
 
           <section id="app-files-tabs" class="manual-topic" data-products="app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Desktop-specific</span><h2>Files, tabs, Paste &amp; Prettify, and saving</h2></div><span class="product-badge product-app">Windows app</span></div>
             <h3>Tabs and sessions</h3>
-            <p>Open several files in native tabs. Opening the same path reuses its tab. Close with the tab button, middle-click, or <kbd>Ctrl</kbd>+<kbd>W</kbd>; closing the final tab returns to the open-file landing surface. The app keeps up to ten recent files, integrates with Windows Recent Documents, and can restore the previous window, tabs, and active tab when session restore is enabled.</p>
+            <p>Open several files in native tabs. Opening the same path reuses its tab. Close with the tab button, middle-click, or <kbd>Ctrl</kbd>+<kbd>W</kbd>; closing the final tab returns to the open-file landing surface. The app keeps up to ten recent files, integrates with Windows Recent Documents, and can restore the previous window, tabs, and active tab when session restore is enabled. Session state is checkpointed continuously, so restore also works after a crash, and opening files from Explorer reuses the running window instead of starting a second instance.</p>
             <h3>Paste &amp; Prettify</h3>
-            <p>Press <kbd>Ctrl</kbd>+<kbd>N</kbd>, paste code/data/log text, and either keep Auto-detect or choose a type. Detection checks JSON, JSON Lines, tolerant JSONC, HTML/XML, fenced Markdown, high-confidence JavaScript, TOML, CSS, YAML, CSV, and Markdown/plain text. The dialog accepts up to 16 MiB; larger clipboard content should be saved and opened as a file so large-file safeguards can be used.</p>
+            <p>Press <kbd>Ctrl</kbd>+<kbd>N</kbd> — the dialog pre-fills with your current clipboard text, which you can replace or edit — and either keep Auto-detect or choose a type. Detection checks JSON, JSON Lines, tolerant JSONC, HTML/XML, fenced Markdown, high-confidence JavaScript, TOML, JavaScript statements, CSS, YAML, CSV, and Markdown/plain text. The dialog accepts up to 16 MiB; larger clipboard content should be saved and opened as a file so large-file safeguards can be used.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
                 <button type="button" class="manual-screenshot-open" id="manual-screenshot-windows-paste-prettify"
@@ -273,10 +278,10 @@
               <li><strong>Raw/Source</strong> saves the original source. <strong>Prettified/Rendered/Table</strong> saves the document representation, never the viewer’s interface HTML.</li>
               <li>If another program changed the disk file, choose Overwrite, Save As, or Cancel.</li>
               <li>Saving formatted JSONC warns that comments and trailing commas will be removed; No is the default.</li>
-              <li>The app preserves the original encoding/BOM when possible. Unsaved, comparison, and native large-file tabs use Save As.</li>
+              <li>The app preserves the original encoding/BOM when possible, writes saves atomically, and warns when a legacy encoding would lose characters. Unsaved and native large-file tabs use Save As; comparison tabs cannot be saved.</li>
             </ul>
             <h3>External changes</h3>
-            <p>A file watcher detects changes made outside CodePrettify and offers/reloads current content as appropriate. This is separate from the app’s session recovery.</p>
+            <p>A file watcher reloads the tab automatically when the file changes outside CodePrettify, follows renames, and reports deletion in the status bar and window title. This is separate from the app’s session recovery.</p>
           </section>
 
           <section id="app-menus" class="manual-topic" data-products="app">
@@ -285,8 +290,8 @@
               <div class="manual-card"><h3>File</h3><p>Open, Paste &amp; Prettify, Save, Save As, Recent Files/Clear Recent, Close Tab, and Exit.</p></div>
               <div class="manual-card"><h3>Edit</h3><p>Copy Original, Copy Formatted, Copy Minified, Find, and Go to Line. Copy feedback names the selected representation.</p></div>
               <div class="manual-card"><h3>View</h3><p>Toggle Beautify, Word Wrap, Line Numbers, Minimap, Floating Toolbar, Zoom In, and Zoom Out.</p></div>
-              <div class="manual-card"><h3>Tools</h3><p>Document Navigator, Table View, JSON Schema Validator, Statistics, Diagnostics, JSON Repair &amp; Transform, Data Converter, JSON to Code Generator, Export, JavaScript Playground, Inspect Runtime, Regex Playground, JSON Path, HTTP Client, Security Scan, file/clipboard Compare, and Settings.</p></div>
-              <div class="manual-card"><h3>Help</h3><p>Manual, Changelog, Report Issues &amp; Ideas, Explorer Integration Runtime, and About.</p></div>
+              <div class="manual-card"><h3>Tools</h3><p>Document Navigator, Table View, JSON Schema Validator, Statistics, Diagnostics, JSON Repair &amp; Transform, Data Converter, JSON to Code Generator, Export / Download, JavaScript Playground, Inspect Runtime, Regex Playground, JSON Path Inspector, HTTP Client, Security Scan, Compare File Content, Compare with Clipboard, and Settings.</p></div>
+              <div class="manual-card"><h3>Help</h3><p>Manual, Changelog, Report Issues &amp; Ideas, Explorer Integration Runtime, Debug Log, and About.</p></div>
             </div>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
@@ -307,14 +312,14 @@
           <section id="search-navigation" class="manual-topic" data-products="shared browser app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Find your way</span><h2>Search, Go to Line, folding, and Document Navigator</h2></div><span class="product-badge product-shared">Both products</span></div>
             <h3>Find</h3>
-            <p>Press <kbd>Ctrl</kbd>+<kbd>F</kbd>, enter text, and use Previous/Next. The toolbar shows match count. Search operates on the document representation, not hidden modal content. The Windows native large-file viewer has paged search with progress, cancellation, and wrap behavior.</p>
+            <p>Press <kbd>Ctrl</kbd>+<kbd>F</kbd>, enter text, and use Previous/Next — or <kbd>Enter</kbd> for the next match and <kbd>Shift</kbd>+<kbd>Enter</kbd> for the previous; <kbd>Esc</kbd> clears the query and highlights. Plain text matches case-insensitively; wrap the query as <code>/pattern/flags</code> to search with a regular expression — invalid or runaway patterns are rejected safely. The toolbar shows match count (up to 10,000, then shown as 10000+). <kbd>Ctrl</kbd>+<kbd>F</kbd> temporarily reveals the search field even when the floating toolbar is turned off. Search operates on the document representation, not hidden modal content. The Windows native large-file viewer has paged search with progress, cancellation, and wrap behavior.</p>
             <h3>Go to Line</h3>
-            <p>Press <kbd>Ctrl</kbd>+<kbd>G</kbd>, enter a valid source line, and confirm. The viewer scrolls and highlights the requested location. Diagnostic, inspector, schema, security, and navigator result rows can jump directly without opening this dialog.</p>
+            <p>Press <kbd>Ctrl</kbd>+<kbd>G</kbd>, enter a source line, and confirm. The dialog remembers your last entry, and out-of-range values jump to the last line. The viewer scrolls and highlights the requested location. Diagnostic, inspector, schema, security, and navigator result rows can jump directly without opening this dialog.</p>
             <h3>Folding</h3>
             <p>Use gutter fold controls for one block or More Actions &gt; Collapse All / Expand All for the complete document. Fold state can be restored for the same browser resource.</p>
             <h3>Document Navigator differences</h3>
             <ul>
-              <li><strong>Extension:</strong> exposed for JSON and XML/RSS. JSON entries show path/preview/depth/line; XML entries show the element outline. JavaScript and Markdown builders are not currently exposed in its menu.</li>
+              <li><strong>Extension:</strong> exposed for JSON (including JSON Lines), JavaScript/TypeScript, and XML/RSS. JSON entries show path/preview/depth/line; XML entries show the element outline; JavaScript entries list named functions, classes, and objects. The Markdown builder is not currently exposed in its menu.</li>
               <li><strong>Windows app:</strong> supports JSON, JSON Lines, JavaScript/TypeScript, Markdown headings, and XML/RSS/Atom. Selecting an outline item jumps to its source line.</li>
             </ul>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
@@ -335,8 +340,8 @@
           <section id="format-behavior" class="manual-topic" data-products="shared browser app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Format reference</span><h2>Formatting and validation by file type</h2></div><span class="product-badge product-shared">Both products</span></div>
             <div class="manual-definition-list">
-              <div><h3>JSON / JSONC / JSON Lines</h3><p>JSONC accepts comments and trailing commas, not JSON5 single quotes or unquoted keys. Formatted JSONC omits comments. JSON Lines validates and formats each nonblank physical line independently. Validation identifies syntax location and warns about unsafe integers or key-order risk.</p></div>
-              <div><h3>JavaScript / TypeScript</h3><p>The bundled beautifier adds readable indentation. Folding recognizes functions, classes, blocks, arrays, and objects while avoiding strings/comments. Bracket matching is optional. Safe HTTP(S) URLs and resolvable relative imports become clickable; bare package names are not guessed.</p></div>
+              <div><h3>JSON / JSONC / JSON Lines</h3><p>JSONC accepts comments and trailing commas, not JSON5 single quotes or unquoted keys; that tolerance applies to whole documents only. Formatted JSONC omits comments. JSON Lines validates each nonblank physical line as strict JSON and formats it to one compact record per line so the file stays valid JSONL, while the structured view still shows each record expanded. Validation reports the error’s line and column (line only for JSON Lines) and warns when integers are too large to survive reformatting without precision loss.</p></div>
+              <div><h3>JavaScript / TypeScript</h3><p>The bundled beautifier adds readable indentation. Syntax is validated in a sandboxed parser; when validation cannot run, the document is marked as unchecked rather than invalid. Folding recognizes multi-line functions, classes, control blocks, arrays, and objects while ignoring brackets inside strings, comments, and template-literal interpolations. Bracket matching is optional. Safe HTTP(S) URLs and resolvable relative imports become clickable; bare package names are not guessed.</p></div>
             </div>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
@@ -353,7 +358,7 @@
             </div>
             <div class="manual-definition-list">
               <div><h3>YAML</h3><p>Formatting deliberately normalizes newlines instead of re-dumping the document, which could lose comments, anchors, scalar styles, whitespace meaning, or numeric precision. Multi-document YAML is validated. There is no misleading minified copy.</p></div>
-              <div><h3>TOML</h3><p>Parsed TOML can be canonically reserialized, except source containing sub-millisecond temporal precision is kept unchanged to avoid truncation. “Minified” TOML is canonical serialization without comments/blank lines, not a compact grammar.</p></div>
+              <div><h3>TOML</h3><p>Formatting and “minification” are the same canonical reserialization: both drop comments and blank lines, because TOML has no compact grammar. Source containing sub-millisecond temporal precision is kept unchanged to avoid truncation.</p></div>
               <div><h3>Markdown</h3><p>Rendered mode supports links, task lists, footnotes, selected emoji shortcodes, and heading anchors. Raw HTML is escaped, dangerous schemes are blocked, and remote images become inert links/placeholders so viewing a document makes no automatic image request. Minification only collapses safe repeated blank lines.</p></div>
             </div>
             <p class="manual-deep-link"><strong>In-depth guide:</strong> See local and remote file workflows, rendered/source examples, and privacy behavior in <a href="markdown-viewer-browser-extension.html">Markdown Viewer for Chrome, Edge, and Windows</a>.</p>
@@ -371,22 +376,22 @@
               </figure>
             </div>
             <div class="manual-definition-list">
-              <div><h3>CSS</h3><p>Formatting/minification respects strings, comments, functions, data URLs, and calculations. Validation detects unclosed strings/comments, unmatched delimiters, and malformed declarations. HTTP(S) URLs/imports can be clicked. Color swatches open a picker with adjusted and copyable HEX/RGB/HSL values.</p></div>
-              <div><h3>XML / RSS / Atom</h3><p>Strict parsing reports line/column. Formatting avoids mixed content, preserved whitespace, internal DTD subsets, and quoted markup where a rewrite could change data. “Minification” is byte-preserving because whitespace-only text nodes may matter. Folding, safe links, timestamps, and encoded-value hints remain available.</p></div>
-              <div><h3>CSV and HTML (app)</h3><p>CSV detects comma, semicolon, or tab delimiters with quote-aware parsing and provides Table plus source. HTML formatting preserves raw script/style/pre text, escapes rendering safely, supports folding, and can make safe URLs clickable.</p></div>
+              <div><h3>CSS</h3><p>Formatting/minification respects strings, comments, functions, data URLs, and calculations. Validation flags unmatched braces, parentheses, and brackets; the browser extension additionally reports unclosed strings/comments and declarations missing a colon. HTTP(S) URLs/imports can be clicked. Minification preserves <code>/*! … */</code> license comments. Color swatches attach to hex and rgb()/hsl() values (not named colors) and open a picker with adjusted and copyable HEX/RGB/HSL values.</p></div>
+              <div><h3>XML / RSS / Atom</h3><p>Strict parsing reports line/column. In the browser extension, formatting avoids mixed content, preserved whitespace, internal DTD subsets, and quoted markup where a rewrite could change data, and “minification” is byte-preserving because whitespace-only text nodes may matter. The Windows app reformats any well-formed document, and its minification strips comments and collapses whitespace. Folding, safe links, timestamps, and encoded-value hints remain available.</p></div>
+              <div><h3>CSV and HTML (app)</h3><p>CSV detects comma, semicolon, tab, or pipe delimiters with quote-aware parsing and provides Table plus source. HTML formatting preserves raw script/style text (reformatting can change whitespace inside <code>&lt;pre&gt;</code> blocks), escapes rendering safely, supports folding, and can make safe URLs clickable.</p></div>
             </div>
           </section>
 
           <section id="json-tools" class="manual-topic" data-products="shared browser app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Structured data</span><h2>JSON helpers and JSON Path Inspector</h2></div><span class="product-badge product-shared">Both products</span></div>
-            <p>Structured JSON adds folding, clickable URLs, human-readable Unix/ISO timestamp hints, and hover/click decoding for likely JWT or Base64 strings. Enable the hover breadcrumb to see the path under the pointer; enable the click inspector to open JSON Path from a value.</p>
+            <p>Structured JSON adds folding, clickable URLs, human-readable timestamp hints (for integer Unix values dated 2000–2050 and ISO-like strings), and hover/click decoding for likely JWT or Base64 strings. Enable the hover breadcrumb (off by default) to see the path under the pointer; the click inspector, on by default, opens JSON Path Inspector when you click a property name.</p>
             <h3>Run a JSON Path query</h3>
             <ol>
-              <li>Open <strong>JSON Path Inspector</strong> from More Actions, the Command Palette/Tools menu, a breadcrumb, or a JSON value click.</li>
+              <li>Open <strong>JSON Path Inspector</strong> from More Actions, the Command Palette/Tools menu, or by clicking a property name. Breadcrumb segments jump to that node in the document; hovering also sets the inspector’s starting path.</li>
               <li>Start with <code>$</code>. Use dot properties, quoted bracket properties, numeric indexes, or <code>[*]</code>. Autocomplete suggests keys.</li>
               <li>Run the query. Copy the current path or a compact JSON/display value, or select a result to jump to its source line.</li>
             </ol>
-            <p class="manual-limit"><strong>Scope:</strong> the inspector intentionally does not implement filters, slices, recursive descent, or script expressions. It renders at most 200 results and autocomplete shows at most 50 keys.</p>
+            <p class="manual-limit"><strong>Scope:</strong> the inspector intentionally does not implement filters, slices, recursive descent, or script expressions. It renders at most 200 results and autocomplete shows at most 50 keys. It also works on JSON Lines documents, where <code>$[0]</code> addresses the first record, and a leading <code>$</code> is optional in queries.</p>
             <p class="manual-deep-link"><strong>In-depth guide:</strong> Follow a complete JSON workflow with formatting, folding, JSONPath samples, schema validation, comparison, and export in <a href="json-formatter-browser-extension.html">JSON Formatter and Viewer</a>.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
@@ -405,13 +410,13 @@
 
           <section id="table-view" class="manual-topic" data-products="shared browser app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Rows and columns</span><h2>Table View</h2></div><span class="product-badge product-shared">Both products</span></div>
-            <p>Table View is available for compatible JSON arrays of objects and repeating XML/RSS structures; the app also uses it for CSV. Mixed JSON arrays are rejected rather than silently dropping primitive rows.</p>
+            <p>Table View is available for compatible JSON arrays of objects and repeating XML/RSS structures; the app also uses it for CSV (CSV files open directly in Table View when CSV formatting is enabled) and for HTML documents with a repeating tabular structure. In the extension, mixed JSON arrays are rejected rather than silently dropping primitive rows; the app shows the object rows and omits primitive entries.</p>
             <ul>
               <li>Search the entire table or filter individual columns.</li>
               <li>Click a column to sort; drag columns to reorder them.</li>
-              <li>Expand long cells and optionally show column summaries such as dominant type, unique values, and empty counts.</li>
-              <li>Select rows (or all rows) and export the selection as CSV or JSON. Export the current filtered/sorted table as HTML.</li>
-              <li>Large tables use virtual rendering from roughly 1,000 rows so the modal remains responsive.</li>
+              <li>Expand long cells and optionally show column summaries such as dominant type, unique values, and empty counts. Summaries cover the first 12 columns, and the toggle state is remembered.</li>
+              <li>Select individual rows or all rows matching the current filter, then export the selection as CSV or JSON in the current column and sort order. Export the current filtered/sorted table as HTML.</li>
+              <li>Large tables use virtual rendering from roughly 1,000 rows so the view remains responsive.</li>
             </ul>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
@@ -436,8 +441,8 @@
               <li>Open <strong>JSON Schema Validator</strong>, paste a schema, and choose Validate or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.</li>
               <li>Inspect each violation’s instance path, keyword, message, schema path, and source line. Select a result to jump.</li>
             </ol>
-            <p>Core types, enum/const, numeric/string/object/array constraints, composition, conditionals, dependencies, safe regular expressions, and common formats are supported. Validation is completely local.</p>
-            <p class="manual-limit"><strong>Limits:</strong> schema input is capped at 2 MiB, with depth 80, 100 reported errors, 100,000 validation operations, and about 2.5 seconds. Only local <code>#</code> references/anchors are resolved; remote schemas are never downloaded. <code>unevaluatedProperties</code> is reported as unsupported.</p>
+            <p>Core types, enum/const, numeric/string/object/array constraints, composition, conditionals, dependencies, safe regular expressions, and common formats are supported. Validated formats are email, hostname, ipv4, ipv6, uuid, date, time, date-time, uri, uri-reference, and regex; unrecognized format names are ignored rather than validated. Regular expressions with backreferences, lookarounds, repeated groups containing alternation or inner quantifiers, consecutive overlapping quantifiers, or more than 512 characters cause the schema to be rejected as too complex. Validation is completely local.</p>
+            <p class="manual-limit"><strong>Limits:</strong> schema input is capped at 2 MiB, with depth 80, 100 reported errors, 100,000 validation operations, and about 2.5 seconds — the operation and time budgets apply separately to schema checking and to document validation. Only local <code>#</code> references/anchors are resolved; remote schemas are never downloaded. <code>unevaluatedProperties</code> is reported as unsupported. The pasted schema is kept for the session, and a run that hits any limit is never reported as valid.</p>
             <p class="manual-deep-link"><strong>In-depth guide:</strong> See a real schema produce path- and line-specific violations in <a href="json-formatter-browser-extension.html#json-query-title">JSON query and validation examples</a>.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
@@ -456,10 +461,11 @@
 
           <section id="analysis-tools" class="manual-topic" data-products="shared browser app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Understand the document</span><h2>Statistics, Diagnostics, and Security Scan</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <p>Open <strong>Statistics &amp; Diagnostics</strong> from More Actions or the Command Palette; the Windows app also lists both in the Tools menu. They are two sections of one combined panel — the Diagnostics command opens it scrolled to the Diagnostics section.</p>
             <h3>Statistics</h3>
             <p>All formats report original/formatted/minified estimates, lines, characters, and characters without whitespace. JSON adds structure depth and value counts; JavaScript adds declarations/modules/comments; CSS adds rule/property/variable/import/color counts; XML/feed adds element, attribute, namespace, text, comment, and CDATA counts.</p>
             <h3>Diagnostics</h3>
-            <p>Diagnostics combines syntax status with long-line, large-document, and mixed-indentation warnings. Depending on format it can identify duplicate JSON keys, JSONC, suspicious timestamps/URLs, embedded JWT/Base64/URL values, pagination/GraphQL/OpenAPI/schema shapes, feed issues, JavaScript/CSS summaries, HTTP response context in the extension, and practical quick-fix guidance.</p>
+            <p>Diagnostics combines syntax status with warnings for long lines (over 300 characters), large documents (over 5,000 lines), and mixed indentation. Depending on format it can identify duplicate JSON keys, JSONC, suspicious timestamps (10–13 digit values outside the recognized Unix range, or invalid ISO-like dates) and URLs, embedded JWT/Base64/URL values, pagination/GraphQL/OpenAPI/schema shapes, feed issues, JavaScript/CSS summaries, HTTP response context and timing in the extension (for documents served over HTTP/HTTPS), and practical quick-fix guidance. Every report also includes a CSV readiness check that states whether the document can be exported to CSV and why.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
                 <button type="button" class="manual-screenshot-open" id="manual-screenshot-diagnostics"
@@ -474,7 +480,7 @@
               </figure>
             </div>
             <h3>Security Scan</h3>
-            <p>Run Security Scan from the Command Palette (or Tools in the app). It looks locally for likely cloud/API keys, tokens, private-key blocks, credential-bearing URLs, connection strings, API routes, paths, and file references. Findings are masked, severity-sorted, and linked to source. Selecting a finding reveals any folded parent blocks and centers the exact displayed line while leaving unrelated folds closed; <strong>Copy endpoints</strong> copies only the endpoint list.</p>
+            <p>Run Security Scan from More Actions or the Command Palette; the Windows app also lists it in the Tools menu. It looks locally for likely cloud/API keys, tokens, private-key blocks, credential-bearing URLs, connection strings, API routes, paths, and file references. Secret findings are masked (leading and trailing characters plus length only) and sorted by severity; endpoint findings are deduplicated and grouped by kind. Every finding links to its source line, and rows also activate with Enter or Space. Selecting a finding reveals any folded parent blocks and centers the exact displayed line while leaving unrelated folds closed; <strong>Copy endpoints</strong> copies only the endpoint list.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
                 <button type="button" class="manual-screenshot-open" id="manual-screenshot-security-scan"
@@ -488,16 +494,16 @@
                 </button>
               </figure>
             </div>
-            <p class="manual-limit"><strong>Important:</strong> this is heuristic assistance, not a security guarantee. It may produce false positives and false negatives. A scan examines at most 5,000,000 characters and reports at most 1,000 findings; partial results are clearly marked.</p>
+            <p class="manual-limit"><strong>Important:</strong> this is heuristic assistance, not a security guarantee. It may produce false positives and false negatives. A scan examines at most 5,000,000 characters and reports at most 1,000 secret findings and 1,000 endpoint findings; partial results are clearly marked.</p>
           </section>
 
           <section id="data-converter" class="manual-topic" data-products="shared browser app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Transform, encode, hash, and generate</span><h2>Data Converter</h2></div><span class="product-badge product-shared">Both products</span></div>
-            <p>Open Data Converter from More Actions, the Command Palette, Tools, or the extension launcher. Its four tabs keep related conversion utilities together: <strong>Convert</strong>, <strong>Hash &amp; HMAC</strong>, <strong>Timestamp</strong>, and <strong>ID Generator</strong>. On Convert, <strong>Use document</strong> loads the active text. Choose an operation and press the Convert button beside it. <strong>Reverse</strong> moves the output into input and selects the inverse. Copy and Download sit together beside output.</p>
+            <p>Open Data Converter from More Actions, the Command Palette, Tools, or the extension launcher. Its four tabs keep related conversion utilities together: <strong>Convert</strong>, <strong>Hash &amp; HMAC</strong>, <strong>Timestamp</strong>, and <strong>ID Generator</strong>. On Convert, <strong>Use document</strong> loads the active text. Choose an operation and press the Convert button beside it. <strong>Reverse</strong> moves the output into input and selects the inverse. Copy and Download sit together beside output. Inside the dialog, <kbd>Ctrl</kbd>+<kbd>Enter</kbd> generates on the Hash tab, <kbd>Enter</kbd> converts on the Timestamp tab, and the arrow keys cycle the four tabs.</p>
             <h3>Hash &amp; HMAC</h3>
             <p>Choose the <strong>Hash &amp; HMAC</strong> tab to create SHA-256, SHA-384, or SHA-512 output from pasted text or the current document. Hash mode produces a normal digest. HMAC mode also requires a secret key and produces a keyed authentication code. Both hex and Base64 representations can be copied. Text and keys are interpreted as UTF-8, remain in memory only for the open page, are never saved or transmitted, and are capped at 16 MiB each.</p>
             <h3>Unix / ISO timestamps</h3>
-            <p>The <strong>Timestamp</strong> tab converts Unix seconds, Unix milliseconds, or ISO 8601 values with <code>Z</code> or an explicit UTC offset. Auto-detection distinguishes normal Unix seconds from millisecond values; choose the unit explicitly for unusual or far-future numbers. Results include UTC ISO 8601, Unix seconds, Unix milliseconds, and local system time. Ambiguous date strings without a timezone are rejected instead of silently assuming one.</p>
+            <p>The <strong>Timestamp</strong> tab converts Unix seconds, Unix milliseconds, or ISO 8601 values with <code>Z</code> or an explicit <code>&plusmn;HH:MM</code> UTC offset; ISO seconds and fractions (up to nine digits) are optional, and negative or fractional Unix values are accepted. Auto-detection treats absolute values below 100,000,000,000 as seconds and larger values as milliseconds; choose the unit explicitly for far-future dates or early-epoch millisecond values. <strong>Use current time</strong> fills the present moment in milliseconds. Results include UTC ISO 8601, Unix seconds, Unix milliseconds, and local system time. Ambiguous date strings without a timezone are rejected instead of silently assuming one.</p>
             <h3>UUID &amp; ULID generation</h3>
             <p>The <strong>ID Generator</strong> creates 1&ndash;100 UUID v4, UUID v7, or ULID values per batch. UUID v4 is random; UUID v7 and ULID embed the current Unix-millisecond timestamp and use monotonic random portions so a same-millisecond batch remains lexicographically sorted. Generation requires the platform&rsquo;s cryptographically secure random source and never falls back to <code>Math.random()</code>.</p>
             <div class="manual-table-wrap">
@@ -508,10 +514,10 @@
                   <tr><td>Minify JSON</td><td>Parses valid JSON and removes insignificant whitespace.</td></tr>
                   <tr><td>Stringify JSON</td><td>Turns a JSON value into a JSON string literal.</td></tr>
                   <tr><td>Parse JSON</td><td>Turns a JSON string literal back into its contained JSON value.</td></tr>
-                  <tr><td>Escape JSON</td><td>Escapes quotes, slashes, controls, and special characters for JSON text.</td></tr>
+                  <tr><td>Escape JSON</td><td>Escapes quotes, backslashes, control characters, and unpaired surrogates for embedding in a JSON string.</td></tr>
                   <tr><td>Unescape JSON</td><td>Decodes valid JSON escape sequences to characters.</td></tr>
-                  <tr><td>JSON &rarr; XML</td><td>Maps JSON types into a namespace-aware XML representation.</td></tr>
-                  <tr><td>XML &rarr; JSON</td><td>Uses an ordered <code>$xml</code> model to preserve attributes, namespaces, text, CDATA, comments, processing instructions, and order.</td></tr>
+                  <tr><td>JSON &rarr; XML</td><td>Maps JSON types into a namespace-aware XML representation; a previously produced <code>$xml</code> mapping is reconstructed back into the original XML.</td></tr>
+                  <tr><td>XML &rarr; JSON</td><td>Uses an ordered <code>$xml</code> model to preserve attributes, namespaces, text, CDATA, comments, processing instructions, and order; XML in CodePrettify&rsquo;s typed JSON vocabulary decodes back to plain JSON, so both directions round-trip via Reverse.</td></tr>
                   <tr><td>JSON &rarr; CSV</td><td>Converts a flat array of objects to comma-separated rows.</td></tr>
                   <tr><td>CSV &rarr; JSON</td><td>Parses a compatible delimited table into an array of objects.</td></tr>
                   <tr><td>JSON &rarr; YAML</td><td>Serializes compatible JSON values as YAML.</td></tr>
@@ -519,14 +525,14 @@
                   <tr><td>JSON &rarr; TSV</td><td>Converts a flat array of objects to tab-separated rows.</td></tr>
                   <tr><td>TSV &rarr; JSON</td><td>Parses a compatible tab-separated table into objects.</td></tr>
                   <tr><td>Base64 Encode</td><td>Encodes UTF-8 text as standard Base64.</td></tr>
-                  <tr><td>Base64 Decode</td><td>Validates Base64 and decodes it as UTF-8 text.</td></tr>
+                  <tr><td>Base64 Decode</td><td>Strictly validates Base64 (no whitespace or line breaks, standard or URL-safe alphabet but not mixed, padding optional yet exact when present) and decodes it as UTF-8 text.</td></tr>
                   <tr><td>URL Encode</td><td>Percent-encodes text for safe use in a URL component.</td></tr>
                   <tr><td>URL Decode</td><td>Decodes valid percent-encoded text.</td></tr>
                 </tbody>
               </table>
             </div>
             <h3>Compatibility and safety</h3>
-            <p>Operations proven incompatible with the current input are disabled with a reason; other choices remain selectable. JSON conversion refuses unsafe integers, <code>-0</code>, out-of-range values, and decimals that JavaScript would silently change. CSV/TSV requires flat tabular data and protects spreadsheet-formula-leading text. YAML conversion cannot preserve comments, anchors, tags, or scalar styling.</p>
+            <p>Operations proven incompatible with the current input are disabled with a reason; other choices remain selectable. JSON conversion refuses unsafe integers, <code>-0</code>, out-of-range values, and decimals that JavaScript would silently change. CSV/TSV requires flat tabular data and protects spreadsheet-formula-leading text: import treats the first row as a unique header row, rejects rows longer than the header, and returns every field as a string without type inference, while export unions all object keys into the header and leaves missing values empty. YAML conversion cannot preserve comments, anchors, tags, or scalar styling, and aliases that reuse arrays or objects are rejected outright to prevent unsafe expansion.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
                 <button type="button" class="manual-screenshot-open" id="manual-screenshot-data-converter"
@@ -540,17 +546,17 @@
                 </button>
               </figure>
             </div>
-            <p class="manual-limit"><strong>Limits:</strong> 10 Mi characters input, 32 Mi characters output, plus bounded YAML nodes/depth. Base64 decode must produce valid UTF-8.</p>
+            <p class="manual-limit"><strong>Limits:</strong> 10 Mi characters input, 32 Mi characters output, plus YAML bounds of 500,000 values and 512 nesting levels. Base64 decode must produce valid UTF-8.</p>
           </section>
 
           <section id="json-to-code" class="manual-topic" data-products="shared browser app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">From sample data to a usable model</span><h2>JSON to Code Generator</h2></div><span class="product-badge product-shared">Both products</span></div>
-            <p>JSON to Code Generator is a general tool, so it remains available in More Actions and the Command Palette for every file type. The extension also exposes it from the launcher, and the Windows app includes it in Tools. Paste any strict JSON sample, choose <strong>Example</strong>, or use <strong>Use document</strong> when the active document contains JSON. Generation runs entirely on the device.</p>
+            <p>JSON to Code Generator is a general tool, so it remains available in More Actions and the Command Palette for every file type. The extension also exposes it from the launcher, and the Windows app includes it in Tools. Paste any strict JSON sample or choose <strong>Example</strong>; when opened on a JSON document, the sample is loaded automatically the first time, and <strong>Use document</strong> reloads it at any point. Generation runs entirely on the device.</p>
             <ol>
               <li>Enter one JSON object, value, or array of sample records in <strong>JSON sample</strong>.</li>
-              <li>Choose a <strong>Target</strong>, set the <strong>Root type name</strong>, and, where supported, adjust the package or namespace.</li>
+              <li>Choose a <strong>Target</strong>, set the <strong>Root type name</strong>, and, where supported, adjust the package or namespace. That field appears for C# (Namespace, default <code>Generated</code>), Java and Kotlin (Package, default <code>com.example.generated</code>), and Go (Package, default <code>main</code>); invalid entries are normalized automatically.</li>
               <li>Optionally enable <strong>Make every property optional</strong>. Otherwise, properties missing from some array samples become optional automatically, while an explicit <code>null</code> becomes nullable.</li>
-              <li>Review the live generated code and any inference warning, then Copy, Export, or Open as document.</li>
+              <li>Review the live generated code and any inference warning, then <strong>Copy to clipboard</strong>, <strong>Open as document</strong>, or <strong>Export</strong>. Press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> in the sample box to generate immediately.</li>
             </ol>
             <p>The example below converts an advanced order payload—with nested customer data, line items, nullable discounts, tracking events, payment totals, tags, and metadata—into ready-to-use C# models with <code>System.Text.Json</code> annotations and a project namespace.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
@@ -573,32 +579,32 @@
                   <tr><td>TypeScript</td><td>Nested exported interfaces and root aliases with unions, optional fields, and exact source keys.</td></tr>
                   <tr><td>Zod</td><td>Composable schemas plus an inferred TypeScript root type.</td></tr>
                   <tr><td>C#, Java, Kotlin</td><td>Records or data classes with JSON field-name annotations and namespace/package support.</td></tr>
-                  <tr><td>Python / Pydantic</td><td>Pydantic models with aliases for source keys that are not valid Python identifiers.</td></tr>
+                  <tr><td>Python / Pydantic</td><td>Pydantic models with snake_case field names and <code>Field</code> aliases whenever the field name differs from the source key.</td></tr>
                   <tr><td>Go, Rust, Swift, Dart</td><td>Native model declarations with json, Serde, Codable, or json_serializable mappings.</td></tr>
-                  <tr><td>JSON Schema</td><td>A Draft 2020-12 schema with definitions, required fields, arrays, unions, and nullability.</td></tr>
+                  <tr><td>JSON Schema</td><td>A Draft 2020-12 schema with inline nested object schemas, required lists, arrays, anyOf unions, and nullability.</td></tr>
                 </tbody>
               </table>
             </div>
             <h3>Inference behavior</h3>
-            <p>Nested objects become named models. When the root is an array, all array entries contribute to inference rather than only the first record. Different compatible shapes are merged; genuinely mixed values become unions where the target supports them and a safe general type where it does not. Empty arrays cannot reveal their element type, so the generator reports a warning and uses the target's safe unknown type. Property names such as <code>user-id</code>, reserved words, and other invalid identifiers receive the target's normal field-mapping annotation instead of changing the JSON contract.</p>
+            <p>Nested objects become named models. When the root is an array, all array entries contribute to inference rather than only the first record. Different compatible shapes are merged; genuinely mixed values become unions where the target supports them and a safe general type where it does not. Empty arrays cannot reveal their element type: they are counted into a single informational warning, and the target's safe unknown type is used only when no sample populates the array — otherwise a populated sample's element type wins. Property names such as <code>user-id</code>, reserved words, and other invalid identifiers receive the target's normal field-mapping annotation instead of changing the JSON contract. Array property names are singularized when naming element types (<code>addresses</code> becomes <code>Address</code>), and integers map to 64-bit types in typed targets. <strong>Make every property optional</strong> goes beyond adding <code>?</code>: it removes JSON Schema required lists and uses Option, pointer, or nullable forms with defaults where the target needs them.</p>
             <p class="manual-limit"><strong>Limits:</strong> input is capped at 5 Mi characters, generated output at 16 Mi characters, nesting at 100 levels, and inspected JSON values at 100,000. Invalid or incomplete JSON reports its line and column when available. Limits fail closed and never alter the source document.</p>
             <p class="manual-deep-link"><strong>In-depth guide:</strong> Compare TypeScript and Python/Pydantic output from the same multi-sample payload in <a href="json-to-code-generator.html">JSON to Code Generator</a>.</p>
           </section>
 
           <section id="structured-workbench" class="manual-topic" data-products="shared browser app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Repair first, transform second</span><h2>JSON Repair &amp; Transform</h2></div><span class="product-badge product-shared">Both products</span></div>
-            <p>Open <strong>JSON Repair &amp; Transform</strong> from <strong>General tools</strong> in More Actions or from the Command Palette; the Windows app also exposes it directly in <strong>Tools</strong>. It is always available because pasted JSON-like input can be used independently of the active document. A compatible current document remains an optional starting point through <strong>Use document</strong>. All processing stays on the device. Its two tabs are designed as one workflow: review and normalize the source in <strong>Repair &amp; Salvage</strong>, then pass that result to <strong>Transform</strong>. Both tabs retain the same dialog height when switching, and the Repair input, repaired output, and live Transform result use the shared compact code-text scale while preserving useful editor space.</p>
+            <p>Open <strong>JSON Repair &amp; Transform</strong> from <strong>General tools</strong> in More Actions or from the Command Palette; the Windows app also exposes it directly in <strong>Tools</strong>. It is available for every supported document type because pasted JSON-like input works independently of the active document; in the Windows app it requires an open document tab in prettified view. A compatible current document remains an optional starting point through <strong>Use document</strong>. All processing stays on the device. Its two tabs are designed as one workflow: review and normalize the source in <strong>Repair &amp; Salvage</strong>, then pass that result to <strong>Transform</strong>. Both tabs retain the same dialog height when switching, and the Repair input, repaired output, and live Transform result use the shared compact code-text scale while preserving useful editor space.</p>
             <p class="manual-deep-link"><strong>In-depth guide:</strong> Walk through fenced, Python-style JSON repair and a filter-and-sort recipe in <a href="json-repair-transform.html">JSON Repair &amp; Transform</a>.</p>
 
             <h3>Repair &amp; Salvage</h3>
             <ol>
               <li>Review or replace <strong>Input to analyze</strong>. <strong>Use document</strong> restores the active document text.</li>
-              <li>For JSON Lines only, enable <strong>Allow partial-record salvage</strong> if you deliberately want invalid records excluded. Leave it off when every record must survive.</li>
+              <li>For JSON Lines only, enable <strong>Salvage valid JSON Lines records when some records are invalid</strong> if you deliberately want invalid records excluded. Leave it off when every record must survive.</li>
               <li>Choose <strong>Analyze &amp; repair</strong>. Review the confidence, each recorded repair, warnings, and any discarded source-line numbers before using the result.</li>
               <li>Copy or download the repaired JSON, or choose <strong>Use result in Transform</strong>.</li>
             </ol>
-            <p>The repair engine can remove a byte-order mark or Markdown fence, extract the first balanced object/array from surrounding prose, remove JavaScript comments, convert single-quoted strings, quote unquoted object keys, replace recognized JavaScript/Python literals, remove trailing commas or a final semicolon, and escape raw controls inside strings. Every applied change appears in the report; extraction and semantic literal replacement lower confidence so they receive extra scrutiny.</p>
-            <p class="manual-limit"><strong>Partial salvage is destructive:</strong> invalid JSON Lines records are never discarded silently. Without explicit opt-in, one invalid record blocks the result. With opt-in, the report identifies every excluded line. Truncated JSON, missing brackets/separators, and repairs that cannot be made safely are rejected.</p>
+            <p>The repair engine can remove a byte-order mark or Markdown fence, extract the first balanced object/array from surrounding prose, remove JavaScript comments, convert single-quoted strings, quote unquoted object keys, replace recognized JavaScript/Python literals (True/False become true/false; None, NaN, undefined, and &plusmn;Infinity become null), add leading zeros to bare decimal numbers, close unterminated property strings, insert missing commas and closing brackets, remove trailing commas or a final semicolon, and escape raw controls inside strings. Every applied change appears in the report; extraction, semantic literal replacement, structural insertion (missing commas/brackets, closed strings), and excluded JSON Lines records lower confidence from high to medium so they receive extra scrutiny.</p>
+            <p class="manual-limit"><strong>Partial salvage is destructive:</strong> invalid JSON Lines records are never discarded silently. Without explicit opt-in, one invalid record blocks the result. With opt-in, the report identifies every excluded line. Mismatched brackets and structure that cannot be resolved safely are rejected; within JSON Lines, a record that would need bracket insertion or extraction is treated as invalid rather than repaired.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
                 <button type="button" class="manual-screenshot-open" id="manual-screenshot-workbench-repair"
@@ -648,20 +654,20 @@
               <table class="manual-table manual-workbench-operation-table">
                 <thead><tr><th>Operation</th><th>What it does</th></tr></thead>
                 <tbody>
-                  <tr><td>Filter rows</td><td>Keeps array rows matching equality, comparison, text/array containment, prefix/suffix, or existence conditions. A nested-array field matches when any nested item satisfies the condition.</td></tr>
-                  <tr><td>Select fields</td><td>Creates a smaller object from one or more comma-separated paths.</td></tr>
+                  <tr><td>Filter rows</td><td>Keeps array rows matching equality, comparison, text/array containment, prefix/suffix, or existence conditions. A nested-array field matches when any nested item satisfies the condition; <em>is not equal to</em> matches only when every nested item differs.</td></tr>
+                  <tr><td>Select fields</td><td>Creates a smaller object from one or more comma-separated paths. Each kept value is stored under the final path segment (<code>customer.address.city</code> becomes <code>city</code>), so choose paths with distinct final names.</td></tr>
                   <tr><td>Remove fields</td><td>Deletes one or more selected paths from copied records.</td></tr>
                   <tr><td>Rename field</td><td>Moves a value from a source path to a new target path.</td></tr>
-                  <tr><td>Sort rows</td><td>Sorts an array by a path in ascending or descending order while preserving equal-value order.</td></tr>
+                  <tr><td>Sort rows</td><td>Sorts an array by a path in ascending or descending order while preserving equal-value order. Null values sort last regardless of direction.</td></tr>
                   <tr><td>Unique rows</td><td>Keeps the first row for each distinct path value, or each distinct full row when no path is supplied.</td></tr>
-                  <tr><td>Flatten array field</td><td>Expands an array-valued field into separate copied rows.</td></tr>
-                  <tr><td>Group and aggregate</td><td>Groups by a path and calculates Count, Sum, Average, Minimum, or Maximum from an optional value path.</td></tr>
+                  <tr><td>Flatten array field</td><td>Expands an array-valued field into separate copied rows; rows whose field is not an array pass through unchanged.</td></tr>
+                  <tr><td>Group and aggregate</td><td>Groups by a path and calculates Count, Sum, Average, Minimum, or Maximum from an optional value path. Non-numeric values are ignored; Average, Minimum, and Maximum over no numeric values yield null.</td></tr>
                   <tr><td>Limit rows</td><td>Returns a count of rows after an optional offset.</td></tr>
                 </tbody>
               </table>
             </div>
-            <p>In most cases, choose a detected field instead of writing a path. The label <strong>any item</strong> represents an array wildcard: <code>owners[].name</code> checks the <code>name</code> of every item in <code>owners</code>. Filter also accepts the forgiving form <code>owners.name</code> and crosses the array automatically. Advanced paths use familiar dot/index notation such as <code>customer.address.city</code>, <code>items[0].sku</code>, or <code>$[&quot;odd.key&quot;]</code>. Filter values accept JSON literals such as <code>true</code>, <code>42</code>, <code>null</code>, arrays, and objects; other text remains a string. Use <code>&quot;&quot;</code> to match an empty string.</p>
-            <p>Use <strong>Copy</strong>, <strong>Download</strong>/<strong>Save</strong>, or <strong>Open as document</strong> when the live output is ready. Opening the result creates a separate document or tab; it does not replace the source.</p>
+            <p>In most cases, choose a detected field instead of writing a path. In Filter, the label <strong>any item</strong> represents an array wildcard — <code>owners[].name</code> checks the <code>name</code> of every item in <code>owners</code> — and Filter also accepts the forgiving form <code>owners.name</code>, crossing the array automatically; other operations expect a concrete path. Advanced paths use familiar dot/index notation such as <code>customer.address.city</code>, <code>items[0].sku</code>, or <code>$[&quot;odd.key&quot;]</code>. Filter values accept JSON literals such as <code>true</code>, <code>42</code>, <code>null</code>, arrays, and objects; other text remains a string. Use <code>&quot;&quot;</code> to match an empty string.</p>
+            <p>Use <strong>Copy</strong>, <strong>Export</strong>, or <strong>Open as document</strong> when the live output is ready. Opening the result creates a separate document or tab; it does not replace the source.</p>
 
             <h3>Safety limits</h3>
             <p class="manual-limit"><strong>Fail-closed safeguards:</strong> input is limited to 10 Mi characters, output to 20 Mi characters, structure to 250,000 nodes and 512 nesting levels, pipelines to 32 steps, and array output to 250,000 rows. Unsafe integers, lossy or non-finite numbers, overflowing aggregations, and prototype-sensitive path segments are rejected. Limits cannot be bypassed by partial-record salvage.</p>
@@ -670,13 +676,13 @@
           <section id="copy-export" class="manual-topic" data-products="shared browser app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Take the result with you</span><h2>Copy and Export</h2></div><span class="product-badge product-shared">Both products</span></div>
             <h3>Copy</h3>
-            <p>The floating copy menu and app Edit menu offer <strong>Original</strong>, <strong>Formatted</strong>, and <strong>Minified</strong> when valid. Feedback explicitly identifies what was copied and the preferred copy method is remembered. YAML hides Minified because there is no safe equivalent.</p>
+            <p>The floating copy menu and app Edit menu offer <strong>Original</strong>, <strong>Formatted</strong>, and <strong>Minified</strong> when valid. The main Copy button and <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd> reuse your last-chosen variant; before any choice they copy the visible representation (Raw copies Original, Prettified copies Formatted). Feedback explicitly identifies what was copied. YAML hides Minified because there is no safe equivalent.</p>
             <h3>Export</h3>
             <ul>
               <li>Download Original, Formatted, or Minified source.</li>
-              <li>Export compatible structured data as CSV or the active table as HTML.</li>
-              <li>Convert compatible JSON/YAML/TOML during download; unavailable choices show a reason. XML/feed tabular projection is best-effort and can be lossy.</li>
-              <li>Export code as a PNG using visible viewport/full code, line-number, wrap, and resolution choices. Large images use constrained/segmented paths to stay within canvas limits.</li>
+              <li>Export compatible structured data as CSV or the active table as HTML. CSV files use CRLF line endings, quote every cell, and neutralize formula-leading text for safe opening in spreadsheets; the extension additionally prepends a UTF-8 byte-order mark for Excel.</li>
+              <li>Convert compatible documents to JSON/YAML/TOML during download; only targets the document can actually be serialized into are offered, while CSV export shows a readiness status with a reason when unavailable. XML/feed tabular projection is best-effort and can be lossy.</li>
+              <li>In the extension, export code as a PNG using visible viewport/full code, line-number, wrap, and resolution choices; when a full-code image is too large for a single PNG, it downloads a ZIP containing numbered PNG parts instead. The Windows app&rsquo;s Save as Image captures the visible viewport as a single PNG.</li>
             </ul>
             <p>The Windows app’s Save writes to disk; Export creates a separate representation. In the extension, export always downloads a new file.</p>
           </section>
@@ -687,10 +693,10 @@
             <ol>
               <li>Open Compare or press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>D</kbd>.</li>
               <li>The left input starts with the current document and the right input starts empty. Edit or paste either side; each side has its own <strong>Use current document</strong> and <strong>Clear</strong> controls.</li>
-              <li>Use <strong>Swap sides</strong> before comparing to exchange the actual inputs, then choose Semantic mode when offered or Text mode for exact line changes. Semantic availability is detected from the two inputs, not from the open file.</li>
-              <li>After comparing, use Previous/Next Difference, Swap Sides, or <strong>Edit inputs</strong>. Text mode can ignore whitespace and synchronizes panes.</li>
+              <li>Use <strong>Swap sides</strong> before comparing to exchange the actual inputs. Semantic mode is selected automatically when both inputs parse as a supported structured format (the toggle appears only when semantic comparison is possible); switch to Text mode for exact line changes. Semantic availability is detected from the two inputs, not from the open file.</li>
+              <li>After comparing, use Swap Sides or <strong>Edit inputs</strong>; the Windows app also has Previous/Next difference buttons. (After a comparison, Swap flips only which side is displayed without changing the inputs.) Text mode synchronizes pane scrolling, and in the Windows app it adds an Ignore whitespace option that disregards all whitespace inside lines.</li>
             </ol>
-            <p>Semantic comparison supports JSON/JSONC/JSON Lines/YAML/TOML where parsing succeeds, even if the active document is JavaScript, CSS, or another format. It ignores formatting and object-key order. Arrays with unique <code>id</code>, <code>_id</code>, <code>uuid</code>, or <code>guid</code> values are matched by identity; other arrays are positional. Extremely large change sets are capped and invalid inputs fall back to text. A structured change can jump to an editor line only while the corresponding left or right source still exactly matches the current document; independently pasted or edited text never produces a misleading jump. When the sources are identical, both Semantic and Text modes place the no-differences message horizontally in the center of the result viewport.</p>
+            <p>Semantic comparison supports JSON/JSONC/JSON Lines/YAML/TOML where parsing succeeds, even if the active document is JavaScript, CSS, or another format. It ignores formatting and object-key order. (JSONC comments and trailing commas inside JSON Lines records are accepted in the app; the extension requires strict JSON per line.) Arrays whose elements are all objects with a unique primitive <code>id</code>, <code>_id</code>, <code>uuid</code>, or <code>guid</code> — the same key on both sides — are matched by identity; all other arrays are compared positionally. Change sets are capped at 5,000 entries, with a trailing &hellip; on the counters when truncated, and invalid inputs fall back to text. Very large text comparisons (over roughly 5,000 combined lines in the extension, 20,000 in the app) use a faster position-based comparison that can overstate changes when lines shift. A structured change can jump to an editor line only while the corresponding left or right source still exactly matches the current document, and only for JSON documents with positionally addressed changes — changes inside identity-matched array elements list the change without a jump; independently pasted or edited text never produces a misleading jump. When the sources are identical, both modes show a centered no-differences message over the result area.</p>
             <h3>Compare files (app)</h3>
             <p>The Windows app can browse two files, prefill the current file, remember the pair, and open a dedicated comparison tab. Selecting exactly two supported files in Explorer can expose the Compare command.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
@@ -711,12 +717,13 @@
           <section id="javascript-playground" class="manual-topic" data-products="shared browser app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Sandboxed scratchpad</span><h2>JavaScript Playground</h2></div><span class="product-badge product-shared">Both products</span></div>
             <ol>
-              <li>Open a JavaScript, JSON, or JSON Lines document and start the Playground. You can also start it from the extension launcher.</li>
-              <li>Write scratch code. Optionally include the current document. JSON/JSON Lines becomes <code>const json</code>.</li>
-              <li>For JavaScript choose <strong>Safe definitions</strong> to expose callable/passive top-level declarations without page startup, or <strong>Run entire file</strong> to include startup logic.</li>
+              <li>Start the Playground from any viewer’s More Actions menu or the extension launcher. Open a JavaScript, JSON, or JSON Lines document first if you want to include it as context.</li>
+              <li>Write scratch code. Optionally include the current document; JSON/JSON Lines becomes <code>const json</code> (invalid JSON Lines records are skipped, and an invalid JSON document provides no <code>json</code> variable). Scratch code and your timeout/include choices are remembered between sessions.</li>
+              <li>For JavaScript choose <strong>Safe definitions</strong> to expose callable/passive top-level declarations without page startup, or <strong>Run entire file</strong> to include startup logic. Safe definitions keeps functions and constants with side-effect-free initializers; classes and values computed at startup require Run entire file.</li>
               <li>Choose a 1, 5, or 15-second timeout and Run, or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.</li>
-              <li>Inspect console output, <code>console.table</code>, errors with mapped lines, duration, and the final expression’s value. Top-level <code>await</code> is supported.</li>
+              <li>Inspect console output, <code>console.table</code>, errors with mapped lines, duration, and the final expression’s value. Top-level <code>await</code> is supported, and unhandled promise rejections appear as console errors.</li>
             </ol>
+            <p class="manual-limit"><strong>Output bounds:</strong> the console keeps the last 500 entries, value previews truncate at 10,000 characters, and a timeout hard-terminates the worker so runaway loops cannot linger.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
                 <button type="button" class="manual-screenshot-open" id="manual-screenshot-javascript-playground"
@@ -730,12 +737,12 @@
                 </button>
               </figure>
             </div>
-            <div class="manual-callout warning"><strong>It is not the page and not Node.js.</strong> The worker has no DOM, <code>window</code>, <code>document</code>, page libraries, extension APIs, <code>require</code>, <code>fs</code>, <code>process</code>, local-file access, <code>fetch</code>, XHR, WebSocket, or other network channel. Browser- or Node-dependent files are expected to fail; isolate a pure function or use Safe definitions.</div>
+            <div class="manual-callout warning"><strong>It is not the page and not Node.js.</strong> The worker has no DOM, <code>window</code>, <code>document</code>, page libraries, extension APIs, local-file access, <code>fetch</code>, XHR, WebSocket, or other network channel. Node.js APIs are unavailable: <code>require</code> returns a stub module that raises a guided <code>SandboxCapabilityError</code> when used, and referencing <code>process</code>, <code>Buffer</code>, or other CommonJS globals raises the same error. ES module files run with import/export neutralized — imported symbols become undefined or empty stubs — so code depending on imported modules will not behave as it does in its real environment. Browser- or Node-dependent files are expected to fail; isolate a pure function or use Safe definitions.</div>
           </section>
 
           <section id="runtime-inspector" class="manual-topic" data-products="shared browser app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">JavaScript only</span><h2>Inspect Runtime</h2></div><span class="product-badge product-shared">Both products</span></div>
-            <p>Inspect Runtime executes the current JavaScript in the same timeout-controlled sandbox and groups top-level variables, functions, and classes. It captures parameter signatures, bounded values, source previews, console output, and declaration line links. Partial results remain useful if later startup code throws.</p>
+            <p>Inspect Runtime executes the current JavaScript in the same sandbox with a fixed five-second timeout and groups top-level variables, functions, and classes. It captures parameter signatures, bounded values, source previews, console output, and declaration line links. Partial results remain useful if later startup code throws.</p>
             <p>Choose inline-value display to add captured values beside source lines and hover details. Use <strong>Clear inline values</strong> to remove annotations. Runtime Inspect has the same no-DOM, no-Node, no-local-files, and no-network restrictions as the Playground.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
@@ -755,10 +762,10 @@
           <section id="regex-playground" class="manual-topic" data-products="shared browser app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Build and verify patterns</span><h2>Regex Playground</h2></div><span class="product-badge product-shared">Both products</span></div>
             <ol>
-              <li>Choose <strong>Current document</strong> or <strong>Custom text</strong>. Custom text is session-only; document mode highlights matches in the viewer and can jump to them.</li>
-              <li>Enter the pattern without surrounding slashes. Toggle global <code>g</code>, ignore case <code>i</code>, multiline <code>m</code>, dot-all <code>s</code>, Unicode <code>u</code>, or sticky <code>y</code>.</li>
-              <li>Review every match, line/column, and numbered/named capture group. The right side always shows the complete <code>/pattern/flags</code> form with Copy Regex.</li>
-              <li>Open Advanced for replacement preview (<code>$1</code> and <code>$&lt;name&gt;</code>), named saved patterns, last-ten history, and up to 20 test assertions: match, no match, count equals, or replacement equals.</li>
+              <li>Choose <strong>Current document</strong> or <strong>Custom text</strong>. Custom text is session-only; document mode highlights matches in the viewer and can jump to them, and moving the editor cursor onto a highlighted match selects it and shows its capture groups.</li>
+              <li>Enter the pattern without surrounding slashes. Toggle global <code>g</code> (on by default), ignore case <code>i</code>, multiline <code>m</code>, dot-all <code>s</code>, Unicode <code>u</code>, or sticky <code>y</code>.</li>
+              <li>Review the matches with line/column. The list shows the first 100 (all matches up to 500 are still counted and highlighted); select a match to see its numbered and named capture groups in the details panel. The right side always shows the complete <code>/pattern/flags</code> form with Copy Regex.</li>
+              <li>Open Advanced for replacement preview (<code>$1</code> and <code>$&lt;name&gt;</code>), a combined saved-and-recent list holding the last ten patterns (recent runs are recorded automatically; Save pattern adds a named entry to the same ten-slot list), and up to 20 test assertions: Matches, No match, Match count, or Replace equals.</li>
               <li>Copy generated JavaScript, C#, or PowerShell snippets, or load an example from the guide.</li>
             </ol>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
@@ -782,16 +789,16 @@
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Explicit network tool</span><h2>HTTP Client</h2></div><span class="product-badge product-shared">Both products</span></div>
             <h3>Build a request</h3>
             <ol>
-              <li>Choose GET, POST, PUT, PATCH, DELETE, HEAD, or OPTIONS; enter an HTTP/HTTPS URL and timeout.</li>
+              <li>Choose GET, POST, PUT, PATCH, DELETE, HEAD, or OPTIONS; enter an HTTP/HTTPS URL and timeout (default 30 seconds).</li>
               <li>Add query parameters, headers, and authentication: None, Bearer, Basic, or API key in a header/query.</li>
-              <li>For a body choose None, JSON, raw text, URL-encoded form, multipart fields, or GraphQL with variables.</li>
+              <li>For a body choose None, JSON, raw text, URL-encoded form, multipart fields, or GraphQL with variables. GET and HEAD requests never send a body.</li>
               <li>Use <code>{{variable}}</code> from an environment. Secret fields are masked in the UI.</li>
-              <li>Press <strong>Send</strong>. This is the moment the browser/app makes the external request. Send becomes Cancel while active.</li>
+              <li>Press <strong>Send</strong>. This is the moment the browser/app makes the external request. While the request runs, Send shows a spinner and a Cancel button appears beside it.</li>
             </ol>
             <h3>Reuse and share safely</h3>
-            <p>Save requests, collections, environments, and sanitized history. Import cURL or CodePrettify JSON; export JSON. Generate copyable cURL, <code>fetch()</code>, or PowerShell. Export warns when authentication/secrets would be written in plain text.</p>
+            <p>Save requests, collections, environments, and sanitized history. Import cURL or CodePrettify JSON; export JSON. Generate copyable cURL, <code>fetch()</code>, or PowerShell — generated snippets and response views mask known secret values as <code>******</code>, so re-insert real credentials before running a snippet. Export warns when authentication/secrets would be written in plain text.</p>
             <h3>Inspect the response</h3>
-            <p>Review formatted Body, Raw, Headers, Cookies, status, duration/timing, size, and content type. Copy/save content or open recognized JSON, JSON Lines, YAML, CSS, HTML, XML, JavaScript, or TypeScript in a viewer tab where supported.</p>
+            <p>Review formatted Body, Raw, Headers, Cookies, status, duration/timing, size, and content type. The Body tab formats recognized JSON, JSON Lines, YAML, CSS, HTML, XML, JavaScript, or TypeScript in the embedded viewer; use the Raw tab&rsquo;s Copy button for the exact response text.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
                 <button type="button" class="manual-screenshot-open" id="manual-screenshot-http-client"
@@ -805,8 +812,8 @@
                 </button>
               </figure>
             </div>
-            <p class="manual-limit"><strong>Limits and behavior:</strong> URL credentials are rejected, cache is disabled, redirects are followed, and bodies are capped at 50 MiB with truncation reported. The browser extension is also subject to browser CORS/credential policy. A timeout of 0 disables timeout; maximum differs by product (five minutes in the extension, ten in the app).</p>
-            <p>Local storage is bounded: the extension allows up to 500 collection entries, 50 environments, and 200 variables per environment; the app uses 100 entries, 20 environments, and 50 variables per environment. History is capped and strips/redacts credentials, sensitive headers/query values, request bodies, and unsafe error text before replay data is stored.</p>
+            <p class="manual-limit"><strong>Limits and behavior:</strong> URLs with embedded credentials are refused (the extension explains this directly; the app reports it as a blocked request) — use the Auth controls instead. Cache is disabled and redirects are followed. Response bodies are capped at 50 MiB; anything beyond the cap is discarded and the size chip shows the bytes actually kept. Requests follow each platform&rsquo;s fetch rules: in Chrome/Edge the extension&rsquo;s granted host permissions usually exempt its requests from CORS, in Firefox CORS applies unless host access is granted, and the Windows app is subject to standard CORS. A timeout of 0 disables timeout; maximum differs by product (five minutes in the extension, ten in the app).</p>
+            <p>Local storage is bounded: the extension allows up to 500 collection entries, 50 environments, and 200 variables per environment; the app uses 100 entries, 20 environments, and 50 variables per environment. History keeps the last 10 requests per page (the extension retains the 25 most recent pages, the app 40). In the extension, history strips credentials, sensitive headers/query values, request bodies, and secret text in error messages before replay data is stored; in the app, history masks well-known credential header values but retains request bodies and query strings, so clear it manually after sending sensitive requests.</p>
             <p class="manual-deep-link"><strong>In-depth guide:</strong> Follow a complete request from params and environment values through formatted body, headers, timing, and copyable snippets in <a href="http-client-browser-extension.html">HTTP Client</a>.</p>
           </section>
 
@@ -816,7 +823,7 @@
               <div class="manual-card"><h3>Appearance</h3><p>Auto/Light/Dark theme and 10–24px editor font. Auto follows the operating system.</p></div>
               <div class="manual-card"><h3>Editor</h3><p>Line numbers, word wrap, minimap, floating toolbar, and two- or four-space indentation.</p></div>
               <div class="manual-card"><h3>Language</h3><p>Auto plus English, Danish, German, Spanish, French, Italian, Japanese, Korean, Norwegian, Portuguese, Russian, Swedish, Vietnamese, and Chinese.</p></div>
-              <div class="manual-card"><h3>Per-format</h3><p>Enable/default view (extension), JSON breadcrumb/click inspector/folding, JS folding/bracket matching, CSS color picker, and XML/RSS folding/clickable URLs. The app also has HTML folding/URLs.</p></div>
+              <div class="manual-card"><h3>Per-format</h3><p>Enable per type (extension only) and default view (both products), JSON breadcrumb/click inspector/folding, JS folding/bracket matching, CSS color picker, and XML/RSS folding/clickable URLs. The app also has HTML folding/URLs and a YAML &ldquo;Enabled by default&rdquo; toggle.</p></div>
               <div class="manual-card"><h3>App startup</h3><p>Restore the previous session. Desktop settings apply to every open/new tab and remain local to the app.</p></div>
             </div>
             <div class="manual-screenshot-grid">
@@ -852,9 +859,9 @@
             <h3>Native large-file mode</h3>
             <p>Files of 64 MiB or more use a read-only native pager instead of loading the full WebView document. Generic pages contain about 750,000 characters; CSV pages contain 500 rows with a synchronized raw view. Previous/Next, page search, forward cross-page search with progress/cancel/wrap, and Go to line/row remain available. Most WebView tools are disabled and Save becomes Save As of the original.</p>
             <h3>Encoding</h3>
-            <p>The app detects UTF-8/BOM, UTF-16 LE/BE, UTF-32 BOM, BOM-less UTF-16 heuristics, strict UTF-8, then Windows legacy fallback. Click encoding in the status bar to reopen as Auto, UTF-8, UTF-8 BOM, UTF-16 LE/BE, Windows-1252, or ISO-8859-1.</p>
+            <p>The app detects UTF-8/BOM, UTF-16 LE/BE, UTF-32 BOM, BOM-less UTF-16 heuristics, strict UTF-8, then Windows legacy fallback. Click encoding in the status bar to reopen as Auto, UTF-8, UTF-8 BOM, UTF-16 LE/BE, Windows-1252, or ISO-8859-1. Overrides are session-only; a reopened file reverts to auto-detection.</p>
             <h3>Line endings</h3>
-            <p>The status bar shows Windows (CRLF) or Unix (LF). Click it to convert the open document when size permits. This is a deliberate document change and should be saved if you want it on disk.</p>
+            <p>The status bar shows Windows (CRLF), Unix (LF), Mac (CR), Mixed EOL, or No EOL. Click it to convert the document (files up to 256 MiB). Conversion asks for confirmation and then rewrites the file on disk immediately &mdash; no separate save is needed.</p>
             <h3>Explorer integration and runtime requirements</h3>
             <p>The packaged x64/Arm64 app is .NET 10 self-contained, so the main app does not require a separate .NET desktop runtime. It does require the shared Microsoft Edge WebView2 Evergreen runtime; if missing, the recovery screen opens Microsoft’s installer and provides Retry.</p>
             <p>File associations and Explorer commands can open supported files, and selecting exactly two supported files can offer Compare. This optional Explorer handler is framework-dependent and may require matching <code>Microsoft.NETCore.App 10.x</code>. Use <strong>Help &gt; Explorer Integration Runtime</strong> to check/install the official prerequisite, then restart Explorer or sign out if the shell has not refreshed.</p>
@@ -868,15 +875,16 @@
                 <tbody>
                   <tr><td>Toggle Prettified/Raw or Rendered/Source</td><td><kbd>Ctrl</kbd>+<kbd>B</kbd></td><td>Both</td></tr>
                   <tr><td>Copy active/default representation</td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd></td><td>Both</td></tr>
-                  <tr><td>Find</td><td><kbd>Ctrl</kbd>+<kbd>F</kbd></td><td>Both</td></tr>
-                  <tr><td>Go to Line</td><td><kbd>Ctrl</kbd>+<kbd>G</kbd></td><td>Both</td></tr>
+                  <tr><td>Find</td><td><kbd>Ctrl</kbd>+<kbd>F</kbd></td><td>Both, Prettified/Rendered view</td></tr>
+                  <tr><td>Go to Line</td><td><kbd>Ctrl</kbd>+<kbd>G</kbd></td><td>Both (extension: Prettified view only)</td></tr>
                   <tr><td>Toggle floating toolbar</td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd></td><td>Both</td></tr>
-                  <tr><td>Compare with Clipboard</td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>D</kbd></td><td>Both</td></tr>
-                  <tr><td>JavaScript Playground</td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>P</kbd></td><td>Both</td></tr>
+                  <tr><td>Open Compare (current document preloaded; paste into the right pane)</td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>D</kbd></td><td>Both</td></tr>
+                  <tr><td>JavaScript Playground</td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>P</kbd></td><td>Both (app: JS/JSON/JSON Lines documents; the menu entry works everywhere)</td></tr>
                   <tr><td>Inspect Runtime</td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd></td><td>Both, JavaScript</td></tr>
                   <tr><td>Regex Playground</td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>R</kbd></td><td>Both</td></tr>
                   <tr><td>Command Palette</td><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd></td><td>Both</td></tr>
-                  <tr><td>Run Playground/schema action</td><td><kbd>Ctrl</kbd>+<kbd>Enter</kbd></td><td>When shown</td></tr>
+                  <tr><td>Run the open dialog&rsquo;s primary action (Playground, Schema Validator, Compare, JSON to Code)</td><td><kbd>Ctrl</kbd>+<kbd>Enter</kbd></td><td>When the dialog is open</td></tr>
+                  <tr><td>Close dialog / clear search highlight</td><td><kbd>Esc</kbd></td><td>Both</td></tr>
                   <tr><td>Paste &amp; Prettify</td><td><kbd>Ctrl</kbd>+<kbd>N</kbd></td><td>App</td></tr>
                   <tr><td>Open</td><td><kbd>Ctrl</kbd>+<kbd>O</kbd></td><td>App</td></tr>
                   <tr><td>Save / Save As</td><td><kbd>Ctrl</kbd>+<kbd>S</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd></td><td>App</td></tr>
@@ -893,8 +901,9 @@
             <ul>
               <li>Formatting, validation, conversion, JSON-to-code inference and generation, JSON Repair &amp; Transform, statistics, search, comparison, schema checks, security scanning, and playground/regex processing stay on the device.</li>
               <li>The HTTP Client is the intentional network exception: the request is sent directly to the displayed target only after you press Send. CodePrettify does not proxy it.</li>
-              <li>Playground and Runtime Inspect use an isolated worker with no page DOM, extension API, local-file, Node, or network capability.</li>
+              <li>Playground and Runtime Inspect run in a Web Worker inside a script-only sandboxed frame whose content-security policy forbids all network connections; fetch, XHR, WebSocket, and other networking primitives are additionally disabled before your code runs, and there is no page DOM, extension API, local-file, or Node capability.</li>
               <li>Markdown suppresses automatic remote image loading. Remote JSON Schema references are never fetched.</li>
+              <li>To repair garbled legacy-encoded JavaScript/TypeScript documents, the extension may automatically re-download the same document URL it is already viewing; this request goes only to the server that served the page. Launcher sample documents are loaded from prettify.cloud.</li>
               <li>HTTP environments and saved authentication are local but not encrypted as a secrets vault. Treat exported HTTP JSON as sensitive because it may contain plaintext secrets.</li>
               <li>Extension host permissions allow CodePrettify to recognize supported resources; they do not upload documents.</li>
             </ul>
@@ -904,10 +913,10 @@
           <section id="troubleshooting" class="manual-topic" data-products="shared browser app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Solve common problems</span><h2>Troubleshooting</h2></div><span class="product-badge product-shared">Both products</span></div>
             <div class="manual-definition-list">
-              <div><h3>The extension did not activate</h3><p>Confirm the file type is enabled, reload the raw resource, and check that it is a supported raw document rather than an HTML page. For direct local URLs, enable Allow access to file URLs; alternatively use the launcher picker.</p></div>
+              <div><h3>The extension did not activate</h3><p>Confirm the file type is enabled, reload the raw resource, and check that it is a supported raw document rather than an HTML page. The extension never takes over pages the server delivers as HTML, even for <code>.json</code> or <code>.md</code> URLs: activation needs either a supported response content type, or a supported URL extension while the browser is showing its plain raw-text view. For direct local URLs, enable Allow access to file URLs; alternatively use the launcher picker.</p></div>
               <div><h3>Formatting failed or looks unchanged</h3><p>Open the validation alert and jump to its line/column. Some formats intentionally preserve text when reserialization could change meaning: YAML, mixed-content XML, and high-precision TOML are common examples.</p></div>
-              <div><h3>A tool is missing or disabled</h3><p>Tools are format- and view-sensitive. Open More Actions/Command Palette, switch from Raw/native view to Prettified, and verify the current data shape. The extension’s Document Navigator is intentionally limited to JSON and XML/RSS.</p></div>
-              <div><h3>The JavaScript file needs document, fs, or fetch</h3><p>That code cannot run in the secure worker. Use Safe definitions and call a pure function, paste an isolated function into the scratchpad, or test it in its intended browser/Node environment.</p></div>
+              <div><h3>A tool is missing or disabled</h3><p>Tools are format- and view-sensitive. Open More Actions/Command Palette, switch from Raw/native view to Prettified, and verify the current data shape. The extension’s Document Navigator is intentionally limited to JSON, JavaScript/TypeScript, and XML/RSS.</p></div>
+              <div><h3>The JavaScript file needs document, fs, or fetch</h3><p>That code cannot run in the secure worker; the failure is reported as a <code>SandboxCapabilityError</code> or a network-disabled error naming the blocked capability. Use Safe definitions and call a pure function, paste an isolated function into the scratchpad, or test it in its intended browser/Node environment.</p></div>
               <div><h3>An HTTP request fails</h3><p>Verify resolved variables, authentication placement, URL, timeout, and response size. The extension remains subject to browser CORS and credential restrictions. Use generated cURL/PowerShell to compare outside the browser.</p></div>
               <div><h3>A conversion option is disabled</h3><p>The compatibility check has proven the current input is unsuitable. Read the reason: common causes are invalid JSON, nested data for CSV/TSV, unsafe JSON numbers, invalid UTF-8 Base64, or a lossy YAML/XML construct.</p></div>
               <div><h3>Repair &amp; Salvage refuses the input</h3><p>JSON Repair &amp; Transform only returns a result when it can produce bounded, safely representable JSON. Review missing brackets or separators, truncated records, unsafe numbers, and nesting/size limits. Enable partial JSON Lines salvage only when excluding the reported broken records is acceptable.</p></div>

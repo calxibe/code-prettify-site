@@ -115,17 +115,14 @@ Timeout:
         </article>
         <article class="feature-example-card">
           <div class="feature-example-copy"><span class="feature-example-label">Copy as fetch</span><h3>Carry the verified request into code</h3><p>Generated snippets reflect the active method, resolved URL, headers, auth, and body choices.</p></div>
-          <pre class="feature-code"><code>const response = await fetch(
+          <pre class="feature-code"><code>fetch(
   <span class="code-accent">"https://api.example.com/v1/products?view=summary"</span>,
   {
-    method: "GET",
     headers: {
-      Accept: "application/json"
+      "Accept": "application/json"
     }
   }
-);
-
-const data = await response.json();</code></pre>
+)</code></pre>
         </article>
       </div>
     </section>
@@ -147,7 +144,7 @@ const data = await response.json();</code></pre>
           <div><h3>State what representation you expect</h3><p>Add <code>Accept: application/json</code>. Leave authorization and body set to None for this lesson unless your endpoint requires them. Set a practical timeout such as 30,000 ms so a stalled request does not remain active indefinitely.</p></div>
         </li>
         <li>
-          <div><h3>Send deliberately and observe the transition</h3><p>Review method, resolved URL, params, and headers, then press <strong>Send</strong>. This is the point where network activity begins. The action changes to Cancel while active; editing the request, importing cURL, or generating a snippet does not send anything.</p></div>
+          <div><h3>Send deliberately and observe the transition</h3><p>Review method, resolved URL, params, and headers, then press <strong>Send</strong>. This is the point where network activity begins. A Cancel button appears beside Send while the request is active; editing the request, importing cURL, or generating a snippet does not send anything.</p></div>
         </li>
         <li>
           <div><h3>Read status and metadata before the body</h3><p>Start with the status code, duration, size, and content type. A 200 JSON response supports the Body workflow below. A redirect, 401, 404, 415, or HTML content type changes the question you should ask before inspecting individual fields.</p></div>
@@ -156,7 +153,7 @@ const data = await response.json();</code></pre>
           <div><h3>Compare formatted Body, Raw, and Headers</h3><p>Use Body to understand structured JSON, Raw to verify the exact response text, and Headers to inspect caching, content type, dates, rate limits, and server behavior. Check Cookies only when the response actually uses them and your product’s browser policy exposes them.</p></div>
         </li>
         <li>
-          <div><h3>Copy a reproducible handoff and save only what is useful</h3><p>Copy the verified request as cURL, <code>fetch()</code>, or PowerShell and review it for credentials before running or sharing it. Save the request or add it to a collection when it is worth repeating. Give it a name that describes the behavior being tested, not simply “GET request.”</p></div>
+          <div><h3>Copy a reproducible handoff and save only what is useful</h3><p>Copy the verified request as cURL, <code>fetch()</code>, or PowerShell. Known secret values are masked as <code>******</code> in the snippet, so re-insert real credentials before running it — and still review it before sharing. Save the request or add it to a collection when it is worth repeating. Give it a name that describes the behavior being tested, not simply “GET request.”</p></div>
         </li>
       </ol>
       <div class="feature-practice-lab">
@@ -198,7 +195,7 @@ const data = await response.json();</code></pre>
             <tr><td>400 or 415</td><td>Review JSON syntax, body mode, <code>Content-Type</code>, required fields, and encoding.</td><td>Sanitized body, request headers, and server validation message.</td></tr>
             <tr><td>429</td><td>Inspect rate-limit and retry headers, then reduce or delay requests.</td><td>Limit, remaining, reset, and retry values.</td></tr>
             <tr><td>500–599</td><td>Separate a reproducible client request from a server-side failure.</td><td>Request ID, timestamp, status, duration, and sanitized request snippet.</td></tr>
-            <tr><td>CORS or browser network failure</td><td>Compare with generated cURL or PowerShell outside the browser. The extension cannot bypass the target server’s CORS policy.</td><td>Browser error, target origin, method, and server CORS configuration.</td></tr>
+            <tr><td>CORS or browser network failure</td><td>Compare with generated cURL or PowerShell outside the browser. In Chrome/Edge the extension’s granted host permissions usually exempt its requests from CORS; in Firefox (or with host access revoked) the server’s CORS policy can still block the response.</td><td>Browser error, target origin, method, and server CORS configuration.</td></tr>
           </tbody>
         </table>
       </div>
@@ -215,7 +212,7 @@ const data = await response.json();</code></pre>
       <div class="feature-detail-heading"><span class="section-badge">Capabilities</span><h2 id="http-controls-title">Enough request control for daily API investigation</h2></div>
       <div class="feature-capability-grid">
         <article class="feature-capability"><h3>Methods and URLs</h3><ul><li>Common HTTP methods</li><li>Query parameter editor</li><li>Resolved environment preview</li><li>URL validation</li></ul></article>
-        <article class="feature-capability"><h3>Authorization</h3><ul><li>Bearer token</li><li>Basic authentication</li><li>API key presets</li><li>Custom headers</li></ul></article>
+        <article class="feature-capability"><h3>Authorization</h3><ul><li>Bearer token</li><li>Basic authentication</li><li>API key (header or query parameter)</li><li>Custom headers</li></ul></article>
         <article class="feature-capability"><h3>Request bodies</h3><ul><li>Raw text and JSON</li><li>Form URL encoded</li><li>Multipart form data</li><li>GraphQL</li></ul></article>
         <article class="feature-capability"><h3>Response views</h3><ul><li>Formatted body</li><li>Headers</li><li>Cookies</li><li>Raw response</li></ul></article>
         <article class="feature-capability"><h3>Reuse</h3><ul><li>Saved requests</li><li>Local environments</li><li>Import and export JSON</li><li>Import cURL and copy snippets</li></ul></article>
@@ -228,7 +225,7 @@ const data = await response.json();</code></pre>
       <div class="feature-capability-grid">
         <article class="feature-capability"><h3>Explicit network action</h3><p>The client contacts the URL displayed in the composer only after you press Send. The destination service receives the request directly.</p></article>
         <article class="feature-capability"><h3>Local saved data</h3><p>Saved requests, environments, and replay history are stored locally. Protect the browser profile if those values contain secrets.</p></article>
-        <article class="feature-capability"><h3>Sanitized history</h3><p>Replay history omits request bodies, credential headers, URL credentials, and sensitive query parameters.</p></article>
+        <article class="feature-capability"><h3>Sanitized history</h3><p>In the browser extension, replay history omits request bodies, credential headers, URL credentials, and sensitive query parameters. In the Windows app, history masks credential header values but keeps the rest of the request — clear it manually after sensitive calls.</p></article>
       </div>
       <div class="feature-privacy-note"><span class="feature-privacy-icon" aria-hidden="true">!</span><div><strong>Local storage is not separate secret encryption.</strong><p>Use environment values carefully, avoid saving credentials you do not need, and review the target service’s policy before sending sensitive data.</p></div></div>
     </section>
@@ -236,7 +233,7 @@ const data = await response.json();</code></pre>
     <section class="feature-detail-section" aria-labelledby="http-faq-title">
       <div class="feature-detail-heading"><span class="section-badge">FAQ</span><h2 id="http-faq-title">HTTP Client questions</h2></div>
       <div class="feature-detail-faq">
-        <details><summary>Can the browser extension bypass CORS?</summary><p>No. The target server’s CORS policy still determines whether the response is exposed to the browser. CodePrettify reports likely CORS failures with targeted guidance.</p></details>
+        <details><summary>Is the browser extension subject to CORS?</summary><p>Usually not in Chrome and Edge: requests run with the extension’s granted host permissions, so most CORS restrictions do not apply there. In Firefox, or when host access has not been granted, the target server’s CORS policy can still block the response; CodePrettify reports likely CORS failures with targeted guidance. The Windows app is subject to standard CORS.</p></details>
         <details><summary>When is a request sent?</summary><p>Only when you press Send. Editing the URL, importing cURL, changing an environment, or copying a snippet does not send the request.</p></details>
         <details><summary>Are saved secrets encrypted separately?</summary><p>No. Protect your browser or Windows profile and avoid persisting sensitive values unnecessarily.</p></details>
         <details><summary>Can I move a request into a script?</summary><p>Yes. Copy the active request as cURL, JavaScript <code>fetch()</code>, or PowerShell and review the generated command before running it.</p></details>

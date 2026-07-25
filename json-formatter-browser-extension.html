@@ -164,7 +164,7 @@
             <h3>Hard to scan and harder to debug</h3>
             <p>A minified response hides the boundary between services, releases, metrics, and incident details.</p>
           </div>
-          <pre class="feature-code"><code>{"services":[{"id":"svc_api_gateway","status":"healthy","metrics":{"p95LatencyMs":91,"errorRate":0.0008}},{"id":"svc_insights","status":"degraded","metrics":{"p95LatencyMs":144,"errorRate":0.0124}}]}</code></pre>
+          <pre class="feature-code"><code>{"services":[{"id":"svc_api_gateway","name":"API Gateway","status":"healthy","metrics":{"p95LatencyMs":91,"errorRate":0.0008}},{"id":"svc_insights","name":"Insights","status":"degraded","metrics":{"p95LatencyMs":144,"errorRate":0.0124}}]}</code></pre>
         </article>
         <article class="feature-example-card">
           <div class="feature-example-copy">
@@ -176,6 +176,7 @@
   <span class="code-accent">"services"</span>: [
     {
       "id": "svc_api_gateway",
+      "name": "API Gateway",
       "status": <span class="code-success">"healthy"</span>,
       "metrics": {
         "p95LatencyMs": 91,
@@ -205,7 +206,7 @@
           <div><h3>Find the symptom in context</h3><p>Press <kbd>Ctrl</kbd>+<kbd>F</kbd> and search for <code>degraded</code>. Move through the result count and inspect the surrounding service name, metrics, and release data. Ordinary search is the fastest choice when you know a value but not its exact JSON path.</p></div>
         </li>
         <li>
-          <div><h3>Ask a repeatable structural question</h3><p>Open <strong>More Actions → JSON Path Inspector</strong>, enter <code>$.services[*].name</code>, and run the query. The result list should contain one value for every service name. Select a result to connect the extracted value to its source line, then copy either an individual value or the complete result.</p></div>
+          <div><h3>Ask a repeatable structural question</h3><p>Open <strong>More Actions → JSON Path Inspector</strong>, enter <code>$.services[*].name</code>, and run the query. The result list should contain one value for every service name. Select a result to connect the extracted value to its source line, then copy a matched value either compact (single line) or pretty-printed, or copy the selected path itself.</p></div>
         </li>
         <li>
           <div>
@@ -230,7 +231,7 @@
           </div>
         </li>
         <li>
-          <div><h3>Switch perspective when the array behaves like a table</h3><p>Open <strong>Table View</strong> for the service array. Search a region or owner, sort the latency column descending, and compare records without repeatedly expanding objects. Return to the structured viewer when you need nested values that do not fit naturally into columns.</p></div>
+          <div><h3>Switch perspective when the array behaves like a table</h3><p><strong>Table View</strong> requires the document root to be an array of objects, so for a wrapper object like this one, extract the <code>services</code> array first — request the endpoint that returns the array directly, or copy the array into its own document. Then open Table View, search or sort by name and status, and compare records without repeatedly expanding objects. Nested objects such as <code>metrics</code> appear as compact JSON cells; return to the structured viewer when you need values that do not fit naturally into columns.</p></div>
         </li>
         <li>
           <div><h3>Separate real changes from formatting noise</h3><p>Copy a second response, open <strong>Compare</strong>, and choose semantic JSON comparison when key order or whitespace changed. Review additions, removals, and changed values, then copy or export only after you understand which representation—original, formatted, or transformed—you need.</p></div>
@@ -244,7 +245,7 @@
           <li>Which source line contains the first degraded status?</li>
           <li>What does <code>$.services[*].name</code> return?</li>
           <li>Which schema rule produces each reported violation?</li>
-          <li>Which service has the highest latency in Table View?</li>
+          <li>Which rows remain when you filter Table View by status?</li>
           <li>Which values truly changed between two responses?</li>
         </ul>
       </div>

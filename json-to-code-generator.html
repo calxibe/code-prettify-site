@@ -124,6 +124,9 @@
   {
     "id": "deploy_91ca34d2",
     "service": "formatter-worker",
+    "actor": { "id": 7, "automated": false },
+    "regions": ["us-east-1"],
+    "metrics": { "durationMs": 5210, "warnings": 2 },
     <span class="code-accent">"rollbackUrl": "https://deploy.example/rollback/91ca"</span>
   }
 ]</code></pre>
@@ -134,13 +137,13 @@
   id: string;
   service: string;
   actor: Actor;
-  regions: string[];
+  regions: Array&lt;string&gt;;
   metrics: Metrics;
   <span class="code-success">rollbackUrl?: string;</span>
 }
 
 export type DeploymentEvent =
-  DeploymentEventItem[];</code></pre>
+  Array&lt;DeploymentEventItem&gt;;</code></pre>
         </article>
       </div>
     </section>
@@ -158,7 +161,7 @@ export type DeploymentEvent =
         <li>
           <div>
             <h3>Supply variation deliberately</h3>
-            <p>Use an array of representative objects. This small practice sample proves that <code>discountCode</code> is conditional, <code>shippedAt</code> can be null, and <code>tags</code> contains strings even though one array is empty.</p>
+            <p>Use an array of representative objects. This small practice sample proves that <code>discountCode</code> is conditional, <code>shippedAt</code> can be null, and <code>tags</code> contains strings even though one array is empty. (You will still see an informational empty-array warning for the second record&rsquo;s empty <code>tags</code>; the populated first sample supplies the string element type.)</p>
             <pre class="feature-code"><code>[
   {
     "id": 1001,
@@ -198,7 +201,7 @@ export type DeploymentEvent =
         <ul class="feature-checklist">
           <li>Add a third object without <code>shippedAt</code> and observe optional plus nullable behavior.</li>
           <li>Add a third record with a decimal total and inspect the numeric type.</li>
-          <li>Add a numeric priority beside a string priority and inspect the mixed-value warning or union.</li>
+          <li>Add a numeric priority beside a string priority and inspect the resulting union (or the target&rsquo;s general type) in the output.</li>
           <li>Use a key such as <code>user-id</code> and inspect the target’s alias or field mapping.</li>
           <li>Make every <code>tags</code> array empty and read the unknown-element warning.</li>
           <li>Generate JSON Schema and compare its required list with the typed target.</li>
@@ -213,7 +216,7 @@ export type DeploymentEvent =
         <figure class="feature-guide-shot"><img src="img/feature-json-to-code-pydantic.png" alt="Generated Python Pydantic models beside the same JSON deployment sample" width="1280" height="800" loading="lazy" /><figcaption>Python + Pydantic uses <code>BaseModel</code>, aliases JSON property names, and exposes optional values.</figcaption></figure>
       </div>
       <div class="feature-capability-grid">
-        <article class="feature-capability"><h3>Web</h3><ul><li>TypeScript interfaces and aliases</li><li>TypeScript + Zod runtime schemas</li><li>JSON Schema Draft 2020-12</li></ul></article>
+        <article class="feature-capability"><h3>Web and schema</h3><ul><li>TypeScript interfaces and aliases</li><li>TypeScript + Zod runtime schemas</li><li>JSON Schema Draft 2020-12 (its own Schema group in the Target list)</li></ul></article>
         <article class="feature-capability"><h3>Application</h3><ul><li>C# models</li><li>Java + Jackson</li><li>Kotlin + kotlinx.serialization</li><li>Python + Pydantic</li></ul></article>
         <article class="feature-capability"><h3>Systems and mobile</h3><ul><li>Go structs</li><li>Rust + Serde</li><li>Swift + Codable</li><li>Dart + json_serializable</li></ul></article>
       </div>
@@ -247,7 +250,7 @@ export type DeploymentEvent =
             <tr><td>Nullable or union type</td><td>The sample contained null or incompatible value kinds.</td><td>Should the application accept every observed type, or reject inconsistent source data?</td></tr>
             <tr><td>Integer versus general number</td><td>Observed values were whole numbers or included fractions.</td><td>Could IDs exceed safe numeric precision, and should monetary values use a decimal type?</td></tr>
             <tr><td>Nested model name</td><td>A repeated object shape became a reusable declaration.</td><td>Does the generated name match your domain vocabulary and project conventions?</td></tr>
-            <tr><td>Aliased property</td><td>The JSON key was invalid or reserved in the target language.</td><td>Does the serializer annotation preserve the exact source key during round trips?</td></tr>
+            <tr><td>Aliased property</td><td>The generated member name differs from the JSON key — a naming-convention change, invalid identifier, or reserved word; most targets annotate every property with its exact source key.</td><td>Does the serializer annotation preserve the exact source key during round trips?</td></tr>
           </tbody>
         </table>
       </div>

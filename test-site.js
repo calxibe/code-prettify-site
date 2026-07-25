@@ -463,8 +463,8 @@ async function checkStructuredWorkbenchDocumentation(page, baseUrl) {
   assert(manual.settingsText.includes("compact 13px code-text scale"), "Manual settings chapter is missing the shared technical-textarea guidance");
   assert(manual.settingsText.includes("one typography system"), "Manual settings chapter is missing the shared typography guidance");
   for (const requiredText of [
-    "Repair & Salvage", "Allow partial-record salvage", "Use result in Transform", "Add a transformation", "More transformations", "No rows matched", "owners[].name",
-    "250,000 nodes", "512 nesting levels", "32 steps", "never modified", "always available",
+    "Repair & Salvage", "Salvage valid JSON Lines records", "Use result in Transform", "Add a transformation", "More transformations", "No rows matched", "owners[].name",
+    "250,000 nodes", "512 nesting levels", "32 steps", "never modified", "available for every supported document type",
   ]) {
     assert(manual.text.includes(requiredText), `Manual Workbench chapter is missing: ${requiredText}`);
   }

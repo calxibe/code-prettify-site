@@ -94,7 +94,7 @@
       <div class="feature-detail-heading"><span class="section-badge">Open files</span><h2 id="markdown-open-title">Use the workflow that matches where the document lives</h2></div>
       <div class="feature-step-grid">
         <article class="feature-step"><span class="feature-step-number">1</span><h3>Remote raw Markdown</h3><p>Open a URL ending in <code>.md</code> or a response served with a Markdown content type. CodePrettify recognizes the document and renders it.</p></article>
-        <article class="feature-step"><span class="feature-step-number">2</span><h3>Local file through the launcher</h3><p>Drag a Markdown file onto the extension launcher or use the picker. This route does not require broad <code>file://</code> permission.</p></article>
+        <article class="feature-step"><span class="feature-step-number">2</span><h3>Local file through the launcher</h3><p>Drag a Markdown file onto the extension launcher or use the picker. This route does not require broad <code>file://</code> permission. Files opened this way are limited to 10 MB; open larger documents via a direct <code>file://</code> URL instead.</p></article>
         <article class="feature-step"><span class="feature-step-number">3</span><h3>Direct file URL</h3><p>If you prefer opening <code>file://</code> URLs directly, enable “Allow access to file URLs” for CodePrettify in the browser’s extension settings.</p></article>
       </div>
     </section>
@@ -110,7 +110,7 @@
           <div><h3>Open the file with the least permission necessary</h3><p>For a downloaded README, drag it onto the extension launcher or choose it with the file picker. For a repository’s raw Markdown URL, open that URL directly. Enable broad <code>file://</code> access only if direct local URLs are part of your normal workflow.</p></div>
         </li>
         <li>
-          <div><h3>Read the rendered outline before inspecting punctuation</h3><p>Scan the title, introduction, installation steps, examples, and troubleshooting sections. Open <strong>Document Navigator</strong> when available and jump between headings. This gives you the author’s intended hierarchy before you investigate how it was encoded.</p></div>
+          <div><h3>Read the rendered outline before inspecting punctuation</h3><p>Scan the title, introduction, installation steps, examples, and troubleshooting sections. In the Windows app, open <strong>Document Navigator</strong> to jump between headings; in the extension, use the rendered heading anchors instead. This gives you the author’s intended hierarchy before you investigate how it was encoded.</p></div>
         </li>
         <li>
           <div><h3>Search for the concept, not the Markdown marker</h3><p>Press <kbd>Ctrl</kbd>+<kbd>F</kbd> and search for a command, option, or error message. In Rendered view, search follows the readable document. Use this to answer “where is configuration explained?” before searching the source for backticks or link syntax.</p></div>
@@ -213,11 +213,11 @@
         <article class="feature-capability"><h3>Document structure</h3><ul><li>Headings and anchor links</li><li>Paragraphs and blockquotes</li><li>Ordered and unordered lists</li><li>Horizontal rules</li></ul></article>
         <article class="feature-capability"><h3>GitHub-flavored patterns</h3><ul><li>Tables with alignment</li><li>Task lists</li><li>Strikethrough</li><li>Footnotes and back-references</li></ul></article>
         <article class="feature-capability"><h3>Developer content</h3><ul><li>Inline code</li><li>Fenced code blocks</li><li>Links</li><li>Hard line breaks</li></ul></article>
-        <article class="feature-capability"><h3>Navigation</h3><ul><li>Search the rendered text</li><li>Document Navigator for headings</li><li>Minimap and scroll position</li><li>Shareable view state</li></ul></article>
+        <article class="feature-capability"><h3>Navigation</h3><ul><li>Search the rendered text</li><li>Document Navigator for headings (Windows app)</li><li>Minimap and scroll position</li><li>Shareable view state (HTTP/HTTPS documents)</li></ul></article>
         <article class="feature-capability"><h3>Review tools</h3><ul><li>Rendered / Source toggle</li><li>Text comparison</li><li>Statistics and diagnostics</li><li>Copy and export</li></ul></article>
-        <article class="feature-capability"><h3>Safe defaults</h3><ul><li>Embedded HTML remains inert</li><li>Network images are not loaded silently</li><li>Remote image sources become explicit links</li><li>Safe embedded images can render</li></ul></article>
+        <article class="feature-capability"><h3>Safe defaults</h3><ul><li>Embedded HTML remains inert</li><li>Network images are not loaded silently</li><li>Remote image sources become explicit links</li><li>Safe embedded images can render (data: PNG/JPEG/GIF/WebP; SVG excluded)</li></ul></article>
       </div>
-      <div class="feature-privacy-note"><span class="feature-privacy-icon" aria-hidden="true">✓</span><div><strong>Opening a document should not contact every host it mentions.</strong><p>Remote Markdown image URLs are shown as links instead of loading automatically. That prevents an untrusted document from silently revealing that it was opened.</p></div></div>
+      <div class="feature-privacy-note"><span class="feature-privacy-icon" aria-hidden="true">✓</span><div><strong>Opening a document should not contact every host it mentions.</strong><p>Remote Markdown image URLs are shown as links instead of loading automatically. That prevents an untrusted document from silently revealing that it was opened. Images referenced by relative paths render inline when the document is opened from a direct <code>file://</code> URL — they stay on your disk; over HTTP(S) or via the launcher they appear as links.</p></div></div>
     </section>
 
     <section class="feature-detail-section" aria-labelledby="markdown-faq-title">
