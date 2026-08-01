@@ -102,6 +102,7 @@
             <a href="#format-behavior">Formatting by file type</a>
             <a href="#json-tools">JSON helpers and JSON Path</a>
             <a href="#table-view">Table View</a>
+            <a href="#diagram-generator">Diagram Generator</a>
             <a href="#schema-validator">JSON Schema Validator</a>
             <a href="#analysis-tools">Statistics, diagnostics, security</a>
             <a href="#data-converter">Data Converter</a>
@@ -290,7 +291,7 @@
               <div class="manual-card"><h3>File</h3><p>Open, Paste &amp; Prettify, Save, Save As, Recent Files/Clear Recent, Close Tab, and Exit.</p></div>
               <div class="manual-card"><h3>Edit</h3><p>Copy Original, Copy Formatted, Copy Minified, Find, and Go to Line. Copy feedback names the selected representation.</p></div>
               <div class="manual-card"><h3>View</h3><p>Toggle Beautify, Word Wrap, Line Numbers, Minimap, Floating Toolbar, Zoom In, and Zoom Out.</p></div>
-              <div class="manual-card"><h3>Tools</h3><p>Document Navigator, Table View, JSON Schema Validator, Statistics, Diagnostics, JSON Repair &amp; Transform, Data Converter, JSON to Code Generator, Export / Download, JavaScript Playground, Inspect Runtime, Regex Playground, JSON Path Inspector, HTTP Client, Security Scan, Compare File Content, Compare with Clipboard, and Settings.</p></div>
+              <div class="manual-card"><h3>Tools</h3><p>Document Navigator, Table View, Diagram Generator, JSON Schema Validator, Statistics, Diagnostics, JSON Repair &amp; Transform, Data Converter, JSON to Code Generator, Export / Download, JavaScript Playground, Inspect Runtime, Regex Playground, JSON Path Inspector, HTTP Client, Security Scan, Compare File Content, Compare with Clipboard, and Settings.</p></div>
               <div class="manual-card"><h3>Help</h3><p>Manual, Changelog, Report Issues &amp; Ideas, Explorer Integration Runtime, Debug Log, and About.</p></div>
             </div>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
@@ -432,6 +433,36 @@
               </figure>
             </div>
             <p class="manual-limit"><strong>CSV export:</strong> JSON must be a nonempty top-level array of flat objects; nested arrays/objects are not flattened. XML/RSS needs a repeating structured element.</p>
+          </section>
+
+          <section id="diagram-generator" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">See the hierarchy</span><h2>Diagram Generator</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <p>Diagram Generator is a contextual tool for structured documents. Open it from <strong>For this file</strong> in More Actions or from the Command Palette; the Windows app also exposes it in <strong>Tools</strong>. Both products support JSON, JSON Lines, YAML, TOML, and XML/RSS documents. The Windows app additionally supports CSV files.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-diagram-generator"
+                  data-full-src="img/manual/diagram-generator.png" data-title="Diagram Generator with connected field cards and the Field details panel"
+                  aria-label="Open full-size screenshot: Diagram Generator field-card diagram" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <img src="img/manual/diagram-generator_thumb.png"
+                    alt="CodePrettify Diagram Generator showing a JSON deployments document as connected pastel field cards beside a sidebar with search, level controls, and an inspected field's value and path"
+                    width="320" height="200" loading="lazy" decoding="async" />
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+            <ol>
+              <li>Open a JSON, JSON Lines, YAML, TOML, XML/RSS, or, in the Windows app, CSV document in the prettified view and choose <strong>Diagram Generator</strong>.</li>
+              <li>Choose <strong>Left to right</strong> for a compact reading flow or <strong>Top to bottom</strong> for a conventional hierarchy. Use <strong>Include compact values</strong> to show or hide short primitive values, XML text/attributes, and CSV cells.</li>
+              <li>The near-full-window workspace keeps direction, value options, generation status, and downloads in the compact left sidebar so the live diagram can use the remaining width and full height.</li>
+              <li>Normal clicks never change the viewport; clicking within a card only selects that card, and each field row highlights when you hover over its key and value. Click the minus button on a reference row to collapse its child branch, or the resulting plus button to restore it. Click a <strong>more fields</strong> row to reveal the remaining bounded fields in that card. These interactions preserve the parent card's screen position and the current zoom. Double-click a card heading to smoothly center and focus that element; focus the heading and press Enter or Space for the keyboard equivalent, or Shift-double-click the heading to zoom out around it. Drag the dotted canvas to pan, use the mouse wheel or a pinch gesture to zoom around the pointer, press the arrow keys to nudge the view, or use the floating zoom and <strong>Fit</strong> controls to return to the complete hierarchy.</li>
+              <li>Type in the sidebar <strong>Search</strong> box to find cards and fields. Matching cards are ringed and their matching rows highlighted while everything else dims, and a counter reports the match total. Press Enter or use the previous and next controls to step through the matches; each step centers and focuses that card. Press Escape in the search box to clear the query without closing the tool.</li>
+              <li>Click any field row to open the <strong>Field details</strong> panel with the full untruncated value and its document path; <strong>Copy value</strong> and <strong>Copy path</strong> put either on the clipboard. Selecting a card also highlights its complete ancestor chain of cards and connectors, so you always see where a record sits in the hierarchy.</li>
+              <li>Use the <strong>Levels</strong> control to bound the diagram to two, three, or four card levels for a quick structural overview, or <strong>Collapse All</strong> to fold every branch behind re-expandable plus buttons and <strong>Expand All</strong> to restore them.</li>
+              <li>Choose <strong>Download SVG</strong> for a scalable, self-contained diagram or <strong>Download PNG</strong> for a bitmap image. The Windows app routes both formats through its native Save dialog. <strong>Copy Mermaid</strong> puts the same cards, fields, and connections on the clipboard as a Mermaid class diagram for documentation, wikis, and issue trackers. The export includes every field of each card, even rows the on-screen card keeps behind its <strong>more fields</strong> disclosure.</li>
+            </ol>
+            <p>JSON objects and array records become cards with primitive properties grouped into field rows; primitive arrays such as <code>regions</code> show their compact entries directly, while nested objects and record arrays branch from the exact reference row. YAML mappings and TOML tables map the same way, YAML and TOML timestamps render as date values, and a multi-document YAML source becomes one card per document. JSON Lines becomes a root card connected to one card per record. XML elements use the same card structure for attributes, direct text, and child elements. CSV becomes a root card connected to one record card per row, with columns shown as fields; comma, semicolon, tab, and pipe delimiters are detected automatically. The interactive preview is a live DOM scene: cards and fields are semantic HTML elements and connectors are inline SVG paths, rather than a scaled preview image. This keeps focused text crisp and provides a foundation for future editing. Pastel headers distinguish cards, hexadecimal color values include swatches, and the dotted canvas is preserved in exported images.</p>
+            <p class="manual-limit"><strong>Local and bounded:</strong> the source never leaves the device. Input is capped at 5 Mi characters, diagrams at 160 cards, 14 nesting levels, and 12 visible fields per card by default. A card can reveal up to 40 fields through its disclosure row; any remaining safety limit is reported as <em>limited for readability</em>. Text is escaped before SVG rendering. PNG output is scaled to stay within an 8,192-pixel edge and a bounded pixel budget.</p>
           </section>
 
           <section id="schema-validator" class="manual-topic" data-products="shared browser app">
@@ -878,7 +909,7 @@
                   <tr><td>Find</td><td><kbd>Ctrl</kbd>+<kbd>F</kbd></td><td>Both, Prettified/Rendered view</td></tr>
                   <tr><td>Go to Line</td><td><kbd>Ctrl</kbd>+<kbd>G</kbd></td><td>Both (extension: Prettified view only)</td></tr>
                   <tr><td>Toggle floating toolbar</td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd></td><td>Both</td></tr>
-                  <tr><td>Open Compare (current document preloaded; paste into the right pane)</td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>D</kbd></td><td>Both</td></tr>
+                  <tr><td>Open Compare (two editable sources; the left side starts with the current document)</td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>D</kbd></td><td>Both</td></tr>
                   <tr><td>JavaScript Playground</td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>P</kbd></td><td>Both (app: JS/JSON/JSON Lines documents; the menu entry works everywhere)</td></tr>
                   <tr><td>Inspect Runtime</td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd></td><td>Both, JavaScript</td></tr>
                   <tr><td>Regex Playground</td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>R</kbd></td><td>Both</td></tr>
@@ -899,7 +930,7 @@
           <section id="privacy-security" class="manual-topic" data-products="shared browser app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Know what leaves the device</span><h2>Privacy and security</h2></div><span class="product-badge product-shared">Both products</span></div>
             <ul>
-              <li>Formatting, validation, conversion, JSON-to-code inference and generation, JSON Repair &amp; Transform, statistics, search, comparison, schema checks, security scanning, and playground/regex processing stay on the device.</li>
+              <li>Formatting, validation, conversion, diagram generation, JSON-to-code inference and generation, JSON Repair &amp; Transform, statistics, search, comparison, schema checks, security scanning, and playground/regex processing stay on the device.</li>
               <li>The HTTP Client is the intentional network exception: the request is sent directly to the displayed target only after you press Send. CodePrettify does not proxy it.</li>
               <li>Playground and Runtime Inspect run in a Web Worker inside a script-only sandboxed frame whose content-security policy forbids all network connections; fetch, XHR, WebSocket, and other networking primitives are additionally disabled before your code runs, and there is no page DOM, extension API, local-file, or Node capability.</li>
               <li>Markdown suppresses automatic remote image loading. Remote JSON Schema references are never fetched.</li>

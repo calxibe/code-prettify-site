@@ -97,11 +97,43 @@
         </a>
       </div>
 
+      <!-- Version 1.1.6 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.1.6</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">July 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Added</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Diagram Generator</strong> &mdash; Turn JSON, JSON Lines, YAML, TOML, XML/RSS, and CSV documents into bounded field-card diagrams from More Actions, the Command Palette, or the native Tools menu. A near-full-window workspace moves controls, status, and downloads into a compact left sidebar, maximizing the live diagram area. The interactive preview uses semantic HTML cards and field rows with inline SVG connectors instead of a scaled image, keeping focused text crisp and preparing the scene for future editing. Primitive arrays such as <code>regions</code> remain readable inline, YAML and TOML timestamps render as ISO date values, and a multi-document YAML source becomes one card per document. CSV delimiter detection recognizes comma, semicolon, tab, and pipe separators. Reference-row minus and plus buttons collapse and restore child branches, while clicking a <strong>more fields</strong> row reveals that card's remaining bounded fields; both preserve the card position and zoom. Top-to-bottom layouts align these controls along the card's bottom edge with their connector origins. Stable compositor layers keep rapid touchpad zoom clear without stale card fragments. Normal clicks select without zooming, field rows highlight on hover, and double-clicking a card heading focuses that element. Pastel record cards group properties into field rows, hexadecimal colors get swatches, and the dotted canvas is preserved in SVG and PNG exports through the native Save dialog. Choose either layout direction, show or hide compact values, pan with the arrow keys, and use the floating zoom and fit controls.
+            </li>
+            <li>
+              <strong>Diagram search</strong> &mdash; A sidebar search box rings matching cards, highlights their matching field rows, and dims everything else while a counter reports the match total. Enter and the previous/next controls step through the matches and center each hit, and Escape clears the query without closing the tool.
+            </li>
+            <li>
+              <strong>Diagram inspector, structure controls, and Mermaid export</strong> &mdash; Clicking a field row opens a sidebar Field details panel with the full untruncated value and its document path, each one click from the clipboard. Selecting any card highlights its complete ancestor chain of cards and connectors. A Levels control bounds the scene to two, three, or four card levels, Collapse All folds every branch behind re-expandable ports while Expand All restores them, and Copy Mermaid exports the same cards, fields, and connections as a Mermaid class diagram for documentation and issue trackers; the export includes every field of each card, even rows the bounded on-screen card keeps behind its more fields disclosure.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              TOML integers outside the signed 64-bit range now fail validation at their exact line instead of silently wrapping to a wrong value, as the TOML specification requires. This protects every TOML consumer, including formatting, validation, Compare, and the Diagram Generator.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.1.5 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.1.5</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">July 2026</span>
         </div>
 

@@ -53,7 +53,7 @@ const INSTALL_URLS = [
 const REQUIRED_MANUAL_TOPICS = [
   "getting-started", "supported-formats", "workspace", "browser-workflows", "app-files-tabs",
   "app-menus", "search-navigation", "format-behavior", "json-tools", "table-view",
-  "schema-validator", "analysis-tools", "data-converter", "structured-workbench", "copy-export", "compare",
+  "diagram-generator", "schema-validator", "analysis-tools", "data-converter", "structured-workbench", "copy-export", "compare",
   "javascript-playground", "runtime-inspector", "regex-playground", "http-client", "settings",
   "large-files-encoding", "shortcuts", "privacy-security", "troubleshooting",
 ];
@@ -80,6 +80,7 @@ const HOMEPAGE_SCREENSHOTS = [
   { file: "feature-http-client.png", label: "HTTP Client" },
   { file: "feature-diff-view.png", label: "Diff View" },
   { file: "feature-table-view.png", label: "Table View" },
+  { file: "feature-diagram-generator.png", label: "Diagram Generator" },
   { file: "feature-stats-diagnostics.png", label: "Diagnostics" },
   { file: "feature-settings.png", label: "Settings" },
   { file: "feature-diff-view-dark.png", label: "Diff View" },
@@ -224,7 +225,7 @@ async function checkPricingPage(page, baseUrl) {
     const jsonCrackExpectedStatuses = new Map([
       ["Free option", true],
       ["Browser auto-formatting", false],
-      ["Interactive graph view", true],
+      ["Interactive diagram / graph view", true],
       ["Native desktop app", false],
       ["Multi-format viewing", true],
       ["Data conversion", true],
@@ -266,6 +267,9 @@ async function checkPricingPage(page, baseUrl) {
         const cell = comparisonRows.find((candidate) => candidate.label === label)?.cells[2];
         return cell && cell.yes === expectedYes && cell.no === !expectedYes;
       }).every(Boolean),
+      codePrettifyDiagramRowYes: Boolean(
+        comparisonRows.find((candidate) => candidate.label === "Interactive diagram / graph view")?.cells[0].yes
+      ),
       hasEarlyTesterMessage: bodyText.includes("early tester") && bodyText.includes("help shape codeprettify"),
       hasFreePromise: bodyText.includes("free for everyone who installs now"),
       hasZeroPrice: bodyText.includes("$0"),
@@ -291,6 +295,7 @@ async function checkPricingPage(page, baseUrl) {
   assert(pricing.allComparisonRowsHaveFiveProducts, "Every pricing comparison row must cover all five products");
   assert(pricing.codePrettifyOnlyRowsAreUnique, "CodePrettify-only comparison rows are missing or no longer unique");
   assert(pricing.jsonCrackStatusesMatch, "JSON Crack comparison statuses no longer match the documented product scope");
+  assert(pricing.codePrettifyDiagramRowYes, "Pricing comparison must credit CodePrettify's Diagram Generator on the diagram/graph row");
 }
 
 async function checkHomepageResourceLinks(page, baseUrl) {
@@ -325,6 +330,29 @@ async function checkHomepageResourceLinks(page, baseUrl) {
   assert(jsonToCode.links.includes("json-to-code-generator.html"), "Homepage JSON-to-Code spotlight does not link to the in-depth guide");
   assert(jsonToCode.width > 900, "Homepage JSON-to-Code spotlight does not span the desktop feature grid");
   assert(metaDescription?.includes("JSON") && metaDescription?.includes("generate typed code"), "Homepage metadata does not advertise JSON tooling and typed-code generation");
+  assert(metaDescription?.includes("visualize as diagrams"), "Homepage metadata does not advertise diagram visualization");
+
+  const diagramFeature = await page.locator("#diagram-generator-feature").evaluate((element) => ({
+    heading: element.querySelector("h3")?.textContent?.trim() || "",
+    links: Array.from(element.querySelectorAll("a"), (link) => link.getAttribute("href")),
+    text: element.textContent.replace(/\s+/g, " ").trim(),
+  }));
+  assert(diagramFeature.heading.includes("Diagram"), "Homepage Diagram Generator card is missing its heading");
+  assert(diagramFeature.text.includes("New") && diagramFeature.text.includes("Local-only"), "Homepage Diagram Generator card must carry the New local-only badge");
+  assert(diagramFeature.text.includes("Mermaid") && diagramFeature.text.includes("YAML"), "Homepage Diagram Generator card is missing its export and format range");
+  assert(diagramFeature.links.includes("manual.html#diagram-generator"), "Homepage Diagram Generator card does not link to the manual");
+
+  const windowsCard = await page.evaluate(() => {
+    const card = Array.from(document.querySelectorAll(".feature-card")).find((candidate) =>
+      candidate.querySelector("h3")?.textContent.includes("Windows App"));
+    return card ? {
+      text: card.textContent.replace(/\s+/g, " ").trim(),
+      links: Array.from(card.querySelectorAll("a"), (link) => link.getAttribute("href")),
+    } : null;
+  });
+  assert(windowsCard, "Homepage is missing the Windows app feature card");
+  assert(windowsCard.text.includes("Paste & Prettify") && windowsCard.text.includes("Save in place"), "Homepage Windows app card is missing its headline capabilities");
+  assert(windowsCard.links.includes("manual.html#app-files-tabs"), "Homepage Windows app card does not link to the app manual");
 
   const storeButton = page.locator(".cta-buttons .store-cta");
   await storeButton.hover();
@@ -443,7 +471,9 @@ async function checkStructuredWorkbenchDocumentation(page, baseUrl) {
     const text = topic?.textContent.replace(/\s+/g, " ").trim() || "";
     const settingsText = document.getElementById("settings")?.textContent.replace(/\s+/g, " ").trim() || "";
     const workspaceText = document.getElementById("workspace")?.textContent.replace(/\s+/g, " ").trim() || "";
+    const diagramText = document.getElementById("diagram-generator")?.textContent.replace(/\s+/g, " ").trim() || "";
     return {
+      diagramText,
       formatRows: topic?.querySelectorAll(".manual-workbench-format-table tbody tr").length || 0,
       hasTocLink: Boolean(document.querySelector('.manual-toc a[href="#structured-workbench"]')),
       metaDescription: document.querySelector('meta[name="description"]')?.content || "",
@@ -467,6 +497,9 @@ async function checkStructuredWorkbenchDocumentation(page, baseUrl) {
     "250,000 nodes", "512 nesting levels", "32 steps", "never modified", "available for every supported document type",
   ]) {
     assert(manual.text.includes(requiredText), `Manual Workbench chapter is missing: ${requiredText}`);
+  }
+  for (const requiredText of ["Diagram Generator", "Download SVG", "Download PNG", "JSON, JSON Lines, YAML, TOML, and XML/RSS", "CSV files", "Search", "match total", "Field details", "Copy path", "Levels", "Collapse All", "Copy Mermaid"] ) {
+    assert(manual.diagramText.includes(requiredText), `Manual Diagram Generator chapter is missing: ${requiredText}`);
   }
   const search = page.locator("#manual-search");
   await search.fill("partial salvage");
@@ -496,8 +529,16 @@ async function checkStructuredWorkbenchDocumentation(page, baseUrl) {
     text: card.textContent.replace(/\s+/g, " ").trim(),
     version: card.querySelector(".version-number")?.textContent.trim() || "",
   }));
-  assert(browserLatest.version === "v1.0.50", "Browser changelog does not identify v1.0.50 as the latest release");
-  assert(browserLatest.text.includes("New CodePrettify identity"), "Browser v1.0.50 notes are missing the new identity");
+  assert(browserLatest.version === "v1.0.51", "Browser changelog does not identify v1.0.51 as the latest release");
+  assert(browserLatest.text.includes("Diagram Generator"), "Browser v1.0.51 notes are missing Diagram Generator");
+
+  await page.goto(`${baseUrl}/changelog-app.html`, { waitUntil: "domcontentloaded" });
+  const appLatest = await page.locator(".version-card").first().evaluate((card) => ({
+    text: card.textContent.replace(/\s+/g, " ").trim(),
+    version: card.querySelector(".version-number")?.textContent.trim() || "",
+  }));
+  assert(appLatest.version === "v1.1.6", "App changelog does not identify v1.1.6 as the latest release");
+  assert(appLatest.text.includes("Diagram Generator"), "App v1.1.6 notes are missing Diagram Generator");
 }
 
 async function checkManualScreenshots(page, baseUrl) {
@@ -514,6 +555,7 @@ async function checkManualScreenshots(page, baseUrl) {
     "manual-screenshot-markdown": "markdown-rendered.png",
     "manual-screenshot-json-path": "json-path-inspector.png",
     "manual-screenshot-table": "table-view.png",
+  "manual-screenshot-diagram-generator": "diagram-generator.png",
     "manual-screenshot-schema-validator": "schema-validator.png",
     "manual-screenshot-diagnostics": "statistics-diagnostics.png",
     "manual-screenshot-security-scan": "security-scan.png",
@@ -599,7 +641,10 @@ async function checkManualScreenshots(page, baseUrl) {
   for (const requiredCaptureDetail of ["'structured-workbench-repair'", "'structured-workbench-transform'", "openStructuredWorkbench('repair')", "openStructuredWorkbench('transform')", "2 of 6 rows", "Repair complete"]) {
     assert(manualCaptureScript.includes(requiredCaptureDetail), `Manual screenshot generator is missing the Workbench capture detail: ${requiredCaptureDetail}`);
   }
-  for (const requiredCaptureDetail of ["#floating-actions-menu.visible", "floating-contextual-actions", "floating-general-actions", "floating-structured-workbench-btn", "floating-json-to-code-btn", "floating-collapse-btn,floating-expand-btn"]) {
+  for (const requiredCaptureDetail of ["'diagram-generator'", "openDiagramGenerator()", "test_json_deployments.json", ".pretty-diagram-inspector", ".pretty-diagram-connectors path"]) {
+    assert(manualCaptureScript.includes(requiredCaptureDetail), `Manual screenshot generator is missing the Diagram Generator capture detail: ${requiredCaptureDetail}`);
+  }
+  for (const requiredCaptureDetail of ["#floating-actions-menu.visible", "floating-contextual-actions", "floating-general-actions", "floating-diagram-btn", "floating-structured-workbench-btn", "floating-json-to-code-btn", "floating-collapse-btn,floating-expand-btn"]) {
     assert(manualCaptureScript.includes(requiredCaptureDetail), `Manual workspace screenshot does not verify the current tool layout: ${requiredCaptureDetail}`);
   }
   for (const requiredCaptureDetail of ["workspaceTabTopGaps", "Math.max(...Object.values(workspaceTabTopGaps))", "title.nextElementSibling === hint", "hint.nextElementSibling === tabs", "tabs.nextElementSibling === panel", "hint.scrollHeight <= hint.clientHeight", "tabsRect.top - hintRect.bottom >= 3", "tabsRect.top - hintRect.bottom <= 5", "operationRect.top - tabsRect.bottom >= 11", "inputRect.top - inputHeaderRect.bottom >= 1", "outputRect.top - outputHeaderRect.bottom >= 1"]) {
@@ -608,9 +653,15 @@ async function checkManualScreenshots(page, baseUrl) {
 
   const nativeMainForm = fs.readFileSync(path.join(SITE_ROOT, "..", "app", "latest", "launcher", "MainForm.cs"), "utf8");
   const nativeCommandStates = fs.readFileSync(path.join(SITE_ROOT, "..", "app", "latest", "launcher", "MainForm.SettingsAndTheme.cs"), "utf8");
-  for (const requiredNativeTool of ["JSON &Repair && Transform...", "JSON to &Code Generator..."]) {
+  for (const requiredNativeTool of ["JSON &Repair && Transform...", "&Diagram Generator...", "JSON to &Code Generator..."]) {
     assert(nativeMainForm.includes(requiredNativeTool), `Windows Tools menu source is missing: ${requiredNativeTool.replace(/&/g, "")}`);
   }
+  assert(
+    nativeMainForm.indexOf("_miDocNavigator") < nativeMainForm.indexOf("_miTableView")
+      && nativeMainForm.indexOf("_miTableView") < nativeMainForm.indexOf("_miDiagramGenerator")
+      && nativeMainForm.indexOf("_miDiagramGenerator") < nativeMainForm.indexOf("_miSchemaValidator"),
+    "Windows Tools menu no longer keeps Diagram Generator with the contextual document tools"
+  );
   assert(
     nativeMainForm.indexOf("_miStructuredWorkbench") < nativeMainForm.indexOf("_miDataConverter")
       && nativeMainForm.indexOf("_miDataConverter") < nativeMainForm.indexOf("_miJsonToCode"),

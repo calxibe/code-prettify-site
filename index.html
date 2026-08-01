@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JSON Formatter &amp; Developer Tools for Chrome and Windows | CodePrettify</title>
-  <meta name="description" content="Format, inspect, query, validate, repair, compare, convert, and generate typed code from JSON locally with CodePrettify for Chrome, Edge, and Windows." />
+  <meta name="description" content="Format, inspect, query, validate, repair, compare, convert, visualize as diagrams, and generate typed code from JSON locally with CodePrettify for Chrome, Edge, and Windows." />
   <meta name="application-name" content="CodePrettify" />
   <meta name="apple-mobile-web-app-title" content="CodePrettify" />
   <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
@@ -22,7 +22,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="JSON Formatter &amp; Developer Tools for Chrome and Windows" />
   <meta property="og:description"
-    content="Format and inspect raw code, repair structured data, and generate typed models or JSON Schema from JSON samples locally with CodePrettify." />
+    content="Format and inspect raw code, repair structured data, visualize documents as diagrams, and generate typed models or JSON Schema from JSON samples locally with CodePrettify." />
   <meta property="og:url" content="https://prettify.cloud" />
   <meta property="og:image" content="https://prettify.cloud/img/feature-json-format.png" />
   <meta property="og:image:alt"
@@ -30,7 +30,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="JSON Formatter &amp; Developer Tools for Chrome and Windows" />
   <meta name="twitter:description"
-    content="Format and inspect raw code, repair structured data, and generate typed models or JSON Schema from JSON samples locally with CodePrettify." />
+    content="Format and inspect raw code, repair structured data, visualize documents as diagrams, and generate typed models or JSON Schema from JSON samples locally with CodePrettify." />
   <meta name="twitter:image" content="https://prettify.cloud/img/feature-json-format.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -48,7 +48,7 @@
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "Chrome, Edge, Windows",
       "url": "https://prettify.cloud/",
-      "description": "A local JSON formatter, viewer, validator, repair and transformation workbench, code generator, and developer toolkit for browser and Windows.",
+      "description": "A local JSON formatter, viewer, validator, diagram generator, repair and transformation workbench, code generator, and developer toolkit for browser and Windows.",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -94,9 +94,9 @@
         <p class="subtitle">
           Turn raw JSON responses and local files into a searchable, foldable
           developer workspace. Query paths, validate schemas, repair messy data,
-          compare changes, generate typed code, and export the result locally.
-          The same viewer also handles JavaScript, Markdown, XML, YAML, TOML,
-          CSS, and feeds without leaving the browser.
+          compare changes, visualize structure as diagrams, generate typed code,
+          and export the result locally. The same viewer also handles JavaScript,
+          Markdown, XML, YAML, TOML, CSS, and feeds without leaving the browser.
         </p>
 
         <p class="hero-proof">
@@ -284,6 +284,13 @@
             </button>
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
+                <img src="img/feature-diagram-generator_thumb.png" alt="" aria-hidden="true" />
+              </span>
+              <span class="screenshot-tab-kicker">Visualize</span>
+              <span class="screenshot-tab-label">Diagram Generator</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
                 <img src="img/feature-stats-diagnostics_thumb.png" alt="" aria-hidden="true" />
               </span>
               <span class="screenshot-tab-kicker">Measure</span>
@@ -413,7 +420,7 @@
         <div class="features-grid">
           <article class="feature-card feature-card-wide" id="json-to-code-feature">
             <div class="feature-icon codegen" aria-hidden="true">✨</div>
-            <span class="section-badge">New &middot; Local-only</span>
+            <span class="section-badge">Local-only</span>
             <h3>Turn JSON Samples Into Production-Ready Code</h3>
             <p>
               Paste a JSON sample once and generate clean typed models or a schema without creating an account,
@@ -465,7 +472,8 @@
             </p>
             <ul class="feature-list">
               <li>JSON syntax errors include exact line references</li>
-              <li>JavaScript and CSS validation provide instant feedback</li>
+              <li>Line-accurate validation for JavaScript, TypeScript, CSS, multi-document YAML, XML, and spec-accurate TOML provides instant feedback</li>
+              <li>JSON Schema Validator checks the document against a pasted schema entirely on-device, with a JSON path and line link for every violation</li>
               <li>
                 Statistics &amp; Diagnostics surfaces syntax status, warnings,
                 request metadata, and file-type-specific insights in one place
@@ -506,6 +514,26 @@
             </ul>
           </div>
 
+          <div class="feature-card" id="diagram-generator-feature">
+            <div class="feature-icon json">🗺️</div>
+            <span class="section-badge">New &middot; Local-only</span>
+            <h3>See the Document as a Diagram</h3>
+            <p>
+              The Diagram Generator turns JSON, JSON Lines, YAML, TOML, and
+              XML/RSS documents &mdash; plus CSV in the Windows app &mdash; into
+              a zoomable map of connected field cards, entirely on your machine.
+            </p>
+            <ul class="feature-list">
+              <li>Search across cards and fields with match highlighting and one-keystroke navigation between hits</li>
+              <li>Click any field to inspect its full value and document path, each one click from the clipboard</li>
+              <li>Limit the scene to two, three, or four levels, or collapse and expand every branch at once</li>
+              <li>Export the same scene as SVG, PNG, or a Mermaid class diagram for wikis and issue trackers</li>
+            </ul>
+            <div class="feature-card-actions">
+              <a class="feature-cta" href="manual.html#diagram-generator">Open the manual section</a>
+            </div>
+          </div>
+
           <div class="feature-card">
             <div class="feature-icon tools">🧭</div>
             <h3>Navigate, Compare &amp; Export</h3>
@@ -530,10 +558,10 @@
                 Command Palette (<code>Ctrl+Shift+P</code>) to fuzzy-find and run any viewer action from the keyboard
               </li>
               <li>
-                Copy original, formatted, or minified code; use the offline Data Converter for structured formats, Base64 or URL encoding, hashes and HMACs, timestamps, UUIDs, and ULIDs; and export as CSV, HTML table, or PNG image
+                Copy original, formatted, or minified code; use the offline Data Converter for structured formats, Base64 or URL encoding, hashes and HMACs, timestamps, UUIDs, and ULIDs; export as CSV, HTML table, or PNG image; or download the open document converted to JSON, YAML, or TOML
               </li>
               <li>
-                Generate copy-ready <code>cURL</code> and <code>fetch()</code> commands and share a view-state URL with teammates
+                Generate copy-ready <code>cURL</code>, <code>fetch()</code>, and PowerShell commands and share a view-state URL with teammates
               </li>
             </ul>
           </div>
@@ -553,7 +581,13 @@
                 Captures <code>console.log</code>, <code>info</code>, <code>warn</code>, <code>error</code>, <code>debug</code>, and <code>console.table</code> (rendered as a real HTML table)
               </li>
               <li>
-                Optional &ldquo;Include <em>filename</em>&rdquo; mode brings the current file into scope so you can call its top-level functions
+                Optional &ldquo;Include <em>filename</em>&rdquo; mode brings the current file into scope so you can call its top-level functions &mdash; Safe definitions mode loads them without running the file's side effects
+              </li>
+              <li>
+                JSON and JSON Lines documents arrive as a ready-made <code>json</code> variable, so you can query the open payload with plain JavaScript
+              </li>
+              <li>
+                Inspect Runtime (<code>Ctrl+Alt+I</code>) runs the file once and lists every top-level declaration with its captured value, inline annotations, and jump-to-line
               </li>
               <li>
                 Autocomplete for functions, methods, classes, and variables with parameter signatures
@@ -581,6 +615,26 @@
               </li>
               <li>Adjust line numbers, word wrap, toolbar, and minimap &mdash; and, from the File Types settings, choose which file types the extension runs on and whether each opens Rendered or Raw by default</li>
             </ul>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon customize">🪟</div>
+            <h3>A Real Windows App, Not a Wrapper</h3>
+            <p>
+              The Microsoft Store app brings the same toolkit to local files
+              with native ergonomics on x64 and Arm64.
+            </p>
+            <ul class="feature-list">
+              <li>Multi-file tabs with drag and drop, file associations, an Explorer context menu, and command-line opening</li>
+              <li>Paste &amp; Prettify (<code>Ctrl+N</code>) detects the format of whatever is on the clipboard</li>
+              <li>Save in place or Save As with encoding and line-ending preservation and atomic writes</li>
+              <li>A paged native viewer keeps very large files responsive, and checkpointed sessions survive restarts and crashes</li>
+              <li>Adds CSV and HTML support plus a native Tools menu mirroring the in-page tools</li>
+            </ul>
+            <div class="feature-card-actions">
+              <a class="feature-cta" href="https://apps.microsoft.com/detail/9p0lp3pt6j7d" target="_blank" rel="noopener">Get it from the Microsoft Store</a>
+              <a class="feature-cta feature-cta-secondary" href="manual.html#app-files-tabs">Windows app manual</a>
+            </div>
           </div>
         </div>
       </div>

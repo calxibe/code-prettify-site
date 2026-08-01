@@ -96,6 +96,14 @@ const screenshotData = [
       "Explore JSON arrays and XML or RSS data as sortable tables with search, filters, and quick scanning.",
   },
   {
+    image: "img/feature-diagram-generator.png",
+    alt: "CodePrettify Diagram Generator showing a JSON document as connected pastel field cards with an inspected field in the sidebar",
+    kicker: "Diagram Generator",
+    title: "See the document as connected field cards",
+    description:
+      "Explore a zoomable local hierarchy diagram, search across cards, inspect any field with its path, and export the scene as SVG, PNG, or Mermaid.",
+  },
+  {
     image: "img/feature-stats-diagnostics.png",
     alt: "CodePrettify statistics and diagnostics modal showing warnings, request metadata, data insights, and document metrics",
     kicker: "Diagnostics",
