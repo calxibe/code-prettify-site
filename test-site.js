@@ -4,6 +4,9 @@ const path = require("node:path");
 const { chromium } = require("playwright");
 
 const SITE_ROOT = __dirname;
+const PROJECT_ROOT = path.join(SITE_ROOT, "..");
+const BROWSER_VERSION = JSON.parse(fs.readFileSync(path.join(PROJECT_ROOT, "browser", "latest", "manifest.json"), "utf8")).version;
+const APP_VERSION = JSON.parse(fs.readFileSync(path.join(PROJECT_ROOT, "app", "latest", "web", "manifest.webmanifest"), "utf8")).version;
 const FEATURE_GUIDES = [
   {
     page: "json-formatter-browser-extension.html",
@@ -529,16 +532,18 @@ async function checkStructuredWorkbenchDocumentation(page, baseUrl) {
     text: card.textContent.replace(/\s+/g, " ").trim(),
     version: card.querySelector(".version-number")?.textContent.trim() || "",
   }));
-  assert(browserLatest.version === "v1.0.51", "Browser changelog does not identify v1.0.51 as the latest release");
-  assert(browserLatest.text.includes("Diagram Generator"), "Browser v1.0.51 notes are missing Diagram Generator");
+  assert(browserLatest.version === `v${BROWSER_VERSION}`, `Browser HTML changelog does not match extension manifest version ${BROWSER_VERSION}`);
+  assert(await page.locator(".version-badge.badge-latest").count() === 1, "Browser HTML changelog should identify exactly one latest release");
+  assert(browserLatest.text.includes("complete match counter") && browserLatest.text.includes("previous/next navigation buttons"), `Browser v${BROWSER_VERSION} notes are missing the floating-search fix`);
 
   await page.goto(`${baseUrl}/changelog-app.html`, { waitUntil: "domcontentloaded" });
   const appLatest = await page.locator(".version-card").first().evaluate((card) => ({
     text: card.textContent.replace(/\s+/g, " ").trim(),
     version: card.querySelector(".version-number")?.textContent.trim() || "",
   }));
-  assert(appLatest.version === "v1.1.6", "App changelog does not identify v1.1.6 as the latest release");
-  assert(appLatest.text.includes("Diagram Generator"), "App v1.1.6 notes are missing Diagram Generator");
+  assert(appLatest.version === `v${APP_VERSION}`, `App HTML changelog does not match app manifest version ${APP_VERSION}`);
+  assert(await page.locator(".version-badge.badge-latest").count() === 1, "App HTML changelog should identify exactly one latest release");
+  assert(appLatest.text.includes("complete match counter") && appLatest.text.includes("previous/next navigation buttons"), `App v${APP_VERSION} notes are missing the floating-search fix`);
 }
 
 async function checkManualScreenshots(page, baseUrl) {
