@@ -335,6 +335,31 @@ async function checkHomepageResourceLinks(page, baseUrl) {
   assert(metaDescription?.includes("JSON") && metaDescription?.includes("generate typed code"), "Homepage metadata does not advertise JSON tooling and typed-code generation");
   assert(metaDescription?.includes("visualize as diagrams"), "Homepage metadata does not advertise diagram visualization");
 
+  const relatedProducts = await page.locator("#more-extensions").evaluate((section) => {
+    const cards = Array.from(section.querySelectorAll(".extension-card"), (card) => ({
+      heading: card.querySelector("h3")?.textContent.trim() || "",
+      href: card.href,
+      image: card.querySelector("img")?.getAttribute("src") || "",
+      rel: card.rel.split(/\s+/),
+      target: card.target,
+    }));
+    return {
+      badge: section.querySelector(".section-badge")?.textContent.trim() || "",
+      cards,
+      description: section.querySelector(".section-desc")?.textContent.trim() || "",
+      gridColumns: getComputedStyle(section.querySelector(".extensions-grid")).gridTemplateColumns.split(" ").length,
+      heading: section.querySelector("h2")?.textContent.trim() || "",
+    };
+  });
+  const clipTurn = relatedProducts.cards.find((card) => card.heading === "Clip Turn - Video Rotator");
+  assert(relatedProducts.badge === "More from FixQuotes", "Homepage related-products badge still describes only extensions");
+  assert(relatedProducts.heading === "More useful tools from FixQuotes", "Homepage related-products heading still describes only extensions");
+  assert(relatedProducts.description.includes("apps and browser extensions"), "Homepage related-products description is missing the broader product range");
+  assert(relatedProducts.cards.length === 5 && relatedProducts.gridColumns === 5, "Homepage related-products grid does not fit all five products on desktop");
+  assert(clipTurn?.href === "https://clipturn.app/", "Homepage is missing the Clip Turn product link");
+  assert(clipTurn?.image === "img/plugins/clipturn-logo.svg", "Homepage Clip Turn card is missing its brand mark");
+  assert(clipTurn?.target === "_blank" && clipTurn.rel.includes("noopener"), "Homepage Clip Turn link is missing safe external-link behavior");
+
   const diagramFeature = await page.locator("#diagram-generator-feature").evaluate((element) => ({
     heading: element.querySelector("h3")?.textContent?.trim() || "",
     links: Array.from(element.querySelectorAll("a"), (link) => link.getAttribute("href")),
