@@ -355,7 +355,7 @@ async function checkHomepageResourceLinks(page, baseUrl) {
   assert(relatedProducts.badge === "More from FixQuotes", "Homepage related-products badge still describes only extensions");
   assert(relatedProducts.heading === "More useful tools from FixQuotes", "Homepage related-products heading still describes only extensions");
   assert(relatedProducts.description.includes("apps and browser extensions"), "Homepage related-products description is missing the broader product range");
-  assert(relatedProducts.cards.length === 5 && relatedProducts.gridColumns === 5, "Homepage related-products grid does not fit all five products on desktop");
+  assert(relatedProducts.cards.length === 4 && relatedProducts.gridColumns === 4, "Homepage related-products grid does not fit all four products on desktop");
   assert(clipTurn?.href === "https://clipturn.app/", "Homepage is missing the Clip Turn product link");
   assert(clipTurn?.image === "img/plugins/clipturn-logo.svg", "Homepage Clip Turn card is missing its brand mark");
   assert(clipTurn?.target === "_blank" && clipTurn.rel.includes("noopener"), "Homepage Clip Turn link is missing safe external-link behavior");
