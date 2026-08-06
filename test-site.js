@@ -351,7 +351,7 @@ async function checkHomepageResourceLinks(page, baseUrl) {
       heading: section.querySelector("h2")?.textContent.trim() || "",
     };
   });
-  const clipTurn = relatedProducts.cards.find((card) => card.heading === "Clip Turn - Video Rotator");
+  const clipTurn = relatedProducts.cards.find((card) => card.heading === "ClipTurn");
   assert(relatedProducts.badge === "More from FixQuotes", "Homepage related-products badge still describes only extensions");
   assert(relatedProducts.heading === "More useful tools from FixQuotes", "Homepage related-products heading still describes only extensions");
   assert(relatedProducts.description.includes("apps and browser extensions"), "Homepage related-products description is missing the broader product range");
