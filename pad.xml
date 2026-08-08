@@ -12,6 +12,12 @@
     <Company_Name>FixQuotes</Company_Name>
     <Country>Norway</Country>
     <Company_WebSite_URL>https://fixquotes.com/</Company_WebSite_URL>
+    <Contact_Info>
+      <Author_Email>fixquotescom@gmail.com</Author_Email>
+    </Contact_Info>
+    <Support_Info>
+      <Support_Email>support@fixquotes.com</Support_Email>
+    </Support_Info>
   </Company_Info>
 
   <Program_Info>
