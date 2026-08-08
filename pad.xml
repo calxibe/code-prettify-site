@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XML_DIZ_INFO>
+  <MASTER_PAD_VERSION_INFO>
+    <MASTER_PAD_VERSION>4.0</MASTER_PAD_VERSION>
+    <MASTER_PAD_EDITOR>Hand-authored</MASTER_PAD_EDITOR>
+    <MASTER_PAD_INFO>Portable Application Description metadata for CodePrettify. Microsoft Store is the only authorized acquisition source for the Windows app.</MASTER_PAD_INFO>
+    <CERTIFIED>N</CERTIFIED>
+  </MASTER_PAD_VERSION_INFO>
+
+  <Company_Info>
+    <!-- AppVisor, which assigned PAD 4 PublisherID values, is no longer available. -->
+    <Company_Name>FixQuotes</Company_Name>
+    <Country>Norway</Country>
+    <Company_WebSite_URL>https://fixquotes.com/</Company_WebSite_URL>
+  </Company_Info>
+
+  <Program_Info>
+    <!-- AppVisor, which assigned PAD 4 AppID values, is no longer available. -->
+    <Program_Name>CodePrettify</Program_Name>
+    <Program_Version>1.1.7</Program_Version>
+    <Program_Release_Month>08</Program_Release_Month>
+    <Program_Release_Day>04</Program_Release_Day>
+    <Program_Release_Year>2026</Program_Release_Year>
+    <Program_Cost_Dollars>0.00</Program_Cost_Dollars>
+    <Program_Type>Freeware</Program_Type>
+    <Program_Release_Status>Minor Update</Program_Release_Status>
+    <Program_Install_Support>Install and Uninstall</Program_Install_Support>
+    <Program_OS_Support>Other</Program_OS_Support>
+    <Program_Target_Platform>Windows</Program_Target_Platform>
+    <Program_Language>English, Norwegian, Swedish, Danish, German, French, Spanish, Italian, Portuguese, Russian, Chinese, Japanese, Korean, Vietnamese</Program_Language>
+    <!-- Size of the current x64 and ARM64 Microsoft Store app bundle. -->
+    <File_Info>
+      <File_Size_Bytes>104100964</File_Size_Bytes>
+      <File_Size_K>101661.10</File_Size_K>
+      <File_Size_MB>99.28</File_Size_MB>
+    </File_Info>
+    <Expire_Info>
+      <Has_Expire_Info>N</Has_Expire_Info>
+    </Expire_Info>
+    <Program_Change_Info>Improves the floating search toolbar so the full match counter and previous/next controls remain visible at compact window sizes while the search field keeps a usable width.</Program_Change_Info>
+    <Program_Category_Class>Development::Source Editors</Program_Category_Class>
+    <Program_System_Requirements>Windows 10 version 1809 (build 17763) or later; designed for Windows 11; x64 or ARM64</Program_System_Requirements>
+  </Program_Info>
+
+  <Program_Descriptions>
+    <English>
+      <Keywords>code formatter,JSON formatter,JavaScript formatter,developer tools,JSON to code,diagram generator,data converter,regex playground,HTTP client,file comparison,Markdown viewer,Windows 11,local processing</Keywords>
+      <Char_Desc_45>Local code formatter and developer toolkit.</Char_Desc_45>
+      <Char_Desc_80>Format, inspect, compare, convert, and visualize code and data locally.</Char_Desc_80>
+      <Char_Desc_250>CodePrettify formats, validates, compares, converts, and visualizes code and data locally on Windows. Open supported files in native tabs, generate typed models and diagrams, use developer tools, and save results without uploading documents.</Char_Desc_250>
+      <Char_Desc_450>CodePrettify is a local Windows toolkit for JS, TypeScript, JSON, JSONC, JSON Lines, YAML, TOML, Markdown, CSV, CSS, XML/RSS, and HTML files. It formats and validates documents, compares sources, converts structured data, generates typed models and diagrams, runs sandboxed playgrounds, and includes Regex and HTTP tools. Native tabs, file associations, Explorer commands, search, folding, export, and save-in-place support desktop workflows.</Char_Desc_450>
+      <Char_Desc_2000>Open code and structured-data files in a native Windows workspace. CodePrettify supports JavaScript, TypeScript, JSON, JSON with Comments, JSON Lines, YAML, TOML, Markdown, CSV, CSS, XML, RSS/Atom, and HTML. It adds syntax highlighting, automatic formatting, validation, search, folding, line numbers, outlines, tables, statistics, diagnostics, security scanning, and export while keeping the original text available.
+
+JSON tools include path inspection and queries, schema validation, repair and salvage with a reviewable change report, ordered data transformations, and local generation of TypeScript, Zod, C#, Java, Kotlin, Pydantic, Go, Rust, Swift, Dart, or JSON Schema models. The Diagram Generator turns JSON, JSON Lines, YAML, TOML, XML/RSS, and CSV into searchable field-card diagrams that can be saved as SVG or PNG or copied as Mermaid.
+
+Developer utilities include semantic or text comparison, a data converter, Regex Playground, a sandboxed JavaScript Playground, Runtime Inspect, and an HTTP Client with environments, saved requests, response inspection, and cURL, fetch, or PowerShell snippets. The HTTP Client sends only requests the user explicitly chooses to send.
+
+The Windows app provides native tabs, drag and drop, Paste and Prettify, file associations, File Explorer Open and Compare commands, save in place, recent files, session restore, large-file fallbacks, light and dark themes, and 14 interface languages. Core formatting, validation, conversion, generation, diagrams, playground execution, and settings remain on the device. CodePrettify has no account requirement, advertising, telemetry, or cloud document-processing service and does not upload opened files to FixQuotes.
+
+CodePrettify is free from Microsoft Store for x64 and ARM64 PCs running Windows 10 version 1809 or later, and is designed for Windows 11.</Char_Desc_2000>
+    </English>
+  </Program_Descriptions>
+
+  <Web_Info>
+    <Application_URLs>
+      <Application_Info_URL>https://prettify.cloud/</Application_Info_URL>
+      <Application_Order_URL>https://apps.microsoft.com/detail/9p0lp3pt6j7d</Application_Order_URL>
+      <Application_Screenshot_URL>https://prettify.cloud/img/store-js-transform.png</Application_Screenshot_URL>
+      <Application_Icon_URL>https://prettify.cloud/apple-touch-icon.png</Application_Icon_URL>
+      <Application_XML_File_URL>https://prettify.cloud/pad.xml</Application_XML_File_URL>
+      <Video_Link_1_URL>https://youtu.be/uOfxMU0bSw8</Video_Link_1_URL>
+    </Application_URLs>
+    <Download_URLs>
+      <!-- PAD 4 predates app stores and requires a direct binary URL. CodePrettify has none. -->
+      <Primary_Download_URL>https://apps.microsoft.com/detail/9p0lp3pt6j7d</Primary_Download_URL>
+    </Download_URLs>
+  </Web_Info>
+
+  <Permissions>
+    <Distribution_Permissions>Software directories may reproduce this PAD metadata and link to CodePrettify's official product page and Microsoft Store listing. Do not mirror, repackage, modify or redistribute CodePrettify binaries. Microsoft Store is the only authorized installation source for the Windows app.</Distribution_Permissions>
+    <EULA>CodePrettify is licensed under the Microsoft Standard Application License Terms available at https://go.microsoft.com/fwlink/?linkid=528905. Copyright (c) Steinar Talmoen. All rights reserved.</EULA>
+  </Permissions>
+
+  <ASP>
+    <ASP_Member>N</ASP_Member>
+  </ASP>
+</XML_DIZ_INFO>

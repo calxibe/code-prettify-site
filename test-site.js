@@ -68,6 +68,7 @@ const MIME_TYPES = {
   ".json": "application/json; charset=utf-8",
   ".png": "image/png",
   ".svg": "image/svg+xml; charset=utf-8",
+  ".xml": "application/xml; charset=utf-8",
   ".webmanifest": "application/manifest+json; charset=utf-8",
 };
 const HOMEPAGE_SCREENSHOTS = [
@@ -102,6 +103,35 @@ function readPngDimensions(filePath) {
   const header = fs.readFileSync(filePath).subarray(0, 24);
   assert(header.length === 24 && header.toString("hex", 0, 8) === "89504e470d0a1a0a", `${path.basename(filePath)} is not a valid PNG`);
   return { width: header.readUInt32BE(16), height: header.readUInt32BE(20) };
+}
+
+function checkPadMetadata() {
+  const padPath = path.join(SITE_ROOT, "pad.xml");
+  const pad = fs.readFileSync(padPath, "utf8");
+  const value = (tag) => {
+    const match = pad.match(new RegExp(`<${tag}>([\\s\\S]*?)</${tag}>`));
+    return match?.[1].trim() || "";
+  };
+  const appManifest = JSON.parse(fs.readFileSync(path.join(SITE_ROOT, "..", "app", "latest", "web", "manifest.webmanifest"), "utf8"));
+  const bundlePath = path.join(SITE_ROOT, "..", "app", `CodePrettify-v${appManifest.version}.appxbundle`);
+
+  assert(pad.startsWith('<?xml version="1.0" encoding="UTF-8"?>'), "PAD metadata is missing its UTF-8 XML declaration");
+  assert(value("MASTER_PAD_VERSION") === "4.0", "PAD metadata must use the PAD 4.0 structure");
+  assert(value("Program_Name") === "CodePrettify", "PAD metadata has the wrong program name");
+  assert(value("Program_Version") === appManifest.version, "PAD version no longer matches the Windows app");
+  assert(fs.existsSync(bundlePath), "PAD metadata has no matching Windows app bundle");
+  assert(Number(value("File_Size_Bytes")) === fs.statSync(bundlePath).size, "PAD file size no longer matches the Windows app bundle");
+  assert(value("Application_Info_URL") === "https://prettify.cloud/", "PAD metadata has the wrong product URL");
+  assert(value("Application_Order_URL") === "https://apps.microsoft.com/detail/9p0lp3pt6j7d", "PAD metadata has the wrong Store URL");
+  assert(value("Application_XML_File_URL") === "https://prettify.cloud/pad.xml", "PAD metadata has the wrong self URL");
+  assert(value("Primary_Download_URL") === value("Application_Order_URL"), "PAD acquisition URLs do not match");
+  assert(value("Distribution_Permissions").includes("Do not mirror"), "PAD metadata is missing distribution restrictions");
+  assert(!pad.includes("ClipTurn"), "PAD metadata still contains ClipTurn template content");
+
+  for (const limit of [45, 80, 250, 450, 2000]) {
+    const description = value(`Char_Desc_${limit}`);
+    assert(description.length > 0 && description.length <= limit, `PAD Char_Desc_${limit} exceeds its character limit`);
+  }
 }
 
 function createServer() {
@@ -1176,6 +1206,7 @@ async function checkFeatureScreenshotMobile(page, baseUrl) {
 }
 
 async function main() {
+  checkPadMetadata();
   const server = createServer();
   await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
   const { port } = server.address();
