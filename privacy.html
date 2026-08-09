@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Privacy Policy - CodePrettify</title>
-    <meta name="description" content="CodePrettify handles supported page content locally on your device to provide viewer features and does not transmit that content to our servers." />
+    <meta name="description" content="Learn how CodePrettify processes app and extension data locally and uses optional, consent-based Google Analytics on its public website." />
     <meta name="application-name" content="CodePrettify" />
     <meta name="apple-mobile-web-app-title" content="CodePrettify" />
     <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
@@ -20,13 +20,13 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Privacy Policy - CodePrettify" />
-    <meta property="og:description" content="CodePrettify handles supported page content locally on your device to provide viewer features and does not transmit that content to our servers." />
+    <meta property="og:description" content="Learn how CodePrettify processes app and extension data locally and uses optional, consent-based Google Analytics on its public website." />
     <meta property="og:url" content="https://prettify.cloud/privacy.html" />
     <meta property="og:image" content="https://prettify.cloud/img/feature-stats-diagnostics.png" />
     <meta property="og:image:alt" content="CodePrettify statistics and diagnostics panel showing warnings, request metadata, and document metrics" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Privacy Policy - CodePrettify" />
-    <meta name="twitter:description" content="CodePrettify handles supported page content locally on your device to provide viewer features and does not transmit that content to our servers." />
+    <meta name="twitter:description" content="Learn how CodePrettify processes app and extension data locally and uses optional, consent-based Google Analytics on its public website." />
     <meta name="twitter:image" content="https://prettify.cloud/img/feature-stats-diagnostics.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -34,8 +34,9 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=block"
       rel="stylesheet"
     />
-  <link rel="stylesheet" href="style.css?v=20260725-3" />
-    <script src="site.js?v=20260719" defer></script>
+  <link rel="stylesheet" href="style.css?v=20260809" />
+    <script src="site.js?v=20260809" defer></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}window.cpLoadAnalytics=function(){if(window.cpAnalyticsLoaded)return;window.cpAnalyticsLoaded=!0;var t=document.createElement("script");t.async=!0;t.src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F";document.head.appendChild(t);gtag("js",new Date);gtag("config","G-S4WNQ48Q7F")};try{localStorage.getItem("codeprettify-analytics-consent")==="granted"&&window.cpLoadAnalytics()}catch(t){}</script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -67,11 +68,11 @@
     </header>
     <main id="main-content" class="content">
       <h1>Privacy Policy</h1>
-      <p class="last-updated">Last Updated: July 14, 2026</p>
+      <p class="last-updated">Last Updated: August 9, 2026</p>
       <p>
         This Privacy Policy describes how CodePrettify ("we", "us", or "our")
         handles your information when you use our desktop application and
-        browser extension.
+        browser extension or visit our public website.
       </p>
 
       <div class="highlight">
@@ -83,6 +84,8 @@
         the same URL directly from the site you are already visiting. If you
         explicitly use the HTTP Client, your browser sends the request you
         compose directly to the target URL; CodePrettify does not proxy it.
+        The public CodePrettify website uses optional Google Analytics only
+        after you actively allow analytics through its consent banner.
       </div>
 
       <div class="highlight limited-use-highlight">
@@ -234,7 +237,44 @@
         core functionality.
       </p>
 
-      <h2>4. Third-Party Services</h2>
+      <h2 id="website-analytics">4. Website Analytics and Cookies</h2>
+      <p>
+        This section applies only when you visit the public website at
+        <code>prettify.cloud</code>. It does not apply to the CodePrettify
+        browser extension or desktop application. We use Google Analytics 4,
+        measurement ID <code>G-S4WNQ48Q7F</code>, to understand which pages are
+        useful and how visitors move through the website.
+      </p>
+      <p>
+        Google Analytics is optional. The website does not download the Google
+        Analytics tag, set Google Analytics cookies, or send analytics events
+        unless you select <strong>Allow analytics</strong>. Selecting
+        <strong>Reject analytics</strong> does not limit access to the website.
+      </p>
+      <p>
+        If you allow analytics, Google Analytics may process the pages you
+        visit, referring page, website interactions, browser and device
+        information, language, and approximate geographic information derived
+        from your IP address. Google Analytics uses first-party cookies such as
+        <code>_ga</code> and <code>_ga_&lt;container-id&gt;</code> to distinguish
+        users and sessions. These cookies can remain for up to two years,
+        subject to browser limits, unless you withdraw consent or delete them.
+        Google describes this processing in
+        <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses information from sites or apps that use its services</a>
+        and its
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>.
+      </p>
+      <p>
+        Your choice is stored locally in your browser under
+        <code>codeprettify-analytics-consent</code>. Use
+        <strong>Cookie settings</strong> in the footer at any time to allow,
+        reject, or withdraw analytics consent. When you withdraw consent, the
+        website removes Google Analytics cookies available to this domain and
+        reloads without Google Analytics. Clearing browser storage removes your
+        saved choice, so the website will ask again on your next visit.
+      </p>
+
+      <h2>5. Third-Party Services</h2>
       <p>
         The extension utilizes open-source libraries such as CodeMirror 6 and
         js-beautify that are bundled directly within the extension. No external
@@ -254,22 +294,23 @@
         data.
       </p>
 
-      <h2>5. Your Rights</h2>
+      <h2>6. Your Rights and Choices</h2>
       <p>
         CodePrettify does not maintain a server-side database of the supported
         page content or viewer metadata that it handles locally in your
-        browser. If you have questions about the extension's local data
-        handling or settings storage, you may contact us using the information
-        below.
+        browser. You can reject or withdraw optional website analytics at any
+        time through <strong>Cookie settings</strong>. If you have questions
+        about local data handling, settings storage, website analytics, or your
+        privacy rights, you may contact us using the information below.
       </p>
 
-      <h2>6. Changes to This Policy</h2>
+      <h2>7. Changes to This Policy</h2>
       <p>
         We may update our Privacy Policy from time to time. We will notify you
         of any changes by posting the new Privacy Policy on this page.
       </p>
 
-      <h2>7. Contact Us</h2>
+      <h2>8. Contact Us</h2>
       <p>
         If you have any questions about this Privacy Policy, please contact us
         here:
