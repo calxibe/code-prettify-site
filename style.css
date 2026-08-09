@@ -1581,7 +1581,7 @@ footer {
 
 .footer-badge img {
     display: block;
-    width: 167px;
+    width: auto;
     height: 36px;
     max-width: 100%;
     object-fit: contain;
