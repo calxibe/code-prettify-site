@@ -1553,6 +1553,40 @@ footer {
     font-size: 0.85rem;
 }
 
+.footer-badges {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.16);
+}
+
+.footer-badge {
+    display: inline-flex;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.footer-badge:hover,
+.footer-badge:focus-visible {
+    transform: translateY(-2px);
+    outline: 2px solid rgba(var(--primary-light-rgb), 0.55);
+    outline-offset: 3px;
+}
+
+.footer-badge img {
+    display: block;
+    width: 167px;
+    height: 36px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
 /* ===================================
    Responsive
    =================================== */
@@ -1955,6 +1989,10 @@ footer {
 
     .footer-links a:hover {
         color: #111827;
+    }
+
+    .footer-badges {
+        border-top-color: rgba(17, 24, 39, 0.16);
     }
 
     .changelog-tab.active {
