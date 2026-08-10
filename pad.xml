@@ -14,6 +14,7 @@
     <Company_WebSite_URL>https://fixquotes.com/</Company_WebSite_URL>
     <Contact_Info>
       <Author_Email>fixquotescom@gmail.com</Author_Email>
+      <Contact_Email>support@fixquotes.com</Contact_Email>
     </Contact_Info>
     <Support_Info>
       <Support_Email>support@fixquotes.com</Support_Email>
@@ -36,7 +37,7 @@
     <Program_Language>English, Norwegian, Swedish, Danish, German, French, Spanish, Italian, Portuguese, Russian, Chinese, Japanese, Korean, Vietnamese</Program_Language>
     <!-- Size of the current x64 and ARM64 Microsoft Store app bundle. -->
     <File_Info>
-      <File_Size_Bytes>104100964</File_Size_Bytes>
+      <File_Size_Bytes>104100963</File_Size_Bytes>
       <File_Size_K>101661.10</File_Size_K>
       <File_Size_MB>99.28</File_Size_MB>
     </File_Info>

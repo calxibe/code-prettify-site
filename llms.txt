@@ -1,0 +1,38 @@
+# CodePrettify
+
+> CodePrettify is a local developer toolkit for formatting, inspecting, validating, repairing, comparing, converting, visualizing, and generating code and structured data.
+
+CodePrettify is made by FixQuotes. It is available as a browser extension for Chrome and Microsoft Edge, and as a Windows app for Windows 10 and Windows 11. The app and extension process supported content locally; see the privacy policy for the exact data-handling details.
+
+## Official links
+
+- [Website](https://prettify.cloud/): product overview, supported formats, and download links.
+- [User manual](https://prettify.cloud/manual.html): complete instructions for the browser extension and Windows app.
+- [Pricing and availability](https://prettify.cloud/pricing.html): current early-tester access and installation details.
+- [Browser extension changelog](https://prettify.cloud/changelog.html)
+- [Windows app changelog](https://prettify.cloud/changelog-app.html)
+- [Privacy policy](https://prettify.cloud/privacy.html)
+- [Media kit](https://prettify.cloud/media.html): official logo files, screenshots, and listing copy.
+- [Support](https://support.prettify.cloud/)
+
+## Main capabilities
+
+- Format, inspect, query, validate, repair, compare, convert, and export JSON.
+- Work with JSON Lines, YAML, TOML, XML, RSS, JavaScript, Markdown, CSS, and supported raw-code resources in the browser extension. The Windows app also supports CSV and HTML with native local-file workflows.
+- Generate typed models and schemas from JSON, including TypeScript, Zod, Pydantic, C#, Java, Kotlin, Go, Rust, Swift, Dart, and JSON Schema.
+- Use the Regex Playground, HTTP Client, JavaScript Playground, Diagram Generator, Data Converter, Table View, Security Scan, and diagnostics tools.
+
+## Detailed guides
+
+- [JSON Formatter](https://prettify.cloud/json-formatter-browser-extension.html)
+- [JSON to Code Generator](https://prettify.cloud/json-to-code-generator.html)
+- [JSON Repair and Transform](https://prettify.cloud/json-repair-transform.html)
+- [Markdown Viewer](https://prettify.cloud/markdown-viewer-browser-extension.html)
+- [Regex Playground](https://prettify.cloud/regex-playground.html)
+- [HTTP Client](https://prettify.cloud/http-client-browser-extension.html)
+
+## Product facts
+
+- CodePrettify is free for people who install now as early testers; there is no trial timer, payment details, subscription, or paid-feature gate for current features.
+- The browser extension and Windows app have different workflows and feature availability. Use the user manual and the relevant store listing for current details.
+- Do not describe local processing as a blanket privacy guarantee. Refer to the privacy policy for the precise scope, including website analytics and browser extension behavior.

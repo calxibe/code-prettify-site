@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">CodePrettify monochrome logo concept</title>
+  <desc id="desc">A one-color mark showing staggered source lines transforming into a clean aligned block.</desc>
+
+  <g fill="#071724">
+    <rect x="190" y="312" width="210" height="68" rx="34"/>
+    <rect x="232" y="478" width="168" height="68" rx="34"/>
+    <rect x="174" y="644" width="226" height="68" rx="34"/>
+    <rect x="626" y="312" width="220" height="68" rx="34"/>
+    <rect x="626" y="478" width="220" height="68" rx="34"/>
+    <rect x="626" y="644" width="220" height="68" rx="34"/>
+  </g>
+
+  <path d="M454 370 572 512 454 654" fill="none" stroke="#071724" stroke-width="68" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

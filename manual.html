@@ -258,6 +258,7 @@
 
           <section id="app-files-tabs" class="manual-topic" data-products="app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Desktop-specific</span><h2>Files, tabs, Paste &amp; Prettify, and saving</h2></div><span class="product-badge product-app">Windows app</span></div>
+            <p class="manual-callout"><strong>Windows compatibility:</strong> The CodePrettify Windows app supports Windows 10 and Windows 11.</p>
             <h3>Tabs and sessions</h3>
             <p>Open several files in native tabs. Opening the same path reuses its tab. Close with the tab button, middle-click, or <kbd>Ctrl</kbd>+<kbd>W</kbd>; closing the final tab returns to the open-file landing surface. The app keeps up to ten recent files, integrates with Windows Recent Documents, and can restore the previous window, tabs, and active tab when session restore is enabled. Session state is checkpointed continuously, so restore also works after a crash, and opening files from Explorer reuses the running window instead of starting a second instance.</p>
             <h3>Paste &amp; Prettify</h3>
@@ -896,7 +897,7 @@
             <p>The status bar shows Windows (CRLF), Unix (LF), Mac (CR), Mixed EOL, or No EOL. Click it to convert the document (files up to 256 MiB). Conversion asks for confirmation and then rewrites the file on disk immediately &mdash; no separate save is needed.</p>
             <h3>Explorer integration and runtime requirements</h3>
             <p>The packaged x64/Arm64 app is .NET 10 self-contained, so the main app does not require a separate .NET desktop runtime. It does require the shared Microsoft Edge WebView2 Evergreen runtime; if missing, the recovery screen opens Microsoft’s installer and provides Retry.</p>
-            <p>File associations and Explorer commands can open supported files, and selecting exactly two supported files can offer Compare. This optional Explorer handler is framework-dependent and may require matching <code>Microsoft.NETCore.App 10.x</code>. Use <strong>Help &gt; Explorer Integration Runtime</strong> to check/install the official prerequisite, then restart Explorer or sign out if the shell has not refreshed.</p>
+            <p>File associations and Explorer commands can open supported files, and selecting exactly two supported files can offer Compare. This optional Explorer handler uses the machine-wide Microsoft .NET 10 Runtime (x64). If it is missing, CodePrettify shows a prompt with a link to the official Microsoft installer. You can also use <strong>Help &gt; Explorer Integration Runtime</strong> to check or install it, then restart Explorer or sign out if the shell has not refreshed.</p>
           </section>
 
           <section id="shortcuts" class="manual-topic" data-products="shared browser app">
@@ -952,7 +953,7 @@
               <div><h3>An HTTP request fails</h3><p>Verify resolved variables, authentication placement, URL, timeout, and response size. The extension remains subject to browser CORS and credential restrictions. Use generated cURL/PowerShell to compare outside the browser.</p></div>
               <div><h3>A conversion option is disabled</h3><p>The compatibility check has proven the current input is unsuitable. Read the reason: common causes are invalid JSON, nested data for CSV/TSV, unsafe JSON numbers, invalid UTF-8 Base64, or a lossy YAML/XML construct.</p></div>
               <div><h3>Repair &amp; Salvage refuses the input</h3><p>JSON Repair &amp; Transform only returns a result when it can produce bounded, safely representable JSON. Review missing brackets or separators, truncated records, unsafe numbers, and nesting/size limits. Enable partial JSON Lines salvage only when excluding the reported broken records is acceptable.</p></div>
-              <div><h3>The Windows app will not show its viewer</h3><p>The main package includes .NET 10, but Microsoft Edge WebView2 Evergreen is required. Use the recovery screen to install WebView2 and Retry. Explorer integration is optional and may separately require Microsoft.NETCore.App 10.x.</p></div>
+              <div><h3>The Windows app will not show its viewer</h3><p>The main package includes .NET 10, but Microsoft Edge WebView2 Evergreen is required. Use the recovery screen to install WebView2 and Retry. Explorer integration is optional and uses the machine-wide Microsoft .NET 10 Runtime (x64); if it is missing, follow CodePrettify&rsquo;s installer link and then restart Explorer.</p></div>
             </div>
             <div class="manual-support-row">
               <a class="btn btn-primary" href="https://support.prettify.cloud/">Get support or report an idea</a>
