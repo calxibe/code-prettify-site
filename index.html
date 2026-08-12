@@ -34,12 +34,12 @@
   <meta name="twitter:image" content="https://prettify.cloud/img/feature-json-format.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=block"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260809-4" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" /></noscript>
+  <link rel="stylesheet" href="style.css?v=20260812-2" />
   <script src="site.js?v=20260809-2" defer></script>
-  <script src="index.js?v=20260721-6" defer></script>
+  <script src="index.js?v=20260812-1" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -57,7 +57,7 @@
       }
     }
   </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date);gtag("config","G-S4WNQ48Q7F");</script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date);gtag("config","G-S4WNQ48Q7F");addEventListener("load",function(){var l=function(){var s=document.createElement("script");s.async=!0;s.src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F";document.head.appendChild(s)};window.requestIdleCallback?requestIdleCallback(l,{timeout:3000}):setTimeout(l,1200)})</script>
 </head>
 
 <body>
@@ -67,7 +67,7 @@
   <header>
     <div class="header-inner">
       <a href="/" class="logo">
-        <img src="img/code_32.png?v=20260725" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span>
+        <img src="img/code_32.png?v=20260725" srcset="img/code_32.png?v=20260725 1x, img/code_64.png?v=20260725 2x" width="32" height="32" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span>
       </a>
       <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation">
         <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -130,7 +130,7 @@
 
         <div class="supported-section">
           <div class="supported-box">
-            <h4>📄 Supported Code Formats</h4>
+            <h2>📄 Supported Code Formats</h2>
             <div class="format-tags">
               <span class="format-tag">JavaScript <code>.js</code> <code>.mjs</code> <code>.cjs</code></span>
               <span class="format-tag">TypeScript <code>.ts</code> <code>.mts</code> <code>.cts</code></span>
@@ -150,7 +150,7 @@
             </p>
           </div>
           <div class="supported-box">
-            <h4>🌐 14 Interface Languages</h4>
+            <h2>🌐 14 Interface Languages</h2>
             <div class="language-tags">
               <span class="lang-tag">English</span>
               <span class="lang-tag">Norwegian</span>
@@ -177,15 +177,13 @@
         <div class="video-section">
           <h3 class="video-title">📺 See It In Action</h3>
           <div class="video-container">
-            <iframe src="https://www.youtube-nocookie.com/embed/uOfxMU0bSw8" title="CodePrettify Demo" loading="lazy" frameborder="0" allow="
-                  accelerometer;
-                  autoplay;
-                  clipboard-write;
-                  encrypted-media;
-                  gyroscope;
-                  picture-in-picture;
-                  web-share;
-                " allowfullscreen></iframe>
+            <button class="video-facade" type="button" data-video-id="uOfxMU0bSw8"
+              aria-label="Play the CodePrettify demo video from YouTube">
+              <img class="video-facade-poster" src="img/video-poster.png?v=20260812" alt="" width="1280" height="720"
+                loading="lazy" decoding="async" />
+              <span class="video-facade-play" aria-hidden="true"></span>
+              <span class="video-facade-note">Nothing loads from YouTube until you press play</span>
+            </button>
           </div>
         </div>
 
@@ -201,119 +199,187 @@
           <div class="screenshot-tabs">
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
-                <img src="img/feature-json-format_thumb.png" alt="" aria-hidden="true" />
+                <picture>
+                  <source srcset="img/feature-json-format_thumb.webp" type="image/webp" />
+                  <img src="img/feature-json-format_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
               </span>
               <span class="screenshot-tab-kicker">Format</span>
               <span class="screenshot-tab-label">JSON</span>
             </button>
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
-                <img src="img/feature-json-to-code_thumb.png" alt="" aria-hidden="true" />
+                <picture>
+                  <source srcset="img/feature-json-to-code_thumb.webp" type="image/webp" />
+                  <img src="img/feature-json-to-code_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
               </span>
               <span class="screenshot-tab-kicker">Generate</span>
               <span class="screenshot-tab-label">JSON to Code</span>
             </button>
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
-                <img src="img/feature-workbench-repair_thumb.png" alt="" aria-hidden="true" />
+                <picture>
+                  <source srcset="img/feature-workbench-repair_thumb.webp" type="image/webp" />
+                  <img src="img/feature-workbench-repair_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
               </span>
               <span class="screenshot-tab-kicker">JSON</span>
               <span class="screenshot-tab-label">Repair</span>
             </button>
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
-                <img src="img/feature-workbench-transform_thumb.png" alt="" aria-hidden="true" />
+                <picture>
+                  <source srcset="img/feature-workbench-transform_thumb.webp" type="image/webp" />
+                  <img src="img/feature-workbench-transform_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
               </span>
               <span class="screenshot-tab-kicker">JSON</span>
               <span class="screenshot-tab-label">Transform</span>
             </button>
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
-                <img src="img/feature-data-converter-utilities_thumb.png" alt="" aria-hidden="true" />
+                <picture>
+                  <source srcset="img/feature-data-converter-utilities_thumb.webp" type="image/webp" />
+                  <img src="img/feature-data-converter-utilities_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
               </span>
               <span class="screenshot-tab-kicker">Utilities</span>
               <span class="screenshot-tab-label">Data Converter</span>
             </button>
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
-                <img src="img/feature-security-scan_thumb.png" alt="" aria-hidden="true" />
+                <picture>
+                  <source srcset="img/feature-security-scan_thumb.webp" type="image/webp" />
+                  <img src="img/feature-security-scan_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
               </span>
               <span class="screenshot-tab-kicker">Inspect</span>
               <span class="screenshot-tab-label">Security Scan</span>
             </button>
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
-                <img src="img/feature-js-transform_thumb.png" alt="" aria-hidden="true" />
+                <picture>
+                  <source srcset="img/feature-js-transform_thumb.webp" type="image/webp" />
+                  <img src="img/feature-js-transform_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
               </span>
               <span class="screenshot-tab-kicker">Transform</span>
               <span class="screenshot-tab-label">JavaScript</span>
             </button>
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
-                <img src="img/feature-js-playground_thumb.png" alt="" aria-hidden="true" />
+                <picture>
+                  <source srcset="img/feature-js-playground_thumb.webp" type="image/webp" />
+                  <img src="img/feature-js-playground_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
               </span>
               <span class="screenshot-tab-kicker">Debug</span>
               <span class="screenshot-tab-label">JS Playground</span>
             </button>
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
-                <img src="img/feature-markdown_thumb.png" alt="" aria-hidden="true" />
+                <picture>
+                  <source srcset="img/feature-markdown_thumb.webp" type="image/webp" />
+                  <img src="img/feature-markdown_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
               </span>
               <span class="screenshot-tab-kicker">Docs</span>
               <span class="screenshot-tab-label">Markdown</span>
             </button>
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
-                <img src="img/feature-http-client_thumb.png" alt="" aria-hidden="true" />
+                <picture>
+                  <source srcset="img/feature-http-client_thumb.webp" type="image/webp" />
+                  <img src="img/feature-http-client_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
               </span>
               <span class="screenshot-tab-kicker">Request</span>
               <span class="screenshot-tab-label">HTTP Client</span>
             </button>
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
-                <img src="img/feature-diff-view_thumb.png" alt="" aria-hidden="true" />
+                <picture>
+                  <source srcset="img/feature-diff-view_thumb.webp" type="image/webp" />
+                  <img src="img/feature-diff-view_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
               </span>
               <span class="screenshot-tab-kicker">Compare</span>
               <span class="screenshot-tab-label">Diff View</span>
             </button>
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
-                <img src="img/feature-table-view_thumb.png" alt="" aria-hidden="true" />
+                <picture>
+                  <source srcset="img/feature-table-view_thumb.webp" type="image/webp" />
+                  <img src="img/feature-table-view_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
               </span>
               <span class="screenshot-tab-kicker">Explore</span>
               <span class="screenshot-tab-label">Table View</span>
             </button>
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
-                <img src="img/feature-diagram-generator_thumb.png" alt="" aria-hidden="true" />
+                <picture>
+                  <source srcset="img/feature-diagram-generator_thumb.webp" type="image/webp" />
+                  <img src="img/feature-diagram-generator_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
               </span>
               <span class="screenshot-tab-kicker">Visualize</span>
               <span class="screenshot-tab-label">Diagram Generator</span>
             </button>
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
-                <img src="img/feature-stats-diagnostics_thumb.png" alt="" aria-hidden="true" />
+                <picture>
+                  <source srcset="img/feature-stats-diagnostics_thumb.webp" type="image/webp" />
+                  <img src="img/feature-stats-diagnostics_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
               </span>
               <span class="screenshot-tab-kicker">Measure</span>
               <span class="screenshot-tab-label">Diagnostics</span>
             </button>
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
-                <img src="img/feature-settings_thumb.png" alt="" aria-hidden="true" />
+                <picture>
+                  <source srcset="img/feature-settings_thumb.webp" type="image/webp" />
+                  <img src="img/feature-settings_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
               </span>
               <span class="screenshot-tab-kicker">Customize</span>
               <span class="screenshot-tab-label">Settings</span>
             </button>
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
-                <img src="img/feature-diff-view-dark_thumb.png" alt="" aria-hidden="true" />
+                <picture>
+                  <source srcset="img/feature-diff-view-dark_thumb.webp" type="image/webp" />
+                  <img src="img/feature-diff-view-dark_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
               </span>
               <span class="screenshot-tab-kicker">Dark Mode</span>
               <span class="screenshot-tab-label">Diff View</span>
             </button>
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
-                <img src="img/feature-regex-playground_thumb.png" alt="" aria-hidden="true" />
+                <picture>
+                  <source srcset="img/feature-regex-playground_thumb.webp" type="image/webp" />
+                  <img src="img/feature-regex-playground_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
               </span>
               <span class="screenshot-tab-kicker">Regex</span>
               <span class="screenshot-tab-label">Regex Playground</span>
@@ -707,7 +773,7 @@
         <div class="note-box">
           <span class="icon">📝</span>
           <div>
-            <h4>Note for Local Files</h4>
+            <h3>Note for Local Files</h3>
             <p>
               To open local files in place (e.g.,
               <code>file:///C:/code/data.json</code>), you must enable
@@ -831,10 +897,10 @@
           <img src="https://www.uneed.best/EMBED1B.png" alt="Featured on Uneed" width="109" height="36" loading="lazy" />
         </a>
         <a class="footer-badge" href="https://fazier.com" target="_blank" rel="noopener">
-          <img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&amp;theme=light" alt="Launched on Fazier" width="120" height="36" loading="lazy" />
+          <img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&amp;theme=light" alt="Launched on Fazier" width="103" height="44" loading="lazy" />
         </a>
         <a class="footer-badge" href="https://www.directree.io" target="_blank" rel="noopener noreferrer">
-          <img src="https://www.directree.io/badge/directree-badge-lightmode.svg" width="200" height="37" alt="Verified on directree" loading="lazy" referrerpolicy="no-referrer" />
+          <img src="https://www.directree.io/badge/directree-badge-lightmode.svg" width="200" height="33" alt="Verified on directree" loading="lazy" referrerpolicy="no-referrer" />
         </a>
       </nav>
     </div>

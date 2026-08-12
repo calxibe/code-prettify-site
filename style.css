@@ -2,6 +2,128 @@
    CodePrettify - Main Stylesheet
    =================================== */
 
+/* ===================================
+   Metric-matched fallback faces
+
+   These exist only so the pre-swap frame lays out at the same size as the real
+   webfont, making the display=swap handover dimensionally neutral instead of
+   reflowing the hero. They are never used once Inter / JetBrains Mono arrive.
+
+   The values were measured with canvas measureText at 10000px after
+   document.fonts.ready, then tuned against the page's own measured CLS. Do not
+   recalculate them from the usual alphabet-average recipe: for Inter that
+   gives 110.01% / 104.25%, and both fail a paragraph cross-check by over 2%
+   because a 52-character sample is half uppercase and has no spaces.
+
+   The ascent and descent overrides are Inter's own em metrics divided by
+   size-adjust (ascent 0.96880em, descent 0.24120em, no line gap), so if you
+   ever change a size-adjust you must recompute its pair or the vertical match
+   breaks. Measured result on the homepage: block heights match exactly at
+   every weight, widths within ~0.2%, CLS 0.000 mobile / 0.001 desktop against
+   0.031 / 0.130 before this block existed.
+
+   Declaration order matters. A face whose local() does not resolve drops out
+   of the family, and where several faces match a weight the last one wins. So
+   the Arial / Courier New arms come first and claim the whole weight range for
+   non-Windows machines, and the Segoe UI / Consolas arms come after and win on
+   Windows. A machine with neither degrades to the previous behaviour.
+
+   These describe the latin subsets of Inter v20 and JetBrains Mono v24 as
+   Google Fonts serves them today. Re-measure if either family is bumped.
+   =================================== */
+
+/* Inter, non-Windows arm. macOS ships the same Arial with the same metrics. */
+@font-face {
+    font-family: 'Inter Fallback';
+    font-weight: 100 900;
+    src: local('Arial');
+    size-adjust: 107.34%;
+    ascent-override: 90.26%;
+    descent-override: 22.47%;
+    /* Arial carries a native 0.0327em line gap that Inter does not. */
+    line-gap-override: 0%;
+}
+
+/* Inter, Windows arm, per weight. One size-adjust cannot serve 400-800:
+   Inter's advance grows from 0.6082em to 0.6411em on a different curve than
+   Segoe UI's, so a 400-tuned value runs -2.3% narrow at 600 and -4.4% at 800.
+   The hero CTA labels are weight 600 and the format tags are 500, which are
+   exactly the widths that drive the re-wrap this block exists to stop. */
+@font-face {
+    font-family: 'Inter Fallback';
+    font-weight: 400;
+    src: local('Segoe UI');
+    size-adjust: 108.61%;
+    ascent-override: 89.20%;
+    descent-override: 22.21%;
+    line-gap-override: 0%;
+}
+
+@font-face {
+    font-family: 'Inter Fallback';
+    font-weight: 500;
+    src: local('Segoe UI Semibold');
+    size-adjust: 106.43%;
+    ascent-override: 91.03%;
+    descent-override: 22.66%;
+    line-gap-override: 0%;
+}
+
+@font-face {
+    font-family: 'Inter Fallback';
+    font-weight: 600;
+    src: local('Segoe UI Semibold');
+    size-adjust: 107.45%;
+    ascent-override: 90.16%;
+    descent-override: 22.45%;
+    line-gap-override: 0%;
+}
+
+@font-face {
+    font-family: 'Inter Fallback';
+    font-weight: 700;
+    src: local('Segoe UI Bold');
+    size-adjust: 104.36%;
+    ascent-override: 92.83%;
+    descent-override: 23.11%;
+    line-gap-override: 0%;
+}
+
+@font-face {
+    font-family: 'Inter Fallback';
+    font-weight: 800;
+    src: local('Segoe UI Black');
+    size-adjust: 100.67%;
+    ascent-override: 96.24%;
+    descent-override: 23.96%;
+    line-gap-override: 0%;
+}
+
+/* JetBrains Mono, non-Windows arm. Courier New's advance is within 0.02% of
+   JetBrains Mono's 0.6em, so size-adjust is ~1:1 and the ascent and descent
+   overrides do all the work. Both families are monospaced, so these ratios do
+   not depend on the sample text. */
+@font-face {
+    font-family: 'JetBrains Mono Fallback';
+    font-weight: 100 900;
+    src: local('Courier New');
+    size-adjust: 99.98%;
+    ascent-override: 102.02%;
+    descent-override: 30.00%;
+    line-gap-override: 0%;
+}
+
+/* JetBrains Mono, Windows arm. Consolas is also Chrome's generic monospace. */
+@font-face {
+    font-family: 'JetBrains Mono Fallback';
+    font-weight: 100 900;
+    src: local('Consolas');
+    size-adjust: 109.13%;
+    ascent-override: 93.47%;
+    descent-override: 27.49%;
+    line-gap-override: 0%;
+}
+
 /* CSS Variables */
 :root {
     --primary: #22b8e6;
@@ -32,7 +154,7 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.7;
@@ -217,7 +339,7 @@ code {
     background: var(--surface-light);
     padding: 2px 8px;
     border-radius: 4px;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
     font-size: 0.85rem;
     color: var(--accent);
 }
@@ -444,7 +566,7 @@ code {
     text-align: left;
 }
 
-.supported-box h4 {
+.supported-box h2 {
     font-size: 0.95rem;
     font-weight: 600;
     color: var(--text);
@@ -476,7 +598,7 @@ code {
     padding: 2px 6px;
     border-radius: 4px;
     font-size: 0.8rem;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
 }
 
 .lang-tag {
@@ -588,6 +710,105 @@ code {
     height: 100%;
 }
 
+/* Click-to-play facade: the YouTube player is only fetched on demand. */
+.video-facade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 0;
+    border: 0;
+    background: #000;
+    cursor: pointer;
+    font: inherit;
+}
+
+.video-facade-poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.video-facade-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 76px;
+    height: 76px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: #0c7894;
+    box-shadow: 0 10px 34px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.video-facade-play::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 14px 0 14px 24px;
+    border-color: transparent transparent transparent #fff;
+}
+
+.video-facade:hover .video-facade-play,
+.video-facade:focus-visible .video-facade-play {
+    background: #0a94b8;
+    transform: translate(-50%, -50%) scale(1.08);
+}
+
+.video-facade:focus-visible {
+    outline: 3px solid #55ddf5;
+    outline-offset: -3px;
+}
+
+.video-facade-note {
+    position: absolute;
+    left: 50%;
+    bottom: 14px;
+    transform: translateX(-50%);
+    max-width: 90%;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.72);
+    color: #f4f4f5;
+    font-size: 0.78rem;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .video-facade-play,
+    .video-facade:hover .video-facade-play,
+    .video-facade:focus-visible .video-facade-play {
+        transition: none;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media (max-width: 600px) {
+    .video-facade-play {
+        width: 60px;
+        height: 60px;
+    }
+
+    .video-facade-play::after {
+        border-width: 11px 0 11px 19px;
+    }
+
+    .video-facade-note {
+        font-size: 0.7rem;
+    }
+}
+
 /* Screenshot Gallery */
 .screenshot-gallery {
     margin: 60px auto 0;
@@ -634,7 +855,6 @@ code {
     overflow: hidden;
     border: 1px solid rgba(63, 63, 70, 0.8);
     cursor: pointer;
-    opacity: 0.78;
     transition: all 0.2s;
     padding: 12px;
     text-align: left;
@@ -646,14 +866,12 @@ code {
 
 .screenshot-tab:hover,
 .screenshot-tab.active {
-    opacity: 1;
     border-color: var(--primary);
     transform: translateY(-2px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
 }
 
 .screenshot-tab:focus-visible {
-    opacity: 1;
     border-color: var(--primary);
     outline: 3px solid rgba(var(--primary-rgb), 0.32);
     outline-offset: 2px;
@@ -669,17 +887,28 @@ code {
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
 }
 
+.screenshot-tab-thumb picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
 .screenshot-tab-thumb img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.2s ease;
+    /* The inactive state dims the artwork only - dimming the whole control
+       would drop its label and kicker below the 4.5:1 contrast minimum. */
+    opacity: 0.82;
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .screenshot-tab:hover .screenshot-tab-thumb img,
-.screenshot-tab.active .screenshot-tab-thumb img {
+.screenshot-tab.active .screenshot-tab-thumb img,
+.screenshot-tab:focus-visible .screenshot-tab-thumb img {
     transform: scale(1.03);
+    opacity: 1;
 }
 
 .screenshot-tab-label {
@@ -1100,7 +1329,7 @@ section {
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
     font-size: 0.8rem;
     background: var(--bg);
     border: 1px solid var(--border);
@@ -1136,7 +1365,7 @@ section {
 }
 
 .validation-item h4 {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
     font-size: 1.1rem;
     color: var(--accent);
     margin-bottom: 12px;
@@ -1164,8 +1393,10 @@ section {
     flex-shrink: 0;
 }
 
-.note-box h4 {
+.note-box h3 {
     font-size: 1rem;
+    /* Pinned so the level change from h4 keeps the original weight. */
+    font-weight: 700;
     color: var(--warning);
     margin-bottom: 8px;
 }
@@ -1180,7 +1411,7 @@ section {
     background: rgba(0, 0, 0, 0.3);
     padding: 2px 8px;
     border-radius: 4px;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
     font-size: 0.85rem;
     color: var(--text);
 }
@@ -1263,7 +1494,7 @@ section {
     border-radius: 8px;
     background: transparent;
     color: var(--text-muted);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', 'Inter Fallback', sans-serif;
     font-size: 0.95rem;
     font-weight: 500;
     cursor: pointer;
@@ -1317,7 +1548,7 @@ section {
 }
 
 .version-number {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
     font-size: 1.5rem;
     font-weight: 700;
     color: #fff;
@@ -1551,6 +1782,13 @@ footer {
 .copyright {
     color: var(--text-muted);
     font-size: 0.85rem;
+}
+
+/* Underlined so the link is distinguishable from the surrounding sentence
+   without relying on colour alone. */
+.copyright a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
 .footer-badges {
@@ -1825,6 +2063,9 @@ footer {
         --primary-light-rgb: 12, 120, 148;
         --primary-dark-rgb: 7, 86, 107;
         --accent: #0c7894;
+        /* The brand teal clears 4.5:1 on white, but not on the tinted code and
+           tag surfaces below. Those use this darker tint instead. */
+        --on-tint-text: #0a5f75;
         --bg: #ffffff;
         --text: #1f2937;
         --text-muted: #4b5563;
@@ -1832,7 +2073,7 @@ footer {
         --surface-light: #e4e4e7;
         --border: #d4d4d8;
         --success: #16a34a;
-        --warning: #d97706;
+        --warning: #9a5b04;
         --error: #dc2626;
         --brand-prettify: #0c7894;
     }
@@ -1879,8 +2120,15 @@ footer {
         background: rgba(244, 244, 245, 0.8);
     }
 
+    /* Inline code sits on --surface-light and tag code on a further tinted
+       surface, where the brand teal only reaches 4.0:1 and 3.7:1. */
+    code {
+        color: var(--on-tint-text);
+    }
+
     .format-tag {
         background: rgba(var(--primary-rgb), 0.08);
+        color: var(--on-tint-text);
     }
 
     .format-tag code {
@@ -2378,7 +2626,7 @@ kbd {
     border-radius: 5px;
     background: var(--bg);
     color: var(--text);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
     font-size: 0.78em;
     line-height: 1.45;
     white-space: nowrap;
@@ -3070,7 +3318,7 @@ kbd {
     display: block;
     margin-bottom: 22px;
     color: var(--primary-light);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
     font-size: 0.76rem;
     font-weight: 700;
     letter-spacing: 0.12em;

@@ -205,7 +205,14 @@ function initializeScreenshotGallery() {
     tab.setAttribute("aria-haspopup", "dialog");
     tab.setAttribute("aria-pressed", "false");
     if (selected) {
-      tab.setAttribute("aria-label", `Open screenshot: ${selected.title}`);
+      // WCAG 2.5.3 (Label in Name): the accessible name has to contain the
+      // tab's own visible text, or speech-recognition users cannot say
+      // "click Format JSON" to activate it.
+      const visibleName = tab.textContent.replace(/\s+/g, " ").trim();
+      tab.setAttribute(
+        "aria-label",
+        visibleName ? `${visibleName} - open screenshot: ${selected.title}` : `Open screenshot: ${selected.title}`
+      );
     }
 
     tab.addEventListener("click", () => {
@@ -285,7 +292,32 @@ function initializeSmoothScroll() {
   });
 }
 
+function initializeVideoFacade() {
+  const facade = document.querySelector(".video-facade");
+  const videoId = facade?.dataset.videoId;
+
+  if (!facade || !videoId) {
+    return;
+  }
+
+  facade.addEventListener(
+    "click",
+    () => {
+      const iframe = document.createElement("iframe");
+      iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1`;
+      iframe.title = "CodePrettify Demo";
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      iframe.allowFullscreen = true;
+      iframe.setAttribute("frameborder", "0");
+      facade.replaceWith(iframe);
+      iframe.focus({ preventScroll: true });
+    },
+    { once: true }
+  );
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initializeScreenshotGallery();
+  initializeVideoFacade();
   initializeSmoothScroll();
 });
