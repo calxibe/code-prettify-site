@@ -3849,9 +3849,13 @@ kbd {
     *::before,
     *::after {
         scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
+        /* 1ms rather than the usual 0.01ms: both are imperceptible, but a
+           minifier rounds sub-millisecond durations to 0s, and a 0s transition
+           never fires transitionend - which would hang any script that waits
+           for one, but only for users who ask for reduced motion. */
+        animation-duration: 1ms !important;
         animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+        transition-duration: 1ms !important;
     }
 
     .feature-card:hover,
