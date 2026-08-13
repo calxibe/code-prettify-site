@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Developer Guides – JSON, YAML, XML &amp; More | CodePrettify</title>
+  <meta name="description" content="Every CodePrettify guide in one place: format, compare, validate, repair, and convert JSON, YAML, XML, and Markdown, generate typed code, and test regex — locally." />
+  <meta name="application-name" content="CodePrettify" />
+  <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://prettify.cloud/guides.html" />
+  <link rel="icon" href="favicon.ico?v=20260725" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20260725" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260725" />
+  <meta property="og:site_name" content="CodePrettify" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="CodePrettify Developer Guides" />
+  <meta property="og:description" content="Hands-on guides for every CodePrettify tool: JSON, YAML, XML, Markdown, code generation, regex, HTTP, and timestamps — all local." />
+  <meta property="og:url" content="https://prettify.cloud/guides.html" />
+  <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-json-format.png" />
+  <meta property="og:image:alt" content="CodePrettify formatting a structured JSON API response" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CodePrettify Developer Guides" />
+  <meta name="twitter:description" content="Hands-on guides for every CodePrettify tool — all local, no upload." />
+  <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-json-format.png" />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
+  <link rel="stylesheet" href="style.min.css?v=e323747f" />
+  <script src="site.js?v=20260809-2" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "CollectionPage",
+          "name": "CodePrettify Developer Guides",
+          "url": "https://prettify.cloud/guides.html",
+          "description": "Hands-on guides for every CodePrettify tool: JSON, YAML, XML, Markdown, code generation, regex, HTTP, and timestamps."
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "CodePrettify", "item": "https://prettify.cloud/" },
+            { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://prettify.cloud/guides.html" }
+          ]
+        }
+      ]
+    }
+  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date);gtag("config","G-S4WNQ48Q7F");addEventListener("load",function(){var l=function(){var s=document.createElement("script");s.async=!0;s.src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F";document.head.appendChild(s)};window.requestIdleCallback?requestIdleCallback(l,{timeout:3000}):setTimeout(l,1200)})</script>
+</head>
+<body class="feature-detail-body">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="bg-glow"></div>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo"><img src="img/code_32.png?v=20260725" srcset="img/code_32.png?v=20260725 1x, img/code_64.png?v=20260725 2x" width="32" height="32" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span></a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
+      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#install">Install</a><a href="guides.html" class="active" aria-current="page">Guides</a><a href="pricing.html">Price</a><a href="manual.html">Manual</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a></nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="feature-detail-main">
+    <nav class="feature-breadcrumb" aria-label="Breadcrumb"><a href="/">CodePrettify</a><span aria-hidden="true">/</span><span>Guides</span></nav>
+
+    <section class="feature-detail-hero">
+      <div>
+        <span class="feature-detail-eyebrow">Every tool, explained hands-on</span>
+        <h1>CodePrettify developer guides</h1>
+        <p class="feature-detail-lead">Each guide walks one tool from first open to a finished result, with real screenshots, honest limits, and a step-by-step tutorial. The <a href="manual.html">one-page manual</a> remains the complete reference for everything at once.</p>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="guides-json-title">
+      <div class="feature-detail-heading"><span class="section-badge">Work with JSON</span><h2 id="guides-json-title">Inspect, verify, and clean JSON</h2></div>
+      <div class="feature-related-grid">
+        <a class="feature-related-card" href="json-formatter-browser-extension.html"><h3>JSON Formatter &amp; Viewer</h3><p>Format and beautify raw responses, navigate nested data, query JSONPath, and export — locally in the tab.</p><span>Open the guide →</span></a>
+        <a class="feature-related-card" href="json-compare.html"><h3>JSON Compare &amp; Diff</h3><p>Compare JSON semantically or line by line — ignore key order and formatting noise, match array items by id.</p><span>Open the guide →</span></a>
+        <a class="feature-related-card" href="json-schema-validator.html"><h3>JSON Schema Validator</h3><p>Validate the open document against a pasted schema, with an exact path and source line for every violation.</p><span>Open the guide →</span></a>
+        <a class="feature-related-card" href="json-repair-transform.html"><h3>JSON Repair &amp; Transform</h3><p>Fix invalid JSON with a visible change report, then filter, sort, group, and reshape the result.</p><span>Open the guide →</span></a>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="guides-codegen-title">
+      <div class="feature-detail-heading"><span class="section-badge">From JSON to code</span><h2 id="guides-codegen-title">Generate typed models from real samples</h2></div>
+      <div class="feature-related-grid">
+        <a class="feature-related-card" href="json-to-code-generator.html"><h3>JSON to Code Generator</h3><p>Eleven targets from one sample: TypeScript, Zod, Pydantic, C#, Java, Kotlin, Go, Rust, Swift, Dart, JSON Schema.</p><span>Open the guide →</span></a>
+        <a class="feature-related-card" href="json-to-typescript.html"><h3>JSON to TypeScript</h3><p>Nested interfaces and type aliases with honest optional and nullable inference from your own samples.</p><span>Open the guide →</span></a>
+        <a class="feature-related-card" href="json-to-pydantic.html"><h3>JSON to Pydantic</h3><p>Pydantic models with snake_case fields and exact source-key aliases, inferred locally.</p><span>Open the guide →</span></a>
+        <a class="feature-related-card" href="json-to-csharp.html"><h3>JSON to C# Classes</h3><p>Records with System.Text.Json annotations and namespace support, generated from pasted JSON.</p><span>Open the guide →</span></a>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="guides-formats-title">
+      <div class="feature-detail-heading"><span class="section-badge">More formats</span><h2 id="guides-formats-title">Markdown, YAML, and XML without surprises</h2></div>
+      <div class="feature-related-grid">
+        <a class="feature-related-card" href="markdown-viewer-browser-extension.html"><h3>Markdown Viewer</h3><p>Open local or raw .md files as readable documents with the exact source one click away.</p><span>Open the guide →</span></a>
+        <a class="feature-related-card" href="yaml-formatter.html"><h3>YAML Formatter &amp; Validator</h3><p>Validate and read YAML without re-dumping the file — comments and anchors stay intact.</p><span>Open the guide →</span></a>
+        <a class="feature-related-card" href="xml-formatter.html"><h3>XML Formatter &amp; Viewer</h3><p>Strict validation with folding and safe links — formatting that refuses rewrites that could change your data.</p><span>Open the guide →</span></a>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="guides-utilities-title">
+      <div class="feature-detail-heading"><span class="section-badge">Everyday utilities</span><h2 id="guides-utilities-title">Test, request, and convert</h2></div>
+      <div class="feature-related-grid">
+        <a class="feature-related-card" href="regex-playground.html"><h3>Regex Playground</h3><p>A regex tester for the open document: live matches, capture groups, replace preview, and saved tests.</p><span>Open the guide →</span></a>
+        <a class="feature-related-card" href="http-client-browser-extension.html"><h3>HTTP Client</h3><p>Build REST requests, import cURL, and inspect body, headers, cookies, and timing — no proxy servers.</p><span>Open the guide →</span></a>
+        <a class="feature-related-card" href="unix-timestamp-converter.html"><h3>Unix Timestamp Converter</h3><p>Turn epoch seconds or milliseconds into UTC ISO 8601 and local time with explicit timezone handling.</p><span>Open the guide →</span></a>
+      </div>
+    </section>
+
+    <section class="feature-page-cta" aria-labelledby="guides-cta-title"><h2 id="guides-cta-title">Install once, use every guide</h2><p>All fourteen tools ship in the same free extension and Windows app, and everything runs on your device.</p><div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="manual.html">Read the complete manual</a></div></section>
+  </main>
+
+  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="guides.html">Guides</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSON to C# Class Converter – Records from JSON | CodePrettify</title>
+  <meta name="description" content="Free JSON to C# converter: paste a JSON sample, get records with System.Text.Json annotations, namespace support, and honest nullability — local, no upload." />
+  <meta name="application-name" content="CodePrettify" />
+  <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://prettify.cloud/json-to-csharp.html" />
+  <link rel="icon" href="favicon.ico?v=20260725" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20260725" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260725" />
+  <meta property="og:site_name" content="CodePrettify" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="JSON to C# Class Converter – Records from JSON" />
+  <meta property="og:description" content="Generate sealed C# records with System.Text.Json annotations from real JSON samples — project namespaces, 64-bit integers, honest nullability, all local." />
+  <meta property="og:url" content="https://prettify.cloud/json-to-csharp.html" />
+  <meta property="og:image" content="https://prettify.cloud/img/manual/json-to-code-csharp.png" />
+  <meta property="og:image:alt" content="CodePrettify converting an advanced order payload into annotated C# record models in a project namespace" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="JSON to C# Class Converter – Records from JSON" />
+  <meta name="twitter:description" content="From JSON sample to annotated C# records in your own namespace — generated locally, never uploaded." />
+  <meta name="twitter:image" content="https://prettify.cloud/img/manual/json-to-code-csharp.png" />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
+  <link rel="stylesheet" href="style.min.css?v=e323747f" />
+  <script src="site.js?v=20260809-2" defer></script>
+  <script src="feature-guide.js?v=20260725-1" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "CodePrettify JSON to C# Class Converter",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Chrome, Edge, Windows",
+          "url": "https://prettify.cloud/json-to-csharp.html",
+          "description": "Convert JSON to C# locally: sealed records with System.Text.Json field-name annotations, namespace support, 64-bit integers, and evidence-based optional and nullable properties.",
+          "installUrl": "https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "CodePrettify", "item": "https://prettify.cloud/" },
+            { "@type": "ListItem", "position": 2, "name": "JSON to C# Class Converter", "item": "https://prettify.cloud/json-to-csharp.html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "Does it generate C# classes or records?", "acceptedAnswer": { "@type": "Answer", "text": "It generates records: sealed record types with System.Text.Json field-name annotations and required, init-only properties. There is no separate class mode. If your codebase standardizes on classes, the properties and annotations carry over with minimal editing, because the JSON mapping lives in the annotations, not in the record keyword." } },
+            { "@type": "Question", "name": "How does the Namespace field work?", "acceptedAnswer": { "@type": "Answer", "text": "Every generated declaration is placed in the namespace you enter, so the code compiles in the right project context immediately. The field defaults to Generated, and invalid entries are normalized automatically instead of producing code that will not compile." } },
+            { "@type": "Question", "name": "Are Newtonsoft.Json attributes supported?", "acceptedAnswer": { "@type": "Answer", "text": "No. The C# target emits System.Text.Json annotations only — JsonPropertyName on each property. If your project uses Newtonsoft.Json, swap the annotations for JsonProperty after generation; the record structure and property names transfer unchanged." } },
+            { "@type": "Question", "name": "Is my JSON uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. Generation runs entirely on the device, in both the browser extension and the Windows app, and no account is required. The sample you paste never leaves your machine." } }
+          ]
+        }
+      ]
+    }
+  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date);gtag("config","G-S4WNQ48Q7F");addEventListener("load",function(){var l=function(){var s=document.createElement("script");s.async=!0;s.src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F";document.head.appendChild(s)};window.requestIdleCallback?requestIdleCallback(l,{timeout:3000}):setTimeout(l,1200)})</script>
+</head>
+<body class="feature-detail-body">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="bg-glow"></div>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo"><img src="img/code_32.png?v=20260725" srcset="img/code_32.png?v=20260725 1x, img/code_64.png?v=20260725 2x" width="32" height="32" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span></a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
+      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#install">Install</a>
+        <a href="guides.html">Guides</a><a href="pricing.html">Price</a><a href="manual.html">Manual</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a></nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="feature-detail-main">
+    <nav class="feature-breadcrumb" aria-label="Breadcrumb"><a href="/">CodePrettify</a><span aria-hidden="true">/</span><span>JSON to C# Class Converter</span></nav>
+    <section class="feature-detail-hero">
+      <div>
+        <span class="feature-detail-eyebrow">C# records from real payloads</span>
+        <h1>Turn JSON into C# classes — records with honest nullability</h1>
+        <p class="feature-detail-lead">Paste an API payload, choose the C# target, and get sealed records with System.Text.Json field-name annotations inside your own namespace. Nested objects become named record types, whole numbers become <code>long</code>, and the difference between a property that is sometimes missing and one that is explicitly <code>null</code> survives into the generated code. Everything runs on your device.</p>
+        <div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="manual.html#json-to-code">Read the manual section</a></div>
+        <ul class="feature-proof-list"><li>Records + System.Text.Json</li><li>Namespace support</li><li>Optional vs nullable kept apart</li><li>Local generation</li></ul>
+      </div>
+      <figure class="feature-hero-shot"><img src="img/manual/json-to-code-csharp.png" alt="CodePrettify JSON to C# class converter turning a nested order payload into annotated sealed records" width="1280" height="800" fetchpriority="high" /><figcaption>An advanced order payload — nested customer, items, shipping, and payment data — generated as annotated C# records in a project namespace, entirely locally.</figcaption></figure>
+    </section>
+
+    <nav class="feature-learning-nav" aria-label="Lessons in this JSON to C# guide">
+      <strong>Learn on this page</strong>
+      <div class="feature-learning-links">
+        <a href="#csharp-example-title">See the generated records</a>
+        <a href="#csharp-tutorial-title">Generate step by step</a>
+        <a href="#csharp-inference-title">Optional vs nullable</a>
+        <a href="#csharp-decisions-title">Review the mapping</a>
+        <a href="#csharp-faq-title">Troubleshoot</a>
+      </div>
+    </nav>
+
+    <section class="feature-detail-section" aria-labelledby="csharp-example-title">
+      <div class="feature-detail-heading"><span class="section-badge">C# output</span><h2 id="csharp-example-title">From order JSON to sealed records in one pass</h2><p>Two order samples are enough to show the three decisions that matter in C#: <code>couponCode</code> is missing from one sample, <code>vatNumber</code> is explicitly <code>null</code> in another, and <code>orderId</code> is a whole number. Each fact lands differently in the generated model.</p></div>
+      <div class="feature-example-grid">
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">JSON sample</span><h3>Two orders, three kinds of evidence</h3><p>Because the root is an array, every entry contributes to the merged model — not just the first record.</p></div>
+          <pre class="feature-code"><code>[
+  {
+    "orderId": 90412,
+    "customer": { "name": "Ada Lovelace",
+                  <span class="code-accent">"vatNumber": null</span> },
+    "items": [
+      { "sku": "KB-201", "quantity": 2,
+        "unitPrice": 449.5 }
+    ],
+    <span class="code-accent">"couponCode": "LAUNCH10"</span>
+  },
+  {
+    "orderId": 90413,
+    "customer": { "name": "Jon Vik",
+                  "vatNumber": "NO998877665" },
+    "items": [
+      { "sku": "MS-77", "quantity": 1,
+        "unitPrice": 189.0 }
+    ]
+  }
+]</code></pre>
+        </article>
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">C# result (excerpt)</span><h3>Records that keep the exact source keys</h3><p>Property names become PascalCase, but every property carries its original JSON key in a System.Text.Json annotation, so round trips never break.</p></div>
+          <pre class="feature-code"><code>namespace Billing.Contracts;
+
+public sealed record Order
+{
+    [JsonPropertyName("orderId")]
+    public required long OrderId { get; init; }
+
+    [JsonPropertyName("customer")]
+    public required Customer Customer { get; init; }
+
+    [JsonPropertyName("items")]
+    public required IReadOnlyList&lt;Item&gt; Items { get; init; }
+
+    <span class="code-success">[JsonPropertyName("couponCode")]
+    public string? CouponCode { get; init; }</span>
+}
+
+public sealed record Customer
+{
+    [JsonPropertyName("name")]
+    public required string Name { get; init; }
+
+    <span class="code-success">[JsonPropertyName("vatNumber")]
+    public required string? VatNumber { get; init; }</span>
+}</code></pre>
+        </article>
+      </div>
+      <div class="feature-privacy-note"><span class="feature-privacy-icon" aria-hidden="true">i</span><div><strong>Optional and nullable are different facts, and the C# shows it.</strong><p><code>couponCode</code> was absent from one sample, so it is optional — no <code>required</code> keyword. <code>vatNumber</code> was present in every sample but explicitly null in one, so it stays <code>required</code> with a nullable type. And <code>items</code> was singularized into a named <code>Item</code> record for its element type. None of this needed configuration; it was read from the evidence.</p></div></div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="csharp-tutorial-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Hands-on tutorial</span>
+        <h2 id="csharp-tutorial-title">Generate a C# model from a payload you already have</h2>
+        <p>Use a real response from the API you are integrating, the order sample above, or the built-in <strong>Example</strong>. The goal is a record set your project can compile immediately — with every inference decision visible before you commit to it.</p>
+      </div>
+      <ol class="feature-tutorial-steps">
+        <li>
+          <div><h3>Open the JSON to Code Generator</h3><p>It is a general tool, so it is available from <strong>More Actions</strong> and the <strong>Command Palette</strong> for every file type; the extension also exposes it from the launcher, and the Windows app lists it under <strong>Tools</strong>. When you open it on a JSON document, the document is loaded as the sample automatically the first time, and <strong>Use document</strong> reloads it at any point.</p></div>
+        </li>
+        <li>
+          <div><h3>Load a representative sample</h3><p>Paste one strict JSON object, value, or array of sample records into <strong>JSON sample</strong>, or press <strong>Example</strong> to explore with the built-in payload. An array of several real records is the strongest input: variation between entries is what proves which properties are optional.</p></div>
+        </li>
+        <li>
+          <div><h3>Choose the target and name the root</h3><p>Set <strong>Target</strong> to C# and enter a <strong>Root type name</strong> that names your domain concept — <code>OrderResponse</code> or <code>Order</code>, not <code>Data</code>. Nested record names are derived from property names, so a good root name sets the tone for the whole file.</p></div>
+        </li>
+        <li>
+          <div><h3>Set the Namespace</h3><p>The <strong>Namespace</strong> field appears for the C# target and defaults to <code>Generated</code>. Replace it with your project namespace, such as <code>CodePrettify.Samples.Orders</code> — invalid entries are normalized automatically, so a stray character never produces code that will not compile.</p></div>
+        </li>
+        <li>
+          <div><h3>Decide about “Make every property optional”</h3><p>Leave the checkbox off to keep evidence-based <code>required</code> properties. Turn it on when you are modeling partial updates or sparse responses: it goes beyond adding <code>?</code> and uses nullable or boxed forms where C# needs them, so value types are handled correctly too.</p></div>
+        </li>
+        <li>
+          <div><h3>Generate and read the summary</h3><p>Press <strong>Generate code</strong>, or <kbd>Ctrl</kbd>+<kbd>Enter</kbd> directly in the sample box. The generated code appears live beside the sample together with any inference warning, and the status line reports the local result — for example “Generated locally: 12 types, 50 properties from 1 sample.”</p></div>
+        </li>
+        <li>
+          <div><h3>Check the properties that had mixed evidence</h3><p>Find every property without <code>required</code> and every nullable type, and confirm the sample justifies each one. If a property became optional only because your sample set was thin, add another real record rather than editing the output by hand — regenerating is cheaper than maintaining manual patches.</p></div>
+        </li>
+        <li>
+          <div><h3>Take the result into your project</h3><p><strong>Copy to clipboard</strong> for a quick paste, <strong>Open as document</strong> to review it in CodePrettify, or <strong>Export</strong> to save a <code>.cs</code> file. Then compile it and round-trip a real payload through <code>JsonSerializer</code> — the annotations preserve the exact source keys, so deserialize-then-serialize should reproduce your data.</p></div>
+        </li>
+      </ol>
+      <div class="feature-practice-lab">
+        <h3>Practice: prove each inference rule to yourself</h3>
+        <p>Regenerate after each small change to the order sample above and confirm the C# reacts the way this page claims.</p>
+        <ul class="feature-checklist">
+          <li>Remove <code>couponCode</code> from the first record too — it should disappear from the model entirely.</li>
+          <li>Make <code>vatNumber</code> a string in both records — the nullable <code>?</code> should vanish while <code>required</code> stays.</li>
+          <li>Check that <code>orderId</code> generated as <code>long</code>, not <code>int</code> — whole numbers map to 64-bit integers.</li>
+          <li>Inspect the type chosen for <code>unitPrice</code> and decide whether your domain needs <code>decimal</code> for money — that is a business rule no sample can prove.</li>
+          <li>Rename <code>items</code> to <code>addresses</code> and watch the element record become <code>Address</code>.</li>
+          <li>Empty both <code>items</code> arrays and read the informational warning about unknowable element types.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="csharp-inference-title">
+      <div class="feature-detail-heading"><span class="section-badge">Inference into C#</span><h2 id="csharp-inference-title">How JSON shapes map into C#</h2><p>The same inference engine drives every target, but the C# output makes specific, deliberate choices so the generated file is idiomatic .NET rather than translated JSON.</p></div>
+      <div class="feature-capability-grid">
+        <article class="feature-capability"><h3>Modern record declarations</h3><ul><li>Sealed records with init-only properties</li><li><code>required</code> on properties every sample contained</li><li><code>IReadOnlyList&lt;T&gt;</code> for arrays</li><li>The <code>using</code> directives included at the top</li></ul></article>
+        <article class="feature-capability"><h3>Exact source keys, always</h3><ul><li>System.Text.Json field-name annotations on every property</li><li>PascalCase member names without breaking round trips</li><li>Keys like <code>user-id</code> and reserved words get the annotation instead of a changed JSON contract</li></ul></article>
+        <article class="feature-capability"><h3>Namespace support</h3><ul><li>Defaults to <code>Generated</code></li><li>Invalid entries normalized automatically</li><li>Declarations arrive ready to compile in your project</li></ul></article>
+        <article class="feature-capability"><h3>Optional vs nullable</h3><ul><li>Missing in some array samples → optional</li><li>Explicit <code>null</code> → nullable</li><li>All array entries merge into one model</li><li>“Make every property optional” uses nullable or boxed forms where C# needs them</li></ul></article>
+        <article class="feature-capability"><h3>Structure that reads well</h3><ul><li>Nested objects become named record types</li><li>Plural array names singularized — <code>addresses</code> becomes <code>Address</code></li><li>Integers map to 64-bit <code>long</code></li></ul></article>
+        <article class="feature-capability"><h3>Honest bounds, local run</h3><ul><li>5 Mi character input, 16 Mi output</li><li>100 nesting levels, 100,000 inspected values</li><li>Invalid JSON reports line and column when available</li><li>Generation never leaves the device</li></ul></article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="csharp-targets-title">
+      <div class="feature-detail-heading"><span class="section-badge">Target switching</span><h2 id="csharp-targets-title">Same sample, different backend: flip C# to TypeScript</h2><p>The <strong>Target</strong> dropdown regenerates from the same sample, so the frontend model for the same payload is one selection away. The inferred shape stays consistent — an optional property in the C# record is an optional property in the TypeScript interface — only the language idiom changes.</p></div>
+      <div class="feature-shot-grid">
+        <figure class="feature-guide-shot"><img src="img/screenshots/feature-json-to-code.png" alt="The same JSON to Code Generator workflow producing nested TypeScript interfaces instead of C# records" width="1280" height="800" loading="lazy" /><figcaption>The identical workflow with TypeScript selected: nested exported interfaces with evidence-based optional fields.</figcaption></figure>
+      </div>
+      <p>C# and TypeScript are two of eleven targets — Zod, Pydantic, Java, Kotlin, Go, Rust, Swift, Dart, and JSON Schema are the rest. The <a href="json-to-code-generator.html">JSON to Code Generator guide</a> compares outputs across targets from one multi-sample payload; this page stays focused on what lands in your <code>.cs</code> file.</p>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="csharp-decisions-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Review guide</span>
+        <h2 id="csharp-decisions-title">When the generated C# surprises you</h2>
+        <p>Every surprising line in the output traces back to either evidence in your sample or a deliberate generator rule. This table maps the common surprises to their causes — and to the fix that addresses the cause instead of patching the symptom.</p>
+      </div>
+      <div class="feature-guide-table-wrap">
+        <table class="feature-guide-table">
+          <thead><tr><th>What you see</th><th>Why it happened</th><th>Best next action</th></tr></thead>
+          <tbody>
+            <tr><td>Every whole number is <code>long</code>, not <code>int</code></td><td>Integers map to 64-bit types so IDs and counters cannot overflow silently.</td><td>Keep <code>long</code> unless you can prove the range; narrowing is a deliberate edit, not a default.</td></tr>
+            <tr><td>A property has no <code>required</code> keyword</td><td>At least one record in the sample array omitted it, so it was inferred optional.</td><td>Confirm the API contract; if the property is actually mandatory, add a more complete sample and regenerate.</td></tr>
+            <tr><td><code>required string?</code> on one property</td><td>The property appeared in every sample but was explicitly null in at least one — nullable, not optional.</td><td>Decide what null means in your domain before replacing it with a default value.</td></tr>
+            <tr><td>The element type of <code>items</code> is named <code>Item</code></td><td>Plural array property names are singularized when naming element record types.</td><td>Rename to your domain vocabulary if the singular form misses — <code>OrderLine</code> may say more than <code>Item</code>.</td></tr>
+            <tr><td>The namespace differs from what you typed</td><td>Invalid namespace entries are normalized automatically so the file still compiles.</td><td>Enter a valid C# namespace like <code>Company.Project.Contracts</code> and regenerate.</td></tr>
+            <tr><td>Generation refuses the sample</td><td>A limit was reached — 5 Mi characters in, 16 Mi out, 100 nesting levels, or 100,000 values — or the JSON is invalid, reported with line and column when available.</td><td>Trim the sample to representative records or fix the JSON; limits fail closed and never alter the source document.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="csharp-faq-title">
+      <div class="feature-detail-heading"><span class="section-badge">FAQ</span><h2 id="csharp-faq-title">JSON to C# questions</h2></div>
+      <div class="feature-detail-faq">
+        <details><summary>Does it generate C# classes or records?</summary><p>It generates records: sealed record types with System.Text.Json field-name annotations and required, init-only properties. There is no separate class mode. If your codebase standardizes on classes, the properties and annotations carry over with minimal editing, because the JSON mapping lives in the annotations, not in the record keyword.</p></details>
+        <details><summary>How does the Namespace field work?</summary><p>Every generated declaration is placed in the namespace you enter, so the code compiles in the right project context immediately. The field defaults to Generated, and invalid entries are normalized automatically instead of producing code that will not compile.</p></details>
+        <details><summary>Are Newtonsoft.Json attributes supported?</summary><p>No. The C# target emits System.Text.Json annotations only — JsonPropertyName on each property. If your project uses Newtonsoft.Json, swap the annotations for JsonProperty after generation; the record structure and property names transfer unchanged.</p></details>
+        <details><summary>Is my JSON uploaded to a server?</summary><p>No. Generation runs entirely on the device, in both the browser extension and the Windows app, and no account is required. The sample you paste never leaves your machine.</p></details>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="csharp-related-title">
+      <div class="feature-detail-heading"><span class="section-badge">Related guides</span><h2 id="csharp-related-title">Round out the model workflow</h2></div>
+      <div class="feature-related-grid">
+        <a class="feature-related-card" href="json-to-code-generator.html"><h3>JSON to Code Generator</h3><p>The full guide to sample preparation, inference decisions, and all eleven targets — from TypeScript to JSON Schema.</p><span>Explore the generator guide →</span></a>
+        <a class="feature-related-card" href="json-to-typescript.html"><h3>JSON to TypeScript</h3><p>Generate the matching frontend interfaces from the same payload your C# backend consumes.</p><span>Explore the TypeScript guide →</span></a>
+        <a class="feature-related-card" href="json-schema-validator.html"><h3>JSON Schema Validator</h3><p>Generate a JSON Schema from the same sample, then validate real payloads against it before they reach your records.</p><span>Explore schema validation →</span></a>
+      </div>
+    </section>
+
+    <section class="feature-page-cta" aria-labelledby="csharp-cta-title"><h2 id="csharp-cta-title">Generate the C# model where the JSON already lives</h2><p>Open the payload, choose C#, set your namespace, and export annotated records that compile on the first try — without the sample ever leaving your machine.</p><div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="pricing.html">See $0 early access</a></div></section>
+  </main>
+
+  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="guides.html">Guides</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
+</body>
+</html>

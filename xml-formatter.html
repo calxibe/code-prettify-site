@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XML Formatter &amp; Viewer – Strict, Data-Safe, Local | CodePrettify</title>
+  <meta name="description" content="Free XML formatter and viewer that refuses data-changing rewrites. Strict validation with line and column, RSS/Atom rendering, XML to JSON — local, no upload." />
+  <meta name="application-name" content="CodePrettify" />
+  <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://prettify.cloud/xml-formatter.html" />
+  <link rel="icon" href="favicon.ico?v=20260725" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20260725" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260725" />
+  <meta property="og:site_name" content="CodePrettify" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="XML Formatter &amp; Viewer – Strict, Data-Safe, Local" />
+  <meta property="og:description" content="Strict XML validation with line and column, folding, RSS and Atom rendering, Table View, and XML to JSON that round-trips — no data-changing rewrites, all local." />
+  <meta property="og:url" content="https://prettify.cloud/xml-formatter.html" />
+  <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-xml-formatter.png" />
+  <meta property="og:image:alt" content="CodePrettify viewing a product catalog XML with attributes, namespaces, comments, and CDATA kept exactly as written" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="XML Formatter &amp; Viewer – Strict, Data-Safe, Local" />
+  <meta name="twitter:description" content="The XML formatter that returns your document unchanged rather than risk its meaning — validate, fold, view feeds, and convert locally." />
+  <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-xml-formatter.png" />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
+  <link rel="stylesheet" href="style.min.css?v=e323747f" />
+  <script src="site.js?v=20260809-2" defer></script>
+  <script src="feature-guide.js?v=20260725-1" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "CodePrettify XML Formatter & Viewer",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Chrome, Edge, Windows",
+          "url": "https://prettify.cloud/xml-formatter.html",
+          "description": "Strict, local XML formatter and viewer for Chrome, Edge, and Windows. Validates with line and column, folds and renders XML, RSS, and Atom, shows repeating structures as tables, and converts XML to JSON through an ordered model that round-trips — the browser extension refuses rewrites that could change data.",
+          "installUrl": "https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "CodePrettify", "item": "https://prettify.cloud/" },
+            { "@type": "ListItem", "position": 2, "name": "XML Formatter & Viewer", "item": "https://prettify.cloud/xml-formatter.html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "Why does formatting sometimes return my XML unchanged?", "acceptedAnswer": { "@type": "Answer", "text": "Because a rewrite could change what the document means. In the browser extension, formatting checks for mixed content, preserved whitespace, internal DTD subsets, and quoted markup, and returns the source unchanged whenever a rewrite could change data. An unchanged result is the guard working, not a failure." } },
+            { "@type": "Question", "name": "Can it convert XML to JSON and back?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Data Converter's XML to JSON operation uses an ordered $xml model that preserves attributes, namespaces, text, CDATA, comments, processing instructions, and node order, and Reverse reconstructs the original XML from that mapping. Limits are 10 Mi characters of input and 32 Mi characters of output." } },
+            { "@type": "Question", "name": "Is minified XML safe?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on the product. In the browser extension, minification is byte-preserving because whitespace-only text nodes may matter, so the minified copy equals the original. The Windows app's minification strips comments and collapses whitespace — use it only when you know the document relies on neither." } },
+            { "@type": "Question", "name": "Is my XML uploaded anywhere?", "acceptedAnswer": { "@type": "Answer", "text": "No. Formatting, validation, conversion, statistics, and comparison run on your device, and the extension works without an account. Files and feeds are processed locally; nothing is sent to a server." } }
+          ]
+        }
+      ]
+    }
+  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date);gtag("config","G-S4WNQ48Q7F");addEventListener("load",function(){var l=function(){var s=document.createElement("script");s.async=!0;s.src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F";document.head.appendChild(s)};window.requestIdleCallback?requestIdleCallback(l,{timeout:3000}):setTimeout(l,1200)})</script>
+</head>
+<body class="feature-detail-body">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="bg-glow"></div>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo"><img src="img/code_32.png?v=20260725" srcset="img/code_32.png?v=20260725 1x, img/code_64.png?v=20260725 2x" width="32" height="32" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span></a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
+      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#install">Install</a>
+        <a href="guides.html">Guides</a><a href="pricing.html">Price</a><a href="manual.html">Manual</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a></nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="feature-detail-main">
+    <nav class="feature-breadcrumb" aria-label="Breadcrumb"><a href="/">CodePrettify</a><span aria-hidden="true">/</span><span>XML Formatter &amp; Viewer</span></nav>
+    <section class="feature-detail-hero">
+      <div>
+        <span class="feature-detail-eyebrow">Strict parsing, no risky rewrites</span>
+        <h1>The XML formatter that refuses to change your data</h1>
+        <p class="feature-detail-lead">Re-indenting XML is not free: mixed content, preserved whitespace, internal DTD subsets, and quoted markup can all change meaning under a pretty-printer. CodePrettify parses strictly and, in the browser extension, returns the source unchanged whenever a rewrite could change data. Validation with line and column, folding, feed rendering, Table View, and XML to JSON conversion all run on your device.</p>
+        <div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="manual.html#format-behavior">Read the XML manual entry</a></div>
+        <ul class="feature-proof-list"><li>Refuses data-changing rewrites</li><li>Line and column on errors</li><li>RSS &amp; Atom feeds render</li><li>Local processing</li></ul>
+      </div>
+      <figure class="feature-hero-shot"><img src="img/screenshots/feature-xml-formatter.png" alt="CodePrettify XML formatter viewing a product catalog with attributes, namespaces, comments, and CDATA kept exactly as written" width="1280" height="800" fetchpriority="high" /><figcaption>A product catalog export with attributes, namespaces, comments, and CDATA — strictly validated, foldable, and exactly as written.</figcaption></figure>
+    </section>
+
+    <nav class="feature-learning-nav" aria-label="Lessons in this XML formatter guide">
+      <strong>Learn on this page</strong>
+      <div class="feature-learning-links">
+        <a href="#xml-safety-title">Why it refuses rewrites</a>
+        <a href="#xml-tutorial-title">Inspect XML hands-on</a>
+        <a href="#xml-convert-title">Convert XML to JSON</a>
+        <a href="#xml-decisions-title">Extension vs Windows app</a>
+        <a href="#xml-faq-title">Troubleshoot</a>
+      </div>
+    </nav>
+
+    <section class="feature-detail-section" aria-labelledby="xml-safety-title">
+      <div class="feature-detail-heading"><span class="section-badge">Data safety</span><h2 id="xml-safety-title">An XML formatter that would rather do nothing than do damage</h2><p>In XML, whitespace inside an element can be data, a CDATA section can hold markup that must stay markup, and an internal DTD subset can define entities the rest of the document depends on. A formatter that re-indents through all of that returns tidy XML that no longer says the same thing. The extension checks first — and when a rewrite could change data, it hands your bytes back.</p></div>
+      <div class="feature-example-grid">
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">The file you open</span><h3>Markup where whitespace and quoting carry data</h3><p>The description holds quoted markup inside CDATA, and <code>xml:space="preserve"</code> declares that the note's double spaces are intentional.</p></div>
+          <pre class="feature-code"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!-- Product catalog export --&gt;
+&lt;catalog xmlns:media="http://search.yahoo.com/mrss/"&gt;
+  &lt;product id="SKU-1042" availability="in-stock"&gt;
+    &lt;name&gt;Trail Running Shoes&lt;/name&gt;
+    &lt;price currency="EUR"&gt;129.90&lt;/price&gt;
+    &lt;description&gt;&lt;![CDATA[Trail shoes with a
+      &lt;strong&gt;carbon&lt;/strong&gt; plate.]]&gt;&lt;/description&gt;
+    &lt;note xml:space="preserve"&gt;Ships  in  2  days&lt;/note&gt;
+  &lt;/product&gt;
+&lt;/catalog&gt;</code></pre>
+        </article>
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">In the extension</span><h3>Validated and foldable — returned unchanged</h3><p>Because a rewrite could change the CDATA content or the preserved whitespace, formatting returns the source untouched. You still get highlighting, folding, links, and hints.</p></div>
+          <pre class="feature-code"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+<span class="code-success">&lt;!-- Product catalog export --&gt;</span>
+&lt;catalog <span class="code-accent">xmlns:media</span>="http://search.yahoo.com/mrss/"&gt;
+  &lt;product <span class="code-accent">id</span>="SKU-1042" <span class="code-accent">availability</span>="in-stock"&gt;
+    &lt;name&gt;Trail Running Shoes&lt;/name&gt;
+    &lt;price <span class="code-accent">currency</span>="EUR"&gt;129.90&lt;/price&gt;
+    &lt;description&gt;<span class="code-accent">&lt;![CDATA[</span>Trail shoes with a
+      &lt;strong&gt;carbon&lt;/strong&gt; plate.<span class="code-accent">]]&gt;</span>&lt;/description&gt;
+    &lt;note <span class="code-accent">xml:space</span>="preserve"&gt;Ships  in  2  days&lt;/note&gt;
+  &lt;/product&gt;
+&lt;/catalog&gt;</code></pre>
+        </article>
+      </div>
+      <div class="feature-privacy-note"><span class="feature-privacy-icon" aria-hidden="true">i</span><div><strong>The unchanged result is the feature.</strong><p>In the browser extension, formatting avoids mixed content, preserved whitespace, internal DTD subsets, and quoted markup where a rewrite could change data — and its “minification” is byte-preserving, because whitespace-only text nodes may matter. The Windows app makes the opposite trade openly: it reformats any well-formed document, and its minification strips comments and collapses whitespace. Same strict parser, two clearly stated contracts.</p></div></div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="xml-tutorial-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Hands-on tutorial</span>
+        <h2 id="xml-tutorial-title">Work through a real document or feed, end to end</h2>
+        <p>Use the catalog above, an API response, a sitemap, or any RSS or Atom feed you actually read. The goal is a strict verdict and a confident reading — not a rewritten file.</p>
+      </div>
+      <ol class="feature-tutorial-steps">
+        <li>
+          <div><h3>Open the XML document</h3><p>In Chrome or Edge, open a raw <code>.xml</code>, <code>.rss</code>, or <code>.atom</code> file or URL — supported responses activate automatically, even when a compatible MIME type arrives without a recognizable filename, and ordinary web pages are left alone. In the Windows app, open the file or press <kbd>Ctrl</kbd>+<kbd>N</kbd> for <strong>Paste &amp; Prettify</strong> and keep <strong>Auto-detect</strong>. XML, RSS, and Atom open in the Rendered view by default.</p></div>
+        </li>
+        <li>
+          <div><h3>Read the strict verdict</h3><p>Parsing is strict, and that is the point of an XML validator: the formatting indicator reports whether formatting succeeded, and the validation alert names an exact line and column when the parser can locate the problem. A well-formed export earns a clean verdict; a broken one tells you where it broke.</p></div>
+        </li>
+        <li>
+          <div><h3>Flip Rendered and Source</h3><p>Press <kbd>Ctrl</kbd>+<kbd>B</kbd> to switch between <strong>Rendered</strong> — the working view with highlighting, folding, and hints — and <strong>Source</strong>, the untouched text. In the extension, when a rewrite could change data the two views carry the same bytes; the difference is presentation, never content.</p></div>
+        </li>
+        <li>
+          <div><h3>Fold to the element that matters</h3><p>Use the gutter fold controls for one element, or <strong>More Actions → Collapse All / Expand All</strong> for the whole tree. Line numbers, word wrap, and the minimap can be enabled independently.</p></div>
+        </li>
+        <li>
+          <div><h3>Jump with Document Navigator</h3><p>Open <strong>Document Navigator</strong> to see the element outline and jump to any entry's source line. The extension exposes it for XML/RSS; the Windows app supports XML, RSS, and Atom outlines.</p></div>
+        </li>
+        <li>
+          <div><h3>Use the inline hints</h3><p>Safe links become clickable, timestamp-looking values such as <code>generated="2026-08-14T09:30:00Z"</code> get human-readable hints, and encoded values are hinted too. These are reading aids layered on top of the document — the text itself is never altered.</p></div>
+        </li>
+        <li>
+          <div><h3>Search and go to line</h3><p>Press <kbd>Ctrl</kbd>+<kbd>F</kbd> and search plain text, or wrap the query as <code>/pattern/flags</code> for a regular expression. <kbd>Ctrl</kbd>+<kbd>G</kbd> opens Go to Line when a validation alert or a teammate points at a position.</p></div>
+        </li>
+        <li>
+          <div><h3>Put repeating elements in Table View</h3><p>When a structure repeats — items in a feed, products in a catalog — open <strong>Table View</strong> from More Actions. Sort by clicking a column, filter globally or per column, drag columns to reorder, and export a selection as CSV or JSON in the current column and sort order.</p></div>
+        </li>
+        <li>
+          <div><h3>Count what the document contains</h3><p>Open <strong>Statistics &amp; Diagnostics</strong>: for XML and feeds, Statistics reports element, attribute, namespace, text, comment, and CDATA counts, and Diagnostics can flag feed issues alongside its general warnings. Comment count zero on a file that should carry comments is worth a question.</p></div>
+        </li>
+      </ol>
+      <div class="feature-practice-lab">
+        <h3>Before trusting an XML file or feed</h3>
+        <p>Run through this list before shipping, importing, or replying to the producer.</p>
+        <ul class="feature-checklist">
+          <li>The formatting indicator reports the document as valid, with no line-and-column alert outstanding.</li>
+          <li>An unchanged formatted view in the extension is read as a guard, not an error.</li>
+          <li>Rendered and Source agree on the value you care about.</li>
+          <li>Repeating structures were reviewed in Table View before any CSV export.</li>
+          <li>Statistics counts — elements, attributes, namespaces, comments, CDATA — match what you expected the producer to send.</li>
+          <li>Anything converted to JSON was round-tripped back with Reverse before the mapping was trusted.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="xml-capabilities-title">
+      <div class="feature-detail-heading"><span class="section-badge">Capabilities</span><h2 id="xml-capabilities-title">What the XML viewer adds beyond strict validation</h2></div>
+      <div class="feature-capability-grid">
+        <article class="feature-capability"><h3>Strict validation</h3><ul><li>Strict parsing, clear verdict</li><li>Exact line and column when locatable</li><li>Formatting indicator on every document</li></ul></article>
+        <article class="feature-capability"><h3>Extension guards</h3><ul><li>Mixed content</li><li>Preserved whitespace</li><li>Internal DTD subsets</li><li>Quoted markup</li></ul><p>When any of these could change under a rewrite, formatting returns the source unchanged — and minification is byte-preserving.</p></article>
+        <article class="feature-capability"><h3>Windows app contract</h3><ul><li>Reformats any well-formed document</li><li>Minification strips comments and collapses whitespace</li><li>Paste &amp; Prettify auto-detects XML</li></ul><p>A deliberate rewrite when you ask for one — keep the original if comments or spacing carry meaning.</p></article>
+        <article class="feature-capability"><h3>Reading aids</h3><ul><li>Rendered/Source views, folding</li><li>Safe clickable links</li><li>Timestamp and encoded-value hints</li><li>Document Navigator element outline</li></ul></article>
+        <article class="feature-capability"><h3>Feeds and tables</h3><ul><li>RSS and Atom feeds render — a local RSS viewer</li><li>Table View for repeating XML/RSS structures</li><li>Sort, filter, reorder, export CSV/JSON</li></ul><p>CSV needs a repeating structured element; XML tabular projection is best-effort and can be lossy.</p></article>
+        <article class="feature-capability"><h3>XML across the toolset</h3><ul><li>Diagram Generator maps XML/RSS structure</li><li>Statistics counts elements, attributes, namespaces, text, comments, CDATA</li><li>JSON Repair &amp; Transform accepts XML/RSS via the ordered JSON representation</li><li>Settings toggle XML/RSS folding and clickable URLs</li></ul></article>
+      </div>
+      <div class="feature-shot-grid">
+        <figure class="feature-guide-shot"><img src="img/screenshots/feature-xml-formatter-dark.png" alt="CodePrettify XML viewer in dark mode showing the same product catalog with strict parsing, folding, and line numbers" width="1280" height="800" loading="lazy" /><figcaption>The same catalog in dark mode — Auto, Light, and Dark themes are a Settings toggle away.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="xml-convert-title">
+      <div class="feature-detail-heading"><span class="section-badge">XML to JSON</span><h2 id="xml-convert-title">An XML to JSON converter that keeps every node — and reverses</h2><p>Plain JSON has no natural place for attributes, comments, CDATA, processing instructions, or sibling order. Instead of quietly dropping them, the Data Converter uses an ordered <code>$xml</code> model that makes each of them explicit — which is why the conversion can round-trip back to the original XML.</p></div>
+      <div class="feature-example-grid">
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">XML input</span><h3>Two attributes, a comment, exact text</h3><p>Load it with <strong>Use document</strong>, or paste it into the Convert tab.</p></div>
+          <pre class="feature-code"><code>&lt;product id="SKU-1042"&gt;
+  &lt;!-- price includes VAT --&gt;
+  &lt;price currency="EUR"&gt;129.90&lt;/price&gt;
+&lt;/product&gt;</code></pre>
+        </article>
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">JSON output — excerpt</span><h3>Order, attributes, and the comment made explicit</h3><p>Trimmed for reading: whitespace-only text nodes and namespace metadata are elided here. Note that <code>129.90</code> stays text — nothing guesses types on your behalf.</p></div>
+          <pre class="feature-code"><code>{
+  "$xml": {
+    "children": [
+      { "type": "element", "name": "product",
+        "attributes": [ { "name": "id", "value": "SKU-1042" } ],
+        "children": [
+          { "type": "comment", "value": " price includes VAT " },
+          { "type": "element", "name": "price",
+            "attributes": [ { "name": "currency", "value": "EUR" } ],
+            "children": [ { "type": "text", "value": "129.90" } ] }
+        ] }
+    ]
+  }
+}</code></pre>
+        </article>
+      </div>
+      <div class="feature-step-grid">
+        <article class="feature-step"><span class="feature-step-number">1</span><h3>Load the XML</h3><p>Open <strong>Data Converter</strong> from More Actions, the Command Palette, the Tools menu, or the extension launcher, and choose <strong>Use document</strong> on the Convert tab.</p></article>
+        <article class="feature-step"><span class="feature-step-number">2</span><h3>Convert — or reverse</h3><p>Pick <strong>XML → JSON</strong> and press Convert. <strong>Reverse</strong> moves the output into the input and selects JSON → XML, which reconstructs the original markup from the <code>$xml</code> mapping.</p></article>
+        <article class="feature-step"><span class="feature-step-number">3</span><h3>Take the result with you</h3><p><strong>Copy</strong> and <strong>Download</strong> sit beside the output. Operations proven incompatible with the input are disabled with a reason instead of failing silently.</p></article>
+      </div>
+      <div class="feature-privacy-note"><span class="feature-privacy-icon" aria-hidden="true">i</span><div><strong>Both directions, honestly bounded.</strong><p>XML → JSON preserves attributes, namespaces, text, CDATA, comments, processing instructions, and node order. JSON → XML also accepts plain JSON, mapping JSON types into a namespace-aware XML representation. Bounds: 10 Mi characters of input and 32 Mi characters of output, processed entirely on your device.</p></div></div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="xml-decisions-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Decision guide</span>
+        <h2 id="xml-decisions-title">Two products, two contracts — know which rewrite you asked for</h2>
+      </div>
+      <div class="feature-guide-table-wrap">
+        <table class="feature-guide-table">
+          <thead><tr><th>What you see</th><th>What it means</th><th>Best next action</th></tr></thead>
+          <tbody>
+            <tr><td>Extension formatting returns the document unchanged</td><td>A guard applied: mixed content, preserved whitespace, an internal DTD subset, or quoted markup could change data under a rewrite.</td><td>Treat it as a verdict, not a failure — keep reading with folding, hints, and the Navigator.</td></tr>
+            <tr><td>The extension's Minified copy equals the original</td><td>XML minification in the extension is byte-preserving, because whitespace-only text nodes may matter.</td><td>Use the Windows app when you deliberately want whitespace collapsed.</td></tr>
+            <tr><td>The Windows app reformatted a file the extension left alone</td><td>The app reformats any well-formed document — that is its stated contract.</td><td>Compare old and new in Text mode before overwriting the original.</td></tr>
+            <tr><td>App minification removed the comments</td><td>The app's minification strips comments and collapses whitespace by design.</td><td>Keep the original file whenever comments or spacing carry meaning.</td></tr>
+            <tr><td>A validation alert with a line and column</td><td>Strict parsing located a syntax error at that position.</td><td>Press Ctrl+G to jump there and fix the source.</td></tr>
+            <tr><td>Compare offers only Text mode for two XML documents</td><td>Semantic compare covers JSON, JSONC, JSON Lines, YAML, and TOML — not XML.</td><td>Compare as text, or convert both sides with XML → JSON first for a structure-explicit view.</td></tr>
+            <tr><td>Table View or CSV export refuses the document</td><td>Table View needs a repeating structured element, and XML tabular projection is best-effort and can be lossy.</td><td>Check that a repeating element exists; use XML → JSON when you need every node kept.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="xml-faq-title">
+      <div class="feature-detail-heading"><span class="section-badge">FAQ</span><h2 id="xml-faq-title">XML formatter questions</h2></div>
+      <div class="feature-detail-faq">
+        <details><summary>Why does formatting sometimes return my XML unchanged?</summary><p>Because a rewrite could change what the document means. In the browser extension, formatting checks for mixed content, preserved whitespace, internal DTD subsets, and quoted markup, and returns the source unchanged whenever a rewrite could change data. An unchanged result is the guard working, not a failure.</p></details>
+        <details><summary>Can it convert XML to JSON and back?</summary><p>Yes. The Data Converter's XML to JSON operation uses an ordered $xml model that preserves attributes, namespaces, text, CDATA, comments, processing instructions, and node order, and Reverse reconstructs the original XML from that mapping. Limits are 10 Mi characters of input and 32 Mi characters of output.</p></details>
+        <details><summary>Is minified XML safe?</summary><p>It depends on the product. In the browser extension, minification is byte-preserving because whitespace-only text nodes may matter, so the minified copy equals the original. The Windows app's minification strips comments and collapses whitespace — use it only when you know the document relies on neither.</p></details>
+        <details><summary>Is my XML uploaded anywhere?</summary><p>No. Formatting, validation, conversion, statistics, and comparison run on your device, and the extension works without an account. Files and feeds are processed locally; nothing is sent to a server.</p></details>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="xml-related-title">
+      <div class="feature-detail-heading"><span class="section-badge">Related guides</span><h2 id="xml-related-title">Keep working with the result</h2></div>
+      <div class="feature-related-grid">
+        <a class="feature-related-card" href="yaml-formatter.html"><h3>YAML Formatter &amp; Validator</h3><p>The same data-safety philosophy applied to YAML: no re-dump, so comments, anchors, and numeric precision survive validation.</p><span>Explore the YAML formatter →</span></a>
+        <a class="feature-related-card" href="json-formatter-browser-extension.html"><h3>JSON Formatter and Viewer</h3><p>After XML → JSON, inspect the mapping with folding, JSONPath queries, diagnostics, table view, and schema validation.</p><span>Explore the JSON formatter →</span></a>
+        <a class="feature-related-card" href="json-compare.html"><h3>JSON Compare</h3><p>Semantic diffing for the JSON side of your pipeline — XML itself compares as text, and this guide explains exactly why that distinction matters.</p><span>Explore JSON compare →</span></a>
+      </div>
+    </section>
+
+    <section class="feature-page-cta" aria-labelledby="xml-cta-title"><h2 id="xml-cta-title">Format XML without gambling with what it means</h2><p>Open the file or feed, get a strict verdict with line and column, and know that every byte you copy out is a byte you can defend — on your own device, upload-free.</p><div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="pricing.html">See $0 early access</a></div></section>
+  </main>
+
+  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="guides.html">Guides</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
+</body>
+</html>

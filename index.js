@@ -1,6 +1,6 @@
 const screenshotData = [
   {
-    image: "img/feature-json-format.png",
+    image: "img/screenshots/feature-json-format.png",
     alt: "CodePrettify formatting a structured JSON API response with nested services, metrics, links, arrays, and syntax highlighting",
     kicker: "JSON",
     title: "Make complex JSON payloads easy to scan",
@@ -8,7 +8,7 @@ const screenshotData = [
       "Pretty indentation, syntax coloring, folding, clickable links, timestamp hints, and inline helpers turn dense API responses into a readable workspace.",
   },
   {
-    image: "img/feature-json-to-code.png",
+    image: "img/screenshots/feature-json-to-code.png",
     alt: "CodePrettify JSON to Code Generator showing a deployment-event JSON sample beside generated TypeScript interfaces",
     kicker: "JSON to Code",
     title: "Generate typed models directly from real JSON samples",
@@ -16,7 +16,7 @@ const screenshotData = [
       "Infer nested TypeScript, Zod, C#, Java, Kotlin, Pydantic, Go, Rust, Swift, Dart, or JSON Schema output locally, then copy, export, or open it as a document.",
   },
   {
-    image: "img/feature-workbench-repair.png",
+    image: "img/screenshots/feature-workbench-repair.png",
     alt: "CodePrettify JSON Repair and Transform repair tab showing messy input, a repair report, and clean JSON output",
     kicker: "JSON repair",
     title: "Recover useful data from copied, logged, or hand-edited payloads",
@@ -24,7 +24,7 @@ const screenshotData = [
       "Remove fences and surrounding prose, repair common JSON-like syntax problems, and review every change before continuing with the clean result.",
   },
   {
-    image: "img/feature-workbench-transform.png",
+    image: "img/screenshots/feature-workbench-transform.png",
     alt: "CodePrettify JSON Repair and Transform tab showing a filter and sort recipe beside its live JSON result",
     kicker: "JSON transform",
     title: "Build a transformation recipe with a live result",
@@ -32,7 +32,7 @@ const screenshotData = [
       "Filter, select, rename, sort, flatten, group, aggregate, or limit structured rows in an ordered pipeline without changing the original document.",
   },
   {
-    image: "img/feature-data-converter-utilities.png",
+    image: "img/screenshots/feature-data-converter-utilities.png",
     alt: "CodePrettify Data Converter with Hash and HMAC selected and populated hexadecimal and Base64 SHA-256 output",
     kicker: "Data Converter",
     title: "Convert, hash, and generate in one focused workspace",
@@ -40,7 +40,7 @@ const screenshotData = [
       "Convert structured or encoded text, create SHA-256, SHA-384, SHA-512, or HMAC output, convert Unix and ISO timestamps, and generate secure UUID or ULID values.",
   },
   {
-    image: "img/feature-security-scan.png",
+    image: "img/screenshots/feature-security-scan.png",
     alt: "CodePrettify Security Scan showing masked secret findings and detected API endpoints from the current JavaScript file",
     kicker: "Security Scan",
     title: "Surface secrets and endpoints before code leaves your screen",
@@ -48,7 +48,7 @@ const screenshotData = [
       "Scan the current document locally for credential-shaped values, URLs, files, and API routes, then jump to the exact source line that needs review.",
   },
   {
-    image: "img/feature-js-transform.png",
+    image: "img/screenshots/feature-js-transform.png",
     alt: "CodePrettify before and after view showing a minified JavaScript bundle transformed into readable formatted code",
     kicker: "JavaScript",
     title: "Show the jump from compressed bundles to readable code",
@@ -56,7 +56,7 @@ const screenshotData = [
       "Capture the same minified JavaScript file in raw mode and prettified mode so visitors can immediately see what the extension cleans up.",
   },
   {
-    image: "img/feature-js-playground.png",
+    image: "img/screenshots/feature-js-playground.png",
     alt: "CodePrettify JavaScript Playground modal running code against a minified admin bundle, with console output and a return value captured in a sandboxed Web Worker",
     kicker: "Playground",
     title: "Prototype and debug JavaScript against the file you are viewing",
@@ -64,7 +64,7 @@ const screenshotData = [
       "A sandboxed Playground runs your code in an isolated Web Worker, captures console output (including console.table), and can pull the current document into scope so you can call its top-level functions directly.",
   },
   {
-    image: "img/feature-markdown.png",
+    image: "img/screenshots/feature-markdown.png",
     alt: "CodePrettify rendered Markdown document showing headings, task lists, tables, links, and code fences",
     kicker: "Markdown",
     title: "Read Markdown files as clean formatted documents",
@@ -72,7 +72,7 @@ const screenshotData = [
       "Open local or remote Markdown files and get a rendered document view while keeping the same search, copy, diff, diagnostics, and export tools nearby.",
   },
   {
-    image: "img/feature-http-client.png",
+    image: "img/screenshots/feature-http-client.png",
     alt: "CodePrettify HTTP Client modal showing a request composer, saved request rail, and JSON response preview",
     kicker: "HTTP Client",
     title: "Build, replay, and save requests without leaving the tab",
@@ -80,7 +80,7 @@ const screenshotData = [
       "Import cURL, reuse saved requests and environments, and inspect the response body, headers, cookies, or raw output in the same workspace.",
   },
   {
-    image: "img/feature-diff-view.png",
+    image: "img/screenshots/feature-diff-view.png",
     alt: "CodePrettify diff view comparing clipboard content with the current document",
     kicker: "Diff View",
     title: "Compare changes without leaving the page",
@@ -88,7 +88,7 @@ const screenshotData = [
       "Open a side-by-side diff, track added and removed lines, and swap sides when you need to reverse the comparison.",
   },
   {
-    image: "img/feature-table-view.png",
+    image: "img/screenshots/feature-table-view.png",
     alt: "CodePrettify table view showing structured JSON data as a searchable table",
     kicker: "Table View",
     title: "Turn structured payloads into a searchable grid",
@@ -96,7 +96,7 @@ const screenshotData = [
       "Explore JSON arrays and XML or RSS data as sortable tables with search, filters, and quick scanning.",
   },
   {
-    image: "img/feature-diagram-generator.png",
+    image: "img/screenshots/feature-diagram-generator.png",
     alt: "CodePrettify Diagram Generator showing a JSON document as connected pastel field cards with an inspected field in the sidebar",
     kicker: "Diagram Generator",
     title: "See the document as connected field cards",
@@ -104,7 +104,7 @@ const screenshotData = [
       "Explore a zoomable local hierarchy diagram, search across cards, inspect any field with its path, and export the scene as SVG, PNG, or Mermaid.",
   },
   {
-    image: "img/feature-stats-diagnostics.png",
+    image: "img/screenshots/feature-stats-diagnostics.png",
     alt: "CodePrettify statistics and diagnostics modal showing warnings, request metadata, data insights, and document metrics",
     kicker: "Diagnostics",
     title: "See document health and request details at a glance",
@@ -112,7 +112,7 @@ const screenshotData = [
       "Open one panel for syntax status, payload warnings, request metadata, CSV readiness, and file metrics before you export or compare.",
   },
   {
-    image: "img/feature-settings.png",
+    image: "img/screenshots/feature-settings.png",
     alt: "CodePrettify settings modal showing theme, language, and file-type options",
     kicker: "Settings",
     title: "Tune the viewer for each file type",
@@ -120,7 +120,7 @@ const screenshotData = [
       "Choose theme and language, adjust typography, and control behavior like wrapping, minimap, and per-file-type features.",
   },
   {
-    image: "img/feature-diff-view-dark.png",
+    image: "img/screenshots/feature-diff-view-dark.png",
     alt: "CodePrettify dark theme diff view comparing clipboard content with the current document",
     kicker: "Dark Theme",
     title: "Review diffs comfortably during long sessions",
@@ -128,7 +128,7 @@ const screenshotData = [
       "Dark mode keeps additions, removals, and synchronized panes easy to scan when you are comparing larger payloads late in the day.",
   },
   {
-    image: "img/feature-regex-playground.png",
+    image: "img/screenshots/feature-regex-playground.png",
     alt: "CodePrettify Regex Playground modal showing live match highlighting, capture groups, and a built-in regex guide panel",
     kicker: "Regex",
     title: "Test patterns live against the file you are viewing",

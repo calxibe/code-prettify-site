@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Local JSON Formatter and Viewer for Chrome &amp; Edge | CodePrettify</title>
-  <meta name="description" content="Format, fold, search, query, validate, compare, and export JSON locally in Chrome or Edge. CodePrettify turns raw API responses and local files into an IDE-like JSON workspace." />
+  <title>JSON Formatter &amp; Viewer Chrome Extension – Local &amp; Free | CodePrettify</title>
+  <meta name="description" content="JSON formatter and viewer Chrome extension that works locally — format, search, query, validate, and compare JSON with no upload and no account. Install free." />
   <meta name="application-name" content="CodePrettify" />
   <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
@@ -17,18 +17,18 @@
   <meta property="og:site_name" content="CodePrettify" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Local JSON Formatter and Viewer for Chrome &amp; Edge" />
-  <meta property="og:description" content="Turn raw JSON responses and local files into a searchable, foldable, private developer workspace." />
+  <meta property="og:title" content="JSON Formatter &amp; Viewer Chrome Extension – Local &amp; Free" />
+  <meta property="og:description" content="A free Chrome and Edge extension that turns raw JSON responses and local files into a searchable, foldable, private workspace." />
   <meta property="og:url" content="https://prettify.cloud/json-formatter-browser-extension.html" />
-  <meta property="og:image" content="https://prettify.cloud/img/feature-json-format.png" />
+  <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-json-format.png" />
   <meta property="og:image:alt" content="CodePrettify formatting a nested JSON API response in a browser tab" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Local JSON Formatter and Viewer for Chrome &amp; Edge" />
-  <meta name="twitter:description" content="Format, query, validate, and inspect JSON locally with CodePrettify." />
-  <meta name="twitter:image" content="https://prettify.cloud/img/feature-json-format.png" />
+  <meta name="twitter:title" content="JSON Formatter &amp; Viewer Chrome Extension – Local &amp; Free" />
+  <meta name="twitter:description" content="Free Chrome and Edge extension: format, query, validate, and inspect JSON locally." />
+  <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-json-format.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=51ffddf6" />
+  <link rel="stylesheet" href="style.min.css?v=e323747f" />
   <script src="site.js?v=20260809-2" defer></script>
   <script src="feature-guide.js?v=20260725-1" defer></script>
   <script type="application/ld+json">
@@ -42,19 +42,29 @@
           "operatingSystem": "Chrome, Edge, Windows",
           "url": "https://prettify.cloud/",
           "description": "A local JSON formatter, viewer, validator, converter, and developer workspace for browser and Windows.",
+          "installUrl": "https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
         },
         {
           "@type": "WebPage",
-          "name": "Local JSON Formatter and Viewer for Chrome and Edge",
+          "name": "JSON Formatter and Viewer Chrome Extension",
           "url": "https://prettify.cloud/json-formatter-browser-extension.html",
-          "description": "A detailed guide to formatting, querying, validating, and inspecting JSON locally with CodePrettify."
+          "description": "Format, search, query, validate, compare, and export JSON locally with the CodePrettify extension for Chrome and Edge."
         },
         {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "CodePrettify", "item": "https://prettify.cloud/" },
             { "@type": "ListItem", "position": 2, "name": "JSON Formatter and Viewer", "item": "https://prettify.cloud/json-formatter-browser-extension.html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "Does CodePrettify upload my JSON?", "acceptedAnswer": { "@type": "Answer", "text": "No. Formatting, search, JSONPath, schema validation, comparison, conversion, and code generation are performed locally by the browser extension or Windows app." } },
+            { "@type": "Question", "name": "Does it work with API URLs that do not end in .json?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The extension also recognizes supported response content types, so an API route can activate the JSON viewer without a file extension." } },
+            { "@type": "Question", "name": "Can it open local JSON files?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Drag a file onto the extension launcher or use its file picker. That workflow does not require general file:// access." } },
+            { "@type": "Question", "name": "What about comments and trailing commas?", "acceptedAnswer": { "@type": "Answer", "text": "JSONC is supported separately from strict JSON, including common comment and trailing-comma patterns used by files such as tsconfig.json." } }
           ]
         }
       ]
@@ -75,10 +85,11 @@
         <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg>
       </button>
       <nav id="site-navigation" aria-label="Primary navigation">
-        <a href="/#feature-guides">Features</a>
+        <a href="/#install">Install</a>
+        <a href="guides.html">Guides</a>
         <a href="pricing.html">Price</a>
-        <a href="changelog.html">Changelog</a>
         <a href="manual.html">Manual</a>
+        <a href="changelog.html">Changelog</a>
         <a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a>
       </nav>
     </div>
@@ -92,15 +103,15 @@
     <section class="feature-detail-hero">
       <div>
         <span class="feature-detail-eyebrow">Local JSON workspace</span>
-        <h1>Read raw JSON like it belongs in an IDE</h1>
+        <h1>The JSON formatter that turns your tab into an IDE</h1>
         <p class="feature-detail-lead">
-          CodePrettify formats raw API responses and local JSON files directly in the browser tab, then adds folding,
+          The CodePrettify extension for Chrome and Edge formats raw API responses and local JSON files directly in the tab, then adds folding,
           search, JSONPath, schema validation, diagnostics, table view, comparison, conversion, and export without
           asking you to paste the payload into a remote formatter.
         </p>
         <div class="feature-detail-actions">
           <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a>
-          <a class="btn btn-secondary" href="manual.html#json-tools">Read the full manual</a>
+          <a class="btn btn-secondary" href="manual.html#json-tools">Read the JSON tools manual</a>
         </div>
         <ul class="feature-proof-list" aria-label="Product highlights">
           <li>Automatic formatting</li>
@@ -110,7 +121,7 @@
         </ul>
       </div>
       <figure class="feature-hero-shot">
-        <img src="img/feature-json-format.png" alt="A formatted JSON API response with folding, syntax highlighting, line numbers, and a minimap in CodePrettify" width="1280" height="800" fetchpriority="high" />
+        <img src="img/screenshots/feature-json-format.png" alt="A formatted JSON API response with folding, syntax highlighting, line numbers, and a minimap in CodePrettify" width="1280" height="800" fetchpriority="high" />
         <figcaption>A dense deployment response becomes a structured document with folding, links, timestamps, and navigation.</figcaption>
       </figure>
     </section>
@@ -154,8 +165,8 @@
     <section class="feature-detail-section" aria-labelledby="json-example-title">
       <div class="feature-detail-heading">
         <span class="section-badge">Example</span>
-        <h2 id="json-example-title">The same payload, without the wall of text</h2>
-        <p>CodePrettify preserves the data. It changes the presentation and layers useful tools around the exact document you opened.</p>
+        <h2 id="json-example-title">Pretty print JSON, without the wall of text</h2>
+        <p>CodePrettify works as a JSON beautifier and pretty printer in one: it preserves the data, changes the presentation, and layers useful tools around the exact document you opened.</p>
       </div>
       <div class="feature-example-grid">
         <article class="feature-example-card">
@@ -211,7 +222,7 @@
         <li>
           <div>
             <h3>Check the response against a small contract</h3>
-            <p>Open <strong>Schema Validator</strong> and paste a schema that requires every service to have an owner and a healthy status. Run validation and read each result as <em>path → rule → source line</em>. A useful validator result tells you both what rule failed and where the offending value lives.</p>
+            <p>Open the <strong>JSON Schema Validator</strong> and paste a schema that requires every service to have an owner and a healthy status. Run validation and read each result as <em>path → rule → source line</em>. A useful validator result tells you both what rule failed and where the offending value lives.</p>
             <pre class="feature-code"><code>{
   "type": "object",
   "required": ["services"],
@@ -259,11 +270,11 @@
       </div>
       <div class="feature-shot-grid">
         <figure class="feature-guide-shot">
-          <img src="img/feature-json-path-inspector.png" alt="JSON Path Inspector returning the names of three services from a nested JSON document" width="1280" height="800" loading="lazy" />
+          <img src="img/screenshots/feature-json-path-inspector.png" alt="JSON Path Inspector returning the names of three services from a nested JSON document" width="1280" height="800" loading="lazy" />
           <figcaption><code>$.services[*].name</code> returns three matching values with copy and Go to Line actions.</figcaption>
         </figure>
         <figure class="feature-guide-shot">
-          <img src="img/feature-schema-validator.png" alt="JSON Schema Validator listing six schema violations with JSON paths and line numbers" width="1280" height="800" loading="lazy" />
+          <img src="img/screenshots/feature-schema-validator.png" alt="JSON Schema Validator listing six schema violations with JSON paths and line numbers" width="1280" height="800" loading="lazy" />
           <figcaption>A local schema flags an environment mismatch, a short array, missing owners, and an unexpected status.</figcaption>
         </figure>
       </div>
@@ -288,7 +299,7 @@
           <tbody>
             <tr><td>“Where does this text or identifier appear?”</td><td>Find with <kbd>Ctrl</kbd>+<kbd>F</kbd></td><td>A highlighted value with match count and surrounding fields.</td></tr>
             <tr><td>“Give me the same field from every record.”</td><td>JSON Path Inspector</td><td>A repeatable path such as <code>$.services[*].name</code> and a list of matched values.</td></tr>
-            <tr><td>“Does this payload follow our expected contract?”</td><td>Schema Validator</td><td>Zero violations, or precise paths and line numbers for every failed rule.</td></tr>
+            <tr><td>“Does this payload follow our expected contract?”</td><td>JSON Schema Validator</td><td>Zero violations, or precise paths and line numbers for every failed rule.</td></tr>
             <tr><td>“Which rows are slow, missing, or out of order?”</td><td>Table View</td><td>A filtered or sorted array where differences are visible by column.</td></tr>
             <tr><td>“How is this payload actually structured?”</td><td>Diagram Generator</td><td>A zoomable map of connected field cards you can search, inspect, and export as SVG, PNG, or Mermaid.</td></tr>
             <tr><td>“What changed between releases?”</td><td>Semantic Compare</td><td>Changed data values without whitespace and key-order noise.</td></tr>
@@ -297,7 +308,7 @@
         </table>
       </div>
       <div class="feature-troubleshooting-grid">
-        <article class="feature-learning-card"><h3>The extension did not activate</h3><p>Confirm the resource is raw JSON rather than an HTML page, check that JSON is enabled in Settings, and reload. For a local file, use the launcher when direct file URL permission is unavailable.</p></article>
+        <article class="feature-learning-card"><h3>Extension not working or not activating?</h3><p>Confirm the resource is raw JSON rather than an HTML page, check that JSON is enabled in Settings, and reload. For a local file, use the launcher when direct file URL permission is unavailable. The <a href="manual.html#troubleshooting">manual&rsquo;s troubleshooting section</a> has the full activation checklist.</p></article>
         <article class="feature-learning-card"><h3>The query returns no values</h3><p>Inspect the root shape and spelling first. A document rooted at an array needs a different starting path than an object containing a <code>services</code> property.</p></article>
         <article class="feature-learning-card"><h3>Schema results look overwhelming</h3><p>Begin with one required field or one enum rule, validate, then add constraints gradually. This separates a wrong schema assumption from a genuinely invalid payload.</p></article>
         <article class="feature-learning-card"><h3>The formatted result should not replace the source</h3><p>Formatting changes presentation, not the original response. Choose the original, formatted, converted, or transformed representation explicitly when copying or exporting.</p></article>
@@ -324,7 +335,7 @@
           <ul><li>Sortable and searchable Table View</li><li>Per-column filters and column reordering</li><li>CSV, JSON, and HTML table exports</li></ul>
         </article>
         <article class="feature-capability">
-          <h3>Compare changes</h3>
+          <h3>Compare JSON with a semantic diff</h3>
           <ul><li>Text or semantic JSON comparison</li><li>Ignore formatting and key-order noise</li><li>Jump through real additions and removals</li></ul>
         </article>
         <article class="feature-capability">
@@ -358,6 +369,8 @@
         <a class="feature-related-card" href="json-to-code-generator.html"><h3>JSON to Code Generator</h3><p>Infer typed models from real samples for TypeScript, Pydantic, C#, Java, Go, Rust, Swift, Dart, and more.</p><span>Explore code generation →</span></a>
         <a class="feature-related-card" href="json-repair-transform.html"><h3>JSON Repair &amp; Transform</h3><p>Recover useful data from logs, copied snippets, fenced output, and hand-edited JSON-like text.</p><span>Explore repair and transform →</span></a>
         <a class="feature-related-card" href="http-client-browser-extension.html"><h3>HTTP Client</h3><p>Send a request and inspect its JSON response in the same browser workspace.</p><span>Explore the HTTP Client →</span></a>
+        <a class="feature-related-card" href="json-compare.html"><h3>JSON Compare &amp; Diff</h3><p>Compare two payloads semantically — key order and formatting noise disappear from the diff.</p><span>Explore JSON compare →</span></a>
+        <a class="feature-related-card" href="json-schema-validator.html"><h3>JSON Schema Validator</h3><p>Check the open document against a pasted schema with exact paths and source lines for every violation.</p><span>Explore schema validation →</span></a>
       </div>
     </section>
 
@@ -373,7 +386,7 @@
 
   <footer>
     <div class="footer-inner">
-      <div class="footer-links"><a href="pricing.html">Pricing</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div>
+      <div class="footer-links"><a href="pricing.html">Pricing</a><a href="guides.html">Guides</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div>
       <p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p>
     </div>
   </footer>

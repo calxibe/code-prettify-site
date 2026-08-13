@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSON Schema Validator – Local, Draft 2020-12 | CodePrettify</title>
+  <meta name="description" content="Validate JSON against a schema locally: free JSON Schema validator with Draft 2020-12 keywords, exact violation paths and source lines, no upload." />
+  <meta name="application-name" content="CodePrettify" />
+  <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://prettify.cloud/json-schema-validator.html" />
+  <link rel="icon" href="favicon.ico?v=20260725" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20260725" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260725" />
+  <meta property="og:site_name" content="CodePrettify" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="JSON Schema Validator – Local, Draft 2020-12" />
+  <meta property="og:description" content="Validate the open JSON document against a pasted schema on your device — exact instance paths, keywords, and source lines for every violation." />
+  <meta property="og:url" content="https://prettify.cloud/json-schema-validator.html" />
+  <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-schema-validator.png" />
+  <meta property="og:image:alt" content="CodePrettify JSON Schema Validator reporting schema violations with instance paths and source lines" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="JSON Schema Validator – Local, Draft 2020-12" />
+  <meta name="twitter:description" content="Paste a schema, press Ctrl+Enter, jump to the failing line. Local and free." />
+  <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-schema-validator.png" />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
+  <link rel="stylesheet" href="style.min.css?v=e323747f" />
+  <script src="site.js?v=20260809-2" defer></script>
+  <script src="feature-guide.js?v=20260725-1" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "CodePrettify JSON Schema Validator",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Chrome, Edge, Windows",
+          "url": "https://prettify.cloud/json-schema-validator.html",
+          "description": "Validate JSON against a JSON Schema locally — Draft 2020-12 and legacy keyword forms, exact instance paths, keywords, schema paths, and source lines for every violation, with no uploads and no remote schema fetches.",
+          "installUrl": "https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "CodePrettify", "item": "https://prettify.cloud/" },
+            { "@type": "ListItem", "position": 2, "name": "JSON Schema Validator", "item": "https://prettify.cloud/json-schema-validator.html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "Does the JSON Schema Validator fetch remote $ref schemas?", "acceptedAnswer": { "@type": "Answer", "text": "No — this is a deliberate privacy boundary. Only local # references and anchors are resolved, and remote schemas are never downloaded. Paste the complete schema you intend to trust, inlining external definitions under $defs." } },
+            { "@type": "Question", "name": "Which JSON Schema draft and keywords are supported?", "acceptedAnswer": { "@type": "Answer", "text": "Core types, enum and const, numeric, string, object, and array constraints, composition, conditionals, and dependencies — in Draft 2020-12 forms such as prefixItems, $defs, and dependentRequired as well as the legacy items, definitions, and dependencies forms. unevaluatedProperties is reported as unsupported rather than silently ignored." } },
+            { "@type": "Question", "name": "Why does a complex regular expression get the schema rejected?", "acceptedAnswer": { "@type": "Answer", "text": "Patterns with backreferences, lookarounds, repeated groups containing alternation or inner quantifiers, consecutive overlapping quantifiers, or more than 512 characters cause the schema to be rejected as too complex. The validator refuses patterns that could run away on pathological input instead of freezing the page — simplify the expression and validate again." } },
+            { "@type": "Question", "name": "Is JSON Schema validation local?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — completely local. The document stays in the tab, the pasted schema is kept only for the session, and remote schemas are never downloaded." } }
+          ]
+        }
+      ]
+    }
+  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date);gtag("config","G-S4WNQ48Q7F");addEventListener("load",function(){var l=function(){var s=document.createElement("script");s.async=!0;s.src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F";document.head.appendChild(s)};window.requestIdleCallback?requestIdleCallback(l,{timeout:3000}):setTimeout(l,1200)})</script>
+</head>
+<body class="feature-detail-body">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="bg-glow"></div>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo"><img src="img/code_32.png?v=20260725" srcset="img/code_32.png?v=20260725 1x, img/code_64.png?v=20260725 2x" width="32" height="32" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span></a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
+      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#install">Install</a>
+        <a href="guides.html">Guides</a><a href="pricing.html">Price</a><a href="manual.html">Manual</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a></nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="feature-detail-main">
+    <nav class="feature-breadcrumb" aria-label="Breadcrumb"><a href="/">CodePrettify</a><span aria-hidden="true">/</span><span>JSON Schema Validator</span></nav>
+    <section class="feature-detail-hero">
+      <div>
+        <span class="feature-detail-eyebrow">Contract checking, on your device</span>
+        <h1>A JSON Schema validator that shows the exact failing line</h1>
+        <p class="feature-detail-lead">Valid JSON can still break your contract. CodePrettify validates the open JSON or JSONC document against a pasted JSON Schema entirely on your device and reports every violation with its instance path, keyword, message, schema path, and source line — then jumps you straight to it.</p>
+        <div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="manual.html#schema-validator">Read the manual section</a></div>
+        <ul class="feature-proof-list"><li>Exact paths and source lines</li><li>Draft 2020-12 and legacy forms</li><li>No remote schema downloads</li><li>Completely local</li></ul>
+      </div>
+      <figure class="feature-hero-shot"><img src="img/screenshots/feature-schema-validator.png" alt="CodePrettify JSON Schema Validator listing six schema violations with instance paths, keywords, and source lines" width="1280" height="800" fetchpriority="high" /><figcaption>A pasted schema produces path- and line-specific violations: an environment mismatch, a short array, missing owners, and an unexpected status.</figcaption></figure>
+    </section>
+
+    <nav class="feature-learning-nav" aria-label="Lessons in this JSON Schema validator guide">
+      <strong>Learn on this page</strong>
+      <div class="feature-learning-links">
+        <a href="#schema-example-title">Read a violation</a>
+        <a href="#schema-tutorial-title">Validate step by step</a>
+        <a href="#schema-keywords-title">Supported keywords</a>
+        <a href="#schema-limits-title">Limits and failures</a>
+        <a href="#schema-faq-title">Troubleshoot</a>
+      </div>
+    </nav>
+
+    <section class="feature-detail-section" aria-labelledby="schema-example-title">
+      <div class="feature-detail-heading"><span class="section-badge">Validation example</span><h2 id="schema-example-title">Validate JSON against a schema and get answers you can act on</h2><p>A checker that only says “invalid” wastes your time. Every result here names the rule that failed, where it failed, and the source line that broke it.</p></div>
+      <div class="feature-example-grid">
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">The contract</span><h3>A small schema with real rules</h3><p>Three required properties, an enum, a numeric minimum, and an email format check — pasted directly into the validator.</p></div>
+          <pre class="feature-code"><code>{
+  "type": "object",
+  "required": ["service", "environment", "replicas"],
+  "properties": {
+    "service": { "type": "string" },
+    "environment": { "enum": ["staging", "production"] },
+    "replicas": { "type": "integer", "minimum": 2 },
+    "contact": { "type": "string", "format": "email" }
+  }
+}</code></pre>
+        </article>
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">The verdict</span><h3>Three precise violations</h3><p>Run against a document where <code>environment</code> is <code>"prod"</code>, <code>replicas</code> is <code>1</code>, and <code>contact</code> is missing its domain. Each result carries an instance path, keyword, message, schema path, and source line.</p></div>
+          <pre class="feature-code"><code>/environment  <span class="code-accent">enum</span>
+  not one of "staging", "production"
+  #/properties/environment/enum &rarr; line 3
+
+/replicas     <span class="code-accent">minimum</span>
+  1 is below the minimum of 2
+  #/properties/replicas/minimum &rarr; line 4
+
+/contact      <span class="code-accent">format</span>
+  not a valid "email"
+  #/properties/contact/format &rarr; line 5</code></pre>
+        </article>
+      </div>
+      <div class="feature-privacy-note"><span class="feature-privacy-icon" aria-hidden="true">✓</span><div><strong>The schema stays on your device.</strong><p>Only local <code>#</code> references and anchors are resolved — remote schemas are never downloaded. Paste the contract you intend to trust and validate the document in place.</p></div></div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="schema-tutorial-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Hands-on tutorial</span>
+        <h2 id="schema-tutorial-title">Validate a document against a schema in one pass</h2>
+        <p>Use the example schema above or your own contract. The habit that pays off is reading each violation&rsquo;s path and keyword instead of skimming the summary.</p>
+      </div>
+      <ol class="feature-tutorial-steps">
+        <li>
+          <div><h3>Open the document you want to check</h3><p>Open a normal JSON or JSONC document. JSON Lines is not supported — convert the records to a JSON array first (JSON Repair &amp; Transform can produce one).</p></div>
+        </li>
+        <li>
+          <div><h3>Open JSON Schema Validator</h3><p>Find it in <strong>More Actions</strong> or the Command Palette; the Windows app also lists it in the <strong>Tools</strong> menu.</p></div>
+        </li>
+        <li>
+          <div><h3>Paste the schema</h3><p>Paste up to 2 MiB of schema text. Only local <code>#</code> references and anchors are resolved, so inline any external definitions under <code>$defs</code> before pasting. The schema is kept for the session, which makes iterating cheap.</p></div>
+        </li>
+        <li>
+          <div><h3>Choose Validate or press Ctrl+Enter</h3><p>Inside the dialog, <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>Cmd</kbd>+<kbd>Enter</kbd> on macOS) runs the primary action. The operation and time budgets apply separately to checking your schema and to validating the document.</p></div>
+        </li>
+        <li>
+          <div><h3>Read each violation completely</h3><p>Every result reports the instance path, the keyword that failed, a message, the schema path, and the source line. Up to 100 errors are reported per run — if you hit that ceiling, fix the loudest class of failures and run again.</p></div>
+        </li>
+        <li>
+          <div><h3>Select a result to jump to the line</h3><p>Selecting a violation jumps to its source line in the document. Fix the value — or fix the schema when the rule itself was wrong — and validate again.</p></div>
+        </li>
+        <li>
+          <div><h3>Grow the schema gradually</h3><p>Begin with one required field or one enum rule, validate, then add constraints. This separates a wrong schema assumption from a genuinely invalid payload.</p></div>
+        </li>
+      </ol>
+      <div class="feature-practice-lab">
+        <h3>Before you trust a green result</h3>
+        <p>A clean run is only as good as the contract behind it. Confirm these five points.</p>
+        <ul class="feature-checklist">
+          <li>The pasted schema is the contract version you intend to trust.</li>
+          <li>No limit was hit — a run that hits any limit is never reported as valid.</li>
+          <li>Every format you rely on is in the validated list; unrecognized format names are ignored, not enforced.</li>
+          <li>Rules that depend on <code>unevaluatedProperties</code> are verified elsewhere — the validator reports that keyword as unsupported.</li>
+          <li>Remote <code>$ref</code> targets were inlined as local references, not assumed.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="schema-keywords-title">
+      <div class="feature-detail-heading"><span class="section-badge">Supported keywords</span><h2 id="schema-keywords-title">Draft 2020-12 forms and the legacy spellings, side by side</h2><p>Schemas in the wild mix generations. The validator understands 2020-12 forms such as <code>prefixItems</code>, <code>$defs</code>, and <code>dependentRequired</code> alongside the legacy <code>items</code>, <code>definitions</code>, and <code>dependencies</code> forms.</p></div>
+      <div class="feature-capability-grid">
+        <article class="feature-capability"><h3>Types and values</h3><ul><li>object, array, string, number</li><li>integer, boolean, null</li><li>enum allowed-value lists</li><li>const exact values</li></ul></article>
+        <article class="feature-capability"><h3>Numeric and string rules</h3><ul><li>Numeric bounds and multiples</li><li>Exclusive limits</li><li>String length constraints</li><li>Patterns with safe regular expressions</li></ul></article>
+        <article class="feature-capability"><h3>Objects and arrays</h3><ul><li>Required properties</li><li>Property and item counts</li><li>Unique array items</li><li>prefixItems and legacy items tuples</li></ul></article>
+        <article class="feature-capability"><h3>Composition and conditionals</h3><ul><li>allOf, anyOf, oneOf</li><li>not</li><li>if / then / else</li></ul></article>
+        <article class="feature-capability"><h3>Dependencies and references</h3><ul><li>dependentRequired</li><li>Legacy dependencies</li><li>$defs and legacy definitions</li><li>Local # references and anchors only</li></ul></article>
+        <article class="feature-capability"><h3>Validated formats</h3><ul><li>email, hostname</li><li>ipv4, ipv6, uuid</li><li>date, time, date-time</li><li>uri, uri-reference, regex</li></ul><p>Unrecognized format names are ignored rather than validated.</p></article>
+        <article class="feature-capability"><h3>Honest boundaries</h3><ul><li>unevaluatedProperties reported as unsupported</li><li>Unsafe regular expressions rejected as too complex</li><li>Remote schemas never downloaded</li><li>A run that hits any limit is never reported as valid</li></ul></article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="schema-limits-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Limits and failure guide</span>
+        <h2 id="schema-limits-title">Know exactly when a result can and cannot be trusted</h2>
+        <p>The budgets exist so a pathological schema or a hostile document cannot freeze the tab — and they are disclosed instead of hidden. A run that hits any of them is never reported as valid.</p>
+      </div>
+      <div class="feature-shot-grid">
+        <figure class="feature-guide-shot"><img src="img/manual/schema-validator.png" alt="JSON Schema Validator showing a local schema, validation summary, instance paths, messages, and source-line links" width="1280" height="800" loading="lazy" /><figcaption>The pasted schema, the validation summary, and each violation&rsquo;s path, message, and source-line link in one panel.</figcaption></figure>
+      </div>
+      <div class="feature-guide-table-wrap">
+        <table class="feature-guide-table">
+          <thead><tr><th>What you see</th><th>What it means</th><th>Best next action</th></tr></thead>
+          <tbody>
+            <tr><td>Zero violations</td><td>Every rule passed within the operation and time budgets.</td><td>Confirm the pasted schema is the contract version you intend to trust, then move on.</td></tr>
+            <tr><td>Violations with paths and lines</td><td>The document breaks specific rules at specific places.</td><td>Select each result to jump to its source line; fix the value or the rule and re-validate.</td></tr>
+            <tr><td>Schema rejected as too complex</td><td>A regular expression uses backreferences, lookarounds, repeated groups with alternation or inner quantifiers, consecutive overlapping quantifiers, or exceeds 512 characters.</td><td>Simplify the pattern — the validator refuses runaway-prone regexes instead of freezing.</td></tr>
+            <tr><td><code>unevaluatedProperties</code> reported as unsupported</td><td>The keyword is outside the supported set, and the tool says so instead of silently passing it.</td><td>Verify that part of the contract elsewhere and rely on the supported keywords here.</td></tr>
+            <tr><td>A limit was hit (2 MiB schema, depth 80, 100 errors, 100,000 operations, ~2.5 s)</td><td>A budget was exhausted; budgets apply separately to schema checking and document validation, and the run is never reported as valid.</td><td>Reduce the schema or document scope and run again.</td></tr>
+            <tr><td>The document is JSON Lines</td><td>The validator supports normal JSON and JSONC documents only.</td><td>Convert the records to a JSON array — JSON Repair &amp; Transform produces one — and validate that.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="feature-learning-outcome"><strong>Working rhythm:</strong> the pasted schema is kept for the session, so you can edit the document, switch views, and re-open the validator without pasting the contract again. Iterate in small steps — validate, jump to the first violation&rsquo;s source line, fix the value or tighten the rule, and run again with <kbd>Ctrl</kbd>+<kbd>Enter</kbd> until the summary reads clean. Because remote references are never fetched, results are reproducible on any machine: the same document and the same pasted schema always produce the same verdict, offline or online.</p>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="schema-faq-title">
+      <div class="feature-detail-heading"><span class="section-badge">FAQ</span><h2 id="schema-faq-title">JSON Schema validation questions</h2></div>
+      <div class="feature-detail-faq">
+        <details><summary>Does the JSON Schema Validator fetch remote $ref schemas?</summary><p>No — this is a deliberate privacy boundary. Only local <code>#</code> references and anchors are resolved, and remote schemas are never downloaded. Paste the complete schema you intend to trust, inlining external definitions under <code>$defs</code>.</p></details>
+        <details><summary>Which JSON Schema draft and keywords are supported?</summary><p>Core types, enum and const, numeric, string, object, and array constraints, composition, conditionals, and dependencies — in Draft 2020-12 forms such as <code>prefixItems</code>, <code>$defs</code>, and <code>dependentRequired</code> as well as the legacy <code>items</code>, <code>definitions</code>, and <code>dependencies</code> forms. <code>unevaluatedProperties</code> is reported as unsupported rather than silently ignored.</p></details>
+        <details><summary>Why does a complex regular expression get the schema rejected?</summary><p>Patterns with backreferences, lookarounds, repeated groups containing alternation or inner quantifiers, consecutive overlapping quantifiers, or more than 512 characters cause the schema to be rejected as too complex. The validator refuses patterns that could run away on pathological input instead of freezing the page — simplify the expression and validate again.</p></details>
+        <details><summary>Is JSON Schema validation local?</summary><p>Yes — completely local. The document stays in the tab, the pasted schema is kept only for the session, and remote schemas are never downloaded.</p></details>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="schema-related-title">
+      <div class="feature-detail-heading"><span class="section-badge">Related guides</span><h2 id="schema-related-title">Continue with a verified document</h2></div>
+      <div class="feature-related-grid">
+        <a class="feature-related-card" href="json-formatter-browser-extension.html"><h3>JSON Formatter and Viewer</h3><p>Fold, search, and query with JSONPath in the same viewer that runs schema validation on the open document.</p><span>Explore the JSON viewer →</span></a>
+        <a class="feature-related-card" href="json-repair-transform.html"><h3>JSON Repair &amp; Transform</h3><p>Repair almost-JSON into strict JSON — and turn JSON Lines records into a validatable array — before schema validation.</p><span>Explore repair and transform →</span></a>
+        <a class="feature-related-card" href="manual.html#schema-validator"><h3>Complete Manual</h3><p>Review every supported keyword group, validated format, and limit of the JSON Schema Validator.</p><span>Open the manual →</span></a>
+      </div>
+    </section>
+
+    <section class="feature-page-cta" aria-labelledby="schema-cta-title"><h2 id="schema-cta-title">Check the contract before the payload ships</h2><p>Open the document, paste the schema, and read violations with exact paths and source lines — entirely on your device.</p><div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="pricing.html">See $0 early access</a></div></section>
+  </main>
+
+  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="guides.html">Guides</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
+</body>
+</html>

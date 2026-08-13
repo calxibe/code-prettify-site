@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JSON to Code Generator for TypeScript, Pydantic, C# &amp; More | CodePrettify</title>
-  <meta name="description" content="Generate TypeScript, Zod, Pydantic, C#, Java, Kotlin, Go, Rust, Swift, Dart, or JSON Schema from real JSON samples locally with CodePrettify." />
+  <title>JSON to Code Generator – TypeScript, Pydantic, C#, Go &amp; More | CodePrettify</title>
+  <meta name="description" content="Free JSON to code generator in Chrome and Edge: paste real JSON, get TypeScript, Pydantic, Zod, C#, Go and more — nested models, optional fields, no upload." />
   <meta name="application-name" content="CodePrettify" />
   <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
@@ -17,18 +17,18 @@
   <meta property="og:site_name" content="CodePrettify" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Generate Typed Code from JSON Samples Locally" />
-  <meta property="og:description" content="Infer nested models for TypeScript, Pydantic, C#, Java, Kotlin, Go, Rust, Swift, Dart, Zod, or JSON Schema." />
+  <meta property="og:title" content="JSON to Code Generator – TypeScript, Pydantic, C# &amp; More" />
+  <meta property="og:description" content="Infer nested models for 11 targets — TypeScript, Pydantic, C#, Go, Zod, JSON Schema and more — locally, with no upload." />
   <meta property="og:url" content="https://prettify.cloud/json-to-code-generator.html" />
-  <meta property="og:image" content="https://prettify.cloud/img/feature-json-to-code.png" />
+  <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-json-to-code.png" />
   <meta property="og:image:alt" content="CodePrettify generating TypeScript interfaces from deployment-event JSON samples" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Generate Typed Code from JSON Samples Locally" />
+  <meta name="twitter:title" content="JSON to Code Generator – TypeScript, Pydantic, C# &amp; More" />
   <meta name="twitter:description" content="Switch among eleven code and schema targets without uploading the JSON." />
-  <meta name="twitter:image" content="https://prettify.cloud/img/feature-json-to-code.png" />
+  <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-json-to-code.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=51ffddf6" />
+  <link rel="stylesheet" href="style.min.css?v=e323747f" />
   <script src="site.js?v=20260809-2" defer></script>
   <script src="feature-guide.js?v=20260725-1" defer></script>
   <script type="application/ld+json">
@@ -41,6 +41,9 @@
           "applicationCategory": "DeveloperApplication",
           "operatingSystem": "Chrome, Edge, Windows",
           "url": "https://prettify.cloud/json-to-code-generator.html",
+          "description": "Generate typed models from real JSON samples locally: TypeScript, Zod, Pydantic, C#, Java, Kotlin, Go, Rust, Swift, Dart, or JSON Schema.",
+          "installUrl": "https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj",
+          "featureList": "TypeScript, Zod, Pydantic, C#, Java, Kotlin, Go, Rust, Swift, Dart, JSON Schema",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
         },
         {
@@ -48,6 +51,15 @@
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "CodePrettify", "item": "https://prettify.cloud/" },
             { "@type": "ListItem", "position": 2, "name": "JSON to Code Generator", "item": "https://prettify.cloud/json-to-code-generator.html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "Is the generated code production-ready?", "acceptedAnswer": { "@type": "Answer", "text": "It is a strong starting point inferred from the samples you provide. Review naming, domain constraints, validation rules, serialization settings, and optionality before treating it as a finished contract." } },
+            { "@type": "Question", "name": "Can I generate code from the JSON document already open?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Choose \"Use document\" in the generator to load the current JSON without copying it manually." } },
+            { "@type": "Question", "name": "How do I get better optional-field inference?", "acceptedAnswer": { "@type": "Answer", "text": "Use an array containing several representative objects, including examples where conditionally present fields are absent." } },
+            { "@type": "Question", "name": "Can I generate a JSON Schema and validate the original document?", "acceptedAnswer": { "@type": "Answer", "text": "Generate JSON Schema, open or copy it, then use CodePrettify's JSON Schema Validator against the original document." } }
           ]
         }
       ]
@@ -65,7 +77,8 @@
         <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg>
         <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg>
       </button>
-      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#feature-guides">Features</a><a href="pricing.html">Price</a><a href="changelog.html">Changelog</a><a href="manual.html">Manual</a><a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a></nav>
+      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#install">Install</a>
+        <a href="guides.html">Guides</a><a href="pricing.html">Price</a><a href="manual.html">Manual</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a></nav>
     </div>
   </header>
 
@@ -74,8 +87,8 @@
     <section class="feature-detail-hero">
       <div>
         <span class="feature-detail-eyebrow">Typed models from real data</span>
-        <h1>Turn a JSON sample into code you can start from</h1>
-        <p class="feature-detail-lead">Paste one or more representative JSON values, choose a target, and generate nested models locally. Review inferred optional fields and mixed types, then copy, export, or open the generated result as a new document.</p>
+        <h1>Turn a JSON sample into typed code you can start from</h1>
+        <p class="feature-detail-lead">Paste one or more representative JSON values, choose a target — TypeScript, Zod, Pydantic, C#, Go, JSON Schema and more — and generate nested models locally. Review inferred optional fields and mixed types, then copy, export, or open the generated result as a new document.</p>
         <div class="feature-detail-actions">
           <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a>
           <a class="btn btn-secondary" href="manual.html#json-to-code">Read the manual section</a>
@@ -83,7 +96,7 @@
         <ul class="feature-proof-list"><li>11 targets</li><li>Multiple samples</li><li>Nested models</li><li>Local generation</li></ul>
       </div>
       <figure class="feature-hero-shot">
-        <img src="img/feature-json-to-code.png" alt="JSON to Code Generator showing deployment JSON beside generated TypeScript interfaces" width="1280" height="800" fetchpriority="high" />
+        <img src="img/screenshots/feature-json-to-code.png" alt="JSON to Code Generator showing deployment JSON beside generated TypeScript interfaces" width="1280" height="800" fetchpriority="high" />
         <figcaption>Two deployment-event samples produce reusable TypeScript interfaces with nested actor and metrics types.</figcaption>
       </figure>
     </section>
@@ -210,10 +223,10 @@ export type DeploymentEvent =
     </section>
 
     <section class="feature-detail-section" aria-labelledby="codegen-targets-title">
-      <div class="feature-detail-heading"><span class="section-badge">Targets</span><h2 id="codegen-targets-title">Switch languages without changing the sample</h2><p>The same inference model drives every output target. That makes it easy to compare how TypeScript, validation schemas, backend models, systems languages, and mobile types express the same data.</p></div>
+      <div class="feature-detail-heading"><span class="section-badge">Targets</span><h2 id="codegen-targets-title">Generate TypeScript, Pydantic, C#, Go and more from the same sample</h2><p class="feature-deep-links">Per-language guides: <a href="json-to-typescript.html">JSON to TypeScript</a> · <a href="json-to-pydantic.html">JSON to Pydantic</a> · <a href="json-to-csharp.html">JSON to C# classes</a>.</p><p>Convert JSON to TypeScript interfaces, Pydantic models, C# classes, Go structs, and more — the same inference model drives every output target, so it is easy to compare how each ecosystem expresses the same data.</p></div>
       <div class="feature-shot-grid">
-        <figure class="feature-guide-shot"><img src="img/feature-json-to-code.png" alt="Generated TypeScript interfaces beside a JSON deployment sample" width="1280" height="800" loading="lazy" /><figcaption>TypeScript preserves nested interfaces and marks evidence-based optional properties.</figcaption></figure>
-        <figure class="feature-guide-shot"><img src="img/feature-json-to-code-pydantic.png" alt="Generated Python Pydantic models beside the same JSON deployment sample" width="1280" height="800" loading="lazy" /><figcaption>Python + Pydantic uses <code>BaseModel</code>, aliases JSON property names, and exposes optional values.</figcaption></figure>
+        <figure class="feature-guide-shot"><img src="img/screenshots/feature-json-to-code.png" alt="Generated TypeScript interfaces beside a JSON deployment sample" width="1280" height="800" loading="lazy" /><figcaption>TypeScript preserves nested interfaces and marks evidence-based optional properties.</figcaption></figure>
+        <figure class="feature-guide-shot"><img src="img/screenshots/feature-json-to-code-pydantic.png" alt="Generated Python Pydantic models beside the same JSON deployment sample" width="1280" height="800" loading="lazy" /><figcaption>Python + Pydantic uses <code>BaseModel</code>, aliases JSON property names, and exposes optional values.</figcaption></figure>
       </div>
       <div class="feature-capability-grid">
         <article class="feature-capability"><h3>Web and schema</h3><ul><li>TypeScript interfaces and aliases</li><li>TypeScript + Zod runtime schemas</li><li>JSON Schema Draft 2020-12 (its own Schema group in the Target list)</li></ul></article>
@@ -267,9 +280,9 @@ export type DeploymentEvent =
       <div class="feature-detail-heading"><span class="section-badge">FAQ</span><h2 id="codegen-faq-title">JSON to code questions</h2></div>
       <div class="feature-detail-faq">
         <details><summary>Is the generated code production-ready?</summary><p>It is a strong starting point inferred from the samples you provide. Review naming, domain constraints, validation rules, serialization settings, and optionality before treating it as a finished contract.</p></details>
-        <details><summary>Can I generate from the JSON already open?</summary><p>Yes. Choose “Use document” in the generator to load the current JSON without copying it manually.</p></details>
+        <details><summary>Can I generate code from the JSON document already open?</summary><p>Yes. Choose “Use document” in the generator to load the current JSON without copying it manually.</p></details>
         <details><summary>How do I get better optional-field inference?</summary><p>Use an array containing several representative objects, including examples where conditionally present fields are absent.</p></details>
-        <details><summary>Can I generate a schema and validate the original?</summary><p>Generate JSON Schema, open or copy it, then use CodePrettify’s JSON Schema Validator against the original document.</p></details>
+        <details><summary>Can I generate a JSON Schema and validate the original document?</summary><p>Generate JSON Schema, open or copy it, then use CodePrettify’s JSON Schema Validator against the original document.</p></details>
       </div>
     </section>
 
@@ -289,6 +302,6 @@ export type DeploymentEvent =
     </section>
   </main>
 
-  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
+  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="guides.html">Guides</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
 </body>
 </html>

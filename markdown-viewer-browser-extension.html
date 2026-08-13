@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Markdown Viewer Extension for Local and Raw .md Files | CodePrettify</title>
-  <meta name="description" content="Render local or remote Markdown files in Chrome and Edge, switch between rendered and source views, search, navigate headings, compare, inspect, and export locally." />
+  <title>Markdown Viewer Chrome Extension – Open Local .md Files | CodePrettify</title>
+  <meta name="description" content="Free Markdown viewer extension for Chrome and Edge. Open local or raw .md files as readable documents, rendered locally with no upload. Install free." />
   <meta name="application-name" content="CodePrettify" />
   <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
@@ -17,18 +17,18 @@
   <meta property="og:site_name" content="CodePrettify" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Read Local and Remote Markdown Files in the Browser" />
-  <meta property="og:description" content="Render headings, tables, tasks, links, code fences, footnotes, and lists, with the exact source one click away." />
+  <meta property="og:title" content="Markdown Viewer for Chrome and Edge – Local and Raw .md Files" />
+  <meta property="og:description" content="Free Markdown viewer for Chrome and Edge. Render tables, tasks, code fences, and footnotes with the exact source one click away." />
   <meta property="og:url" content="https://prettify.cloud/markdown-viewer-browser-extension.html" />
-  <meta property="og:image" content="https://prettify.cloud/img/feature-markdown.png" />
+  <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-markdown.png" />
   <meta property="og:image:alt" content="CodePrettify rendering a Markdown document with tables and task lists" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Read Local and Remote Markdown Files in the Browser" />
+  <meta name="twitter:title" content="Markdown Viewer for Chrome and Edge – Local and Raw .md Files" />
   <meta name="twitter:description" content="Rendered Markdown and exact source stay one click apart." />
-  <meta name="twitter:image" content="https://prettify.cloud/img/feature-markdown.png" />
+  <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-markdown.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=51ffddf6" />
+  <link rel="stylesheet" href="style.min.css?v=e323747f" />
   <script src="site.js?v=20260809-2" defer></script>
   <script src="feature-guide.js?v=20260725-1" defer></script>
   <script type="application/ld+json">
@@ -41,6 +41,8 @@
           "applicationCategory": "DeveloperApplication",
           "operatingSystem": "Chrome, Edge, Windows",
           "url": "https://prettify.cloud/markdown-viewer-browser-extension.html",
+          "description": "A free Markdown viewer extension for Chrome and Edge that renders local or raw .md files locally, with a one-click Source view and no upload.",
+          "installUrl": "https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
         },
         {
@@ -48,6 +50,15 @@
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "CodePrettify", "item": "https://prettify.cloud/" },
             { "@type": "ListItem", "position": 2, "name": "Markdown Viewer", "item": "https://prettify.cloud/markdown-viewer-browser-extension.html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "Is this a Markdown editor or just a viewer?", "acceptedAnswer": { "@type": "Answer", "text": "The browser extension is primarily a viewer and inspection workspace. Source remains read-only; copy or export content when you want to continue in an editor." } },
+            { "@type": "Question", "name": "Will embedded HTML execute?", "acceptedAnswer": { "@type": "Answer", "text": "No. Raw HTML is not executed as active page content in the Markdown preview." } },
+            { "@type": "Question", "name": "Why is a remote image shown as a link?", "acceptedAnswer": { "@type": "Answer", "text": "Automatically fetching it could disclose your IP address and document-open event to an external server. CodePrettify keeps that network action explicit." } },
+            { "@type": "Question", "name": "How do I open a local .md file in Chrome?", "acceptedAnswer": { "@type": "Answer", "text": "Drag the file onto the extension launcher or use its file picker — no extra permission needed. To open file:// URLs directly, enable \"Allow access to file URLs\" for CodePrettify in the browser's extension settings." } }
           ]
         }
       ]
@@ -62,7 +73,8 @@
     <div class="header-inner">
       <a href="/" class="logo"><img src="img/code_32.png?v=20260725" srcset="img/code_32.png?v=20260725 1x, img/code_64.png?v=20260725 2x" width="32" height="32" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span></a>
       <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
-      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#feature-guides">Features</a><a href="pricing.html">Price</a><a href="changelog.html">Changelog</a><a href="manual.html">Manual</a><a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a></nav>
+      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#install">Install</a>
+        <a href="guides.html">Guides</a><a href="pricing.html">Price</a><a href="manual.html">Manual</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a></nav>
     </div>
   </header>
 
@@ -71,12 +83,12 @@
     <section class="feature-detail-hero">
       <div>
         <span class="feature-detail-eyebrow">Rendered document, exact source</span>
-        <h1>Read Markdown without leaving the file behind</h1>
-        <p class="feature-detail-lead">Open a raw <code>.md</code> or <code>.markdown</code> file and CodePrettify turns it into a readable document while preserving a one-click Source view. Search, navigate headings, compare versions, inspect diagnostics, and export from the same tab.</p>
-        <div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="manual.html#format-behavior">Read the manual section</a></div>
+        <h1>A Markdown viewer that never leaves the source behind</h1>
+        <p class="feature-detail-lead">Open a raw <code>.md</code> or <code>.markdown</code> file in Chrome or Edge and CodePrettify turns it into a readable document while preserving a one-click Source view. Search, navigate headings, compare versions, inspect diagnostics, and export from the same tab. The same Markdown viewer ships in the CodePrettify app for Windows.</p>
+        <div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="manual.html#format-behavior">How Markdown rendering works</a></div>
         <ul class="feature-proof-list"><li>Local and remote files</li><li>Rendered / Source</li><li>Safe raw HTML</li><li>Private images</li></ul>
       </div>
-      <figure class="feature-hero-shot"><img src="img/feature-markdown.png" alt="Rendered Markdown document showing headings, a table, escaped pipes, and a task list" width="1280" height="800" fetchpriority="high" /><figcaption>GitHub-flavored tables, task lists, code, links, headings, and common document structure become easy to scan.</figcaption></figure>
+      <figure class="feature-hero-shot"><img src="img/screenshots/feature-markdown.png" alt="CodePrettify Markdown viewer extension rendering headings, a table, escaped pipes, and a task list in Chrome" width="1280" height="800" fetchpriority="high" /><figcaption>GitHub-flavored tables, task lists, code, links, headings, and common document structure become easy to scan.</figcaption></figure>
     </section>
 
     <nav class="feature-learning-nav" aria-label="Lessons in this Markdown guide">
@@ -91,7 +103,7 @@
     </nav>
 
     <section class="feature-detail-section" aria-labelledby="markdown-open-title">
-      <div class="feature-detail-heading"><span class="section-badge">Open files</span><h2 id="markdown-open-title">Use the workflow that matches where the document lives</h2></div>
+      <div class="feature-detail-heading"><span class="section-badge">Open files</span><h2 id="markdown-open-title">Three ways to open a .md file in the browser</h2></div>
       <div class="feature-step-grid">
         <article class="feature-step"><span class="feature-step-number">1</span><h3>Remote raw Markdown</h3><p>Open a URL ending in <code>.md</code> or a response served with a Markdown content type. CodePrettify recognizes the document and renders it.</p></article>
         <article class="feature-step"><span class="feature-step-number">2</span><h3>Local file through the launcher</h3><p>Drag a Markdown file onto the extension launcher or use the picker. This route does not require broad <code>file://</code> permission. Files opened this way are limited to 10 MB; open larger documents via a direct <code>file://</code> URL instead.</p></article>
@@ -145,8 +157,8 @@
     <section class="feature-detail-section" aria-labelledby="markdown-both-title">
       <div class="feature-detail-heading"><span class="section-badge">Two views</span><h2 id="markdown-both-title">Rendered for reading. Source for verification.</h2><p>The rendered view helps you understand the document. The Source view confirms the exact Markdown characters, table delimiters, task markers, links, and code fences that produced it.</p></div>
       <div class="feature-shot-grid">
-        <figure class="feature-guide-shot"><img src="img/feature-markdown.png" alt="Markdown rendered as a clean document with tables and checked tasks" width="1280" height="800" loading="lazy" /><figcaption>Rendered view presents the document as headings, paragraphs, tables, and task lists.</figcaption></figure>
-        <figure class="feature-guide-shot"><img src="img/feature-markdown-source.png" alt="The exact Markdown source for the same tables and task-list document" width="1280" height="800" loading="lazy" /><figcaption>Source view exposes the exact pipes, backslashes, brackets, and Markdown markers.</figcaption></figure>
+        <figure class="feature-guide-shot"><img src="img/screenshots/feature-markdown.png" alt="Markdown rendered as a clean document with tables and checked tasks" width="1280" height="800" loading="lazy" /><figcaption>Rendered view presents the document as headings, paragraphs, tables, and task lists.</figcaption></figure>
+        <figure class="feature-guide-shot"><img src="img/screenshots/feature-markdown-source.png" alt="The exact Markdown source for the same tables and task-list document" width="1280" height="800" loading="lazy" /><figcaption>Source view exposes the exact pipes, backslashes, brackets, and Markdown markers.</figcaption></figure>
       </div>
     </section>
 
@@ -199,7 +211,7 @@
         </table>
       </div>
       <div class="feature-troubleshooting-grid">
-        <article class="feature-learning-card"><h3>The extension did not recognize the file</h3><p>Check the <code>.md</code> or <code>.markdown</code> URL, response content type, and Markdown setting. A repository’s normal HTML page is different from its raw-file URL.</p></article>
+        <article class="feature-learning-card"><h3>Markdown viewer not working?</h3><p>Check the <code>.md</code> or <code>.markdown</code> URL, response content type, and Markdown setting. A repository’s normal HTML page is different from its raw-file URL. The <a href="manual.html#troubleshooting">manual&rsquo;s troubleshooting section</a> covers every activation case.</p></article>
         <article class="feature-learning-card"><h3>A heading link jumps somewhere unexpected</h3><p>Compare the generated heading anchor with duplicate or punctuated headings. Use Document Navigator to confirm the outline and the destination visible in the rendered document.</p></article>
         <article class="feature-learning-card"><h3>A remote link is blocked</h3><p>Inspect the scheme. Safe ordinary links remain clickable, while dangerous schemes are deliberately blocked. Rendering a document should not grant it script execution.</p></article>
         <article class="feature-learning-card"><h3>You need to edit the file</h3><p>The browser extension is an inspection workspace. Copy or export the source into your editor, make the change there, then reopen or compare the revised document.</p></article>
@@ -223,10 +235,11 @@
     <section class="feature-detail-section" aria-labelledby="markdown-faq-title">
       <div class="feature-detail-heading"><span class="section-badge">FAQ</span><h2 id="markdown-faq-title">Markdown viewer questions</h2></div>
       <div class="feature-detail-faq">
-        <details><summary>Does this edit Markdown?</summary><p>The browser extension is primarily a viewer and inspection workspace. Source remains read-only; copy or export content when you want to continue in an editor.</p></details>
+        <details><summary>Is this a Markdown editor or just a viewer?</summary><p>The browser extension is primarily a viewer and inspection workspace. Source remains read-only; copy or export content when you want to continue in an editor.</p></details>
         <details><summary>Will embedded HTML execute?</summary><p>No. Raw HTML is not executed as active page content in the Markdown preview.</p></details>
         <details><summary>Why is a remote image shown as a link?</summary><p>Automatically fetching it could disclose your IP address and document-open event to an external server. CodePrettify keeps that network action explicit.</p></details>
         <details><summary>Can I compare two Markdown documents?</summary><p>Yes. Use Compare for a text diff between the current document and pasted content.</p></details>
+        <details><summary>How do I open a local .md file in Chrome?</summary><p>Drag the file onto the extension launcher or use its file picker — no extra permission needed. To open <code>file://</code> URLs directly, enable “Allow access to file URLs” for CodePrettify in the browser’s extension settings.</p></details>
       </div>
     </section>
 
@@ -242,6 +255,6 @@
     <section class="feature-page-cta" aria-labelledby="markdown-cta-title"><h2 id="markdown-cta-title">Make the next README easier to read</h2><p>Open the file as a document, keep its exact source nearby, and use the same search and inspection tools as the rest of CodePrettify.</p><div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="pricing.html">See $0 early access</a></div></section>
   </main>
 
-  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
+  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="guides.html">Guides</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
 </body>
 </html>

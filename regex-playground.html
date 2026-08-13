@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Regex Tester with Live Matches, Replace Preview &amp; Snippets | CodePrettify</title>
-  <meta name="description" content="Test regular expressions locally, inspect capture groups, preview replacements, save patterns and tests, and export JavaScript, C#, or PowerShell snippets." />
+  <title>Regex Tester Extension for Chrome &amp; Edge | CodePrettify</title>
+  <meta name="description" content="Free regex tester extension for Chrome and Edge: test the open file locally, inspect capture groups, preview replacements, save tests, and copy code snippets." />
   <meta name="application-name" content="CodePrettify" />
   <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
@@ -17,18 +17,18 @@
   <meta property="og:site_name" content="CodePrettify" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Regex Tester with Live Matches and Replace Preview" />
-  <meta property="og:description" content="Test patterns against the open document, inspect groups, preview replacements, keep test cases, and copy language-specific snippets." />
+  <meta property="og:title" content="Regex Tester Extension for Chrome &amp; Edge" />
+  <meta property="og:description" content="Free, local regex tester in the extension: match the open document, inspect groups, preview replacements, keep test cases, and copy code snippets." />
   <meta property="og:url" content="https://prettify.cloud/regex-playground.html" />
-  <meta property="og:image" content="https://prettify.cloud/img/feature-regex-playground.png" />
+  <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-regex-playground.png" />
   <meta property="og:image:alt" content="CodePrettify Regex Playground showing live matches and named capture groups" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Regex Tester with Live Matches and Replace Preview" />
+  <meta name="twitter:title" content="Regex Tester Extension for Chrome &amp; Edge" />
   <meta name="twitter:description" content="Move from a pattern to verified matches, replacements, tests, and reusable snippets." />
-  <meta name="twitter:image" content="https://prettify.cloud/img/feature-regex-playground.png" />
+  <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-regex-playground.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=51ffddf6" />
+  <link rel="stylesheet" href="style.min.css?v=e323747f" />
   <script src="site.js?v=20260809-2" defer></script>
   <script src="feature-guide.js?v=20260725-1" defer></script>
   <script type="application/ld+json">
@@ -38,9 +38,12 @@
         {
           "@type": "SoftwareApplication",
           "name": "CodePrettify Regex Playground",
+          "alternateName": "Regex Tester",
           "applicationCategory": "DeveloperApplication",
           "operatingSystem": "Chrome, Edge, Windows",
           "url": "https://prettify.cloud/regex-playground.html",
+          "description": "A local regex tester built into the CodePrettify extension: live matches on the open document, capture groups, replace preview, saved tests, and JavaScript, C#, or PowerShell snippets.",
+          "installUrl": "https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
         },
         {
@@ -48,6 +51,15 @@
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "CodePrettify", "item": "https://prettify.cloud/" },
             { "@type": "ListItem", "position": 2, "name": "Regex Playground", "item": "https://prettify.cloud/regex-playground.html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "Does the replacement modify my document?", "acceptedAnswer": { "@type": "Answer", "text": "No. Replacement is a preview. Copy the result when you are satisfied with it." } },
+            { "@type": "Question", "name": "Can I test text unrelated to the current file?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Switch the input to Custom text. That text stays only in the active viewer session." } },
+            { "@type": "Question", "name": "Why use test cases if the live document matches?", "acceptedAnswer": { "@type": "Answer", "text": "A live match proves the pattern works for today's sample. Positive and negative test cases help show that it still behaves correctly after the pattern changes." } },
+            { "@type": "Question", "name": "Is this a JavaScript regex tester, and which features work?", "acceptedAnswer": { "@type": "Answer", "text": "The pattern is evaluated by the installed runtime. Feature support therefore follows the browser or WebView2 JavaScript engine in use." } }
           ]
         }
       ]
@@ -62,7 +74,8 @@
     <div class="header-inner">
       <a href="/" class="logo"><img src="img/code_32.png?v=20260725" srcset="img/code_32.png?v=20260725 1x, img/code_64.png?v=20260725 2x" width="32" height="32" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span></a>
       <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
-      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#feature-guides">Features</a><a href="pricing.html">Price</a><a href="changelog.html">Changelog</a><a href="manual.html">Manual</a><a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a></nav>
+      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#install">Install</a>
+        <a href="guides.html">Guides</a><a href="pricing.html">Price</a><a href="manual.html">Manual</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a></nav>
     </div>
   </header>
 
@@ -70,13 +83,13 @@
     <nav class="feature-breadcrumb" aria-label="Breadcrumb"><a href="/">CodePrettify</a><span aria-hidden="true">/</span><span>Regex Playground</span></nav>
     <section class="feature-detail-hero">
       <div>
-        <span class="feature-detail-eyebrow">Match, explain, replace, reuse</span>
-        <h1>Test a regular expression against the file you are reading</h1>
-        <p class="feature-detail-lead">Open Regex Playground from the current document, enter a pattern, and see every match highlighted in the viewer. Inspect numbered and named groups, preview replacements, keep test cases, and copy a working snippet for JavaScript, C#, or PowerShell.</p>
+        <span class="feature-detail-eyebrow">Match, inspect, replace, reuse</span>
+        <h1>A regex tester built into the file you are reading</h1>
+        <p class="feature-detail-lead">Regex Playground is a regex tester built into the extension: open it from the current document, enter a pattern, and see every match highlighted in the viewer. Inspect numbered and named groups, preview replacements, keep test cases, and copy a working snippet for JavaScript, C#, or PowerShell.</p>
         <div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="manual.html#regex-playground">Read the manual section</a></div>
         <ul class="feature-proof-list"><li>Current document or custom text</li><li>Named groups</li><li>Replace preview</li><li>Snippet export</li></ul>
       </div>
-      <figure class="feature-hero-shot"><img src="img/feature-regex-playground.png" alt="Regex Playground matching JavaScript assignments with named capture-group details" width="1280" height="800" fetchpriority="high" /><figcaption>The active match stays connected to its highlighted location in the document and exposes its capture groups.</figcaption></figure>
+      <figure class="feature-hero-shot"><img src="img/screenshots/feature-regex-playground.png" alt="Regex Playground matching JavaScript assignments with named capture-group details" width="1280" height="800" fetchpriority="high" /><figcaption>The active match stays connected to its highlighted location in the document and exposes its capture groups.</figcaption></figure>
     </section>
 
     <nav class="feature-learning-nav" aria-label="Lessons in this regular expression guide">
@@ -170,8 +183,8 @@ not an assignment</code></pre>
     <section class="feature-detail-section" aria-labelledby="regex-replace-title">
       <div class="feature-detail-heading"><span class="section-badge">Match and replace</span><h2 id="regex-replace-title">Preview the transformation before copying it</h2><p>Advanced mode keeps replacement output, test cases, and snippet export in the same workspace as the live matches.</p></div>
       <div class="feature-shot-grid">
-        <figure class="feature-guide-shot"><img src="img/feature-regex-playground.png" alt="Regex match results and named capture groups for JavaScript source" width="1280" height="800" loading="lazy" /><figcaption>Start with real matches and inspect the active capture groups.</figcaption></figure>
-        <figure class="feature-guide-shot"><img src="img/feature-regex-replace.png" alt="Regex Playground showing named-group replacement preview, test cases, and snippet export" width="1280" height="800" loading="lazy" /><figcaption>Advanced mode shows the replacement preview and ready-to-adapt JavaScript, C#, and PowerShell snippets.</figcaption></figure>
+        <figure class="feature-guide-shot"><img src="img/screenshots/feature-regex-playground.png" alt="Regex match results and named capture groups for JavaScript source" width="1280" height="800" loading="lazy" /><figcaption>Start with real matches and inspect the active capture groups.</figcaption></figure>
+        <figure class="feature-guide-shot"><img src="img/screenshots/feature-regex-replace.png" alt="Regex Playground showing named-group replacement preview, test cases, and snippet export" width="1280" height="800" loading="lazy" /><figcaption>Advanced mode shows the replacement preview and ready-to-adapt JavaScript, C#, and PowerShell snippets.</figcaption></figure>
       </div>
       <div class="feature-capability-grid">
         <article class="feature-capability"><h3>Prove the expected cases</h3><p>Add short examples for the ordinary values the pattern must accept. Keep each case focused so a future failure tells you which boundary changed instead of merely reporting that one large sample no longer matches.</p></article>
@@ -216,7 +229,7 @@ not an assignment</code></pre>
         <article class="feature-capability"><h3>Replacement</h3><ul><li>Live preview</li><li>Numbered references such as <code>$1</code></li><li>Named references such as <code>$&lt;name&gt;</code></li><li>No mutation of the source document</li></ul></article>
         <article class="feature-capability"><h3>Test cases</h3><ul><li>Examples expected to match</li><li>Examples expected not to match</li><li>Visible pass/fail summary</li><li>Regression checks beside the pattern</li></ul></article>
         <article class="feature-capability"><h3>Saved patterns</h3><ul><li>Optional names</li><li>Remembered pattern, flags, replacement, and tests</li><li>Shared ten-slot saved/recent list</li><li>Local storage only</li></ul></article>
-        <article class="feature-capability"><h3>Snippet export</h3><ul><li>JavaScript <code>RegExp</code></li><li>C# <code>Regex</code></li><li>PowerShell <code>[regex]::new</code> with Matches/Replace</li><li>Copy the complete expression</li></ul></article>
+        <article class="feature-capability"><h3>Snippet export (JavaScript, C#, PowerShell)</h3><ul><li>JavaScript <code>RegExp</code></li><li>C# <code>Regex</code></li><li>PowerShell <code>[regex]::new</code> with Matches/Replace</li><li>Copy the complete expression</li></ul></article>
       </div>
       <div class="feature-privacy-note"><span class="feature-privacy-icon" aria-hidden="true">✓</span><div><strong>Custom test text remains session-local.</strong><p>It is not written to pattern history, settings, or extension storage. Saved patterns and test definitions are stored locally and may be sensitive if you include private examples in them.</p></div></div>
     </section>
@@ -227,7 +240,7 @@ not an assignment</code></pre>
         <details><summary>Does the replacement modify my document?</summary><p>No. Replacement is a preview. Copy the result when you are satisfied with it.</p></details>
         <details><summary>Can I test text unrelated to the current file?</summary><p>Yes. Switch the input to Custom text. That text stays only in the active viewer session.</p></details>
         <details><summary>Why use test cases if the live document matches?</summary><p>A live match proves the pattern works for today’s sample. Positive and negative test cases help show that it still behaves correctly after the pattern changes.</p></details>
-        <details><summary>Are all JavaScript regex features supported?</summary><p>The pattern is evaluated by the installed runtime. Feature support therefore follows the browser or WebView2 JavaScript engine in use.</p></details>
+        <details><summary>Is this a JavaScript regex tester, and which features work?</summary><p>The pattern is evaluated by the installed runtime. Feature support therefore follows the browser or WebView2 JavaScript engine in use.</p></details>
       </div>
     </section>
 
@@ -243,6 +256,6 @@ not an assignment</code></pre>
     <section class="feature-page-cta" aria-labelledby="regex-cta-title"><h2 id="regex-cta-title">Test the pattern where the text already is</h2><p>Open Regex Playground from the document, inspect the matches in context, and leave with a replacement or snippet you have actually checked.</p><div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="pricing.html">See $0 early access</a></div></section>
   </main>
 
-  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
+  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="guides.html">Guides</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
 </body>
 </html>

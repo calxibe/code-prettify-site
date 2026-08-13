@@ -485,6 +485,7 @@ code {
     justify-content: center;
     flex-wrap: wrap;
     margin-bottom: 20px;
+    scroll-margin-top: 96px;
 }
 
 .btn {

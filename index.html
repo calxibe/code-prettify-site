@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JSON Formatter &amp; Developer Tools for Chrome and Windows | CodePrettify</title>
-  <meta name="description" content="Format, inspect, query, validate, repair, compare, convert, visualize as diagrams, and generate typed code from JSON locally with CodePrettify for Chrome, Edge, and Windows." />
+  <meta name="description" content="Free JSON formatter, beautifier, and viewer for Chrome, Edge, and Windows. Format, validate, compare, repair, and convert JSON, YAML, XML, Markdown — locally." />
   <meta name="application-name" content="CodePrettify" />
   <meta name="apple-mobile-web-app-title" content="CodePrettify" />
   <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
@@ -22,19 +22,19 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="JSON Formatter &amp; Developer Tools for Chrome and Windows" />
   <meta property="og:description"
-    content="Format and inspect raw code, repair structured data, visualize documents as diagrams, and generate typed models or JSON Schema from JSON samples locally with CodePrettify." />
+    content="Free JSON formatter and beautifier for Chrome, Edge, and Windows: format, validate, compare, repair, diagram, and generate typed code from JSON — all locally." />
   <meta property="og:url" content="https://prettify.cloud" />
-  <meta property="og:image" content="https://prettify.cloud/img/feature-json-format.png" />
+  <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-json-format.png" />
   <meta property="og:image:alt"
     content="CodePrettify formatting a structured JSON API response with nested services, metrics, links, arrays, and syntax highlighting" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="JSON Formatter &amp; Developer Tools for Chrome and Windows" />
   <meta name="twitter:description"
-    content="Format and inspect raw code, repair structured data, visualize documents as diagrams, and generate typed models or JSON Schema from JSON samples locally with CodePrettify." />
-  <meta name="twitter:image" content="https://prettify.cloud/img/feature-json-format.png" />
+    content="Free JSON formatter and beautifier for Chrome, Edge, and Windows: format, validate, compare, repair, diagram, and generate typed code from JSON — all locally." />
+  <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-json-format.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=51ffddf6" />
+  <link rel="stylesheet" href="style.min.css?v=e323747f" />
   <script src="site.js?v=20260809-2" defer></script>
   <script src="index.js?v=20260812-1" defer></script>
   <script type="application/ld+json">
@@ -75,10 +75,11 @@
         </svg>
       </button>
       <nav id="site-navigation" aria-label="Primary navigation">
-        <a href="/#feature-guides">Features</a>
+        <a href="/#install">Install</a>
+        <a href="guides.html">Guides</a>
         <a href="pricing.html">Price</a>
-        <a href="changelog.html">Changelog</a>
         <a href="manual.html">Manual</a>
+        <a href="changelog.html">Changelog</a>
         <a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a>
       </nav>
     </div>
@@ -92,9 +93,10 @@
         <p class="subtitle">
           Turn raw JSON responses and local files into a searchable, foldable
           developer workspace. Query paths, validate schemas, repair messy data,
-          compare changes, visualize structure as diagrams, generate typed code,
-          and export the result locally. The same viewer also handles JavaScript,
-          Markdown, XML, YAML, TOML, CSS, and feeds without leaving the browser.
+          compare changes with a semantic JSON diff, visualize structure as
+          diagrams, generate typed code, and export the result locally. The same
+          viewer formats and beautifies JavaScript, XML, YAML, TOML, and CSS,
+          and renders Markdown and feeds without leaving the browser.
         </p>
 
         <p class="hero-proof">
@@ -102,7 +104,7 @@
           and TOML configs, and local <code>file://</code> documents.
         </p>
 
-        <div class="cta-buttons">
+        <div class="cta-buttons" id="install">
           <a href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj"
             class="btn btn-primary" target="_blank" rel="noopener">
             <img src="img/chrome.svg" alt="Chrome" width="20" height="20" />
@@ -202,8 +204,8 @@
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
                 <picture>
-                  <source srcset="img/feature-json-format_thumb.webp" type="image/webp" />
-                  <img src="img/feature-json-format_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                  <source srcset="img/screenshots/feature-json-format_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-json-format_thumb.png" alt="" aria-hidden="true" width="320" height="200"
                     loading="lazy" decoding="async" />
                 </picture>
               </span>
@@ -213,8 +215,8 @@
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
                 <picture>
-                  <source srcset="img/feature-json-to-code_thumb.webp" type="image/webp" />
-                  <img src="img/feature-json-to-code_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                  <source srcset="img/screenshots/feature-json-to-code_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-json-to-code_thumb.png" alt="" aria-hidden="true" width="320" height="200"
                     loading="lazy" decoding="async" />
                 </picture>
               </span>
@@ -224,8 +226,8 @@
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
                 <picture>
-                  <source srcset="img/feature-workbench-repair_thumb.webp" type="image/webp" />
-                  <img src="img/feature-workbench-repair_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                  <source srcset="img/screenshots/feature-workbench-repair_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-workbench-repair_thumb.png" alt="" aria-hidden="true" width="320" height="200"
                     loading="lazy" decoding="async" />
                 </picture>
               </span>
@@ -235,8 +237,8 @@
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
                 <picture>
-                  <source srcset="img/feature-workbench-transform_thumb.webp" type="image/webp" />
-                  <img src="img/feature-workbench-transform_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                  <source srcset="img/screenshots/feature-workbench-transform_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-workbench-transform_thumb.png" alt="" aria-hidden="true" width="320" height="200"
                     loading="lazy" decoding="async" />
                 </picture>
               </span>
@@ -246,8 +248,8 @@
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
                 <picture>
-                  <source srcset="img/feature-data-converter-utilities_thumb.webp" type="image/webp" />
-                  <img src="img/feature-data-converter-utilities_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                  <source srcset="img/screenshots/feature-data-converter-utilities_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-data-converter-utilities_thumb.png" alt="" aria-hidden="true" width="320" height="200"
                     loading="lazy" decoding="async" />
                 </picture>
               </span>
@@ -257,8 +259,8 @@
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
                 <picture>
-                  <source srcset="img/feature-security-scan_thumb.webp" type="image/webp" />
-                  <img src="img/feature-security-scan_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                  <source srcset="img/screenshots/feature-security-scan_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-security-scan_thumb.png" alt="" aria-hidden="true" width="320" height="200"
                     loading="lazy" decoding="async" />
                 </picture>
               </span>
@@ -268,8 +270,8 @@
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
                 <picture>
-                  <source srcset="img/feature-js-transform_thumb.webp" type="image/webp" />
-                  <img src="img/feature-js-transform_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                  <source srcset="img/screenshots/feature-js-transform_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-js-transform_thumb.png" alt="" aria-hidden="true" width="320" height="200"
                     loading="lazy" decoding="async" />
                 </picture>
               </span>
@@ -279,8 +281,8 @@
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
                 <picture>
-                  <source srcset="img/feature-js-playground_thumb.webp" type="image/webp" />
-                  <img src="img/feature-js-playground_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                  <source srcset="img/screenshots/feature-js-playground_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-js-playground_thumb.png" alt="" aria-hidden="true" width="320" height="200"
                     loading="lazy" decoding="async" />
                 </picture>
               </span>
@@ -290,8 +292,8 @@
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
                 <picture>
-                  <source srcset="img/feature-markdown_thumb.webp" type="image/webp" />
-                  <img src="img/feature-markdown_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                  <source srcset="img/screenshots/feature-markdown_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-markdown_thumb.png" alt="" aria-hidden="true" width="320" height="200"
                     loading="lazy" decoding="async" />
                 </picture>
               </span>
@@ -301,8 +303,8 @@
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
                 <picture>
-                  <source srcset="img/feature-http-client_thumb.webp" type="image/webp" />
-                  <img src="img/feature-http-client_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                  <source srcset="img/screenshots/feature-http-client_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-http-client_thumb.png" alt="" aria-hidden="true" width="320" height="200"
                     loading="lazy" decoding="async" />
                 </picture>
               </span>
@@ -312,8 +314,8 @@
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
                 <picture>
-                  <source srcset="img/feature-diff-view_thumb.webp" type="image/webp" />
-                  <img src="img/feature-diff-view_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                  <source srcset="img/screenshots/feature-diff-view_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-diff-view_thumb.png" alt="" aria-hidden="true" width="320" height="200"
                     loading="lazy" decoding="async" />
                 </picture>
               </span>
@@ -323,8 +325,8 @@
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
                 <picture>
-                  <source srcset="img/feature-table-view_thumb.webp" type="image/webp" />
-                  <img src="img/feature-table-view_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                  <source srcset="img/screenshots/feature-table-view_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-table-view_thumb.png" alt="" aria-hidden="true" width="320" height="200"
                     loading="lazy" decoding="async" />
                 </picture>
               </span>
@@ -334,8 +336,8 @@
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
                 <picture>
-                  <source srcset="img/feature-diagram-generator_thumb.webp" type="image/webp" />
-                  <img src="img/feature-diagram-generator_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                  <source srcset="img/screenshots/feature-diagram-generator_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-diagram-generator_thumb.png" alt="" aria-hidden="true" width="320" height="200"
                     loading="lazy" decoding="async" />
                 </picture>
               </span>
@@ -345,8 +347,8 @@
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
                 <picture>
-                  <source srcset="img/feature-stats-diagnostics_thumb.webp" type="image/webp" />
-                  <img src="img/feature-stats-diagnostics_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                  <source srcset="img/screenshots/feature-stats-diagnostics_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-stats-diagnostics_thumb.png" alt="" aria-hidden="true" width="320" height="200"
                     loading="lazy" decoding="async" />
                 </picture>
               </span>
@@ -356,8 +358,8 @@
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
                 <picture>
-                  <source srcset="img/feature-settings_thumb.webp" type="image/webp" />
-                  <img src="img/feature-settings_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                  <source srcset="img/screenshots/feature-settings_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-settings_thumb.png" alt="" aria-hidden="true" width="320" height="200"
                     loading="lazy" decoding="async" />
                 </picture>
               </span>
@@ -367,8 +369,8 @@
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
                 <picture>
-                  <source srcset="img/feature-diff-view-dark_thumb.webp" type="image/webp" />
-                  <img src="img/feature-diff-view-dark_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                  <source srcset="img/screenshots/feature-diff-view-dark_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-diff-view-dark_thumb.png" alt="" aria-hidden="true" width="320" height="200"
                     loading="lazy" decoding="async" />
                 </picture>
               </span>
@@ -378,8 +380,8 @@
             <button class="screenshot-tab" type="button">
               <span class="screenshot-tab-thumb">
                 <picture>
-                  <source srcset="img/feature-regex-playground_thumb.webp" type="image/webp" />
-                  <img src="img/feature-regex-playground_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                  <source srcset="img/screenshots/feature-regex-playground_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-regex-playground_thumb.png" alt="" aria-hidden="true" width="320" height="200"
                     loading="lazy" decoding="async" />
                 </picture>
               </span>
@@ -437,13 +439,14 @@
           <h2>See the complete workflow, not only the feature name</h2>
           <p class="section-desc">
             Each guide uses real product screenshots, concrete samples, and
-            practical usage notes. The one-page manual remains the complete reference.
+            practical usage notes. Browse <a href="guides.html">all guides</a> or
+            keep the one-page manual as the complete reference.
           </p>
         </div>
         <div class="feature-related-grid">
           <a class="feature-related-card" href="json-formatter-browser-extension.html">
             <h3>JSON Formatter &amp; Viewer</h3>
-            <p>Format raw responses, navigate nested data, query JSONPath, validate schemas, compare, convert, and export.</p>
+            <p>Format and beautify raw responses, navigate nested data, query JSONPath, validate schemas, compare, convert, and export.</p>
             <span>Explore the JSON workflow →</span>
           </a>
           <a class="feature-related-card" href="json-to-code-generator.html">
@@ -463,13 +466,38 @@
           </a>
           <a class="feature-related-card" href="regex-playground.html">
             <h3>Regex Playground</h3>
-            <p>Inspect live matches and groups, preview replacements, keep test cases, and copy reusable snippets.</p>
-            <span>Explore Regex Playground →</span>
+            <p>A regex tester for the open document: inspect live matches and groups, preview replacements, keep test cases, and copy reusable snippets.</p>
+            <span>Explore the regex tester →</span>
           </a>
           <a class="feature-related-card" href="http-client-browser-extension.html">
             <h3>HTTP Client</h3>
             <p>Compose and replay requests, use local environments, and inspect response body, headers, cookies, and timing.</p>
             <span>Explore the HTTP Client →</span>
+          </a>
+          <a class="feature-related-card" href="json-compare.html">
+            <h3>JSON Compare &amp; Diff</h3>
+            <p>Compare JSON semantically or line by line — ignore key order and formatting noise, and match array items by id.</p>
+            <span>Explore JSON compare →</span>
+          </a>
+          <a class="feature-related-card" href="json-schema-validator.html">
+            <h3>JSON Schema Validator</h3>
+            <p>Validate the open document against a pasted schema locally, with an exact path and source line for every violation.</p>
+            <span>Explore schema validation →</span>
+          </a>
+          <a class="feature-related-card" href="yaml-formatter.html">
+            <h3>YAML Formatter &amp; Validator</h3>
+            <p>Validate and read YAML without re-dumping the file — comments and anchors stay intact — and convert YAML to JSON.</p>
+            <span>Explore the YAML formatter →</span>
+          </a>
+          <a class="feature-related-card" href="unix-timestamp-converter.html">
+            <h3>Unix Timestamp Converter</h3>
+            <p>Turn epoch seconds or milliseconds into UTC ISO 8601 and local time — locally, with explicit timezone handling.</p>
+            <span>Explore the timestamp converter →</span>
+          </a>
+          <a class="feature-related-card" href="xml-formatter.html">
+            <h3>XML Formatter &amp; Viewer</h3>
+            <p>Strict validation with folding, safe links, and feeds — formatting that refuses rewrites that could change your data.</p>
+            <span>Explore the XML formatter →</span>
           </a>
         </div>
       </div>
@@ -615,10 +643,10 @@
                 Document Navigator and syntax-aware code minimap make long files easy to scan and jump through
               </li>
               <li>
-                Full-screen side-by-side diff (<code>Ctrl+Alt+D</code>) with synchronized scrolling, line stats, and swap sides &mdash; plus a Semantic mode that compares the data structure itself, so reformatting or reordering keys no longer shows up as noise
+                Full-screen side-by-side JSON compare (<code>Ctrl+Alt+D</code>) with synchronized scrolling, line stats, and swap sides &mdash; plus a Semantic mode, a JSON diff that compares the data structure itself, so reformatting or reordering keys no longer shows up as noise
               </li>
               <li>
-                Built-in Data Converter tabs for SHA-256/384/512 and HMAC, Unix/ISO timestamp conversion, and secure UUID v4, UUID v7, or ULID generation
+                Built-in Data Converter tabs for SHA-256/384/512 and HMAC, a Unix timestamp converter (Unix seconds/milliseconds and ISO 8601), and secure UUID v4, UUID v7, or ULID generation
               </li>
               <li>
                 Advanced search with regex (<code>/pattern/flags</code>), result counting, and Go To Line (<code>Ctrl+G</code>)

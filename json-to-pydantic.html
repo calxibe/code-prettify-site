@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSON to Pydantic – Model Converter for Python | CodePrettify</title>
+  <meta name="description" content="Free JSON to Pydantic converter in Chrome, Edge, and Windows: paste sample JSON, get BaseModel classes with snake_case fields and aliases — local, no upload." />
+  <meta name="application-name" content="CodePrettify" />
+  <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://prettify.cloud/json-to-pydantic.html" />
+  <link rel="icon" href="favicon.ico?v=20260725" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20260725" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260725" />
+  <meta property="og:site_name" content="CodePrettify" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="JSON to Pydantic – Model Converter for Python" />
+  <meta property="og:description" content="Paste real JSON, get Pydantic BaseModel classes with snake_case fields and exact-key aliases — nested models, honest optionality, generated locally." />
+  <meta property="og:url" content="https://prettify.cloud/json-to-pydantic.html" />
+  <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-json-to-code-pydantic.png" />
+  <meta property="og:image:alt" content="CodePrettify converting a JSON sample into Pydantic BaseModel classes with snake_case fields and Field aliases" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="JSON to Pydantic – Model Converter for Python" />
+  <meta name="twitter:description" content="BaseModel classes from real JSON samples — aliases keep the exact source keys, and nothing is uploaded." />
+  <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-json-to-code-pydantic.png" />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
+  <link rel="stylesheet" href="style.min.css?v=e323747f" />
+  <script src="site.js?v=20260809-2" defer></script>
+  <script src="feature-guide.js?v=20260725-1" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "CodePrettify JSON to Pydantic Converter",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Chrome, Edge, Windows",
+          "url": "https://prettify.cloud/json-to-pydantic.html",
+          "description": "Convert JSON to Pydantic models locally: BaseModel classes with snake_case fields and exact-key aliases, nested named models, and evidence-based Optional and nullable types. Free, no upload, no account.",
+          "installUrl": "https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "CodePrettify", "item": "https://prettify.cloud/" },
+            { "@type": "ListItem", "position": 2, "name": "JSON to Pydantic", "item": "https://prettify.cloud/json-to-pydantic.html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "Which Pydantic version do the generated models target?", "acceptedAnswer": { "@type": "Answer", "text": "The generator emits standard Pydantic building blocks — BaseModel classes with Field aliases — and does not pin a specific Pydantic version. Compile the output against the Pydantic release your project uses, and add version-specific configuration, validators, and model settings yourself." } },
+            { "@type": "Question", "name": "Why are field names snake_case instead of matching my JSON keys?", "acceptedAnswer": { "@type": "Answer", "text": "Python convention is snake_case, so the generator renames fields and attaches a Field alias carrying the exact source key whenever the two differ — for camelCase keys, invalid identifiers, and reserved words alike. The JSON contract lives in the alias, so parsing the original payload keeps working." } },
+            { "@type": "Question", "name": "Is my JSON sample uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. Generation runs entirely on the device in both the browser extension and the Windows app. The sample, the generated Python, and everything in between stay on your machine." } },
+            { "@type": "Question", "name": "How do multiple sample records improve the generated models?", "acceptedAnswer": { "@type": "Answer", "text": "When the root is an array, every record contributes to inference instead of only the first. A property missing from some records becomes Optional, an explicit null becomes a nullable type, and compatible shapes merge into one model — so a few varied records produce more honest models than one perfect record." } }
+          ]
+        }
+      ]
+    }
+  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date);gtag("config","G-S4WNQ48Q7F");addEventListener("load",function(){var l=function(){var s=document.createElement("script");s.async=!0;s.src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F";document.head.appendChild(s)};window.requestIdleCallback?requestIdleCallback(l,{timeout:3000}):setTimeout(l,1200)})</script>
+</head>
+<body class="feature-detail-body">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="bg-glow"></div>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo"><img src="img/code_32.png?v=20260725" srcset="img/code_32.png?v=20260725 1x, img/code_64.png?v=20260725 2x" width="32" height="32" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span></a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
+      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#install">Install</a>
+        <a href="guides.html">Guides</a><a href="pricing.html">Price</a><a href="manual.html">Manual</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a></nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="feature-detail-main">
+    <nav class="feature-breadcrumb" aria-label="Breadcrumb"><a href="/">CodePrettify</a><span aria-hidden="true">/</span><span>JSON to Pydantic</span></nav>
+    <section class="feature-detail-hero">
+      <div>
+        <span class="feature-detail-eyebrow">Python models from real samples</span>
+        <h1>Convert JSON to Pydantic models that keep your exact keys</h1>
+        <p class="feature-detail-lead">Paste one or more JSON records, pick the Python / Pydantic target, and get BaseModel classes generated on your device: snake_case field names, a <code>Field</code> alias wherever the name differs from the source key, nested objects promoted to named models, and Optional types you can trace back to the evidence. No upload, no account, free.</p>
+        <div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="manual.html#json-to-code">Read the generator manual entry</a></div>
+        <ul class="feature-proof-list"><li>snake_case + exact-key aliases</li><li>Nested objects become models</li><li>Missing and null distinguished</li><li>Local generation</li></ul>
+      </div>
+      <figure class="feature-hero-shot"><img src="img/screenshots/feature-json-to-code-pydantic.png" alt="CodePrettify converting a JSON sample into Pydantic BaseModel classes with snake_case fields and Field aliases" width="1280" height="800" fetchpriority="high" /><figcaption>Deployment-event JSON beside its generated Pydantic models — camelCase keys such as <code>durationMs</code> become snake_case fields with aliases.</figcaption></figure>
+    </section>
+
+    <nav class="feature-learning-nav" aria-label="Lessons in this JSON to Pydantic guide">
+      <strong>Learn on this page</strong>
+      <div class="feature-learning-links">
+        <a href="#pydantic-alias-title">Aliases and naming</a>
+        <a href="#pydantic-tutorial-title">Tutorial: sample to .py</a>
+        <a href="#pydantic-capabilities-title">Capability map</a>
+        <a href="#pydantic-review-title">Decision table</a>
+        <a href="#pydantic-faq-title">FAQ</a>
+      </div>
+    </nav>
+
+    <section class="feature-detail-section" aria-labelledby="pydantic-alias-title">
+      <div class="feature-detail-heading"><span class="section-badge">Aliases</span><h2 id="pydantic-alias-title">Pythonic names without breaking the JSON contract</h2><p>Most APIs speak camelCase; Python speaks snake_case. A converter that simply renames fields breaks parsing, and one that keeps camelCase produces Python nobody wants to read. The Pydantic target does both jobs: field names follow Python convention, and a <code>Field(alias="...")</code> carries the exact source key whenever the two differ — for camelCase keys, invalid identifiers, and reserved words alike.</p></div>
+      <div class="feature-example-grid">
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">JSON sample</span><h3>Two account records with real variation</h3><p>The first record carries an explicit <code>null</code> and a populated <code>teams</code> array; the second adds <code>inviteCode</code>, which the first never mentions, and leaves <code>teams</code> empty. Three different kinds of evidence in eleven lines.</p></div>
+          <pre class="feature-code"><code>[
+  {
+    "userId": 501,
+    "displayName": "Asha Rai",
+    "isAdmin": false,
+    <span class="code-accent">"lastLoginAt": null,</span>
+    "teams": [{ "teamId": 9, "role": "maintainer" }]
+  },
+  {
+    "userId": 502,
+    "displayName": "Jon Berg",
+    "isAdmin": true,
+    "lastLoginAt": "2026-08-01T09:14:00Z",
+    "teams": [],
+    <span class="code-accent">"inviteCode": "QX41"</span>
+  }
+]</code></pre>
+        </article>
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">Pydantic result</span><h3>Every rename is documented by an alias</h3><p>Representative output: <code>teams</code> is singularized into a <code>Team</code> model, and both records feed the account model — the empty array does not erase the element type the first record proved.</p></div>
+          <pre class="feature-code"><code>class Team(BaseModel):
+    team_id: int = <span class="code-success">Field(alias="teamId")</span>
+    role: str
+
+class Account(BaseModel):
+    user_id: int = <span class="code-success">Field(alias="userId")</span>
+    display_name: str = <span class="code-success">Field(alias="displayName")</span>
+    is_admin: bool = <span class="code-success">Field(alias="isAdmin")</span>
+    last_login_at: Optional[str] = <span class="code-success">Field(alias="lastLoginAt")</span>
+    teams: List[Team]
+    invite_code: Optional[str] = <span class="code-success">Field(alias="inviteCode")</span></code></pre>
+        </article>
+      </div>
+      <div class="feature-privacy-note"><span class="feature-privacy-icon" aria-hidden="true">i</span><div><strong>Missing is not the same as null.</strong><p>Inference tracks the two separately: a property absent from some records becomes Optional, while an explicit <code>null</code> becomes a nullable type. Here <code>lastLoginAt</code> is nullable because record one says so, and <code>inviteCode</code> is optional because record one never mentions it. That distinction is evidence you can act on when you review the model against the real API contract.</p></div></div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="pydantic-tutorial-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Hands-on tutorial</span>
+        <h2 id="pydantic-tutorial-title">From pasted sample to a working .py file</h2>
+        <p>Use the account sample above or a payload from your own API. The goal is a model whose every annotation you can justify by pointing at the sample.</p>
+      </div>
+      <ol class="feature-tutorial-steps">
+        <li>
+          <div><h3>Open the generator where you already are</h3><p>JSON to Code Generator is a general tool: find it under <strong>More Actions → General tools</strong>, in the Command Palette, in the extension launcher, or in the Windows app's <strong>Tools</strong> menu. Opened on a JSON document, the sample loads automatically the first time, and <strong>Use document</strong> reloads the current document whenever you want a fresh copy.</p></div>
+        </li>
+        <li>
+          <div><h3>Give it evidence, not one perfect record</h3><p>Paste an array of representative records into <strong>JSON sample</strong> — or press <strong>Example</strong> to explore with built-in data first. When the root is an array, all entries contribute to inference rather than only the first, which is exactly what lets Optional and nullable types emerge from real variation.</p></div>
+        </li>
+        <li>
+          <div><h3>Pick the target and name the root</h3><p>Choose <strong>Python / Pydantic</strong> in the <strong>Target</strong> list and set the <strong>Root type name</strong> to the domain concept — <code>Account</code>, not <code>Response</code> or <code>Data</code>. Python needs no package or namespace field; that extra control appears only for C#, Java, Kotlin, and Go.</p></div>
+        </li>
+        <li>
+          <div><h3>Generate and read the whole result</h3><p>Press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> in the sample box to generate immediately, then review the live generated code and any inference warning before touching anything else. The warning is not noise — it is the generator telling you which part of the model it could not prove.</p></div>
+        </li>
+        <li>
+          <div><h3>Trace every alias to a source key</h3><p>Each camelCase key becomes a snake_case field with <code>Field(alias="...")</code> holding the exact original key; keys that are already valid snake_case stay plain fields with no alias. Reserved words and invalid identifiers get a safe field name the same way, so the JSON contract itself is never rewritten.</p></div>
+        </li>
+        <li>
+          <div><h3>Audit the Optional story</h3><p>Confirm that <code>invite_code</code> is Optional because one record omits it and that <code>last_login_at</code> is nullable because of the explicit <code>null</code>. Empty arrays are counted into a single informational warning, and the safe unknown element type appears only when no sample ever populates the array — a populated sample's element type wins.</p></div>
+        </li>
+        <li>
+          <div><h3>Decide about Make every property optional</h3><p>Enable <strong>Make every property optional</strong> only when the payload really is sparse — partial updates, patch bodies, incremental exports. It goes beyond decoration: nullable and defaulted forms are used where the target needs them. For a full-record API response, leave it off and let the evidence decide.</p></div>
+        </li>
+        <li>
+          <div><h3>Ship the result and test it against real payloads</h3><p>Use <strong>Copy to clipboard</strong>, <strong>Open as document</strong> to keep working inside CodePrettify, or <strong>Export</strong> to save the file with the suggested <code>.py</code> extension. Then parse a few production payloads with the model — domain validators, date parsing, and version-specific Pydantic configuration still belong to your project.</p></div>
+        </li>
+      </ol>
+      <div class="feature-practice-lab">
+        <h3>Prove the inference to yourself</h3>
+        <p>Regenerate after each single change and diff the output — the fastest way to learn what the generator treats as evidence.</p>
+        <ul class="feature-checklist">
+          <li>Search the sample for every alias string in the output — each one must match a real source key exactly.</li>
+          <li>Add <code>inviteCode</code> to the first record too, regenerate, and watch the field stop being Optional.</li>
+          <li>Replace the <code>null</code> in <code>lastLoginAt</code> with a timestamp and compare the annotation before and after.</li>
+          <li>Empty both <code>teams</code> arrays and read the informational warning plus the safe unknown element type.</li>
+          <li>Rename a key to a Python reserved word such as <code>class</code> and inspect the safe field name with its alias.</li>
+          <li>Toggle <strong>Make every property optional</strong> and diff the two generated versions line by line.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="pydantic-capabilities-title">
+      <div class="feature-detail-heading"><span class="section-badge">Capabilities</span><h2 id="pydantic-capabilities-title">What the Python / Pydantic target does for you</h2></div>
+      <div class="feature-capability-grid">
+        <article class="feature-capability"><h3>Naming that respects both sides</h3><ul><li>snake_case field names throughout</li><li>Field alias whenever the name differs from the key</li><li>camelCase, invalid identifiers, reserved words covered</li><li>The JSON contract is never rewritten</li></ul></article>
+        <article class="feature-capability"><h3>Optionality you can defend</h3><ul><li>Missing property → Optional</li><li>Explicit null → nullable type</li><li>The two kinds of evidence stay distinguished</li><li>Make every property optional for sparse payloads</li></ul></article>
+        <article class="feature-capability"><h3>Structure that scales</h3><ul><li>Nested objects become named models</li><li>Plural array names singularized — <code>teams</code> yields <code>Team</code></li><li>Array roots merge every record into inference</li><li>Compatible shapes merge; mixed values get unions or a safe general type</li></ul></article>
+        <article class="feature-capability"><h3>Warnings instead of guesses</h3><ul><li>Empty arrays counted into one informational warning</li><li>Safe unknown element type only when never populated</li><li>Invalid JSON reports line and column when available</li></ul></article>
+        <article class="feature-capability"><h3>Hard limits, fail closed</h3><ul><li>Input capped at 5 Mi characters</li><li>Output capped at 16 Mi characters</li><li>Nesting to 100 levels, 100,000 inspected values</li><li>The source document is never altered</li></ul></article>
+        <article class="feature-capability"><h3>Both products, always local</h3><ul><li>Extension launcher and Windows app Tools menu</li><li>Example data and Use document loading</li><li>Ctrl+Enter to generate immediately</li><li>Copy to clipboard, Open as document, Export</li></ul></article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="pydantic-targets-title">
+      <div class="feature-detail-heading"><span class="section-badge">Switch targets</span><h2 id="pydantic-targets-title">Keep the sample, swap the language</h2><p>The same inference engine drives every output target, so switching the <strong>Target</strong> list from Python / Pydantic to TypeScript changes the syntax — not the shape. Where Pydantic uses an Optional field with an alias, TypeScript marks the property with <code>?</code> and keeps the exact source key. Comparing two targets from one sample is the quickest sanity check that a surprising annotation came from your data, not from the language.</p></div>
+      <div class="feature-shot-grid">
+        <figure class="feature-guide-shot"><img src="img/screenshots/feature-json-to-code.png" alt="The same JSON sample generating TypeScript interfaces in the CodePrettify JSON to Code Generator" width="1280" height="800" loading="lazy" /><figcaption>Same deployment sample, TypeScript target — nested interfaces where Pydantic produced nested BaseModel classes.</figcaption></figure>
+      </div>
+      <p>Eleven targets share this behavior — TypeScript, Zod, JSON Schema, C#, Java, Kotlin, Go, Rust, Swift, Dart, and Python / Pydantic. The <a href="json-to-code-generator.html">JSON to Code Generator guide</a> covers preparing samples and reviewing inference across all of them, and the <a href="json-to-typescript.html">JSON to TypeScript guide</a> walks the front-end side of the same workflow.</p>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="pydantic-review-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Output review</span>
+        <h2 id="pydantic-review-title">Read the generated model like a report</h2>
+        <p>Every annotation in the output is a claim about your sample. This table maps each claim back to its evidence — and to the question you should still ask.</p>
+      </div>
+      <div class="feature-guide-table-wrap">
+        <table class="feature-guide-table">
+          <thead><tr><th>In the generated Python</th><th>Why it happened</th><th>What to verify</th></tr></thead>
+          <tbody>
+            <tr><td>A plain field with no alias</td><td>The key is already a valid snake_case identifier.</td><td>Nothing to map — the field name and the JSON key are identical.</td></tr>
+            <tr><td>A field with <code>Field(alias="...")</code></td><td>The source key is camelCase, an invalid identifier, or a reserved word.</td><td>That your parsing populates models by alias so the original payload keeps loading.</td></tr>
+            <tr><td>An Optional field</td><td>At least one sampled record omitted the property.</td><td>Whether absence is genuinely allowed, or your sample mixed partial and full records.</td></tr>
+            <tr><td>A nullable type</td><td>The sample contained an explicit null for that property.</td><td>Whether null is domain-meaningful or dirty data to reject upstream.</td></tr>
+            <tr><td>A safe unknown list element type</td><td>The array was empty in every sample, reported in one informational warning.</td><td>Add one record with a populated array — its element type wins over the unknown.</td></tr>
+            <tr><td>A model named <code>Team</code> from a <code>teams</code> key</td><td>Plural array property names are singularized for element model names.</td><td>That the generated name matches your domain vocabulary; rename it if not.</td></tr>
+            <tr><td>Generation refuses the sample</td><td>A limit was hit: 5 Mi input, 16 Mi output, 100 nesting levels, or 100,000 values.</td><td>Limits fail closed and never alter the source — trim the sample to a representative slice.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="pydantic-faq-title">
+      <div class="feature-detail-heading"><span class="section-badge">FAQ</span><h2 id="pydantic-faq-title">JSON to Pydantic questions</h2></div>
+      <div class="feature-detail-faq">
+        <details><summary>Which Pydantic version do the generated models target?</summary><p>The generator emits standard Pydantic building blocks — BaseModel classes with Field aliases — and does not pin a specific Pydantic version. Compile the output against the Pydantic release your project uses, and add version-specific configuration, validators, and model settings yourself.</p></details>
+        <details><summary>Why are field names snake_case instead of matching my JSON keys?</summary><p>Python convention is snake_case, so the generator renames fields and attaches a Field alias carrying the exact source key whenever the two differ — for camelCase keys, invalid identifiers, and reserved words alike. The JSON contract lives in the alias, so parsing the original payload keeps working.</p></details>
+        <details><summary>Is my JSON sample uploaded to a server?</summary><p>No. Generation runs entirely on the device in both the browser extension and the Windows app. The sample, the generated Python, and everything in between stay on your machine.</p></details>
+        <details><summary>How do multiple sample records improve the generated models?</summary><p>When the root is an array, every record contributes to inference instead of only the first. A property missing from some records becomes Optional, an explicit null becomes a nullable type, and compatible shapes merge into one model — so a few varied records produce more honest models than one perfect record.</p></details>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="pydantic-related-title">
+      <div class="feature-detail-heading"><span class="section-badge">Related guides</span><h2 id="pydantic-related-title">Continue with the surrounding workflow</h2></div>
+      <div class="feature-related-grid">
+        <a class="feature-related-card" href="json-to-code-generator.html"><h3>JSON to Code Generator</h3><p>The hub guide: preparing representative samples, all eleven targets, and how to review inference decisions across languages.</p><span>Explore the code generator →</span></a>
+        <a class="feature-related-card" href="json-to-typescript.html"><h3>JSON to TypeScript</h3><p>The same sample as interfaces for the front end — compare how TypeScript expresses what Pydantic handles with aliases.</p><span>Explore JSON to TypeScript →</span></a>
+        <a class="feature-related-card" href="json-repair-transform.html"><h3>JSON Repair &amp; Transform</h3><p>Printed a Python dict instead of JSON? Repair converts True, False, None, and single-quoted strings into strict JSON you can generate from.</p><span>Repair the sample first →</span></a>
+      </div>
+    </section>
+
+    <section class="feature-page-cta" aria-labelledby="pydantic-cta-title"><h2 id="pydantic-cta-title">Model the payload you already have</h2><p>Open the JSON you trust, choose Python / Pydantic, and leave with BaseModel classes whose aliases carry the exact source keys — generated free, on your own device.</p><div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="pricing.html">See $0 early access</a></div></section>
+  </main>
+
+  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="guides.html">Guides</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
+</body>
+</html>

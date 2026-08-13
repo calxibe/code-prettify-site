@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unix Timestamp Converter – Epoch, ISO 8601 &amp; Local Time | CodePrettify</title>
+  <meta name="description" content="Free Unix timestamp converter that runs locally: turn epoch seconds or milliseconds into UTC ISO 8601, Unix time, and local time. No upload, no account." />
+  <meta name="application-name" content="CodePrettify" />
+  <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://prettify.cloud/unix-timestamp-converter.html" />
+  <link rel="icon" href="favicon.ico?v=20260725" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20260725" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260725" />
+  <meta property="og:site_name" content="CodePrettify" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Unix Timestamp Converter – Epoch, ISO 8601 &amp; Local Time" />
+  <meta property="og:description" content="Paste epoch seconds, milliseconds, or an ISO 8601 string and read the instant in four formats at once — entirely on your device." />
+  <meta property="og:url" content="https://prettify.cloud/unix-timestamp-converter.html" />
+  <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-data-converter-utilities.png" />
+  <meta property="og:image:alt" content="CodePrettify Data Converter utilities including the Unix timestamp tab" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Unix Timestamp Converter – Epoch, ISO 8601 &amp; Local Time" />
+  <meta name="twitter:description" content="Unix seconds, milliseconds, ISO 8601, and local time from one input — converted locally." />
+  <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-data-converter-utilities.png" />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
+  <link rel="stylesheet" href="style.min.css?v=e323747f" />
+  <script src="site.js?v=20260809-2" defer></script>
+  <script src="feature-guide.js?v=20260725-1" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "CodePrettify Unix Timestamp Converter",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Chrome, Edge, Windows",
+          "url": "https://prettify.cloud/unix-timestamp-converter.html",
+          "description": "Convert Unix seconds, Unix milliseconds, and ISO 8601 timestamps locally — automatic unit detection, negative and fractional values accepted, and four outputs per conversion: UTC ISO 8601, Unix seconds, Unix milliseconds, and local system time.",
+          "installUrl": "https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "CodePrettify", "item": "https://prettify.cloud/" },
+            { "@type": "ListItem", "position": 2, "name": "Unix Timestamp Converter", "item": "https://prettify.cloud/unix-timestamp-converter.html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "How does the converter decide between seconds and milliseconds?", "acceptedAnswer": { "@type": "Answer", "text": "Auto-detection treats absolute values below 100,000,000,000 as Unix seconds and larger values as milliseconds, so everyday timestamps sort themselves out. Choose the unit explicitly for far-future dates or early-epoch millisecond values, where magnitude alone cannot tell the two apart." } },
+            { "@type": "Question", "name": "Why was my date string rejected?", "acceptedAnswer": { "@type": "Answer", "text": "A date string without a timezone is ambiguous — 2026-08-14 11:30 names a different instant in every region. The Timestamp tab rejects such strings instead of silently assuming a zone. Add Z for UTC or an explicit offset such as +02:00 and it converts." } },
+            { "@type": "Question", "name": "Does the Unix timestamp converter work offline?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Conversion runs entirely on your device — in the extension launcher, in any viewer tab, or in the Windows app. Nothing is uploaded, so timestamps from private logs and tokens never leave your machine." } },
+            { "@type": "Question", "name": "What outputs does a conversion produce?", "acceptedAnswer": { "@type": "Answer", "text": "Every conversion returns the same four results: UTC ISO 8601, Unix seconds, Unix milliseconds, and the time in your system's local timezone. Convert once and read whichever representation the destination needs." } }
+          ]
+        }
+      ]
+    }
+  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date);gtag("config","G-S4WNQ48Q7F");addEventListener("load",function(){var l=function(){var s=document.createElement("script");s.async=!0;s.src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F";document.head.appendChild(s)};window.requestIdleCallback?requestIdleCallback(l,{timeout:3000}):setTimeout(l,1200)})</script>
+</head>
+<body class="feature-detail-body">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="bg-glow"></div>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo"><img src="img/code_32.png?v=20260725" srcset="img/code_32.png?v=20260725 1x, img/code_64.png?v=20260725 2x" width="32" height="32" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span></a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
+      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#install">Install</a>
+        <a href="guides.html">Guides</a><a href="pricing.html">Price</a><a href="manual.html">Manual</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a></nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="feature-detail-main">
+    <nav class="feature-breadcrumb" aria-label="Breadcrumb"><a href="/">CodePrettify</a><span aria-hidden="true">/</span><span>Unix Timestamp Converter</span></nav>
+    <section class="feature-detail-hero">
+      <div>
+        <span class="feature-detail-eyebrow">Epoch in, four formats out</span>
+        <h1>A Unix timestamp converter that returns every format at once</h1>
+        <p class="feature-detail-lead">Paste an epoch value — Unix seconds or milliseconds — or an ISO 8601 string, press Enter, and read the same instant as UTC ISO 8601, Unix seconds, Unix milliseconds, and your local system time. The Timestamp tab of CodePrettify&rsquo;s Data Converter runs entirely on your device.</p>
+        <div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="manual.html#data-converter">Read the manual section</a></div>
+        <ul class="feature-proof-list"><li>Seconds and milliseconds auto-detected</li><li>ISO 8601 with Z or &plusmn;HH:MM</li><li>Negative and fractional values</li><li>Local processing</li></ul>
+      </div>
+      <figure class="feature-hero-shot"><img src="img/screenshots/feature-data-converter-utilities.png" alt="CodePrettify Data Converter utilities with the Timestamp tab for Unix timestamp conversion beside Convert, Hash and HMAC, and ID Generator" width="1280" height="800" fetchpriority="high" /><figcaption>The Data Converter keeps Convert, Hash &amp; HMAC, Timestamp, and ID Generator utilities together in one dialog.</figcaption></figure>
+    </section>
+
+    <nav class="feature-learning-nav" aria-label="Lessons in this Unix timestamp converter guide">
+      <strong>Learn on this page</strong>
+      <div class="feature-learning-links">
+        <a href="#timestamp-example-title">See a conversion</a>
+        <a href="#timestamp-tutorial-title">Convert step by step</a>
+        <a href="#timestamp-capabilities-title">Inputs and outputs</a>
+        <a href="#timestamp-detection-title">Detection rules</a>
+        <a href="#timestamp-faq-title">Troubleshoot</a>
+      </div>
+    </nav>
+
+    <section class="feature-detail-section" aria-labelledby="timestamp-example-title">
+      <div class="feature-detail-heading"><span class="section-badge">Conversion example</span><h2 id="timestamp-example-title">Unix time to date — one input, four answers</h2><p>Most timestamp questions are really four questions: what is this instant in UTC, in epoch seconds, in epoch milliseconds, and on my own clock? One conversion answers all of them.</p></div>
+      <div class="feature-example-grid">
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">Epoch input</span><h3>A bare number from a log line</h3><p>The value is below 100,000,000,000, so auto-detection reads it as Unix seconds. No format picking, no guessing which log used which unit.</p></div>
+          <pre class="feature-code"><code>1786699800</code></pre>
+        </article>
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">Converted result</span><h3>The same instant in every representation</h3><p>UTC for correctness, epoch values for code and queries, local time for reading it as a human.</p></div>
+          <pre class="feature-code"><code>UTC ISO 8601       <span class="code-success">2026-08-14T09:30:00Z</span>
+Unix seconds       1786699800
+Unix milliseconds  1786699800000
+Local time         <span class="code-accent">2026-08-14 11:30</span>  (example: UTC+02:00)</code></pre>
+        </article>
+      </div>
+      <div class="feature-step-grid">
+        <article class="feature-step"><span class="feature-step-number">1</span><h3>Paste or use now</h3><p>Enter any epoch or ISO 8601 value, or press <strong>Use current time</strong> to fill the present moment in milliseconds.</p></article>
+        <article class="feature-step"><span class="feature-step-number">2</span><h3>Press Enter</h3><p>Enter converts directly on the Timestamp tab — no mouse trip to a button.</p></article>
+        <article class="feature-step"><span class="feature-step-number">3</span><h3>Read all four outputs</h3><p>UTC ISO 8601, Unix seconds, Unix milliseconds, and local system time appear together.</p></article>
+      </div>
+      <div class="feature-privacy-note"><span class="feature-privacy-icon" aria-hidden="true">i</span><div><strong>Timestamps from private systems stay private.</strong><p>Conversion runs locally in the extension launcher, in any viewer tab, or in the Windows app. Epoch values copied from production logs, tokens, or database rows are never uploaded to a web service.</p></div></div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="timestamp-tutorial-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Hands-on tutorial</span>
+        <h2 id="timestamp-tutorial-title">Convert epoch seconds, milliseconds, and ISO 8601 in one session</h2>
+        <p>Seven short exercises cover the whole Timestamp tab, including the edge cases — negative values, fractions, and strings that deserve rejection.</p>
+      </div>
+      <ol class="feature-tutorial-steps">
+        <li>
+          <div><h3>Open the Timestamp tab</h3><p>Open <strong>Data Converter</strong> from <strong>More Actions</strong> or the <strong>Command Palette</strong> in a viewer tab, from <strong>Tools</strong> in the Windows app, or directly from the extension launcher. The dialog has four tabs — <strong>Convert</strong>, <strong>Hash &amp; HMAC</strong>, <strong>Timestamp</strong>, and <strong>ID Generator</strong> — and the arrow keys cycle between them.</p></div>
+        </li>
+        <li>
+          <div><h3>Convert a Unix-seconds value</h3><p>Paste <code>1786699800</code> and press <kbd>Enter</kbd>. Because the absolute value is below 100,000,000,000, it is treated as seconds. Confirm the UTC result reads <code>2026-08-14T09:30:00Z</code> and that the local-time line matches your system clock&rsquo;s timezone.</p></div>
+        </li>
+        <li>
+          <div><h3>Convert the same instant in milliseconds</h3><p>Now paste <code>1786699800000</code>. The value exceeds the detection boundary, so it is read as milliseconds — and every output matches the previous step. This is the fastest way to confirm which unit a log or API actually uses.</p></div>
+        </li>
+        <li>
+          <div><h3>Convert an ISO 8601 string with an offset</h3><p>Paste <code>2026-08-14T11:30:00+02:00</code> and press <kbd>Enter</kbd>. The explicit <code>+02:00</code> offset makes the instant unambiguous, so the UTC output is again <code>09:30:00Z</code>. A trailing <code>Z</code> works the same way, and ISO seconds and fractions (up to nine digits) are optional.</p></div>
+        </li>
+        <li>
+          <div><h3>See why a zoneless string is refused</h3><p>Try <code>2026-08-14 11:30</code> without any timezone. The converter rejects it rather than silently assuming UTC or your local zone — a wrong assumption here shifts every derived value by hours. Add <code>Z</code> or an explicit <code>&plusmn;HH:MM</code> offset and retry.</p></div>
+        </li>
+        <li>
+          <div><h3>Capture the current moment</h3><p>Press <strong>Use current time</strong>. The input fills with the present moment in milliseconds; press <kbd>Enter</kbd> to expand it into all four representations. Handy when you need &ldquo;now&rdquo; as an epoch value for a query or a token expiry check.</p></div>
+        </li>
+        <li>
+          <div><h3>Exercise the edge cases deliberately</h3><p>Convert <code>-86400</code> — negative pre-1970 values are accepted, and it resolves to <code>1969-12-31T00:00:00Z</code>. Convert <code>1786699800.5</code> — fractional Unix values are accepted, and the half second appears in the millisecond output. For far-future dates or early-epoch millisecond values, choose the unit explicitly instead of relying on auto-detection.</p></div>
+        </li>
+      </ol>
+      <div class="feature-practice-lab">
+        <h3>Timestamp sanity checklist</h3>
+        <p>Before pasting a converted value into code, a query, or a bug report, confirm these points.</p>
+        <ul class="feature-checklist">
+          <li>The detected unit — seconds or milliseconds — matches what the source system emits.</li>
+          <li>Every ISO 8601 input carried <code>Z</code> or an explicit UTC offset.</li>
+          <li>The milliseconds output is exactly 1,000 times the seconds output.</li>
+          <li>The local-time line matches the timezone your system is actually set to.</li>
+          <li>Far-future or early-epoch values were converted with an explicitly chosen unit.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="timestamp-capabilities-title">
+      <div class="feature-detail-heading"><span class="section-badge">Inputs and outputs</span><h2 id="timestamp-capabilities-title">What the epoch converter accepts and what it returns</h2></div>
+      <div class="feature-capability-grid">
+        <article class="feature-capability"><h3>Unix input</h3><ul><li>Unix seconds</li><li>Unix milliseconds</li><li>Negative pre-1970 values</li><li>Fractional values</li></ul></article>
+        <article class="feature-capability"><h3>ISO 8601 input</h3><ul><li><code>Z</code> for UTC</li><li>Explicit <code>&plusmn;HH:MM</code> offsets</li><li>Seconds optional</li><li>Fractions up to nine digits</li></ul></article>
+        <article class="feature-capability"><h3>Automatic unit detection</h3><ul><li>Below 100,000,000,000 &rarr; seconds</li><li>Larger &rarr; milliseconds</li><li>Explicit unit choice available</li><li>Needed for far-future and early-epoch cases</li></ul></article>
+        <article class="feature-capability"><h3>Four outputs per conversion</h3><ul><li>UTC ISO 8601</li><li>Unix seconds</li><li>Unix milliseconds</li><li>Local system time</li></ul></article>
+        <article class="feature-capability"><h3>Current time in one click</h3><p><strong>Use current time</strong> fills the present moment in milliseconds — a quick source for &ldquo;now&rdquo; when writing queries or checking expiries.</p></article>
+        <article class="feature-capability"><h3>Keyboard flow</h3><ul><li><kbd>Enter</kbd> converts on the Timestamp tab</li><li>Arrow keys cycle the four tabs</li><li>No mouse required for repeat conversions</li></ul></article>
+        <article class="feature-capability"><h3>Strict and local</h3><ul><li>Zoneless date strings rejected, never assumed</li><li>Overall range &plusmn;8,640,000,000,000,000 ms</li><li>Runs on your device — no upload</li></ul></article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="timestamp-detection-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Detection rules</span>
+        <h2 id="timestamp-detection-title">How the converter interprets what you paste</h2>
+        <p>Auto-detection covers the common cases; the table shows where it applies and where an explicit unit choice is the safer move.</p>
+      </div>
+      <div class="feature-guide-table-wrap">
+        <table class="feature-guide-table">
+          <thead><tr><th>What you enter</th><th>How it is interpreted</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td><code>1786699800</code></td><td>Unix seconds &rarr; 2026-08-14T09:30:00Z</td><td>Absolute value below 100,000,000,000 is treated as seconds.</td></tr>
+            <tr><td><code>1786699800000</code></td><td>Unix milliseconds &rarr; the same instant</td><td>Values above the boundary are treated as milliseconds.</td></tr>
+            <tr><td><code>-86400</code></td><td>One day before the epoch &rarr; 1969-12-31T00:00:00Z</td><td>Negative pre-1970 values are accepted.</td></tr>
+            <tr><td><code>1786699800.5</code></td><td>Fractional seconds &rarr; the half second lands in the millisecond output</td><td>Fractional Unix values are accepted.</td></tr>
+            <tr><td><code>86400000</code> meant as milliseconds</td><td>Auto-detected as seconds — choose the unit explicitly</td><td>Early-epoch millisecond values fall below the detection boundary.</td></tr>
+            <tr><td><code>2026-08-14T11:30:00+02:00</code></td><td>ISO 8601 with an explicit offset &rarr; 09:30:00Z</td><td>The offset makes the instant unambiguous.</td></tr>
+            <tr><td><code>2026-08-14 11:30</code></td><td>Rejected</td><td>No timezone — add <code>Z</code> or a <code>&plusmn;HH:MM</code> offset instead of letting a tool guess.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="timestamp-context-title">
+      <div class="feature-detail-heading"><span class="section-badge">Beyond the dialog</span><h2 id="timestamp-context-title">Timestamps stay readable across CodePrettify</h2><p>The Timestamp tab is the precise instrument, but epoch values show up everywhere — so the rest of the toolset helps too.</p></div>
+      <div class="feature-shot-grid">
+        <figure class="feature-guide-shot"><img src="img/manual/data-converter.png" alt="CodePrettify Data Converter dialog showing operation controls, input and output panes, and the four utility tabs" width="1280" height="800" loading="lazy" /><figcaption>Data Converter in the viewer — the Timestamp tab sits one arrow-key press away from Convert, Hash &amp; HMAC, and ID Generator.</figcaption></figure>
+      </div>
+      <div class="feature-step-grid">
+        <article class="feature-step"><span class="feature-step-number">1</span><h3>Hover hints in the JSON viewer</h3><p>Structured JSON adds human-readable timestamp hints for integer Unix values dated 2000&ndash;2050 and for ISO-like strings — you often read the date without opening the converter at all.</p></article>
+        <article class="feature-step"><span class="feature-step-number">2</span><h3>Time-ordered IDs next door</h3><p>The ID Generator tab creates UUID v7 and ULID values that embed the current Unix-millisecond timestamp, so generated identifiers sort by creation time.</p></article>
+        <article class="feature-step"><span class="feature-step-number">3</span><h3>Same tool in both products</h3><p>The Data Converter behaves identically in the browser extension and the Windows app, so one set of habits covers both.</p></article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="timestamp-faq-title">
+      <div class="feature-detail-heading"><span class="section-badge">FAQ</span><h2 id="timestamp-faq-title">Unix timestamp conversion questions</h2></div>
+      <div class="feature-detail-faq">
+        <details><summary>How does the converter decide between seconds and milliseconds?</summary><p>Auto-detection treats absolute values below 100,000,000,000 as Unix seconds and larger values as milliseconds, so everyday timestamps sort themselves out. Choose the unit explicitly for far-future dates or early-epoch millisecond values, where magnitude alone cannot tell the two apart.</p></details>
+        <details><summary>Why was my date string rejected?</summary><p>A date string without a timezone is ambiguous — <code>2026-08-14 11:30</code> names a different instant in every region. The Timestamp tab rejects such strings instead of silently assuming a zone. Add <code>Z</code> for UTC or an explicit offset such as <code>+02:00</code> and it converts.</p></details>
+        <details><summary>Does the Unix timestamp converter work offline?</summary><p>Yes. Conversion runs entirely on your device — in the extension launcher, in any viewer tab, or in the Windows app. Nothing is uploaded, so timestamps from private logs and tokens never leave your machine.</p></details>
+        <details><summary>What outputs does a conversion produce?</summary><p>Every conversion returns the same four results: UTC ISO 8601, Unix seconds, Unix milliseconds, and the time in your system&rsquo;s local timezone. Convert once and read whichever representation the destination needs.</p></details>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="timestamp-related-title">
+      <div class="feature-detail-heading"><span class="section-badge">Related guides</span><h2 id="timestamp-related-title">Keep working with time-stamped data</h2></div>
+      <div class="feature-related-grid">
+        <a class="feature-related-card" href="json-formatter-browser-extension.html"><h3>JSON Formatter and Viewer</h3><p>Inspect API responses with folding and diagnostics — epoch values dated 2000&ndash;2050 get readable hover hints inline.</p><span>Explore the JSON viewer →</span></a>
+        <a class="feature-related-card" href="http-client-browser-extension.html"><h3>HTTP Client Browser Extension</h3><p>Send requests and read the timestamped responses, headers, and tokens the converter helps you decode.</p><span>Explore the HTTP client →</span></a>
+        <a class="feature-related-card" href="manual.html#data-converter"><h3>Data Converter Manual</h3><p>Review every tab — Convert, Hash &amp; HMAC, Timestamp, ID Generator — with controls, shortcuts, and limits.</p><span>Open the manual →</span></a>
+      </div>
+    </section>
+
+    <section class="feature-page-cta" aria-labelledby="timestamp-cta-title"><h2 id="timestamp-cta-title">Stop pasting production timestamps into random websites</h2><p>Convert epoch seconds, milliseconds, and ISO 8601 on your own device — four outputs per conversion, Enter to convert, nothing uploaded.</p><div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="pricing.html">See $0 early access</a></div></section>
+  </main>
+
+  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="guides.html">Guides</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
+</body>
+</html>

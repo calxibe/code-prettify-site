@@ -8,6 +8,7 @@ CodePrettify is made by FixQuotes. It is available as a browser extension for Ch
 
 - [Website](https://prettify.cloud/): product overview, supported formats, and download links.
 - [User manual](https://prettify.cloud/manual.html): complete instructions for the browser extension and Windows app.
+- [Guides index](https://prettify.cloud/guides.html): every hands-on tool guide in one place.
 - [Pricing and availability](https://prettify.cloud/pricing.html): current early-tester access and installation details.
 - [Browser extension changelog](https://prettify.cloud/changelog.html)
 - [Windows app changelog](https://prettify.cloud/changelog-app.html)
@@ -30,6 +31,14 @@ CodePrettify is made by FixQuotes. It is available as a browser extension for Ch
 - [Markdown Viewer](https://prettify.cloud/markdown-viewer-browser-extension.html)
 - [Regex Playground](https://prettify.cloud/regex-playground.html)
 - [HTTP Client](https://prettify.cloud/http-client-browser-extension.html)
+- [JSON Compare and Diff](https://prettify.cloud/json-compare.html)
+- [JSON Schema Validator](https://prettify.cloud/json-schema-validator.html)
+- [YAML Formatter and Validator](https://prettify.cloud/yaml-formatter.html)
+- [Unix Timestamp Converter](https://prettify.cloud/unix-timestamp-converter.html)
+- [XML Formatter and Viewer](https://prettify.cloud/xml-formatter.html)
+- [JSON to TypeScript](https://prettify.cloud/json-to-typescript.html)
+- [JSON to Pydantic](https://prettify.cloud/json-to-pydantic.html)
+- [JSON to C# Classes](https://prettify.cloud/json-to-csharp.html)
 
 ## Product facts
 

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Repair Invalid JSON and Transform Data Locally | CodePrettify</title>
-  <meta name="description" content="Repair common JSON-like syntax problems, review every change, then filter, select, remove, rename, sort, deduplicate, flatten, group, aggregate, or limit structured data locally." />
+  <title>JSON Repair &amp; Transform Tool – Fix Invalid JSON | CodePrettify</title>
+  <meta name="description" content="Fix invalid JSON locally: repair single quotes, Python literals, and trailing commas with a visible change report, then transform the result. Free, no upload." />
   <meta name="application-name" content="CodePrettify" />
   <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
@@ -17,18 +17,18 @@
   <meta property="og:site_name" content="CodePrettify" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Repair Invalid JSON and Transform Data Locally" />
+  <meta property="og:title" content="JSON Repair &amp; Transform Tool – Fix Invalid JSON Locally" />
   <meta property="og:description" content="Recover useful JSON, inspect the repair report, and build a repeatable transformation recipe without uploading the data." />
   <meta property="og:url" content="https://prettify.cloud/json-repair-transform.html" />
-  <meta property="og:image" content="https://prettify.cloud/img/feature-workbench-repair.png" />
+  <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-workbench-repair.png" />
   <meta property="og:image:alt" content="CodePrettify repairing a messy JSON-like payload and explaining the changes" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Repair Invalid JSON and Transform Data Locally" />
+  <meta name="twitter:title" content="JSON Repair &amp; Transform Tool – Fix Invalid JSON Locally" />
   <meta name="twitter:description" content="Repair first, review the changes, then transform the clean data." />
-  <meta name="twitter:image" content="https://prettify.cloud/img/feature-workbench-repair.png" />
+  <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-workbench-repair.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=51ffddf6" />
+  <link rel="stylesheet" href="style.min.css?v=e323747f" />
   <script src="site.js?v=20260809-2" defer></script>
   <script src="feature-guide.js?v=20260725-1" defer></script>
   <script type="application/ld+json">
@@ -41,6 +41,8 @@
           "applicationCategory": "DeveloperApplication",
           "operatingSystem": "Chrome, Edge, Windows",
           "url": "https://prettify.cloud/json-repair-transform.html",
+          "description": "Fix invalid JSON locally — single quotes, unquoted keys, Python literals, fences, trailing commas — with a visible change report, then filter, sort, group, and reshape the result.",
+          "installUrl": "https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
         },
         {
@@ -48,6 +50,15 @@
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "CodePrettify", "item": "https://prettify.cloud/" },
             { "@type": "ListItem", "position": 2, "name": "JSON Repair & Transform", "item": "https://prettify.cloud/json-repair-transform.html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "Will the JSON repair tool invent missing values?", "acceptedAnswer": { "@type": "Answer", "text": "No. It repairs recognizable syntax and wrapper problems. It does not fabricate domain values that are absent from the source." } },
+            { "@type": "Question", "name": "Does repair overwrite the current file?", "acceptedAnswer": { "@type": "Answer", "text": "No. The original remains unchanged until you deliberately copy, export, or open the repaired result." } },
+            { "@type": "Question", "name": "Can it convert a printed Python dict to JSON?", "acceptedAnswer": { "@type": "Answer", "text": "Usually, yes. The repair pass converts single-quoted strings, quotes unquoted keys, and maps True, False, and None to JSON true, false, and null — with every change listed in the report." } },
+            { "@type": "Question", "name": "Can it repair JSON copied from AI or LLM output?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — that is a core use case. Markdown fences and surrounding prose are removed, the first balanced object or array is extracted, and trailing commas are cleaned up, so a pasted model response becomes strict JSON you can verify." } }
           ]
         }
       ]
@@ -62,7 +73,8 @@
     <div class="header-inner">
       <a href="/" class="logo"><img src="img/code_32.png?v=20260725" srcset="img/code_32.png?v=20260725 1x, img/code_64.png?v=20260725 2x" width="32" height="32" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span></a>
       <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
-      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#feature-guides">Features</a><a href="pricing.html">Price</a><a href="changelog.html">Changelog</a><a href="manual.html">Manual</a><a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a></nav>
+      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#install">Install</a>
+        <a href="guides.html">Guides</a><a href="pricing.html">Price</a><a href="manual.html">Manual</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a></nav>
     </div>
   </header>
 
@@ -71,12 +83,12 @@
     <section class="feature-detail-hero">
       <div>
         <span class="feature-detail-eyebrow">Recover, review, reshape</span>
-        <h1>Turn almost-JSON into data you can trust again</h1>
-        <p class="feature-detail-lead">Copied logs, AI output, hand-edited configuration, and fenced snippets often look like JSON while failing a strict parser. CodePrettify repairs common problems, shows what changed, and lets you continue into a visual transformation recipe.</p>
+        <h1>Repair almost-JSON into data you can trust again</h1>
+        <p class="feature-detail-lead">Copied logs, AI output, hand-edited configuration, and fenced snippets often look like JSON while failing a strict parser. CodePrettify repairs the invalid JSON locally, shows what changed, and lets you continue into a visual transformation recipe.</p>
         <div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="manual.html#structured-workbench">Read the manual section</a></div>
         <ul class="feature-proof-list"><li>Explicit repair report</li><li>Original stays unchanged</li><li>Ordered recipes</li><li>Local processing</li></ul>
       </div>
-      <figure class="feature-hero-shot"><img src="img/feature-workbench-repair.png" alt="JSON Repair and Transform showing messy input, repaired JSON, and a detailed repair report" width="1280" height="800" fetchpriority="high" /><figcaption>Code fences, surrounding prose, unquoted keys, single quotes, Python values, and trailing commas are repaired with a visible report.</figcaption></figure>
+      <figure class="feature-hero-shot"><img src="img/screenshots/feature-workbench-repair.png" alt="JSON Repair and Transform showing messy input, repaired JSON, and a detailed repair report" width="1280" height="800" fetchpriority="high" /><figcaption>Code fences, surrounding prose, unquoted keys, single quotes, Python values, and trailing commas are repaired with a visible report.</figcaption></figure>
     </section>
 
     <nav class="feature-learning-nav" aria-label="Lessons in this JSON repair and transform guide">
@@ -91,10 +103,10 @@
     </nav>
 
     <section class="feature-detail-section" aria-labelledby="repair-sample-title">
-      <div class="feature-detail-heading"><span class="section-badge">Repair example</span><h2 id="repair-sample-title">Recover the useful payload without guessing silently</h2><p>The repair tool is designed for recognizable JSON-like input. It does not invent missing business data or pretend an ambiguous document is correct.</p></div>
+      <div class="feature-detail-heading"><span class="section-badge">Repair example</span><h2 id="repair-sample-title">Repair invalid JSON without silent guessing</h2><p>The repair tool is designed for recognizable JSON-like input. It does not invent missing business data or pretend an ambiguous document is correct.</p></div>
       <div class="feature-example-grid">
         <article class="feature-example-card">
-          <div class="feature-example-copy"><span class="feature-example-label">Captured input</span><h3>Valid intent, invalid JSON</h3><p>The payload is wrapped in prose and a Markdown fence, uses JavaScript-style keys and quotes, and contains Python constants.</p></div>
+          <div class="feature-example-copy"><span class="feature-example-label">Captured input</span><h3>Valid intent, invalid JSON</h3><p>The payload is wrapped in prose and a Markdown fence, uses unquoted keys and single quotes, and contains the Python constants True and None.</p></div>
           <pre class="feature-code"><code>Captured application payload:
 ```json
 {
@@ -166,7 +178,7 @@
     </section>
 
     <section class="feature-detail-section" aria-labelledby="repair-types-title">
-      <div class="feature-detail-heading"><span class="section-badge">Common repairs</span><h2 id="repair-types-title">Problems the repair pass can recognize</h2></div>
+      <div class="feature-detail-heading"><span class="section-badge">Common repairs</span><h2 id="repair-types-title">JSON errors the repair pass can recognize and fix</h2></div>
       <div class="feature-capability-grid">
         <article class="feature-capability"><h3>Wrappers and noise</h3><ul><li>Byte-order marks</li><li>Markdown code fences</li><li>Surrounding prose</li><li>First balanced object or array</li></ul></article>
         <article class="feature-capability"><h3>Quotes and keys</h3><ul><li>Single-quoted strings</li><li>Unquoted object keys</li><li>JavaScript comments</li><li>Raw controls inside strings</li></ul></article>
@@ -179,10 +191,10 @@
     </section>
 
     <section class="feature-detail-section" aria-labelledby="transform-title">
-      <div class="feature-detail-heading"><span class="section-badge">Transform example</span><h2 id="transform-title">Build a recipe and watch the result update</h2><p>Once the input is valid structured data, add operations in order. Each step receives the result of the previous step, and the live output shows how many rows remain and how many steps were applied.</p></div>
+      <div class="feature-detail-heading"><span class="section-badge">Transform example</span><h2 id="transform-title">Transform the JSON with a recipe and watch the result update</h2><p>Once the input is valid structured data, add operations in order. Each step receives the result of the previous step, and the live output shows how many rows remain and how many steps were applied.</p></div>
       <div class="feature-shot-grid">
-        <figure class="feature-guide-shot"><img src="img/feature-workbench-repair.png" alt="JSON repair interface with input, repair report, and clean output" width="1280" height="800" loading="lazy" /><figcaption>Repair produces a clean result and a human-readable list of changes.</figcaption></figure>
-        <figure class="feature-guide-shot"><img src="img/feature-workbench-transform.png" alt="JSON transformation recipe filtering administrators and sorting them by request count" width="1280" height="800" loading="lazy" /><figcaption>A filter for <code>role = Admin</code> followed by descending request count returns two rows from six.</figcaption></figure>
+        <figure class="feature-guide-shot"><img src="img/screenshots/feature-workbench-repair.png" alt="JSON repair interface with input, repair report, and clean output" width="1280" height="800" loading="lazy" /><figcaption>Repair produces a clean result and a human-readable list of changes.</figcaption></figure>
+        <figure class="feature-guide-shot"><img src="img/screenshots/feature-workbench-transform.png" alt="JSON transformation recipe filtering administrators and sorting them by request count" width="1280" height="800" loading="lazy" /><figcaption>A filter for <code>role = Admin</code> followed by descending request count returns two rows from six.</figcaption></figure>
       </div>
       <div class="feature-step-grid">
         <article class="feature-step"><span class="feature-step-number">1</span><h3>Filter the rows</h3><p>Keep only records that match a field, comparison operator, and value.</p></article>
@@ -244,10 +256,12 @@
     <section class="feature-detail-section" aria-labelledby="repair-faq-title">
       <div class="feature-detail-heading"><span class="section-badge">FAQ</span><h2 id="repair-faq-title">Repair and transform questions</h2></div>
       <div class="feature-detail-faq">
-        <details><summary>Will the repair tool invent missing values?</summary><p>No. It repairs recognizable syntax and wrapper problems. It does not fabricate domain values that are absent from the source.</p></details>
+        <details><summary>Will the JSON repair tool invent missing values?</summary><p>No. It repairs recognizable syntax and wrapper problems. It does not fabricate domain values that are absent from the source.</p></details>
         <details><summary>Does repair overwrite the current file?</summary><p>No. The original remains unchanged until you deliberately copy, export, or open the repaired result.</p></details>
         <details><summary>Can I transform an object as well as an array?</summary><p>Select, Remove, and Rename work on a single object as well as arrays. Filter, Sort, Unique, Flatten, Group, and Limit need an array of rows and report an error if the current stage is a single object.</p></details>
         <details><summary>Can I reuse a recipe?</summary><p>Yes — the workbench automatically restores your most recent recipe (stored locally on the device) the next time you open it. For automation outside the UI, translate the visible recipe into application code.</p></details>
+        <details><summary>Can it convert a printed Python dict to JSON?</summary><p>Usually, yes. The repair pass converts single-quoted strings, quotes unquoted keys, and maps True, False, and None to JSON true, false, and null — with every change listed in the report.</p></details>
+        <details><summary>Can it repair JSON copied from AI or LLM output?</summary><p>Yes — that is a core use case. Markdown fences and surrounding prose are removed, the first balanced object or array is extracted, and trailing commas are cleaned up, so a pasted model response becomes strict JSON you can verify.</p></details>
       </div>
     </section>
 
@@ -263,6 +277,6 @@
     <section class="feature-page-cta" aria-labelledby="repair-cta-title"><h2 id="repair-cta-title">Recover the payload before you rewrite it by hand</h2><p>Paste the JSON-like text, inspect the repair report, and continue into a visible transformation workflow on your device.</p><div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="pricing.html">See $0 early access</a></div></section>
   </main>
 
-  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
+  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="guides.html">Guides</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
 </body>
 </html>

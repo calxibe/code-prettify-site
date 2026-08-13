@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSON Compare &amp; Diff Tool – Semantic and Text Modes | CodePrettify</title>
+  <meta name="description" content="Compare JSON semantically or line by line — ignore key order and formatting, match array items by id, and diff two files locally. Free, no upload." />
+  <meta name="application-name" content="CodePrettify" />
+  <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://prettify.cloud/json-compare.html" />
+  <link rel="icon" href="favicon.ico?v=20260725" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20260725" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260725" />
+  <meta property="og:site_name" content="CodePrettify" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="JSON Compare &amp; Diff Tool – Semantic and Text Modes" />
+  <meta property="og:description" content="Diff two JSON documents by structure — key order and formatting ignored, arrays matched by id — entirely on your device." />
+  <meta property="og:url" content="https://prettify.cloud/json-compare.html" />
+  <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-diff-view.png" />
+  <meta property="og:image:alt" content="CodePrettify comparing two JSON documents and reporting only the real structural changes" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="JSON Compare &amp; Diff Tool – Semantic and Text Modes" />
+  <meta name="twitter:description" content="Semantic JSON diff that ignores formatting and key order, computed locally." />
+  <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-diff-view.png" />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
+  <link rel="stylesheet" href="style.min.css?v=e323747f" />
+  <script src="site.js?v=20260809-2" defer></script>
+  <script src="feature-guide.js?v=20260725-1" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "CodePrettify JSON Compare",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Chrome, Edge, Windows",
+          "url": "https://prettify.cloud/json-compare.html",
+          "description": "Compare two JSON, JSONC, JSON Lines, YAML, or TOML documents semantically or as exact text — key order and formatting ignored, arrays of objects matched by id — with all processing on your device.",
+          "installUrl": "https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "CodePrettify", "item": "https://prettify.cloud/" },
+            { "@type": "ListItem", "position": 2, "name": "JSON Compare & Diff", "item": "https://prettify.cloud/json-compare.html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "How do I compare two JSON files?", "acceptedAnswer": { "@type": "Answer", "text": "In the extension, open Compare, keep the current document on the left, and paste the second file on the right — each side is fully editable. The Windows app additionally lets you browse two files into a dedicated comparison tab, and selecting exactly two supported files in Explorer can offer a Compare command." } },
+            { "@type": "Question", "name": "Do key order and formatting affect the JSON diff?", "acceptedAnswer": { "@type": "Answer", "text": "Not in Semantic mode. It compares parsed structure, so reordered object keys, indentation, and line-break differences produce no changes. Switch to Text mode when you specifically need exact line-by-line differences." } },
+            { "@type": "Question", "name": "What makes the comparison semantic?", "acceptedAnswer": { "@type": "Answer", "text": "Both sides are parsed into structured data and compared value by value instead of line by line. Arrays whose elements are all objects with a unique primitive id, _id, uuid, or guid key on both sides are matched by identity, so a reordered array reports real edits instead of rewriting every position; all other arrays are compared positionally." } },
+            { "@type": "Question", "name": "Is my JSON uploaded when I compare it?", "acceptedAnswer": { "@type": "Answer", "text": "No. Comparison runs entirely on your device in both the extension and the Windows app. Nothing you paste or open is sent to a server — the practical difference from compare-JSON-online tools." } }
+          ]
+        }
+      ]
+    }
+  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date);gtag("config","G-S4WNQ48Q7F");addEventListener("load",function(){var l=function(){var s=document.createElement("script");s.async=!0;s.src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F";document.head.appendChild(s)};window.requestIdleCallback?requestIdleCallback(l,{timeout:3000}):setTimeout(l,1200)})</script>
+</head>
+<body class="feature-detail-body">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="bg-glow"></div>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo"><img src="img/code_32.png?v=20260725" srcset="img/code_32.png?v=20260725 1x, img/code_64.png?v=20260725 2x" width="32" height="32" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span></a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
+      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#install">Install</a>
+        <a href="guides.html">Guides</a><a href="pricing.html">Price</a><a href="manual.html">Manual</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a></nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="feature-detail-main">
+    <nav class="feature-breadcrumb" aria-label="Breadcrumb"><a href="/">CodePrettify</a><span aria-hidden="true">/</span><span>JSON Compare &amp; Diff</span></nav>
+    <section class="feature-detail-hero">
+      <div>
+        <span class="feature-detail-eyebrow">Two sides, one honest diff</span>
+        <h1>Compare JSON by structure, not by line noise</h1>
+        <p class="feature-detail-lead">A reformatted file makes a line-based JSON diff useless: every line changes and the one real edit hides in the noise. CodePrettify parses both sides and compares values — key order and formatting ignored, array items matched by id — with two editable inputs and everything processed on your device.</p>
+        <div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="manual.html#compare">Read the manual section</a></div>
+        <ul class="feature-proof-list"><li>Semantic and Text modes</li><li>Key order ignored</li><li>Arrays matched by id</li><li>Local processing</li></ul>
+      </div>
+      <figure class="feature-hero-shot"><img src="img/screenshots/feature-diff-view.png" alt="CodePrettify JSON compare showing a semantic diff of two JSON documents with the real value changes highlighted" width="1280" height="800" fetchpriority="high" /><figcaption>Semantic mode reports changed, added, and removed values while ignoring indentation and object-key order.</figcaption></figure>
+    </section>
+
+    <nav class="feature-learning-nav" aria-label="Lessons in this JSON compare guide">
+      <strong>Learn on this page</strong>
+      <div class="feature-learning-links">
+        <a href="#compare-example-title">See a semantic diff</a>
+        <a href="#compare-tutorial-title">Compare two payloads</a>
+        <a href="#compare-modes-title">Pick the right mode</a>
+        <a href="#compare-capabilities-title">Know the engine</a>
+        <a href="#compare-decisions-title">Read edge cases</a>
+        <a href="#compare-faq-title">Troubleshoot</a>
+      </div>
+    </nav>
+
+    <section class="feature-detail-section" aria-labelledby="compare-example-title">
+      <div class="feature-detail-heading"><span class="section-badge">Semantic example</span><h2 id="compare-example-title">One real change, hidden inside a full reformat</h2><p>The two configurations below differ in key order, indentation, and one actual value. A line diff flags nearly every line; a semantic JSON diff reports exactly what changed.</p></div>
+      <div class="feature-example-grid">
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">Left side</span><h3>Deployed configuration</h3><p>The version currently running, pretty-printed with keys in their original order.</p></div>
+          <pre class="feature-code"><code>{
+  "service": "checkout",
+  "replicas": <span class="code-accent">2</span>,
+  "rollout": {
+    "strategy": "RollingUpdate",
+    "maxUnavailable": 1
+  },
+  "regions": ["eu-north-1", "eu-west-1"]
+}</code></pre>
+        </article>
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">Right side</span><h3>Proposed configuration</h3><p>Reordered keys and different formatting — but the only value change is <code>replicas</code>.</p></div>
+          <pre class="feature-code"><code>{
+  "rollout": { "maxUnavailable": 1,
+    "strategy": "RollingUpdate" },
+  "regions": ["eu-north-1", "eu-west-1"],
+  "replicas": <span class="code-success">3</span>,
+  "service": "checkout"
+}</code></pre>
+        </article>
+      </div>
+      <div class="feature-privacy-note"><span class="feature-privacy-icon" aria-hidden="true">i</span><div><strong>Both sides stay on your device.</strong><p>Comparison is listed among the operations that never leave the extension or the Windows app. Unlike compare-JSON-online tools, nothing you paste is uploaded.</p></div></div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="compare-tutorial-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Hands-on tutorial</span>
+        <h2 id="compare-tutorial-title">Compare two JSON payloads step by step</h2>
+        <p>Use the two configurations above, or any pair of payloads you are reviewing. The important habit is checking which side is which before you read added and removed markers.</p>
+      </div>
+      <ol class="feature-tutorial-steps">
+        <li>
+          <div><h3>Open Compare</h3><p>Press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>D</kbd>, or choose <strong>More Actions → General tools → Compare</strong>. The Command Palette (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>) finds it by name as well.</p></div>
+        </li>
+        <li>
+          <div><h3>Check the prefilled left side</h3><p>The left input starts with the current document and the right input starts empty. Each side has its own <strong>Use current document</strong> and <strong>Clear</strong> controls, so you can rebuild either input at any time.</p></div>
+        </li>
+        <li>
+          <div><h3>Paste the second version on the right</h3><p>Both sides are fully editable. Semantic availability is detected from the two inputs, not from the open file — you can paste two JSON payloads while viewing a JavaScript or CSS document and still get a structured comparison.</p></div>
+        </li>
+        <li>
+          <div><h3>Fix the direction with Swap sides</h3><p>Before comparing, <strong>Swap sides</strong> exchanges the actual inputs. Direction matters: an entry reported as added on one orientation is reported as removed on the other.</p></div>
+        </li>
+        <li>
+          <div><h3>Run the comparison</h3><p>Semantic mode is selected automatically when both inputs parse as JSON, JSONC, JSON Lines, YAML, or TOML — the mode toggle appears only when semantic comparison is possible. <kbd>Ctrl</kbd>+<kbd>Enter</kbd> runs the open dialog&rsquo;s primary action.</p></div>
+        </li>
+        <li>
+          <div><h3>Read the change set, including its counters</h3><p>For the sample, expect a single changed value: <code>replicas</code> from <code>2</code> to <code>3</code>. Change sets are capped at 5,000 entries, and the counters show a trailing ellipsis when truncated. Identical sources show a centered no-differences message instead of an empty list.</p></div>
+        </li>
+        <li>
+          <div><h3>Refine without retyping</h3><p>After a comparison, Swap Sides flips only which side is displayed; use <strong>Edit inputs</strong> to change the actual text and compare again. The Windows app adds <strong>Previous</strong>/<strong>Next difference</strong> buttons for stepping through a long result.</p></div>
+        </li>
+      </ol>
+      <div class="feature-practice-lab">
+        <h3>Before you trust a diff</h3>
+        <p>A comparison is evidence only when you know how it was computed. Confirm these five points.</p>
+        <ul class="feature-checklist">
+          <li>The left/right orientation matches how you read added and removed.</li>
+          <li>The mode is the one you intended — semantic requires both sides to parse.</li>
+          <li>The change counters have no trailing ellipsis, or you accept a truncated list.</li>
+          <li>Arrays you care about carry a shared unique id, _id, uuid, or guid key for identity matching.</li>
+          <li>Very large text comparisons may have used the faster positional fallback.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="compare-modes-title">
+      <div class="feature-detail-heading"><span class="section-badge">Two modes</span><h2 id="compare-modes-title">Semantic structure or exact text — the tool tells you which you get</h2><p>Semantic mode compares parsed values. Text mode compares exact lines with synchronized pane scrolling, and in the Windows app adds an <strong>Ignore whitespace</strong> option that disregards all whitespace inside lines. When either side fails to parse, the comparison falls back to text.</p></div>
+      <div class="feature-shot-grid">
+        <figure class="feature-guide-shot"><img src="img/screenshots/feature-diff-view.png" alt="Side-by-side JSON diff view with the changed values marked between two documents" width="1280" height="800" loading="lazy" /><figcaption>The result lists what changed; a structured change can jump to the editor line while the source still matches the current JSON document.</figcaption></figure>
+        <figure class="feature-guide-shot"><img src="img/screenshots/feature-diff-view-dark.png" alt="JSON compare result shown in the dark theme with the same structural changes highlighted" width="1280" height="800" loading="lazy" /><figcaption>The comparison view follows the Auto/Light/Dark theme you choose in Settings.</figcaption></figure>
+      </div>
+      <div class="feature-step-grid">
+        <article class="feature-step"><span class="feature-step-number">1</span><h3>Load both sides</h3><p>Left starts with the current document; paste, edit, clear, or swap either side.</p></article>
+        <article class="feature-step"><span class="feature-step-number">2</span><h3>Let the mode resolve</h3><p>Both sides parse as JSON, JSONC, JSON Lines, YAML, or TOML — semantic. Otherwise — text.</p></article>
+        <article class="feature-step"><span class="feature-step-number">3</span><h3>Navigate the result</h3><p>Flip the displayed sides, return to Edit inputs, or step differences in the Windows app.</p></article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="compare-capabilities-title">
+      <div class="feature-detail-heading"><span class="section-badge">Comparison engine</span><h2 id="compare-capabilities-title">What the JSON diff engine actually does</h2></div>
+      <div class="feature-capability-grid">
+        <article class="feature-capability"><h3>Supported structures</h3><ul><li>JSON, JSONC, JSON Lines</li><li>YAML and TOML</li><li>Detected from the two inputs</li><li>Works while viewing any format</li></ul><p>In JSON Lines, the app accepts JSONC comments and trailing commas per record; the extension requires strict JSON per line.</p></article>
+        <article class="feature-capability"><h3>Noise it ignores</h3><ul><li>Indentation and line breaks</li><li>Object-key order</li><li>Formatting-only rewrites</li></ul><p>Only value and structure differences are reported in Semantic mode.</p></article>
+        <article class="feature-capability"><h3>Array identity matching</h3><ul><li>All-object arrays with a unique primitive <code>id</code>, <code>_id</code>, <code>uuid</code>, or <code>guid</code></li><li>Same key required on both sides</li><li>Matched by identity, not position</li><li>All other arrays compared positionally</li></ul></article>
+        <article class="feature-capability"><h3>Stated limits</h3><ul><li>Change sets capped at 5,000 entries</li><li>Trailing ellipsis marks truncation</li><li>Text fallback for invalid inputs</li></ul><p>Very large text comparisons — over roughly 5,000 combined lines in the extension, 20,000 in the app — switch to a faster positional comparison that can overstate changes when lines shift.</p></article>
+        <article class="feature-capability"><h3>Careful line jumping</h3><ul><li>Jumps only while a side still exactly matches the current document</li><li>JSON documents with positionally addressed changes only</li><li>Identity-matched array changes are listed without a jump</li></ul><p>Independently pasted or edited text never produces a misleading jump.</p></article>
+        <article class="feature-capability"><h3>Text mode tools</h3><ul><li>Synchronized pane scrolling</li><li>Ignore whitespace (Windows app)</li><li>Previous/Next difference (Windows app)</li></ul></article>
+        <article class="feature-capability"><h3>Compare two files (app)</h3><ul><li>Browse two files from disk</li><li>Current file prefilled</li><li>The pair is remembered</li><li>Dedicated comparison tab</li></ul><p>Selecting exactly two supported files in Explorer can expose the Compare command directly.</p></article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="compare-decisions-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Decision guide</span>
+        <h2 id="compare-decisions-title">Read the result for what it is</h2>
+      </div>
+      <div class="feature-guide-table-wrap">
+        <table class="feature-guide-table">
+          <thead><tr><th>What you see</th><th>What it means</th><th>Best next action</th></tr></thead>
+          <tbody>
+            <tr><td>No Semantic/Text toggle</td><td>At least one side does not parse as a supported structured format, so only text comparison is possible.</td><td>Repair or complete the invalid side, then compare again for a structural result.</td></tr>
+            <tr><td>Change counter ends with an ellipsis</td><td>The change set hit the 5,000-entry cap and the list is truncated.</td><td>Compare the specific subtree or record range you care about instead of the whole document.</td></tr>
+            <tr><td>Noisy diff on very large text</td><td>Above roughly 5,000 combined lines (extension) or 20,000 (app), the faster positional comparison can overstate changes when lines shift.</td><td>Compare smaller sections, or use the Windows app for the higher threshold.</td></tr>
+            <tr><td>Indentation-only line changes</td><td>The lines differ only in whitespace, not content.</td><td>In the Windows app&rsquo;s Text mode, enable <strong>Ignore whitespace</strong>; or use Semantic mode when both sides parse.</td></tr>
+            <tr><td>A reordered array reports many changes</td><td>The elements lack a shared unique <code>id</code>, <code>_id</code>, <code>uuid</code>, or <code>guid</code> key, so the array is compared positionally.</td><td>Keep a stable identifier on both sides to get identity matching.</td></tr>
+            <tr><td>Centered no-differences message</td><td>The two sources are identical in the selected mode.</td><td>Nothing to review — swap in the next pair with Use current document or Clear.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="compare-faq-title">
+      <div class="feature-detail-heading"><span class="section-badge">FAQ</span><h2 id="compare-faq-title">JSON compare questions</h2></div>
+      <div class="feature-detail-faq">
+        <details><summary>How do I compare two JSON files?</summary><p>In the extension, open Compare, keep the current document on the left, and paste the second file on the right — each side is fully editable. The Windows app additionally lets you browse two files into a dedicated comparison tab, and selecting exactly two supported files in Explorer can offer a Compare command.</p></details>
+        <details><summary>Do key order and formatting affect the JSON diff?</summary><p>Not in Semantic mode. It compares parsed structure, so reordered object keys, indentation, and line-break differences produce no changes. Switch to Text mode when you specifically need exact line-by-line differences.</p></details>
+        <details><summary>What makes the comparison semantic?</summary><p>Both sides are parsed into structured data and compared value by value instead of line by line. Arrays whose elements are all objects with a unique primitive id, _id, uuid, or guid key on both sides are matched by identity, so a reordered array reports real edits instead of rewriting every position; all other arrays are compared positionally.</p></details>
+        <details><summary>Is my JSON uploaded when I compare it?</summary><p>No. Comparison runs entirely on your device in both the extension and the Windows app. Nothing you paste or open is sent to a server — the practical difference from compare-JSON-online tools.</p></details>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="compare-related-title">
+      <div class="feature-detail-heading"><span class="section-badge">Related guides</span><h2 id="compare-related-title">Continue with the changed data</h2></div>
+      <div class="feature-related-grid">
+        <a class="feature-related-card" href="json-formatter-browser-extension.html"><h3>JSON Formatter and Viewer</h3><p>Inspect either side with folding, JSONPath, diagnostics, table view, and schema validation before or after you diff it.</p><span>Explore the JSON viewer →</span></a>
+        <a class="feature-related-card" href="json-repair-transform.html"><h3>JSON Repair &amp; Transform</h3><p>Repair an invalid side first — once both inputs parse, the semantic JSON diff becomes available.</p><span>Explore repair and transform →</span></a>
+        <a class="feature-related-card" href="manual.html#compare"><h3>Complete Manual – Compare</h3><p>Every Compare control, mode rule, matching detail, and limit in one audited reference.</p><span>Open the manual →</span></a>
+      </div>
+    </section>
+
+    <section class="feature-page-cta" aria-labelledby="compare-cta-title"><h2 id="compare-cta-title">Diff the payloads before you ship the change</h2><p>Paste both versions, let semantic mode strip away the formatting noise, and review the actual changes on your device.</p><div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="pricing.html">See $0 early access</a></div></section>
+  </main>
+
+  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="guides.html">Guides</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSON to TypeScript – Interface &amp; Type Generator | CodePrettify</title>
+  <meta name="description" content="Free JSON to TypeScript interface generator: paste a sample, get nested exported interfaces with optional fields, unions, and exact keys — local, no upload." />
+  <meta name="application-name" content="CodePrettify" />
+  <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://prettify.cloud/json-to-typescript.html" />
+  <link rel="icon" href="favicon.ico?v=20260725" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20260725" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260725" />
+  <meta property="og:site_name" content="CodePrettify" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="JSON to TypeScript – Interface &amp; Type Generator" />
+  <meta property="og:description" content="Paste real JSON, get nested exported interfaces and a root type alias with optional fields and unions — inferred locally, never uploaded." />
+  <meta property="og:url" content="https://prettify.cloud/json-to-typescript.html" />
+  <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-json-to-code.png" />
+  <meta property="og:image:alt" content="CodePrettify converting JSON to TypeScript interfaces beside the sample records that produced them" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="JSON to TypeScript – Interface &amp; Type Generator" />
+  <meta name="twitter:description" content="Nested exported interfaces from real JSON samples — optional vs nullable distinguished, all local." />
+  <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-json-to-code.png" />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
+  <link rel="stylesheet" href="style.min.css?v=e323747f" />
+  <script src="site.js?v=20260809-2" defer></script>
+  <script src="feature-guide.js?v=20260725-1" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "CodePrettify JSON to TypeScript Generator",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Chrome, Edge, Windows",
+          "url": "https://prettify.cloud/json-to-typescript.html",
+          "description": "Convert JSON to TypeScript locally: nested exported interfaces and a root type alias with unions, optional fields, and exact source keys, inferred from real samples with no upload.",
+          "installUrl": "https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "CodePrettify", "item": "https://prettify.cloud/" },
+            { "@type": "ListItem", "position": 2, "name": "JSON to TypeScript", "item": "https://prettify.cloud/json-to-typescript.html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "Does JSON to TypeScript output interfaces or type aliases?", "acceptedAnswer": { "@type": "Answer", "text": "Both. Every object shape becomes a nested exported interface, and the root of the sample is exported as a type alias, which is how an array or union root is expressed accurately. Generated arrays always use the generic Array<T> syntax rather than T[]." } },
+            { "@type": "Question", "name": "How is an optional field different from a nullable field?", "acceptedAnswer": { "@type": "Answer", "text": "They come from different evidence. A property missing from some records in an array sample becomes optional and gets a question mark, while a property holding an explicit null becomes a nullable union such as string | null. The generator distinguishes the two instead of merging them into one loose type." } },
+            { "@type": "Question", "name": "Does the generator upload my JSON anywhere?", "acceptedAnswer": { "@type": "Answer", "text": "No. Generation runs entirely on your device in the Chrome and Edge extension and in the Windows app, and no account is required. The sample and the generated TypeScript never leave the machine." } },
+            { "@type": "Question", "name": "How do I get a real element type for an empty array?", "acceptedAnswer": { "@type": "Answer", "text": "Include at least one record where the array is populated — a populated sample's element type always wins over empty occurrences. When no sample populates the array, the element falls back to the safe unknown type, and all empty arrays are counted into a single informational warning rather than an error." } }
+          ]
+        }
+      ]
+    }
+  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date);gtag("config","G-S4WNQ48Q7F");addEventListener("load",function(){var l=function(){var s=document.createElement("script");s.async=!0;s.src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F";document.head.appendChild(s)};window.requestIdleCallback?requestIdleCallback(l,{timeout:3000}):setTimeout(l,1200)})</script>
+</head>
+<body class="feature-detail-body">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="bg-glow"></div>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo"><img src="img/code_32.png?v=20260725" srcset="img/code_32.png?v=20260725 1x, img/code_64.png?v=20260725 2x" width="32" height="32" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span></a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
+      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#install">Install</a>
+        <a href="guides.html">Guides</a><a href="pricing.html">Price</a><a href="manual.html">Manual</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a></nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="feature-detail-main">
+    <nav class="feature-breadcrumb" aria-label="Breadcrumb"><a href="/">CodePrettify</a><span aria-hidden="true">/</span><span>JSON to TypeScript</span></nav>
+    <section class="feature-detail-hero">
+      <div>
+        <span class="feature-detail-eyebrow">Interfaces inferred from evidence</span>
+        <h1>JSON to TypeScript interfaces, generated from the payload you already have</h1>
+        <p class="feature-detail-lead">Paste a strict JSON sample — or use the document already open — choose the TypeScript target, and get nested exported interfaces plus a root type alias with unions, optional fields, and your exact source keys. Every record in the sample counts as evidence, and inference runs entirely on your device.</p>
+        <div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="manual.html#json-to-code">Read the generator manual entry</a></div>
+        <ul class="feature-proof-list"><li>Nested exported interfaces</li><li>Optional vs nullable, distinguished</li><li>Exact source keys</li><li>Local generation</li></ul>
+      </div>
+      <figure class="feature-hero-shot"><img src="img/screenshots/feature-json-to-code.png" alt="CodePrettify converting JSON to TypeScript interfaces beside the sample records that produced them" width="1280" height="800" fetchpriority="high" /><figcaption>A JSON payload on the left, generated nested TypeScript interfaces on the right — produced locally, never uploaded.</figcaption></figure>
+    </section>
+
+    <nav class="feature-learning-nav" aria-label="Lessons in this JSON to TypeScript guide">
+      <strong>Learn on this page</strong>
+      <div class="feature-learning-links">
+        <a href="#ts-output-title">Read the output</a>
+        <a href="#ts-evidence-title">Optional vs nullable</a>
+        <a href="#ts-tutorial-title">Generate hands-on</a>
+        <a href="#ts-targets-title">Switch targets</a>
+        <a href="#ts-faq-title">Troubleshoot</a>
+      </div>
+    </nav>
+
+    <section class="feature-detail-section" aria-labelledby="ts-output-title">
+      <div class="feature-detail-heading"><span class="section-badge">TypeScript output</span><h2 id="ts-output-title">What the generated TypeScript actually looks like</h2><p>One sample in, two kinds of declarations out: every object shape becomes a nested exported interface, and the root of the sample becomes an exported type alias. Arrays use the generic <code>Array&lt;T&gt;</code> form, and property names stay exactly as the JSON spells them.</p></div>
+      <div class="feature-example-grid">
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">JSON sample</span><h3>Two customer records with honest gaps</h3><p><code>trialEndsAt</code> is an explicit <code>null</code> in one record, <code>referrer</code> is missing from the other, and the second <code>addresses</code> array is empty.</p></div>
+          <pre class="feature-code"><code>[
+  {
+    "id": "cus_204",
+    "plan": "team",
+    <span class="code-accent">"trialEndsAt": null,</span>
+    "addresses": [
+      { "city": "Oslo", "postalCode": "0150" }
+    ]
+  },
+  {
+    "id": "cus_317",
+    "plan": "solo",
+    "trialEndsAt": "2026-09-01T00:00:00Z",
+    <span class="code-accent">"referrer": "newsletter",</span>
+    "addresses": []
+  }
+]</code></pre>
+        </article>
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">Generated TypeScript</span><h3>Every decision is visible in the types</h3><p>The missing property became optional, the explicit null became a nullable union, and the empty array borrowed its element type from the populated record — with <code>addresses</code> singularized to <code>Address</code>.</p></div>
+          <pre class="feature-code"><code>export interface Address {
+  city: string;
+  postalCode: string;
+}
+
+export interface CustomerItem {
+  id: string;
+  plan: string;
+  <span class="code-success">trialEndsAt: string | null;</span>
+  <span class="code-success">referrer?: string;</span>
+  addresses: Array&lt;Address&gt;;
+}
+
+export type Customer = Array&lt;CustomerItem&gt;;</code></pre>
+        </article>
+      </div>
+      <div class="feature-privacy-note"><span class="feature-privacy-icon" aria-hidden="true">i</span><div><strong>The root alias is why arrays and unions work.</strong><p>The root of your sample is exported as a type alias rather than forced into an interface, so an array root becomes <code>Customer = Array&lt;CustomerItem&gt;</code> and a mixed root can be a union. Keys that are not valid identifiers, such as <code>user-id</code>, are kept as exact source keys — quoted in the interface — so the generated type never breaks the JSON contract. This page covers the TypeScript target in depth; for all eleven targets, read <a href="json-to-code-generator.html">the full JSON to Code Generator guide</a>.</p></div></div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="ts-evidence-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Decision table</span>
+        <h2 id="ts-evidence-title">How sample evidence becomes TypeScript</h2>
+        <p>Nothing in the output is a stylistic guess — each construct is caused by something observable in the sample. When the root is an array, every record contributes to inference, not just the first one, so the table below reads as a contract: put this in, get this out.</p>
+      </div>
+      <div class="feature-guide-table-wrap">
+        <table class="feature-guide-table">
+          <thead><tr><th>Evidence in the sample</th><th>TypeScript result</th><th>Why it works that way</th></tr></thead>
+          <tbody>
+            <tr><td>A property present in every record</td><td>A required property with its inferred type</td><td>No record gave evidence that the field can be absent.</td></tr>
+            <tr><td>A property missing from some records</td><td>An optional property marked with <code>?</code></td><td>Absence in any sampled record is treated as proof the field is conditional.</td></tr>
+            <tr><td>An explicit <code>null</code> value</td><td>A nullable union such as <code>string | null</code></td><td>Null is evidence about the value, not about presence, so it widens the type instead of adding <code>?</code>.</td></tr>
+            <tr><td>Different value types under one key</td><td>A union of the observed types</td><td>TypeScript can express mixed evidence directly, so nothing is flattened into a general type.</td></tr>
+            <tr><td>An array populated in at least one record</td><td><code>Array&lt;T&gt;</code> with the populated sample's element type</td><td>A populated sample always beats an empty one; empty copies only join the informational warning.</td></tr>
+            <tr><td>An array empty in every record</td><td><code>Array&lt;unknown&gt;</code> plus one informational warning</td><td>The safe <code>unknown</code> type is the honest answer when no element was ever observed — all empty arrays are counted into a single warning.</td></tr>
+            <tr><td>A key that is not a valid identifier, such as <code>user-id</code></td><td>A quoted property with the exact source key</td><td>The generated interface keeps the JSON contract instead of quietly renaming the field.</td></tr>
+            <tr><td>An array property named <code>addresses</code></td><td>An element interface named <code>Address</code></td><td>Array property names are singularized when naming element types.</td></tr>
+            <tr><td>Input past 5 Mi characters, 100 nesting levels, or 100,000 inspected values</td><td>A refusal, not a truncated model</td><td>Limits fail closed and never alter the source document; generated output is likewise capped at 16 Mi characters.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="ts-tutorial-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Hands-on tutorial</span>
+        <h2 id="ts-tutorial-title">From pasted payload to a committed .ts file</h2>
+        <p>Use the two-record customer sample above, a payload from your own API, or the built-in example. The goal is TypeScript you can defend in code review — where every <code>?</code> and every <code>| null</code> points back at a record.</p>
+      </div>
+      <ol class="feature-tutorial-steps">
+        <li>
+          <div><h3>Open the generator</h3><p>Choose <strong>More Actions → General tools → JSON to Code Generator</strong>, or launch it from the Command Palette. The extension also exposes it from the launcher, and the Windows app lists it under <strong>Tools</strong>. It is a general tool, so it stays available for every file type — not only JSON documents.</p></div>
+        </li>
+        <li>
+          <div><h3>Load a sample</h3><p>On a JSON document, the open document is loaded automatically the first time, and <strong>Use document</strong> reloads it whenever you have edited the source. Otherwise paste one strict JSON object, value, or array of records into <strong>JSON sample</strong>, or press <strong>Example</strong> to load a two-record sample. Strictness matters: invalid or incomplete JSON reports its line and column when available instead of producing a half-right model.</p></div>
+        </li>
+        <li>
+          <div><h3>Choose the target and name the root</h3><p>Set <strong>Target</strong> to TypeScript and enter a <strong>Root type name</strong> that names the domain concept — <code>Customer</code>, not <code>Response</code>. With an array root, that name becomes the exported alias and the element interface is derived from it, so a clear root name makes the whole file readable.</p></div>
+        </li>
+        <li>
+          <div><h3>Generate with Ctrl+Enter</h3><p>Press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> in the sample box to generate immediately, or let the live output update as you work. The generated code appears beside the sample, so you can check each declaration against the record that caused it without switching windows.</p></div>
+        </li>
+        <li>
+          <div><h3>Audit the optional and nullable markers</h3><p>For each <code>?</code>, find the record where that property is absent; for each <code>| null</code>, find the explicit null. The generator distinguishes the two kinds of evidence, so if a marker surprises you, the sample — not the generator — is usually what needs another record.</p></div>
+        </li>
+        <li>
+          <div><h3>Read the warning line</h3><p>Empty arrays are counted into one informational warning. If an element came out as <code>unknown</code>, the fix is a trustworthy record where that array is populated — the populated sample's element type wins. Resist pasting made-up data: an invented element type is worse than an honest <code>unknown</code>.</p></div>
+        </li>
+        <li>
+          <div><h3>Decide on Make every property optional</h3><p>For partial-update payloads or endpoints you do not fully trust, enable <strong>Make every property optional</strong> to mark every generated property with <code>?</code>. Otherwise leave it off and let the evidence decide — a model where only the genuinely conditional fields are optional is far easier to consume.</p></div>
+        </li>
+        <li>
+          <div><h3>Take the result into your project</h3><p>Use <strong>Copy to clipboard</strong> for a quick paste, <strong>Open as document</strong> to inspect the output as its own CodePrettify document, or <strong>Export</strong> to save a <code>.ts</code> file. Then compile it against real payloads — the TypeScript compiler is the final reviewer, and the generated file gives it something concrete to hold you to.</p></div>
+        </li>
+      </ol>
+      <div class="feature-practice-lab">
+        <h3>Before the generated interfaces reach code review</h3>
+        <p>Run through this list once the output looks right — it catches the gaps a quick skim misses.</p>
+        <ul class="feature-checklist">
+          <li>Every <code>?</code> in the output traces to a record where that property is absent.</li>
+          <li>Every <code>| null</code> traces to an explicit null in the sample.</li>
+          <li>No <code>Array&lt;unknown&gt;</code> remains unless genuinely no populated example exists — and then a comment says so.</li>
+          <li>The root type name describes the domain concept, and singularized element names like <code>Address</code> read naturally.</li>
+          <li>Quoted keys such as <code>"user-id"</code> stayed quoted instead of being renamed by hand.</li>
+          <li>The file compiles against a real payload, not only against the sample that produced it.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="ts-capabilities-title">
+      <div class="feature-detail-heading"><span class="section-badge">Capabilities</span><h2 id="ts-capabilities-title">What the TypeScript target gives you</h2></div>
+      <div class="feature-capability-grid">
+        <article class="feature-capability"><h3>Output shape</h3><ul><li>Nested exported interfaces for every object shape</li><li>An exported root type alias</li><li>Unions for mixed and nullable evidence</li><li>Generic <code>Array&lt;T&gt;</code> syntax, never <code>T[]</code></li></ul></article>
+        <article class="feature-capability"><h3>Optionality with a reason</h3><ul><li>Missing from some records → optional <code>?</code></li><li>Explicit null → union with <code>null</code></li><li>The two are never conflated</li><li><strong>Make every property optional</strong> when you want blanket caution</li></ul></article>
+        <article class="feature-capability"><h3>Names that keep the contract</h3><ul><li>Exact source keys, quoted where required</li><li>Array names singularized for element types</li><li>Your <strong>Root type name</strong> drives the file</li></ul></article>
+        <article class="feature-capability"><h3>Sample handling</h3><ul><li>Auto-loads an open JSON document the first time</li><li><strong>Use document</strong> reloads it on demand</li><li><strong>Example</strong> loads a two-record sample</li><li>Every record of a root array contributes to inference</li></ul></article>
+        <article class="feature-capability"><h3>Actions</h3><ul><li><kbd>Ctrl</kbd>+<kbd>Enter</kbd> generates immediately</li><li><strong>Copy to clipboard</strong></li><li><strong>Open as document</strong></li><li><strong>Export</strong> a <code>.ts</code> file</li></ul></article>
+        <article class="feature-capability"><h3>Honest limits, all local</h3><ul><li>5 Mi characters of input, 16 Mi of output</li><li>100 nesting levels, 100,000 inspected values</li><li>Limits fail closed and never alter the source</li><li>Generation runs entirely on the device</li></ul></article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="ts-targets-title">
+      <div class="feature-detail-heading"><span class="section-badge">Beyond TypeScript</span><h2 id="ts-targets-title">Switch targets without changing the sample</h2><p>TypeScript is one <strong>Target</strong> choice among eleven. Pick Python + Pydantic instead and the same sample produces <code>BaseModel</code> classes expressing the same inferred shape — the syntax changes, the evidence does not. The screenshot below is exactly that: the same kind of sample with the Python + Pydantic target selected. For how every target — Zod, C#, Java, Kotlin, Go, Rust, Swift, Dart, and JSON Schema — handles the same inference, read <a href="json-to-code-generator.html">the full JSON to Code Generator guide</a>.</p></div>
+      <div class="feature-shot-grid">
+        <figure class="feature-guide-shot"><img src="img/screenshots/feature-json-to-code-pydantic.png" alt="The same JSON sample generating Python Pydantic models in CodePrettify instead of TypeScript interfaces" width="1280" height="800" loading="lazy" /><figcaption>One dropdown change: the Python + Pydantic target expresses the same optional and nullable evidence in Python.</figcaption></figure>
+      </div>
+      <div class="feature-privacy-note"><span class="feature-privacy-icon" aria-hidden="true">✓</span><div><strong>Comparing targets is a review technique, not a gimmick.</strong><p>Generating the same sample twice — TypeScript for the frontend, Pydantic or C# for the service behind it — is a fast way to spot where the two ends of your pipeline disagree about optionality before the disagreement becomes a production bug. Both generations happen locally from the same pasted sample.</p></div></div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="ts-faq-title">
+      <div class="feature-detail-heading"><span class="section-badge">FAQ</span><h2 id="ts-faq-title">JSON to TypeScript questions</h2></div>
+      <div class="feature-detail-faq">
+        <details><summary>Does JSON to TypeScript output interfaces or type aliases?</summary><p>Both. Every object shape becomes a nested exported interface, and the root of the sample is exported as a type alias, which is how an array or union root is expressed accurately. Generated arrays always use the generic Array&lt;T&gt; syntax rather than T[].</p></details>
+        <details><summary>How is an optional field different from a nullable field?</summary><p>They come from different evidence. A property missing from some records in an array sample becomes optional and gets a question mark, while a property holding an explicit null becomes a nullable union such as string | null. The generator distinguishes the two instead of merging them into one loose type.</p></details>
+        <details><summary>Does the generator upload my JSON anywhere?</summary><p>No. Generation runs entirely on your device in the Chrome and Edge extension and in the Windows app, and no account is required. The sample and the generated TypeScript never leave the machine.</p></details>
+        <details><summary>How do I get a real element type for an empty array?</summary><p>Include at least one record where the array is populated — a populated sample's element type always wins over empty occurrences. When no sample populates the array, the element falls back to the safe unknown type, and all empty arrays are counted into a single informational warning rather than an error.</p></details>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="ts-related-title">
+      <div class="feature-detail-heading"><span class="section-badge">Related guides</span><h2 id="ts-related-title">Keep working around the types</h2></div>
+      <div class="feature-related-grid">
+        <a class="feature-related-card" href="json-to-code-generator.html"><h3>JSON to Code Generator — the full guide</h3><p>How to prepare representative samples, what inference looks for, and how to review generated models across all eleven targets.</p><span>Read the full guide →</span></a>
+        <a class="feature-related-card" href="json-to-pydantic.html"><h3>JSON to Pydantic</h3><p>The same inference aimed at Python: BaseModel classes with aliased field names and optional values from the identical sample.</p><span>Generate Pydantic models →</span></a>
+        <a class="feature-related-card" href="json-formatter-browser-extension.html"><h3>JSON Formatter and Viewer</h3><p>Validate and inspect the payload before you infer types from it — folding, JSONPath queries, and schema validation.</p><span>Explore the JSON formatter →</span></a>
+      </div>
+    </section>
+
+    <section class="feature-page-cta" aria-labelledby="ts-cta-title"><h2 id="ts-cta-title">Generate the interfaces your payload already proves</h2><p>Open the JSON, generate nested TypeScript interfaces locally, and commit types where every question mark has a reason. Free, no account, nothing uploaded.</p><div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="pricing.html">See $0 early access</a></div></section>
+  </main>
+
+  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="guides.html">Guides</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
+</body>
+</html>

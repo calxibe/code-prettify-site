@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YAML Formatter &amp; Validator – Comment-Safe and Local | CodePrettify</title>
+  <meta name="description" content="Free YAML formatter and validator that never re-dumps your file — comments and anchors stay intact. Validate multi-document YAML, convert to JSON, no upload." />
+  <meta name="application-name" content="CodePrettify" />
+  <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://prettify.cloud/yaml-formatter.html" />
+  <link rel="icon" href="favicon.ico?v=20260725" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20260725" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260725" />
+  <meta property="og:site_name" content="CodePrettify" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="YAML Formatter &amp; Validator – Comment-Safe and Local" />
+  <meta property="og:description" content="Validate and fold YAML without re-dumping: comments, anchors, and scalar styles survive. Explicit YAML to JSON conversion with honest limits, all local." />
+  <meta property="og:url" content="https://prettify.cloud/yaml-formatter.html" />
+  <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-yaml-formatter.png" />
+  <meta property="og:image:alt" content="CodePrettify validating a YAML deployment configuration with comments, anchors, and aliases left intact" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="YAML Formatter &amp; Validator – Comment-Safe and Local" />
+  <meta name="twitter:description" content="The YAML formatter that never eats your comments — validate, fold, compare, and convert locally." />
+  <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-yaml-formatter.png" />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
+  <link rel="stylesheet" href="style.min.css?v=e323747f" />
+  <script src="site.js?v=20260809-2" defer></script>
+  <script src="feature-guide.js?v=20260725-1" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "CodePrettify YAML Formatter & Validator",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Chrome, Edge, Windows",
+          "url": "https://prettify.cloud/yaml-formatter.html",
+          "description": "Validate, highlight, and fold YAML locally without re-dumping — comments, anchors, scalar styles, and numeric precision survive. Multi-document validation, semantic compare, and explicit YAML to JSON conversion with honest limits.",
+          "installUrl": "https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "CodePrettify", "item": "https://prettify.cloud/" },
+            { "@type": "ListItem", "position": 2, "name": "YAML Formatter & Validator", "item": "https://prettify.cloud/yaml-formatter.html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "Why doesn't the YAML formatter rewrite or re-indent my file?", "acceptedAnswer": { "@type": "Answer", "text": "Because re-dumping YAML can silently lose comments, anchors, scalar styles, whitespace meaning, and numeric precision. CodePrettify validates, highlights, and folds the document and only normalizes newlines, so the text you copy out is the text you opened." } },
+            { "@type": "Question", "name": "Can it convert YAML to JSON?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Data Converter parses YAML values and serializes them as JSON, and Reverse switches to JSON to YAML. Conversion cannot preserve comments, anchors, tags, or scalar styling, and aliases that reuse arrays or objects are rejected outright to prevent unsafe expansion." } },
+            { "@type": "Question", "name": "Does it validate multi-document YAML files?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Multi-document YAML is validated, and the validation alert reports an exact line and column when the parser can locate the problem." } },
+            { "@type": "Question", "name": "Is my YAML uploaded anywhere?", "acceptedAnswer": { "@type": "Answer", "text": "No. Formatting, validation, conversion, and comparison stay on the device, and the extension works without an account. Nothing is sent to a server." } }
+          ]
+        }
+      ]
+    }
+  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date);gtag("config","G-S4WNQ48Q7F");addEventListener("load",function(){var l=function(){var s=document.createElement("script");s.async=!0;s.src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F";document.head.appendChild(s)};window.requestIdleCallback?requestIdleCallback(l,{timeout:3000}):setTimeout(l,1200)})</script>
+</head>
+<body class="feature-detail-body">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="bg-glow"></div>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo"><img src="img/code_32.png?v=20260725" srcset="img/code_32.png?v=20260725 1x, img/code_64.png?v=20260725 2x" width="32" height="32" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span></a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
+      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#install">Install</a>
+        <a href="guides.html">Guides</a><a href="pricing.html">Price</a><a href="manual.html">Manual</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a></nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="feature-detail-main">
+    <nav class="feature-breadcrumb" aria-label="Breadcrumb"><a href="/">CodePrettify</a><span aria-hidden="true">/</span><span>YAML Formatter &amp; Validator</span></nav>
+    <section class="feature-detail-hero">
+      <div>
+        <span class="feature-detail-eyebrow">Validate without rewriting</span>
+        <h1>The YAML formatter that never eats your comments</h1>
+        <p class="feature-detail-lead">Most YAML formatters parse your file and dump it back out — and the re-dump can silently destroy comments, anchors, scalar styles, whitespace meaning, and numeric precision. CodePrettify validates, highlights, and folds YAML while leaving the text intact: only newlines are normalized, and everything runs on your device.</p>
+        <div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="manual.html#format-behavior">Read the YAML manual entry</a></div>
+        <ul class="feature-proof-list"><li>No re-dump, ever</li><li>Comments and anchors intact</li><li>Multi-document validation</li><li>Local processing</li></ul>
+      </div>
+      <figure class="feature-hero-shot"><img src="img/screenshots/feature-yaml-formatter.png" alt="CodePrettify YAML formatter validating a deployment configuration with comments, anchors, and aliases left intact" width="1280" height="800" fetchpriority="high" /><figcaption>A deployment config with anchors, aliases, and inline comments — highlighted, foldable, and byte-for-byte unchanged.</figcaption></figure>
+    </section>
+
+    <nav class="feature-learning-nav" aria-label="Lessons in this YAML formatter guide">
+      <strong>Learn on this page</strong>
+      <div class="feature-learning-links">
+        <a href="#yaml-safety-title">Why no re-dump</a>
+        <a href="#yaml-tutorial-title">Validate hands-on</a>
+        <a href="#yaml-convert-title">Convert YAML to JSON</a>
+        <a href="#yaml-decisions-title">Handle refusals</a>
+        <a href="#yaml-faq-title">Troubleshoot</a>
+      </div>
+    </nav>
+
+    <section class="feature-detail-section" aria-labelledby="yaml-safety-title">
+      <div class="feature-detail-heading"><span class="section-badge">Comment safety</span><h2 id="yaml-safety-title">A YAML formatter that validates without rewriting</h2><p>A re-dumping formatter would return valid YAML that is no longer your YAML: comments deleted, the anchor expanded into three copies, and <code>1.30</code> rewritten as <code>1.3</code>. CodePrettify deliberately refuses that trade.</p></div>
+      <div class="feature-example-grid">
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">The file you open</span><h3>Messy but valid, and full of meaning</h3><p>The comments document decisions, the anchor keeps the region defined once, and the trailing zero in <code>1.30</code> is intentional.</p></div>
+          <pre class="feature-code"><code># service.yaml — three teams rely on these comments
+region: &amp;region eu-north-1
+primary:
+  region: *region
+  replicas: 6        # peak traffic
+backup:
+  region: *region
+  replicas: 2
+version: 1.30        # trailing zero is intentional</code></pre>
+        </article>
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">In CodePrettify</span><h3>Validated and highlighted, byte for byte</h3><p>The document gets syntax highlighting, folding, and a validation verdict — while the text itself stays exactly as authored.</p></div>
+          <pre class="feature-code"><code><span class="code-success"># service.yaml — three teams rely on these comments</span>
+region: <span class="code-accent">&amp;region</span> eu-north-1
+primary:
+  region: <span class="code-accent">*region</span>
+  replicas: 6        <span class="code-success"># peak traffic</span>
+backup:
+  region: <span class="code-accent">*region</span>
+  replicas: 2
+version: 1.30        <span class="code-success"># trailing zero is intentional</span></code></pre>
+        </article>
+      </div>
+      <div class="feature-privacy-note"><span class="feature-privacy-icon" aria-hidden="true">i</span><div><strong>The near-identical formatted view is the feature.</strong><p>Formatting deliberately normalizes newlines instead of re-dumping the document, which could lose comments, anchors, scalar styles, whitespace meaning, or numeric precision. For the same reason, the copy menu offers no “minified” YAML — there is no safe equivalent, so CodePrettify refuses to pretend otherwise.</p></div></div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="yaml-tutorial-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Hands-on tutorial</span>
+        <h2 id="yaml-tutorial-title">Validate a shared config end to end — without changing a byte</h2>
+        <p>Use the <code>service.yaml</code> example above, or any <code>.yaml</code> or <code>.yml</code> file you actually work with. The goal is a confident verdict on the file, not a rewritten file.</p>
+      </div>
+      <ol class="feature-tutorial-steps">
+        <li>
+          <div><h3>Open the YAML document</h3><p>In Chrome or Edge, open a raw <code>.yaml</code> or <code>.yml</code> file or URL — supported responses activate automatically, even when a compatible MIME type arrives without a recognizable filename. In the Windows app, open the file, or press <kbd>Ctrl</kbd>+<kbd>N</kbd> for <strong>Paste &amp; Prettify</strong> and keep <strong>Auto-detect</strong>; detection recognizes YAML among the supported types.</p></div>
+        </li>
+        <li>
+          <div><h3>Read the verdict first</h3><p>The formatting indicator reports whether formatting succeeded, and the validation alert gives an exact line and column when the parser can locate the problem. Multi-document YAML — files with <code>---</code> separators — is validated too.</p></div>
+        </li>
+        <li>
+          <div><h3>Confirm nothing was rewritten</h3><p>Press <kbd>Ctrl</kbd>+<kbd>B</kbd> to flip between <strong>Prettified</strong> and <strong>Raw</strong>. The only difference you should see is newline normalization: comments, anchors, quoting, and indentation are exactly as authored.</p></div>
+        </li>
+        <li>
+          <div><h3>Navigate the structure</h3><p>Use the gutter fold controls for one block, or <strong>More Actions → Collapse All / Expand All</strong> for the whole document. Line numbers, word wrap, and the minimap can be enabled independently.</p></div>
+        </li>
+        <li>
+          <div><h3>Search and jump</h3><p>Press <kbd>Ctrl</kbd>+<kbd>F</kbd> and search plain text, or wrap the query as <code>/pattern/flags</code> for a regular expression. <kbd>Ctrl</kbd>+<kbd>G</kbd> opens Go to Line when a validation message or a teammate points you at a specific line.</p></div>
+        </li>
+        <li>
+          <div><h3>Copy the honest variants</h3><p>The copy menu offers <strong>Original</strong> and <strong>Formatted</strong>. Minified is hidden for YAML on purpose — feedback always names exactly what was copied, and no variant quietly rewrites your document.</p></div>
+        </li>
+        <li>
+          <div><h3>Check a change with semantic Compare</h3><p>Press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>D</kbd>. The left input starts with the current document; paste the other version on the right. Semantic mode is selected automatically when both sides parse as a supported structured format, and it ignores formatting and object-key order — switch to Text mode when you need exact line changes.</p></div>
+        </li>
+      </ol>
+      <div class="feature-practice-lab">
+        <h3>Before trusting a YAML change</h3>
+        <p>Run through this list before committing or deploying a reviewed file.</p>
+        <ul class="feature-checklist">
+          <li>The formatting indicator reports the document as valid — every document, if the file is multi-document.</li>
+          <li>Raw and Prettified differ only in newline normalization.</li>
+          <li>Comments, anchors, and quoting are exactly as authored.</li>
+          <li>The value you changed is confirmed with search or Go to Line.</li>
+          <li>Compare shows only the differences you intended.</li>
+          <li>Anything converted to JSON was reviewed for lost comments and rejected aliases.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="yaml-capabilities-title">
+      <div class="feature-detail-heading"><span class="section-badge">Capabilities</span><h2 id="yaml-capabilities-title">What the YAML viewer gives you beyond validation</h2></div>
+      <div class="feature-capability-grid">
+        <article class="feature-capability"><h3>Validation you can act on</h3><ul><li>Strict parsing with a clear verdict</li><li>Exact line and column when locatable</li><li>Multi-document YAML validated</li></ul></article>
+        <article class="feature-capability"><h3>Deliberately preserved</h3><ul><li>Comments, anchors, and aliases</li><li>Scalar styles and quoting</li><li>Whitespace meaning</li><li>Numeric precision — 1.30 stays 1.30</li></ul><p>Only newlines are normalized. Nothing else is touched.</p></article>
+        <article class="feature-capability"><h3>Reading aids</h3><ul><li>Syntax highlighting and folding</li><li>Line numbers, word wrap, minimap</li><li>Search with optional regex</li><li>Go to Line</li></ul></article>
+        <article class="feature-capability"><h3>Honest copy and export</h3><ul><li>Copy Original or Formatted</li><li>No fake “Minified” for YAML</li><li>Download the source</li><li>Export-time conversion offers only targets the document can actually be serialized into</li></ul></article>
+        <article class="feature-capability"><h3>YAML across the toolset</h3><ul><li>Semantic Compare ignores formatting and key order</li><li>Diagram Generator maps YAML structure</li><li>JSON Repair &amp; Transform accepts YAML, normalized to JSON values</li></ul></article>
+        <article class="feature-capability"><h3>Extension and Windows app</h3><ul><li><code>.yaml</code> and <code>.yml</code> in both products</li><li>Paste &amp; Prettify auto-detects YAML in the app</li><li>App per-format Settings include a YAML “Enabled by default” toggle</li></ul></article>
+      </div>
+      <div class="feature-shot-grid">
+        <figure class="feature-guide-shot"><img src="img/screenshots/feature-yaml-formatter-dark.png" alt="CodePrettify YAML viewer in dark mode showing the same configuration with highlighting, folding, and line numbers" width="1280" height="800" loading="lazy" /><figcaption>The same file in dark mode — Auto, Light, and Dark themes are a Settings toggle away.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="yaml-convert-title">
+      <div class="feature-detail-heading"><span class="section-badge">YAML to JSON</span><h2 id="yaml-convert-title">Convert YAML to JSON when you actually need JSON</h2><p>Conversion is a separate, explicit step — never something the formatter does behind your back. The Data Converter parses YAML values and serializes them as JSON, and Reverse switches direction to JSON → YAML.</p></div>
+      <div class="feature-example-grid">
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">YAML input</span><h3>A config with a comment</h3><p>Load it with <strong>Use document</strong>, or paste it into the Convert tab.</p></div>
+          <pre class="feature-code"><code># database.yaml — connection settings
+host: db.internal
+port: 5432
+tags:
+  - primary
+  - eu-north-1
+options:
+  ssl: true
+  pool: 20</code></pre>
+        </article>
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">JSON output</span><h3>The values, faithfully — the comment, gone</h3><p>JSON has no comments, so the conversion cannot carry it over. That loss is exactly why conversion is separate from formatting.</p></div>
+          <pre class="feature-code"><code>{
+  "host": "db.internal",
+  "port": 5432,
+  "tags": [
+    "primary",
+    "eu-north-1"
+  ],
+  "options": {
+    "ssl": <span class="code-success">true</span>,
+    "pool": 20
+  }
+}</code></pre>
+        </article>
+      </div>
+      <div class="feature-step-grid">
+        <article class="feature-step"><span class="feature-step-number">1</span><h3>Load the YAML</h3><p>Open <strong>Data Converter</strong> from More Actions, the Command Palette, the Tools menu, or the extension launcher, and choose <strong>Use document</strong> on the Convert tab.</p></article>
+        <article class="feature-step"><span class="feature-step-number">2</span><h3>Convert — or reverse</h3><p>Pick <strong>YAML → JSON</strong> and press Convert. <strong>Reverse</strong> moves the output into the input and selects JSON → YAML.</p></article>
+        <article class="feature-step"><span class="feature-step-number">3</span><h3>Take the result with you</h3><p><strong>Copy</strong> and <strong>Download</strong> sit beside the output. Incompatible operations are disabled with a reason instead of failing silently.</p></article>
+      </div>
+      <div class="feature-privacy-note"><span class="feature-privacy-icon" aria-hidden="true">i</span><div><strong>Honest conversion limits.</strong><p>YAML conversion cannot preserve comments, anchors, tags, or scalar styling, and aliases that reuse arrays or objects are rejected outright to prevent unsafe expansion. Bounds: 500,000 values and 512 nesting levels, with 10 Mi characters of input and 32 Mi characters of output. Unsafe integers and decimals that JavaScript would silently change are refused rather than corrupted.</p></div></div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="yaml-decisions-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Failure guide</span>
+        <h2 id="yaml-decisions-title">When it refuses, it tells you why</h2>
+      </div>
+      <div class="feature-guide-table-wrap">
+        <table class="feature-guide-table">
+          <thead><tr><th>What you see</th><th>What it means</th><th>Best next action</th></tr></thead>
+          <tbody>
+            <tr><td>The formatted view looks almost identical to the raw file</td><td>Deliberate: YAML is validated and highlighted, with only newlines normalized — never re-dumped.</td><td>Trust it. Toggle Raw with Ctrl+B if you want to verify.</td></tr>
+            <tr><td>The copy menu has no Minified option</td><td>There is no safe minified equivalent for YAML, so a misleading variant is not offered.</td><td>Copy Formatted or Original instead.</td></tr>
+            <tr><td>A validation alert with a line and column</td><td>The parser located a syntax problem at that position.</td><td>Press Ctrl+G to jump there and fix the source.</td></tr>
+            <tr><td>YAML → JSON rejects the document over an alias</td><td>An alias reuses an array or object; expanding it could blow up the output unsafely.</td><td>Restructure or expand the alias manually, deciding deliberately where duplication is acceptable.</td></tr>
+            <tr><td>The converted JSON has no comments or anchors</td><td>JSON cannot represent comments, anchors, tags, or scalar styling.</td><td>Keep the YAML file as the source of truth; treat the JSON as a derived artifact.</td></tr>
+            <tr><td>Conversion refuses a very large or deep document</td><td>The 500,000-value or 512-nesting-level bound was exceeded, or input passed 10 Mi characters.</td><td>Split the document or convert the section you need.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="yaml-faq-title">
+      <div class="feature-detail-heading"><span class="section-badge">FAQ</span><h2 id="yaml-faq-title">YAML formatter questions</h2></div>
+      <div class="feature-detail-faq">
+        <details><summary>Why doesn't the YAML formatter rewrite or re-indent my file?</summary><p>Because re-dumping YAML can silently lose comments, anchors, scalar styles, whitespace meaning, and numeric precision. CodePrettify validates, highlights, and folds the document and only normalizes newlines, so the text you copy out is the text you opened.</p></details>
+        <details><summary>Can it convert YAML to JSON?</summary><p>Yes. The Data Converter parses YAML values and serializes them as JSON, and Reverse switches to JSON to YAML. Conversion cannot preserve comments, anchors, tags, or scalar styling, and aliases that reuse arrays or objects are rejected outright to prevent unsafe expansion.</p></details>
+        <details><summary>Does it validate multi-document YAML files?</summary><p>Yes. Multi-document YAML is validated, and the validation alert reports an exact line and column when the parser can locate the problem.</p></details>
+        <details><summary>Is my YAML uploaded anywhere?</summary><p>No. Formatting, validation, conversion, and comparison stay on the device, and the extension works without an account. Nothing is sent to a server.</p></details>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="yaml-related-title">
+      <div class="feature-detail-heading"><span class="section-badge">Related guides</span><h2 id="yaml-related-title">Keep working with the result</h2></div>
+      <div class="feature-related-grid">
+        <a class="feature-related-card" href="json-formatter-browser-extension.html"><h3>JSON Formatter and Viewer</h3><p>After converting YAML to JSON, inspect the result with folding, JSONPath, schema validation, diagnostics, and table view.</p><span>Explore the JSON formatter →</span></a>
+        <a class="feature-related-card" href="json-repair-transform.html"><h3>JSON Repair &amp; Transform</h3><p>YAML is an accepted input: it is parsed and normalized to JSON values you can filter, sort, group, and export.</p><span>Explore repair and transform →</span></a>
+        <a class="feature-related-card" href="manual.html#format-behavior"><h3>Complete Manual</h3><p>Read the exact formatting and validation behavior for YAML and every other supported format.</p><span>Open the manual →</span></a>
+      </div>
+    </section>
+
+    <section class="feature-page-cta" aria-labelledby="yaml-cta-title"><h2 id="yaml-cta-title">Format YAML without gambling with your comments</h2><p>Open the file, get a validation verdict with line and column, and keep every comment, anchor, and trailing zero exactly where you put it — on your own device.</p><div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="pricing.html">See $0 early access</a></div></section>
+  </main>
+
+  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="guides.html">Guides</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
+</body>
+</html>

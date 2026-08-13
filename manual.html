@@ -22,15 +22,15 @@
     <meta property="og:title" content="CodePrettify User Manual" />
     <meta property="og:description" content="A detailed guide to every major function, including JSON to Code Generator and JSON Repair &amp; Transform, in the CodePrettify browser extension and Windows app." />
     <meta property="og:url" content="https://prettify.cloud/manual.html" />
-    <meta property="og:image" content="https://prettify.cloud/img/feature-json-format.png" />
+    <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-json-format.png" />
     <meta property="og:image:alt" content="CodePrettify displaying a formatted JSON document" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="CodePrettify User Manual" />
     <meta name="twitter:description" content="Learn every major function, including local JSON-to-code generation and structured-data repair, in the CodePrettify browser extension and Windows app." />
-    <meta name="twitter:image" content="https://prettify.cloud/img/feature-json-format.png" />
+    <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-json-format.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=51ffddf6" />
+  <link rel="stylesheet" href="style.min.css?v=e323747f" />
     <script src="site.js?v=20260809-2" defer></script>
     <script src="manual.js?v=20260719-3" defer></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date);gtag("config","G-S4WNQ48Q7F");addEventListener("load",function(){var l=function(){var s=document.createElement("script");s.async=!0;s.src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F";document.head.appendChild(s)};window.requestIdleCallback?requestIdleCallback(l,{timeout:3000}):setTimeout(l,1200)})</script>
@@ -47,10 +47,11 @@
           <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg>
         </button>
         <nav id="site-navigation" aria-label="Primary navigation">
-          <a href="/#feature-guides">Features</a>
+          <a href="/#install">Install</a>
+        <a href="guides.html">Guides</a>
           <a href="pricing.html">Price</a>
-          <a href="changelog.html">Changelog</a>
           <a href="manual.html" class="active" aria-current="page">Manual</a>
+          <a href="changelog.html">Changelog</a>
           <a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a>
         </nav>
       </div>
@@ -139,7 +140,7 @@
               <div class="manual-card">
                 <h3>Browser extension</h3>
                 <ol>
-                  <li>Install from the Chrome Web Store, Microsoft Edge Add-ons, or the supported Firefox distribution (Firefox 142 or newer).</li>
+                  <li>Install from the Chrome Web Store or Microsoft Edge Add-ons.</li>
                   <li>Open a supported raw HTTP/HTTPS resource. CodePrettify recognizes the URL extension or response content type and replaces the plain browser page with its viewer.</li>
                   <li>For a local file, click the CodePrettify toolbar button to open the launcher, then drag the file in or choose it. Direct <code>file://</code> URLs additionally require the browser’s <strong>Allow access to file URLs</strong> permission.</li>
                   <li>Use <strong>Prettified</strong>/<strong>Raw</strong>, or <strong>Rendered</strong>/<strong>Source</strong> for markup, to change representation without changing the source file.</li>
@@ -382,6 +383,7 @@
               <div><h3>XML / RSS / Atom</h3><p>Strict parsing reports line/column. In the browser extension, formatting avoids mixed content, preserved whitespace, internal DTD subsets, and quoted markup where a rewrite could change data, and “minification” is byte-preserving because whitespace-only text nodes may matter. The Windows app reformats any well-formed document, and its minification strips comments and collapses whitespace. Folding, safe links, timestamps, and encoded-value hints remain available.</p></div>
               <div><h3>CSV and HTML (app)</h3><p>CSV detects comma, semicolon, tab, or pipe delimiters with quote-aware parsing and provides Table plus source. HTML formatting preserves raw script/style text (reformatting can change whitespace inside <code>&lt;pre&gt;</code> blocks), escapes rendering safely, supports folding, and can make safe URLs clickable.</p></div>
             </div>
+            <p class="manual-deep-link"><strong>In-depth guides:</strong> See the comment-safe YAML behavior in <a href="yaml-formatter.html">YAML Formatter &amp; Validator</a> and the data-safety guards for XML in <a href="xml-formatter.html">XML Formatter &amp; Viewer</a>.</p>
           </section>
 
           <section id="json-tools" class="manual-topic" data-products="shared browser app">
@@ -475,7 +477,7 @@
             </ol>
             <p>Core types, enum/const, numeric/string/object/array constraints, composition, conditionals, dependencies, safe regular expressions, and common formats are supported. Validated formats are email, hostname, ipv4, ipv6, uuid, date, time, date-time, uri, uri-reference, and regex; unrecognized format names are ignored rather than validated. Regular expressions with backreferences, lookarounds, repeated groups containing alternation or inner quantifiers, consecutive overlapping quantifiers, or more than 512 characters cause the schema to be rejected as too complex. Validation is completely local.</p>
             <p class="manual-limit"><strong>Limits:</strong> schema input is capped at 2 MiB, with depth 80, 100 reported errors, 100,000 validation operations, and about 2.5 seconds — the operation and time budgets apply separately to schema checking and to document validation. Only local <code>#</code> references/anchors are resolved; remote schemas are never downloaded. <code>unevaluatedProperties</code> is reported as unsupported. The pasted schema is kept for the session, and a run that hits any limit is never reported as valid.</p>
-            <p class="manual-deep-link"><strong>In-depth guide:</strong> See a real schema produce path- and line-specific violations in <a href="json-formatter-browser-extension.html#json-query-title">JSON query and validation examples</a>.</p>
+            <p class="manual-deep-link"><strong>In-depth guide:</strong> See supported keywords, formats, limits, and a full validation walkthrough in <a href="json-schema-validator.html">JSON Schema Validator</a>, or a schema in a larger JSON workflow in <a href="json-formatter-browser-extension.html#json-query-title">JSON query and validation examples</a>.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
                 <button type="button" class="manual-screenshot-open" id="manual-screenshot-schema-validator"
@@ -579,6 +581,7 @@
               </figure>
             </div>
             <p class="manual-limit"><strong>Limits:</strong> 10 Mi characters input, 32 Mi characters output, plus YAML bounds of 500,000 values and 512 nesting levels. Base64 decode must produce valid UTF-8.</p>
+            <p class="manual-deep-link"><strong>In-depth guide:</strong> See the Timestamp tab&rsquo;s detection rules, accepted formats, and outputs in <a href="unix-timestamp-converter.html">Unix Timestamp Converter</a>.</p>
           </section>
 
           <section id="json-to-code" class="manual-topic" data-products="shared browser app">
@@ -620,7 +623,7 @@
             <h3>Inference behavior</h3>
             <p>Nested objects become named models. When the root is an array, all array entries contribute to inference rather than only the first record. Different compatible shapes are merged; genuinely mixed values become unions where the target supports them and a safe general type where it does not. Empty arrays cannot reveal their element type: they are counted into a single informational warning, and the target's safe unknown type is used only when no sample populates the array — otherwise a populated sample's element type wins. Property names such as <code>user-id</code>, reserved words, and other invalid identifiers receive the target's normal field-mapping annotation instead of changing the JSON contract. Array property names are singularized when naming element types (<code>addresses</code> becomes <code>Address</code>), and integers map to 64-bit types in typed targets. <strong>Make every property optional</strong> goes beyond adding <code>?</code>: it removes JSON Schema required lists and uses Option, pointer, or nullable forms with defaults where the target needs them.</p>
             <p class="manual-limit"><strong>Limits:</strong> input is capped at 5 Mi characters, generated output at 16 Mi characters, nesting at 100 levels, and inspected JSON values at 100,000. Invalid or incomplete JSON reports its line and column when available. Limits fail closed and never alter the source document.</p>
-            <p class="manual-deep-link"><strong>In-depth guide:</strong> Compare TypeScript and Python/Pydantic output from the same multi-sample payload in <a href="json-to-code-generator.html">JSON to Code Generator</a>.</p>
+            <p class="manual-deep-link"><strong>In-depth guide:</strong> Compare TypeScript and Python/Pydantic output from the same multi-sample payload in <a href="json-to-code-generator.html">JSON to Code Generator</a>, or jump straight to a target: <a href="json-to-typescript.html">TypeScript</a>, <a href="json-to-pydantic.html">Pydantic</a>, or <a href="json-to-csharp.html">C#</a>.</p>
           </section>
 
           <section id="structured-workbench" class="manual-topic" data-products="shared browser app">
@@ -729,6 +732,7 @@
               <li>After comparing, use Swap Sides or <strong>Edit inputs</strong>; the Windows app also has Previous/Next difference buttons. (After a comparison, Swap flips only which side is displayed without changing the inputs.) Text mode synchronizes pane scrolling, and in the Windows app it adds an Ignore whitespace option that disregards all whitespace inside lines.</li>
             </ol>
             <p>Semantic comparison supports JSON/JSONC/JSON Lines/YAML/TOML where parsing succeeds, even if the active document is JavaScript, CSS, or another format. It ignores formatting and object-key order. (JSONC comments and trailing commas inside JSON Lines records are accepted in the app; the extension requires strict JSON per line.) Arrays whose elements are all objects with a unique primitive <code>id</code>, <code>_id</code>, <code>uuid</code>, or <code>guid</code> — the same key on both sides — are matched by identity; all other arrays are compared positionally. Change sets are capped at 5,000 entries, with a trailing &hellip; on the counters when truncated, and invalid inputs fall back to text. Very large text comparisons (over roughly 5,000 combined lines in the extension, 20,000 in the app) use a faster position-based comparison that can overstate changes when lines shift. A structured change can jump to an editor line only while the corresponding left or right source still exactly matches the current document, and only for JSON documents with positionally addressed changes — changes inside identity-matched array elements list the change without a jump; independently pasted or edited text never produces a misleading jump. When the sources are identical, both modes show a centered no-differences message over the result area.</p>
+            <p class="manual-deep-link"><strong>In-depth guide:</strong> See semantic and text modes, identity matching, and change navigation walked through in <a href="json-compare.html">JSON Compare &amp; Diff</a>.</p>
             <h3>Compare files (app)</h3>
             <p>The Windows app can browse two files, prefill the current file, remember the pair, and open a dedicated comparison tab. Selecting exactly two supported files in Explorer can expose the Compare command.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
@@ -844,7 +848,7 @@
                 </button>
               </figure>
             </div>
-            <p class="manual-limit"><strong>Limits and behavior:</strong> URLs with embedded credentials are refused (the extension explains this directly; the app reports it as a blocked request) — use the Auth controls instead. Cache is disabled and redirects are followed. Response bodies are capped at 50 MiB; anything beyond the cap is discarded and the size chip shows the bytes actually kept. Requests follow each platform&rsquo;s fetch rules: in Chrome/Edge the extension&rsquo;s granted host permissions usually exempt its requests from CORS, in Firefox CORS applies unless host access is granted, and the Windows app is subject to standard CORS. A timeout of 0 disables timeout; maximum differs by product (five minutes in the extension, ten in the app).</p>
+            <p class="manual-limit"><strong>Limits and behavior:</strong> URLs with embedded credentials are refused (the extension explains this directly; the app reports it as a blocked request) — use the Auth controls instead. Cache is disabled and redirects are followed. Response bodies are capped at 50 MiB; anything beyond the cap is discarded and the size chip shows the bytes actually kept. Requests follow each platform&rsquo;s fetch rules: the extension&rsquo;s granted host permissions usually exempt its requests from CORS in Chrome and Edge, while the Windows app is subject to standard CORS. A timeout of 0 disables timeout; maximum differs by product (five minutes in the extension, ten in the app).</p>
             <p>Local storage is bounded: the extension allows up to 500 collection entries, 50 environments, and 200 variables per environment; the app uses 100 entries, 20 environments, and 50 variables per environment. History keeps the last 10 requests per page (the extension retains the 25 most recent pages, the app 40). In the extension, history strips credentials, sensitive headers/query values, request bodies, and secret text in error messages before replay data is stored; in the app, history masks well-known credential header values but retains request bodies and query strings, so clear it manually after sending sensitive requests.</p>
             <p class="manual-deep-link"><strong>In-depth guide:</strong> Follow a complete request from params and environment values through formatted body, headers, timing, and copyable snippets in <a href="http-client-browser-extension.html">HTTP Client</a>.</p>
           </section>

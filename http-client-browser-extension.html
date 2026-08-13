@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Local HTTP Client in Chrome, Edge and Windows | CodePrettify</title>
-  <meta name="description" content="Compose and replay HTTP requests, import cURL, use local environments, inspect response bodies, headers, cookies, timing, and raw output, and copy cURL, fetch, or PowerShell." />
+  <title>HTTP Client Browser Extension – Local REST Client | CodePrettify</title>
+  <meta name="description" content="A local HTTP client in your browser: build REST requests, import cURL, inspect headers, cookies, and timing. No proxy servers — install free for Chrome." />
   <meta name="application-name" content="CodePrettify" />
   <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
@@ -17,18 +17,18 @@
   <meta property="og:site_name" content="CodePrettify" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="A Local HTTP Client Inside CodePrettify" />
-  <meta property="og:description" content="Build requests, import cURL, use environments, and inspect body, headers, cookies, timing, and raw response data." />
+  <meta property="og:title" content="HTTP Client Browser Extension – Local REST Client" />
+  <meta property="og:description" content="A free HTTP client extension: build requests, import cURL, use environments, and inspect body, headers, cookies, timing, and raw response data." />
   <meta property="og:url" content="https://prettify.cloud/http-client-browser-extension.html" />
-  <meta property="og:image" content="https://prettify.cloud/img/feature-http-client.png" />
+  <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-http-client.png" />
   <meta property="og:image:alt" content="CodePrettify HTTP Client showing a GET request and formatted JSON response" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="A Local HTTP Client Inside CodePrettify" />
+  <meta name="twitter:title" content="HTTP Client Browser Extension – Local REST Client" />
   <meta name="twitter:description" content="Compose, send, inspect, save, and copy requests without opening a separate API tool." />
-  <meta name="twitter:image" content="https://prettify.cloud/img/feature-http-client.png" />
+  <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-http-client.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=51ffddf6" />
+  <link rel="stylesheet" href="style.min.css?v=e323747f" />
   <script src="site.js?v=20260809-2" defer></script>
   <script src="feature-guide.js?v=20260725-1" defer></script>
   <script type="application/ld+json">
@@ -41,6 +41,8 @@
           "applicationCategory": "DeveloperApplication",
           "operatingSystem": "Chrome, Edge, Windows",
           "url": "https://prettify.cloud/http-client-browser-extension.html",
+          "description": "A local HTTP and REST client in the browser: build requests, import cURL, use environments, and inspect body, headers, cookies, and timing.",
+          "installUrl": "https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
         },
         {
@@ -48,6 +50,15 @@
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "CodePrettify", "item": "https://prettify.cloud/" },
             { "@type": "ListItem", "position": 2, "name": "HTTP Client", "item": "https://prettify.cloud/http-client-browser-extension.html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "Is the HTTP client browser extension subject to CORS?", "acceptedAnswer": { "@type": "Answer", "text": "Usually not: requests run with the extension's granted host permissions in Chrome and Edge, so most CORS restrictions do not apply there. When host access has not been granted, the target server's CORS policy can still block the response; CodePrettify reports likely CORS failures with targeted guidance. The Windows app is subject to standard CORS." } },
+            { "@type": "Question", "name": "When is a request sent?", "acceptedAnswer": { "@type": "Answer", "text": "Only when you press Send. Editing the URL, importing cURL, changing an environment, or copying a snippet does not send the request." } },
+            { "@type": "Question", "name": "Are saved secrets encrypted separately?", "acceptedAnswer": { "@type": "Answer", "text": "No. Protect your browser or Windows profile and avoid persisting sensitive values unnecessarily." } },
+            { "@type": "Question", "name": "Can I move a request into a script?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Copy the active request as cURL, JavaScript fetch(), or PowerShell and review the generated command before running it." } }
           ]
         }
       ]
@@ -62,7 +73,8 @@
     <div class="header-inner">
       <a href="/" class="logo"><img src="img/code_32.png?v=20260725" srcset="img/code_32.png?v=20260725 1x, img/code_64.png?v=20260725 2x" width="32" height="32" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span></a>
       <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
-      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#feature-guides">Features</a><a href="pricing.html">Price</a><a href="changelog.html">Changelog</a><a href="manual.html">Manual</a><a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a></nav>
+      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#install">Install</a>
+        <a href="guides.html">Guides</a><a href="pricing.html">Price</a><a href="manual.html">Manual</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/" target="_blank" rel="noopener">Contact</a></nav>
     </div>
   </header>
 
@@ -71,12 +83,12 @@
     <section class="feature-detail-hero">
       <div>
         <span class="feature-detail-eyebrow">Requests beside the response</span>
-        <h1>Build and inspect HTTP requests without changing tools</h1>
-        <p class="feature-detail-lead">Compose a request with params, authorization, headers, and several body modes; import cURL; use local environments; save useful requests; and inspect response body, headers, cookies, raw output, status, size, and timing in one workspace.</p>
+        <h1>An HTTP client in your browser — build, send, and inspect requests</h1>
+        <p class="feature-detail-lead">Compose a REST or GraphQL request with params, authorization, headers, and several body modes; import cURL; use local environments; save useful requests; and inspect response body, headers, cookies, raw output, status, size, and timing in one workspace.</p>
         <div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="manual.html#http-client">Read the manual section</a></div>
         <ul class="feature-proof-list"><li>Import cURL</li><li>Local environments</li><li>Saved requests</li><li>Response inspection</li></ul>
       </div>
-      <figure class="feature-hero-shot"><img src="img/feature-http-client.png" alt="HTTP Client with a GET request, query parameter, status, timing, and formatted JSON response" width="1280" height="800" fetchpriority="high" /><figcaption>A request and its formatted JSON response remain visible together, including status, size, content type, and timing.</figcaption></figure>
+      <figure class="feature-hero-shot"><img src="img/screenshots/feature-http-client.png" alt="CodePrettify HTTP client browser extension with a GET request, query parameter, status, timing, and formatted JSON response" width="1280" height="800" fetchpriority="high" /><figcaption>A request and its formatted JSON response remain visible together, including status, size, content type, and timing.</figcaption></figure>
     </section>
 
     <nav class="feature-learning-nav" aria-label="Lessons in this HTTP Client guide">
@@ -173,8 +185,8 @@ Timeout:
     <section class="feature-detail-section" aria-labelledby="http-response-title">
       <div class="feature-detail-heading"><span class="section-badge">Response inspection</span><h2 id="http-response-title">The body is only one part of the answer</h2><p>Status, content type, response headers, cookies, timing, and the raw response can explain behavior that a formatted JSON body cannot. Compare these views when investigating caching, authentication, redirects, content negotiation, compressed responses, or a server that returns useful diagnostics outside the body.</p></div>
       <div class="feature-shot-grid">
-        <figure class="feature-guide-shot"><img src="img/feature-http-client.png" alt="HTTP response body rendered as formatted JSON in CodePrettify HTTP Client" width="1280" height="800" loading="lazy" /><figcaption>Body view formats a successful JSON response and keeps request controls visible above it.</figcaption></figure>
-        <figure class="feature-guide-shot"><img src="img/feature-http-client-headers.png" alt="HTTP response headers including cache-control, content-type, date, and connection details" width="1280" height="800" loading="lazy" /><figcaption>Headers view exposes caching, content type, date, connection, and transfer behavior beside the request.</figcaption></figure>
+        <figure class="feature-guide-shot"><img src="img/screenshots/feature-http-client.png" alt="HTTP response body rendered as formatted JSON in CodePrettify HTTP Client" width="1280" height="800" loading="lazy" /><figcaption>Body view formats a successful JSON response and keeps request controls visible above it.</figcaption></figure>
+        <figure class="feature-guide-shot"><img src="img/screenshots/feature-http-client-headers.png" alt="HTTP response headers including cache-control, content-type, date, and connection details" width="1280" height="800" loading="lazy" /><figcaption>Headers view exposes caching, content type, date, connection, and transfer behavior beside the request.</figcaption></figure>
       </div>
     </section>
 
@@ -195,7 +207,7 @@ Timeout:
             <tr><td>400 or 415</td><td>Review JSON syntax, body mode, <code>Content-Type</code>, required fields, and encoding.</td><td>Sanitized body, request headers, and server validation message.</td></tr>
             <tr><td>429</td><td>Inspect rate-limit and retry headers, then reduce or delay requests.</td><td>Limit, remaining, reset, and retry values.</td></tr>
             <tr><td>500–599</td><td>Separate a reproducible client request from a server-side failure.</td><td>Request ID, timestamp, status, duration, and sanitized request snippet.</td></tr>
-            <tr><td>CORS or browser network failure</td><td>Compare with generated cURL or PowerShell outside the browser. In Chrome/Edge the extension’s granted host permissions usually exempt its requests from CORS; in Firefox (or with host access revoked) the server’s CORS policy can still block the response.</td><td>Browser error, target origin, method, and server CORS configuration.</td></tr>
+            <tr><td>CORS or browser network failure</td><td>Compare with generated cURL or PowerShell outside the browser. The extension’s granted host permissions usually exempt its requests from CORS in Chrome and Edge; with host access revoked, the server’s CORS policy can still block the response.</td><td>Browser error, target origin, method, and server CORS configuration.</td></tr>
           </tbody>
         </table>
       </div>
@@ -209,7 +221,7 @@ Timeout:
     </section>
 
     <section class="feature-detail-section" aria-labelledby="http-controls-title">
-      <div class="feature-detail-heading"><span class="section-badge">Capabilities</span><h2 id="http-controls-title">Enough request control for daily API investigation</h2></div>
+      <div class="feature-detail-heading"><span class="section-badge">Capabilities</span><h2 id="http-controls-title">Enough request control for daily REST API investigation</h2></div>
       <div class="feature-capability-grid">
         <article class="feature-capability"><h3>Methods and URLs</h3><ul><li>Common HTTP methods</li><li>Query parameter editor</li><li>Resolved environment preview</li><li>URL validation</li></ul></article>
         <article class="feature-capability"><h3>Authorization</h3><ul><li>Bearer token</li><li>Basic authentication</li><li>API key (header or query parameter)</li><li>Custom headers</li></ul></article>
@@ -233,7 +245,7 @@ Timeout:
     <section class="feature-detail-section" aria-labelledby="http-faq-title">
       <div class="feature-detail-heading"><span class="section-badge">FAQ</span><h2 id="http-faq-title">HTTP Client questions</h2></div>
       <div class="feature-detail-faq">
-        <details><summary>Is the browser extension subject to CORS?</summary><p>Usually not in Chrome and Edge: requests run with the extension’s granted host permissions, so most CORS restrictions do not apply there. In Firefox, or when host access has not been granted, the target server’s CORS policy can still block the response; CodePrettify reports likely CORS failures with targeted guidance. The Windows app is subject to standard CORS.</p></details>
+        <details><summary>Is the HTTP client browser extension subject to CORS?</summary><p>Usually not: requests run with the extension’s granted host permissions in Chrome and Edge, so most CORS restrictions do not apply there. When host access has not been granted, the target server’s CORS policy can still block the response; CodePrettify reports likely CORS failures with targeted guidance. The Windows app is subject to standard CORS.</p></details>
         <details><summary>When is a request sent?</summary><p>Only when you press Send. Editing the URL, importing cURL, changing an environment, or copying a snippet does not send the request.</p></details>
         <details><summary>Are saved secrets encrypted separately?</summary><p>No. Protect your browser or Windows profile and avoid persisting sensitive values unnecessarily.</p></details>
         <details><summary>Can I move a request into a script?</summary><p>Yes. Copy the active request as cURL, JavaScript <code>fetch()</code>, or PowerShell and review the generated command before running it.</p></details>
@@ -249,9 +261,9 @@ Timeout:
       </div>
     </section>
 
-    <section class="feature-page-cta" aria-labelledby="http-cta-title"><h2 id="http-cta-title">Keep the request and response in one workspace</h2><p>Compose the call, inspect more than the body, and copy a reproducible request when the investigation is complete.</p><div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="pricing.html">See $0 early access</a></div></section>
+    <section class="feature-page-cta" aria-labelledby="http-cta-title"><h2 id="http-cta-title">Keep the request and response in one workspace</h2><p>Compose the call, inspect more than the body, and copy a reproducible request — a lightweight REST client without a separate desktop app.</p><div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="pricing.html">See $0 early access</a></div></section>
   </main>
 
-  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
+  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="guides.html">Guides</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="https://support.prettify.cloud/">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
 </body>
 </html>
