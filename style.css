@@ -384,7 +384,9 @@ a:hover {
 .feature-detail-lead a,
 .feature-learning-card a,
 .feature-deep-links a,
-.manual-deep-link a {
+.manual-deep-link a,
+.manual-topic p a,
+.manual-topic li a {
     text-decoration: underline;
 }
 
@@ -3158,7 +3160,7 @@ kbd {
     }
 
     .product-app {
-        color: #15803d;
+        color: #166534;
     }
 }
 
