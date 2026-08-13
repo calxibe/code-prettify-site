@@ -379,6 +379,15 @@ a:hover {
     text-decoration: underline;
 }
 
+/* In-text links inside muted prose must not rely on color alone (a11y: link-in-text-block). */
+.section-desc a,
+.feature-detail-lead a,
+.feature-learning-card a,
+.feature-deep-links a,
+.manual-deep-link a {
+    text-decoration: underline;
+}
+
 ul {
     color: var(--text-muted);
     margin-left: 24px;
