@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>App Changelog - CodePrettify</title>
-    <meta name="description" content="Track the latest CodePrettify Windows app releases, including JSON to Code Generator, JSON Repair &amp; Transform, and local developer tools." />
+    <meta name="description" content="Track the latest CodePrettify Windows app releases, including readable JSON Lines and NDJSON, JSON to Code Generator, and local developer tools." />
     <meta name="application-name" content="CodePrettify" />
     <meta name="apple-mobile-web-app-title" content="CodePrettify" />
     <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
@@ -20,13 +20,13 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="App Changelog - CodePrettify" />
-    <meta property="og:description" content="Track the latest CodePrettify Windows app releases, including JSON to Code Generator, JSON Repair &amp; Transform, and local developer tools." />
+    <meta property="og:description" content="Track CodePrettify Windows app releases, including readable JSON Lines and NDJSON, JSON to Code Generator, and local developer tools." />
     <meta property="og:url" content="https://prettify.cloud/changelog-app.html" />
     <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-stats-diagnostics.png" />
     <meta property="og:image:alt" content="CodePrettify statistics and diagnostics panel showing warnings, request metadata, and document metrics" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="App Changelog - CodePrettify" />
-    <meta name="twitter:description" content="Track the latest CodePrettify Windows app releases, including JSON to Code Generator and local structured-data tools." />
+    <meta name="twitter:description" content="See the latest CodePrettify Windows app updates, including readable JSON Lines and NDJSON files." />
     <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-stats-diagnostics.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
@@ -95,11 +95,37 @@
         </a>
       </div>
 
+      <!-- Version 1.1.8 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.1.8</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">August 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Added</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Readable JSON Lines and NDJSON</strong> &mdash; A separate, default-on <strong>Formatted</strong> checkbox in the Prettified view now expands and indents each record independently without adding an array wrapper or commas. Clear it to return to the original physical one-record-per-line display; the preference is remembered separately from JavaScript formatting. Copy, export, save, Compare, and JavaScript Playground actions continue to receive valid one-record-per-line JSONL instead of the display-only multiline layout.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Reliable full-document selection</strong> &mdash; The read-only code surface now receives keyboard focus when clicked. <code>Ctrl+A</code> from the viewer, page background, or toolbar selects the complete displayed document, including folded and off-screen content, without selecting the surrounding interface. Deliberately focused text fields retain their normal select-all behavior, and Escape from Find returns focus to the document.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.1.7 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.1.7</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">August 2026</span>
         </div>
 

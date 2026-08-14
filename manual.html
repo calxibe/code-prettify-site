@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Manual - CodePrettify Browser Extension and Windows App</title>
-    <meta name="description" content="The complete CodePrettify user manual: format, repair, transform, inspect, compare, convert JSON to code, validate, export, and troubleshoot data in the browser extension and Windows app." />
+    <meta name="description" content="The complete CodePrettify user manual: format readable JSON Lines and NDJSON, repair and transform data, inspect, compare, validate, export, and troubleshoot." />
     <meta name="application-name" content="CodePrettify" />
     <meta name="apple-mobile-web-app-title" content="CodePrettify" />
     <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
@@ -20,13 +20,13 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="CodePrettify User Manual" />
-    <meta property="og:description" content="A detailed guide to every major function, including JSON to Code Generator and JSON Repair &amp; Transform, in the CodePrettify browser extension and Windows app." />
+    <meta property="og:description" content="Learn CodePrettify workflows for readable JSON Lines and NDJSON, JSON to Code Generator, JSON Repair &amp; Transform, and more." />
     <meta property="og:url" content="https://prettify.cloud/manual.html" />
     <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-json-format.png" />
     <meta property="og:image:alt" content="CodePrettify displaying a formatted JSON document" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="CodePrettify User Manual" />
-    <meta name="twitter:description" content="Learn every major function, including local JSON-to-code generation and structured-data repair, in the CodePrettify browser extension and Windows app." />
+    <meta name="twitter:description" content="Learn every major CodePrettify function, including readable JSON Lines and NDJSON, local code generation, and data repair." />
     <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-json-format.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
@@ -168,7 +168,7 @@
                 <tbody>
                   <tr><td>JavaScript / TypeScript</td><td><code>.js .mjs .cjs .ts .mts .cts</code></td><td>Yes</td><td>Yes</td><td>Prettified</td></tr>
                   <tr><td>JSON / JSONC</td><td><code>.json .jsonc</code></td><td>Yes</td><td>Yes</td><td>Prettified</td></tr>
-                  <tr><td>JSON Lines / NDJSON</td><td><code>.jsonl .ndjson</code></td><td>Yes</td><td>Yes</td><td>Prettified</td></tr>
+                  <tr><td>JSON Lines / NDJSON</td><td><code>.jsonl .ndjson</code></td><td>Yes</td><td>Yes</td><td>Prettified; records expanded</td></tr>
                   <tr><td>YAML</td><td><code>.yaml .yml</code></td><td>Yes</td><td>Yes</td><td>Prettified</td></tr>
                   <tr><td>TOML</td><td><code>.toml</code></td><td>Yes</td><td>Yes</td><td>Prettified</td></tr>
                   <tr><td>Markdown</td><td><code>.md .markdown</code></td><td>Yes</td><td>Yes</td><td>Rendered</td></tr>
@@ -187,6 +187,7 @@
             <h3>Representations</h3>
             <ul>
               <li><strong>Prettified</strong> shows indentation, syntax highlighting, folding, links, and inline helpers. <strong>Raw</strong> shows the original text.</li>
+              <li>In the Prettified view for valid JSON Lines/NDJSON, a separate <strong>Formatted</strong> checkbox is enabled by default and expands every record independently. Clear it to restore the original physical one-record-per-line display. CodePrettify remembers this choice separately from the JavaScript formatting checkbox.</li>
               <li>Markdown, XML/feed, and app HTML use <strong>Rendered</strong>/<strong>Source</strong> where a safe rendered view is available.</li>
               <li>The formatting indicator reports whether formatting succeeded. A validation alert provides an exact line/column when the parser can locate the problem.</li>
               <li><kbd>Ctrl</kbd>+<kbd>B</kbd> toggles the two views. Your first-install default remains Prettified/Rendered until changed in Settings.</li>
@@ -278,7 +279,7 @@
             </div>
             <h3>Save and Save As</h3>
             <ul>
-              <li><strong>Raw/Source</strong> saves the original source. <strong>Prettified/Rendered/Table</strong> saves the document representation, never the viewer’s interface HTML.</li>
+              <li><strong>Raw/Source</strong> saves the original source. <strong>Prettified/Rendered/Table</strong> saves the document representation, never the viewer’s interface HTML. For JSON Lines, a formatted save remains valid one-record-per-line JSONL; the expanded reading view is never written to the file.</li>
               <li>If another program changed the disk file, choose Overwrite, Save As, or Cancel.</li>
               <li>Saving formatted JSONC warns that comments and trailing commas will be removed; No is the default.</li>
               <li>The app preserves the original encoding/BOM when possible, writes saves atomically, and warns when a legacy encoding would lose characters. Unsaved and native large-file tabs use Save As; comparison tabs cannot be saved.</li>
@@ -343,7 +344,8 @@
           <section id="format-behavior" class="manual-topic" data-products="shared browser app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Format reference</span><h2>Formatting and validation by file type</h2></div><span class="product-badge product-shared">Both products</span></div>
             <div class="manual-definition-list">
-              <div><h3>JSON / JSONC / JSON Lines</h3><p>JSONC accepts comments and trailing commas, not JSON5 single quotes or unquoted keys; that tolerance applies to whole documents only. Formatted JSONC omits comments. JSON Lines validates each nonblank physical line as strict JSON and formats it to one compact record per line so the file stays valid JSONL, while the structured view still shows each record expanded. Validation reports the error’s line and column (line only for JSON Lines) and warns when integers are too large to survive reformatting without precision loss.</p></div>
+              <div><h3>JSON / JSONC</h3><p>JSONC accepts comments and trailing commas, not JSON5 single quotes or unquoted keys; that tolerance applies to whole documents only. Formatted JSONC omits comments. Validation reports the error’s line and column and warns when integers are too large to survive reformatting without precision loss.</p></div>
+              <div><h3>JSON Lines / NDJSON</h3><p>Each nonblank physical line is validated as an independent strict JSON value. In Prettified view, the default-on <strong>Formatted</strong> checkbox expands and indents every valid record independently, without inventing an outer array, brackets, or commas. This multiline layout is a reading-only view, not a JSON document or rewritten JSONL file. Clear the checkbox to see the original physical one-record-per-line text; your choice is remembered. Invalid JSON Lines cannot use the expanded view, and validation reports the original physical line containing the error. Long string values can still create wide lines, so enable <strong>Word Wrap</strong> when needed.</p></div>
               <div><h3>JavaScript / TypeScript</h3><p>The bundled beautifier adds readable indentation. Syntax is validated in a sandboxed parser; when validation cannot run, the document is marked as unchecked rather than invalid. Folding recognizes multi-line functions, classes, control blocks, arrays, and objects while ignoring brackets inside strings, comments, and template-literal interpolations. Bracket matching is optional. Safe HTTP(S) URLs and resolvable relative imports become clickable; bare package names are not guessed.</p></div>
             </div>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
@@ -712,6 +714,7 @@
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Take the result with you</span><h2>Copy and Export</h2></div><span class="product-badge product-shared">Both products</span></div>
             <h3>Copy</h3>
             <p>The floating copy menu and app Edit menu offer <strong>Original</strong>, <strong>Formatted</strong>, and <strong>Minified</strong> when valid. The main Copy button and <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd> reuse your last-chosen variant; before any choice they copy the visible representation (Raw copies Original, Prettified copies Formatted). Feedback explicitly identifies what was copied. YAML hides Minified because there is no safe equivalent.</p>
+            <p><strong>JSON Lines safety:</strong> the expanded multiline layout is display-only and is never used by CodePrettify&rsquo;s Copy commands, downloads, saves, Compare, or JavaScript Playground. Those actions use the original source or canonical valid one-record-per-line JSONL as appropriate. A manual text selection, including <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>A</kbd> in the viewer followed by Copy, copies exactly the visible reading layout; use the copy menu or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd> when you need valid JSONL. With the <strong>Formatted</strong> checkbox cleared, the automatic Copy action uses the original source.</p>
             <h3>Export</h3>
             <ul>
               <li>Download Original, Formatted, or Minified source.</li>
@@ -909,6 +912,7 @@
               <table class="manual-table shortcuts-table">
                 <thead><tr><th>Action</th><th>Shortcut</th><th>Availability</th></tr></thead>
                 <tbody>
+                  <tr><td>Select the complete displayed document</td><td><kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>A</kbd></td><td>Both, Prettified/Rendered view; focused text fields keep their normal selection</td></tr>
                   <tr><td>Toggle Prettified/Raw or Rendered/Source</td><td><kbd>Ctrl</kbd>+<kbd>B</kbd></td><td>Both</td></tr>
                   <tr><td>Copy active/default representation</td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd></td><td>Both</td></tr>
                   <tr><td>Find</td><td><kbd>Ctrl</kbd>+<kbd>F</kbd></td><td>Both, Prettified/Rendered view</td></tr>
@@ -920,7 +924,7 @@
                   <tr><td>Regex Playground</td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>R</kbd></td><td>Both</td></tr>
                   <tr><td>Command Palette</td><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd></td><td>Both</td></tr>
                   <tr><td>Run the open dialog&rsquo;s primary action (Playground, Schema Validator, Compare, JSON to Code)</td><td><kbd>Ctrl</kbd>+<kbd>Enter</kbd></td><td>When the dialog is open</td></tr>
-                  <tr><td>Close dialog / clear search highlight</td><td><kbd>Esc</kbd></td><td>Both</td></tr>
+                  <tr><td>Close dialog / clear search and return focus to the document</td><td><kbd>Esc</kbd></td><td>Both</td></tr>
                   <tr><td>Paste &amp; Prettify</td><td><kbd>Ctrl</kbd>+<kbd>N</kbd></td><td>App</td></tr>
                   <tr><td>Open</td><td><kbd>Ctrl</kbd>+<kbd>O</kbd></td><td>App</td></tr>
                   <tr><td>Save / Save As</td><td><kbd>Ctrl</kbd>+<kbd>S</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd></td><td>App</td></tr>
