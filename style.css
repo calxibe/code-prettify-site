@@ -198,6 +198,14 @@
     --warning: #f59e0b;
     --error: #ef4444;
     --brand-prettify: #55ddf5;
+    --page-max-width: 1180px;
+    --page-shell-width: calc(100% - 40px);
+    --page-hero-space: 64px;
+    --display-heading-line-height: 1.2;
+    --hero-heading-size: clamp(2.75rem, 6vw, 5rem);
+    --hero-title-width: 800px;
+    --hero-lead-width: 760px;
+    --hero-lead-size: clamp(1rem, 1.7vw, 1.18rem);
 }
 
 /* Reset */
@@ -215,6 +223,55 @@ body {
     overflow-x: hidden;
 }
 
+/* Shared page primitives. Existing page-specific selectors are aliases so
+   legacy pages and new pages using these classes always share the same frame
+   and display typography. */
+.site-frame,
+.container,
+.header-inner,
+.content,
+.manual-main,
+.pricing-main,
+.feature-detail-main {
+    width: min(var(--page-max-width), var(--page-shell-width));
+    margin: 0 auto;
+}
+
+.hero-title,
+.manual-hero h1,
+.pricing-hero h1,
+.feature-detail-hero h1,
+.media-intro h1 {
+    max-width: var(--hero-title-width);
+    margin: 0;
+    font-size: var(--hero-heading-size);
+    line-height: var(--display-heading-line-height);
+    letter-spacing: -0.055em;
+}
+
+.page-hero,
+.manual-hero,
+.pricing-hero,
+.feature-detail-hero,
+.media-intro {
+    padding: var(--page-hero-space) 0 56px;
+}
+
+.page-hero .page-hero__lead {
+    max-width: var(--hero-lead-width);
+    margin: 24px 0 0;
+    color: var(--text-muted);
+    font-size: var(--hero-lead-size);
+    line-height: 1.75;
+}
+
+.section-title,
+.pricing-section-heading h2,
+.pricing-final-cta h2,
+.feature-detail-heading h2 {
+    line-height: var(--display-heading-line-height);
+}
+
 /* Gradient background effects (index page) */
 .bg-glow {
     position: fixed;
@@ -230,9 +287,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
+    padding: 0;
 }
 
 /* ===================================
@@ -248,9 +303,7 @@ header {
 }
 
 .header-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 16px 24px;
+    padding: 16px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -330,12 +383,18 @@ header nav a.active {
    Content (Privacy & Changelog pages)
    =================================== */
 .content {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 60px 24px;
+    padding: var(--page-hero-space) 0 80px;
+}
+
+.content--page {
+    padding-top: 0;
 }
 
 .content.narrow {
+    width: min(800px, var(--page-shell-width));
+}
+
+.privacy-content > * {
     max-width: 800px;
 }
 
@@ -345,7 +404,7 @@ header nav a.active {
 h1 {
     font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 800;
-    line-height: 1.1;
+    line-height: var(--display-heading-line-height);
     margin-bottom: 24px;
     background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
     -webkit-background-clip: text;
@@ -382,6 +441,7 @@ a:hover {
 /* In-text links inside muted prose must not rely on color alone (a11y: link-in-text-block). */
 .section-desc a,
 .feature-detail-lead a,
+.page-hero__lead a,
 .feature-learning-card a,
 .feature-deep-links a,
 .manual-deep-link a,
@@ -1233,7 +1293,8 @@ section {
     margin-bottom: 60px;
 }
 
-.section-badge {
+.section-badge,
+.page-hero__eyebrow {
     display: inline-block;
     font-size: 0.8rem;
     font-weight: 600;
@@ -1903,6 +1964,12 @@ footer {
    Responsive
    =================================== */
 @media (max-width: 768px) {
+    :root {
+        --page-shell-width: calc(100% - 32px);
+        --page-hero-space: 48px;
+        --hero-heading-size: clamp(2.55rem, 12vw, 3.8rem);
+    }
+
     .menu-toggle {
         display: block;
     }
@@ -1935,6 +2002,8 @@ footer {
     }
 
     .header-inner {
+        width: 100%;
+        padding: 16px;
         position: relative;
     }
     
@@ -1951,7 +2020,7 @@ footer {
     }
     
     .content {
-        padding: 40px 20px;
+        padding: var(--page-hero-space) 0 64px;
     }
     
     .features-grid {
@@ -2397,9 +2466,7 @@ footer {
 }
 
 .manual-main {
-    width: min(1320px, 100%);
-    margin: 0 auto;
-    padding: 64px 24px 80px;
+    padding: 0 0 80px;
 }
 
 .manual-hero {
@@ -2407,21 +2474,7 @@ footer {
     grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
     align-items: end;
     gap: 56px;
-    padding: 32px 0 56px;
     border-bottom: 1px solid var(--border);
-}
-
-.manual-hero h1 {
-    max-width: 850px;
-    margin-bottom: 20px;
-    font-size: clamp(2.6rem, 5vw, 4.4rem);
-}
-
-.manual-hero-copy > p {
-    max-width: 780px;
-    margin: 0;
-    color: var(--text-muted);
-    font-size: 1.12rem;
 }
 
 .manual-product-key {
@@ -3013,15 +3066,11 @@ kbd {
 
 @media (max-width: 700px) {
     .manual-main {
-        padding: 34px 16px 56px;
+        padding: 0 0 56px;
     }
 
     .manual-hero {
-        padding: 20px 0 38px;
-    }
-
-    .manual-hero h1 {
-        font-size: clamp(2.2rem, 12vw, 3.2rem);
+        padding: var(--page-hero-space) 0 38px;
     }
 
     .manual-toc {
@@ -3172,9 +3221,7 @@ kbd {
 }
 
 .pricing-main {
-    width: min(1248px, 100%);
-    margin: 0 auto;
-    padding: 0 24px 96px;
+    padding: 0 0 96px;
 }
 
 .pricing-hero {
@@ -3182,7 +3229,6 @@ kbd {
     grid-template-columns: minmax(0, 1.35fr) minmax(310px, 0.65fr);
     align-items: center;
     gap: 68px;
-    padding: 92px 0 84px;
     border-bottom: 1px solid var(--border);
 }
 
@@ -3190,24 +3236,9 @@ kbd {
     min-width: 0;
 }
 
-.pricing-hero h1 {
-    max-width: 800px;
-    margin-bottom: 24px;
-    font-size: clamp(3rem, 6.5vw, 5.4rem);
-    letter-spacing: -0.045em;
-}
-
 .pricing-hero h1 span {
     color: var(--primary-light);
     -webkit-text-fill-color: var(--primary-light);
-}
-
-.pricing-lead {
-    max-width: 790px;
-    margin-bottom: 30px;
-    color: var(--text-muted);
-    font-size: clamp(1.08rem, 2vw, 1.3rem);
-    line-height: 1.75;
 }
 
 .pricing-lead strong {
@@ -3365,7 +3396,6 @@ kbd {
 .pricing-final-cta h2 {
     margin-bottom: 14px;
     font-size: clamp(2rem, 4.5vw, 3.25rem);
-    line-height: 1.15;
     letter-spacing: -0.035em;
 }
 
@@ -3696,15 +3726,11 @@ kbd {
 
 @media (max-width: 768px) {
     .pricing-main {
-        padding: 0 16px 64px;
+        padding: 0 0 64px;
     }
 
     .pricing-hero {
-        padding: 48px 0 58px;
-    }
-
-    .pricing-hero h1 {
-        font-size: clamp(2.65rem, 14vw, 4.2rem);
+        padding: var(--page-hero-space) 0 58px;
     }
 
     .pricing-install-buttons {
@@ -3890,8 +3916,6 @@ kbd {
 }
 
 .feature-detail-main {
-    width: min(1180px, calc(100% - 40px));
-    margin: 0 auto;
     padding: 0 0 88px;
 }
 
@@ -3920,7 +3944,18 @@ kbd {
     grid-template-columns: minmax(0, 0.88fr) minmax(460px, 1.12fr);
     gap: 52px;
     align-items: center;
-    padding: 72px 0 86px;
+}
+
+.guides-hero {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.guides-hero > div {
+    max-width: 900px;
+}
+
+.guides-hero + .feature-detail-section {
+    padding-top: 56px;
 }
 
 .feature-detail-eyebrow {
@@ -3943,20 +3978,7 @@ kbd {
 }
 
 .feature-detail-hero h1 {
-    max-width: 760px;
-    margin: 0;
     color: var(--text);
-    font-size: clamp(2.75rem, 6vw, 5rem);
-    line-height: 0.98;
-    letter-spacing: -0.055em;
-}
-
-.feature-detail-lead {
-    max-width: 700px;
-    margin: 24px 0 0;
-    color: var(--text-muted);
-    font-size: clamp(1rem, 1.7vw, 1.18rem);
-    line-height: 1.75;
 }
 
 .feature-detail-actions {
@@ -4303,7 +4325,6 @@ kbd {
     margin: 0;
     color: var(--text);
     font-size: clamp(2rem, 4vw, 3.1rem);
-    line-height: 1.08;
     letter-spacing: -0.04em;
 }
 
@@ -4555,15 +4576,7 @@ kbd {
 
 /* Media kit */
 .media-intro {
-    max-width: 760px;
-    padding: 76px 0 66px;
-}
-
-.media-intro h1 {
-    margin: 14px 0 0;
-    color: var(--text);
-    font-size: clamp(3rem, 6vw, 5.2rem);
-    letter-spacing: -0.065em;
+    max-width: var(--hero-lead-width);
 }
 
 .media-intro > p {
@@ -4828,16 +4841,12 @@ kbd {
 
 @media (max-width: 680px) {
     .feature-detail-main {
-        width: min(100% - 30px, 1180px);
+        width: min(var(--page-max-width), var(--page-shell-width));
         padding-bottom: 64px;
     }
 
     .feature-detail-hero {
-        padding: 48px 0 64px;
-    }
-
-    .feature-detail-hero h1 {
-        font-size: clamp(2.55rem, 14vw, 3.8rem);
+        padding: var(--page-hero-space) 0 64px;
     }
 
     .feature-learning-nav {
@@ -4897,10 +4906,6 @@ kbd {
 
     .media-intro {
         padding: 52px 0 56px;
-    }
-
-    .media-intro h1 {
-        font-size: clamp(2.65rem, 13vw, 3.8rem);
     }
 
     .feature-detail-section {
