@@ -14,7 +14,7 @@ CodePrettify is made by FixQuotes. It is available as a browser extension for Ch
 - [Windows app changelog](https://prettify.cloud/changelog-app.html)
 - [Privacy policy](https://prettify.cloud/privacy.html)
 - [Media kit](https://prettify.cloud/media.html): official logo files, screenshots, and listing copy.
-- [Support](https://support.prettify.cloud/)
+- [Support](https://prettify.cloud/contact.html)
 
 ## Main capabilities
 
