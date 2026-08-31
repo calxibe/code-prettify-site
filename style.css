@@ -1645,9 +1645,9 @@ section {
 }
 
 .changelog-tab.active {
-    background: var(--primary);
+    background: var(--primary-dark);
     color: #fff;
-    box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.3);
+    box-shadow: 0 2px 8px rgba(var(--primary-dark-rgb), 0.4);
 }
 
 .changelog-tab.active:hover {
@@ -2589,8 +2589,8 @@ footer {
 }
 
 .manual-filter.active {
-    border-color: var(--primary);
-    background: var(--primary);
+    border-color: var(--primary-dark);
+    background: var(--primary-dark);
     color: #fff;
 }
 
@@ -2808,6 +2808,13 @@ kbd {
     overflow-x: auto;
     border: 1px solid var(--border);
     border-radius: 12px;
+}
+
+.manual-table-wrap:focus-visible,
+.feature-guide-table-wrap:focus-visible,
+.feature-code:focus-visible {
+    outline: 3px solid var(--primary-light);
+    outline-offset: 3px;
 }
 
 .manual-table {

@@ -2,9 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; font-src 'self'; img-src 'self' data: https://www.google-analytics.com https://wonderlaunch.app https://api.producthunt.com https://peerpush.com https://www.uneed.best https://fazier.com https://www.directree.io; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com; frame-src https://www.youtube-nocookie.com; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Privacy Policy - CodePrettify</title>
-    <meta name="description" content="Learn how CodePrettify processes app and extension data locally and uses Google Analytics on its public website." />
+    <meta name="description" content="Learn how CodePrettify processes app and extension data locally and lets website visitors choose optional Google Analytics." />
     <meta name="application-name" content="CodePrettify" />
     <meta name="apple-mobile-web-app-title" content="CodePrettify" />
     <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
@@ -20,19 +22,19 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Privacy Policy - CodePrettify" />
-    <meta property="og:description" content="Learn how CodePrettify processes app and extension data locally and uses Google Analytics on its public website." />
+    <meta property="og:description" content="Learn how CodePrettify processes app and extension data locally and lets website visitors choose optional Google Analytics." />
     <meta property="og:url" content="https://prettify.cloud/privacy.html" />
     <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-stats-diagnostics.png" />
     <meta property="og:image:alt" content="CodePrettify statistics and diagnostics panel showing warnings, request metadata, and document metrics" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Privacy Policy - CodePrettify" />
-    <meta name="twitter:description" content="Learn how CodePrettify processes app and extension data locally and uses Google Analytics on its public website." />
+    <meta name="twitter:description" content="Learn how CodePrettify processes app and extension data locally and lets website visitors choose optional Google Analytics." />
     <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-stats-diagnostics.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=81649ab3" />
-    <script src="site.js?v=20260809-2" defer></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date);gtag("config","G-S4WNQ48Q7F");addEventListener("load",function(){var l=function(){var s=document.createElement("script");s.async=!0;s.src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F";document.head.appendChild(s)};window.requestIdleCallback?requestIdleCallback(l,{timeout:3000}):setTimeout(l,1200)})</script>
+  <link rel="stylesheet" href="style.min.css?v=5e50edde" />
+  <link rel="stylesheet" href="consent.css?v=20260826-2" />
+    <script src="site.js?v=20260826-3" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -61,7 +63,7 @@
     </header>
     <main id="main-content" class="content privacy-content site-frame">
       <h1>Privacy Policy</h1>
-      <p class="last-updated">Last Updated: August 9, 2026</p>
+      <p class="last-updated">Last Updated: August 26, 2026</p>
       <p>
         This Privacy Policy describes how CodePrettify ("we", "us", or "our")
         handles your information when you use our desktop application and
@@ -77,8 +79,9 @@
         the same URL directly from the site you are already visiting. If you
         explicitly use the HTTP Client, your browser sends the request you
         compose directly to the target URL; CodePrettify does not proxy it.
-        The public CodePrettify website uses Google Analytics as described in
-        the Website Analytics and Cookies section below.
+        The public CodePrettify website offers optional Google Analytics only
+        after you explicitly allow it, as described in the Website Analytics
+        and Cookies section below.
       </div>
 
       <div class="highlight limited-use-highlight">
@@ -193,18 +196,28 @@
         The extension may also store recent per-URL view state locally so it
         can restore your previous view for the same resource. This may include
         search text, selected JSON path, highlighted line, fold state, and
-        whether you were viewing the original or formatted output.
+        whether you were viewing the original or formatted output. URL
+        credentials, fragments, and sensitive query values are removed from
+        the storage key; older unsanitized keys are migrated or deleted when
+        they are encountered.
       </p>
       <p>
-        HTTP Client saved requests, environments, secret variables, and
-        privacy-sanitized replay history are stored only in
+        HTTP Client saved requests, environments, and privacy-sanitized replay
+        history are stored only in
         <code>chrome.storage.local</code>. The current version migrates saved
         requests and environments written to sync storage by an older release
         back to local storage and removes the synced copy. Replay history omits request bodies,
-        credential headers, URL credentials, and sensitive query parameters.
-        CodePrettify does not separately encrypt saved local request or
-        environment values, so access to your browser profile should be
-        protected.
+        credential headers, URL credentials and fragments, sensitive query parameters,
+        and detailed transport-error text; older entries are rewritten through the same
+        sanitizer when read. Authentication values, sensitive-named
+        URL/query/header/form values, and environment variables marked Secret
+        remain available only in the active session and are removed before a
+        request or workspace is saved or exported. Values placed inside
+        free-form JSON, text, multipart, or GraphQL bodies cannot be identified
+        or rewritten reliably without changing the request and may still be
+        persisted; exports therefore require a final warning and review.
+        CodePrettify is not a separate secrets vault, so access to your browser
+        profile should be protected.
         JavaScript Playground state and Regex Playground history are also kept
         locally because they may contain text you entered. Custom test text in
         Regex Playground is different: it remains only in the active viewer
@@ -219,11 +232,47 @@
 
       <h2>3. Application Behavior</h2>
       <p>
-        The CodePrettify desktop application operates entirely locally on your
-        device. It does not transmit any data to external servers and does not
-        collect telemetry. Custom Regex Playground test text remains only in
-        the active tab session and is not saved to application settings or
+        The CodePrettify desktop application formats, analyzes, previews, and
+        converts documents locally on your device and does not collect
+        telemetry. The HTTP Client is the explicit exception: it sends a request
+        only after you choose <strong>Send</strong>, directly to the target URL
+        you entered. CodePrettify does not proxy or receive that request or its
+        response on our servers. Custom Regex Playground test text remains only
+        in the active tab session and is not saved to application settings or
         Regex Playground history.
+      </p>
+      <p>
+        Desktop HTTP Client collections, environments, and replay history are
+        stored in the local Windows profile.
+        Replay history omits request bodies and form fields, credential headers,
+        URL credentials and fragments, sensitive query parameters, and detailed
+        transport-error text; older history entries are scrubbed when read.
+        Authentication values, sensitive-named URL/query/header/form values,
+        and environment variables marked Secret are session-only and are removed
+        from saved requests and exports. Unmarked values inside free-form bodies
+        can remain local profile data, so protect the Windows profile and review
+        exported workspaces before sharing them.
+      </p>
+      <p>
+        The desktop app also stores bounded operational state under
+        <code>%LOCALAPPDATA%\CodePrettify</code>: shared settings; a session
+        checkpoint of up to 4 MiB with at most 100 open file paths when
+        <strong>Restore previous session</strong> is enabled; up to 10 recent
+        files; and the last file pair used by Compare. Turning session restore
+        off deletes its checkpoint and prevents further open-path checkpoints.
+        <strong>File &gt; Recent Files &gt; Clear Recent Files</strong> clears the
+        app&rsquo;s recent-file list. Windows may separately maintain its own Recent
+        Documents history under operating-system controls.
+      </p>
+      <p>
+        For troubleshooting and crash recovery, the app retains only the current
+        and previous bounded diagnostic logs (up to 1 MiB each) plus bounded run
+        state (up to 256 KiB and 64 entries). Durable diagnostics replace file
+        paths and URLs with stable, non-reversible tokens and reject malformed or
+        oversized state. To remove all CodePrettify desktop state, close the app
+        and reset its app data in Windows Settings or delete the
+        <code>%LOCALAPPDATA%\CodePrettify</code> folder; manage Windows Recent
+        Documents separately in Windows.
       </p>
       <p>
         CodePrettify does not require an internet connection to perform its
@@ -234,33 +283,53 @@
       <p>
         This section applies only when you visit the public website at
         <code>prettify.cloud</code>. It does not apply to the CodePrettify
-        browser extension or desktop application. We use Google Analytics 4,
-        measurement ID <code>G-S4WNQ48Q7F</code>, to understand which pages are
-        useful and how visitors move through the website.
+        browser extension or desktop application. Google Analytics 4,
+        measurement ID <code>G-S4WNQ48Q7F</code>, is optional and helps us
+        understand which pages are useful and how visitors move through the
+        website.
       </p>
       <p>
-        The website loads Google Analytics when you visit a page. Google
-        Analytics helps us measure website usage; it does not receive documents,
-        code, HTTP Client requests, or other content processed by the
-        CodePrettify extension or desktop application.
+        <strong>Google Analytics is off by default.</strong> The website does
+        not request the Google Analytics script, make an Analytics network
+        request, or set Analytics cookies unless you select
+        <strong>Allow analytics</strong>. Rejecting Analytics does not limit the
+        website. Analytics never receives documents, code, HTTP Client requests,
+        or other content processed by the CodePrettify extension or desktop
+        application.
       </p>
       <p>
-        Google Analytics may process the pages you visit, referring page,
-        website interactions, browser and device
-        information, language, and approximate geographic information derived
-        from your IP address. Google Analytics uses first-party cookies such as
+        The site stores your Analytics choice in local storage under
+        <code>codeprettify-analytics-consent</code> as either
+        <code>granted</code> or <code>denied</code>. This strictly necessary
+        preference prevents the site from asking on every page and is not sent
+        to us. If storage is unavailable, your explicit choice applies only to
+        the current page.
+      </p>
+      <p>
+        If you allow Analytics, Google may process the pages you visit,
+        referring page, website interactions, browser and device information,
+        language, and approximate geographic information derived from your IP
+        address. Analytics may then use first-party cookies such as
         <code>_ga</code> and <code>_ga_&lt;container-id&gt;</code> to distinguish
         users and sessions. These cookies can remain for up to two years,
-        subject to browser limits, unless you delete them.
+        subject to browser limits, unless you withdraw consent or delete them.
+        Advertising storage and personalization signals remain disabled in our
+        Analytics configuration.
         Google describes this processing in
-        <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses information from sites or apps that use its services</a>
+        <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">How Google uses information from sites or apps that use its services</a>
         and its
-        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>.
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
       </p>
       <p>
-        You can limit or remove these cookies through your browser settings.
-        Google also provides a
-        <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>.
+        You can select <strong>Reject analytics</strong> before opting in, or
+        use the <strong>Privacy settings</strong> button on any page to withdraw
+        consent later. On withdrawal, the site disables further Analytics
+        collection and deletes Analytics cookies that it can access. You can
+        also remove cookies and local storage through your browser settings.
+        Data already received by Google before withdrawal is not removed from
+        Google's systems merely by deleting browser storage. Google also
+        provides a
+        <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics Opt-out Browser Add-on</a>.
       </p>
 
       <h2>5. Third-Party Services</h2>
@@ -273,8 +342,8 @@
       <p>
         If you choose to open external links from the extension, such as
         changelog or issue-report pages, your browser connects directly to
-        those websites under their own policies. The extension website may also
-        load standard website assets such as hosted fonts.
+        those websites under their own policies. The website serves its fonts
+        and core assets from its own origin.
       </p>
       <p>
         The home page loads featured badge images from Wonderlaunch, Product
@@ -295,7 +364,12 @@
       <p>
         CodePrettify does not maintain a server-side database of the supported
         page content or viewer metadata that it handles locally in your
-        browser. You can manage website cookies through your browser settings.
+        browser. You can reject or withdraw optional website Analytics through
+        the site's Privacy settings and manage website storage through your
+        browser settings. You can also clear extension data through the
+        browser&rsquo;s extension/site-data controls, and use the desktop controls
+        described above to stop session checkpoints, clear recent files, or
+        reset all local application data.
         If you have questions about local data handling, settings storage,
         website analytics, or your privacy rights, you may contact us using the
         information below.
@@ -317,7 +391,7 @@
         <a href="contact.html"
           >CodePrettify Support</a
         ><br />
-        <strong>Publisher:</strong> <a href="https://fixquotes.com/docs/about/" target="_blank">FixQuotes</a>
+        <strong>Publisher:</strong> <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener noreferrer">FixQuotes</a>
       </p>
     </main>
 
@@ -333,7 +407,7 @@
           >
         </div>
         <p class="copyright">
-          &copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.
+          &copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener noreferrer">FixQuotes</a>.
         </p>
       </div>
     </footer>

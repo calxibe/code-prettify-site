@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; font-src 'self'; img-src 'self' data: https://www.google-analytics.com https://wonderlaunch.app https://api.producthunt.com https://peerpush.com https://www.uneed.best https://fazier.com https://www.directree.io; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com; frame-src https://www.youtube-nocookie.com; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JSON Compare &amp; Diff Tool – Semantic and Text Modes | CodePrettify</title>
   <meta name="description" content="Compare JSON semantically or line by line — ignore key order and formatting, match array items by id, and diff two files locally. Free, no upload." />
@@ -28,8 +30,9 @@
   <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-diff-view.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=81649ab3" />
-  <script src="site.js?v=20260809-2" defer></script>
+  <link rel="stylesheet" href="style.min.css?v=5e50edde" />
+  <link rel="stylesheet" href="consent.css?v=20260826-2" />
+  <script src="site.js?v=20260826-3" defer></script>
   <script src="feature-guide.js?v=20260725-1" defer></script>
   <script type="application/ld+json">
     {
@@ -64,7 +67,6 @@
       ]
     }
   </script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date);gtag("config","G-S4WNQ48Q7F");addEventListener("load",function(){var l=function(){var s=document.createElement("script");s.async=!0;s.src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F";document.head.appendChild(s)};window.requestIdleCallback?requestIdleCallback(l,{timeout:3000}):setTimeout(l,1200)})</script>
 </head>
 <body class="feature-detail-body">
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -85,7 +87,7 @@
         <span class="feature-detail-eyebrow">Two sides, one honest diff</span>
         <h1>Compare JSON by structure, not by line noise</h1>
         <p class="feature-detail-lead">A reformatted file makes a line-based JSON diff useless: every line changes and the one real edit hides in the noise. CodePrettify parses both sides and compares values — key order and formatting ignored, array items matched by id — with two editable inputs and everything processed on your device.</p>
-        <div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="manual.html#compare">Read the manual section</a></div>
+        <div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener noreferrer">Install for Chrome</a><a class="btn btn-secondary" href="manual.html#compare">Read the manual section</a></div>
         <ul class="feature-proof-list"><li>Semantic and Text modes</li><li>Key order ignored</li><li>Arrays matched by id</li><li>Local processing</li></ul>
       </div>
       <figure class="feature-hero-shot"><img src="img/screenshots/feature-diff-view.png" alt="CodePrettify JSON compare showing a semantic diff of two JSON documents with the real value changes highlighted" width="1280" height="800" fetchpriority="high" /><figcaption>Semantic mode reports changed, added, and removed values while ignoring indentation and object-key order.</figcaption></figure>
@@ -108,7 +110,7 @@
       <div class="feature-example-grid">
         <article class="feature-example-card">
           <div class="feature-example-copy"><span class="feature-example-label">Left side</span><h3>Deployed configuration</h3><p>The version currently running, pretty-printed with keys in their original order.</p></div>
-          <pre class="feature-code"><code>{
+          <pre class="feature-code" tabindex="0"><code>{
   "service": "checkout",
   "replicas": <span class="code-accent">2</span>,
   "rollout": {
@@ -120,7 +122,7 @@
         </article>
         <article class="feature-example-card">
           <div class="feature-example-copy"><span class="feature-example-label">Right side</span><h3>Proposed configuration</h3><p>Reordered keys and different formatting — but the only value change is <code>replicas</code>.</p></div>
-          <pre class="feature-code"><code>{
+          <pre class="feature-code" tabindex="0"><code>{
   "rollout": { "maxUnavailable": 1,
     "strategy": "RollingUpdate" },
   "regions": ["eu-north-1", "eu-west-1"],
@@ -205,7 +207,7 @@
         <span class="section-badge">Decision guide</span>
         <h2 id="compare-decisions-title">Read the result for what it is</h2>
       </div>
-      <div class="feature-guide-table-wrap">
+      <div class="feature-guide-table-wrap" tabindex="0">
         <table class="feature-guide-table">
           <thead><tr><th>What you see</th><th>What it means</th><th>Best next action</th></tr></thead>
           <tbody>
@@ -239,9 +241,9 @@
       </div>
     </section>
 
-    <section class="feature-page-cta" aria-labelledby="compare-cta-title"><h2 id="compare-cta-title">Diff the payloads before you ship the change</h2><p>Paste both versions, let semantic mode strip away the formatting noise, and review the actual changes on your device.</p><div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="pricing.html">See $0 early access</a></div></section>
+    <section class="feature-page-cta" aria-labelledby="compare-cta-title"><h2 id="compare-cta-title">Diff the payloads before you ship the change</h2><p>Paste both versions, let semantic mode strip away the formatting noise, and review the actual changes on your device.</p><div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener noreferrer">Install for Chrome</a><a class="btn btn-secondary" href="pricing.html">See $0 early access</a></div></section>
   </main>
 
-  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="guides.html">Guides</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="contact.html">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
+  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="guides.html">Guides</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="contact.html">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener noreferrer">FixQuotes</a>.</p></div></footer>
 </body>
 </html>

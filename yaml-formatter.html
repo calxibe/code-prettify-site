@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; font-src 'self'; img-src 'self' data: https://www.google-analytics.com https://wonderlaunch.app https://api.producthunt.com https://peerpush.com https://www.uneed.best https://fazier.com https://www.directree.io; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com; frame-src https://www.youtube-nocookie.com; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>YAML Formatter &amp; Validator – Comment-Safe and Local | CodePrettify</title>
   <meta name="description" content="Free YAML formatter and validator that never re-dumps your file — comments and anchors stay intact. Validate multi-document YAML, convert to JSON, no upload." />
@@ -28,8 +30,9 @@
   <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-yaml-formatter.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=81649ab3" />
-  <script src="site.js?v=20260809-2" defer></script>
+  <link rel="stylesheet" href="style.min.css?v=5e50edde" />
+  <link rel="stylesheet" href="consent.css?v=20260826-2" />
+  <script src="site.js?v=20260826-3" defer></script>
   <script src="feature-guide.js?v=20260725-1" defer></script>
   <script type="application/ld+json">
     {
@@ -64,7 +67,6 @@
       ]
     }
   </script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date);gtag("config","G-S4WNQ48Q7F");addEventListener("load",function(){var l=function(){var s=document.createElement("script");s.async=!0;s.src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F";document.head.appendChild(s)};window.requestIdleCallback?requestIdleCallback(l,{timeout:3000}):setTimeout(l,1200)})</script>
 </head>
 <body class="feature-detail-body">
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -85,7 +87,7 @@
         <span class="feature-detail-eyebrow">Validate without rewriting</span>
         <h1>The YAML formatter that never eats your comments</h1>
         <p class="feature-detail-lead">Most YAML formatters parse your file and dump it back out — and the re-dump can silently destroy comments, anchors, scalar styles, whitespace meaning, and numeric precision. CodePrettify validates, highlights, and folds YAML while leaving the text intact: only newlines are normalized, and everything runs on your device.</p>
-        <div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="manual.html#format-behavior">Read the YAML manual entry</a></div>
+        <div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener noreferrer">Install for Chrome</a><a class="btn btn-secondary" href="manual.html#format-behavior">Read the YAML manual entry</a></div>
         <ul class="feature-proof-list"><li>No re-dump, ever</li><li>Comments and anchors intact</li><li>Multi-document validation</li><li>Local processing</li></ul>
       </div>
       <figure class="feature-hero-shot"><img src="img/screenshots/feature-yaml-formatter.png" alt="CodePrettify YAML formatter validating a deployment configuration with comments, anchors, and aliases left intact" width="1280" height="800" fetchpriority="high" /><figcaption>A deployment config with anchors, aliases, and inline comments — highlighted, foldable, and byte-for-byte unchanged.</figcaption></figure>
@@ -235,7 +237,7 @@ options:
         <span class="section-badge">Failure guide</span>
         <h2 id="yaml-decisions-title">When it refuses, it tells you why</h2>
       </div>
-      <div class="feature-guide-table-wrap">
+      <div class="feature-guide-table-wrap" tabindex="0">
         <table class="feature-guide-table">
           <thead><tr><th>What you see</th><th>What it means</th><th>Best next action</th></tr></thead>
           <tbody>
@@ -269,9 +271,9 @@ options:
       </div>
     </section>
 
-    <section class="feature-page-cta" aria-labelledby="yaml-cta-title"><h2 id="yaml-cta-title">Format YAML without gambling with your comments</h2><p>Open the file, get a validation verdict with line and column, and keep every comment, anchor, and trailing zero exactly where you put it — on your own device.</p><div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener">Install for Chrome</a><a class="btn btn-secondary" href="pricing.html">See $0 early access</a></div></section>
+    <section class="feature-page-cta" aria-labelledby="yaml-cta-title"><h2 id="yaml-cta-title">Format YAML without gambling with your comments</h2><p>Open the file, get a validation verdict with line and column, and keep every comment, anchor, and trailing zero exactly where you put it — on your own device.</p><div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener noreferrer">Install for Chrome</a><a class="btn btn-secondary" href="pricing.html">See $0 early access</a></div></section>
   </main>
 
-  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="guides.html">Guides</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="contact.html">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p></div></footer>
+  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="guides.html">Guides</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="contact.html">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener noreferrer">FixQuotes</a>.</p></div></footer>
 </body>
 </html>

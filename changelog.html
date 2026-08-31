@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; font-src 'self'; img-src 'self' data: https://www.google-analytics.com https://wonderlaunch.app https://api.producthunt.com https://peerpush.com https://www.uneed.best https://fazier.com https://www.directree.io; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com; frame-src https://www.youtube-nocookie.com; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Changelog - CodePrettify</title>
     <meta name="description" content="Track the latest CodePrettify browser extension releases, including readable JSON Lines and NDJSON, JSON to Code Generator, and local developer tools." />
@@ -30,9 +32,9 @@
     <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-stats-diagnostics.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=81649ab3" />
-    <script src="site.js?v=20260809-2" defer></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date);gtag("config","G-S4WNQ48Q7F");addEventListener("load",function(){var l=function(){var s=document.createElement("script");s.async=!0;s.src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F";document.head.appendChild(s)};window.requestIdleCallback?requestIdleCallback(l,{timeout:3000}):setTimeout(l,1200)})</script>
+  <link rel="stylesheet" href="style.min.css?v=5e50edde" />
+  <link rel="stylesheet" href="consent.css?v=20260826-2" />
+    <script src="site.js?v=20260826-3" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -91,7 +93,52 @@
           <h3>Fixed</h3>
           <ul class="feature-list">
             <li>
+              <strong>Cleaner Table view row count</strong> &mdash; The red <strong>Virtualized</strong> notice is now hidden when it only repeats the table&rsquo;s total row count, leaving the useful total visible without duplicate information.
+            </li>
+            <li>
+              <strong>Table view has a way out again</strong> &mdash; Opening a JSON Lines file as a table left no way back to the code view: the Original/Formatted checkbox in the top-right corner covered the table's close button. The top-right controls are now hidden while a table is showing, so the close button is reachable.
+            </li>
+            <li>
               <strong>Vivaldi RSS scrolling</strong> &mdash; Long RSS feeds opened through Vivaldi&rsquo;s built-in feed viewer with <strong>Show Original</strong> now retain their vertical scrollbar. The rendered source stays in the document scroll range, so it can be scrolled without toggling Vivaldi&rsquo;s bottom panel.
+            </li>
+            <li>
+              <strong>Clean localized text</strong> &mdash; Damaged translations that could appear as question-mark placeholders in affected languages have been repaired.
+            </li>
+            <li>
+              <strong>Accessible editors and menus</strong> &mdash; Document, HTTP response, and Playground editors now expose clear screen-reader names, while compact More Actions headings and Settings text meet contrast requirements in dark and mobile layouts.
+            </li>
+            <li>
+              <strong>Bounded workspace imports</strong> &mdash; CodePrettify JSON imports now enforce the 10 MiB limit against the exact UTF-8 byte count, including multibyte text.
+            </li>
+            <li>
+              <strong>Stable transform-field focus</strong> &mdash; Adding a JSON Repair &amp; Transform step no longer moves focus back to its first field a frame later, so rapid keyboard entry remains in the Field, Condition, or Value control the user selected.
+            </li>
+            <li>
+              <strong>Reliable minimap startup</strong> &mdash; Dense editor layout updates no longer postpone the first minimap draw indefinitely, and a pending draw is canceled safely if the minimap is hidden before it runs.
+            </li>
+            <li>
+              <strong>Complete toolbar icons in development</strong> &mdash; SVG toolbar icons now render in unpacked builds and automated screenshots, while sandbox resources keep their per-session dynamic URLs and production packages continue to inline the icon subset.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Security</h3>
+          <ul class="feature-list">
+            <li>
+              Sandbox messages now require cryptographically secure request identifiers and stop safely when the browser cannot provide them instead of using predictable randomness.
+            </li>
+            <li>
+              HTTP Client replay history now removes URL fragments alongside credentials, sensitive headers and query parameters, and request bodies. Older entries are rewritten through the sanitizer when read, and stored failures retain only a generic summary rather than transport-error details.
+            </li>
+            <li>
+              <strong>Session-only structured secrets</strong> &mdash; Authentication fields, sensitive-named URL/query/header/form values, and environment variables marked Secret are removed before requests or workspaces are saved or exported. Exports warn when unmarked free-form bodies may still contain sensitive values.
+            </li>
+            <li>
+              <strong>Fail-closed redirects and view state</strong> &mdash; Only redirects that can be verified as same-origin are followed, with a ten-hop limit; cross-origin, opaque, and unverifiable redirects stop before another request. Stored view-state keys remove credentials, fragments, and sensitive query values, and web-accessible assets now use dynamic URLs.
+            </li>
+            <li>
+              <strong>Auditable release contents</strong> &mdash; Dependencies are exactly pinned and audited at moderate severity or higher, exceptions must be narrow and expire, and production/source ZIPs include a deterministic CycloneDX 1.5 software bill of materials verified from the lockfile.
             </li>
           </ul>
         </div>
@@ -2954,7 +3001,7 @@
           >
         </div>
         <p class="copyright">
-          &copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.
+          &copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener noreferrer">FixQuotes</a>.
         </p>
       </div>
     </footer>

@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; font-src 'self'; img-src 'self' data: https://www.google-analytics.com https://wonderlaunch.app https://api.producthunt.com https://peerpush.com https://www.uneed.best https://fazier.com https://www.directree.io; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com; frame-src https://www.youtube-nocookie.com; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Manual - CodePrettify Browser Extension and Windows App</title>
     <meta name="description" content="The complete CodePrettify user manual: format readable JSON Lines and NDJSON, repair and transform data, inspect, compare, validate, export, and troubleshoot." />
@@ -30,10 +32,10 @@
     <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-json-format.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=81649ab3" />
-    <script src="site.js?v=20260809-2" defer></script>
+  <link rel="stylesheet" href="style.min.css?v=5e50edde" />
+  <link rel="stylesheet" href="consent.css?v=20260826-2" />
+    <script src="site.js?v=20260826-3" defer></script>
     <script src="manual.js?v=20260719-3" defer></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date);gtag("config","G-S4WNQ48Q7F");addEventListener("load",function(){var l=function(){var s=document.createElement("script");s.async=!0;s.src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F";document.head.appendChild(s)};window.requestIdleCallback?requestIdleCallback(l,{timeout:3000}):setTimeout(l,1200)})</script>
   </head>
   <body class="manual-body">
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -162,7 +164,7 @@
 
           <section id="supported-formats" class="manual-topic" data-products="shared browser app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Compatibility</span><h2>Supported formats</h2></div><span class="product-badge product-shared">Both products</span></div>
-            <div class="manual-table-wrap">
+            <div class="manual-table-wrap" tabindex="0">
               <table class="manual-table">
                 <thead><tr><th>Format</th><th>Extensions</th><th>Extension</th><th>Windows app</th><th>Default view</th></tr></thead>
                 <tbody>
@@ -260,6 +262,20 @@
           <section id="app-files-tabs" class="manual-topic" data-products="app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Desktop-specific</span><h2>Files, tabs, Paste &amp; Prettify, and saving</h2></div><span class="product-badge product-app">Windows app</span></div>
             <p class="manual-callout"><strong>Windows compatibility:</strong> The CodePrettify Windows app supports Windows 10 and Windows 11.</p>
+            <p>The version 2 desktop workspace keeps native menus, document tabs, status controls, and the local viewer in one WinUI 3 window.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-windows-workspace"
+                  data-full-src="img/manual/windows-workspace.png" data-title="WinUI 3 desktop workspace"
+                  aria-label="Open full-size screenshot: WinUI 3 desktop workspace" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <img src="img/manual/windows-workspace_thumb.png"
+                    alt="CodePrettify 2.0 for Windows showing the WinUI 3 menu bar, several document tabs, formatted JSON, minimap, floating toolbar, and status bar"
+                    width="320" height="200" loading="lazy" decoding="async" />
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
             <h3>Tabs and sessions</h3>
             <p>Open several files in native tabs. Opening the same path reuses its tab. Close with the tab button, middle-click, or <kbd>Ctrl</kbd>+<kbd>W</kbd>; closing the final tab returns to the open-file landing surface. The app keeps up to ten recent files, integrates with Windows Recent Documents, and can restore the previous window, tabs, and active tab when session restore is enabled. Session state is checkpointed continuously, so restore also works after a crash, and opening files from Explorer reuses the running window instead of starting a second instance.</p>
             <h3>Paste &amp; Prettify</h3>
@@ -311,6 +327,21 @@
               </figure>
             </div>
             <p>Tools that cannot operate on the current format are disabled. Web overlays are unavailable while a tab is in native Raw or native large-file mode; return to Prettified when possible.</p>
+            <h3>Troubleshooting with the Debug Log</h3>
+            <p>Open <strong>Help &gt; Debug Log</strong> when troubleshooting startup, file, or embedded-view behavior. The bounded rolling log stays local. Filter entries by level, tab, source, or message, then select a row and use <strong>Copy Selected</strong> to share only the entry you need.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-debug-log-windows"
+                  data-full-src="img/manual/debug-log-windows.png" data-title="Windows Debug Log"
+                  aria-label="Open full-size screenshot: Windows Debug Log" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <img src="img/manual/debug-log-windows_thumb.png"
+                    alt="CodePrettify for Windows Debug Log with filters and aligned Time, Level, Tab, Source, and Message columns"
+                    width="320" height="200" loading="lazy" decoding="async" />
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
           </section>
 
           <section id="search-navigation" class="manual-topic" data-products="shared browser app">
@@ -542,7 +573,7 @@
             <p>The <strong>Timestamp</strong> tab converts Unix seconds, Unix milliseconds, or ISO 8601 values with <code>Z</code> or an explicit <code>&plusmn;HH:MM</code> UTC offset; ISO seconds and fractions (up to nine digits) are optional, and negative or fractional Unix values are accepted. Auto-detection treats absolute values below 100,000,000,000 as seconds and larger values as milliseconds; choose the unit explicitly for far-future dates or early-epoch millisecond values. <strong>Use current time</strong> fills the present moment in milliseconds. Results include UTC ISO 8601, Unix seconds, Unix milliseconds, and local system time. Ambiguous date strings without a timezone are rejected instead of silently assuming one.</p>
             <h3>UUID &amp; ULID generation</h3>
             <p>The <strong>ID Generator</strong> creates 1&ndash;100 UUID v4, UUID v7, or ULID values per batch. UUID v4 is random; UUID v7 and ULID embed the current Unix-millisecond timestamp and use monotonic random portions so a same-millisecond batch remains lexicographically sorted. Generation requires the platform&rsquo;s cryptographically secure random source and never falls back to <code>Math.random()</code>.</p>
-            <div class="manual-table-wrap">
+            <div class="manual-table-wrap" tabindex="0">
               <table class="manual-table manual-converter-table">
                 <thead><tr><th>Operation</th><th>What it does</th></tr></thead>
                 <tbody>
@@ -599,8 +630,8 @@
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
                 <button type="button" class="manual-screenshot-open" id="manual-screenshot-json-to-code-csharp"
-                  data-full-src="img/manual/json-to-code-csharp.png"
-                  aria-label="Open full-size screenshot: Advanced JSON order data converted into ready-to-use C# models"
+                  data-full-src="img/manual/json-to-code-csharp.png" data-title="Advanced JSON converted to C# models"
+                  aria-label="Open full-size screenshot: Advanced JSON order data converted into ready-to-use C# models" aria-haspopup="dialog"
                   aria-controls="manual-screenshot-modal">
                   <img src="img/manual/json-to-code-csharp_thumb.png"
                     alt="JSON to Code Generator converting an advanced nested order payload into annotated C# models"
@@ -609,7 +640,7 @@
                 </button>
               </figure>
             </div>
-            <div class="manual-table-wrap">
+            <div class="manual-table-wrap" tabindex="0">
               <table class="manual-table">
                 <thead><tr><th>Target</th><th>Generated result</th></tr></thead>
                 <tbody>
@@ -657,7 +688,7 @@
             </div>
 
             <h3>Inputs normalized for the pipeline</h3>
-            <div class="manual-table-wrap">
+            <div class="manual-table-wrap" tabindex="0">
               <table class="manual-table manual-workbench-format-table">
                 <thead><tr><th>Input format</th><th>JSON normalization</th></tr></thead>
                 <tbody>
@@ -687,7 +718,7 @@
                 </button>
               </figure>
             </div>
-            <div class="manual-table-wrap">
+            <div class="manual-table-wrap" tabindex="0">
               <table class="manual-table manual-workbench-operation-table">
                 <thead><tr><th>Operation</th><th>What it does</th></tr></thead>
                 <tbody>
@@ -735,22 +766,23 @@
               <li>After comparing, use Swap Sides or <strong>Edit inputs</strong>; the Windows app also has Previous/Next difference buttons. (After a comparison, Swap flips only which side is displayed without changing the inputs.) Text mode synchronizes pane scrolling, and in the Windows app it adds an Ignore whitespace option that disregards all whitespace inside lines.</li>
             </ol>
             <p>Semantic comparison supports JSON/JSONC/JSON Lines/YAML/TOML where parsing succeeds, even if the active document is JavaScript, CSS, or another format. It ignores formatting and object-key order. (JSONC comments and trailing commas inside JSON Lines records are accepted in the app; the extension requires strict JSON per line.) Arrays whose elements are all objects with a unique primitive <code>id</code>, <code>_id</code>, <code>uuid</code>, or <code>guid</code> — the same key on both sides — are matched by identity; all other arrays are compared positionally. Change sets are capped at 5,000 entries, with a trailing &hellip; on the counters when truncated, and invalid inputs fall back to text. Very large text comparisons (over roughly 5,000 combined lines in the extension, 20,000 in the app) use a faster position-based comparison that can overstate changes when lines shift. A structured change can jump to an editor line only while the corresponding left or right source still exactly matches the current document, and only for JSON documents with positionally addressed changes — changes inside identity-matched array elements list the change without a jump; independently pasted or edited text never produces a misleading jump. When the sources are identical, both modes show a centered no-differences message over the result area.</p>
-            <p class="manual-deep-link"><strong>In-depth guide:</strong> See semantic and text modes, identity matching, and change navigation walked through in <a href="json-compare.html">JSON Compare &amp; Diff</a>.</p>
-            <h3>Compare files (app)</h3>
-            <p>The Windows app can browse two files, prefill the current file, remember the pair, and open a dedicated comparison tab. Selecting exactly two supported files in Explorer can expose the Compare command.</p>
+            <p>The shared comparison workspace below shows semantic changes between the current document and clipboard or pasted text. It is separate from the Windows app&rsquo;s dedicated native file-comparison tab described next.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
                 <button type="button" class="manual-screenshot-open" id="manual-screenshot-compare"
-                  data-full-src="img/manual/compare-semantic.png" data-title="Semantic Compare"
-                  aria-label="Open full-size screenshot: Semantic Compare" aria-haspopup="dialog"
+                  data-full-src="img/manual/compare-semantic.png" data-title="Shared semantic comparison"
+                  aria-label="Open full-size screenshot: Shared semantic comparison with clipboard or pasted text" aria-haspopup="dialog"
                   aria-controls="manual-screenshot-modal">
                   <img src="img/manual/compare-semantic_thumb.png"
-                    alt="Semantic Compare showing structured JSON changes independent of formatting and object-key order"
+                    alt="Shared Semantic Compare workspace showing structured JSON changes between the current document and clipboard or pasted text, independent of formatting and object-key order"
                     width="320" height="200" loading="lazy" decoding="async" />
                   <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
                 </button>
               </figure>
             </div>
+            <p class="manual-deep-link"><strong>In-depth guide:</strong> See semantic and text modes, identity matching, and change navigation walked through in <a href="json-compare.html">JSON Compare &amp; Diff</a>.</p>
+            <h3>Compare files (app)</h3>
+            <p>The Windows app can browse two files, prefill the current file, remember the pair, and open a dedicated native comparison tab with synchronized panes, Previous/Next difference navigation, Ignore whitespace, status details, and a minimap. Selecting exactly two supported files in Explorer can expose the Compare command.</p>
           </section>
 
           <section id="javascript-playground" class="manual-topic" data-products="shared browser app">
@@ -835,7 +867,7 @@
               <li>Press <strong>Send</strong>. This is the moment the browser/app makes the external request. While the request runs, Send shows a spinner and a Cancel button appears beside it.</li>
             </ol>
             <h3>Reuse and share safely</h3>
-            <p>Save requests, collections, environments, and sanitized history. Import cURL or CodePrettify JSON; export JSON. Generate copyable cURL, <code>fetch()</code>, or PowerShell — generated snippets and response views mask known secret values as <code>******</code>, so re-insert real credentials before running a snippet. Export warns when authentication/secrets would be written in plain text.</p>
+            <p>Save requests, collections, environments, and sanitized history. Import cURL or CodePrettify JSON; export JSON. Authentication values, sensitive-named URL/query/header/form fields, and environment variables marked Secret remain available for the active session but are removed before a request or workspace is saved or exported. Generated snippets and response views mask known secret values as <code>******</code>, so re-insert real credentials before running a snippet. Unmarked values embedded in free-form JSON, text, multipart, or GraphQL bodies cannot be rewritten without changing request semantics and may still be saved or exported; the export warning is the final review step.</p>
             <h3>Inspect the response</h3>
             <p>Review formatted Body, Raw, Headers, Cookies, status, duration/timing, size, and content type. The Body tab formats recognized JSON, JSON Lines, YAML, CSS, HTML, XML, JavaScript, or TypeScript in the embedded viewer; use the Raw tab&rsquo;s Copy button for the exact response text.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
@@ -851,8 +883,8 @@
                 </button>
               </figure>
             </div>
-            <p class="manual-limit"><strong>Limits and behavior:</strong> URLs with embedded credentials are refused (the extension explains this directly; the app reports it as a blocked request) — use the Auth controls instead. Cache is disabled and redirects are followed. Response bodies are capped at 50 MiB; anything beyond the cap is discarded and the size chip shows the bytes actually kept. Requests follow each platform&rsquo;s fetch rules: the extension&rsquo;s granted host permissions usually exempt its requests from CORS in Chrome and Edge, while the Windows app is subject to standard CORS. A timeout of 0 disables timeout; maximum differs by product (five minutes in the extension, ten in the app).</p>
-            <p>Local storage is bounded: the extension allows up to 500 collection entries, 50 environments, and 200 variables per environment; the app uses 100 entries, 20 environments, and 50 variables per environment. History keeps the last 10 requests per page (the extension retains the 25 most recent pages, the app 40). In the extension, history strips credentials, sensitive headers/query values, request bodies, and secret text in error messages before replay data is stored; in the app, history masks well-known credential header values but retains request bodies and query strings, so clear it manually after sending sensitive requests.</p>
+            <p class="manual-limit"><strong>Limits and behavior:</strong> URLs with embedded credentials are refused (the extension explains this directly; the app reports it as a blocked request) &mdash; use the Auth controls instead. Cache is disabled. A redirect is followed only when its next location can be verified as same-origin; cross-origin, opaque, or otherwise unverifiable redirects are blocked before the next network request. Response bodies are capped at 50 MiB; anything beyond the cap is discarded and the size chip shows the bytes actually kept. CodePrettify JSON imports are capped at 10 MiB of UTF-8 data. Requests follow each platform&rsquo;s fetch rules: the extension&rsquo;s granted host permissions usually exempt its requests from CORS in Chrome and Edge, while the Windows app is subject to standard CORS. A timeout of 0 disables timeout; maximum differs by product (five minutes in the extension, ten in the app).</p>
+            <p>Local storage is bounded: the extension allows up to 500 collection entries, 50 environments, and 200 variables per environment; the app uses 100 entries, 20 environments, and 50 variables per environment. History keeps the last 10 requests per page (the extension retains the 25 most recent pages, the app 40). In both products, replay history strips URL credentials and fragments, sensitive headers and query parameters, request bodies and form fields, and detailed transport-error text before storage; older entries are rewritten through the same sanitizer when read. Sensitive fields and Secret environment variables are also omitted from saved collections and workspace exports. Other values you intentionally place in free-form bodies can remain local profile data, so protect the profile and review every exported workspace before sharing it.</p>
             <p class="manual-deep-link"><strong>In-depth guide:</strong> Follow a complete request from params and environment values through formatted body, headers, timing, and copyable snippets in <a href="http-client-browser-extension.html">HTTP Client</a>.</p>
           </section>
 
@@ -863,7 +895,7 @@
               <div class="manual-card"><h3>Editor</h3><p>Line numbers, word wrap, minimap, floating toolbar, and two- or four-space indentation.</p></div>
               <div class="manual-card"><h3>Language</h3><p>Auto plus English, Danish, German, Spanish, French, Italian, Japanese, Korean, Norwegian, Portuguese, Russian, Swedish, Vietnamese, and Chinese.</p></div>
               <div class="manual-card"><h3>Per-format</h3><p>Enable per type (extension only) and default view (both products), JSON breadcrumb/click inspector/folding, JS folding/bracket matching, CSS color picker, and XML/RSS folding/clickable URLs. The app also has HTML folding/URLs and a YAML &ldquo;Enabled by default&rdquo; toggle.</p></div>
-              <div class="manual-card"><h3>App startup</h3><p>Restore the previous session. Desktop settings apply to every open/new tab and remain local to the app.</p></div>
+              <div class="manual-card"><h3>App startup</h3><p>Restore the previous session. Turning it off deletes the open-tab checkpoint and stops further session-path writes; the separate Recent Files list remains available until you clear it. Desktop settings apply to every open/new tab and remain local to the app.</p></div>
             </div>
             <div class="manual-screenshot-grid">
               <figure class="manual-screenshot">
@@ -879,11 +911,11 @@
               </figure>
               <figure class="manual-screenshot">
                 <button type="button" class="manual-screenshot-open" id="manual-screenshot-settings-windows"
-                  data-full-src="img/manual/settings-windows.png" data-title="Windows app settings"
-                  aria-label="Open full-size screenshot: Windows app settings" aria-haspopup="dialog"
+                  data-full-src="img/manual/settings-windows.png" data-title="Windows app settings with category navigation"
+                  aria-label="Open full-size screenshot: Windows app settings with category navigation" aria-haspopup="dialog"
                   aria-controls="manual-screenshot-modal">
                   <img src="img/manual/settings-windows_thumb.png"
-                    alt="CodePrettify for Windows settings for appearance, editor behavior, language, startup, and per-file-type options"
+                    alt="CodePrettify for Windows settings with a category rail for General, Appearance, Editor, Default view, and File Type Settings"
                     width="320" height="200" loading="lazy" decoding="async" />
                   <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
                 </button>
@@ -896,19 +928,21 @@
           <section id="large-files-encoding" class="manual-topic" data-products="app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Desktop safeguards</span><h2>Large files, encoding, and line endings</h2></div><span class="product-badge product-app">Windows app</span></div>
             <h3>Native large-file mode</h3>
-            <p>Files of 64 MiB or more use a read-only native pager instead of loading the full WebView document. Generic pages contain about 750,000 characters; CSV pages contain 500 rows with a synchronized raw view. Previous/Next, page search, forward cross-page search with progress/cancel/wrap, and Go to line/row remain available. Most WebView tools are disabled and Save becomes Save As of the original.</p>
+            <p>Files of 64 MiB or more use a read-only native pager instead of loading the full WebView document. Generic pages contain about 750,000 characters; CSV pages contain 500 rows with a synchronized raw view. The CSV reader accepts at most 4,096 columns, 1,048,576 characters in one field, a 4 MiB logical row, and 16 MiB of parsed data per page before showing a bounded error or Raw fallback. Previous/Next, page search, forward cross-page search with progress/cancel/wrap, and Go to line/row remain available. Most WebView tools are disabled and Save becomes Save As of the original. File-to-file Compare accepts at most 128 MiB for each input.</p>
+            <h3>Network files and linked files</h3>
+            <p>UNC and other network files skip live file watching because remote watcher notifications are unreliable; the app still fingerprints the exact source bytes and checks for external changes before saving, including BOM- or encoding-only edits. Local files retain live change detection. When a path is a hard link or reparse-backed file, Save preserves that identity with a rollback-backed in-place write instead of atomic replacement; this avoids silently breaking the link but cannot offer atomic power-loss behavior for that linked-file case.</p>
             <h3>Encoding</h3>
             <p>The app detects UTF-8/BOM, UTF-16 LE/BE, UTF-32 BOM, BOM-less UTF-16 heuristics, strict UTF-8, then Windows legacy fallback. Click encoding in the status bar to reopen as Auto, UTF-8, UTF-8 BOM, UTF-16 LE/BE, Windows-1252, or ISO-8859-1. Overrides are session-only; a reopened file reverts to auto-detection.</p>
             <h3>Line endings</h3>
             <p>The status bar shows Windows (CRLF), Unix (LF), Mac (CR), Mixed EOL, or No EOL. Click it to convert the document (files up to 256 MiB). Conversion asks for confirmation and then rewrites the file on disk immediately &mdash; no separate save is needed.</p>
             <h3>Explorer integration and runtime requirements</h3>
             <p>The packaged x64/Arm64 app is .NET 10 self-contained, so the main app does not require a separate .NET desktop runtime. It does require the shared Microsoft Edge WebView2 Evergreen runtime; if missing, the recovery screen opens Microsoft’s installer and provides Retry.</p>
-            <p>File associations and Explorer commands can open supported files, and selecting exactly two supported files can offer Compare. This optional Explorer handler uses the machine-wide Microsoft .NET 10 Runtime (x64). If it is missing, CodePrettify shows a prompt with a link to the official Microsoft installer. You can also use <strong>Help &gt; Explorer Integration Runtime</strong> to check or install it, then restart Explorer or sign out if the shell has not refreshed.</p>
+            <p>File associations and Explorer commands can open supported files, and selecting exactly two supported files can offer Compare. This optional Explorer handler uses the architecture-matched Microsoft .NET 10 Runtime (x64 or Arm64). If it is missing, CodePrettify shows a prompt with a link to the official Microsoft installer. You can also use <strong>Help &gt; Explorer Integration Runtime</strong> to check or install it, then restart Explorer or sign out if the shell has not refreshed.</p>
           </section>
 
           <section id="shortcuts" class="manual-topic" data-products="shared browser app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Keyboard reference</span><h2>Keyboard shortcuts</h2></div><span class="product-badge product-shared">Both products</span></div>
-            <div class="manual-table-wrap">
+            <div class="manual-table-wrap" tabindex="0">
               <table class="manual-table shortcuts-table">
                 <thead><tr><th>Action</th><th>Shortcut</th><th>Availability</th></tr></thead>
                 <tbody>
@@ -960,7 +994,7 @@
               <div><h3>An HTTP request fails</h3><p>Verify resolved variables, authentication placement, URL, timeout, and response size. The extension remains subject to browser CORS and credential restrictions. Use generated cURL/PowerShell to compare outside the browser.</p></div>
               <div><h3>A conversion option is disabled</h3><p>The compatibility check has proven the current input is unsuitable. Read the reason: common causes are invalid JSON, nested data for CSV/TSV, unsafe JSON numbers, invalid UTF-8 Base64, or a lossy YAML/XML construct.</p></div>
               <div><h3>Repair &amp; Salvage refuses the input</h3><p>JSON Repair &amp; Transform only returns a result when it can produce bounded, safely representable JSON. Review missing brackets or separators, truncated records, unsafe numbers, and nesting/size limits. Enable partial JSON Lines salvage only when excluding the reported broken records is acceptable.</p></div>
-              <div><h3>The Windows app will not show its viewer</h3><p>The main package includes .NET 10, but Microsoft Edge WebView2 Evergreen is required. Use the recovery screen to install WebView2 and Retry. Explorer integration is optional and uses the machine-wide Microsoft .NET 10 Runtime (x64); if it is missing, follow CodePrettify&rsquo;s installer link and then restart Explorer.</p></div>
+              <div><h3>The Windows app will not show its viewer</h3><p>The main package includes .NET 10, but Microsoft Edge WebView2 Evergreen is required. Use the recovery screen to install WebView2 and Retry. Explorer integration is optional and uses the architecture-matched Microsoft .NET 10 Runtime (x64 or Arm64); if it is missing, follow CodePrettify&rsquo;s installer link and then restart Explorer.</p></div>
             </div>
             <div class="manual-support-row">
               <a class="btn btn-primary" href="contact.html">Get support or report an idea</a>
@@ -989,7 +1023,7 @@
           <a href="changelog.html">Changelog</a>
           <a href="contact.html">Feedback &amp; Support</a>
         </div>
-        <p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.</p>
+        <p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener noreferrer">FixQuotes</a>.</p>
       </div>
     </footer>
   </body>

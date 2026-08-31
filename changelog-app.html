@@ -2,9 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; font-src 'self'; img-src 'self' data: https://www.google-analytics.com https://wonderlaunch.app https://api.producthunt.com https://peerpush.com https://www.uneed.best https://fazier.com https://www.directree.io; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com; frame-src https://www.youtube-nocookie.com; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>App Changelog - CodePrettify</title>
-    <meta name="description" content="Track the latest CodePrettify Windows app releases, including readable JSON Lines and NDJSON, JSON to Code Generator, and local developer tools." />
+    <meta name="description" content="Track the latest CodePrettify Windows app releases, including the WinUI 3 desktop experience, large-file tools, and local developer utilities." />
     <meta name="application-name" content="CodePrettify" />
     <meta name="apple-mobile-web-app-title" content="CodePrettify" />
     <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
@@ -20,19 +22,19 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="App Changelog - CodePrettify" />
-    <meta property="og:description" content="Track CodePrettify Windows app releases, including readable JSON Lines and NDJSON, JSON to Code Generator, and local developer tools." />
+    <meta property="og:description" content="Track CodePrettify Windows app releases, including the WinUI 3 desktop experience, large-file tools, and local developer utilities." />
     <meta property="og:url" content="https://prettify.cloud/changelog-app.html" />
     <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-stats-diagnostics.png" />
     <meta property="og:image:alt" content="CodePrettify statistics and diagnostics panel showing warnings, request metadata, and document metrics" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="App Changelog - CodePrettify" />
-    <meta name="twitter:description" content="See the latest CodePrettify Windows app updates, including readable JSON Lines and NDJSON files." />
+    <meta name="twitter:description" content="See the latest CodePrettify Windows app updates, including the new WinUI 3 desktop experience." />
     <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-stats-diagnostics.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=81649ab3" />
-    <script src="site.js?v=20260809-2" defer></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date);gtag("config","G-S4WNQ48Q7F");addEventListener("load",function(){var l=function(){var s=document.createElement("script");s.async=!0;s.src="https://www.googletagmanager.com/gtag/js?id=G-S4WNQ48Q7F";document.head.appendChild(s)};window.requestIdleCallback?requestIdleCallback(l,{timeout:3000}):setTimeout(l,1200)})</script>
+  <link rel="stylesheet" href="style.min.css?v=5e50edde" />
+  <link rel="stylesheet" href="consent.css?v=20260826-2" />
+    <script src="site.js?v=20260826-3" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -88,17 +90,184 @@
           </p>
         </div>
         <a href="https://apps.microsoft.com/detail/9p0lp3pt6j7d"
-          class="btn btn-secondary store-cta" target="_blank" rel="noopener">
+          class="btn btn-secondary store-cta" target="_blank" rel="noopener noreferrer">
           <img src="img/microsoft.svg" alt="Microsoft" width="20" height="20" />
           Open Microsoft Store
         </a>
+      </div>
+
+      <!-- Version 2.0.0 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v2.0.0</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">August 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Changed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Modern WinUI 3 desktop experience</strong> &mdash; The Windows app now uses WinUI 3 and Windows App SDK for its window, menu bar, tabs, status and recovery surfaces, dialogs, and file pickers. The familiar local CodePrettify viewer and its formatting tools remain in place, now inside a native interface that follows current Windows controls and accessibility behavior.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improved</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Large files and comparisons</strong> &mdash; Oversized text files use a bounded native paged viewer, very large CSV files get paged Table and Raw views with search and row navigation, and file-to-file comparisons retain synchronized scrolling, difference navigation, whitespace controls, status details, and a minimap.
+            </li>
+            <li>
+              <strong>Reliable sessions and recovery</strong> &mdash; Open file tabs and window placement are checkpointed for restart, second launches forward files and comparisons to the running app, file watchers recover with bounded retries, and a failed embedded viewer can be retried or opened immediately as read-only raw text without closing other tabs.
+            </li>
+            <li>
+              <strong>One localized native interface</strong> &mdash; Menus, dialogs, status and recovery surfaces, large-file views, comparisons, access keys, and runtime guidance now follow the same selected language as the embedded viewer across all 14 supported interface languages.
+            </li>
+            <li>
+              <strong>Accessible, localized Table view</strong> &mdash; Table labels now follow the selected language, row selection and sorting announce their purpose and state, and sorting, column reordering, and long-cell expansion all work from the keyboard.
+            </li>
+            <li>
+              <strong>Bounded native file safeguards</strong> &mdash; Compare and large-CSV processing now enforce explicit file, column, field, row, and page budgets. Network files use save-time byte fingerprints instead of unreliable remote watchers, and linked files keep their filesystem identity through rollback-backed in-place writes.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>No stray Ctrl+Tab tooltip</strong> &mdash; Resting the pointer over a document no longer exposes the window-wide tab shortcut as a floating tooltip. Suppression is enforced on the accelerator owner and backed by an inert zero-size placement target, while Ctrl+Tab and its companion tab-cycling shortcuts continue to work normally.
+            </li>
+            <li>
+              <strong>Raw files are visible at startup</strong> &mdash; A document whose saved default is Raw or Source now shows its exact loaded text immediately. The WinUI host previously selected Raw while leaving the packaged WebView raw surface hidden, resulting in a blank document even though the status bar had the correct counts.
+            </li>
+            <li>
+              <strong>Cleaner Table view row count</strong> &mdash; The red <strong>Virtualized</strong> notice is now hidden when it only repeats the table&rsquo;s total row count, leaving the useful total visible without duplicate information.
+            </li>
+            <li>
+              <strong>Collision-safe CSV columns</strong> &mdash; Duplicate or blank headers, including names that collide with generated suffixes, no longer overwrite cells. Web conversion, native processing, and the large-CSV viewer now preserve every source column consistently.
+            </li>
+            <li>
+              <strong>Strict session restore</strong> &mdash; Oversized or malformed session files, unsupported schemas, invalid window placement, unsafe path lists, and impossible tab indexes are ignored without replacing the last valid checkpoint.
+            </li>
+            <li>
+              <strong>Stable wide-line scrolling</strong> &mdash; Extremely wide formatted lines now scroll horizontally without jumping back or repeatedly repainting.
+            </li>
+            <li>
+              <strong>Clean localized text</strong> &mdash; Damaged translations that could appear as question-mark placeholders in affected languages have been repaired, and the release gate now detects the same encoding damage automatically.
+            </li>
+            <li>
+              <strong>Reliable document and transform focus lifecycles</strong> &mdash; Rapid consecutive document opens now wait for the replacement document before Table and other viewer actions can run, and adding a JSON Repair &amp; Transform step no longer steals focus from the Field, Condition, or Value control the user selected.
+            </li>
+            <li>
+              <strong>Reliable minimap startup</strong> &mdash; Dense editor layout updates no longer postpone the first minimap draw indefinitely, and a pending draw is canceled safely if the minimap is hidden before it runs.
+            </li>
+            <li>
+              <strong>Reliable package builds</strong> &mdash; The CSP-safe early startup script is now covered by the explicit JavaScript minification contract, so x64 and Arm64 development and Store packaging no longer stop after staging <code>js/app-early.js</code>.
+            </li>
+            <li>
+              <strong>Reliable development installation</strong> &mdash; The development installer now uses the machine Trusted People store Windows requires for a full self-signed AppX bundle while keeping the build and per-user deployment unelevated. Only the exact certificate add/remove helper requests elevation; it verifies each change, rolls back a partial import, and reclaims stale trust after an interrupted run. This fixes both the misleading <code>UnknownError</code> signature failure and the false cleanup warning shown after the certificate was already gone.
+            </li>
+            <li>
+              <strong>Reliable packaged startup</strong> &mdash; The x64 and Arm64 packages now include the compiled WinUI views and merged WinUI theme resources required at launch, and release verification refuses an incomplete package before it can be published.
+            </li>
+            <li>
+              <strong>Consistent native commands and settings</strong> &mdash; Settings changes persist immediately, session restore is configurable again, unsupported document tools are disabled instead of doing nothing, the full shortcut set is restored, and the native Debug Log once again supports filtering and selected-entry copy.
+            </li>
+            <li>
+              <strong>Accurate paste, compare, and large-file handling</strong> &mdash; Paste detection once again recognizes tolerant JSON, XML fragments, TypeScript, TOML, and other supported formats; Compare remembers its file pair and keeps line structure when ignoring whitespace; and huge single-line text or non-comma CSV remains bounded and delimiter-correct through paging and reloads.
+            </li>
+            <li>
+              <strong>Recoverable large-file paging</strong> &mdash; If a large file becomes unreadable while it is open &mdash; deleted, locked by another program, or on a drive that disconnects &mdash; the viewer now explains what happened and keeps Previous, Next, search, and go to line usable, so paging works again as soon as the file is available. Long status and error messages are shortened with the full text on hover instead of crowding out those controls.
+            </li>
+            <li>
+              <strong>Minimap is back</strong> &mdash; The scaled document overview along the right edge of the prettified view returns: syntax-coloured, with search hits highlighted, a shaded marker for the visible region, and click or drag to jump anywhere in the file. Toggle it from View &rarr; Minimap or Settings; it stays out of the way in Raw and Table views and on narrow windows.
+            </li>
+            <li>
+              <strong>Drop files anywhere on the window</strong> &mdash; Files can again be dropped on the tab strip, the menu bar, the status bar, or an open document, not just the landing page. Drop several at once to open them all, and dropped files are opened by path so they stay watched for outside changes and can be saved in place.
+            </li>
+            <li>
+              <strong>Faster first render</strong> &mdash; JSON, JSON Lines, XML/RSS, HTML, CSV, and TOML are prepared by the Windows app itself again before the viewer draws them, instead of the viewer doing that work while it paints.
+            </li>
+            <li>
+              <strong>Cleaner loading for large files</strong> &mdash; Opening a very large document no longer flashes a differently coloured minimap before settling, and the line numbers no longer overlap the code while the file is being handed to the editor.
+            </li>
+            <li>
+              <strong>No more hanging on the loading screen</strong> &mdash; If you closed CodePrettify maximized, the next launch could sit on <strong>Starting CodePrettify</strong> for a minute or more before opening your file. Restoring the maximized window held back the launch; it now opens promptly and still comes back maximized. Startup also gives up waiting and carries on regardless, so it cannot get stuck there again.
+            </li>
+            <li>
+              <strong>Much faster startup</strong> &mdash; CodePrettify now opens a document in around half a second instead of two and a half. Before drawing anything, it was waiting on a Windows network name lookup that could never succeed and always timed out, once for every window and every new tab.
+            </li>
+            <li>
+              <strong>Table view has a way out again</strong> &mdash; Opening a JSON Lines file as a table left no way back to the code view: the Original/Formatted checkbox in the top-right corner covered the table's close button. The top-right controls are now hidden while a table is showing, so the close button is reachable.
+            </li>
+            <li>
+              <strong>Tighter window chrome</strong> &mdash; The tab strip sat in an empty band below the menu bar, because it reserved the space a tab strip normally needs when it runs along the very top of a window. The tabs now sit directly under the menu, and every document starts higher up the window.
+            </li>
+            <li>
+              <strong>Redesigned Settings</strong> &mdash; Settings now has categories down the left &mdash; General, Appearance, Editor, Default view, and File Type Settings &mdash; with the chosen page beside them. The default-view and file-type options used to be collapsed at the bottom of a long scroll where they were easy to miss entirely; every group is now visible as soon as the dialog opens, and each page fits without scrolling. Default view is now one row per file type &mdash; the type on the left, the view it opens in picked from a list on the right &mdash; and File Type Settings gathers each option under the file type it belongs to, across two columns.
+            </li>
+            <li>
+              <strong>Title bar matches the app theme</strong> &mdash; Running CodePrettify in dark mode on a light Windows no longer leaves a light title bar above the dark window, and the app opens straight into your saved theme.
+            </li>
+            <li>
+              <strong>Auto theme reaches the document</strong> &mdash; Choosing <em>Auto</em> while the app was in dark mode used to relight the menus, tabs, and status bar but leave the document dark. The viewer now follows the Windows light/dark setting, including when you change it while the app is running.
+            </li>
+            <li>
+              <strong>Tab captions sit straight</strong> &mdash; File names are vertically centred in their tabs again.
+            </li>
+            <li>
+              <strong>Dialogs are centred again</strong> &mdash; Settings, Paste &amp; Prettify, Compare File Content, About, and the Debug Log opened noticeably off-centre; they now sit in the middle of the window.
+            </li>
+            <li>
+              <strong>Readable Debug Log</strong> &mdash; The log now has proper Time, Level, Tab, Source, and Message columns that line up with their headings, full timestamps, long values shortened with the complete text on hover, a scrolling list, and a dialog sized to the window. Entries are attributed to the document they actually came from instead of repeating the file name across two columns, message text matches the other columns, and a copy that fails because another program holds the clipboard now says so. The Clear action is gone &mdash; the log is bounded and rotates on its own, so clearing it by hand only discarded evidence.
+            </li>
+            <li>
+              <strong>Correct sizing, theming, and labels</strong> &mdash; The window opens at its intended size on high-DPI displays instead of shrinking; recovery screens follow a later Light/Dark switch instead of keeping their original colours; the tab close button and startup indicator use the language chosen in Settings; line-ending status is translated on Compare and large-file tabs; and the status bar keeps the exact encoding, including the byte-order mark and UTF-16 byte order.
+            </li>
+            <li>
+              <strong>Session privacy follows its switch</strong> &mdash; Turning off Restore previous session now deletes the open-path checkpoint and prevents later checkpoint writes, while the separate Recent Files list remains available until the user clears it. Legacy Compare history now uses the same bounded, schema-validated, atomic state file as the current app.
+            </li>
+            <li>
+              <strong>Failure-safe local storage</strong> &mdash; Browser-compatible storage callbacks are asynchronous, isolate malformed values, roll back partial writes on quota or storage failures, and expose an error only for the callback that owns it.
+            </li>
+            <li>
+              <strong>Accessible loaded-document workflow</strong> &mdash; Document, HTTP response, and Playground editors now have clear screen-reader names, compact menus and Settings retain readable contrast, and automated checks cover a real JSON document, More Actions, and Settings in desktop/light and mobile/dark layouts.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Security</h3>
+          <ul class="feature-list">
+            <li>
+              The embedded viewer stays on CodePrettify's private local origin, document work remains on the device, and the self-contained package now carries the Windows App SDK runtime together with its license and third-party notices.
+            </li>
+            <li>
+              <strong>Private HTTP replay history</strong> &mdash; Saved replay entries omit request bodies and form fields, remove sensitive headers, query parameters, and URL fragments, scrub older entries when read, and keep only a generic failure summary. URLs containing embedded credentials are rejected before a request is sent, and sandbox messages require secure request identifiers.
+            </li>
+            <li>
+              <strong>Session-only HTTP secrets and fail-closed redirects</strong> &mdash; Authentication fields, sensitive-named structured values, and environment variables marked Secret are removed before saved requests and workspace exports are written. Only verified same-origin redirects can continue; cross-origin, opaque, or unverifiable redirects stop before a second request.
+            </li>
+            <li>
+              <strong>Private development signing</strong> &mdash; Development builds use a marked, non-exportable, non-CA per-user certificate-store key instead of a repository PFX with a fixed password. The installer temporarily trusts only the exact public leaf in Local Machine Trusted People while verifying and installing the exact bundle, never adds it to a root store, then removes trust owned by that run; an explicit cleanup tool handles rotation.
+            </li>
+            <li>
+              <strong>Bounded, redacted local state</strong> &mdash; Durable diagnostics replace arbitrary paths and URLs with stable non-reversible tokens. Session, Compare, activation, and diagnostic files reject malformed, oversized, or unsupported state before use.
+            </li>
+            <li>
+              <strong>Auditable release contents</strong> &mdash; npm and locked NuGet dependencies are audited at moderate severity or higher with narrow expiring exceptions only. Release publication emits a deterministic CycloneDX 1.5 SBOM sidecar and bundle verification requires the matching inventory.
+            </li>
+          </ul>
+        </div>
       </div>
 
       <!-- Version 1.1.8 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.1.8</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">August 2026</span>
         </div>
 
@@ -1506,7 +1675,7 @@
           >
         </div>
         <p class="copyright">
-          &copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener">FixQuotes</a>.
+          &copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener noreferrer">FixQuotes</a>.
         </p>
       </div>
     </footer>
