@@ -108,7 +108,7 @@
           <h3>Changed</h3>
           <ul class="feature-list">
             <li>
-              <strong>Modern WinUI 3 desktop experience</strong> &mdash; The Windows app now uses WinUI 3 and Windows App SDK for its window, menu bar, tabs, status and recovery surfaces, dialogs, and file pickers. The familiar local CodePrettify viewer and its formatting tools remain in place, now inside a native interface that follows current Windows controls and accessibility behavior.
+              <strong>Modern Windows experience</strong> &mdash; CodePrettify now has a Windows-native interface for its window, menus, tabs, dialogs, and file pickers, while the familiar formatting and document tools remain in place.
             </li>
           </ul>
         </div>
@@ -117,19 +117,19 @@
           <h3>Improved</h3>
           <ul class="feature-list">
             <li>
-              <strong>Large files and comparisons</strong> &mdash; Oversized text files use a bounded native paged viewer, very large CSV files get paged Table and Raw views with search and row navigation, and file-to-file comparisons retain synchronized scrolling, difference navigation, whitespace controls, status details, and a minimap.
+              <strong>Faster startup and file opening</strong> &mdash; The app opens documents much faster and no longer risks a long loading screen when restoring a maximized window.
             </li>
             <li>
-              <strong>Reliable sessions and recovery</strong> &mdash; Open file tabs and window placement are checkpointed for restart, second launches forward files and comparisons to the running app, file watchers recover with bounded retries, and a failed embedded viewer can be retried or opened immediately as read-only raw text without closing other tabs.
+              <strong>Better large-file support</strong> &mdash; Large text and CSV files use responsive paged views with search and navigation, while comparisons keep synchronized scrolling and difference controls.
             </li>
             <li>
-              <strong>One localized native interface</strong> &mdash; Menus, dialogs, status and recovery surfaces, large-file views, comparisons, access keys, and runtime guidance now follow the same selected language as the embedded viewer across all 14 supported interface languages.
+              <strong>Reliable sessions and recovery</strong> &mdash; Open tabs and window placement can be restored, failed document views offer Retry or Raw view, and files opened from Explorer are forwarded to the running app and bring it forward.
             </li>
             <li>
-              <strong>Accessible, localized Table view</strong> &mdash; Table labels now follow the selected language, row selection and sorting announce their purpose and state, and sorting, column reordering, and long-cell expansion all work from the keyboard.
+              <strong>Easier settings and navigation</strong> &mdash; Settings is organized into clear categories, the minimap and keyboard shortcuts are restored, and files can be dropped anywhere on the app window.
             </li>
             <li>
-              <strong>Bounded native file safeguards</strong> &mdash; Compare and large-CSV processing now enforce explicit file, column, field, row, and page budgets. Network files use save-time byte fingerprints instead of unreliable remote watchers, and linked files keep their filesystem identity through rollback-backed in-place writes.
+              <strong>One localized, accessible interface</strong> &mdash; Native controls follow the selected language across all 14 supported languages, with improved keyboard and screen-reader support in document and Table views.
             </li>
           </ul>
         </div>
@@ -138,103 +138,19 @@
           <h3>Fixed</h3>
           <ul class="feature-list">
             <li>
-              <strong>No stray Ctrl+Tab tooltip</strong> &mdash; Resting the pointer over a document no longer exposes the window-wide tab shortcut as a floating tooltip. Suppression is enforced on the accelerator owner and backed by an inert zero-size placement target, while Ctrl+Tab and its companion tab-cycling shortcuts continue to work normally.
+              <strong>Reliable document views</strong> &mdash; Raw and Source files appear immediately, JSON Lines tables can always return to code view, and the minimap and wide-line scrolling remain stable while files load.
             </li>
             <li>
-              <strong>Raw files are visible at startup</strong> &mdash; A document whose saved default is Raw or Source now shows its exact loaded text immediately. The WinUI host previously selected Raw while leaving the packaged WebView raw surface hidden, resulting in a blank document even though the status bar had the correct counts.
+              <strong>Accurate CSV, paste, and compare results</strong> &mdash; Duplicate or blank CSV headers preserve every value, paste detection recognizes supported formats more reliably, and comparison options keep the document structure intact.
             </li>
             <li>
-              <strong>Cleaner Table view row count</strong> &mdash; The red <strong>Virtualized</strong> notice is now hidden when it only repeats the table&rsquo;s total row count, leaving the useful total visible without duplicate information.
+              <strong>Safer local state</strong> &mdash; Invalid session data is ignored safely, turning off session restore removes its saved checkpoint, and external file changes are checked before saving.
             </li>
             <li>
-              <strong>Collision-safe CSV columns</strong> &mdash; Duplicate or blank headers, including names that collide with generated suffixes, no longer overwrite cells. Web conversion, native processing, and the large-CSV viewer now preserve every source column consistently.
+              <strong>More useful Debug Log</strong> &mdash; The log has readable columns and filtering, copies all entries as compact JSON, and can export the complete log as CSV without row-selection checkboxes.
             </li>
             <li>
-              <strong>Strict session restore</strong> &mdash; Oversized or malformed session files, unsupported schemas, invalid window placement, unsafe path lists, and impossible tab indexes are ignored without replacing the last valid checkpoint.
-            </li>
-            <li>
-              <strong>Stable wide-line scrolling</strong> &mdash; Extremely wide formatted lines now scroll horizontally without jumping back or repeatedly repainting.
-            </li>
-            <li>
-              <strong>Clean localized text</strong> &mdash; Damaged translations that could appear as question-mark placeholders in affected languages have been repaired, and the release gate now detects the same encoding damage automatically.
-            </li>
-            <li>
-              <strong>Reliable document and transform focus lifecycles</strong> &mdash; Rapid consecutive document opens now wait for the replacement document before Table and other viewer actions can run, and adding a JSON Repair &amp; Transform step no longer steals focus from the Field, Condition, or Value control the user selected.
-            </li>
-            <li>
-              <strong>Reliable minimap startup</strong> &mdash; Dense editor layout updates no longer postpone the first minimap draw indefinitely, and a pending draw is canceled safely if the minimap is hidden before it runs.
-            </li>
-            <li>
-              <strong>Reliable package builds</strong> &mdash; The CSP-safe early startup script is now covered by the explicit JavaScript minification contract, so x64 and Arm64 development and Store packaging no longer stop after staging <code>js/app-early.js</code>.
-            </li>
-            <li>
-              <strong>Reliable development installation</strong> &mdash; The development installer now uses the machine Trusted People store Windows requires for a full self-signed AppX bundle while keeping the build and per-user deployment unelevated. Only the exact certificate add/remove helper requests elevation; it verifies each change, rolls back a partial import, and reclaims stale trust after an interrupted run. This fixes both the misleading <code>UnknownError</code> signature failure and the false cleanup warning shown after the certificate was already gone.
-            </li>
-            <li>
-              <strong>Reliable packaged startup</strong> &mdash; The x64 and Arm64 packages now include the compiled WinUI views and merged WinUI theme resources required at launch, and release verification refuses an incomplete package before it can be published.
-            </li>
-            <li>
-              <strong>Consistent native commands and settings</strong> &mdash; Settings changes persist immediately, session restore is configurable again, unsupported document tools are disabled instead of doing nothing, the full shortcut set is restored, and the native Debug Log once again supports filtering and selected-entry copy.
-            </li>
-            <li>
-              <strong>Accurate paste, compare, and large-file handling</strong> &mdash; Paste detection once again recognizes tolerant JSON, XML fragments, TypeScript, TOML, and other supported formats; Compare remembers its file pair and keeps line structure when ignoring whitespace; and huge single-line text or non-comma CSV remains bounded and delimiter-correct through paging and reloads.
-            </li>
-            <li>
-              <strong>Recoverable large-file paging</strong> &mdash; If a large file becomes unreadable while it is open &mdash; deleted, locked by another program, or on a drive that disconnects &mdash; the viewer now explains what happened and keeps Previous, Next, search, and go to line usable, so paging works again as soon as the file is available. Long status and error messages are shortened with the full text on hover instead of crowding out those controls.
-            </li>
-            <li>
-              <strong>Minimap is back</strong> &mdash; The scaled document overview along the right edge of the prettified view returns: syntax-coloured, with search hits highlighted, a shaded marker for the visible region, and click or drag to jump anywhere in the file. Toggle it from View &rarr; Minimap or Settings; it stays out of the way in Raw and Table views and on narrow windows.
-            </li>
-            <li>
-              <strong>Drop files anywhere on the window</strong> &mdash; Files can again be dropped on the tab strip, the menu bar, the status bar, or an open document, not just the landing page. Drop several at once to open them all, and dropped files are opened by path so they stay watched for outside changes and can be saved in place.
-            </li>
-            <li>
-              <strong>Faster first render</strong> &mdash; JSON, JSON Lines, XML/RSS, HTML, CSV, and TOML are prepared by the Windows app itself again before the viewer draws them, instead of the viewer doing that work while it paints.
-            </li>
-            <li>
-              <strong>Cleaner loading for large files</strong> &mdash; Opening a very large document no longer flashes a differently coloured minimap before settling, and the line numbers no longer overlap the code while the file is being handed to the editor.
-            </li>
-            <li>
-              <strong>No more hanging on the loading screen</strong> &mdash; If you closed CodePrettify maximized, the next launch could sit on <strong>Starting CodePrettify</strong> for a minute or more before opening your file. Restoring the maximized window held back the launch; it now opens promptly and still comes back maximized. Startup also gives up waiting and carries on regardless, so it cannot get stuck there again.
-            </li>
-            <li>
-              <strong>Much faster startup</strong> &mdash; CodePrettify now opens a document in around half a second instead of two and a half. Before drawing anything, it was waiting on a Windows network name lookup that could never succeed and always timed out, once for every window and every new tab.
-            </li>
-            <li>
-              <strong>Table view has a way out again</strong> &mdash; Opening a JSON Lines file as a table left no way back to the code view: the Original/Formatted checkbox in the top-right corner covered the table's close button. The top-right controls are now hidden while a table is showing, so the close button is reachable.
-            </li>
-            <li>
-              <strong>Tighter window chrome</strong> &mdash; The tab strip sat in an empty band below the menu bar, because it reserved the space a tab strip normally needs when it runs along the very top of a window. The tabs now sit directly under the menu, and every document starts higher up the window.
-            </li>
-            <li>
-              <strong>Redesigned Settings</strong> &mdash; Settings now has categories down the left &mdash; General, Appearance, Editor, Default view, and File Type Settings &mdash; with the chosen page beside them. The default-view and file-type options used to be collapsed at the bottom of a long scroll where they were easy to miss entirely; every group is now visible as soon as the dialog opens, and each page fits without scrolling. Default view is now one row per file type &mdash; the type on the left, the view it opens in picked from a list on the right &mdash; and File Type Settings gathers each option under the file type it belongs to, across two columns.
-            </li>
-            <li>
-              <strong>Title bar matches the app theme</strong> &mdash; Running CodePrettify in dark mode on a light Windows no longer leaves a light title bar above the dark window, and the app opens straight into your saved theme.
-            </li>
-            <li>
-              <strong>Auto theme reaches the document</strong> &mdash; Choosing <em>Auto</em> while the app was in dark mode used to relight the menus, tabs, and status bar but leave the document dark. The viewer now follows the Windows light/dark setting, including when you change it while the app is running.
-            </li>
-            <li>
-              <strong>Tab captions sit straight</strong> &mdash; File names are vertically centred in their tabs again.
-            </li>
-            <li>
-              <strong>Dialogs are centred again</strong> &mdash; Settings, Paste &amp; Prettify, Compare File Content, About, and the Debug Log opened noticeably off-centre; they now sit in the middle of the window.
-            </li>
-            <li>
-              <strong>Readable Debug Log</strong> &mdash; The log now has proper Time, Level, Tab, Source, and Message columns that line up with their headings, full timestamps, long values shortened with the complete text on hover, a scrolling list, and a dialog sized to the window. Entries are attributed to the document they actually came from instead of repeating the file name across two columns, message text matches the other columns, and a copy that fails because another program holds the clipboard now says so. The Clear action is gone &mdash; the log is bounded and rotates on its own, so clearing it by hand only discarded evidence.
-            </li>
-            <li>
-              <strong>Correct sizing, theming, and labels</strong> &mdash; The window opens at its intended size on high-DPI displays instead of shrinking; recovery screens follow a later Light/Dark switch instead of keeping their original colours; the tab close button and startup indicator use the language chosen in Settings; line-ending status is translated on Compare and large-file tabs; and the status bar keeps the exact encoding, including the byte-order mark and UTF-16 byte order.
-            </li>
-            <li>
-              <strong>Session privacy follows its switch</strong> &mdash; Turning off Restore previous session now deletes the open-path checkpoint and prevents later checkpoint writes, while the separate Recent Files list remains available until the user clears it. Legacy Compare history now uses the same bounded, schema-validated, atomic state file as the current app.
-            </li>
-            <li>
-              <strong>Failure-safe local storage</strong> &mdash; Browser-compatible storage callbacks are asynchronous, isolate malformed values, roll back partial writes on quota or storage failures, and expose an error only for the callback that owns it.
-            </li>
-            <li>
-              <strong>Accessible loaded-document workflow</strong> &mdash; Document, HTTP response, and Playground editors now have clear screen-reader names, compact menus and Settings retain readable contrast, and automated checks cover a real JSON document, More Actions, and Settings in desktop/light and mobile/dark layouts.
+              <strong>Window and theme polish</strong> &mdash; Dialogs are centered, tabs and high-DPI sizing are aligned correctly, and the title bar, document, and recovery screens consistently follow the selected theme.
             </li>
           </ul>
         </div>
@@ -243,22 +159,10 @@
           <h3>Security</h3>
           <ul class="feature-list">
             <li>
-              The embedded viewer stays on CodePrettify's private local origin, document work remains on the device, and the self-contained package now carries the Windows App SDK runtime together with its license and third-party notices.
+              <strong>Local-first processing</strong> &mdash; Formatting and document tools continue to run on the device; only requests explicitly sent through the HTTP Client contact a remote server.
             </li>
             <li>
-              <strong>Private HTTP replay history</strong> &mdash; Saved replay entries omit request bodies and form fields, remove sensitive headers, query parameters, and URL fragments, scrub older entries when read, and keep only a generic failure summary. URLs containing embedded credentials are rejected before a request is sent, and sandbox messages require secure request identifiers.
-            </li>
-            <li>
-              <strong>Session-only HTTP secrets and fail-closed redirects</strong> &mdash; Authentication fields, sensitive-named structured values, and environment variables marked Secret are removed before saved requests and workspace exports are written. Only verified same-origin redirects can continue; cross-origin, opaque, or unverifiable redirects stop before a second request.
-            </li>
-            <li>
-              <strong>Private development signing</strong> &mdash; Development builds use a marked, non-exportable, non-CA per-user certificate-store key instead of a repository PFX with a fixed password. The installer temporarily trusts only the exact public leaf in Local Machine Trusted People while verifying and installing the exact bundle, never adds it to a root store, then removes trust owned by that run; an explicit cleanup tool handles rotation.
-            </li>
-            <li>
-              <strong>Bounded, redacted local state</strong> &mdash; Durable diagnostics replace arbitrary paths and URLs with stable non-reversible tokens. Session, Compare, activation, and diagnostic files reject malformed, oversized, or unsupported state before use.
-            </li>
-            <li>
-              <strong>Auditable release contents</strong> &mdash; npm and locked NuGet dependencies are audited at moderate severity or higher with narrow expiring exceptions only. Release publication emits a deterministic CycloneDX 1.5 SBOM sidecar and bundle verification requires the matching inventory.
+              <strong>Private saved data</strong> &mdash; HTTP history and workspace exports remove authentication and other sensitive values, unsafe redirects are blocked, and diagnostic records redact document paths and URLs.
             </li>
           </ul>
         </div>
