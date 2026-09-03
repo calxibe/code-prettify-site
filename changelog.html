@@ -6,7 +6,7 @@
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Changelog - CodePrettify</title>
-    <meta name="description" content="Track the latest CodePrettify browser extension releases, including readable JSON Lines and NDJSON, JSON to Code Generator, and local developer tools." />
+    <meta name="description" content="See the latest CodePrettify browser extension updates, including compatibility fixes, developer tools, and privacy improvements." />
     <meta name="application-name" content="CodePrettify" />
     <meta name="apple-mobile-web-app-title" content="CodePrettify" />
     <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
@@ -22,13 +22,13 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Changelog - CodePrettify" />
-    <meta property="og:description" content="Track CodePrettify browser extension releases, including readable JSON Lines and NDJSON, JSON to Code Generator, and local developer tools." />
+    <meta property="og:description" content="See the latest CodePrettify browser extension updates, including compatibility fixes, developer tools, and privacy improvements." />
     <meta property="og:url" content="https://prettify.cloud/changelog.html" />
     <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-stats-diagnostics.png" />
     <meta property="og:image:alt" content="CodePrettify statistics and diagnostics panel showing warnings, request metadata, and document metrics" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Changelog - CodePrettify" />
-    <meta name="twitter:description" content="See the latest CodePrettify browser extension updates, including readable JSON Lines and NDJSON files." />
+    <meta name="twitter:description" content="See the latest CodePrettify browser extension updates, including compatibility fixes, developer tools, and privacy improvements." />
     <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-stats-diagnostics.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
@@ -81,11 +81,31 @@
         </a>
       </div>
 
+      <!-- Version 1.0.56 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.56</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">September 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Reliable remote source pages</strong> &mdash; Toolbar and dialog icons now display correctly on pages with strict security policies, and downloads work from sandboxed sources such as GitHub Raw.
+            </li>
+            <li>
+              <strong>Correct original file type</strong> &mdash; Original downloads keep the source file extension, so Markdown files remain <code>.md</code> instead of becoming <code>.txt</code> files.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.55 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.55</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">August 2026</span>
         </div>
 
