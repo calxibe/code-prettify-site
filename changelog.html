@@ -81,11 +81,91 @@
         </a>
       </div>
 
+      <!-- Version 1.0.57 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v1.0.57</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">September 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Security</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Safer XML activation</strong> &mdash; The viewer now activates on XML-typed pages only when the browser shows its own XML tree view, so a page that hides live script behind an XML content type can no longer receive the viewer and its HTTP Client.
+            </li>
+            <li>
+              <strong>Shared links leave your settings alone</strong> &mdash; Opening a shared view link applies its display settings to that view only instead of overwriting your synced preferences.
+            </li>
+            <li>
+              <strong>Escaped DOCTYPE text</strong> &mdash; Markup placed inside an XML or RSS DOCTYPE is now shown as text instead of being rendered as live elements.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Readable HTTP Client responses</strong> &mdash; Typing a token, key or password character by character no longer garbles the response, headers, history and copy-as snippets for the rest of the session. cURL import now understands <code>-XPOST</code>, <code>-sS</code>, <code>--json</code> and the <code>$'...'</code> bodies that browser DevTools copy.
+            </li>
+            <li>
+              <strong>Correct JSON to Code types</strong> &mdash; Nested objects that are null in some samples keep their type name in every target language, Java lists use boxed item types, and mixed-type samples no longer crash the generator.
+            </li>
+            <li>
+              <strong>Sandboxed pages export properly</strong> &mdash; Open as document in JSON to Code and JSON Repair &amp; Transform saves a download on pages such as GitHub Raw instead of doing nothing, and a refused download is reported.
+            </li>
+            <li>
+              <strong>Local files keep their names</strong> &mdash; Files opened through Open local file export under their own name and extension, and opening a large file no longer fails when earlier uploads still occupy the session store.
+            </li>
+            <li>
+              <strong>Complete translations in Auto mode</strong> &mdash; With the language set to Auto, every interface string follows the browser language instead of falling back to English, and a language change that could not be saved is reported instead of silently reverting.
+            </li>
+            <li>
+              <strong>Accurate formatting and validation</strong> &mdash; TOML local times without fractional seconds validate, CSS with escaped selector quotes formats fully, CDATA stays inline in XML, tags with <code>&gt;</code> inside attribute values highlight correctly, JSON Lines errors report the right column, and the JavaScript navigator survives regex literals containing quotes or braces.
+            </li>
+            <li>
+              <strong>Table View and Raw view interplay</strong> &mdash; Switching to Raw while a table is open shows the raw source, and Ctrl+F focuses the table search.
+            </li>
+            <li>
+              <strong>Compare picks the right mode</strong> &mdash; Semantic compare is offered only when both inputs parse as JSON, JSON Lines, YAML or TOML, so CSS, JavaScript and Markdown no longer show a parse-error notice on every compare.
+            </li>
+            <li>
+              <strong>Visible interface details</strong> &mdash; Error text uses the danger colour in both themes, the Diagram Generator preview regained its focus ring, border and grid, Table View buttons draw their borders, and closing the Playground during a run no longer leaves Run disabled.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improved</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Keyboard-friendly tab strips and popups</strong> &mdash; HTTP Client and JSON Repair &amp; Transform tabs respond to the arrow, Home and End keys, and Escape closes the CSS color picker.
+            </li>
+            <li>
+              <strong>Sharper, more legible interface</strong> &mdash; The minimap renders crisply on high-DPI displays, and muted labels meet the WCAG AA contrast ratio in both themes.
+            </li>
+            <li>
+              <strong>Better navigation and conversion</strong> &mdash; The Document Navigator jumps to keys containing dots and shows XML nesting, YAML to JSON keeps dates as text, and Diagram exports strip control characters so SVG and PNG exports always succeed.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Performance</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Faster on large documents</strong> &mdash; Semantic compare with many changes, minimap redraws while scrolling, regex search start-up, scroll-position saving and the font-size slider all do far less work, and long dotted TOML lines or backslash-heavy JSON keys no longer freeze the viewer.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 1.0.56 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v1.0.56</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">September 2026</span>
         </div>
 

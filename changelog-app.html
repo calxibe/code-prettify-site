@@ -96,11 +96,100 @@
         </a>
       </div>
 
+      <!-- Version 2.0.1 -->
+      <div class="version-card">
+        <div class="version-header">
+          <span class="version-number">v2.0.1</span>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">September 2026</span>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Reloaded files show the new content</strong> &mdash; After an external edit, a refresh or reopening with another encoding, the Prettified view now formats the new text, and saving no longer writes the previous version back over the change.
+            </li>
+            <li>
+              <strong>Safe Copy Minified and Export Minified</strong> &mdash; Minified copies no longer corrupt JavaScript, collapse whitespace inside HTML or alter XML data.
+            </li>
+            <li>
+              <strong>Fully translated tools</strong> &mdash; The Command Palette, HTTP Client, Regex Playground, Schema Validator, Security Scan and more now appear in the selected language instead of English.
+            </li>
+            <li>
+              <strong>Compare and large-file views</strong> &mdash; Compare no longer strands the loading overlay when a file cannot be read, reports correct line counts for classic Mac files and starts Previous difference at the last change; large file mode finds matches on the current page, reports lines beyond the end of the file, counts CR line endings correctly, and large CSV files detect delimiters like smaller files and keep the row indicator current.
+            </li>
+            <li>
+              <strong>Status bar and tabs</strong> &mdash; Line, column and document details stay visible when switching tabs, saving over a file that is open elsewhere no longer leaves two tabs on the same file, and starting with a missing file restores the previous session.
+            </li>
+            <li>
+              <strong>Accurate HTML, XML, CSS and CSV handling</strong> &mdash; HTML with optional end tags is no longer reported invalid and pre/textarea content is kept verbatim, XML formatting keeps the original declaration, CSS validation reports missing colons and unclosed comments, and CSV files with a byte-order mark or blank lines round-trip correctly. CSV exports include the byte-order mark again so Excel shows non-ASCII text.
+            </li>
+            <li>
+              <strong>Reliable HTTP Client across tabs</strong> &mdash; Environments and saved requests edited in one tab refresh in the others, failed saves roll back and are reported, duplicate Authorization headers are gone, secrets are masked on screen, and Export JSON uses the native Save dialog.
+            </li>
+            <li>
+              <strong>Readable HTTP Client responses</strong> &mdash; Typing a credential character by character no longer garbles responses, headers, history and snippets, and cURL import understands the options browser DevTools produce.
+            </li>
+            <li>
+              <strong>Correct JSON to Code, JSONPath and Compare results</strong> &mdash; Nullable nested objects keep their type name, JSONPath resolves escaped and quoted keys and documents whose whole content is a single value, and Semantic compare is offered only for inputs that parse as JSON, JSON Lines, YAML or TOML.
+            </li>
+            <li>
+              <strong>Markdown links and Raw view</strong> &mdash; Relative links in rendered Markdown no longer replace the document with a load-failure screen, JSON Lines opened in Raw view keep their tools after switching to Prettified, and theme changes reach tabs that are showing the Raw view.
+            </li>
+            <li>
+              <strong>Accurate formatting and validation</strong> &mdash; TOML local times without fractional seconds validate, CSS with escaped selector quotes formats fully, CDATA stays inline in XML, tags with <code>&gt;</code> inside attribute values highlight correctly, and JSON error messages no longer contradict their own line number.
+            </li>
+            <li>
+              <strong>Visible interface details</strong> &mdash; Error text uses the danger colour in both themes, the Diagram Generator preview regained its focus ring, border and grid, Table View buttons draw their borders, Table View is no longer offered for mixed arrays, and closing the Playground during a run no longer leaves Run disabled.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improved</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>An optional review reminder for regular users</strong> &mdash; After using CodePrettify for at least a month and successfully opening 20 files, you may see a small Microsoft Store rating prompt. You can postpone it or turn it off permanently, and the eligibility counters stay on your device.
+            </li>
+            <li>
+              <strong>Changelog and reviews in About</strong> &mdash; The About dialog now links to the app changelog and opens the Microsoft Store review page, with a browser fallback when the Store app is unavailable.
+            </li>
+            <li>
+              <strong>Easier tab and file navigation</strong> &mdash; Same-named files now show their parent folders, full paths are available on hover, and a new right-click menu can reload a file, copy its path, open its location, or close one or more tabs.
+            </li>
+            <li>
+              <strong>Save for untitled documents</strong> &mdash; File &gt; Save works for pasted documents and opens Save As, Ctrl+S shows a brief confirmation inside the document, opening several files activates only the first, and every opened file reaches Recent Files and the jump list.
+            </li>
+            <li>
+              <strong>Keyboard-friendly tab strips and popups</strong> &mdash; HTTP Client and JSON Repair &amp; Transform tabs respond to the arrow, Home and End keys, and Escape closes the CSS color picker.
+            </li>
+            <li>
+              <strong>Sharper, more legible interface</strong> &mdash; The minimap renders crisply at Windows display scaling above 100 percent, and muted labels meet the WCAG AA contrast ratio in both themes.
+            </li>
+            <li>
+              <strong>Self-healing diagnostics</strong> &mdash; The debug log and crash detection recover from a corrupt run-state file, and on-disk log entries carry the same level and tab as the in-app Debug Log.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Performance</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>No more search freezes</strong> &mdash; Regular expressions typed into the search box are checked in a sandboxed worker with a time budget before they run, so a catastrophic pattern can no longer freeze the document.
+            </li>
+            <li>
+              <strong>Smoother large files</strong> &mdash; The status bar no longer copies the whole document on every caret move, reloading a file no longer piles up event handlers, minimap redraws while scrolling do far less work, and long dotted TOML lines or backslash-heavy JSON keys no longer stall the viewer.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Version 2.0.0 -->
       <div class="version-card">
         <div class="version-header">
           <span class="version-number">v2.0.0</span>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">September 2026</span>
         </div>
 
