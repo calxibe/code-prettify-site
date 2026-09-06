@@ -30,10 +30,10 @@
   <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-json-to-code.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=5e50edde" />
+  <link rel="stylesheet" href="style.min.css?v=e7074905" />
   <link rel="stylesheet" href="consent.css?v=20260826-2" />
   <script src="site.js?v=20260826-3" defer></script>
-  <script src="feature-guide.js?v=20260725-1" defer></script>
+  <script src="feature-guide.js?v=20260906-2" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -98,7 +98,10 @@
         <ul class="feature-proof-list"><li>11 targets</li><li>Multiple samples</li><li>Nested models</li><li>Local generation</li></ul>
       </div>
       <figure class="feature-hero-shot">
-        <img src="img/screenshots/feature-json-to-code.png" alt="JSON to Code Generator showing deployment JSON beside generated TypeScript interfaces" width="1280" height="800" fetchpriority="high" />
+        <picture data-site-image>
+          <source srcset="img/screenshots/feature-json-to-code.webp?v=5ed65f4e" type="image/webp" />
+          <img src="img/screenshots/feature-json-to-code.png" alt="JSON to Code Generator showing deployment JSON beside generated TypeScript interfaces" width="1280" height="800" fetchpriority="high" />
+        </picture>
         <figcaption>Two deployment-event samples produce reusable TypeScript interfaces with nested actor and metrics types.</figcaption>
       </figure>
     </section>
@@ -227,8 +230,14 @@ export type DeploymentEvent =
     <section class="feature-detail-section" aria-labelledby="codegen-targets-title">
       <div class="feature-detail-heading"><span class="section-badge">Targets</span><h2 id="codegen-targets-title">Generate TypeScript, Pydantic, C#, Go and more from the same sample</h2><p class="feature-deep-links">Per-language guides: <a href="json-to-typescript.html">JSON to TypeScript</a> · <a href="json-to-pydantic.html">JSON to Pydantic</a> · <a href="json-to-csharp.html">JSON to C# classes</a>.</p><p>Convert JSON to TypeScript interfaces, Pydantic models, C# classes, Go structs, and more — the same inference model drives every output target, so it is easy to compare how each ecosystem expresses the same data.</p></div>
       <div class="feature-shot-grid">
-        <figure class="feature-guide-shot"><img src="img/screenshots/feature-json-to-code.png" alt="Generated TypeScript interfaces beside a JSON deployment sample" width="1280" height="800" loading="lazy" /><figcaption>TypeScript preserves nested interfaces and marks evidence-based optional properties.</figcaption></figure>
-        <figure class="feature-guide-shot"><img src="img/screenshots/feature-json-to-code-pydantic.png" alt="Generated Python Pydantic models beside the same JSON deployment sample" width="1280" height="800" loading="lazy" /><figcaption>Python + Pydantic uses <code>BaseModel</code>, aliases JSON property names, and exposes optional values.</figcaption></figure>
+        <figure class="feature-guide-shot"><picture data-site-image>
+          <source srcset="img/screenshots/feature-json-to-code.webp?v=5ed65f4e" type="image/webp" />
+          <img src="img/screenshots/feature-json-to-code.png" alt="Generated TypeScript interfaces beside a JSON deployment sample" width="1280" height="800" loading="lazy" />
+        </picture><figcaption>TypeScript preserves nested interfaces and marks evidence-based optional properties.</figcaption></figure>
+        <figure class="feature-guide-shot"><picture data-site-image>
+          <source srcset="img/screenshots/feature-json-to-code-pydantic.webp?v=29d47156" type="image/webp" />
+          <img src="img/screenshots/feature-json-to-code-pydantic.png" alt="Generated Python Pydantic models beside the same JSON deployment sample" width="1280" height="800" loading="lazy" />
+        </picture><figcaption>Python + Pydantic uses <code>BaseModel</code>, aliases JSON property names, and exposes optional values.</figcaption></figure>
       </div>
       <div class="feature-capability-grid">
         <article class="feature-capability"><h3>Web and schema</h3><ul><li>TypeScript interfaces and aliases</li><li>TypeScript + Zod runtime schemas</li><li>JSON Schema Draft 2020-12 (its own Schema group in the Target list)</li></ul></article>

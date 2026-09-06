@@ -30,10 +30,10 @@
   <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-markdown.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=5e50edde" />
+  <link rel="stylesheet" href="style.min.css?v=e7074905" />
   <link rel="stylesheet" href="consent.css?v=20260826-2" />
   <script src="site.js?v=20260826-3" defer></script>
-  <script src="feature-guide.js?v=20260725-1" defer></script>
+  <script src="feature-guide.js?v=20260906-2" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -82,15 +82,18 @@
 
   <main id="main-content" class="feature-detail-main">
     <nav class="feature-breadcrumb" aria-label="Breadcrumb"><a href="/">CodePrettify</a><span aria-hidden="true">/</span><span>Markdown Viewer</span></nav>
-    <section class="feature-detail-hero">
+    <section class="feature-detail-hero feature-detail-hero-compact">
       <div>
         <span class="feature-detail-eyebrow">Rendered document, exact source</span>
-        <h1>A Markdown viewer that never leaves the source behind</h1>
-        <p class="feature-detail-lead">Open a raw <code>.md</code> or <code>.markdown</code> file in Chrome or Edge and CodePrettify turns it into a readable document while preserving a one-click Source view. Search, navigate headings, compare versions, inspect diagnostics, and export from the same tab. The same Markdown viewer ships in the CodePrettify app for Windows.</p>
+        <h1>Markdown viewer for Chrome and Edge</h1>
+        <p class="feature-detail-lead">Read local <code>.md</code> files and raw Markdown URLs as formatted documents in your browser. Install CodePrettify, open a file, and switch between the rendered page and its exact source. Rendering runs locally, with no upload and no account.</p>
         <div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener noreferrer">Install for Chrome</a><a class="btn btn-secondary" href="manual.html#format-behavior">How Markdown rendering works</a></div>
         <ul class="feature-proof-list"><li>Local and remote files</li><li>Rendered / Source</li><li>Safe raw HTML</li><li>Private images</li></ul>
       </div>
-      <figure class="feature-hero-shot"><img src="img/screenshots/feature-markdown.png" alt="CodePrettify Markdown viewer extension rendering headings, a table, escaped pipes, and a task list in Chrome" width="1280" height="800" fetchpriority="high" /><figcaption>GitHub-flavored tables, task lists, code, links, headings, and common document structure become easy to scan.</figcaption></figure>
+      <figure class="feature-hero-shot"><picture data-site-image>
+        <source srcset="img/screenshots/feature-markdown.webp?v=0b01bb85" type="image/webp" />
+        <img src="img/screenshots/feature-markdown.png" alt="CodePrettify Markdown viewer extension rendering headings, a table, escaped pipes, and a task list in Chrome" width="1280" height="800" fetchpriority="high" />
+      </picture><figcaption>GitHub-flavored tables, task lists, code, links, headings, and common document structure become easy to scan.</figcaption></figure>
     </section>
 
     <nav class="feature-learning-nav" aria-label="Lessons in this Markdown guide">
@@ -105,11 +108,11 @@
     </nav>
 
     <section class="feature-detail-section" aria-labelledby="markdown-open-title">
-      <div class="feature-detail-heading"><span class="section-badge">Open files</span><h2 id="markdown-open-title">Three ways to open a .md file in the browser</h2></div>
+      <div class="feature-detail-heading"><span class="section-badge">Quick start</span><h2 id="markdown-open-title">How to open a Markdown file in Chrome</h2><p>After installing CodePrettify, open <a href="testfiles/test_markdown.md" target="_blank" rel="noopener noreferrer">this sample Markdown document</a> to try headings, tables, and task lists. Choose the workflow below for your own files.</p></div>
       <div class="feature-step-grid">
-        <article class="feature-step"><span class="feature-step-number">1</span><h3>Remote raw Markdown</h3><p>Open a URL ending in <code>.md</code> or a response served with a Markdown content type. CodePrettify recognizes the document and renders it.</p></article>
-        <article class="feature-step"><span class="feature-step-number">2</span><h3>Local file through the launcher</h3><p>Drag a Markdown file onto the extension launcher or use the picker. This route does not require broad <code>file://</code> permission. Files opened this way are limited to 10 MB; open larger documents via a direct <code>file://</code> URL instead.</p></article>
-        <article class="feature-step"><span class="feature-step-number">3</span><h3>Direct file URL</h3><p>If you prefer opening <code>file://</code> URLs directly, enable “Allow access to file URLs” for CodePrettify in the browser’s extension settings.</p></article>
+        <article class="feature-step"><span class="feature-step-number">1</span><h3>Remote raw Markdown</h3><p>Open a raw URL ending in <code>.md</code> or a response served with a Markdown content type. For a file on GitHub, use its <strong>Raw</strong> link. A repository's HTML preview is already a web page and will not activate the viewer.</p></article>
+        <article class="feature-step"><span class="feature-step-number">2</span><h3>Local file through the launcher</h3><p>Click CodePrettify in your browser's Extensions menu to open the launcher, then drop your Markdown file onto it or use the file picker. No extra file permission is needed. This route accepts files up to 10 MB.</p></article>
+        <article class="feature-step"><span class="feature-step-number">3</span><h3>Direct file URL</h3><p>For a direct <code>file://</code> URL, open <code>chrome://extensions</code> (or <code>edge://extensions</code>), choose CodePrettify's <strong>Details</strong>, and enable <strong>Allow access to file URLs</strong>. Then reopen your local Markdown file.</p></article>
       </div>
     </section>
 
@@ -159,8 +162,14 @@
     <section class="feature-detail-section" aria-labelledby="markdown-both-title">
       <div class="feature-detail-heading"><span class="section-badge">Two views</span><h2 id="markdown-both-title">Rendered for reading. Source for verification.</h2><p>The rendered view helps you understand the document. The Source view confirms the exact Markdown characters, table delimiters, task markers, links, and code fences that produced it.</p></div>
       <div class="feature-shot-grid">
-        <figure class="feature-guide-shot"><img src="img/screenshots/feature-markdown.png" alt="Markdown rendered as a clean document with tables and checked tasks" width="1280" height="800" loading="lazy" /><figcaption>Rendered view presents the document as headings, paragraphs, tables, and task lists.</figcaption></figure>
-        <figure class="feature-guide-shot"><img src="img/screenshots/feature-markdown-source.png" alt="The exact Markdown source for the same tables and task-list document" width="1280" height="800" loading="lazy" /><figcaption>Source view exposes the exact pipes, backslashes, brackets, and Markdown markers.</figcaption></figure>
+        <figure class="feature-guide-shot"><picture data-site-image>
+          <source srcset="img/screenshots/feature-markdown.webp?v=0b01bb85" type="image/webp" />
+          <img src="img/screenshots/feature-markdown.png" alt="Markdown rendered as a clean document with tables and checked tasks" width="1280" height="800" loading="lazy" />
+        </picture><figcaption>Rendered view presents the document as headings, paragraphs, tables, and task lists.</figcaption></figure>
+        <figure class="feature-guide-shot"><picture data-site-image>
+          <source srcset="img/screenshots/feature-markdown-source.webp?v=dca6407e" type="image/webp" />
+          <img src="img/screenshots/feature-markdown-source.png" alt="The exact Markdown source for the same tables and task-list document" width="1280" height="800" loading="lazy" />
+        </picture><figcaption>Source view exposes the exact pipes, backslashes, brackets, and Markdown markers.</figcaption></figure>
       </div>
     </section>
 

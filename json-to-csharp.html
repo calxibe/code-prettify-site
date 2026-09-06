@@ -30,10 +30,10 @@
   <meta name="twitter:image" content="https://prettify.cloud/img/manual/json-to-code-csharp.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=5e50edde" />
+  <link rel="stylesheet" href="style.min.css?v=e7074905" />
   <link rel="stylesheet" href="consent.css?v=20260826-2" />
   <script src="site.js?v=20260826-3" defer></script>
-  <script src="feature-guide.js?v=20260725-1" defer></script>
+  <script src="feature-guide.js?v=20260906-2" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -224,7 +224,10 @@ public sealed record Customer
     <section class="feature-detail-section" aria-labelledby="csharp-targets-title">
       <div class="feature-detail-heading"><span class="section-badge">Target switching</span><h2 id="csharp-targets-title">Same sample, different backend: flip C# to TypeScript</h2><p>The <strong>Target</strong> dropdown regenerates from the same sample, so the frontend model for the same payload is one selection away. The inferred shape stays consistent — an optional property in the C# record is an optional property in the TypeScript interface — only the language idiom changes.</p></div>
       <div class="feature-shot-grid">
-        <figure class="feature-guide-shot"><img src="img/screenshots/feature-json-to-code.png" alt="The same JSON to Code Generator workflow producing nested TypeScript interfaces instead of C# records" width="1280" height="800" loading="lazy" /><figcaption>The identical workflow with TypeScript selected: nested exported interfaces with evidence-based optional fields.</figcaption></figure>
+        <figure class="feature-guide-shot"><picture data-site-image>
+          <source srcset="img/screenshots/feature-json-to-code.webp?v=5ed65f4e" type="image/webp" />
+          <img src="img/screenshots/feature-json-to-code.png" alt="The same JSON to Code Generator workflow producing nested TypeScript interfaces instead of C# records" width="1280" height="800" loading="lazy" />
+        </picture><figcaption>The identical workflow with TypeScript selected: nested exported interfaces with evidence-based optional fields.</figcaption></figure>
       </div>
       <p>C# and TypeScript are two of eleven targets — Zod, Pydantic, Java, Kotlin, Go, Rust, Swift, Dart, and JSON Schema are the rest. The <a href="json-to-code-generator.html">JSON to Code Generator guide</a> compares outputs across targets from one multi-sample payload; this page stays focused on what lands in your <code>.cs</code> file.</p>
     </section>

@@ -10,19 +10,24 @@ function createFeatureScreenshotModal() {
   modal.hidden = true;
   modal.innerHTML = `
     <figure class="screenshot-modal-content">
-      <button class="screenshot-modal-nav screenshot-modal-prev" id="screenshot-modal-prev" type="button" aria-label="Previous screenshot">
-        <span aria-hidden="true">‹</span>
-      </button>
+      <div class="screenshot-modal-toolbar">
+        <span class="screenshot-modal-label">Screenshots</span>
+        <div class="screenshot-modal-controls">
+          <button class="screenshot-modal-nav screenshot-modal-prev" id="screenshot-modal-prev" type="button" aria-label="Previous screenshot">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 18 9 12l6-6"></path></svg>
+          </button>
+          <button class="screenshot-modal-nav screenshot-modal-next" id="screenshot-modal-next" type="button" aria-label="Next screenshot">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg>
+          </button>
+          <button class="screenshot-modal-close" id="screenshot-modal-close" type="button" aria-label="Close screenshot viewer">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+          </button>
+        </div>
+      </div>
       <div class="screenshot-modal-image-wrap">
         <img id="screenshot-modal-image" alt="" />
-        <button class="screenshot-modal-close" id="screenshot-modal-close" type="button" aria-label="Close screenshot viewer">
-          <span aria-hidden="true">&times;</span>
-        </button>
       </div>
-      <button class="screenshot-modal-nav screenshot-modal-next" id="screenshot-modal-next" type="button" aria-label="Next screenshot">
-        <span aria-hidden="true">›</span>
-      </button>
-      <figcaption class="screenshot-modal-caption" aria-live="polite" aria-atomic="true">
+      <figcaption class="screenshot-modal-caption" aria-live="polite" aria-atomic="true" tabindex="0">
         <div class="screenshot-modal-caption-heading">
           <div class="screenshot-modal-caption-meta">
             <span class="screenshot-kicker" id="screenshot-modal-kicker">Product screenshot</span>
@@ -57,7 +62,10 @@ function initializeFeatureScreenshots() {
     const caption = figure.querySelector("figcaption");
     const trigger = document.createElement("button");
     const zoomLabel = document.createElement("span");
-    const fullSource = image.currentSrc || image.src;
+    // Keep the PNG for the full-size viewer. Moving only the img out of its
+    // picture would discard format selection and download the PNG as well.
+    const fullSource = image.src;
+    const preview = image.closest("picture") || image;
 
     trigger.type = "button";
     trigger.className = "feature-screenshot-open";
@@ -68,8 +76,8 @@ function initializeFeatureScreenshots() {
     zoomLabel.setAttribute("aria-hidden", "true");
     zoomLabel.textContent = "View full size";
 
-    image.before(trigger);
-    trigger.append(image, zoomLabel);
+    preview.before(trigger);
+    trigger.append(preview, zoomLabel);
 
     let screenshotIndex = screenshots.findIndex(({ image: existingSource }) => existingSource === fullSource);
     if (screenshotIndex === -1) {
@@ -108,6 +116,7 @@ function initializeFeatureScreenshots() {
     modalTitle.textContent = screenshot.title;
     modalDescription.textContent = screenshot.description;
     modalCounter.textContent = `${index + 1} / ${screenshots.length}`;
+    modal.querySelector(".screenshot-modal-caption").scrollTop = 0;
   };
 
   const openScreenshot = (index) => {
@@ -165,7 +174,7 @@ function initializeFeatureScreenshots() {
     }
     if (event.key !== "Tab") return;
 
-    const focusable = [modalPrevious, modalClose, modalNext];
+    const focusable = [modalPrevious, modalNext, modalClose, modal.querySelector(".screenshot-modal-caption")];
     const first = focusable[0];
     const last = focusable[focusable.length - 1];
     if (event.shiftKey && document.activeElement === first) {

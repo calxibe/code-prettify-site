@@ -170,6 +170,7 @@ function initializeScreenshotGallery() {
     modalTitle.textContent = selected.title;
     modalDescription.textContent = selected.description;
     modalCounter.textContent = `${index + 1} / ${screenshotData.length}`;
+    modal.querySelector(".screenshot-modal-caption").scrollTop = 0;
 
     tabs.forEach((tab, tabIndex) => {
       const isActive = tabIndex === index;
@@ -261,7 +262,7 @@ function initializeScreenshotGallery() {
       return;
     }
 
-    const focusableElements = [modalPrevious, modalClose, modalNext];
+    const focusableElements = [modalPrevious, modalNext, modalClose, modal.querySelector(".screenshot-modal-caption")];
     const firstFocusable = focusableElements[0];
     const lastFocusable = focusableElements[focusableElements.length - 1];
 

@@ -30,10 +30,10 @@
   <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-json-to-code-pydantic.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=5e50edde" />
+  <link rel="stylesheet" href="style.min.css?v=e7074905" />
   <link rel="stylesheet" href="consent.css?v=20260826-2" />
   <script src="site.js?v=20260826-3" defer></script>
-  <script src="feature-guide.js?v=20260725-1" defer></script>
+  <script src="feature-guide.js?v=20260906-2" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -90,7 +90,10 @@
         <div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener noreferrer">Install for Chrome</a><a class="btn btn-secondary" href="manual.html#json-to-code">Read the generator manual entry</a></div>
         <ul class="feature-proof-list"><li>snake_case + exact-key aliases</li><li>Nested objects become models</li><li>Missing and null distinguished</li><li>Local generation</li></ul>
       </div>
-      <figure class="feature-hero-shot"><img src="img/screenshots/feature-json-to-code-pydantic.png" alt="CodePrettify converting a JSON sample into Pydantic BaseModel classes with snake_case fields and Field aliases" width="1280" height="800" fetchpriority="high" /><figcaption>Deployment-event JSON beside its generated Pydantic models — camelCase keys such as <code>durationMs</code> become snake_case fields with aliases.</figcaption></figure>
+      <figure class="feature-hero-shot"><picture data-site-image>
+        <source srcset="img/screenshots/feature-json-to-code-pydantic.webp?v=29d47156" type="image/webp" />
+        <img src="img/screenshots/feature-json-to-code-pydantic.png" alt="CodePrettify converting a JSON sample into Pydantic BaseModel classes with snake_case fields and Field aliases" width="1280" height="800" fetchpriority="high" />
+      </picture><figcaption>Deployment-event JSON beside its generated Pydantic models — camelCase keys such as <code>durationMs</code> become snake_case fields with aliases.</figcaption></figure>
     </section>
 
     <nav class="feature-learning-nav" aria-label="Lessons in this JSON to Pydantic guide">
@@ -206,7 +209,10 @@ class Account(BaseModel):
     <section class="feature-detail-section" aria-labelledby="pydantic-targets-title">
       <div class="feature-detail-heading"><span class="section-badge">Switch targets</span><h2 id="pydantic-targets-title">Keep the sample, swap the language</h2><p>The same inference engine drives every output target, so switching the <strong>Target</strong> list from Python / Pydantic to TypeScript changes the syntax — not the shape. Where Pydantic uses an Optional field with an alias, TypeScript marks the property with <code>?</code> and keeps the exact source key. Comparing two targets from one sample is the quickest sanity check that a surprising annotation came from your data, not from the language.</p></div>
       <div class="feature-shot-grid">
-        <figure class="feature-guide-shot"><img src="img/screenshots/feature-json-to-code.png" alt="The same JSON sample generating TypeScript interfaces in the CodePrettify JSON to Code Generator" width="1280" height="800" loading="lazy" /><figcaption>Same deployment sample, TypeScript target — nested interfaces where Pydantic produced nested BaseModel classes.</figcaption></figure>
+        <figure class="feature-guide-shot"><picture data-site-image>
+          <source srcset="img/screenshots/feature-json-to-code.webp?v=5ed65f4e" type="image/webp" />
+          <img src="img/screenshots/feature-json-to-code.png" alt="The same JSON sample generating TypeScript interfaces in the CodePrettify JSON to Code Generator" width="1280" height="800" loading="lazy" />
+        </picture><figcaption>Same deployment sample, TypeScript target — nested interfaces where Pydantic produced nested BaseModel classes.</figcaption></figure>
       </div>
       <p>Eleven targets share this behavior — TypeScript, Zod, JSON Schema, C#, Java, Kotlin, Go, Rust, Swift, Dart, and Python / Pydantic. The <a href="json-to-code-generator.html">JSON to Code Generator guide</a> covers preparing samples and reviewing inference across all of them, and the <a href="json-to-typescript.html">JSON to TypeScript guide</a> walks the front-end side of the same workflow.</p>
     </section>
