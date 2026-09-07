@@ -7,6 +7,7 @@ CodePrettify is made by FixQuotes. It is available as a browser extension for Ch
 ## Official links
 
 - [Website](https://prettify.cloud/): product overview, supported formats, and download links.
+- [Free online tools](https://prettify.cloud/tools.html): working browser tools for JSON diagrams, repair with a report, array comparison by ID, and TypeScript generation. No installation is needed; input and results are not uploaded or saved by the website.
 - [User manual](https://prettify.cloud/manual.html): complete instructions for the browser extension and Windows app.
 - [Guides index](https://prettify.cloud/guides.html): every hands-on tool guide in one place.
 - [Pricing and availability](https://prettify.cloud/pricing.html): current early-tester access and installation details.
@@ -25,6 +26,9 @@ CodePrettify is made by FixQuotes. It is available as a browser extension for Ch
 - Use the Regex Playground, HTTP Client, JavaScript Playground, Diagram Generator, Data Converter, Table View, Security Scan, and diagnostics tools.
 
 ## Detailed guides
+
+- [JSON to diagram](https://prettify.cloud/json-to-diagram.html): generate a structure diagram, optionally include values, and export SVG or Mermaid.
+- [JSON array diff by ID](https://prettify.cloud/json-array-diff.html): compare root arrays using a unique top-level identity field and download a record-change report. Nested arrays remain order-sensitive.
 
 - [JSON Formatter](https://prettify.cloud/json-formatter-browser-extension.html)
 - [JSON to Code Generator](https://prettify.cloud/json-to-code-generator.html)

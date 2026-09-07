@@ -276,6 +276,20 @@ function initializeScreenshotGallery() {
   });
 }
 
+function revealReferenceTarget(target) {
+  let ancestor = target.closest("details");
+  while (ancestor) { ancestor.open = true; ancestor = ancestor.parentElement.closest("details"); }
+  const disclosure = target.querySelector(":scope > .container > details");
+  if (disclosure) disclosure.open = true;
+}
+
+function revealReferenceHash() {
+  let id;
+  try { id = decodeURIComponent(window.location.hash.slice(1)); } catch { return; }
+  const target = id && document.getElementById(id);
+  if (target) { revealReferenceTarget(target); target.scrollIntoView({ block: "start" }); }
+}
+
 function initializeSmoothScroll() {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -284,6 +298,7 @@ function initializeSmoothScroll() {
       const target = document.querySelector(anchor.getAttribute("href"));
 
       if (target) {
+        revealReferenceTarget(target);
         target.scrollIntoView({
           behavior: prefersReducedMotion.matches ? "auto" : "smooth",
           block: "start",
@@ -322,3 +337,98 @@ document.addEventListener("DOMContentLoaded", () => {
   initializeVideoFacade();
   initializeSmoothScroll();
 });
+
+// A small, local example makes the product's view modes tangible on the homepage.
+function initializeDataExample() {
+  const output = document.getElementById("demo-output");
+  if (!output) return;
+  const example = {
+    service: "payments-api",
+    environment: "production",
+    healthy: true,
+    regions: [
+      { name: "eu-west", latency_ms: 42 },
+      { name: "us-east", latency_ms: 68 },
+    ],
+  };
+  const formatted = JSON.stringify(example, null, 2);
+  const controls = Array.from(document.querySelectorAll("[data-demo-view]"));
+  const status = document.getElementById("demo-status");
+  let selectedView = "formatted";
+
+  function codeView(raw) {
+    const pre = document.createElement("pre");
+    const lines = (raw ? JSON.stringify(example) : formatted).split("\n");
+    for (const [index, line] of lines.entries()) {
+      const row = document.createElement("span");
+      row.className = "demo-code-line";
+      row.dataset.line = String(index + 1);
+      const tokens = /("(?:[^"\\]|\\.)*"\s*:?)|\b(true|false|null|\d+)\b/g;
+      let cursor = 0;
+      for (const match of line.matchAll(tokens)) {
+        row.append(document.createTextNode(line.slice(cursor, match.index)));
+        const token = document.createElement("span");
+        token.className = match[1] ? (match[0].endsWith(":") ? "demo-key" : "demo-string") : "demo-value";
+        token.textContent = match[0];
+        row.append(token);
+        cursor = match.index + match[0].length;
+      }
+      row.append(document.createTextNode(line.slice(cursor)));
+      pre.append(row);
+    }
+    return pre;
+  }
+
+  function treeNode(name, value) {
+    if (value !== null && typeof value === "object") {
+      const details = document.createElement("details");
+      details.open = true;
+      const summary = document.createElement("summary");
+      summary.textContent = `${name} ${Array.isArray(value) ? `[${value.length}]` : `{${Object.keys(value).length}}`}`;
+      details.append(summary);
+      for (const [key, child] of Object.entries(value)) details.append(treeNode(key, child));
+      return details;
+    }
+    const leaf = document.createElement("div");
+    leaf.className = "demo-tree-leaf";
+    leaf.textContent = `${name}: ${JSON.stringify(value)}`;
+    return leaf;
+  }
+
+  function selectView(view) {
+    selectedView = view;
+    controls.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.demoView === view)));
+    if (view === "tree") {
+      const tree = document.createElement("div");
+      tree.className = "demo-tree";
+      tree.append(treeNode("root", example));
+      output.replaceChildren(tree);
+    } else {
+      output.replaceChildren(codeView(view === "raw"));
+    }
+    output.scrollTop = 0;
+    status.textContent = view === "tree" ? "Tree view · Select a branch to fold it" : `${view === "raw" ? "Raw" : "Formatted"} view · Interactive example`;
+  }
+  controls.forEach((button) => button.addEventListener("click", () => selectView(button.dataset.demoView)));
+  document.getElementById("demo-copy").addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(selectedView === "raw" ? JSON.stringify(example) : formatted);
+      status.textContent = "JSON copied to clipboard";
+    } catch {
+      status.textContent = "Copy unavailable. Select the JSON and copy it manually.";
+    }
+  });
+  document.getElementById("demo-open-product").addEventListener("click", () => document.querySelector(".screenshot-tab")?.click());
+  document.querySelectorAll("[data-gallery-direction]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const rail = document.querySelector(".screenshot-tabs");
+      rail.scrollBy({ left: Number(button.dataset.galleryDirection) * rail.clientWidth * 0.8, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
+    });
+  });
+  selectView("formatted");
+}
+
+document.addEventListener("DOMContentLoaded", initializeDataExample);
+
+document.addEventListener("DOMContentLoaded", revealReferenceHash);
+window.addEventListener("hashchange", revealReferenceHash);

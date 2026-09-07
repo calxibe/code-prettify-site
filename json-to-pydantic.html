@@ -30,7 +30,7 @@
   <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-json-to-code-pydantic.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=e7074905" />
+  <link rel="stylesheet" href="style.min.css?v=0d0731ca" />
   <link rel="stylesheet" href="consent.css?v=20260826-2" />
   <script src="site.js?v=20260826-3" defer></script>
   <script src="feature-guide.js?v=20260906-2" defer></script>
@@ -68,7 +68,7 @@
     }
   </script>
 </head>
-<body class="feature-detail-body">
+<body class="feature-detail-body supporting-page json-to-pydantic-page">
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <div class="bg-glow"></div>
   <header>
@@ -76,6 +76,7 @@
       <a href="/" class="logo"><img src="img/code_32.png?v=20260725" srcset="img/code_32.png?v=20260725 1x, img/code_64.png?v=20260725 2x" width="32" height="32" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span></a>
       <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
       <nav id="site-navigation" aria-label="Primary navigation"><a href="/#install">Install</a>
+        <a href="tools.html">Tools</a>
         <a href="guides.html">Guides</a><a href="pricing.html">Price</a><a href="manual.html">Manual</a><a href="changelog.html">Changelog</a><a href="contact.html">Contact</a></nav>
     </div>
   </header>
@@ -112,7 +113,7 @@
       <div class="feature-example-grid">
         <article class="feature-example-card">
           <div class="feature-example-copy"><span class="feature-example-label">JSON sample</span><h3>Two account records with real variation</h3><p>The first record carries an explicit <code>null</code> and a populated <code>teams</code> array; the second adds <code>inviteCode</code>, which the first never mentions, and leaves <code>teams</code> empty. Three different kinds of evidence in eleven lines.</p></div>
-          <pre class="feature-code"><code>[
+          <pre class="feature-code" tabindex="0"><code>[
   {
     "userId": 501,
     "displayName": "Asha Rai",
@@ -132,7 +133,7 @@
         </article>
         <article class="feature-example-card">
           <div class="feature-example-copy"><span class="feature-example-label">Pydantic result</span><h3>Every rename is documented by an alias</h3><p>Representative output: <code>teams</code> is singularized into a <code>Team</code> model, and both records feed the account model — the empty array does not erase the element type the first record proved.</p></div>
-          <pre class="feature-code"><code>class Team(BaseModel):
+          <pre class="feature-code" tabindex="0"><code>class Team(BaseModel):
     team_id: int = <span class="code-success">Field(alias="teamId")</span>
     role: str
 

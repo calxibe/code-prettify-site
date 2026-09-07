@@ -30,7 +30,7 @@
   <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-xml-formatter.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=e7074905" />
+  <link rel="stylesheet" href="style.min.css?v=0d0731ca" />
   <link rel="stylesheet" href="consent.css?v=20260826-2" />
   <script src="site.js?v=20260826-3" defer></script>
   <script src="feature-guide.js?v=20260906-2" defer></script>
@@ -68,7 +68,7 @@
     }
   </script>
 </head>
-<body class="feature-detail-body">
+<body class="feature-detail-body supporting-page xml-formatter-page">
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <div class="bg-glow"></div>
   <header>
@@ -76,6 +76,7 @@
       <a href="/" class="logo"><img src="img/code_32.png?v=20260725" srcset="img/code_32.png?v=20260725 1x, img/code_64.png?v=20260725 2x" width="32" height="32" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span></a>
       <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
       <nav id="site-navigation" aria-label="Primary navigation"><a href="/#install">Install</a>
+        <a href="tools.html">Tools</a>
         <a href="guides.html">Guides</a><a href="pricing.html">Price</a><a href="manual.html">Manual</a><a href="changelog.html">Changelog</a><a href="contact.html">Contact</a></nav>
     </div>
   </header>
@@ -112,7 +113,7 @@
       <div class="feature-example-grid">
         <article class="feature-example-card">
           <div class="feature-example-copy"><span class="feature-example-label">The file you open</span><h3>Markup where whitespace and quoting carry data</h3><p>The description holds quoted markup inside CDATA, and <code>xml:space="preserve"</code> declares that the note's double spaces are intentional.</p></div>
-          <pre class="feature-code"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+          <pre class="feature-code" tabindex="0"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;!-- Product catalog export --&gt;
 &lt;catalog xmlns:media="http://search.yahoo.com/mrss/"&gt;
   &lt;product id="SKU-1042" availability="in-stock"&gt;
@@ -126,7 +127,7 @@
         </article>
         <article class="feature-example-card">
           <div class="feature-example-copy"><span class="feature-example-label">In the extension</span><h3>Validated and foldable — returned unchanged</h3><p>Because a rewrite could change the CDATA content or the preserved whitespace, formatting returns the source untouched. You still get highlighting, folding, links, and hints.</p></div>
-          <pre class="feature-code"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+          <pre class="feature-code" tabindex="0"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 <span class="code-success">&lt;!-- Product catalog export --&gt;</span>
 &lt;catalog <span class="code-accent">xmlns:media</span>="http://search.yahoo.com/mrss/"&gt;
   &lt;product <span class="code-accent">id</span>="SKU-1042" <span class="code-accent">availability</span>="in-stock"&gt;
@@ -214,14 +215,14 @@
       <div class="feature-example-grid">
         <article class="feature-example-card">
           <div class="feature-example-copy"><span class="feature-example-label">XML input</span><h3>Two attributes, a comment, exact text</h3><p>Load it with <strong>Use document</strong>, or paste it into the Convert tab.</p></div>
-          <pre class="feature-code"><code>&lt;product id="SKU-1042"&gt;
+          <pre class="feature-code" tabindex="0"><code>&lt;product id="SKU-1042"&gt;
   &lt;!-- price includes VAT --&gt;
   &lt;price currency="EUR"&gt;129.90&lt;/price&gt;
 &lt;/product&gt;</code></pre>
         </article>
         <article class="feature-example-card">
           <div class="feature-example-copy"><span class="feature-example-label">JSON output — excerpt</span><h3>Order, attributes, and the comment made explicit</h3><p>Trimmed for reading: whitespace-only text nodes and namespace metadata are elided here. Note that <code>129.90</code> stays text — nothing guesses types on your behalf.</p></div>
-          <pre class="feature-code"><code>{
+          <pre class="feature-code" tabindex="0"><code>{
   "$xml": {
     "children": [
       { "type": "element", "name": "product",

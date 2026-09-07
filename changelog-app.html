@@ -32,11 +32,11 @@
     <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-stats-diagnostics.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=e7074905" />
+  <link rel="stylesheet" href="style.min.css?v=0d0731ca" />
   <link rel="stylesheet" href="consent.css?v=20260826-2" />
     <script src="site.js?v=20260826-3" defer></script>
   </head>
-  <body>
+  <body class="supporting-page changelog-page">
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header>
       <div class="header-inner">
@@ -53,7 +53,8 @@
         </button>
         <nav id="site-navigation" aria-label="Primary navigation">
           <a href="/#install">Install</a>
-          <a href="guides.html">Guides</a>
+          <a href="tools.html">Tools</a>
+        <a href="guides.html">Guides</a>
           <a href="pricing.html">Price</a>
           <a href="manual.html">Manual</a>
           <a href="changelog.html" class="active" aria-current="page">Changelog</a>
@@ -70,16 +71,16 @@
         </div>
       </section>
 
-      <div class="changelog-tabs">
+      <nav class="changelog-tabs" aria-label="Release notes by product">
         <a class="changelog-tab" href="changelog.html">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           Browser Extension
         </a>
-        <a class="changelog-tab active" href="changelog-app.html">
+        <a class="changelog-tab active" aria-current="page" href="changelog-app.html">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           Microsoft Store App
         </a>
-      </div>
+      </nav>
 
       <div class="release-card release-card-compact">
         <div class="release-card-copy">
@@ -97,12 +98,13 @@
       </div>
 
       <!-- Version 2.0.1 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v2.0.1</span>
+      <article class="version-card" id="release-v2-0-1">
+<div class="version-header">
+          <h2 class="version-number">v2.0.1</h2>
           <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">September 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Fixed</h3>
@@ -184,14 +186,17 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 2.0.0 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v2.0.0</span>
+      <article class="version-card" id="release-v2-0-0">
+<div class="version-header">
+          <h2 class="version-number">v2.0.0</h2>
           <span class="version-date">September 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Changed</h3>
@@ -255,14 +260,17 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.1.8 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.1.8</span>
+      <article class="version-card" id="release-v1-1-8">
+<div class="version-header">
+          <h2 class="version-number">v1.1.8</h2>
           <span class="version-date">August 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Added</h3>
@@ -281,14 +289,17 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.1.7 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.1.7</span>
+      <article class="version-card" id="release-v1-1-7">
+<div class="version-header">
+          <h2 class="version-number">v1.1.7</h2>
           <span class="version-date">August 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Fixed</h3>
@@ -298,14 +309,17 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.1.6 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.1.6</span>
+      <article class="version-card" id="release-v1-1-6">
+<div class="version-header">
+          <h2 class="version-number">v1.1.6</h2>
           <span class="version-date">July 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Added</h3>
@@ -330,14 +344,17 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.1.5 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.1.5</span>
+      <article class="version-card" id="release-v1-1-5">
+<div class="version-header">
+          <h2 class="version-number">v1.1.5</h2>
           <span class="version-date">July 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Added</h3>
@@ -410,14 +427,17 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.1.4 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.1.4</span>
+      <article class="version-card" id="release-v1-1-4">
+<div class="version-header">
+          <h2 class="version-number">v1.1.4</h2>
           <span class="version-date">July 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Fixed</h3>
@@ -448,14 +468,17 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.1.3 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.1.3</span>
+      <article class="version-card" id="release-v1-1-3">
+<div class="version-header">
+          <h2 class="version-number">v1.1.3</h2>
           <span class="version-date">July 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Added</h3>
@@ -537,14 +560,17 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.1.2 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.1.2</span>
+      <article class="version-card" id="release-v1-1-2">
+<div class="version-header">
+          <h2 class="version-number">v1.1.2</h2>
           <span class="version-date">July 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Improved</h3>
@@ -569,14 +595,17 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.1.1 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.1.1</span>
+      <article class="version-card" id="release-v1-1-1">
+<div class="version-header">
+          <h2 class="version-number">v1.1.1</h2>
           <span class="version-date">July 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Security</h3>
@@ -640,14 +669,17 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.0.16 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.0.16</span>
+      <article class="version-card" id="release-v1-0-16">
+<div class="version-header">
+          <h2 class="version-number">v1.0.16</h2>
           <span class="version-date">July 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Added</h3>
@@ -711,14 +743,17 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.0.15 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.0.15</span>
+      <article class="version-card" id="release-v1-0-15">
+<div class="version-header">
+          <h2 class="version-number">v1.0.15</h2>
           <span class="version-date">July 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Security</h3>
@@ -788,14 +823,17 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.0.14 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.0.14</span>
+      <article class="version-card" id="release-v1-0-14">
+<div class="version-header">
+          <h2 class="version-number">v1.0.14</h2>
           <span class="version-date">July 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Added</h3>
@@ -832,14 +870,17 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.0.13 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.0.13</span>
+      <article class="version-card" id="release-v1-0-13">
+<div class="version-header">
+          <h2 class="version-number">v1.0.13</h2>
           <span class="version-date">July 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Improved</h3>
@@ -858,14 +899,17 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.0.12 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.0.12</span>
+      <article class="version-card" id="release-v1-0-12">
+<div class="version-header">
+          <h2 class="version-number">v1.0.12</h2>
           <span class="version-date">July 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Fixed</h3>
@@ -902,14 +946,17 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.0.11 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.0.11</span>
+      <article class="version-card" id="release-v1-0-11">
+<div class="version-header">
+          <h2 class="version-number">v1.0.11</h2>
           <span class="version-date">July 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Added</h3>
@@ -928,14 +975,17 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.0.10 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.0.10</span>
+      <article class="version-card" id="release-v1-0-10">
+<div class="version-header">
+          <h2 class="version-number">v1.0.10</h2>
           <span class="version-date">June 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Added</h3>
@@ -999,14 +1049,17 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.0.9 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.0.9</span>
+      <article class="version-card" id="release-v1-0-9">
+<div class="version-header">
+          <h2 class="version-number">v1.0.9</h2>
           <span class="version-date">June 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Security</h3>
@@ -1076,14 +1129,17 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.0.8 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.0.8</span>
+      <article class="version-card" id="release-v1-0-8">
+<div class="version-header">
+          <h2 class="version-number">v1.0.8</h2>
           <span class="version-date">May 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Fixed</h3>
@@ -1096,14 +1152,17 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.0.7 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.0.7</span>
+      <article class="version-card" id="release-v1-0-7">
+<div class="version-header">
+          <h2 class="version-number">v1.0.7</h2>
           <span class="version-date">April 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Fixed</h3>
@@ -1121,14 +1180,17 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.0.6 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.0.6</span>
+      <article class="version-card" id="release-v1-0-6">
+<div class="version-header">
+          <h2 class="version-number">v1.0.6</h2>
           <span class="version-date">April 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Changed</h3>
@@ -1199,14 +1261,17 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.0.5 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.0.5</span>
+      <article class="version-card" id="release-v1-0-5">
+<div class="version-header">
+          <h2 class="version-number">v1.0.5</h2>
           <span class="version-date">April 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Added</h3>
@@ -1272,15 +1337,18 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.0.4 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.0.4</span>
+      <article class="version-card" id="release-v1-0-4">
+<div class="version-header">
+          <h2 class="version-number">v1.0.4</h2>
           <span class="version-date">April 2026</span>
         </div>
- 
+<div class="version-body">
+
         <div class="version-section">
           <h3>Added</h3>
           <ul class="feature-list">
@@ -1364,14 +1432,17 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.0.3 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.0.3</span>
+      <article class="version-card" id="release-v1-0-3">
+<div class="version-header">
+          <h2 class="version-number">v1.0.3</h2>
           <span class="version-date">April 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Fixed</h3>
@@ -1381,14 +1452,17 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.0.2 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.0.2</span>
+      <article class="version-card" id="release-v1-0-2">
+<div class="version-header">
+          <h2 class="version-number">v1.0.2</h2>
           <span class="version-date">April 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Fixed</h3>
@@ -1416,14 +1490,17 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.0.1 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.0.1</span>
+      <article class="version-card" id="release-v1-0-1">
+<div class="version-header">
+          <h2 class="version-number">v1.0.1</h2>
           <span class="version-date">April 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Added</h3>
@@ -1478,15 +1555,18 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
 
       <!-- Version 1.0.0 -->
-      <div class="version-card">
-        <div class="version-header">
-          <span class="version-number">v1.0.0</span>
+      <article class="version-card" id="release-v1-0-0">
+<div class="version-header">
+          <h2 class="version-number">v1.0.0</h2>
           <span class="version-badge badge-initial">Initial Release</span>
           <span class="version-date">April 2026</span>
         </div>
+<div class="version-body">
 
         <div class="version-section">
           <h3>Added</h3>
@@ -1653,7 +1733,9 @@
             </li>
           </ul>
         </div>
-      </div>
+
+</div>
+</article>
     </main>
 
     <footer>

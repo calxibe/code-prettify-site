@@ -32,12 +32,12 @@
     <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-json-format.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=e7074905" />
+  <link rel="stylesheet" href="style.min.css?v=0d0731ca" />
   <link rel="stylesheet" href="consent.css?v=20260826-2" />
     <script src="site.js?v=20260826-3" defer></script>
     <script src="manual.js?v=20260719-3" defer></script>
   </head>
-  <body class="manual-body">
+  <body class="manual-body supporting-page manual-page">
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header>
       <div class="header-inner">
@@ -50,6 +50,7 @@
         </button>
         <nav id="site-navigation" aria-label="Primary navigation">
           <a href="/#install">Install</a>
+        <a href="tools.html">Tools</a>
         <a href="guides.html">Guides</a>
           <a href="pricing.html">Price</a>
           <a href="manual.html" class="active" aria-current="page">Manual</a>
@@ -63,9 +64,9 @@
       <section class="manual-hero page-hero" aria-labelledby="manual-title">
         <div class="manual-hero-copy page-hero__content">
           <span class="page-hero__eyebrow">User Manual</span>
-          <h1 id="manual-title" class="hero-title">Use every part of CodePrettify</h1>
+          <h1 id="manual-title" class="hero-title">The user manual.</h1>
           <p class="page-hero__lead">
-            This guide covers the browser extension and the Windows app from first open to advanced inspection. Use search or the product filter to narrow the guide. Labels show whether a function is shared or product-specific.
+            From your first file to advanced inspection. Search for a task, or choose your product to see the instructions that apply.
           </p>
           <div class="manual-product-key" aria-label="Product labels">
             <span class="product-badge product-shared">Both products</span>
@@ -508,7 +509,8 @@
           </section>
 
           <section id="diagram-generator" class="manual-topic" data-products="shared browser app">
-            <div class="manual-heading-row"><div><span class="manual-eyebrow">See the hierarchy</span><h2>Diagram Generator</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">See the hierarchy</span><h2>Diagram Generator</h2>
+            <p class="manual-deep-link"><strong>Try it online:</strong> Use the <a href="json-to-diagram.html">online JSON diagram tool</a>. Generate SVG or Mermaid from strict JSON without installation. The web view supports up to 60 cards, 8 displayed nesting levels, and 12 fields per card.</p></div><span class="product-badge product-shared">Both products</span></div>
             <p>Diagram Generator is a contextual tool for structured documents. Open it from <strong>For this file</strong> in More Actions or from the Command Palette; the Windows app also exposes it in <strong>Tools</strong>. Both products support JSON, JSON Lines, YAML, TOML, and XML/RSS documents. The Windows app additionally supports CSV files.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
@@ -715,7 +717,8 @@
           </section>
 
           <section id="structured-workbench" class="manual-topic" data-products="shared browser app">
-            <div class="manual-heading-row"><div><span class="manual-eyebrow">Repair first, transform second</span><h2>JSON Repair &amp; Transform</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Repair first, transform second</span><h2>JSON Repair &amp; Transform</h2>
+            <p class="manual-deep-link"><strong>Try it online:</strong> Use the <a href="json-repair-transform.html#online-tool">online JSON repair tool</a>. Repair and format a sample in the browser, then download the repaired JSON and a repair report. Transformation recipes remain available in the installed product.</p></div><span class="product-badge product-shared">Both products</span></div>
             <p>Open <strong>JSON Repair &amp; Transform</strong> from <strong>General tools</strong> in More Actions or from the Command Palette; the Windows app also exposes it directly in <strong>Tools</strong>. It is available for every supported document type because pasted JSON-like input works independently of the active document; in the Windows app it requires an open document tab in prettified view. A compatible current document remains an optional starting point through <strong>Use document</strong>. All processing stays on the device. Its two tabs are designed as one workflow: review and normalize the source in <strong>Repair &amp; Salvage</strong>, then pass that result to <strong>Transform</strong>. Both tabs retain the same dialog height when switching, and the Repair input, repaired output, and live Transform result use the shared compact code-text scale while preserving useful editor space.</p>
             <p class="manual-deep-link"><strong>In-depth guide:</strong> Walk through fenced, Python-style JSON repair and a filter-and-sort recipe in <a href="json-repair-transform.html">JSON Repair &amp; Transform</a>.</p>
 
@@ -818,7 +821,8 @@
           </section>
 
           <section id="compare" class="manual-topic" data-products="shared browser app">
-            <div class="manual-heading-row"><div><span class="manual-eyebrow">Spot changes</span><h2>Compare</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Spot changes</span><h2>Compare</h2>
+            <p class="manual-deep-link"><strong>Try it online:</strong> Use the <a href="json-array-diff.html">online JSON array diff by ID</a>. Compare two root arrays using a unique top-level identity field. Nested arrays are compared by position. The tool stops on duplicate or missing IDs.</p></div><span class="product-badge product-shared">Both products</span></div>
             <h3>Compare any two sources</h3>
             <ol>
               <li>Open Compare or press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>D</kbd>.</li>

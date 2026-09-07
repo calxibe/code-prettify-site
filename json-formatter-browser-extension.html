@@ -30,7 +30,7 @@
   <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-json-format.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=e7074905" />
+  <link rel="stylesheet" href="style.min.css?v=0d0731ca" />
   <link rel="stylesheet" href="consent.css?v=20260826-2" />
   <script src="site.js?v=20260826-3" defer></script>
   <script src="feature-guide.js?v=20260906-2" defer></script>
@@ -74,7 +74,7 @@
     }
   </script>
 </head>
-<body class="feature-detail-body">
+<body class="feature-detail-body supporting-page json-formatter-browser-extension-page">
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <div class="bg-glow"></div>
   <header>
@@ -88,6 +88,7 @@
       </button>
       <nav id="site-navigation" aria-label="Primary navigation">
         <a href="/#install">Install</a>
+        <a href="tools.html">Tools</a>
         <a href="guides.html">Guides</a>
         <a href="pricing.html">Price</a>
         <a href="manual.html">Manual</a>
@@ -179,7 +180,7 @@
             <h3>Hard to scan and harder to debug</h3>
             <p>A minified response hides the boundary between services, releases, metrics, and incident details.</p>
           </div>
-          <pre class="feature-code"><code>{"services":[{"id":"svc_api_gateway","name":"API Gateway","status":"healthy","metrics":{"p95LatencyMs":91,"errorRate":0.0008}},{"id":"svc_insights","name":"Insights","status":"degraded","metrics":{"p95LatencyMs":144,"errorRate":0.0124}}]}</code></pre>
+          <pre class="feature-code" tabindex="0"><code>{"services":[{"id":"svc_api_gateway","name":"API Gateway","status":"healthy","metrics":{"p95LatencyMs":91,"errorRate":0.0008}},{"id":"svc_insights","name":"Insights","status":"degraded","metrics":{"p95LatencyMs":144,"errorRate":0.0124}}]}</code></pre>
         </article>
         <article class="feature-example-card">
           <div class="feature-example-copy">
@@ -187,7 +188,7 @@
             <h3>The hierarchy becomes visible</h3>
             <p>Indentation, syntax color, folding, and line references make the same values easier to compare.</p>
           </div>
-          <pre class="feature-code"><code>{
+          <pre class="feature-code" tabindex="0"><code>{
   <span class="code-accent">"services"</span>: [
     {
       "id": "svc_api_gateway",
@@ -227,7 +228,7 @@
           <div>
             <h3>Check the response against a small contract</h3>
             <p>Open the <strong>JSON Schema Validator</strong> and paste a schema that requires every service to have an owner and a healthy status. Run validation and read each result as <em>path → rule → source line</em>. A useful validator result tells you both what rule failed and where the offending value lives.</p>
-            <pre class="feature-code"><code>{
+            <pre class="feature-code" tabindex="0"><code>{
   "type": "object",
   "required": ["services"],
   "properties": {

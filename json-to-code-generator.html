@@ -30,7 +30,7 @@
   <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-json-to-code.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=e7074905" />
+  <link rel="stylesheet" href="style.min.css?v=0d0731ca" />
   <link rel="stylesheet" href="consent.css?v=20260826-2" />
   <script src="site.js?v=20260826-3" defer></script>
   <script src="feature-guide.js?v=20260906-2" defer></script>
@@ -69,7 +69,7 @@
     }
   </script>
 </head>
-<body class="feature-detail-body">
+<body class="feature-detail-body supporting-page json-to-code-generator-page">
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <div class="bg-glow"></div>
   <header>
@@ -80,6 +80,7 @@
         <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg>
       </button>
       <nav id="site-navigation" aria-label="Primary navigation"><a href="/#install">Install</a>
+        <a href="tools.html">Tools</a>
         <a href="guides.html">Guides</a><a href="pricing.html">Price</a><a href="manual.html">Manual</a><a href="changelog.html">Changelog</a><a href="contact.html">Contact</a></nav>
     </div>
   </header>
@@ -131,7 +132,7 @@
       <div class="feature-example-grid">
         <article class="feature-example-card">
           <div class="feature-example-copy"><span class="feature-example-label">Input sample</span><h3>Two deployment events</h3><p>Nested objects, arrays, timestamps, integers, booleans, and one conditionally present field.</p></div>
-          <pre class="feature-code"><code>[
+          <pre class="feature-code" tabindex="0"><code>[
   {
     "id": "deploy_7fb8c0e3",
     "service": "api-gateway",
@@ -151,7 +152,7 @@
         </article>
         <article class="feature-example-card">
           <div class="feature-example-copy"><span class="feature-example-label">TypeScript result</span><h3>The optional field is explicit</h3><p>Property names and nested shapes stay tied to the JSON while generated types use the selected language conventions.</p></div>
-          <pre class="feature-code"><code>export interface DeploymentEventItem {
+          <pre class="feature-code" tabindex="0"><code>export interface DeploymentEventItem {
   id: string;
   service: string;
   actor: Actor;
@@ -180,7 +181,7 @@ export type DeploymentEvent =
           <div>
             <h3>Supply variation deliberately</h3>
             <p>Use an array of representative objects. This small practice sample proves that <code>discountCode</code> is conditional, <code>shippedAt</code> can be null, and <code>tags</code> contains strings even though one array is empty. (You will still see an informational empty-array warning for the second record&rsquo;s empty <code>tags</code>; the populated first sample supplies the string element type.)</p>
-            <pre class="feature-code"><code>[
+            <pre class="feature-code" tabindex="0"><code>[
   {
     "id": 1001,
     "status": "processing",

@@ -30,7 +30,7 @@
   <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-markdown.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=e7074905" />
+  <link rel="stylesheet" href="style.min.css?v=0d0731ca" />
   <link rel="stylesheet" href="consent.css?v=20260826-2" />
   <script src="site.js?v=20260826-3" defer></script>
   <script src="feature-guide.js?v=20260906-2" defer></script>
@@ -68,7 +68,7 @@
     }
   </script>
 </head>
-<body class="feature-detail-body">
+<body class="feature-detail-body supporting-page markdown-viewer-browser-extension-page">
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <div class="bg-glow"></div>
   <header>
@@ -76,6 +76,7 @@
       <a href="/" class="logo"><img src="img/code_32.png?v=20260725" srcset="img/code_32.png?v=20260725 1x, img/code_64.png?v=20260725 2x" width="32" height="32" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span></a>
       <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
       <nav id="site-navigation" aria-label="Primary navigation"><a href="/#install">Install</a>
+        <a href="tools.html">Tools</a>
         <a href="guides.html">Guides</a><a href="pricing.html">Price</a><a href="manual.html">Manual</a><a href="changelog.html">Changelog</a><a href="contact.html">Contact</a></nav>
     </div>
   </header>
@@ -178,7 +179,7 @@
       <div class="feature-example-grid">
         <article class="feature-example-card">
           <div class="feature-example-copy"><span class="feature-example-label">Markdown source</span><h3>Table, escaped pipe, and tasks</h3><p>The source remains available when you need to diagnose why a row or checkbox did not render as expected.</p></div>
-          <pre class="feature-code"><code>| Tool | File types | Expected behavior |
+          <pre class="feature-code" tabindex="0"><code>| Tool | File types | Expected behavior |
 | --- | --- | --- |
 | Diagnostics | JSON | Warns about duplicate keys |
 | Markdown Preview | MD | Renders formatted content |
@@ -192,7 +193,7 @@
         </article>
         <article class="feature-example-card">
           <div class="feature-example-copy"><span class="feature-example-label">Reading checklist</span><h3>What to verify in the rendered result</h3><p>Use the two views together instead of guessing whether the source or the renderer caused a surprising layout.</p></div>
-          <pre class="feature-code"><code><span class="code-success">✓</span> Header and separator rows align
+          <pre class="feature-code" tabindex="0"><code><span class="code-success">✓</span> Header and separator rows align
 <span class="code-success">✓</span> Escaped pipe stays inside one cell
 <span class="code-success">✓</span> Checked task is visibly complete
 <span class="code-success">✓</span> Unchecked task remains open
