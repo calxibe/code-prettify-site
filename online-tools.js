@@ -4,6 +4,7 @@
   const tool = document.querySelector("[data-online-tool]");
   if (!tool) return;
   const kind = tool.dataset.onlineTool;
+  const inputLimit = Number(tool.dataset.inputLimit) || 100000;
   const controls = tool.querySelector("fieldset");
   const inputs = Array.from(tool.querySelectorAll("[data-tool-input]"));
   const defaults = inputs.map(input => ({ value: input.value, checked: input.checked }));
@@ -37,6 +38,7 @@
     if (report) report.replaceChildren();
     if (preview) { preview.removeAttribute("src"); preview.hidden = true; }
     actions.forEach(button => { button.disabled = true; });
+    if (kind === "repair") setRepairLabels("json");
   }
 
   function payload() {
@@ -51,20 +53,56 @@
     return element;
   }
 
+  function setRepairLabels(format) {
+    const name = format === "jsonl" ? "JSON Lines" : "JSON";
+    tool.querySelector('label[for="repair-output"]').textContent = `Repaired ${name}`;
+    for (const button of actions.filter(item => item.dataset.resultAction === "json")) {
+      button.textContent = `${button.hasAttribute("data-copy") ? "Copy" : "Download"} ${name}`;
+    }
+  }
+
+  function showDiscarded(records, excluded) {
+    if (!records?.length) return;
+    appendItem(report, "h3", excluded ? "Excluded source lines" : "Invalid source lines — no output produced");
+    const list = document.createElement("ul");
+    for (const item of records.slice(0, 100)) {
+      const row = document.createElement("li");
+      appendItem(row, "strong", `Line ${item.line}: ${item.message}`);
+      appendItem(row, "pre", item.preview, "online-repair-source");
+      list.append(row);
+    }
+    report.append(list);
+    if (records.length > 100) appendItem(report, "p", `Showing 100 of ${records.length} source lines.${excluded ? " The downloaded report contains every excluded line." : " Narrow the input to inspect the remaining invalid records."}`);
+  }
+
+  function showError(error) {
+    setStatus(error.message, true);
+    if (kind !== "repair") return;
+    if (error.details?.cause) appendItem(report, "p", error.details.cause);
+    if (error.details?.discarded?.length) {
+      appendItem(report, "p", `${error.details.validRecordCount} valid records were found. Fix the invalid lines, or explicitly enable partial-record salvage to exclude them.`);
+      showDiscarded(error.details.discarded, false);
+    }
+  }
+
   function showResult(value) {
     result = value;
     actions.forEach(button => { button.disabled = false; });
     if (kind === "repair") {
       output.value = value.text;
+      setRepairLabels(value.format);
       appendItem(report, "h3", value.repairs.length ? "Repair report" : "Already valid JSON");
+      appendItem(report, "p", `${value.format === "jsonl" ? "JSON Lines" : "JSON"} · ${value.nodeCount.toLocaleString()} values · ${value.confidence} confidence`);
       if (value.repairs.length) {
         const list = document.createElement("ul");
-        for (const item of value.repairs) appendItem(list, "li", `${item.message}${item.count > 1 ? ` (${item.count} occurrences)` : ""}`);
+        for (const item of value.repairs.slice(0, 100)) appendItem(list, "li", `${item.line ? `Line ${item.line}: ` : ""}${item.message}`);
         report.append(list);
-      } else appendItem(report, "p", "No syntax repair was needed. The output is formatted with two-space indentation.");
-      if (value.confidence === "medium") appendItem(report, "p", "Structural repairs were needed. Check the output against your original source before using it.", "code-tool-warning");
+        if (value.repairs.length > 100) appendItem(report, "p", `Showing 100 of ${value.repairs.length} repair entries. Download the report for the complete list.`);
+      } else appendItem(report, "p", "No syntax repair was needed. The output uses your selected indentation.");
+      if (value.confidence === "medium") appendItem(report, "p", "Review extracted content, completed structure, and changed values against the original source before using the result.", "code-tool-warning");
       for (const warning of value.warnings) appendItem(report, "p", warning, "code-tool-warning");
-      setStatus(`${value.repairs.length} repair ${value.repairs.length === 1 ? "category" : "categories"}. Review the result before copying or downloading.`);
+      showDiscarded(value.discarded, true);
+      setStatus(`${value.repairs.length} repair ${value.repairs.length === 1 ? "entry" : "entries"}.${value.format === "jsonl" ? " JSON Lines format preserved." : ""} Review the result before copying or downloading.`);
     } else if (kind === "diagram") {
       preview.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(value.svg)}`;
       preview.hidden = false;
@@ -99,8 +137,8 @@
   function generate() {
     reset();
     const data = payload();
-    if (Object.values(data).some(value => typeof value === "string" && value.length > 100000)) {
-      setStatus("Limit each input to 100,000 characters.", true);
+    if (Object.values(data).some(value => typeof value === "string" && value.length > inputLimit)) {
+      setStatus(`Limit each input to ${inputLimit.toLocaleString("en-US")} characters.`, true);
       return;
     }
     setStatus("Processing locally…");
@@ -108,12 +146,12 @@
     try {
       worker = new Worker(tool.dataset.worker);
       const activeWorker = worker;
-      timeout = setTimeout(() => { cancel(); setStatus("This sample took too long. Try a smaller part of the document.", true); }, 5000);
+      timeout = setTimeout(() => { cancel(); setStatus("This sample took too long. Try a smaller part of the document.", true); }, kind === "repair" ? 10000 : 5000);
       worker.onmessage = event => {
         if (worker !== activeWorker) return;
         cancel();
         if (event.data.ok) showResult(event.data.result);
-        else setStatus(event.data.message, true);
+        else showError(event.data);
       };
       worker.onerror = event => { event.preventDefault(); if (worker !== activeWorker) return; cancel(); setStatus("The tool could not start. Reload this page and try again.", true); };
       worker.postMessage({ kind, payload: data });
@@ -126,8 +164,8 @@
   function outputFor(action) {
     if (action === "svg") return { text: result.svg, type: "image/svg+xml", name: "json-diagram.svg" };
     if (action === "mermaid") return { text: result.mermaid, type: "text/plain", name: "json-diagram.mmd" };
-    if (action === "repair-report") return { text: JSON.stringify({ format: result.format, repairs: result.repairs, warnings: result.warnings }, null, 2), type: "application/json", name: "json-repair-report.json" };
-    return { text: result.text, type: "application/json", name: kind === "repair" ? "repaired.json" : "array-diff-report.json" };
+    if (action === "repair-report") return { text: JSON.stringify({ format: result.format, confidence: result.confidence, changed: result.changed, nodeCount: result.nodeCount, repairs: result.repairs, warnings: result.warnings, discarded: result.discarded }, null, 2), type: "application/json", name: "json-repair-report.json" };
+    return { text: result.text, type: kind === "repair" && result.format === "jsonl" ? "application/x-ndjson" : "application/json", name: kind === "repair" ? (result.format === "jsonl" ? "repaired.jsonl" : "repaired.json") : "array-diff-report.json" };
   }
 
   tool.querySelector("[data-generate]").addEventListener("click", generate);
@@ -138,6 +176,7 @@
   tool.querySelector("[data-clear]").addEventListener("click", () => {
     reset();
     inputs.filter(input => input.tagName === "TEXTAREA").forEach(input => { input.value = ""; });
+    if (kind === "repair") tool.querySelector("[data-tool-input=allowPartialRecords]").checked = false;
     setStatus("Cleared. Paste a new sample or load the example.");
     inputs.find(input => input.tagName === "TEXTAREA").focus();
   });

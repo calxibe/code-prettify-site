@@ -5646,3 +5646,9 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.35rem); font-weight: 600; letter-spacing: -
 @media (max-width: 760px) {
     .changelog-page .release-card { align-items: flex-start; gap: 12px; }
 }
+
+.online-repair-options { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; margin: 0 0 12px; }
+.code-tool .online-repair-options > label:last-child { display: flex; align-items: center; gap: 10px; white-space: nowrap; font-size: 0.78rem; }
+.code-tool .online-repair-options select { width: auto; }
+.code-tool .online-repair-options .online-checkbox { flex: 1 1 320px; }
+.online-tool-report .online-repair-source { white-space: pre-wrap; overflow-wrap: anywhere; font: 0.75rem/1.6 'JetBrains Mono', monospace; margin: 8px 0 16px; color: var(--text-muted); }

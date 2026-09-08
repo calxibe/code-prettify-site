@@ -98,14 +98,17 @@
   }
 
   function repair(payload) {
-    const result = root.CodePrettifyStructuredWorkbench.repair(payload.input, LIMITS);
-    checkShape(result.value);
-    const text = JSON.stringify(result.value, null, 2);
-    if (text.length > LIMITS.maxOutputChars) throw new Error("The repaired JSON is too large. Use a smaller sample.");
-    const repairs = result.format === "jsonl"
-      ? [...result.repairs, { id: "json-lines-array", message: "Converted the JSON Lines records into one JSON array.", count: 1 }]
-      : result.repairs;
-    return { text, repairs, warnings: result.warnings, confidence: result.confidence, format: result.format };
+    // Keep the product's repair limits, provenance, and JSON Lines output.
+    // Diagram and comparison limits must not restrict the repair workbench.
+    const result = root.CodePrettifyStructuredWorkbench.repair(payload.input, {
+      allowPartialRecords: payload.allowPartialRecords === true,
+      indentSize: payload.indentSize,
+    });
+    return {
+      text: result.text, repairs: result.repairs, warnings: result.warnings,
+      confidence: result.confidence, format: result.format,
+      changed: result.changed, discarded: result.discarded, nodeCount: result.nodeCount,
+    };
   }
 
   function diagram(payload) {

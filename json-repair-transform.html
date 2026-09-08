@@ -30,11 +30,11 @@
   <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-workbench-repair.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=7ca97971" />
+  <link rel="stylesheet" href="style.min.css?v=e1ce1dd4" />
   <link rel="stylesheet" href="consent.css?v=20260826-2" />
   <script src="site.js?v=20260826-3" defer></script>
   <script src="feature-guide.js?v=20260906-2" defer></script>
-  <script src="tools-online.min.js?v=d5601cfa" defer></script>
+  <script src="tools-online.min.js?v=9b009ad1" defer></script>
   <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
@@ -77,7 +77,7 @@
           "name": "Can I repair JSON without installing anything?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Paste input into the online repair tool above and choose Repair JSON. Review the repaired output and the repair report, then copy or download the result. No account or upload is needed. Partial-record salvage is disabled, and numbers that would lose precision are rejected."
+            "text": "Yes. Paste input into the online repair tool above and choose Repair JSON. Review the repaired output and the repair report, then copy or download the result. No account or upload is needed. Partial-record salvage is off by default and can be enabled explicitly. Excluded source lines appear in the report. JSON Lines output remains line-delimited, and numbers that would lose precision are rejected."
           }
         },
         {
@@ -132,16 +132,18 @@
 
   <main id="main-content" class="feature-detail-main">
     <nav class="feature-breadcrumb" aria-label="Breadcrumb"><a href="/">CodePrettify</a><span aria-hidden="true">/</span><span>JSON Repair &amp; Transform</span></nav>
-<section class="code-tool-hero"><span class="feature-detail-eyebrow">Free online developer tool</span><h1>Repair JSON with a visible change report</h1><p class="feature-detail-lead">Fix copied logs, Python-style values, comments, and almost-JSON directly in your browser. Review the repair categories before copying or downloading the result.</p></section><section class="code-tool online-tool" id="online-tool" data-online-tool="repair" data-worker="tools-data-worker.min.js?v=f9ea4954" aria-labelledby="tool-title">
+<section class="code-tool-hero"><span class="feature-detail-eyebrow">Free online developer tool</span><h1>Repair JSON with a visible change report</h1><p class="feature-detail-lead">Fix copied logs, Python-style values, comments, and almost-JSON directly in your browser. Uses the same repair engine as the extension, with repair details, JSON Lines salvage, and format-preserving downloads.</p></section><section class="code-tool online-tool" id="online-tool" data-online-tool="repair" data-input-limit="10485760" data-worker="tools-data-worker.min.js?v=fe46a449" aria-labelledby="tool-title">
  <h2 id="tool-title" class="sr-only">Repair JSON</h2>
  <noscript><p class="code-tool-notice">Enable JavaScript to run this tool. The instructions and examples below remain available.</p></noscript>
  <fieldset disabled><legend class="sr-only">Repair JSON controls</legend>
  <div class="code-tool-toolbar"><div class="code-tool-actions"><button class="btn btn-primary" type="button" data-generate>Repair JSON</button><button class="btn btn-secondary" type="button" data-example>Load example</button><button class="btn btn-secondary" type="button" data-clear>Clear</button></div></div>
+ <div class="online-repair-options"><label class="online-checkbox" for="repair-salvage"><input id="repair-salvage" type="checkbox" data-tool-input="allowPartialRecords" aria-describedby="repair-salvage-note" />Salvage valid JSON Lines records when some records are invalid</label><label for="repair-indent">Indentation<select id="repair-indent" data-tool-input="indentSize"><option value="2">2 spaces</option><option value="4">4 spaces</option><option value="8">8 spaces</option></select></label></div>
+ <p class="code-tool-footnote" id="repair-salvage-note">Salvage is off by default. Enabling it excludes invalid records and lists their source lines in the report. JSON Lines stays line-delimited in the output.</p>
  <div class="code-tool-editors"><div class="code-tool-pane"><label for="repair-input">JSON-like input</label><textarea id="repair-input" data-tool-input="input" autocomplete="off" autocapitalize="off" spellcheck="false" wrap="off" aria-describedby="tool-status tool-limits">Captured payload:
 ```json
 { customer: 'Ada', active: True, note: None, items: [1, 2,], }
 ```</textarea></div><div class="code-tool-pane"><label for="repair-output">Repaired JSON</label><textarea id="repair-output" data-tool-output readonly spellcheck="false" wrap="off" aria-describedby="tool-status tool-limits"></textarea></div></div><div class="code-tool-result"><p class="code-tool-status" id="tool-status" data-tool-status role="status" aria-live="polite" aria-atomic="true">Loading the tool…</p><div class="code-tool-actions"><button class="btn btn-secondary" type="button" data-result-action="json" data-copy disabled>Copy JSON</button><button class="btn btn-secondary" type="button" data-result-action="json" disabled>Download JSON</button><button class="btn btn-secondary" type="button" data-result-action="repair-report" disabled>Download report</button></div></div><div class="online-tool-report" data-tool-report></div>
- </fieldset><p class="code-tool-footnote" id="tool-limits">Runs locally, without uploads or saved inputs. Up to 100,000 characters per input, 10,000 values, and 40 nesting levels. Ctrl+Enter or Command+Enter runs the tool. <a href="privacy.html#website-analytics">How your data is handled</a>.</p></section><p class="code-tool-followup">This web tool repairs and formats JSON. For the visual transformation pipeline, use the <a href="#repair-installed">extension or Windows app</a>. <a href="tools.html">Browse all online tools</a>.</p>
+ </fieldset><p class="code-tool-footnote" id="tool-limits">Runs locally, without uploads or saved inputs. Uses the extension’s repair engine and limits: 10,485,760 input characters, 250,000 values, and 512 nesting levels. Output is limited to 20,971,520 characters; processing stops after 10 seconds. Ctrl+Enter or Command+Enter runs the tool. <a href="privacy.html#website-analytics">How your data is handled</a>.</p></section><p class="code-tool-followup">This web tool repairs and formats JSON. For the visual transformation pipeline, use the <a href="#repair-installed">extension or Windows app</a>. <a href="tools.html">Browse all online tools</a>.</p>
 
     <section class="feature-detail-hero feature-detail-hero-compact" id="repair-installed">
       <div>
@@ -327,7 +329,7 @@
 
     <section class="feature-detail-section" aria-labelledby="repair-faq-title">
       <div class="feature-detail-heading"><span class="section-badge">FAQ</span><h2 id="repair-faq-title">Repair and transform questions</h2></div>
-      <div class="feature-detail-faq"><details><summary>Can I repair JSON without installing anything?</summary><p>Yes. Paste input into the online repair tool above and choose Repair JSON. Review the repaired output and the repair report, then copy or download the result. No account or upload is needed. Partial-record salvage is disabled, and numbers that would lose precision are rejected.</p></details>
+      <div class="feature-detail-faq"><details><summary>Can I repair JSON without installing anything?</summary><p>Yes. Paste input into the online repair tool above and choose Repair JSON. Review the repaired output and the repair report, then copy or download the result. No account or upload is needed. Partial-record salvage is off by default and can be enabled explicitly. Excluded source lines appear in the report. JSON Lines output remains line-delimited, and numbers that would lose precision are rejected.</p></details>
         <details><summary>Will the JSON repair tool invent missing values?</summary><p>No. It repairs recognizable syntax and wrapper problems. It does not fabricate domain values that are absent from the source.</p></details>
         <details><summary>Does repair overwrite the current file?</summary><p>No. The original remains unchanged until you deliberately copy, export, or open the repaired result.</p></details>
         <details><summary>Can I transform an object as well as an array?</summary><p>Select, Remove, and Rename work on a single object as well as arrays. Filter, Sort, Unique, Flatten, Group, and Limit need an array of rows and report an error if the current stage is a single object.</p></details>
