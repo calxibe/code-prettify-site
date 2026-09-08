@@ -27,6 +27,7 @@ CodePrettify is made by FixQuotes. It is available as a browser extension for Ch
 
 ## Detailed guides
 
+- [CSV Guide for the Windows application](https://prettify.cloud/csv-guide.html): CSV Table View and Raw, Advanced filters and counters, column dragging, table Save As with CSV/JSON/HTML/XLSX and row/order choices, and main-file schema comparison. These CSV and native workflows require the Windows app, not the browser extension. Includes downloadable samples and real native screenshots.
 - [JSON to diagram](https://prettify.cloud/json-to-diagram.html): generate a structure diagram, optionally include values, and export SVG or Mermaid.
 - [JSON array diff by ID](https://prettify.cloud/json-array-diff.html): compare root arrays using a unique top-level identity field and download a record-change report. Nested arrays remain order-sensitive.
 

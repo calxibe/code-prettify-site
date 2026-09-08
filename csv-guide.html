@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; font-src 'self'; img-src 'self' data: https://www.google-analytics.com https://wonderlaunch.app https://api.producthunt.com https://peerpush.com https://www.uneed.best https://fazier.com https://www.directree.io; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com; frame-src https://www.youtube-nocookie.com; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSV Guide for Windows – Tables, Export &amp; Schema Compare | CodePrettify</title>
+  <meta name="description" content="Use CSV Table View in the CodePrettify Windows app: filter rows, reorder columns, save CSV, JSON, HTML or Excel, and compare table schemas. Includes screenshots." />
+  <meta name="application-name" content="CodePrettify" />
+  <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://prettify.cloud/csv-guide.html" />
+  <link rel="icon" href="favicon.ico?v=20260725" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20260725" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260725" />
+  <meta property="og:site_name" content="CodePrettify" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="CSV Guide for Windows – Tables, Export &amp; Schema Compare" />
+  <meta property="og:description" content="Use CSV Table View in the CodePrettify Windows app: filter rows, reorder columns, save CSV, JSON, HTML or Excel, and compare table schemas. Includes screenshots." />
+  <meta property="og:url" content="https://prettify.cloud/csv-guide.html" />
+  <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-csv-table.png" />
+  <meta property="og:image:alt" content="CodePrettify Windows application displaying a CSV table in source column order" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CSV Guide for Windows – Tables, Export &amp; Schema Compare" />
+  <meta name="twitter:description" content="Use CSV Table View in the CodePrettify Windows app: filter rows, reorder columns, save CSV, JSON, HTML or Excel, and compare table schemas. Includes screenshots." />
+  <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-csv-table.png" />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
+  <link rel="stylesheet" href="style.min.css?v=7ca97971" />
+  <link rel="stylesheet" href="consent.css?v=20260826-2" />
+  <script src="site.js?v=20260826-3" defer></script>
+  <script src="feature-guide.js?v=20260906-2" defer></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "CodePrettify for Windows",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Windows 10, Windows 11",
+      "url": "https://prettify.cloud/csv-guide.html",
+      "description": "Use CSV Table View in the CodePrettify Windows app: filter rows, reorder columns, save CSV, JSON, HTML or Excel, and compare table schemas. Includes screenshots.",
+      "installUrl": "https://apps.microsoft.com/detail/9p0lp3pt6j7d"
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "Work with CSV files in the Windows app",
+      "description": "Use CSV Table View in the CodePrettify Windows app: filter rows, reorder columns, save CSV, JSON, HTML or Excel, and compare table schemas. Includes screenshots.",
+      "url": "https://prettify.cloud/csv-guide.html",
+      "dateModified": "2026-09-08",
+      "image": "https://prettify.cloud/img/screenshots/feature-csv-table.png",
+      "author": {
+        "@type": "Organization",
+        "name": "FixQuotes"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "CodePrettify",
+          "item": "https://prettify.cloud/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://prettify.cloud/guides.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "CSV in the Windows app",
+          "item": "https://prettify.cloud/csv-guide.html"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body class="feature-detail-body supporting-page csv-guide-page">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="bg-glow"></div>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo"><img src="img/code_32.png?v=20260725" srcset="img/code_32.png?v=20260725 1x, img/code_64.png?v=20260725 2x" width="32" height="32" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span></a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
+      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#install">Install</a>
+        <a href="tools.html">Tools</a>
+        <a href="guides.html" class="active">Guides</a><a href="pricing.html">Price</a><a href="manual.html">Manual</a><a href="changelog.html">Changelog</a><a href="contact.html">Contact</a></nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="feature-detail-main">
+    <nav class="feature-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="guides.html">Guides</a><span aria-hidden="true">/</span><span>CSV in the Windows app</span></nav>
+    <section class="feature-detail-hero">
+      <div>
+        <span class="feature-detail-eyebrow">Windows application · CSV guide · 2.0.2</span>
+        <h1>Work with CSV files in the Windows app</h1>
+        <p class="feature-detail-lead">Inspect rows, filter a customer delivery, rearrange columns, save an Excel workbook, and compare two file formats. Follow the complete CSV workflow with real application screenshots and downloadable examples.</p>
+        <p><strong>This guide is for the CodePrettify Windows application. CSV file handling and the native Save As and Compare Table Schema workflows shown here are not available in the browser extension.</strong></p>
+        <div class="feature-detail-actions"><a class="btn btn-primary" href="https://apps.microsoft.com/detail/9p0lp3pt6j7d" target="_blank" rel="noopener noreferrer">Get the Windows app</a><a class="btn btn-secondary" href="#csv-samples">Download the samples</a></div>
+        <ul class="feature-proof-list"><li>CSV processing stays on your device</li><li>Source column order and leading zeros preserved</li><li>CSV, JSON, HTML and Excel exports</li></ul>
+      </div>
+      <figure class="feature-hero-shot"><picture data-site-image>
+        <source srcset="img/screenshots/feature-csv-table.webp?v=071b578d" type="image/webp" />
+        <img src="img/screenshots/feature-csv-table.png" alt="CodePrettify Windows application showing the sample CSV table in original column order" width="1280" height="800" fetchpriority="high" />
+      </picture><figcaption>The Windows app opens CSV as a table, keeping headers and values in the source file&rsquo;s order. Select any screenshot in this guide to view it at full size.</figcaption></figure>
+    </section>
+
+    <nav class="feature-learning-nav" aria-label="CSV guide contents"><strong>In this guide</strong><div class="feature-learning-links"><a href="#csv-samples">Sample files</a><a href="#csv-open">Table and Raw</a><a href="#csv-advanced">Search and Advanced</a><a href="#csv-opening">Opening options</a><a href="#csv-order">Column order</a><a href="#csv-columns">Hide, resize and pin</a><a href="#csv-copy">Select and copy</a><a href="#csv-save">Save As</a><a href="#csv-schema">Schema compare</a><a href="#csv-content">Content compare</a><a href="#csv-limits">Large files and limits</a></div></nav>
+
+    <section class="feature-detail-section" aria-labelledby="csv-samples">
+      <div class="feature-detail-heading"><span class="section-badge">Try the same data</span><h2 id="csv-samples">Two small files, one changed format</h2><p>Both files contain twelve fictional business records. They use semicolons, UTF-8 text, Norwegian place names, and identifiers such as <code>0001</code>. These are the exact samples used by the screenshot script, so you can reproduce each step.</p></div>
+      <div class="feature-example-grid">
+        <article class="feature-example-card"><div class="feature-example-copy"><span class="feature-example-label">Earlier delivery · 6 columns</span><h3>csv-guide-before.csv</h3><p>The original format starts with ID and Name and ends with Email.</p><a href="testfiles/csv-guide-before.csv" download>Download the earlier CSV</a></div><pre class="feature-code" tabindex="0"><code>ID;Name;City;Group;Balance;Email
+0001;Aster Studio;Oslo;Retail;125.50;aster@example.com</code></pre></article>
+        <article class="feature-example-card"><div class="feature-example-copy"><span class="feature-example-label">Main file · 8 columns</span><h3>csv-guide-main.csv</h3><p>The updated delivery inserts WL after Name and appends OL at the end.</p><a href="testfiles/csv-guide-main.csv" download>Download the main CSV</a></div><pre class="feature-code" tabindex="0"><code>ID;Name;<span class="code-success">WL</span>;City;Group;Balance;Email;<span class="code-success">OL</span>
+0001;Aster Studio;<span class="code-success">No</span>;Oslo;Retail;125.50;aster@example.com;<span class="code-success">No</span></code></pre></article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="csv-open">
+      <div class="feature-detail-heading"><span class="section-badge">Open and inspect</span><h2 id="csv-open">Switch between Table View and Raw</h2><p>Open <code>csv-guide-main.csv</code> with <strong>File &gt; Open</strong> in the Windows app. With CSV formatting enabled, it opens in Table View. The first header is ID and the last is OL; opening a table does not alphabetize its columns.</p></div>
+      <ol class="feature-tutorial-steps">
+        <li><div><h3>Check the headers and values together</h3><p>Scroll horizontally to inspect wider files. Empty cells keep their position, so every value stays under the matching header. Leading zeros in IDs remain visible.</p></div></li>
+        <li><div><h3>Use Raw to inspect the actual CSV text</h3><p>Close the table with its <strong>X</strong> to return to <strong>Raw</strong>. This shows the plain source, including delimiters and quoting. CSV uses a <strong>Table View / Raw</strong> switch; it has no separate prettified CSV representation.</p></div></li>
+        <li><div><h3>Return to the table</h3><p>Choose <strong>Table View</strong> to reopen the grid. Your view choice is remembered. If CSV initially opens as text, choose Table View and check the CSV default view in Settings.</p></div></li>
+      </ol>
+      <figure class="feature-guide-shot"><picture data-site-image>
+        <source srcset="img/screenshots/feature-csv-raw.webp?v=7568ef48" type="image/webp" />
+        <img src="img/screenshots/feature-csv-raw.png" alt="Windows application Raw view showing semicolon-separated CSV source and the Table View switch" width="1280" height="800" loading="lazy" />
+      </picture><figcaption>Raw is useful for checking delimiters, empty fields, and exact source order before an export.</figcaption></figure>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="csv-opening">
+      <div class="feature-detail-heading"><span class="section-badge">Correct automatic detection</span><h2 id="csv-opening">Choose how a CSV file is opened</h2><p>If a delivery opens as one wide column, shows incorrect characters, or uses its first record as a heading, choose <strong>CSV opening options…</strong> in the table toolbar. The same command is available under <strong>Tools</strong> while viewing Raw or a large CSV file.</p></div>
+      <ol class="feature-tutorial-steps"><li><h3>Choose the delimiter</h3><p>Keep Auto-detect or choose comma, semicolon, tab, pipe, or a custom single character. A quote or line break cannot be a delimiter.</p></li><li><h3>Check the encoding and header row</h3><p>Encoding can be detected automatically or set to UTF-8, UTF-16 LE/BE, Windows-1252, or ISO 8859-1. Changing it rereads the file bytes. Clear <strong>First row contains headers</strong> for headerless data; the table uses names such as column1 and retains the first data record.</p></li><li><h3>Apply and inspect</h3><p><strong>Apply and reopen</strong> resets this table's filters, layout, and selection. It leaves the source file unchanged. The chosen interpretation is used when refreshing the open tab, saving table data, and comparing its schema. These opening choices last for the open tab; they are not a saved import profile.</p></li></ol>
+      <figure class="feature-guide-shot"><picture data-site-image>
+        <source srcset="img/screenshots/feature-csv-opening-options.webp?v=b72920bc" type="image/webp" />
+        <img src="img/screenshots/feature-csv-opening-options.png" alt="Windows CSV opening options dialog with delimiter, encoding and first-row header choices" width="1280" height="800" loading="lazy" />
+      </picture><figcaption>Opening options correct the interpretation of a CSV file without rewriting the incoming delivery.</figcaption></figure>
+      <p>Encoding is available for files read from disk. Pasted text already has an encoding interpretation, so its encoding selector is disabled. CSV exports from headerless data remain headerless; JSON, HTML and Excel use the generated column labels.</p>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="csv-advanced">
+      <div class="feature-detail-heading"><span class="section-badge">Find the records you need</span><h2 id="csv-advanced">Search, filters, counters, and selection</h2><p>The table search is always available. Turn on <strong>Advanced</strong> for column filters, source column indexes, and summaries. Hover a summary to read its unique and empty counts. Advanced defaults to off and remembers your last choice for the next table.</p></div>
+      <div class="feature-shot-grid">
+        <figure class="feature-guide-shot"><picture data-site-image>
+          <source srcset="img/screenshots/feature-csv-advanced.webp?v=e060d445" type="image/webp" />
+          <img src="img/screenshots/feature-csv-advanced.png" alt="CSV Advanced mode in the Windows app with zero-based Col labels, column filters and unique counters" width="1280" height="800" loading="lazy" />
+        </picture><figcaption>Advanced puts a normal-weight <strong>Col: 0</strong> above ID, <strong>Col: 1</strong> above Name, and so on. Column names remain bold.</figcaption></figure>
+        <figure class="feature-guide-shot"><picture data-site-image>
+          <source srcset="img/screenshots/feature-csv-advanced-dark.webp?v=449094ef" type="image/webp" />
+          <img src="img/screenshots/feature-csv-advanced-dark.png" alt="Windows application CSV Advanced controls, column indexes and summaries in the dark theme" width="1280" height="800" loading="lazy" />
+        </picture><figcaption>The same Advanced controls are available in the app&rsquo;s dark theme. Summaries describe the first twelve columns.</figcaption></figure>
+      </div>
+      <ol class="feature-tutorial-steps">
+        <li><div><h3>Narrow the table with a column filter</h3><p>Enter <code>Retail</code> in the Group filter. Six sample rows remain. Table search and column filters combine, so adding <code>Oslo</code> to the table search narrows the result to two rows.</p></div></li>
+        <li><div><h3>Sort when presentation order matters</h3><p>Click a column heading to sort the rows. Save As lets you choose current sorting or original row order when sorting has changed. Sorting the table does not rewrite the source file.</p></div></li>
+        <li><div><h3>Select the rows to keep</h3><p>Check individual rows, or use the header checkbox to select the rows matching the current filter. Selection stays with its records when you sort or filter again.</p></div></li>
+        <li><div><h3>Review active filters before saving</h3><p>Turning Advanced off hides its controls but retains entered filters. Clear the column filters and table search to restore every row, or deliberately choose <strong>All rows</strong> in Save As.</p></div></li>
+      </ol>
+      <div class="feature-shot-grid">
+        <figure class="feature-guide-shot"><picture data-site-image>
+          <source srcset="img/screenshots/feature-csv-selected.webp?v=b8023aaa" type="image/webp" />
+          <img src="img/screenshots/feature-csv-selected.png" alt="Three checked CSV records in the Windows application Table View before applying a filter" width="1280" height="800" loading="lazy" />
+        </picture><figcaption>Three records are selected: Aster Studio, Birch Works, and Cedar Lab.</figcaption></figure>
+        <figure class="feature-guide-shot"><picture data-site-image>
+          <source srcset="img/screenshots/feature-csv-filtered.webp?v=73fd908c" type="image/webp" />
+          <img src="img/screenshots/feature-csv-filtered.png" alt="Windows CSV table filtered to Retail while retaining a previously selected Partner record" width="1280" height="800" loading="lazy" />
+        </picture><figcaption>The Retail filter hides Birch Works, but its checkbox selection is retained. Selected-row exports still include that record.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="csv-filter-state">
+      <div class="feature-detail-heading"><h2 id="csv-filter-state">Keep track of active filters</h2><p>Hiding Advanced keeps your column filters active. The toolbar always shows the number of active filters, counting the global search and each nonempty column filter. <strong>Clear all filters</strong> clears them together and restores all rows, including when a filtered column itself is hidden.</p><p>For the sample, filter Group to Retail and turn Advanced off. Six records still match, and the active-filter indicator remains visible. Clearing the filters restores all twelve records.</p></div>
+      <figure class="feature-guide-shot"><picture data-site-image>
+        <source srcset="img/screenshots/feature-csv-filters-hidden.webp?v=67f3e7f8" type="image/webp" />
+        <img src="img/screenshots/feature-csv-filters-hidden.png" alt="Windows CSV table with Advanced hidden and an active-filter count and Clear all filters button" width="1280" height="800" loading="lazy" />
+      </picture><figcaption>The active-filter indicator remains visible when Advanced is off.</figcaption></figure>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="csv-order">
+      <div class="feature-detail-heading"><span class="section-badge">Arrange a delivery</span><h2 id="csv-order">Drag columns, then save the new order</h2><p>Drag a column heading to a new position. The insertion marker shows where it will land; move near an edge to scroll across a wide table. Release to move the header and all its cells together, or press <kbd>Esc</kbd> to cancel. Keyboard users can focus a heading and use <kbd>Alt</kbd>+<kbd>Left</kbd> or <kbd>Alt</kbd>+<kbd>Right</kbd>.</p><p>In the sample, move Name before ID. Advanced still labels Name <strong>Col: 1</strong>, because that number identifies its original position in the file. To write the rearranged delivery, choose <strong>Current table order</strong> in Save As. The order choice is disabled until columns actually differ from the source order.</p></div>
+      <div class="feature-shot-grid">
+        <figure class="feature-guide-shot"><picture data-site-image>
+          <source srcset="img/screenshots/feature-csv-drag.webp?v=e2fb643e" type="image/webp" />
+          <img src="img/screenshots/feature-csv-drag.png" alt="Column drag in the Windows CSV table with an insertion marker before the ID heading" width="1280" height="800" loading="lazy" />
+        </picture><figcaption>Dragging Name before ID shows the destination before you release the pointer.</figcaption></figure>
+        <figure class="feature-guide-shot"><picture data-site-image>
+          <source srcset="img/screenshots/feature-csv-reordered.webp?v=6e7eb573" type="image/webp" />
+          <img src="img/screenshots/feature-csv-reordered.png" alt="Windows CSV table after moving Name ahead of ID while retaining the original column index labels" width="1280" height="800" loading="lazy" />
+        </picture><figcaption>Name and its values now come first. The original source file remains available in Raw.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="csv-columns">
+      <div class="feature-detail-heading"><span class="section-badge">Arrange the working view</span><h2 id="csv-columns">Hide, resize, and pin columns</h2><p>Open <strong>Columns</strong> to choose which fields appear. Uncheck Email in the sample to make more room. Hiding a column keeps its data and any filter active; at least one column stays visible. <strong>Reset columns</strong> restores source order, default widths, all columns, and no pin.</p><p>Drag the right edge of a header to resize it. You can also enter a pixel width in Columns, or focus a header's resize handle and use Left/Right arrows. Column widths range from 80 to 1,000 pixels.</p><p>Choose <strong>Pin</strong> beside ID to keep it at the left while scrolling horizontally. One data column can be pinned at a time. Pinning moves it to the front of the working order; <strong>Unpin</strong> returns it to its previous position. Layout choices remain while switching between Table View and Raw in the same tab, and reset when the document is reopened.</p></div>
+      <div class="feature-shot-grid"><figure class="feature-guide-shot"><picture data-site-image>
+        <source srcset="img/screenshots/feature-csv-columns.webp?v=e14fd42c" type="image/webp" />
+        <img src="img/screenshots/feature-csv-columns.png" alt="Windows table Columns panel with visibility checkboxes, editable widths and a pinned ID column" width="1280" height="800" loading="lazy" />
+      </picture><figcaption>Email is hidden, Name and City are wider, and ID is pinned. These are view controls in the Windows application.</figcaption></figure>
+      <figure class="feature-guide-shot"><picture data-site-image>
+        <source srcset="img/screenshots/feature-csv-pinned.webp?v=8ffc2281" type="image/webp" />
+        <img src="img/screenshots/feature-csv-pinned.png" alt="Windows CSV table scrolled horizontally with the ID column fixed on the left" width="1280" height="800" loading="lazy" />
+      </picture><figcaption>ID remains next to the row numbers while the other fields scroll.</figcaption></figure></div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="csv-copy">
+      <div class="feature-detail-heading"><span class="section-badge">Move a useful slice into another tool</span><h2 id="csv-copy">Select cells, columns, or rows and copy to Excel</h2><p>Click a cell, then Shift-click another cell to select a rectangle. Drag across cells to select directly, including scrolling near the table edges. Arrow keys move the active end of the selection; hold Shift to extend it. Escape clears the cell range.</p><p><strong>Ctrl-click a column heading</strong> selects that column across all matching rows, including rows outside the rendered viewport. Click a row number and Shift-click another for a contiguous rectangle of complete rows. Alternatively, check a row checkbox and Shift-click another checkbox to select a contiguous set for both copying and Save As. Row ranges follow the current sorting and filtering.</p><p>Press <strong>Ctrl+C</strong> with the table focused, or choose <strong>Copy selection</strong>. <strong>Include headers in copy</strong> adds the column names as the first row of the copied text and remembers the choice for the next table. It affects both Copy selection and Ctrl+C; toggling it does not change the table display. Copied values form a tab-separated rectangle; tabs, quotes, and line breaks inside cells are quoted. Hidden columns and filtered-out rows are excluded from copying. Checked rows hidden by a filter are still available under Save As &gt; Selected rows.</p></div>
+      <div class="feature-shot-grid"><figure class="feature-guide-shot"><picture data-site-image>
+        <source srcset="img/screenshots/feature-csv-range.webp?v=2495ed4f" type="image/webp" />
+        <img src="img/screenshots/feature-csv-range.png" alt="Windows CSV table showing a rectangular cell selection and the Include headers in copy option" width="1280" height="800" loading="lazy" />
+      </picture><figcaption>A three-row rectangle is ready to copy. The current visible column order defines the rectangle.</figcaption></figure>
+      <figure class="feature-guide-shot"><picture data-site-image>
+        <source srcset="img/screenshots/feature-csv-column-selected.webp?v=d3ad931e" type="image/webp" />
+        <img src="img/screenshots/feature-csv-column-selected.png" alt="Windows CSV table with the entire Name column selected for copying" width="1280" height="800" loading="lazy" />
+      </picture><figcaption>Ctrl-click a heading to select its entire filtered column, including off-screen records.</figcaption></figure></div>
+      <p>Cell and column ranges are clipboard selections. Save As &gt; Selected rows uses the row checkboxes. For identifiers that must retain leading zeros in Excel, use the .xlsx export: its CSV values are explicitly stored as text. Ordinary clipboard pastes may be interpreted by the receiving application. Double-click a long cell, or focus it and press Enter, to expand its full value.</p>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="csv-save">
+      <div class="feature-detail-heading"><span class="section-badge">One Save As workflow</span><h2 id="csv-save">Save CSV, JSON, HTML, or an Excel workbook</h2><p>While Table View is active, its <strong>Save as…</strong> button, <strong>File &gt; Save As</strong>, and <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> open the same table-specific dialog in the Windows app. Choose the output format, row scope, and ordering, review the counts, then save to a destination.</p></div>
+      <div class="feature-guide-table-wrap" tabindex="0" role="region" aria-label="Table save formats"><table class="feature-guide-table"><thead><tr><th scope="col">Format</th><th scope="col">Use it for</th><th scope="col">What to expect</th></tr></thead><tbody>
+        <tr><th scope="row">CSV</th><td>A filtered delivery, selected records, or a new column order.</td><td>Preserves source delimiter, encoding, headers, empty values, quoting, and leading zeros.</td></tr>
+        <tr><th scope="row">JSON</th><td>Rows as objects for a script or another data tool.</td><td>CSV values remain strings, including IDs such as <code>0001</code>.</td></tr>
+        <tr><th scope="row">HTML Table</th><td>A standalone table to open in a browser or share as a report.</td><td>Writes an <code>.html</code> file with the chosen rows and ordering.</td></tr>
+        <tr><th scope="row">Excel workbook (.xlsx)</th><td>A workbook for Excel or another spreadsheet application.</td><td>Frozen header row and column filters. CSV cells remain text to preserve identifiers and date-like values.</td></tr>
+        <tr><th scope="row">Original file copy</th><td>An exact copy of the incoming delivery.</td><td>Preserves every source byte. Table filters, selections, and order changes do not apply.</td></tr>
+      </tbody></table></div>
+      <div class="feature-detail-heading"><h3>Choose which rows leave the table</h3><p><strong>All rows</strong> includes the complete table. <strong>Filtered rows</strong> uses both table search and column filters. <strong>Selected rows</strong> includes every checked row, even those currently hidden by filters; the dialog tells you how many are hidden.</p><p>The default is Selected when rows are checked, otherwise Filtered when filters are active, otherwise All. Column order and row order are separate choices. In the screenshot below, saving the three selected records includes Birch Works even though the Retail filter hides it.</p></div>
+      <div class="feature-shot-grid">
+        <figure class="feature-guide-shot"><picture data-site-image>
+          <source srcset="img/screenshots/feature-csv-save-csv.webp?v=bbfee418" type="image/webp" />
+          <img src="img/screenshots/feature-csv-save-csv.png" alt="Windows table Save As dialog choosing CSV with selected rows, changed column order and hidden selection count" width="1280" height="800" loading="lazy" />
+        </picture><figcaption>CSV: save the selection with the new column order, and review the source delimiter and encoding.</figcaption></figure>
+        <figure class="feature-guide-shot"><picture data-site-image>
+          <source srcset="img/screenshots/feature-csv-save-json.webp?v=5b6f6c3f" type="image/webp" />
+          <img src="img/screenshots/feature-csv-save-json.png" alt="Windows table Save As dialog choosing JSON and filtered rows from the CSV sample" width="1280" height="800" loading="lazy" />
+        </picture><figcaption>JSON: choose Filtered rows to export the six Retail records, regardless of the checkbox selection.</figcaption></figure>
+        <figure class="feature-guide-shot"><picture data-site-image>
+          <source srcset="img/screenshots/feature-csv-save-html.webp?v=8b172cab" type="image/webp" />
+          <img src="img/screenshots/feature-csv-save-html.png" alt="Windows table Save As dialog choosing HTML Table and all rows for a standalone report" width="1280" height="800" loading="lazy" />
+        </picture><figcaption>HTML Table: All rows includes all twelve records, including the rows hidden by the current filter.</figcaption></figure>
+        <figure class="feature-guide-shot"><picture data-site-image>
+          <source srcset="img/screenshots/feature-csv-save-xlsx.webp?v=12a8ef08" type="image/webp" />
+          <img src="img/screenshots/feature-csv-save-xlsx.png" alt="Windows table Save As dialog choosing Excel workbook xlsx with row and column order options" width="1280" height="800" loading="lazy" />
+        </picture><figcaption>Excel workbook: produces a real .xlsx file. CSV text is written as text cells, never as formulas.</figcaption></figure>
+      </div>
+      <div class="feature-detail-heading"><h3>Choose All columns or Visible columns</h3><p>The <strong>Columns</strong> choice explicitly controls the export scope. <strong>All columns</strong> is the default and includes hidden fields. <strong>Visible columns</strong> saves just the fields shown in the table. This works for CSV, JSON, HTML Table, and .xlsx, independently of which rows you choose. Current or Original column order then determines the order within that set.</p><p>After hiding Email in the sample, Visible columns saves seven fields; All columns saves eight. Check the row-by-column summary before choosing the destination. Column widths and pin styling are display settings and are not written into CSV data.</p></div>
+      <figure class="feature-guide-shot"><picture data-site-image>
+        <source srcset="img/screenshots/feature-csv-save-visible.webp?v=a42076d7" type="image/webp" />
+        <img src="img/screenshots/feature-csv-save-visible.png" alt="Windows Save table as dialog with Visible columns selected and a seven-column output summary" width="1280" height="800" loading="lazy" />
+      </picture><figcaption>The explicit column scope prevents hiding a field from silently removing it from an export.</figcaption></figure>
+      <div class="feature-detail-heading"><h3>Keep the original or open the result</h3><p><strong>Original file copy</strong> disables table transformations. For the other formats, Save As creates a separate output while the open source tab keeps its original file. Enable <strong>Open saved file</strong> if you want the result to open in its associated application after saving.</p><p>Table Save As offers data formats. Code-image capture, Formatted, and Minified are not offered in this dialog. If you need the exact incoming CSV, choose Original file copy rather than exporting a view.</p></div>
+      <figure class="feature-guide-shot"><picture data-site-image>
+        <source srcset="img/screenshots/feature-csv-save-original.webp?v=2f73083f" type="image/webp" />
+        <img src="img/screenshots/feature-csv-save-original.png" alt="Windows table Save As dialog with Original file copy selected and transformation choices disabled" width="1280" height="800" loading="lazy" />
+      </picture><figcaption>Original file copy makes the scope explicit: an unchanged copy of the source, including its encoding and byte-order mark.</figcaption></figure>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="csv-schema">
+      <div class="feature-detail-heading"><span class="section-badge">Understand a changed file format</span><h2 id="csv-schema">Compare a main file with another table schema</h2><p>Choose <strong>Tools &gt; Compare Table Schema</strong> in the Windows app. The active file is preselected as <strong>Main file</strong>. Under <strong>Compare with</strong>, choose the earlier delivery. The result describes the main file relative to that other file.</p></div>
+      <div class="feature-shot-grid">
+        <figure class="feature-guide-shot"><picture data-site-image>
+          <source srcset="img/screenshots/feature-csv-schema-dialog.webp?v=70a1f7dc" type="image/webp" />
+          <img src="img/screenshots/feature-csv-schema-dialog.png" alt="Windows Compare Table Schema dialog identifying Main file and Compare with using the two CSV samples" width="1280" height="800" loading="lazy" />
+        </picture><figcaption>Use csv-guide-main.csv as Main file and csv-guide-before.csv under Compare with.</figcaption></figure>
+        <figure class="feature-guide-shot"><picture data-site-image>
+          <source srcset="img/screenshots/feature-csv-schema-columns.webp?v=c6ea84f8" type="image/webp" />
+          <img src="img/screenshots/feature-csv-schema-columns.png" alt="Windows CSV schema comparison listing added WL and OL columns and shifted source positions" width="1280" height="800" loading="lazy" />
+        </picture><figcaption>The main file has two added columns: WL at position 2 and OL at position 7. Positions start at zero.</figcaption></figure>
+      </div>
+      <div class="feature-guide-table-wrap" tabindex="0" role="region" aria-label="Schema comparison change meanings"><table class="feature-guide-table"><thead><tr><th scope="col">Change</th><th scope="col">Meaning relative to the main file</th></tr></thead><tbody>
+        <tr><th scope="row">Added · green</th><td>The column exists only in the main file. WL and OL are green in this example.</td></tr>
+        <tr><th scope="row">Removed · red</th><td>The compared file contains the column, but the main file is missing it.</td></tr>
+        <tr><th scope="row">Shifted · blue</th><td>Its index changed because other columns were inserted or removed. City shifts from 2 to 3 when WL is inserted.</td></tr>
+        <tr><th scope="row">Reordered or type changed</th><td>The relative order of shared columns changed, or the types observed in the data differ.</td></tr>
+      </tbody></table></div>
+      <div class="feature-detail-heading"><h3>Inspect positions, examples, and the preview</h3><p>The Columns view lists names, main and compared positions, observed types, and example values. Use <strong>Find column</strong> to locate a field and <strong>Changes only</strong> to hide unchanged fields. <strong>Data preview</strong> shows the first ten rows from each file in their source column order, making inserted fields easy to inspect.</p><p><strong>Swap files</strong> changes which file is the main file. With the earlier delivery as main, WL and OL become red Removed columns. This is a directional comparison; the labels above the files and the added/removed explanation show how to read it.</p></div>
+      <div class="feature-shot-grid">
+        <figure class="feature-guide-shot"><picture data-site-image>
+          <source srcset="img/screenshots/feature-csv-schema-changes.webp?v=7fda0ef1" type="image/webp" />
+          <img src="img/screenshots/feature-csv-schema-changes.png" alt="Windows schema comparison Changes only view showing just the two added CSV columns WL and OL" width="1280" height="800" loading="lazy" />
+        </picture><figcaption>Changes only isolates WL and OL. Columns whose positions simply shifted are omitted from this filtered view.</figcaption></figure>
+        <figure class="feature-guide-shot"><picture data-site-image>
+          <source srcset="img/screenshots/feature-csv-schema-preview.webp?v=51a52c27" type="image/webp" />
+          <img src="img/screenshots/feature-csv-schema-preview.png" alt="Windows schema comparison data preview showing new WL values alongside the compared CSV table" width="1280" height="800" loading="lazy" />
+        </picture><figcaption>Data preview shows actual sample values around the inserted column. Each file retains its own order.</figcaption></figure>
+        <figure class="feature-guide-shot"><picture data-site-image>
+          <source srcset="img/screenshots/feature-csv-schema-swapped.webp?v=bf95e23d" type="image/webp" />
+          <img src="img/screenshots/feature-csv-schema-swapped.png" alt="Windows schema comparison after swapping files with WL and OL now marked Removed in red" width="1280" height="800" loading="lazy" />
+        </picture><figcaption>After Swap files, the earlier delivery is the main file. Its missing WL and OL columns are shown in red.</figcaption></figure>
+      </div>
+      <div class="feature-practice-lab"><h3>Reproduce the schema change</h3><p>Compare the two downloads and look for these results. You can use the same workflow for compatible JSON arrays and repeating XML/RSS tables in the Windows app.</p><ul class="feature-checklist"><li>Two added columns, zero removed columns.</li><li>WL at main position 2 and OL at main position 7.</li><li>City shifts from compared position 2 to main position 3.</li><li>Swap files reverses the result to two removed columns.</li><li>Preview shows No and Yes values in the new fields.</li><li>No shared column was deliberately reordered.</li></ul></div>
+      <p>Schema comparison matches column names exactly. A renamed column appears as an addition and a removal. Types describe values observed in the files; CSV values are text or empty. This view does not match records by ID or report every changed cell. Its examples and preview help explain the structure, rather than verify record-level equality.</p>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="csv-content">
+      <div class="feature-detail-heading"><span class="section-badge">Compare the exact text</span><h2 id="csv-content">When to use Compare File Content</h2><p>Use <strong>Tools &gt; Compare File Content</strong> when you need to review lines in the actual files. It shows compact rows with added and removed colors immediately, synchronized panes, difference navigation, and a separate summary area.</p><p>Inserting a CSV column changes the text of every affected row, so a content comparison can show many changed lines for a small format change. Use Compare Table Schema to answer which fields were added and where. Use Compare File Content to examine the literal line differences.</p></div>
+      <figure class="feature-guide-shot"><picture data-site-image>
+        <source srcset="img/screenshots/feature-csv-compare-content.webp?v=1129ebb0" type="image/webp" />
+        <img src="img/screenshots/feature-csv-compare-content.png" alt="Windows Compare File Content showing compact red and green CSV lines with a separate bottom summary" width="1280" height="800" loading="lazy" />
+      </picture><figcaption>The same twelve records generate line changes because WL and OL add fields to each CSV row. Text comparison uses its own left/right direction.</figcaption></figure>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="csv-limits">
+      <div class="feature-detail-heading"><span class="section-badge">Practical limits</span><h2 id="csv-limits">Large CSV files and export details</h2><p>Files of 64 MiB or more use the Windows app&rsquo;s native read-only pager. CSV pages contain up to 500 rows, with Table View and Raw, page navigation, search, and Go to row. This view has different controls from the full table shown above.</p><p>Save As from a paged CSV table exports the complete source file, not just the loaded page. Selection, filtered export, column management, rectangular copying, and changed-order options are unavailable there. Page search does not create a filtered export. Save As from Raw copies the original file.</p></div>
+      <div class="feature-detail-faq">
+        <details><summary>How much fits in an Excel export?</summary><p>One workbook sheet supports up to 1,048,575 data rows plus the header, 16,384 columns, and 32,767 characters per cell. The app reports unsupported sizes rather than silently truncating the data. CSV values are exported as text; JSON number and boolean values can use their corresponding cell types.</p></details>
+        <details><summary>Can I open an .xlsx file in CodePrettify?</summary><p>This workflow exports Excel workbooks from Table View. It does not add .xlsx as an input format. Open the saved workbook in Excel or another compatible spreadsheet application.</p></details>
+        <details><summary>Does table manipulation overwrite my source?</summary><p>Filtering, sorting, and dragging columns change the table view. Use Save As to create an output with those choices. To retain the incoming bytes exactly, choose Original file copy.</p></details>
+        <details><summary>How large can a schema comparison be?</summary><p>Each input can be up to 128 MiB, with at most 4,096 columns. Profiles inspect the rows while retaining bounded examples; Data preview shows only the first ten records. It is a structure comparison, so use another workflow when you need to reconcile individual records by a key.</p></details>
+        <details><summary>Where does CSV processing happen?</summary><p>Opening, filtering, exporting, and comparing these local files runs on your device in the Windows application. This website supplies documentation and sample downloads; you do not upload your CSV to follow the guide.</p></details>
+      </div>
+    </section>
+    <section class="feature-detail-section" aria-labelledby="csv-related"><div class="feature-detail-heading"><span class="section-badge">Related reference</span><h2 id="csv-related">Continue in the manual</h2></div><div class="feature-related-grid"><a class="feature-related-card" href="manual.html#table-view"><h3>Table View reference</h3><p>Table capabilities and Save As details, with app and extension availability marked.</p><span>Open Table View reference →</span></a><a class="feature-related-card" href="manual.html#compare"><h3>Comparison reference</h3><p>Read the complete comparison controls, modes, and limits.</p><span>Open comparison reference →</span></a><a class="feature-related-card" href="changelog-app.html"><h3>Windows app changelog</h3><p>See the application release notes for the CSV and table improvements.</p><span>Read application updates →</span></a></div></section>
+    <section class="feature-page-cta" aria-labelledby="csv-cta"><h2 id="csv-cta">Start with the two sample CSV files</h2><p>Use the Windows application to inspect the table, save a selected or filtered delivery, and compare its structure with the earlier format.</p><div class="feature-detail-actions"><a class="btn btn-primary" href="https://apps.microsoft.com/detail/9p0lp3pt6j7d" target="_blank" rel="noopener noreferrer">Get the Windows app</a><a class="btn btn-secondary" href="#csv-samples">Download the samples</a></div></section>
+  </main>
+
+  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="guides.html">Guides</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="contact.html">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://fixquotes.com/docs/about/" target="_blank" rel="noopener noreferrer">FixQuotes</a>.</p></div></footer>
+</body>
+</html>

@@ -32,7 +32,7 @@
     <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-stats-diagnostics.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=0d0731ca" />
+  <link rel="stylesheet" href="style.min.css?v=7ca97971" />
   <link rel="stylesheet" href="consent.css?v=20260826-2" />
     <script src="site.js?v=20260826-3" defer></script>
   </head>
@@ -97,11 +97,80 @@
         </a>
       </div>
 
+      <!-- Version 2.0.2 -->
+      <article class="version-card" id="release-v2-0-2">
+        <div class="version-header">
+          <h2 class="version-number">v2.0.2</h2>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">September 2026</span>
+        </div>
+        <div class="version-body">
+          <div class="version-section">
+            <h3>Added</h3>
+            <ul class="feature-list">
+              <li><strong>More table controls in the Windows app</strong> &mdash; Always-visible active-filter counts and Clear all filters; hide/show, resize, and pin columns; copy cell rectangles, whole columns, or contiguous rows with optional headers. Save As explicitly offers All columns or Visible columns.</li>
+              <li><strong>CSV opening options</strong> &mdash; Override delimiter, encoding, and whether the first row contains headers. Reopening, exports, and schema comparison use the selected interpretation without changing the source file.</li>
+              <li><strong>CSV workflow guide</strong> &mdash; The new <a href="csv-guide.html">Windows application CSV guide</a> covers Table View and Raw, Advanced controls, filters, column ordering, all five Save As formats, and main-file schema comparison, with sample downloads and twenty-six native screenshots.</li>
+              <li>
+                <strong>Save tables in more formats</strong> &mdash; Table View now has one Save as button, shared with File &gt; Save As. Choose CSV, JSON, HTML Table, Excel workbook (.xlsx), or an unchanged copy of the original file. Save all, filtered or selected rows, with counts and a clear output summary. Selections hidden by filters are included and identified; current or original row and column ordering is available when it differs. You can also open the file after saving.
+              </li>
+              <li>
+                <strong>Excel workbooks</strong> &mdash; Save tables directly as .xlsx with a frozen header row and column filters. CSV values remain text to preserve leading zeros and identifiers, structured values keep suitable cell types, and text is never treated as a formula.
+              </li>
+              <li>
+                <strong>Compare Table Schema</strong> &mdash; Compare a main file with another table document to see added, removed and reordered columns, their positions in each file, observed types and example values. Switch to Data preview for side-by-side examples from the first 10 rows of each file. Position shifts caused by new or removed columns are identified separately from reordering. Find a column, filter to schema changes or swap files without changing either source.
+              </li>
+            </ul>
+          </div>
+          <div class="version-section">
+            <h3>Fixed</h3>
+            <ul class="feature-list">
+              <li><strong>A clearer table toolbar</strong> &mdash; The close button stays at the top right, Save As stays beside search, and table and copy controls are grouped below. Include headers in copy adds column names to copied text without changing the table.</li>
+              <li><strong>Aligned column controls</strong> &mdash; Reset columns has its own toolbar and stays visible while the column list scrolls. Column names, widths and pin buttons remain aligned at different window sizes.</li>
+              <li>
+                <strong>CSV saves preserve the source format</strong> &mdash; Table saves retain the source delimiter, encoding, original headers, empty values and leading zeros, including semicolon-separated and UTF-16 files.
+              </li>
+              <li>
+                <strong>Complete dropdown focus borders</strong> &mdash; Table Save As leaves enough space around its controls to show the full focus outline in both light and dark themes, and keeps the output summary visible at higher display scaling.
+              </li>
+              <li>
+                <strong>Schema changes follow the main file</strong> &mdash; Choose a Main file and a file to Compare with. Columns found only in the main file are green and marked Added; columns missing from it are red and marked Removed. Clear file-role labels replace left/right and old/new labels, and Swap files reverses the comparison.
+              </li>
+              <li>
+                <strong>Drag table columns again</strong> &mdash; Move columns without the forbidden-drop cursor. An insertion marker shows where the column will go, the table scrolls near its edges, and Escape cancels the move. Save As can use the new column order.
+              </li>
+              <li>
+                <strong>Relevant table save choices</strong> &mdash; Table View no longer offers code-only image and formatting actions, avoiding the &ldquo;No visible lines to capture&rdquo; error. Raw and code views keep their existing save options.
+              </li>
+              <li>
+                <strong>CSV columns keep their original order</strong> &mdash; Table View now opens CSV files with columns in the same order as the source file instead of sorting the headers alphabetically.
+              </li>
+              <li>
+                <strong>Clear CSV view switching</strong> &mdash; CSV documents switch between Table View and Raw. Closing the table shows the original source in Raw mode instead of labeling it Prettified, and selecting Table View returns directly to the table.
+              </li>
+              <li>
+                <strong>Compare colours and file details</strong> &mdash; Compare File Content shows added and removed line colours immediately, without hovering over each row. File details stay below the scrolling content without overlapping the last visible lines or the app status bar.
+              </li>
+            </ul>
+          </div>
+          <div class="version-section">
+            <h3>Improved</h3>
+            <ul class="feature-list">
+              <li>
+                <strong>Advanced table controls</strong> &mdash; Advanced replaces Summaries and brings column filters, unique-value summaries and column indexes starting at zero into one toggle. It starts off and remembers your choice for the next table.
+              </li>
+              <li>
+                <strong>Compact file comparison</strong> &mdash; Closer line spacing lets you see more of both files at once.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
       <!-- Version 2.0.1 -->
       <article class="version-card" id="release-v2-0-1">
 <div class="version-header">
           <h2 class="version-number">v2.0.1</h2>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">September 2026</span>
         </div>
 <div class="version-body">

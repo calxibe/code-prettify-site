@@ -5481,6 +5481,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.35rem); font-weight: 600; letter-spacing: -
 .changelog-page .version-badge { padding: 3px 8px; border: 1px solid var(--border); border-radius: 3px; background: var(--surface); color: var(--text-muted); font-size: 0.62rem; font-weight: 500; letter-spacing: 0.03em; }
 .changelog-page .badge-latest { color: var(--text); }
 .changelog-page .version-body { min-width: 0; max-width: 790px; }
+.changelog-page .version-body a { text-decoration: underline; text-underline-offset: 0.16em; }
 .changelog-page .version-section { margin: 0 0 32px; }
 .changelog-page .version-section:last-child { margin-bottom: 0; }
 .changelog-page .version-section h3 { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.02em; color: var(--text); margin: 0 0 16px; }

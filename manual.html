@@ -32,7 +32,7 @@
     <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-json-format.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=0d0731ca" />
+  <link rel="stylesheet" href="style.min.css?v=7ca97971" />
   <link rel="stylesheet" href="consent.css?v=20260826-2" />
     <script src="site.js?v=20260826-3" defer></script>
     <script src="manual.js?v=20260719-3" defer></script>
@@ -312,6 +312,7 @@
             <h3>Save and Save As</h3>
             <ul>
               <li><strong>Raw/Source</strong> saves the original source. <strong>Prettified/Rendered/Table</strong> saves the document representation, never the viewer’s interface HTML. For JSON Lines, a formatted save remains valid one-record-per-line JSONL; the expanded reading view is never written to the file.</li>
+              <li>With <strong>Table View</strong> open, <strong>File &gt; Save As</strong>, <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd>, and the table&rsquo;s <strong>Save as…</strong> button open the same table dialog. Choose a format, row scope, and ordering before selecting the destination. The table dialog also offers an unchanged original-file copy; code-image and formatting options belong to Raw and code views.</li>
               <li>If another program changed the disk file, choose Overwrite, Save As, or Cancel.</li>
               <li>Saving formatted JSONC warns that comments and trailing commas will be removed; No is the default.</li>
               <li>The app preserves the original encoding/BOM when possible, writes saves atomically, and warns when a legacy encoding would lose characters. Unsaved and native large-file tabs use Save As; comparison tabs cannot be saved.</li>
@@ -326,7 +327,7 @@
               <div class="manual-card"><h3>File</h3><p>Open, Paste &amp; Prettify, Save, Save As, Recent Files/Clear Recent, Close Tab, and Exit.</p></div>
               <div class="manual-card"><h3>Edit</h3><p>Copy Original, Copy Formatted, Copy Minified, Find, and Go to Line. Copy feedback names the selected representation.</p></div>
               <div class="manual-card"><h3>View</h3><p>Toggle Beautify, Word Wrap, Line Numbers, Minimap, Floating Toolbar, Zoom In, Zoom Out, and Reset Zoom.</p></div>
-              <div class="manual-card"><h3>Tools</h3><p>Document Navigator, Table View, Diagram Generator, JSON Schema Validator, Statistics, Diagnostics, JSON Repair &amp; Transform, Data Converter, JSON to Code Generator, Export / Download, JavaScript Playground, Inspect Runtime, Regex Playground, JSON Path Inspector, HTTP Client, Security Scan, Compare File Content, Compare with Clipboard, and Settings.</p></div>
+              <div class="manual-card"><h3>Tools</h3><p>Document Navigator, Table View, Diagram Generator, JSON Schema Validator, Statistics, Diagnostics, JSON Repair &amp; Transform, Data Converter, JSON to Code Generator, Export / Download, JavaScript Playground, Inspect Runtime, Regex Playground, JSON Path Inspector, HTTP Client, Security Scan, Compare File Content, Compare Table Schema, Compare with Clipboard, and Settings.</p></div>
               <div class="manual-card"><h3>Help</h3><p>Manual, Changelog, Report Issues &amp; Ideas, Explorer Integration Runtime, Debug Log, and About.</p></div>
             </div>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
@@ -483,12 +484,27 @@
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Rows and columns</span><h2>Table View</h2></div><span class="product-badge product-shared">Both products</span></div>
             <p>Table View is available for compatible JSON arrays of objects and repeating XML/RSS structures; the app also uses it for CSV (CSV files open directly in Table View when CSV formatting is enabled) and for HTML documents with a repeating tabular structure. In the extension, mixed JSON arrays are rejected rather than silently dropping primitive rows; the app shows the object rows and omits primitive entries.</p>
             <ul>
-              <li>Search the entire table or filter individual columns.</li>
+              <li>Search the entire table. Turn on <strong>Advanced</strong> to show individual column filters, column indexes starting at zero, and column summaries. Advanced starts off and remembers your choice for the next table.</li>
               <li>Click a column to sort; drag columns to reorder them.</li>
-              <li>Expand long cells and optionally show column summaries such as dominant type, unique values, and empty counts. Summaries cover the first 12 columns, and the toggle state is remembered.</li>
-              <li>Select individual rows or all rows matching the current filter, then export the selection as CSV or JSON in the current column and sort order. Export the current filtered/sorted table as HTML.</li>
+              <li>Expand long cells. In Advanced mode, summaries show details such as dominant type, unique values, and empty counts for the first 12 columns.</li>
+              <li>Select individual rows or all rows matching the current filter. The extension exports the selection as CSV or JSON in the current column and sort order, or the current filtered/sorted table as HTML. The Windows app combines these actions in <strong>Save as…</strong>.</li>
               <li>Large tables use virtual rendering from roughly 1,000 rows so the view remains responsive.</li>
             </ul>
+            <h3>Table controls in the Windows app</h3>
+            <p>An active-filter count and <strong>Clear all filters</strong> remain visible when Advanced is hidden. Use <strong>Columns</strong> to hide/show fields, resize them, or pin one column while scrolling horizontally. Drag a header edge to resize, or use its focused handle’s arrow keys. Reset columns restores the source layout. Hidden columns retain their data and filters.</p>
+            <p>Drag or Shift-click cells to select a rectangle. Ctrl-click a heading for its whole filtered column. Click and Shift-click row numbers for complete rows, or Shift-click row checkboxes for a contiguous selection usable by Save As. Ctrl+C or Copy selection copies tab-separated cells, including off-screen selected records. Include headers in copy adds column names as the first clipboard row and remembers the choice; toggling it does not change the displayed table. Clipboard copying excludes hidden columns and filtered-out rows. Use .xlsx export to retain CSV identifiers explicitly as Excel text. Double-click long cells to expand them.</p>
+            <p>For CSV, <strong>Tools &gt; CSV opening options…</strong> and the table toolbar let you override delimiter, encoding, and whether the first row contains headers. Custom one-character delimiters are supported. Applying resets filters, layout, and selection, leaves source bytes unchanged, and carries the interpretation into refresh, export, and schema comparison. Encoding rereads disk bytes; it is unavailable for pasted text. The native large-file pager supports these opening options but has its own limited table controls.</p>
+            <h3>Save a table in the Windows app</h3>
+            <p class="manual-deep-link"><strong>In-depth Windows app guide:</strong> Follow the <a href="csv-guide.html">CSV workflow</a> with sample downloads and screenshots of Raw/Table View, Advanced, filters, column dragging, Save As, and schema comparison.</p>
+            <p>Open <strong>Save as…</strong> from the table toolbar or <strong>File &gt; Save As</strong>. Choose <strong>CSV</strong>, <strong>JSON</strong>, <strong>HTML Table</strong>, <strong>Excel workbook (.xlsx)</strong>, or <strong>Original file copy</strong>. Original makes an unchanged copy of the source; the other formats use the following table choices:</p>
+            <ul>
+              <li><strong>Rows:</strong> All rows, Filtered rows, or Selected rows, each with a count. Filtered rows follow both the table search and column filters. Selected rows include checked rows hidden by the current filters; the dialog reports that hidden count. Selection is the default when rows are checked, otherwise filtering is the default when active, otherwise all rows.</li>
+              <li><strong>Columns:</strong> All columns (the default) includes hidden fields. Visible columns exports only the displayed fields. The output summary shows the resulting count.</li>
+              <li><strong>Column order:</strong> Current table order or Original column order. The choice is enabled when columns have been dragged into a different order.</li>
+              <li><strong>Row order:</strong> Current sorting or Original row order. The choice is enabled when sorting has changed.</li>
+              <li><strong>Review and save:</strong> Check the row and column counts and output format. CSV also shows its delimiter and encoding. After choosing a destination and saving, use <strong>Open saved file</strong> to open the result.</li>
+            </ul>
+            <p>CSV saves preserve the source delimiter, encoding, original headers, empty values, and leading zeros. Excel exports create a workbook with a frozen header row and column filters. CSV values remain text so identifiers and leading zeros stay intact; structured values use appropriate cell types, and text is never written as a formula. Excel supports up to 1,048,575 data rows plus the header and 16,384 columns per sheet. Table View has no code-image, Formatted, or Minified save option.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
                 <button type="button" class="manual-screenshot-open" id="manual-screenshot-table"
@@ -813,9 +829,9 @@
             <h3>Export</h3>
             <ul>
               <li>Download Original, Formatted, or Minified source.</li>
-              <li>Export compatible structured data as CSV or the active table as HTML. CSV files use CRLF line endings, quote every cell, and neutralize formula-leading text for safe opening in spreadsheets; the extension additionally prepends a UTF-8 byte-order mark for Excel.</li>
+              <li>Export compatible structured data as CSV or the active table as HTML. Conversion exports quote cells and neutralize formula-leading text; the extension additionally prepends a UTF-8 byte-order mark for Excel. The Windows app&rsquo;s table-specific Save As also supports JSON and Excel workbooks, with row and ordering choices; when saving CSV source data as CSV, it preserves the source format and values.</li>
               <li>Convert compatible documents to JSON/YAML/TOML during download; only targets the document can actually be serialized into are offered, while CSV export shows a readiness status with a reason when unavailable. XML/feed tabular projection is best-effort and can be lossy.</li>
-              <li>In the extension, export code as a PNG using visible viewport/full code, line-number, wrap, and resolution choices; when a full-code image is too large for a single PNG, it downloads a ZIP containing numbered PNG parts instead. The Windows app&rsquo;s Save as Image captures the visible viewport as a single PNG.</li>
+              <li>In the extension, export code as a PNG using visible viewport/full code, line-number, wrap, and resolution choices; when a full-code image is too large for a single PNG, it downloads a ZIP containing numbered PNG parts instead. In the Windows app&rsquo;s code views, Save as Image captures the visible code viewport as a single PNG; this action is not offered in Table View.</li>
             </ul>
             <p>The Windows app’s Save writes to disk; Export creates a separate representation. In the extension, export always downloads a new file.</p>
           </section>
@@ -851,6 +867,15 @@
             <p class="manual-deep-link"><strong>In-depth guide:</strong> See semantic and text modes, identity matching, and change navigation walked through in <a href="json-compare.html">JSON Compare &amp; Diff</a>.</p>
             <h3>Compare files (app)</h3>
             <p>The Windows app can browse two files, prefill the current file, remember the pair, and open a dedicated native comparison tab with synchronized panes, Previous/Next difference navigation, Ignore whitespace, status details, and a minimap. Selecting exactly two supported files in Explorer can expose the Compare command.</p>
+            <h3>Compare table schemas (app)</h3>
+            <p class="manual-deep-link"><strong>In-depth Windows app guide:</strong> <a href="csv-guide.html#csv-schema">Compare two CSV formats step by step</a>, including main-file direction, inserted columns, sample values, and Swap files.</p>
+            <p>Choose <strong>Tools &gt; Compare Table Schema</strong>, select the <strong>Main file</strong>, and choose another file under <strong>Compare with</strong>. The active file is preselected as the main file. Compatible CSV, JSON/JSONC arrays, JSON Lines, and repeating XML/RSS or HTML data open in a dedicated table comparison tab.</p>
+            <ul>
+              <li>The <strong>Columns</strong> grid shows each column&rsquo;s name, change status, positions starting at zero, observed value types, and example values for the main and compared files. Types describe values found in the files; this does not validate a declared schema. CSV values remain text, including identifiers with leading zeros.</li>
+              <li>Changes describe the main file. Columns found only in the main file are green and marked <strong>Added</strong>; columns missing from it are red and marked <strong>Removed</strong>. A column whose position changes because another column was inserted or removed is marked as shifted; a change in the relative order of existing columns is marked as reordered.</li>
+              <li>Find a column by name. Turn on <strong>Changes only</strong> to show added, removed, reordered, or type-changed columns. <strong>Swap files</strong> makes the compared file the main file and reverses the comparison.</li>
+              <li>Switch to <strong>Data preview</strong> to see up to the first 10 rows of both files in their original column order. Use these examples to inspect new fields and their values; records are not matched between files, and a renamed column appears as a removal and an addition.</li>
+            </ul>
           </section>
 
           <section id="javascript-playground" class="manual-topic" data-products="shared browser app">
@@ -1014,7 +1039,7 @@
           <section id="large-files-encoding" class="manual-topic" data-products="app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Desktop safeguards</span><h2>Large files, encoding, and line endings</h2></div><span class="product-badge product-app">Windows app</span></div>
             <h3>Native large-file mode</h3>
-            <p>Files of 64 MiB or more use a read-only native pager instead of loading the full WebView document. Generic pages contain about 750,000 characters; CSV pages contain 500 rows with a synchronized raw view. The CSV reader accepts at most 4,096 columns, 1,048,576 characters in one field, a 4 MiB logical row, and 16 MiB of parsed data per page before showing a bounded error or Raw fallback. Previous/Next, page search, forward cross-page search with progress/cancel/wrap, and Go to line/row remain available. Most WebView tools are disabled and Save becomes Save As of the original. File-to-file Compare accepts at most 128 MiB for each input.</p>
+            <p>Files of 64 MiB or more use a read-only native pager instead of loading the full WebView document. Generic pages contain about 750,000 characters; CSV pages contain 500 rows with a synchronized raw view. The CSV reader accepts at most 4,096 columns, 1,048,576 characters in one field, a 4 MiB logical row, and 16 MiB of parsed data per page before showing a bounded error or Raw fallback. Previous/Next, page search, forward cross-page search with progress/cancel/wrap, and Go to line/row remain available. Most WebView tools are disabled. Native CSV Table View offers the table Save As dialog for the complete file, including rows beyond the loaded page; unavailable selection, filtering and ordering choices are disabled. In native Raw and generic large-file views, Save As copies the original file. File-to-file Compare accepts at most 128 MiB for each input.</p>
             <h3>Network files and linked files</h3>
             <p>UNC and other network files skip live file watching because remote watcher notifications are unreliable; the app still fingerprints the exact source bytes and checks for external changes before saving, including BOM- or encoding-only edits. Local files retain live change detection. When a path is a hard link or reparse-backed file, Save preserves that identity with a rollback-backed in-place write instead of atomic replacement; this avoids silently breaking the link but cannot offer atomic power-loss behavior for that linked-file case.</p>
             <h3>Encoding</h3>
