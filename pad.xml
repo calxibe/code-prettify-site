@@ -11,7 +11,7 @@
     <!-- AppVisor, which assigned PAD 4 PublisherID values, is no longer available. -->
     <Company_Name>FixQuotes</Company_Name>
     <Country>Norway</Country>
-    <Company_WebSite_URL>https://fixquotes.com/</Company_WebSite_URL>
+    <Company_WebSite_URL>https://apps.fixquotes.com</Company_WebSite_URL>
     <Contact_Info>
       <Author_Email>fixquotescom@gmail.com</Author_Email>
       <Contact_Email>support@fixquotes.com</Contact_Email>
