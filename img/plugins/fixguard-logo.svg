@@ -1,0 +1,12 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="badge" x1="22" y1="16" x2="104" y2="112" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF6B57"/>
+      <stop offset="1" stop-color="#C81E3A"/>
+    </linearGradient>
+  </defs>
+  <path d="M64 8L100.77 18.15L119.85 45.23L119.85 82.77L100.77 109.85L64 120L27.23 109.85L8.15 82.77L8.15 45.23L27.23 18.15L64 8Z" fill="url(#badge)"/>
+  <path d="M64 12L98.11 21.42L115.85 46.59L115.85 81.41L98.11 106.58L64 116L29.89 106.58L12.15 81.41L12.15 46.59L29.89 21.42L64 12Z" stroke="#7F1027" stroke-width="3"/>
+  <path d="M36 90L92 34" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round"/>
+  <circle cx="94" cy="34" r="5" fill="#FFFFFF" fill-opacity="0.32"/>
+</svg>

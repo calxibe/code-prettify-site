@@ -1,0 +1,1141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; font-src 'self'; img-src 'self' data: https://www.google-analytics.com https://wonderlaunch.app https://api.producthunt.com https://peerpush.com https://www.uneed.best https://fazier.com https://www.directree.io; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com; frame-src https://www.youtube-nocookie.com; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Manual - CodePrettify Browser Extension and Windows App</title>
+    <meta name="description" content="The complete CodePrettify user manual: format readable JSON Lines and NDJSON, repair and transform data, inspect, compare, validate, export, and troubleshoot." />
+    <meta name="application-name" content="CodePrettify" />
+    <meta name="apple-mobile-web-app-title" content="CodePrettify" />
+    <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://prettify.cloud/manual.html" />
+    <link rel="icon" href="favicon.ico?v=20260725" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20260725" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260725" />
+    <link rel="manifest" href="site.webmanifest?v=20260725" />
+    <meta property="og:site_name" content="CodePrettify" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="CodePrettify User Manual" />
+    <meta property="og:description" content="Learn CodePrettify workflows for readable JSON Lines and NDJSON, JSON to Code Generator, JSON Repair &amp; Transform, and more." />
+    <meta property="og:url" content="https://prettify.cloud/manual.html" />
+    <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-json-format.png" />
+    <meta property="og:image:alt" content="CodePrettify displaying a formatted JSON document" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CodePrettify User Manual" />
+    <meta name="twitter:description" content="Learn every major CodePrettify function, including readable JSON Lines and NDJSON, local code generation, and data repair." />
+    <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-json-format.png" />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
+  <link rel="stylesheet" href="style.min.css?v=e1ce1dd4" />
+  <link rel="stylesheet" href="consent.css?v=20260826-2" />
+    <script src="site.js?v=20260826-3" defer></script>
+    <script src="manual.js?v=20260719-3" defer></script>
+  </head>
+  <body class="manual-body supporting-page manual-page">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header>
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <img src="img/code_32.png?v=20260725" srcset="img/code_32.png?v=20260725 1x, img/code_64.png?v=20260725 2x" width="32" height="32" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span>
+        </a>
+        <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation">
+          <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18" /></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg>
+        </button>
+        <nav id="site-navigation" aria-label="Primary navigation">
+          <a href="/#install">Install</a>
+        <a href="tools.html">Tools</a>
+        <a href="guides.html">Guides</a>
+          <a href="pricing.html">Price</a>
+          <a href="manual.html" class="active" aria-current="page">Manual</a>
+          <a href="changelog.html">Changelog</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="manual-main site-frame">
+      <section class="manual-hero page-hero" aria-labelledby="manual-title">
+        <div class="manual-hero-copy page-hero__content">
+          <span class="page-hero__eyebrow">User Manual</span>
+          <h1 id="manual-title" class="hero-title">The user manual.</h1>
+          <p class="page-hero__lead">
+            From your first file to advanced inspection. Search for a task, or choose your product to see the instructions that apply.
+          </p>
+          <div class="manual-product-key" aria-label="Product labels">
+            <span class="product-badge product-shared">Both products</span>
+            <span class="product-badge product-browser">Browser extension</span>
+            <span class="product-badge product-app">Windows app</span>
+          </div>
+        </div>
+        <div class="manual-controls" aria-label="Filter the manual">
+          <label for="manual-search">Search the manual</label>
+          <div class="manual-search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
+            <input id="manual-search" type="search" autocomplete="off" placeholder="Try “regex”, “save”, or “JSON Schema”" />
+          </div>
+          <div class="manual-filters" role="group" aria-label="Show instructions for">
+            <button type="button" class="manual-filter active" data-product="all" aria-pressed="true">Everything</button>
+            <button type="button" class="manual-filter" data-product="browser" aria-pressed="false">Extension</button>
+            <button type="button" class="manual-filter" data-product="app" aria-pressed="false">Windows app</button>
+          </div>
+          <p id="manual-search-status" class="manual-search-status" aria-live="polite">Showing the complete manual.</p>
+        </div>
+      </section>
+
+      <div class="manual-layout">
+        <aside class="manual-sidebar">
+          <button type="button" class="manual-toc-toggle" id="manual-toc-toggle" aria-controls="manual-toc" aria-expanded="false">
+            <span>Manual contents</span><span class="manual-toc-toggle-state">Show sections</span>
+          </button>
+          <nav class="manual-toc" id="manual-toc" aria-label="Manual contents">
+            <h2>Contents</h2>
+            <a href="#getting-started">Getting started</a>
+            <a href="#supported-formats">Supported formats</a>
+            <a href="#workspace">The viewer workspace</a>
+            <a href="#browser-workflows">Extension workflows</a>
+            <a href="#app-files-tabs">App files and tabs</a>
+            <a href="#app-menus">Windows app menus</a>
+            <a href="#search-navigation">Search and navigation</a>
+            <a href="#format-behavior">Formatting by file type</a>
+            <a href="#json-tools">JSON helpers and JSON Path</a>
+            <a href="#table-view">Table View</a>
+            <a href="#diagram-generator">Diagram Generator</a>
+            <a href="#schema-validator">JSON Schema Validator</a>
+            <a href="#analysis-tools">Statistics, diagnostics, security</a>
+            <a href="#data-converter">Data Converter</a>
+            <a href="#json-to-code">JSON to Code Generator</a>
+            <a href="#structured-workbench">JSON Repair &amp; Transform</a>
+            <a href="#copy-export">Copy and Export</a>
+            <a href="#compare">Compare</a>
+            <a href="#javascript-playground">JavaScript Playground</a>
+            <a href="#runtime-inspector">Inspect Runtime</a>
+            <a href="#regex-playground">Regex Playground</a>
+            <a href="#http-client">HTTP Client</a>
+            <a href="#settings">Settings</a>
+            <a href="#large-files-encoding">Large files, encoding, EOL</a>
+            <a href="#shortcuts">Keyboard shortcuts</a>
+            <a href="#privacy-security">Privacy and security</a>
+            <a href="#troubleshooting">Troubleshooting</a>
+          </nav>
+        </aside>
+
+        <article class="manual-article">
+          <div id="manual-no-results" class="manual-no-results" hidden>
+            <h2>No matching section</h2>
+            <p>Try a shorter term, clear the product filter, or search for the name shown in the Tools or More Actions menu.</p>
+            <button type="button" id="manual-clear-search" class="btn btn-secondary">Clear filters</button>
+          </div>
+
+          <section id="getting-started" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row">
+              <div><span class="manual-eyebrow">Start here</span><h2>Getting started</h2></div>
+              <span class="product-badge product-shared">Both products</span>
+            </div>
+            <p>CodePrettify turns supported code, data, configuration, documentation, and feed files into a read-only working view. It keeps the original text available while adding formatting, validation, navigation, conversion, and inspection tools.</p>
+            <div class="manual-card-grid">
+              <div class="manual-card">
+                <h3>Browser extension</h3>
+                <ol>
+                  <li>Install from the Chrome Web Store or Microsoft Edge Add-ons.</li>
+                  <li>Open a supported raw HTTP/HTTPS resource. CodePrettify recognizes the URL extension or response content type and replaces the plain browser page with its viewer.</li>
+                  <li>For a local file, click the CodePrettify toolbar button to open the launcher, then drag the file in or choose it. Direct <code>file://</code> URLs additionally require the browser’s <strong>Allow access to file URLs</strong> permission.</li>
+                  <li>Use <strong>Prettified</strong>/<strong>Raw</strong>, or <strong>Rendered</strong>/<strong>Source</strong> for markup, to change representation without changing the source file.</li>
+                </ol>
+              </div>
+              <div class="manual-card">
+                <h3>Windows app</h3>
+                <ol>
+                  <li>Open a file with <kbd>Ctrl</kbd>+<kbd>O</kbd>, drag files into the window, use a file association/Explorer command, or choose <strong>File &gt; Paste &amp; Prettify</strong>.</li>
+                  <li>Each file opens in a tab. New installations start in Prettified, Rendered, or Table view according to the file type.</li>
+                  <li>Use native Save/Save As when you want to write the selected representation back to disk.</li>
+                </ol>
+              </div>
+            </div>
+            <div class="manual-callout">
+              <strong>Non-destructive by default:</strong> changing view, folding, searching, inspecting, or running a tool does not edit the original document. The Windows app writes only when you explicitly save or confirm a disk-modifying action such as line-ending conversion; the extension downloads a new file when you export.
+            </div>
+          </section>
+
+          <section id="supported-formats" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Compatibility</span><h2>Supported formats</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <div class="manual-table-wrap" tabindex="0">
+              <table class="manual-table">
+                <thead><tr><th>Format</th><th>Extensions</th><th>Extension</th><th>Windows app</th><th>Default view</th></tr></thead>
+                <tbody>
+                  <tr><td>JavaScript / TypeScript</td><td><code>.js .mjs .cjs .ts .mts .cts</code></td><td>Yes</td><td>Yes</td><td>Prettified</td></tr>
+                  <tr><td>JSON / JSONC</td><td><code>.json .jsonc</code></td><td>Yes</td><td>Yes</td><td>Prettified</td></tr>
+                  <tr><td>JSON Lines / NDJSON</td><td><code>.jsonl .ndjson</code></td><td>Yes</td><td>Yes</td><td>Prettified; records expanded</td></tr>
+                  <tr><td>YAML</td><td><code>.yaml .yml</code></td><td>Yes</td><td>Yes</td><td>Prettified</td></tr>
+                  <tr><td>TOML</td><td><code>.toml</code></td><td>Yes</td><td>Yes</td><td>Prettified</td></tr>
+                  <tr><td>Markdown</td><td><code>.md .markdown</code></td><td>Yes</td><td>Yes</td><td>Rendered</td></tr>
+                  <tr><td>CSS</td><td><code>.css</code></td><td>Yes</td><td>Yes</td><td>Prettified</td></tr>
+                  <tr><td>XML / RSS / Atom</td><td><code>.xml .rss .atom</code></td><td>Yes</td><td>Yes</td><td>Rendered</td></tr>
+                  <tr><td>CSV</td><td><code>.csv</code></td><td>No</td><td>Yes</td><td>Table</td></tr>
+                  <tr><td>HTML</td><td><code>.html .htm</code></td><td>No</td><td>Yes</td><td>Rendered</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>The extension can also activate when a supported response MIME type is returned without a recognizable filename. It intentionally leaves normal HTML pages alone. The Windows app can use Paste &amp; Prettify to detect a format even when no filename exists.</p>
+          </section>
+
+          <section id="workspace" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Core interface</span><h2>The viewer workspace</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <h3>Representations</h3>
+            <ul>
+              <li><strong>Prettified</strong> shows indentation, syntax highlighting, folding, links, and inline helpers. <strong>Raw</strong> shows the original text.</li>
+              <li>In the Prettified view for valid JSON Lines/NDJSON, a separate <strong>Formatted</strong> checkbox is enabled by default and expands every record independently. Clear it to restore the original physical one-record-per-line display. CodePrettify remembers this choice separately from the JavaScript formatting checkbox.</li>
+              <li>Markdown, XML/feed, and app HTML use <strong>Rendered</strong>/<strong>Source</strong> where a safe rendered view is available.</li>
+              <li>The formatting indicator reports whether formatting succeeded. A validation alert provides an exact line/column when the parser can locate the problem.</li>
+              <li><kbd>Ctrl</kbd>+<kbd>B</kbd> toggles the two views. Your first-install default remains Prettified/Rendered until changed in Settings.</li>
+            </ul>
+            <h3>Editor and status</h3>
+            <p>Line numbers, word wrap, folding, the minimap, and the floating toolbar can be enabled independently. The Windows app’s status bar reports line and character totals, cursor line/column, selection size, detected type, encoding, and line-ending style; in the extension, line and size totals are available through Statistics &amp; Diagnostics.</p>
+            <h3>Floating toolbar</h3>
+            <p>The toolbar exists in the Prettified/Rendered view (it is hidden in Raw/Source) and combines the copy menu, live search, Go to Line, and More Actions. <strong>More Actions</strong> is split into two groups:</p>
+            <ul>
+              <li><strong>For this file</strong> — the heading names the detected format, for example <em>For this file · JSON</em> — contains actions that analyze or operate on the active document: Export, Statistics &amp; Diagnostics, Security Scan, and, when folding is available, Collapse All and Expand All on one paired row, plus tools specific to the detected format. For example, JSON adds Table View, JSON Path Inspector, and Schema Validator, while JavaScript adds Document Navigator and Inspect Runtime. HTTP response metadata and timing, when available, appear as a section inside Statistics &amp; Diagnostics.</li>
+              <li><strong>General tools</strong> contains always-available utilities that work without the open document: Compare, JSON to Code Generator, JSON Repair &amp; Transform, JavaScript Playground, Data Converter, Regex Playground, and HTTP Client. Compare, JSON to Code Generator, JSON Repair &amp; Transform, and JavaScript Playground can load a compatible current document, and Regex Playground tests against the current document by default (switchable to custom text). This column is visually subdued until hovered or focused.</li>
+            </ul>
+            <p>On wider windows, the primary file-actions column is centered above the More Actions button; constrained windows keep the menu inside the viewport, and very narrow windows stack both groups.</p>
+            <p>Up to three tools you repeatedly use can become adaptive quick buttons: an action qualifies after about ten uses, and the three most-used win. On narrow windows those learned buttons are hidden to keep the core controls on one row; all tools remain in More Actions or the Command Palette.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-workspace"
+                  data-full-src="img/manual/viewer-workspace.png" data-title="More Actions for the current file and general tools"
+                  aria-label="Open full-size screenshot: two-column More Actions menu" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/viewer-workspace_thumb.webp?v=557b54f5" type="image/webp" />
+                    <img src="img/manual/viewer-workspace_thumb.png"
+                      alt="CodePrettify two-column More Actions menu separating tools for the current JSON file from always-available general tools"
+                      width="320" height="200" loading="lazy" decoding="async" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+            <h3>Command Palette</h3>
+            <p>Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> and type part of an action name. Document-specific commands follow the active format, while general tools such as JSON to Code Generator and JSON Repair &amp; Transform stay available everywhere. This is also the fastest way to find less-visible functions such as Security Scan.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-command-palette"
+                  data-full-src="img/manual/command-palette.png" data-title="Command Palette"
+                  aria-label="Open full-size screenshot: Command Palette with available JSON actions and Security Scan selected" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/command-palette_thumb.webp?v=22f48f60" type="image/webp" />
+                    <img src="img/manual/command-palette_thumb.png"
+                      alt="CodePrettify Command Palette showing available actions for a JSON document with Security Scan selected"
+                      width="320" height="200" loading="lazy" decoding="async" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+          </section>
+
+          <section id="browser-workflows" class="manual-topic" data-products="browser">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Browser-specific</span><h2>Extension workflows</h2></div><span class="product-badge product-browser">Browser extension</span></div>
+            <h3>Automatic activation</h3>
+            <p>The extension examines the resource URL and response content type. Supported raw documents are enhanced automatically; ordinary web pages are not. Disabling a type in Settings affects newly opened resources.</p>
+            <h3>Launcher and local files</h3>
+            <p>The launcher can open a supported file by picker or drag-and-drop without broad file access. It can also start the Editor, JSON to Code Generator, HTTP Client, JavaScript Playground, Regex Playground, or Data Converter. If the tab you clicked from is a supported viewer, the tool opens on that document in the same tab; otherwise the tool opens on a hosted sample document in a new tab. Launcher files are limited to 10 MiB. Encoding is detected from a UTF-8 or UTF-16 (LE/BE) byte-order mark; without one, strict UTF-8 is tried with a Windows-1252 fallback.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-extension-launcher"
+                  data-full-src="img/manual/extension-launcher.png" data-title="Extension launcher"
+                  aria-label="Open full-size screenshot: Extension launcher and local-file drop zone" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/extension-launcher_thumb.webp?v=18ddf1e8" type="image/webp" />
+                    <img src="img/manual/extension-launcher_thumb.png"
+                      alt="CodePrettify extension launcher shown from the top with launch context, local-file drop zone, supported formats, and tool shortcuts"
+                      width="320" height="200" loading="lazy" decoding="async" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+            <h3>Persisted and shareable state</h3>
+            <p>For the same resource, CodePrettify can restore search text, highlighted line, folds, scroll position, and the Prettified/Raw (or Rendered/Source) choice without changing the URL. This state is short-lived: it is kept for about one hour and only for the ten most recently viewed resources. Display settings follow your global Settings. <strong>Share Configuration URL</strong> explicitly encodes selected viewer configuration, including a settings subset, in the hash for an HTTP/HTTPS resource; it does not include the resource body.</p>
+            <h3>What’s New</h3>
+            <p>After a release with substantial new functionality, the extension can show the changes since the last version you used. The announcement appears once, in the first CodePrettify viewer tab you open after the update, and lists every feature release since the version you last used. <strong>Never show again</strong> stores that preference locally. Small maintenance releases do not need their own announcement.</p>
+          </section>
+
+          <section id="app-files-tabs" class="manual-topic" data-products="app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Desktop-specific</span><h2>Files, tabs, Paste &amp; Prettify, and saving</h2></div><span class="product-badge product-app">Windows app</span></div>
+            <p class="manual-callout"><strong>Windows compatibility:</strong> The CodePrettify Windows app supports Windows 10 and Windows 11.</p>
+            <p>The version 2 desktop workspace keeps native menus, document tabs, status controls, and the local viewer in one WinUI 3 window.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-windows-workspace"
+                  data-full-src="img/manual/windows-workspace.png" data-title="WinUI 3 desktop workspace"
+                  aria-label="Open full-size screenshot: WinUI 3 desktop workspace" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/windows-workspace_thumb.webp?v=6ce9d979" type="image/webp" />
+                    <img src="img/manual/windows-workspace_thumb.png"
+                      alt="CodePrettify 2.0 for Windows showing the WinUI 3 menu bar, several document tabs, formatted JSON, minimap, floating toolbar, and status bar"
+                      width="320" height="200" loading="lazy" decoding="async" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+            <h3>Tabs and sessions</h3>
+            <p>Open several files in native tabs. Opening the same path reuses its tab. Close with the tab button, middle-click, or <kbd>Ctrl</kbd>+<kbd>W</kbd>; closing the final tab returns to the open-file landing surface. The app keeps up to ten recent files, integrates with Windows Recent Documents, and can restore the previous window, tabs, and active tab when session restore is enabled. Session state is checkpointed continuously, so restore also works after a crash, and opening files from Explorer reuses the running window instead of starting a second instance.</p>
+            <h3>Paste &amp; Prettify</h3>
+            <p>Press <kbd>Ctrl</kbd>+<kbd>N</kbd> — the dialog pre-fills with your current clipboard text, which you can replace or edit — and either keep Auto-detect or choose a type. Detection checks JSON, JSON Lines, tolerant JSONC, HTML/XML, fenced Markdown, high-confidence JavaScript, TOML, JavaScript statements, CSS, YAML, CSV, and Markdown/plain text. The dialog accepts up to 16 MiB; larger clipboard content should be saved and opened as a file so large-file safeguards can be used.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-windows-paste-prettify"
+                  data-full-src="img/manual/windows-tabs-paste-prettify.png" data-title="Windows tabs and Paste &amp; Prettify"
+                  aria-label="Open full-size screenshot: Windows tabs and Paste and Prettify" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/windows-tabs-paste-prettify_thumb.webp?v=f3f192f9" type="image/webp" />
+                    <img src="img/manual/windows-tabs-paste-prettify_thumb.png"
+                      alt="CodePrettify for Windows with native document tabs and the localized Paste and Prettify dialog"
+                      width="320" height="200" loading="lazy" decoding="async" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+            <h3>Save and Save As</h3>
+            <ul>
+              <li><strong>Raw/Source</strong> saves the original source. <strong>Prettified/Rendered/Table</strong> saves the document representation, never the viewer’s interface HTML. For JSON Lines, a formatted save remains valid one-record-per-line JSONL; the expanded reading view is never written to the file.</li>
+              <li>With <strong>Table View</strong> open, <strong>File &gt; Save As</strong>, <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd>, and the table&rsquo;s <strong>Save as…</strong> button open the same table dialog. Choose a format, row scope, and ordering before selecting the destination. The table dialog also offers an unchanged original-file copy; code-image and formatting options belong to Raw and code views.</li>
+              <li>If another program changed the disk file, choose Overwrite, Save As, or Cancel.</li>
+              <li>Saving formatted JSONC warns that comments and trailing commas will be removed; No is the default.</li>
+              <li>The app preserves the original encoding/BOM when possible, writes saves atomically, and warns when a legacy encoding would lose characters. Unsaved and native large-file tabs use Save As; comparison tabs cannot be saved.</li>
+            </ul>
+            <h3>External changes</h3>
+            <p>A file watcher reloads the tab automatically when the file changes outside CodePrettify, follows renames, and reports deletion in the status bar and window title. This is separate from the app’s session recovery.</p>
+          </section>
+
+          <section id="app-menus" class="manual-topic" data-products="app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Desktop reference</span><h2>Windows app menus</h2></div><span class="product-badge product-app">Windows app</span></div>
+            <div class="manual-card-grid">
+              <div class="manual-card"><h3>File</h3><p>Open, Paste &amp; Prettify, Save, Save As, Recent Files/Clear Recent, Close Tab, and Exit.</p></div>
+              <div class="manual-card"><h3>Edit</h3><p>Copy Original, Copy Formatted, Copy Minified, Find, and Go to Line. Copy feedback names the selected representation.</p></div>
+              <div class="manual-card"><h3>View</h3><p>Toggle Beautify, Word Wrap, Line Numbers, Minimap, Floating Toolbar, Zoom In, Zoom Out, and Reset Zoom.</p></div>
+              <div class="manual-card"><h3>Tools</h3><p>Document Navigator, Table View, Diagram Generator, JSON Schema Validator, Statistics, Diagnostics, JSON Repair &amp; Transform, Data Converter, JSON to Code Generator, Export / Download, JavaScript Playground, Inspect Runtime, Regex Playground, JSON Path Inspector, HTTP Client, Security Scan, Compare File Content, Compare Table Schema, Compare with Clipboard, and Settings.</p></div>
+              <div class="manual-card"><h3>Help</h3><p>Manual, Changelog, Report Issues &amp; Ideas, Explorer Integration Runtime, Debug Log, and About.</p></div>
+            </div>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-windows-tools-menu"
+                  data-full-src="img/manual/windows-tools-menu.png" data-title="Windows Tools menu"
+                  aria-label="Open full-size screenshot: Windows Tools menu" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/windows-tools-menu_thumb.webp?v=098e5a92" type="image/webp" />
+                    <img src="img/manual/windows-tools-menu_thumb.png"
+                      alt="The CodePrettify for Windows Tools menu listing JSON Repair and Transform, navigation, conversion, comparison, inspection, and settings commands"
+                      width="320" height="200" loading="lazy" decoding="async" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+            <p>Tools that cannot operate on the current format are disabled. Web overlays are unavailable while a tab is in native Raw or native large-file mode; return to Prettified when possible.</p>
+            <h3>Troubleshooting with the Debug Log</h3>
+            <p>Open <strong>Help &gt; Debug Log</strong> when troubleshooting startup, file, or embedded-view behavior. The bounded rolling log stays local. Filter entries by level, tab, source, or message to find what you need, then use <strong>Copy to clipboard</strong> (copies the complete log as compact JSON) or <strong>Export as .csv</strong> (saves the complete log) to share it.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-debug-log-windows"
+                  data-full-src="img/manual/debug-log-windows.png" data-title="Windows Debug Log"
+                  aria-label="Open full-size screenshot: Windows Debug Log" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/debug-log-windows_thumb.webp?v=eec94dbf" type="image/webp" />
+                    <img src="img/manual/debug-log-windows_thumb.png"
+                      alt="CodePrettify for Windows Debug Log with filters and aligned Time, Level, Tab, Source, and Message columns"
+                      width="320" height="200" loading="lazy" decoding="async" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+          </section>
+
+          <section id="search-navigation" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Find your way</span><h2>Search, Go to Line, folding, and Document Navigator</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <h3>Find</h3>
+            <p>Press <kbd>Ctrl</kbd>+<kbd>F</kbd>, enter text, and use Previous/Next — or <kbd>Enter</kbd> for the next match and <kbd>Shift</kbd>+<kbd>Enter</kbd> for the previous; <kbd>Esc</kbd> clears the query and highlights. Plain text matches case-insensitively; wrap the query as <code>/pattern/flags</code> to search with a regular expression — invalid or runaway patterns are rejected safely. The toolbar shows match count (up to 10,000, then shown as 10000+). <kbd>Ctrl</kbd>+<kbd>F</kbd> temporarily reveals the search field even when the floating toolbar is turned off. Search operates on the document representation, not hidden modal content. The Windows native large-file viewer has paged search with progress, cancellation, and wrap behavior.</p>
+            <h3>Go to Line</h3>
+            <p>Press <kbd>Ctrl</kbd>+<kbd>G</kbd>, enter a source line, and confirm. The dialog remembers your last entry, and out-of-range values jump to the last line. The viewer scrolls and highlights the requested location. Diagnostic, inspector, schema, security, and navigator result rows can jump directly without opening this dialog.</p>
+            <h3>Folding</h3>
+            <p>Use gutter fold controls for one block or More Actions &gt; Collapse All / Expand All for the complete document. Fold state can be restored for the same browser resource.</p>
+            <h3>Document Navigator differences</h3>
+            <ul>
+              <li><strong>Extension:</strong> exposed for JSON (including JSON Lines), JavaScript/TypeScript, and XML/RSS. JSON entries show path/preview/depth/line; XML entries show the element outline; JavaScript entries list named functions, classes, and objects. The Markdown builder is not currently exposed in its menu.</li>
+              <li><strong>Windows app:</strong> supports JSON, JSON Lines, JavaScript/TypeScript, Markdown headings, and XML/RSS/Atom. Selecting an outline item jumps to its source line.</li>
+            </ul>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-document-navigator"
+                  data-full-src="img/manual/document-navigator.png" data-title="Document Navigator"
+                  aria-label="Open full-size screenshot: JSON Document Navigator" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/document-navigator_thumb.webp?v=1832876f" type="image/webp" />
+                    <img src="img/manual/document-navigator_thumb.png"
+                      alt="Document Navigator showing searchable JSON paths, previews, nesting depth, and source-line links"
+                      width="320" height="200" loading="lazy" decoding="async" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+          </section>
+
+          <section id="format-behavior" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Format reference</span><h2>Formatting and validation by file type</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <div class="manual-definition-list">
+              <div><h3>JSON / JSONC</h3><p>JSONC accepts comments and trailing commas, not JSON5 single quotes or unquoted keys; that tolerance applies to whole documents only. Formatted JSONC omits comments. Validation reports the error’s line and column and warns when integers are too large to survive reformatting without precision loss.</p></div>
+              <div><h3>JSON Lines / NDJSON</h3><p>Each nonblank physical line is validated as an independent strict JSON value. In Prettified view, the default-on <strong>Formatted</strong> checkbox expands and indents every valid record independently, without inventing an outer array, brackets, or commas. This multiline layout is a reading-only view, not a JSON document or rewritten JSONL file. Clear the checkbox to see the original physical one-record-per-line text; your choice is remembered. Invalid JSON Lines cannot use the expanded view, and validation reports the original physical line containing the error. Long string values can still create wide lines, so enable <strong>Word Wrap</strong> when needed.</p></div>
+              <div><h3>JavaScript / TypeScript</h3><p>The bundled beautifier adds readable indentation. Syntax is validated in a sandboxed parser; when validation cannot run, the document is marked as unchecked rather than invalid. Folding recognizes multi-line functions, classes, control blocks, arrays, and objects while ignoring brackets inside strings, comments, and template-literal interpolations. Bracket matching is optional. Safe HTTP(S) URLs and resolvable relative imports become clickable; bare package names are not guessed.</p></div>
+            </div>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-javascript-formatting"
+                  data-full-src="img/manual/javascript-formatting.png" data-title="JavaScript formatting"
+                  aria-label="Open full-size screenshot: Formatted JavaScript" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/javascript-formatting_thumb.webp?v=948406b3" type="image/webp" />
+                    <img src="img/manual/javascript-formatting_thumb.png"
+                      alt="A minified JavaScript bundle transformed into readable, syntax-highlighted code with folding and a minimap"
+                      width="320" height="200" loading="lazy" decoding="async" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+            <div class="manual-definition-list">
+              <div><h3>YAML</h3><p>Formatting deliberately normalizes newlines instead of re-dumping the document, which could lose comments, anchors, scalar styles, whitespace meaning, or numeric precision. Multi-document YAML is validated. There is no misleading minified copy.</p></div>
+              <div><h3>TOML</h3><p>Formatting and “minification” are the same canonical reserialization: both drop comments and blank lines, because TOML has no compact grammar. Source containing sub-millisecond temporal precision is kept unchanged to avoid truncation.</p></div>
+              <div><h3>Markdown</h3><p>Rendered mode supports links, task lists, footnotes, selected emoji shortcodes, and heading anchors. Raw HTML is escaped, dangerous schemes are blocked, and remote images become inert links/placeholders so viewing a document makes no automatic image request. Minification only collapses safe repeated blank lines.</p></div>
+            </div>
+            <p class="manual-deep-link"><strong>In-depth guide:</strong> See local and remote file workflows, rendered/source examples, and privacy behavior in <a href="markdown-viewer-browser-extension.html">Markdown Viewer for Chrome, Edge, and Windows</a>.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-markdown"
+                  data-full-src="img/manual/markdown-rendered.png" data-title="Rendered Markdown"
+                  aria-label="Open full-size screenshot: Rendered Markdown" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/markdown-rendered_thumb.webp?v=8d9e79de" type="image/webp" />
+                    <img src="img/manual/markdown-rendered_thumb.png"
+                      alt="Rendered Markdown with headings, task lists, tables, links, code blocks, and a Source view switcher"
+                      width="320" height="200" loading="lazy" decoding="async" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+            <div class="manual-definition-list">
+              <div><h3>CSS</h3><p>Formatting/minification respects strings, comments, functions, data URLs, and calculations. Validation flags unmatched braces, parentheses, and brackets; the browser extension additionally reports unclosed strings/comments and declarations missing a colon. HTTP(S) URLs/imports can be clicked. Minification preserves <code>/*! … */</code> license comments. Color swatches attach to hex and rgb()/hsl() values (not named colors) and open a picker with adjusted and copyable HEX/RGB/HSL values.</p></div>
+              <div><h3>XML / RSS / Atom</h3><p>Strict parsing reports line/column. In the browser extension, formatting avoids mixed content, preserved whitespace, internal DTD subsets, and quoted markup where a rewrite could change data, and “minification” is byte-preserving because whitespace-only text nodes may matter. The Windows app reformats any well-formed document, and its minification strips comments and collapses whitespace. Folding, safe links, timestamps, and encoded-value hints remain available.</p></div>
+              <div><h3>CSV and HTML (app)</h3><p>CSV detects comma, semicolon, tab, or pipe delimiters with quote-aware parsing and provides Table plus source. HTML formatting preserves raw script/style text (reformatting can change whitespace inside <code>&lt;pre&gt;</code> blocks), escapes rendering safely, supports folding, and can make safe URLs clickable.</p></div>
+            </div>
+            <p class="manual-deep-link"><strong>In-depth guides:</strong> See the comment-safe YAML behavior in <a href="yaml-formatter.html">YAML Formatter &amp; Validator</a> and the data-safety guards for XML in <a href="xml-formatter.html">XML Formatter &amp; Viewer</a>.</p>
+          </section>
+
+          <section id="json-tools" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Structured data</span><h2>JSON helpers and JSON Path Inspector</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <p>Structured JSON adds folding, clickable URLs, human-readable timestamp hints (for integer Unix values dated 2000–2050 and ISO-like strings), and hover/click decoding for likely JWT or Base64 strings. Enable the hover breadcrumb (off by default) to see the path under the pointer; the click inspector, on by default, opens JSON Path Inspector when you click a property name.</p>
+            <h3>Run a JSON Path query</h3>
+            <ol>
+              <li>Open <strong>JSON Path Inspector</strong> from More Actions, the Command Palette/Tools menu, or by clicking a property name. Breadcrumb segments jump to that node in the document; hovering also sets the inspector’s starting path.</li>
+              <li>Start with <code>$</code>. Use dot properties, quoted bracket properties, numeric indexes, or <code>[*]</code>. Autocomplete suggests keys.</li>
+              <li>Run the query. Copy the current path or a compact JSON/display value, or select a result to jump to its source line.</li>
+            </ol>
+            <p class="manual-limit"><strong>Scope:</strong> the inspector intentionally does not implement filters, slices, recursive descent, or script expressions. It renders at most 200 results and autocomplete shows at most 50 keys. It also works on JSON Lines documents, where <code>$[0]</code> addresses the first record, and a leading <code>$</code> is optional in queries.</p>
+            <p class="manual-deep-link"><strong>In-depth guide:</strong> Follow a complete JSON workflow with formatting, folding, JSONPath samples, schema validation, comparison, and export in <a href="json-formatter-browser-extension.html">JSON Formatter and Viewer</a>.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-json-path"
+                  data-full-src="img/manual/json-path-inspector.png" data-title="JSON Path Inspector"
+                  aria-label="Open full-size screenshot: JSON Path Inspector query and results" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/json-path-inspector_thumb.webp?v=73587641" type="image/webp" />
+                    <img src="img/manual/json-path-inspector_thumb.png"
+                      alt="JSON Path Inspector with a path query, autocomplete, matching values, source locations, and copy actions"
+                      width="320" height="200" loading="lazy" decoding="async" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+          </section>
+
+          <section id="table-view" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Rows and columns</span><h2>Table View</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <p>Table View is available for compatible JSON arrays of objects and repeating XML/RSS structures; the app also uses it for CSV (CSV files open directly in Table View when CSV formatting is enabled) and for HTML documents with a repeating tabular structure. In the extension, mixed JSON arrays are rejected rather than silently dropping primitive rows; the app shows the object rows and omits primitive entries.</p>
+            <ul>
+              <li>Search the entire table. Turn on <strong>Advanced</strong> to show individual column filters, column indexes starting at zero, and column summaries. Advanced starts off and remembers your choice for the next table.</li>
+              <li>Click a column to sort; drag columns to reorder them.</li>
+              <li>Expand long cells. In Advanced mode, summaries show details such as dominant type, unique values, and empty counts for the first 12 columns.</li>
+              <li>Select individual rows or all rows matching the current filter. The extension exports the selection as CSV or JSON in the current column and sort order, or the current filtered/sorted table as HTML. The Windows app combines these actions in <strong>Save as…</strong>.</li>
+              <li>Large tables use virtual rendering from roughly 1,000 rows so the view remains responsive.</li>
+            </ul>
+            <h3>Table controls in the Windows app</h3>
+            <p>An active-filter count and <strong>Clear all filters</strong> remain visible when Advanced is hidden. Use <strong>Columns</strong> to hide/show fields, resize them, or pin one column while scrolling horizontally. Drag a header edge to resize, or use its focused handle’s arrow keys. Reset columns restores the source layout. Hidden columns retain their data and filters.</p>
+            <p>Drag or Shift-click cells to select a rectangle. Ctrl-click a heading for its whole filtered column. Click and Shift-click row numbers for complete rows, or Shift-click row checkboxes for a contiguous selection usable by Save As. Ctrl+C or Copy selection copies tab-separated cells, including off-screen selected records. Include headers in copy adds column names as the first clipboard row and remembers the choice; toggling it does not change the displayed table. Clipboard copying excludes hidden columns and filtered-out rows. Use .xlsx export to retain CSV identifiers explicitly as Excel text. Double-click long cells to expand them.</p><p>The Table View status bar shows Rows, Lines, and Columns. Lines counts the original source, including headers, blank lines, a final empty line after a trailing newline, and line breaks inside quoted CSV fields. Filtering does not change the source line count.</p>
+            <p>For CSV, <strong>Tools &gt; CSV opening options…</strong> and the table toolbar let you override delimiter, encoding, and whether the first row contains headers. Auto-detect shows the delimiter and encoding used to open the current file; explicit overrides keep their selected names. Custom one-character delimiters are supported. Applying resets filters, layout, and selection, leaves source bytes unchanged, and carries the interpretation into refresh, export, and schema comparison. Encoding rereads disk bytes; it is unavailable for pasted text. The native large-file pager supports these opening options but has its own limited table controls.</p>
+            <h3>Save a table in the Windows app</h3>
+            <p class="manual-deep-link"><strong>In-depth Windows app guide:</strong> Follow the <a href="csv-guide.html">CSV workflow</a> with sample downloads and screenshots of Raw/Table View, Advanced, filters, column dragging, Save As, and schema comparison.</p>
+            <p>Open <strong>Save as…</strong> from the table toolbar or <strong>File &gt; Save As</strong>. Choose <strong>CSV</strong>, <strong>JSON</strong>, <strong>HTML Table</strong>, <strong>Excel workbook (.xlsx)</strong>, or <strong>Original file copy</strong>. Original makes an unchanged copy of the source; the other formats use the following table choices:</p>
+            <ul>
+              <li><strong>Rows:</strong> All rows, Filtered rows, or Selected rows, each with a count. Filtered rows follow both the table search and column filters. Selected rows include checked rows hidden by the current filters; the dialog reports that hidden count. Selection is the default when rows are checked, otherwise filtering is the default when active, otherwise all rows.</li>
+              <li><strong>Columns:</strong> All columns (the default) includes hidden fields. Visible columns exports only the displayed fields. The output summary shows the resulting count.</li>
+              <li><strong>Column order:</strong> Current table order or Original column order. The choice is enabled when columns have been dragged into a different order.</li>
+              <li><strong>Row order:</strong> Current sorting or Original row order. The choice is enabled when sorting has changed.</li>
+              <li><strong>Review and save:</strong> Check the row and column counts and output format. CSV also shows its delimiter and encoding. After choosing a destination and saving, use <strong>Open saved file</strong> to open the result.</li>
+            </ul>
+            <p>CSV saves preserve the source delimiter, encoding, original headers, empty values, and leading zeros. Excel exports create a workbook with a frozen header row and column filters. CSV values remain text so identifiers and leading zeros stay intact; structured values use appropriate cell types, and text is never written as a formula. Excel supports up to 1,048,575 data rows plus the header and 16,384 columns per sheet. Table View has no code-image, Formatted, or Minified save option.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-table"
+                  data-full-src="img/manual/table-view.png" data-title="Table View"
+                  aria-label="Open full-size screenshot: Table View" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/table-view_thumb.webp?v=155d35e1" type="image/webp" />
+                    <img src="img/manual/table-view_thumb.png"
+                      alt="CodePrettify Table View presenting structured JSON records in a searchable and filterable grid"
+                      width="320" height="200" loading="lazy" decoding="async" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+            <p class="manual-limit"><strong>CSV export:</strong> JSON must be a nonempty top-level array of flat objects; nested arrays/objects are not flattened. XML/RSS needs a repeating structured element.</p>
+          </section>
+
+          <section id="diagram-generator" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">See the hierarchy</span><h2>Diagram Generator</h2>
+            <p class="manual-deep-link"><strong>Try it online:</strong> Use the <a href="json-to-diagram.html">online JSON diagram tool</a>. Generate SVG or Mermaid from strict JSON without installation. The web view supports up to 60 cards, 8 displayed nesting levels, and 12 fields per card.</p></div><span class="product-badge product-shared">Both products</span></div>
+            <p>Diagram Generator is a contextual tool for structured documents. Open it from <strong>For this file</strong> in More Actions or from the Command Palette; the Windows app also exposes it in <strong>Tools</strong>. Both products support JSON, JSON Lines, YAML, TOML, and XML/RSS documents. The Windows app additionally supports CSV files.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-diagram-generator"
+                  data-full-src="img/manual/diagram-generator.png" data-title="Diagram Generator with connected field cards and the Field details panel"
+                  aria-label="Open full-size screenshot: Diagram Generator field-card diagram" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/diagram-generator_thumb.webp?v=4d48416d" type="image/webp" />
+                    <img src="img/manual/diagram-generator_thumb.png"
+                      alt="CodePrettify Diagram Generator showing a JSON deployments document as connected pastel field cards beside a sidebar with search, level controls, and an inspected field's value and path"
+                      width="320" height="200" loading="lazy" decoding="async" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+            <ol>
+              <li>Open a JSON, JSON Lines, YAML, TOML, XML/RSS, or, in the Windows app, CSV document in the prettified view and choose <strong>Diagram Generator</strong>.</li>
+              <li>Choose <strong>Left to right</strong> for a compact reading flow or <strong>Top to bottom</strong> for a conventional hierarchy. Use <strong>Include compact values</strong> to show or hide short primitive values, XML text/attributes, and CSV cells.</li>
+              <li>The near-full-window workspace keeps direction, value options, generation status, and downloads in the compact left sidebar so the live diagram can use the remaining width and full height.</li>
+              <li>Normal clicks never change the viewport; clicking within a card only selects that card, and each field row highlights when you hover over its key and value. Click the minus button on a reference row to collapse its child branch, or the resulting plus button to restore it. Click a <strong>more fields</strong> row to reveal the remaining bounded fields in that card. These interactions preserve the parent card's screen position and the current zoom. Double-click a card heading to smoothly center and focus that element; focus the heading and press Enter or Space for the keyboard equivalent, or Shift-double-click the heading to zoom out around it. Drag the dotted canvas to pan, use the mouse wheel or a pinch gesture to zoom around the pointer, press the arrow keys to nudge the view, or use the floating zoom and <strong>Fit</strong> controls to return to the complete hierarchy.</li>
+              <li>Type in the sidebar <strong>Search</strong> box to find cards and fields. Matching cards are ringed and their matching rows highlighted while everything else dims, and a counter reports the match total. Press Enter or use the previous and next controls to step through the matches; each step centers and focuses that card. Press Escape in the search box to clear the query without closing the tool.</li>
+              <li>Click any field row to open the <strong>Field details</strong> panel with the full untruncated value and its document path; <strong>Copy value</strong> and <strong>Copy path</strong> put either on the clipboard. Selecting a card also highlights its complete ancestor chain of cards and connectors, so you always see where a record sits in the hierarchy.</li>
+              <li>Use the <strong>Levels</strong> control to bound the diagram to two, three, or four card levels for a quick structural overview, or <strong>Collapse All</strong> to fold every branch behind re-expandable plus buttons and <strong>Expand All</strong> to restore them.</li>
+              <li>Choose <strong>Download SVG</strong> for a scalable, self-contained diagram or <strong>Download PNG</strong> for a bitmap image. The Windows app routes both formats through its native Save dialog. <strong>Copy Mermaid</strong> puts the same cards, fields, and connections on the clipboard as a Mermaid class diagram for documentation, wikis, and issue trackers. The export includes every field of each card, even rows the on-screen card keeps behind its <strong>more fields</strong> disclosure.</li>
+            </ol>
+            <p>JSON objects and array records become cards with primitive properties grouped into field rows; primitive arrays such as <code>regions</code> show their compact entries directly, while nested objects and record arrays branch from the exact reference row. YAML mappings and TOML tables map the same way, YAML and TOML timestamps render as date values, and a multi-document YAML source becomes one card per document. JSON Lines becomes a root card connected to one card per record. XML elements use the same card structure for attributes, direct text, and child elements. CSV becomes a root card connected to one record card per row, with columns shown as fields; comma, semicolon, tab, and pipe delimiters are detected automatically. The interactive preview is a live DOM scene: cards and fields are semantic HTML elements and connectors are inline SVG paths, rather than a scaled preview image. This keeps focused text crisp and provides a foundation for future editing. Pastel headers distinguish cards, hexadecimal color values include swatches, and the dotted canvas is preserved in exported images.</p>
+            <p class="manual-limit"><strong>Local and bounded:</strong> the source never leaves the device. Input is capped at 5 Mi characters, diagrams at 160 cards, 14 nesting levels, and 12 visible fields per card by default. A card can reveal up to 40 fields through its disclosure row; any remaining safety limit is reported as <em>limited for readability</em>. Text is escaped before SVG rendering. PNG output is scaled to stay within an 8,192-pixel edge and a bounded pixel budget.</p>
+          </section>
+
+          <section id="schema-validator" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Contract checking</span><h2>JSON Schema Validator</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <ol>
+              <li>Open a normal JSON or JSONC document (JSON Lines is not supported).</li>
+              <li>Open <strong>JSON Schema Validator</strong>, paste a schema, and choose Validate or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.</li>
+              <li>Inspect each violation’s instance path, keyword, message, schema path, and source line. Select a result to jump.</li>
+            </ol>
+            <p>Core types, enum/const, numeric/string/object/array constraints, composition, conditionals, dependencies, safe regular expressions, and common formats are supported. Validated formats are email, hostname, ipv4, ipv6, uuid, date, time, date-time, uri, uri-reference, and regex; unrecognized format names are ignored rather than validated. Regular expressions with backreferences, lookarounds, repeated groups containing alternation or inner quantifiers, consecutive overlapping quantifiers, or more than 512 characters cause the schema to be rejected as too complex. Validation is completely local.</p>
+            <p class="manual-limit"><strong>Limits:</strong> schema input is capped at 2 MiB, with depth 80, 100 reported errors, 100,000 validation operations, and about 2.5 seconds — the operation and time budgets apply separately to schema checking and to document validation. Only local <code>#</code> references/anchors are resolved; remote schemas are never downloaded. <code>unevaluatedProperties</code> is reported as unsupported. The pasted schema is kept for the session, and a run that hits any limit is never reported as valid.</p>
+            <p class="manual-deep-link"><strong>In-depth guide:</strong> See supported keywords, formats, limits, and a full validation walkthrough in <a href="json-schema-validator.html">JSON Schema Validator</a>, or a schema in a larger JSON workflow in <a href="json-formatter-browser-extension.html#json-query-title">JSON query and validation examples</a>.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-schema-validator"
+                  data-full-src="img/manual/schema-validator.png" data-title="JSON Schema Validator"
+                  aria-label="Open full-size screenshot: JSON Schema Validator results" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/schema-validator_thumb.webp?v=4fd8defa" type="image/webp" />
+                    <img src="img/manual/schema-validator_thumb.png"
+                      alt="JSON Schema Validator showing a local schema, validation summary, instance paths, messages, and source-line links"
+                      width="320" height="200" loading="lazy" decoding="async" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+          </section>
+
+          <section id="analysis-tools" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Understand the document</span><h2>Statistics, Diagnostics, and Security Scan</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <p>Open <strong>Statistics &amp; Diagnostics</strong> from More Actions or the Command Palette; the Windows app also lists both in the Tools menu. They are two sections of one combined panel — the Diagnostics command opens it scrolled to the Diagnostics section.</p>
+            <h3>Statistics</h3>
+            <p>All formats report original/formatted/minified estimates, lines, characters, and characters without whitespace. JSON adds structure depth and value counts; JavaScript adds declarations/modules/comments; CSS adds rule/property/variable/import/color counts; XML/feed adds element, attribute, namespace, text, comment, and CDATA counts.</p>
+            <h3>Diagnostics</h3>
+            <p>Diagnostics combines syntax status with warnings for long lines (over 300 characters), large documents (over 5,000 lines), and mixed indentation. Depending on format it can identify duplicate JSON keys, JSONC, suspicious timestamps (10–13 digit values outside the recognized Unix range, or invalid ISO-like dates) and URLs, embedded JWT/Base64/URL values, pagination/GraphQL/OpenAPI/schema shapes, feed issues, JavaScript/CSS summaries, HTTP response context and timing in the extension (for documents served over HTTP/HTTPS), and practical quick-fix guidance. Every report also includes a CSV readiness check that states whether the document can be exported to CSV and why.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-diagnostics"
+                  data-full-src="img/manual/statistics-diagnostics.png" data-title="Statistics and Diagnostics"
+                  aria-label="Open full-size screenshot: Statistics and Diagnostics" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/statistics-diagnostics_thumb.webp?v=b9387207" type="image/webp" />
+                    <img src="img/manual/statistics-diagnostics_thumb.png"
+                      alt="Statistics and Diagnostics reporting document size, structure, syntax status, data insights, and actionable warnings"
+                      width="320" height="200" loading="lazy" decoding="async" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+            <h3>Security Scan</h3>
+            <p>Run Security Scan from More Actions or the Command Palette; the Windows app also lists it in the Tools menu. It looks locally for likely cloud/API keys, tokens, private-key blocks, credential-bearing URLs, connection strings, API routes, paths, and file references. Secret findings are masked (leading and trailing characters plus length only) and sorted by severity; endpoint findings are deduplicated and grouped by kind. Every finding links to its source line, and rows also activate with Enter or Space. Selecting a finding reveals any folded parent blocks and centers the exact displayed line while leaving unrelated folds closed; <strong>Copy endpoints</strong> copies only the endpoint list.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-security-scan"
+                  data-full-src="img/manual/security-scan.png" data-title="Security Scan"
+                  aria-label="Open full-size screenshot: Security Scan findings" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/security-scan_thumb.webp?v=3bf6691b" type="image/webp" />
+                    <img src="img/manual/security-scan_thumb.png"
+                      alt="Security Scan with masked credential findings, severity labels, endpoint results, and source-line links"
+                      width="320" height="200" loading="lazy" decoding="async" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+            <p class="manual-limit"><strong>Important:</strong> this is heuristic assistance, not a security guarantee. It may produce false positives and false negatives. A scan examines at most 5,000,000 characters and reports at most 1,000 secret findings and 1,000 endpoint findings; partial results are clearly marked.</p>
+          </section>
+
+          <section id="data-converter" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Transform, encode, hash, and generate</span><h2>Data Converter</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <p>Open Data Converter from More Actions, the Command Palette, Tools, or the extension launcher. Its four tabs keep related conversion utilities together: <strong>Convert</strong>, <strong>Hash &amp; HMAC</strong>, <strong>Timestamp</strong>, and <strong>ID Generator</strong>. On Convert, <strong>Use document</strong> loads the active text. Choose an operation and press the Convert button beside it. <strong>Reverse</strong> moves the output into input and selects the inverse. Copy and Download sit together beside output. Inside the dialog, <kbd>Ctrl</kbd>+<kbd>Enter</kbd> generates on the Hash tab, <kbd>Enter</kbd> converts on the Timestamp tab, and the arrow keys cycle the four tabs.</p>
+            <h3>Hash &amp; HMAC</h3>
+            <p>Choose the <strong>Hash &amp; HMAC</strong> tab to create SHA-256, SHA-384, or SHA-512 output from pasted text or the current document. Hash mode produces a normal digest. HMAC mode also requires a secret key and produces a keyed authentication code. Both hex and Base64 representations can be copied. Text and keys are interpreted as UTF-8, remain in memory only for the open page, are never saved or transmitted, and are capped at 16 MiB each.</p>
+            <h3>Unix / ISO timestamps</h3>
+            <p>The <strong>Timestamp</strong> tab converts Unix seconds, Unix milliseconds, or ISO 8601 values with <code>Z</code> or an explicit <code>&plusmn;HH:MM</code> UTC offset; ISO seconds and fractions (up to nine digits) are optional, and negative or fractional Unix values are accepted. Auto-detection treats absolute values below 100,000,000,000 as seconds and larger values as milliseconds; choose the unit explicitly for far-future dates or early-epoch millisecond values. <strong>Use current time</strong> fills the present moment in milliseconds. Results include UTC ISO 8601, Unix seconds, Unix milliseconds, and local system time. Ambiguous date strings without a timezone are rejected instead of silently assuming one.</p>
+            <h3>UUID &amp; ULID generation</h3>
+            <p>The <strong>ID Generator</strong> creates 1&ndash;100 UUID v4, UUID v7, or ULID values per batch. UUID v4 is random; UUID v7 and ULID embed the current Unix-millisecond timestamp and use monotonic random portions so a same-millisecond batch remains lexicographically sorted. Generation requires the platform&rsquo;s cryptographically secure random source and never falls back to <code>Math.random()</code>.</p>
+            <div class="manual-table-wrap" tabindex="0">
+              <table class="manual-table manual-converter-table">
+                <thead><tr><th>Operation</th><th>What it does</th></tr></thead>
+                <tbody>
+                  <tr><td>Prettify JSON</td><td>Parses valid JSON and writes readable indentation.</td></tr>
+                  <tr><td>Minify JSON</td><td>Parses valid JSON and removes insignificant whitespace.</td></tr>
+                  <tr><td>Stringify JSON</td><td>Turns a JSON value into a JSON string literal.</td></tr>
+                  <tr><td>Parse JSON</td><td>Turns a JSON string literal back into its contained JSON value.</td></tr>
+                  <tr><td>Escape JSON</td><td>Escapes quotes, backslashes, control characters, and unpaired surrogates for embedding in a JSON string.</td></tr>
+                  <tr><td>Unescape JSON</td><td>Decodes valid JSON escape sequences to characters.</td></tr>
+                  <tr><td>JSON &rarr; XML</td><td>Maps JSON types into a namespace-aware XML representation; a previously produced <code>$xml</code> mapping is reconstructed back into the original XML.</td></tr>
+                  <tr><td>XML &rarr; JSON</td><td>Uses an ordered <code>$xml</code> model to preserve attributes, namespaces, text, CDATA, comments, processing instructions, and order; XML in CodePrettify&rsquo;s typed JSON vocabulary decodes back to plain JSON, so both directions round-trip via Reverse.</td></tr>
+                  <tr><td>JSON &rarr; CSV</td><td>Converts a flat array of objects to comma-separated rows.</td></tr>
+                  <tr><td>CSV &rarr; JSON</td><td>Parses a compatible delimited table into an array of objects.</td></tr>
+                  <tr><td>JSON &rarr; YAML</td><td>Serializes compatible JSON values as YAML.</td></tr>
+                  <tr><td>YAML &rarr; JSON</td><td>Parses YAML values and serializes them as JSON.</td></tr>
+                  <tr><td>JSON &rarr; TSV</td><td>Converts a flat array of objects to tab-separated rows.</td></tr>
+                  <tr><td>TSV &rarr; JSON</td><td>Parses a compatible tab-separated table into objects.</td></tr>
+                  <tr><td>Base64 Encode</td><td>Encodes UTF-8 text as standard Base64.</td></tr>
+                  <tr><td>Base64 Decode</td><td>Strictly validates Base64 (no whitespace or line breaks, standard or URL-safe alphabet but not mixed, padding optional yet exact when present) and decodes it as UTF-8 text.</td></tr>
+                  <tr><td>URL Encode</td><td>Percent-encodes text for safe use in a URL component.</td></tr>
+                  <tr><td>URL Decode</td><td>Decodes valid percent-encoded text.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <h3>Compatibility and safety</h3>
+            <p>Operations proven incompatible with the current input are disabled with a reason; other choices remain selectable. JSON conversion refuses unsafe integers, <code>-0</code>, out-of-range values, and decimals that JavaScript would silently change. CSV/TSV requires flat tabular data and protects spreadsheet-formula-leading text: import treats the first row as a unique header row, rejects rows longer than the header, and returns every field as a string without type inference, while export unions all object keys into the header and leaves missing values empty. YAML conversion cannot preserve comments, anchors, tags, or scalar styling, and aliases that reuse arrays or objects are rejected outright to prevent unsafe expansion.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-data-converter"
+                  data-full-src="img/manual/data-converter.png" data-title="Data Converter"
+                  aria-label="Open full-size screenshot: JSON to YAML Data Converter" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/data-converter_thumb.webp?v=93c90ec1" type="image/webp" />
+                    <img src="img/manual/data-converter_thumb.png"
+                      alt="Data Converter performing a JSON-to-YAML conversion with operation controls, input, output, copy, reverse, and download actions"
+                      width="320" height="200" loading="lazy" decoding="async" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+            <p class="manual-limit"><strong>Limits:</strong> 10 Mi characters input, 32 Mi characters output, plus YAML bounds of 500,000 values and 512 nesting levels. Base64 decode must produce valid UTF-8.</p>
+            <p class="manual-deep-link"><strong>In-depth guide:</strong> See the Timestamp tab&rsquo;s detection rules, accepted formats, and outputs in <a href="unix-timestamp-converter.html">Unix Timestamp Converter</a>.</p>
+          </section>
+
+          <section id="json-to-code" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">From sample data to a usable model</span><h2>JSON to Code Generator</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <p>JSON to Code Generator is a general tool, so it remains available in More Actions and the Command Palette for every file type. The extension also exposes it from the launcher, and the Windows app includes it in Tools. Paste any strict JSON sample or choose <strong>Example</strong>; when opened on a JSON document, the sample is loaded automatically the first time, and <strong>Use document</strong> reloads it at any point. Generation runs entirely on the device.</p>
+            <ol>
+              <li>Enter one JSON object, value, or array of sample records in <strong>JSON sample</strong>.</li>
+              <li>Choose a <strong>Target</strong>, set the <strong>Root type name</strong>, and, where supported, adjust the package or namespace. That field appears for C# (Namespace, default <code>Generated</code>), Java and Kotlin (Package, default <code>com.example.generated</code>), and Go (Package, default <code>main</code>); invalid entries are normalized automatically.</li>
+              <li>Optionally enable <strong>Make every property optional</strong>. Otherwise, properties missing from some array samples become optional automatically, while an explicit <code>null</code> becomes nullable.</li>
+              <li>Review the live generated code and any inference warning, then <strong>Copy to clipboard</strong>, <strong>Open as document</strong>, or <strong>Export</strong>. Press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> in the sample box to generate immediately.</li>
+            </ol>
+            <p>The example below converts an advanced order payload—with nested customer data, line items, nullable discounts, tracking events, payment totals, tags, and metadata—into ready-to-use C# models with <code>System.Text.Json</code> annotations and a project namespace.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-json-to-code-csharp"
+                  data-full-src="img/manual/json-to-code-csharp.png" data-title="Advanced JSON converted to C# models"
+                  aria-label="Open full-size screenshot: Advanced JSON order data converted into ready-to-use C# models" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/json-to-code-csharp_thumb.webp?v=cf840c47" type="image/webp" />
+                    <img src="img/manual/json-to-code-csharp_thumb.png"
+                      alt="JSON to Code Generator converting an advanced nested order payload into annotated C# models"
+                      loading="lazy" width="320" height="200" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+            <div class="manual-table-wrap" tabindex="0">
+              <table class="manual-table">
+                <thead><tr><th>Target</th><th>Generated result</th></tr></thead>
+                <tbody>
+                  <tr><td>TypeScript</td><td>Nested exported interfaces and root aliases with unions, optional fields, and exact source keys.</td></tr>
+                  <tr><td>Zod</td><td>Composable schemas plus an inferred TypeScript root type.</td></tr>
+                  <tr><td>C#, Java, Kotlin</td><td>Records or data classes with JSON field-name annotations and namespace/package support.</td></tr>
+                  <tr><td>Python / Pydantic</td><td>Pydantic models with snake_case field names and <code>Field</code> aliases whenever the field name differs from the source key.</td></tr>
+                  <tr><td>Go, Rust, Swift, Dart</td><td>Native model declarations with json, Serde, Codable, or json_serializable mappings.</td></tr>
+                  <tr><td>JSON Schema</td><td>A Draft 2020-12 schema with inline nested object schemas, required lists, arrays, anyOf unions, and nullability.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <h3>Inference behavior</h3>
+            <p>Nested objects become named models. When the root is an array, all array entries contribute to inference rather than only the first record. Different compatible shapes are merged; genuinely mixed values become unions where the target supports them and a safe general type where it does not. Empty arrays cannot reveal their element type: they are counted into a single informational warning, and the target's safe unknown type is used only when no sample populates the array — otherwise a populated sample's element type wins. Property names such as <code>user-id</code>, reserved words, and other invalid identifiers receive the target's normal field-mapping annotation instead of changing the JSON contract. Array property names are singularized when naming element types (<code>addresses</code> becomes <code>Address</code>), and integers map to 64-bit types in typed targets. <strong>Make every property optional</strong> goes beyond adding <code>?</code>: it removes JSON Schema required lists and uses Option, pointer, or nullable forms with defaults where the target needs them.</p>
+            <p class="manual-limit"><strong>Limits:</strong> input is capped at 5 Mi characters, generated output at 16 Mi characters, nesting at 100 levels, and inspected JSON values at 100,000. Invalid or incomplete JSON reports its line and column when available. Limits fail closed and never alter the source document.</p>
+            <p class="manual-deep-link"><strong>In-depth guide:</strong> Compare TypeScript and Python/Pydantic output from the same multi-sample payload in <a href="json-to-code-generator.html">JSON to Code Generator</a>, or jump straight to a target: <a href="json-to-typescript.html">TypeScript</a>, <a href="json-to-pydantic.html">Pydantic</a>, or <a href="json-to-csharp.html">C#</a>.</p>
+            <p class="manual-deep-link"><strong>Try it without installing:</strong> The <a href="json-to-typescript.html#typescript-tool">online JSON to TypeScript converter</a> uses the same inference engine and runs locally in the tab. It supports copy and .ts download, with limits of 200,000 input characters, 40 nesting levels, 10,000 inspected values, and 1,000,000 output characters.</p>
+          </section>
+
+          <section id="structured-workbench" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Repair first, transform second</span><h2>JSON Repair &amp; Transform</h2>
+            <p class="manual-deep-link"><strong>Try it online:</strong> Use the <a href="json-repair-transform.html#online-tool">online JSON repair tool</a>. Repair and format a sample in the browser, then download the repaired JSON and a repair report. Transformation recipes remain available in the installed product.</p></div><span class="product-badge product-shared">Both products</span></div>
+            <p>Open <strong>JSON Repair &amp; Transform</strong> from <strong>General tools</strong> in More Actions or from the Command Palette; the Windows app also exposes it directly in <strong>Tools</strong>. It is available for every supported document type because pasted JSON-like input works independently of the active document; in the Windows app it requires an open document tab in prettified view. A compatible current document remains an optional starting point through <strong>Use document</strong>. All processing stays on the device. Its two tabs are designed as one workflow: review and normalize the source in <strong>Repair &amp; Salvage</strong>, then pass that result to <strong>Transform</strong>. Both tabs retain the same dialog height when switching, and the Repair input, repaired output, and live Transform result use the shared compact code-text scale while preserving useful editor space.</p>
+            <p class="manual-deep-link"><strong>In-depth guide:</strong> Walk through fenced, Python-style JSON repair and a filter-and-sort recipe in <a href="json-repair-transform.html">JSON Repair &amp; Transform</a>.</p>
+
+            <h3>Repair &amp; Salvage</h3>
+            <ol>
+              <li>Review or replace <strong>Input to analyze</strong>. <strong>Use document</strong> restores the active document text.</li>
+              <li>For JSON Lines only, enable <strong>Salvage valid JSON Lines records when some records are invalid</strong> if you deliberately want invalid records excluded. Leave it off when every record must survive.</li>
+              <li>Choose <strong>Analyze &amp; repair</strong>. Review the confidence, each recorded repair, warnings, and any discarded source-line numbers before using the result.</li>
+              <li>Copy or download the repaired JSON, or choose <strong>Use result in Transform</strong>.</li>
+            </ol>
+            <p>The repair engine can remove a byte-order mark or Markdown fence, extract the first balanced object/array from surrounding prose, remove JavaScript comments, convert single-quoted strings, quote unquoted object keys, replace recognized JavaScript/Python literals (True/False become true/false; None, NaN, undefined, and &plusmn;Infinity become null), add leading zeros to bare decimal numbers, close unterminated property strings, insert missing commas and closing brackets, remove trailing commas or a final semicolon, and escape raw controls inside strings. Every applied change appears in the report; extraction, semantic literal replacement, structural insertion (missing commas/brackets, closed strings), and excluded JSON Lines records lower confidence from high to medium so they receive extra scrutiny.</p>
+            <p class="manual-limit"><strong>Partial salvage is destructive:</strong> invalid JSON Lines records are never discarded silently. Without explicit opt-in, one invalid record blocks the result. With opt-in, the report identifies every excluded line. Mismatched brackets and structure that cannot be resolved safely are rejected; within JSON Lines, a record that would need bracket insertion or extraction is treated as invalid rather than repaired.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-workbench-repair"
+                  data-full-src="img/manual/structured-workbench-repair.png" data-title="JSON Repair &amp; Transform — Repair &amp; Salvage"
+                  aria-label="Open full-size screenshot: JSON Repair and Transform repair report"
+                  aria-haspopup="dialog" aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/structured-workbench-repair_thumb.webp?v=d4c1ea8f" type="image/webp" />
+                    <img src="img/manual/structured-workbench-repair_thumb.png"
+                      alt="JSON Repair and Transform repairing messy JSON-like data and listing every recorded change"
+                      loading="lazy" decoding="async" width="320" height="200" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+
+            <h3>Inputs normalized for the pipeline</h3>
+            <div class="manual-table-wrap" tabindex="0">
+              <table class="manual-table manual-workbench-format-table">
+                <thead><tr><th>Input format</th><th>JSON normalization</th></tr></thead>
+                <tbody>
+                  <tr><td>JSON, JSONC-style data, JavaScript object-style data</td><td>Validated or repaired into JSON with a change report.</td></tr>
+                  <tr><td>JSON Lines / NDJSON</td><td>Validated or repaired record by record and retained as an array for transformation.</td></tr>
+                  <tr><td>CSV</td><td>Parsed into an array of JSON objects.</td></tr>
+                  <tr><td>YAML</td><td>Parsed and normalized to compatible JSON values.</td></tr>
+                  <tr><td>TOML</td><td>Parsed and normalized to a JSON object.</td></tr>
+                  <tr><td>XML or RSS/Atom feed</td><td>Converted to CodePrettify&rsquo;s ordered JSON representation.</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Build a transformation pipeline</h3>
+            <p>After choosing <strong>Use result in Transform</strong>, the guided workspace shows the recipe builder beside a <strong>Live result</strong>. Common transformations are one-click choices under <strong>Add a transformation</strong>; less common choices stay under <strong>More transformations</strong>. Each step includes a plain-language summary, and <strong>Field</strong> controls suggest fields detected in the current data with their types and sample values. Labels, helper text, fields, and actions follow the same compact form scale used by other CodePrettify dialogs. Move steps up or down to change the result, remove individual steps, or choose <strong>Clear all</strong>. The most recent pipeline recipe is retained locally, while the source document itself is never modified.</p>
+            <p>An incomplete step does not empty or damage the preview: the previous valid result remains visible and the status explains which field or value is still needed. If a completed step removes every row, a prominent <strong>No rows matched</strong> explanation identifies that step and offers to remove it.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-workbench-transform"
+                  data-full-src="img/manual/structured-workbench-transform.png" data-title="JSON Repair &amp; Transform — Transform"
+                  aria-label="Open full-size screenshot: JSON Repair and Transform recipe"
+                  aria-haspopup="dialog" aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/structured-workbench-transform_thumb.webp?v=cdd20f2a" type="image/webp" />
+                    <img src="img/manual/structured-workbench-transform_thumb.png"
+                      alt="JSON Repair and Transform applying filter and sort steps while showing the live JSON result"
+                      loading="lazy" decoding="async" width="320" height="200" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+            <div class="manual-table-wrap" tabindex="0">
+              <table class="manual-table manual-workbench-operation-table">
+                <thead><tr><th>Operation</th><th>What it does</th></tr></thead>
+                <tbody>
+                  <tr><td>Filter rows</td><td>Keeps array rows matching equality, comparison, text/array containment, prefix/suffix, or existence conditions. A nested-array field matches when any nested item satisfies the condition; <em>is not equal to</em> matches only when every nested item differs.</td></tr>
+                  <tr><td>Select fields</td><td>Creates a smaller object from one or more comma-separated paths. Each kept value is stored under the final path segment (<code>customer.address.city</code> becomes <code>city</code>), so choose paths with distinct final names.</td></tr>
+                  <tr><td>Remove fields</td><td>Deletes one or more selected paths from copied records.</td></tr>
+                  <tr><td>Rename field</td><td>Moves a value from a source path to a new target path.</td></tr>
+                  <tr><td>Sort rows</td><td>Sorts an array by a path in ascending or descending order while preserving equal-value order. Null values sort last regardless of direction.</td></tr>
+                  <tr><td>Unique rows</td><td>Keeps the first row for each distinct path value, or each distinct full row when no path is supplied.</td></tr>
+                  <tr><td>Flatten array field</td><td>Expands an array-valued field into separate copied rows; rows whose field is not an array pass through unchanged.</td></tr>
+                  <tr><td>Group and aggregate</td><td>Groups by a path and calculates Count, Sum, Average, Minimum, or Maximum from an optional value path. Non-numeric values are ignored; Average, Minimum, and Maximum over no numeric values yield null.</td></tr>
+                  <tr><td>Limit rows</td><td>Returns a count of rows after an optional offset.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>In most cases, choose a detected field instead of writing a path. In Filter, the label <strong>any item</strong> represents an array wildcard — <code>owners[].name</code> checks the <code>name</code> of every item in <code>owners</code> — and Filter also accepts the forgiving form <code>owners.name</code>, crossing the array automatically; other operations expect a concrete path. Advanced paths use familiar dot/index notation such as <code>customer.address.city</code>, <code>items[0].sku</code>, or <code>$[&quot;odd.key&quot;]</code>. Filter values accept JSON literals such as <code>true</code>, <code>42</code>, <code>null</code>, arrays, and objects; other text remains a string. Use <code>&quot;&quot;</code> to match an empty string.</p>
+            <p>Use <strong>Copy</strong>, <strong>Export</strong>, or <strong>Open as document</strong> when the live output is ready. Opening the result creates a separate document or tab; it does not replace the source.</p>
+
+            <h3>Safety limits</h3>
+            <p class="manual-limit"><strong>Fail-closed safeguards:</strong> input is limited to 10 Mi characters, output to 20 Mi characters, structure to 250,000 nodes and 512 nesting levels, pipelines to 32 steps, and array output to 250,000 rows. Unsafe integers, lossy or non-finite numbers, overflowing aggregations, and prototype-sensitive path segments are rejected. Limits cannot be bypassed by partial-record salvage.</p>
+          </section>
+
+          <section id="copy-export" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Take the result with you</span><h2>Copy and Export</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <h3>Copy</h3>
+            <p>The floating copy menu and app Edit menu offer <strong>Original</strong>, <strong>Formatted</strong>, and <strong>Minified</strong> when valid. The main Copy button and <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd> reuse your last-chosen variant; before any choice they copy the visible representation (Raw copies Original, Prettified copies Formatted). Feedback explicitly identifies what was copied. YAML hides Minified because there is no safe equivalent.</p>
+            <p><strong>JSON Lines safety:</strong> the expanded multiline layout is display-only and is never used by CodePrettify&rsquo;s Copy commands, downloads, saves, Compare, or JavaScript Playground. Those actions use the original source or canonical valid one-record-per-line JSONL as appropriate. A manual text selection, including <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>A</kbd> in the viewer followed by Copy, copies exactly the visible reading layout; use the copy menu or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd> when you need valid JSONL. With the <strong>Formatted</strong> checkbox cleared, the automatic Copy action uses the original source.</p>
+            <h3>Export</h3>
+            <ul>
+              <li>Download Original, Formatted, or Minified source.</li>
+              <li>Export compatible structured data as CSV or the active table as HTML. Conversion exports quote cells and neutralize formula-leading text; the extension additionally prepends a UTF-8 byte-order mark for Excel. The Windows app&rsquo;s table-specific Save As also supports JSON and Excel workbooks, with row and ordering choices; when saving CSV source data as CSV, it preserves the source format and values.</li>
+              <li>Convert compatible documents to JSON/YAML/TOML during download; only targets the document can actually be serialized into are offered, while CSV export shows a readiness status with a reason when unavailable. XML/feed tabular projection is best-effort and can be lossy.</li>
+              <li>In the extension, export code as a PNG using visible viewport/full code, line-number, wrap, and resolution choices; when a full-code image is too large for a single PNG, it downloads a ZIP containing numbered PNG parts instead. In the Windows app&rsquo;s code views, Save as Image captures the visible code viewport as a single PNG; this action is not offered in Table View.</li>
+            </ul>
+            <p>The Windows app’s Save writes to disk; Export creates a separate representation. In the extension, export always downloads a new file.</p>
+          </section>
+
+          <section id="compare" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Spot changes</span><h2>Compare</h2>
+            <p class="manual-deep-link"><strong>Try it online:</strong> Use the <a href="json-array-diff.html">online JSON array diff by ID</a>. Compare two root arrays using a unique top-level identity field. Nested arrays are compared by position. The tool stops on duplicate or missing IDs.</p></div><span class="product-badge product-shared">Both products</span></div>
+            <h3>Compare any two sources</h3>
+            <ol>
+              <li>Open Compare or press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>D</kbd>.</li>
+              <li>The left input starts with the current document and the right input starts empty. Edit or paste either side; each side has its own <strong>Use current document</strong> and <strong>Clear</strong> controls.</li>
+              <li>Use <strong>Swap sides</strong> before comparing to exchange the actual inputs. Semantic mode is selected automatically when both inputs parse as a supported structured format (the toggle appears only when semantic comparison is possible); switch to Text mode for exact line changes. Semantic availability is detected from the two inputs, not from the open file.</li>
+              <li>After comparing, use Swap Sides or <strong>Edit inputs</strong>; the Windows app also has Previous/Next difference buttons. (After a comparison, Swap flips only which side is displayed without changing the inputs.) Text mode synchronizes pane scrolling, and in the Windows app it adds an Ignore whitespace option that disregards all whitespace inside lines.</li>
+            </ol>
+            <p>Semantic comparison supports JSON/JSONC/JSON Lines/YAML/TOML where parsing succeeds, even if the active document is JavaScript, CSS, or another format. It ignores formatting and object-key order. (JSONC comments and trailing commas inside JSON Lines records are accepted in the app; the extension requires strict JSON per line.) Arrays whose elements are all objects with a unique primitive <code>id</code>, <code>_id</code>, <code>uuid</code>, or <code>guid</code> — the same key on both sides — are matched by identity; all other arrays are compared positionally. Change sets are capped at 5,000 entries, with a trailing &hellip; on the counters when truncated, and invalid inputs fall back to text. Very large text comparisons (over roughly 5,000 combined lines in the extension, 20,000 in the app) use a faster position-based comparison that can overstate changes when lines shift. A structured change can jump to an editor line only while the corresponding left or right source still exactly matches the current document, and only for JSON documents with positionally addressed changes — changes inside identity-matched array elements list the change without a jump; independently pasted or edited text never produces a misleading jump. When the sources are identical, both modes show a centered no-differences message over the result area.</p>
+            <p>The shared comparison workspace below shows semantic changes between the current document and clipboard or pasted text. It is separate from the Windows app&rsquo;s dedicated native file-comparison tab described next.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-compare"
+                  data-full-src="img/manual/compare-semantic.png" data-title="Shared semantic comparison"
+                  aria-label="Open full-size screenshot: Shared semantic comparison with clipboard or pasted text" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/compare-semantic_thumb.webp?v=8e90ed4d" type="image/webp" />
+                    <img src="img/manual/compare-semantic_thumb.png"
+                      alt="Shared Semantic Compare workspace showing structured JSON changes between the current document and clipboard or pasted text, independent of formatting and object-key order"
+                      width="320" height="200" loading="lazy" decoding="async" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+            <p class="manual-deep-link"><strong>In-depth guide:</strong> See semantic and text modes, identity matching, and change navigation walked through in <a href="json-compare.html">JSON Compare &amp; Diff</a>.</p>
+            <h3>Compare files (app)</h3>
+            <p>The Windows app can browse two files, prefill the current file, remember the pair, and open a dedicated native comparison tab with synchronized panes, Previous/Next difference navigation, Ignore whitespace, status details, and a minimap. Selecting exactly two supported files in Explorer can expose the Compare command.</p>
+            <h3>Compare table schemas (app)</h3>
+            <p class="manual-deep-link"><strong>In-depth Windows app guide:</strong> <a href="csv-guide.html#csv-schema">Compare two CSV formats step by step</a>, including main-file direction, inserted columns, sample values, and Swap files.</p>
+            <p>Choose <strong>Tools &gt; Compare Table Schema</strong>, select the <strong>Main file</strong>, and choose another file under <strong>Compare with</strong>. The active file is preselected as the main file. Compatible CSV, JSON/JSONC arrays, JSON Lines, and repeating XML/RSS or HTML data open in a dedicated table comparison tab.</p>
+            <ul>
+              <li>The <strong>Columns</strong> grid shows each column&rsquo;s name, change status, positions starting at zero, observed value types, and example values for the main and compared files. Types describe values found in the files; this does not validate a declared schema. CSV values remain text, including identifiers with leading zeros.</li>
+              <li>Changes describe the main file. Columns found only in the main file are green and marked <strong>Added</strong>; columns missing from it are red and marked <strong>Removed</strong>. A column whose position changes because another column was inserted or removed is marked as shifted; a change in the relative order of existing columns is marked as reordered.</li>
+              <li>Find a column by name. Turn on <strong>Changes only</strong> to show added, removed, reordered, or type-changed columns. <strong>Swap files</strong> makes the compared file the main file and reverses the comparison.</li>
+              <li>Switch to <strong>Data preview</strong> to see up to the first 10 rows of both files in their original column order. Use these examples to inspect new fields and their values; records are not matched between files, and a renamed column appears as a removal and an addition.</li>
+            </ul>
+          </section>
+
+          <section id="javascript-playground" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Sandboxed scratchpad</span><h2>JavaScript Playground</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <ol>
+              <li>Start the Playground from any viewer’s More Actions menu or the extension launcher. Open a JavaScript, JSON, or JSON Lines document first if you want to include it as context.</li>
+              <li>Write scratch code. Optionally include the current document; JSON/JSON Lines becomes <code>const json</code> (invalid JSON Lines records are skipped, and an invalid JSON document provides no <code>json</code> variable). Scratch code and your timeout/include choices are remembered between sessions.</li>
+              <li>For JavaScript choose <strong>Safe definitions</strong> to expose callable/passive top-level declarations without page startup, or <strong>Run entire file</strong> to include startup logic. Safe definitions keeps functions and constants with side-effect-free initializers; classes and values computed at startup require Run entire file.</li>
+              <li>Choose a 1, 5, or 15-second timeout and Run, or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.</li>
+              <li>Inspect console output, <code>console.table</code>, errors with mapped lines, duration, and the final expression’s value. Top-level <code>await</code> is supported, and unhandled promise rejections appear as console errors.</li>
+            </ol>
+            <p class="manual-limit"><strong>Output bounds:</strong> the console keeps the last 500 entries, value previews truncate at 10,000 characters, and a timeout hard-terminates the worker so runaway loops cannot linger.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-javascript-playground"
+                  data-full-src="img/manual/javascript-playground.png" data-title="JavaScript Playground"
+                  aria-label="Open full-size screenshot: JavaScript Playground" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/javascript-playground_thumb.webp?v=5cd9dd5d" type="image/webp" />
+                    <img src="img/manual/javascript-playground_thumb.png"
+                      alt="JavaScript Playground running sandboxed code and displaying console output, a table, and a return value"
+                      width="320" height="200" loading="lazy" decoding="async" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+            <div class="manual-callout warning"><strong>It is not the page and not Node.js.</strong> The worker has no DOM, <code>window</code>, <code>document</code>, page libraries, extension APIs, local-file access, <code>fetch</code>, XHR, WebSocket, or other network channel. Node.js APIs are unavailable: <code>require</code> returns a stub module that raises a guided <code>SandboxCapabilityError</code> when used, and referencing <code>process</code>, <code>Buffer</code>, or other CommonJS globals raises the same error. ES module files run with import/export neutralized — imported symbols become undefined or empty stubs — so code depending on imported modules will not behave as it does in its real environment. Browser- or Node-dependent files are expected to fail; isolate a pure function or use Safe definitions.</div>
+          </section>
+
+          <section id="runtime-inspector" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">JavaScript only</span><h2>Inspect Runtime</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <p>Inspect Runtime executes the current JavaScript in the same sandbox with a fixed five-second timeout and groups top-level variables, functions, and classes. It captures parameter signatures, bounded values, source previews, console output, and declaration line links. Partial results remain useful if later startup code throws.</p>
+            <p>Choose inline-value display to add captured values beside source lines and hover details. Use <strong>Clear inline values</strong> to remove annotations. Runtime Inspect has the same no-DOM, no-Node, no-local-files, and no-network restrictions as the Playground.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-runtime-inspector"
+                  data-full-src="img/manual/runtime-inspector.png" data-title="Inspect Runtime"
+                  aria-label="Open full-size screenshot: JavaScript Runtime Inspector" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/runtime-inspector_thumb.webp?v=6a9b2550" type="image/webp" />
+                    <img src="img/manual/runtime-inspector_thumb.png"
+                      alt="Inspect Runtime grouping captured JavaScript variables, functions, classes, values, signatures, and source-line links"
+                      width="320" height="200" loading="lazy" decoding="async" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+          </section>
+
+          <section id="regex-playground" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Build and verify patterns</span><h2>Regex Playground</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <ol>
+              <li>Choose <strong>Current document</strong> or <strong>Custom text</strong>. Custom text is session-only; document mode highlights matches in the viewer and can jump to them, and moving the editor cursor onto a highlighted match selects it and shows its capture groups.</li>
+              <li>Enter the pattern without surrounding slashes. Toggle global <code>g</code> (on by default), ignore case <code>i</code>, multiline <code>m</code>, dot-all <code>s</code>, Unicode <code>u</code>, or sticky <code>y</code>.</li>
+              <li>Review the matches with line/column. The list shows the first 100 (all matches up to 500 are still counted and highlighted); select a match to see its numbered and named capture groups in the details panel. The right side always shows the complete <code>/pattern/flags</code> form with Copy Regex.</li>
+              <li>Open Advanced for replacement preview (<code>$1</code> and <code>$&lt;name&gt;</code>), a combined saved-and-recent list holding the last ten patterns (recent runs are recorded automatically; Save pattern adds a named entry to the same ten-slot list), and up to 20 test assertions: Matches, No match, Match count, or Replace equals.</li>
+              <li>Copy generated JavaScript, C#, or PowerShell snippets, or load an example from the guide.</li>
+            </ol>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-regex"
+                  data-full-src="img/manual/regex-playground.png" data-title="Regex Playground"
+                  aria-label="Open full-size screenshot: Regex Playground" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/regex-playground_thumb.webp?v=c1623d7e" type="image/webp" />
+                    <img src="img/manual/regex-playground_thumb.png"
+                      alt="Regex Playground with Current document and Custom text sources, flag controls, live matches, capture groups, and a copyable complete expression"
+                      width="320" height="200" loading="lazy" decoding="async" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+            <p class="manual-limit"><strong>Safety:</strong> patterns run only in a worker, time out after roughly 1.5 seconds, and stop after 500 matches. This prevents a catastrophic expression from freezing the viewer.</p>
+            <p class="manual-deep-link"><strong>In-depth guide:</strong> See live named-group matches, replacement preview, tests, and language snippets in <a href="regex-playground.html">Regex Playground</a>.</p>
+          </section>
+
+          <section id="http-client" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Explicit network tool</span><h2>HTTP Client</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <h3>Build a request</h3>
+            <ol>
+              <li>Choose GET, POST, PUT, PATCH, DELETE, HEAD, or OPTIONS; enter an HTTP/HTTPS URL and timeout (default 30 seconds).</li>
+              <li>Add query parameters, headers, and authentication: None, Bearer, Basic, or API key in a header/query.</li>
+              <li>For a body choose None, JSON, raw text, URL-encoded form, multipart fields, or GraphQL with variables. GET and HEAD requests never send a body.</li>
+              <li>Use <code>{{variable}}</code> from an environment. Secret fields are masked in the UI.</li>
+              <li>Press <strong>Send</strong>. This is the moment the browser/app makes the external request. While the request runs, Send shows a spinner and a Cancel button appears beside it.</li>
+            </ol>
+            <h3>Reuse and share safely</h3>
+            <p>Save requests, collections, environments, and sanitized history. Import cURL or CodePrettify JSON; export JSON. Authentication values, sensitive-named URL/query/header/form fields, and environment variables marked Secret remain available for the active session but are removed before a request or workspace is saved or exported. Generated snippets and response views mask known secret values as <code>******</code>, so re-insert real credentials before running a snippet. Unmarked values embedded in free-form JSON, text, multipart, or GraphQL bodies cannot be rewritten without changing request semantics and may still be saved or exported; the export warning is the final review step.</p>
+            <h3>Inspect the response</h3>
+            <p>Review formatted Body, Raw, Headers, Cookies, status, duration/timing, size, and content type. The Body tab formats recognized JSON, JSON Lines, YAML, CSS, HTML, XML, JavaScript, or TypeScript in the embedded viewer; use the Raw tab&rsquo;s Copy button for the exact response text.</p>
+            <div class="manual-screenshot-grid manual-screenshot-grid-single">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-http-client"
+                  data-full-src="img/manual/http-client.png" data-title="HTTP Client"
+                  aria-label="Open full-size screenshot: HTTP Client" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/http-client_thumb.webp?v=2e045742" type="image/webp" />
+                    <img src="img/manual/http-client_thumb.png"
+                      alt="HTTP Client composing a GET request and inspecting its JSON response, status, headers, and timing"
+                      width="320" height="200" loading="lazy" decoding="async" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+            <p class="manual-limit"><strong>Limits and behavior:</strong> URLs with embedded credentials are refused (the extension explains this directly; the app reports it as a blocked request) &mdash; use the Auth controls instead. Cache is disabled. A redirect is followed only when its next location can be verified as same-origin; cross-origin, opaque, or otherwise unverifiable redirects are blocked before the next network request. Response bodies are capped at 50 MiB; anything beyond the cap is discarded and the size chip shows the bytes actually kept. CodePrettify JSON imports are capped at 10 MiB of UTF-8 data. Requests follow each platform&rsquo;s fetch rules: the extension&rsquo;s granted host permissions usually exempt its requests from CORS in Chrome and Edge, while the Windows app is subject to standard CORS. A timeout of 0 disables timeout; maximum differs by product (five minutes in the extension, ten in the app).</p>
+            <p>Local storage is bounded: the extension allows up to 500 collection entries, 50 environments, and 200 variables per environment; the app uses 100 entries, 20 environments, and 50 variables per environment. History keeps the last 10 requests per page (the extension retains the 25 most recent pages, the app 40). In both products, replay history strips URL credentials and fragments, sensitive headers and query parameters, request bodies and form fields, and detailed transport-error text before storage; older entries are rewritten through the same sanitizer when read. Sensitive fields and Secret environment variables are also omitted from saved collections and workspace exports. Other values you intentionally place in free-form bodies can remain local profile data, so protect the profile and review every exported workspace before sharing it.</p>
+            <p class="manual-deep-link"><strong>In-depth guide:</strong> Follow a complete request from params and environment values through formatted body, headers, timing, and copyable snippets in <a href="http-client-browser-extension.html">HTTP Client</a>.</p>
+          </section>
+
+          <section id="settings" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Personalize the viewer</span><h2>Settings</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <div class="manual-card-grid">
+              <div class="manual-card"><h3>Appearance</h3><p>Auto/Light/Dark theme and 10–24px editor font. Auto follows the operating system.</p></div>
+              <div class="manual-card"><h3>Editor</h3><p>Line numbers, word wrap, minimap, floating toolbar, and two- or four-space indentation.</p></div>
+              <div class="manual-card"><h3>Language</h3><p>Auto plus English, Danish, German, Spanish, French, Italian, Japanese, Korean, Norwegian, Portuguese, Russian, Swedish, Vietnamese, and Chinese.</p></div>
+              <div class="manual-card"><h3>Per-format</h3><p>Enable per type (extension only) and default view (both products), JSON breadcrumb/click inspector/folding, JS folding/bracket matching, CSS color picker, and XML/RSS folding/clickable URLs. The app also has HTML folding/URLs and a YAML &ldquo;Enabled by default&rdquo; toggle.</p></div>
+              <div class="manual-card"><h3>App startup</h3><p>Restore the previous session. Turning it off deletes the open-tab checkpoint and stops further session-path writes; the separate Recent Files list remains available until you clear it. Desktop settings apply to every open/new tab and remain local to the app.</p></div>
+            </div>
+            <div class="manual-screenshot-grid">
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-settings-extension"
+                  data-full-src="img/manual/settings-extension.png" data-title="Browser extension settings"
+                  aria-label="Open full-size screenshot: Browser extension settings" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/settings-extension_thumb.webp?v=6fe76463" type="image/webp" />
+                    <img src="img/manual/settings-extension_thumb.png"
+                      alt="Browser extension settings for theme, language, editor behavior, and per-format options"
+                      width="320" height="200" loading="lazy" decoding="async" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+              <figure class="manual-screenshot">
+                <button type="button" class="manual-screenshot-open" id="manual-screenshot-settings-windows"
+                  data-full-src="img/manual/settings-windows.png" data-title="Windows app settings with category navigation"
+                  aria-label="Open full-size screenshot: Windows app settings with category navigation" aria-haspopup="dialog"
+                  aria-controls="manual-screenshot-modal">
+                  <picture data-site-image>
+                    <source srcset="img/manual/settings-windows_thumb.webp?v=8892ffc9" type="image/webp" />
+                    <img src="img/manual/settings-windows_thumb.png"
+                      alt="CodePrettify for Windows settings with a category rail for General, Appearance, Editor, Default view, and File Type Settings"
+                      width="320" height="200" loading="lazy" decoding="async" />
+                  </picture>
+                  <span class="manual-screenshot-zoom" aria-hidden="true">View full size</span>
+                </button>
+              </figure>
+            </div>
+            <p>Extension settings apply immediately and are stored through browser storage; app settings are local. They are not synchronized between products.</p>
+            <p>Inputs, dropdowns, textareas, buttons, and icon buttons throughout CodePrettify use the same small, medium, and large control scale, so padding, type size, field height, and click targets remain consistent when moving between Settings and tools. Technical textareas in Compare, JSON to Code Generator, JSON Repair &amp; Transform, Data Converter, Schema Validator, HTTP Client, Regex, the JavaScript Playground fallback, and JSON decode all use one compact 13px code-text scale and monospace stack. Modal titles, section headings, field labels, help text, and status messages also share one typography system. Task-specific layouts, state colors, badges, editor viewport heights, and result panes remain specialized where their purpose requires it.</p>
+          </section>
+
+          <section id="large-files-encoding" class="manual-topic" data-products="app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Desktop safeguards</span><h2>Large files, encoding, and line endings</h2></div><span class="product-badge product-app">Windows app</span></div>
+            <h3>Native large-file mode</h3>
+            <p>Files of 64 MiB or more use a read-only native pager instead of loading the full WebView document. Generic pages contain about 750,000 characters; CSV pages contain 500 rows with a synchronized raw view. The CSV reader accepts at most 4,096 columns, 1,048,576 characters in one field, a 4 MiB logical row, and 16 MiB of parsed data per page before showing a bounded error or Raw fallback. Previous/Next, page search, forward cross-page search with progress/cancel/wrap, and Go to line/row remain available. Most WebView tools are disabled. Native CSV Table View offers the table Save As dialog for the complete file, including rows beyond the loaded page; unavailable selection, filtering and ordering choices are disabled. In native Raw and generic large-file views, Save As copies the original file. File-to-file Compare accepts at most 128 MiB for each input.</p>
+            <h3>Network files and linked files</h3>
+            <p>UNC and other network files skip live file watching because remote watcher notifications are unreliable; the app still fingerprints the exact source bytes and checks for external changes before saving, including BOM- or encoding-only edits. Local files retain live change detection. When a path is a hard link or reparse-backed file, Save preserves that identity with a rollback-backed in-place write instead of atomic replacement; this avoids silently breaking the link but cannot offer atomic power-loss behavior for that linked-file case.</p>
+            <h3>Encoding</h3>
+            <p>The app detects UTF-8/BOM, UTF-16 LE/BE, UTF-32 BOM, BOM-less UTF-16 heuristics, strict UTF-8, then Windows legacy fallback. Click encoding in the status bar to reopen as Auto, UTF-8, UTF-8 BOM, UTF-16 LE/BE, Windows-1252, or ISO-8859-1. Overrides are session-only; a reopened file reverts to auto-detection.</p>
+            <h3>Line endings</h3>
+            <p>The status bar shows Windows (CRLF), Unix (LF), Mac (CR), Mixed EOL, or No EOL. Click it to convert the document (files up to 256 MiB). Conversion asks for confirmation and then rewrites the file on disk immediately &mdash; no separate save is needed.</p>
+            <h3>Explorer integration and runtime requirements</h3>
+            <p>The packaged x64/Arm64 app is .NET 10 self-contained, so the main app does not require a separate .NET desktop runtime. It does require the shared Microsoft Edge WebView2 Evergreen runtime; if missing, the recovery screen opens Microsoft’s installer and provides Retry.</p>
+            <p>File associations and Explorer commands can open supported files, and selecting exactly two supported files can offer Compare. This optional Explorer handler uses the architecture-matched Microsoft .NET 10 Runtime (x64 or Arm64). If it is missing, CodePrettify shows a prompt with a link to the official Microsoft installer. You can also use <strong>Help &gt; Explorer Integration Runtime</strong> to check or install it, then restart Explorer or sign out if the shell has not refreshed.</p>
+          </section>
+
+          <section id="shortcuts" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Keyboard reference</span><h2>Keyboard shortcuts</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <div class="manual-table-wrap" tabindex="0">
+              <table class="manual-table shortcuts-table">
+                <thead><tr><th>Action</th><th>Shortcut</th><th>Availability</th></tr></thead>
+                <tbody>
+                  <tr><td>Select the complete displayed document</td><td><kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>A</kbd></td><td>Both, Prettified/Rendered view; focused text fields keep their normal selection</td></tr>
+                  <tr><td>Toggle Prettified/Raw or Rendered/Source</td><td><kbd>Ctrl</kbd>+<kbd>B</kbd></td><td>Both</td></tr>
+                  <tr><td>Copy active/default representation</td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd></td><td>Both</td></tr>
+                  <tr><td>Find</td><td><kbd>Ctrl</kbd>+<kbd>F</kbd></td><td>Both, Prettified/Rendered view</td></tr>
+                  <tr><td>Go to Line</td><td><kbd>Ctrl</kbd>+<kbd>G</kbd></td><td>Both (extension: Prettified view only)</td></tr>
+                  <tr><td>Toggle floating toolbar</td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd></td><td>Both</td></tr>
+                  <tr><td>Open Compare (two editable sources; the left side starts with the current document)</td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>D</kbd></td><td>Both</td></tr>
+                  <tr><td>JavaScript Playground</td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>P</kbd></td><td>Both (app: JS/JSON/JSON Lines documents; the menu entry works everywhere)</td></tr>
+                  <tr><td>Inspect Runtime</td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd></td><td>Both, JavaScript</td></tr>
+                  <tr><td>Regex Playground</td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>R</kbd></td><td>Both</td></tr>
+                  <tr><td>Command Palette</td><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd></td><td>Both</td></tr>
+                  <tr><td>Run the open dialog&rsquo;s primary action (Playground, Schema Validator, Compare, JSON to Code)</td><td><kbd>Ctrl</kbd>+<kbd>Enter</kbd></td><td>When the dialog is open</td></tr>
+                  <tr><td>Close dialog / clear search and return focus to the document</td><td><kbd>Esc</kbd></td><td>Both</td></tr>
+                  <tr><td>Paste &amp; Prettify</td><td><kbd>Ctrl</kbd>+<kbd>N</kbd></td><td>App</td></tr>
+                  <tr><td>Open</td><td><kbd>Ctrl</kbd>+<kbd>O</kbd></td><td>App</td></tr>
+                  <tr><td>Save / Save As</td><td><kbd>Ctrl</kbd>+<kbd>S</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd></td><td>App</td></tr>
+                  <tr><td>Close tab</td><td><kbd>Ctrl</kbd>+<kbd>W</kbd></td><td>App</td></tr>
+                  <tr><td>Next tab</td><td><kbd>Ctrl</kbd>+<kbd>Tab</kbd> or <kbd>Ctrl</kbd>+<kbd>Page Down</kbd></td><td>App</td></tr>
+                  <tr><td>Previous tab</td><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Tab</kbd> or <kbd>Ctrl</kbd>+<kbd>Page Up</kbd></td><td>App</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="privacy-security" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Know what leaves the device</span><h2>Privacy and security</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <ul>
+              <li>Formatting, validation, conversion, diagram generation, JSON-to-code inference and generation, JSON Repair &amp; Transform, statistics, search, comparison, schema checks, security scanning, and playground/regex processing stay on the device.</li>
+              <li>The HTTP Client is the intentional network exception: the request is sent directly to the displayed target only after you press Send. CodePrettify does not proxy it.</li>
+              <li>Playground and Runtime Inspect run in a Web Worker inside a script-only sandboxed frame whose content-security policy forbids all network connections; fetch, XHR, WebSocket, and other networking primitives are additionally disabled before your code runs, and there is no page DOM, extension API, local-file, or Node capability.</li>
+              <li>Markdown suppresses automatic remote image loading. Remote JSON Schema references are never fetched.</li>
+              <li>To repair garbled legacy-encoded JavaScript/TypeScript documents, the extension may automatically re-download the same document URL it is already viewing; this request goes only to the server that served the page. Launcher sample documents are loaded from prettify.cloud.</li>
+              <li>HTTP environments and saved authentication are local but not encrypted as a secrets vault. Treat exported HTTP JSON as sensitive because it may contain plaintext secrets.</li>
+              <li>Extension host permissions allow CodePrettify to recognize supported resources; they do not upload documents.</li>
+            </ul>
+            <p>For the complete policy and marketplace disclosures, read the <a href="privacy.html">Privacy Policy</a>.</p>
+          </section>
+
+          <section id="troubleshooting" class="manual-topic" data-products="shared browser app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Solve common problems</span><h2>Troubleshooting</h2></div><span class="product-badge product-shared">Both products</span></div>
+            <div class="manual-definition-list">
+              <div><h3>The extension did not activate</h3><p>Confirm the file type is enabled, reload the raw resource, and check that it is a supported raw document rather than an HTML page. The extension never takes over pages the server delivers as HTML, even for <code>.json</code> or <code>.md</code> URLs: activation needs either a supported response content type, or a supported URL extension while the browser is showing its plain raw-text view. For direct local URLs, enable Allow access to file URLs; alternatively use the launcher picker.</p></div>
+              <div><h3>Formatting failed or looks unchanged</h3><p>Open the validation alert and jump to its line/column. Some formats intentionally preserve text when reserialization could change meaning: YAML, mixed-content XML, and high-precision TOML are common examples.</p></div>
+              <div><h3>A tool is missing or disabled</h3><p>Tools are format- and view-sensitive. Open More Actions/Command Palette, switch from Raw/native view to Prettified, and verify the current data shape. The extension’s Document Navigator is intentionally limited to JSON, JavaScript/TypeScript, and XML/RSS.</p></div>
+              <div><h3>The JavaScript file needs document, fs, or fetch</h3><p>That code cannot run in the secure worker; the failure is reported as a <code>SandboxCapabilityError</code> or a network-disabled error naming the blocked capability. Use Safe definitions and call a pure function, paste an isolated function into the scratchpad, or test it in its intended browser/Node environment.</p></div>
+              <div><h3>An HTTP request fails</h3><p>Verify resolved variables, authentication placement, URL, timeout, and response size. The extension remains subject to browser CORS and credential restrictions. Use generated cURL/PowerShell to compare outside the browser.</p></div>
+              <div><h3>A conversion option is disabled</h3><p>The compatibility check has proven the current input is unsuitable. Read the reason: common causes are invalid JSON, nested data for CSV/TSV, unsafe JSON numbers, invalid UTF-8 Base64, or a lossy YAML/XML construct.</p></div>
+              <div><h3>Repair &amp; Salvage refuses the input</h3><p>JSON Repair &amp; Transform only returns a result when it can produce bounded, safely representable JSON. Review missing brackets or separators, truncated records, unsafe numbers, and nesting/size limits. Enable partial JSON Lines salvage only when excluding the reported broken records is acceptable.</p></div>
+              <div><h3>The Windows app will not show its viewer</h3><p>The main package includes .NET 10, but Microsoft Edge WebView2 Evergreen is required. Use the recovery screen to install WebView2 and Retry. Explorer integration is optional and uses the architecture-matched Microsoft .NET 10 Runtime (x64 or Arm64); if it is missing, follow CodePrettify&rsquo;s installer link and then restart Explorer.</p></div>
+            </div>
+            <div class="manual-support-row">
+              <a class="btn btn-primary" href="contact.html">Get support or report an idea</a>
+              <a class="btn btn-secondary" href="changelog.html">Browser changelog</a>
+              <a class="btn btn-secondary" href="changelog-app.html">App changelog</a>
+            </div>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <div class="screenshot-modal manual-screenshot-modal" id="manual-screenshot-modal" role="dialog"
+      aria-modal="true" aria-label="Full-size screenshot preview. Click anywhere or press Escape to close."
+      tabindex="-1" hidden>
+      <div class="screenshot-modal-content manual-screenshot-modal-content">
+        <img id="manual-screenshot-modal-image" alt="" />
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-links">
+          <a href="pricing.html">Pricing</a>
+          <a href="manual.html">User Manual</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="changelog.html">Changelog</a>
+          <a href="contact.html">Feedback &amp; Support</a>
+        </div>
+        <p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://apps.fixquotes.com" target="_blank" rel="noopener noreferrer">FixQuotes</a>.</p>
+      </div>
+    </footer>
+  </body>
+</html>

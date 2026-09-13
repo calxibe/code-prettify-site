@@ -1,0 +1,43 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">FixQuotes extension icon</title>
+  <desc id="desc">A rounded cobalt tile with bright quotation marks and an amber page fold, representing quote cards on a new tab.</desc>
+  <defs>
+    <linearGradient id="bgGradient" x1="72" y1="56" x2="448" y2="456" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1291EA"/>
+      <stop offset="1" stop-color="#0B3B6F"/>
+    </linearGradient>
+    <radialGradient id="glowGradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(174 138) rotate(35) scale(264 228)">
+      <stop stop-color="white" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="foldGradient" x1="366" y1="62" x2="458" y2="152" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F7C04A"/>
+      <stop offset="1" stop-color="#EF8F10"/>
+    </linearGradient>
+    <filter id="quoteShadow" x="104" y="116" width="262" height="338" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feOffset dy="10"/>
+      <feGaussianBlur stdDeviation="10"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.0235294 0 0 0 0 0.129412 0 0 0 0 0.247059 0 0 0 0.22 0"/>
+      <feBlend in2="SourceGraphic" mode="normal" result="shape"/>
+    </filter>
+  </defs>
+
+  <rect x="24" y="24" width="464" height="464" rx="116" fill="url(#bgGradient)"/>
+  <rect x="24" y="24" width="464" height="464" rx="116" fill="url(#glowGradient)"/>
+  <rect x="25.5" y="25.5" width="461" height="461" rx="114.5" stroke="white" stroke-opacity="0.08" stroke-width="3"/>
+
+  <path d="M360 52H452C458.627 52 464 57.3726 464 64V156L360 52Z" fill="url(#foldGradient)"/>
+  <path d="M360 52L464 156" stroke="#FFF0C7" stroke-opacity="0.78" stroke-width="10" stroke-linecap="round"/>
+
+  <path d="M92 86C123 69 160 59 198 58" stroke="white" stroke-opacity="0.18" stroke-width="18" stroke-linecap="round"/>
+
+  <g filter="url(#quoteShadow)" fill="#F9FCFF">
+    <circle cx="177" cy="164" r="39"/>
+    <rect x="138" y="164" width="78" height="174" rx="39"/>
+    <path d="M144 298H216L154 404C148.305 413.742 134 409.7 134 398.415V357C134 346.507 138.004 336.41 145.191 328.769L144 298Z"/>
+
+    <circle cx="283" cy="164" r="39"/>
+    <rect x="244" y="164" width="78" height="174" rx="39"/>
+    <path d="M250 298H322L260 404C254.305 413.742 240 409.7 240 398.415V357C240 346.507 244.004 336.41 251.191 328.769L250 298Z"/>
+  </g>
+</svg>

@@ -1,0 +1,3287 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; font-src 'self'; img-src 'self' data: https://www.google-analytics.com https://wonderlaunch.app https://api.producthunt.com https://peerpush.com https://www.uneed.best https://fazier.com https://www.directree.io; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com; frame-src https://www.youtube-nocookie.com; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Changelog - CodePrettify</title>
+    <meta name="description" content="See the latest CodePrettify browser extension updates, including compatibility fixes, developer tools, and privacy improvements." />
+    <meta name="application-name" content="CodePrettify" />
+    <meta name="apple-mobile-web-app-title" content="CodePrettify" />
+    <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://prettify.cloud/changelog.html" />
+    <link rel="icon" href="favicon.ico?v=20260725" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20260725" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260725" />
+    <link rel="manifest" href="site.webmanifest?v=20260725" />
+    <meta property="og:site_name" content="CodePrettify" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Changelog - CodePrettify" />
+    <meta property="og:description" content="See the latest CodePrettify browser extension updates, including compatibility fixes, developer tools, and privacy improvements." />
+    <meta property="og:url" content="https://prettify.cloud/changelog.html" />
+    <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-stats-diagnostics.png" />
+    <meta property="og:image:alt" content="CodePrettify statistics and diagnostics panel showing warnings, request metadata, and document metrics" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Changelog - CodePrettify" />
+    <meta name="twitter:description" content="See the latest CodePrettify browser extension updates, including compatibility fixes, developer tools, and privacy improvements." />
+    <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-stats-diagnostics.png" />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
+  <link rel="stylesheet" href="style.min.css?v=e1ce1dd4" />
+  <link rel="stylesheet" href="consent.css?v=20260826-2" />
+    <script src="site.js?v=20260826-3" defer></script>
+  </head>
+  <body class="supporting-page changelog-page">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header>
+      <div class="header-inner">
+          <a href="/" class="logo">
+          <img
+            src="img/code_32.png?v=20260725" srcset="img/code_32.png?v=20260725 1x, img/code_64.png?v=20260725 2x" width="32" height="32"
+            alt=""
+            class="logo-icon"
+          /><span>Code<span>Prettify</span></span>
+        </a>
+        <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation">
+          <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+        <nav id="site-navigation" aria-label="Primary navigation">
+          <a href="/#install">Install</a>
+          <a href="tools.html">Tools</a>
+        <a href="guides.html">Guides</a>
+          <a href="pricing.html">Price</a>
+          <a href="manual.html">Manual</a>
+          <a href="changelog.html" class="active" aria-current="page">Changelog</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main-content" class="content content--page site-frame">
+      <section class="page-hero" aria-labelledby="changelog-title">
+        <div class="page-hero__content">
+          <span class="page-hero__eyebrow">Product updates</span>
+          <h1 id="changelog-title" class="hero-title">Changelog</h1>
+          <p class="intro page-hero__lead">New features, refinements, and fixes. Follow the development of the CodePrettify browser extension.</p>
+        </div>
+      </section>
+
+      <nav class="changelog-tabs" aria-label="Release notes by product">
+        <a class="changelog-tab active" aria-current="page" href="changelog.html">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Browser Extension
+        </a>
+        <a class="changelog-tab" href="changelog-app.html">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          Microsoft Store App
+        </a>
+      </nav>
+
+      <!-- Version 1.0.57 -->
+      <article class="version-card" id="release-v1-0-57">
+<div class="version-header">
+          <h2 class="version-number">v1.0.57</h2>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">September 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Security</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Safer XML activation</strong> &mdash; The viewer now activates on XML-typed pages only when the browser shows its own XML tree view, so a page that hides live script behind an XML content type can no longer receive the viewer and its HTTP Client.
+            </li>
+            <li>
+              <strong>Shared links leave your settings alone</strong> &mdash; Opening a shared view link applies its display settings to that view only instead of overwriting your synced preferences.
+            </li>
+            <li>
+              <strong>Escaped DOCTYPE text</strong> &mdash; Markup placed inside an XML or RSS DOCTYPE is now shown as text instead of being rendered as live elements.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Readable HTTP Client responses</strong> &mdash; Typing a token, key or password character by character no longer garbles the response, headers, history and copy-as snippets for the rest of the session. cURL import now understands <code>-XPOST</code>, <code>-sS</code>, <code>--json</code> and the <code>$'...'</code> bodies that browser DevTools copy.
+            </li>
+            <li>
+              <strong>Correct JSON to Code types</strong> &mdash; Nested objects that are null in some samples keep their type name in every target language, Java lists use boxed item types, and mixed-type samples no longer crash the generator.
+            </li>
+            <li>
+              <strong>Sandboxed pages export properly</strong> &mdash; Open as document in JSON to Code and JSON Repair &amp; Transform saves a download on pages such as GitHub Raw instead of doing nothing, and a refused download is reported.
+            </li>
+            <li>
+              <strong>Local files keep their names</strong> &mdash; Files opened through Open local file export under their own name and extension, and opening a large file no longer fails when earlier uploads still occupy the session store.
+            </li>
+            <li>
+              <strong>Complete translations in Auto mode</strong> &mdash; With the language set to Auto, every interface string follows the browser language instead of falling back to English, and a language change that could not be saved is reported instead of silently reverting.
+            </li>
+            <li>
+              <strong>Accurate formatting and validation</strong> &mdash; TOML local times without fractional seconds validate, CSS with escaped selector quotes formats fully, CDATA stays inline in XML, tags with <code>&gt;</code> inside attribute values highlight correctly, JSON Lines errors report the right column, and the JavaScript navigator survives regex literals containing quotes or braces.
+            </li>
+            <li>
+              <strong>Table View and Raw view interplay</strong> &mdash; Switching to Raw while a table is open shows the raw source, and Ctrl+F focuses the table search.
+            </li>
+            <li>
+              <strong>Compare picks the right mode</strong> &mdash; Semantic compare is offered only when both inputs parse as JSON, JSON Lines, YAML or TOML, so CSS, JavaScript and Markdown no longer show a parse-error notice on every compare.
+            </li>
+            <li>
+              <strong>Visible interface details</strong> &mdash; Error text uses the danger colour in both themes, the Diagram Generator preview regained its focus ring, border and grid, Table View buttons draw their borders, and closing the Playground during a run no longer leaves Run disabled.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improved</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Advanced table controls</strong> &mdash; Advanced replaces Summaries and brings column filters, unique-value summaries and column indexes starting at zero into one toggle. It starts off and remembers your choice for the next table.
+            </li>
+            <li>
+              <strong>Keyboard-friendly tab strips and popups</strong> &mdash; HTTP Client and JSON Repair &amp; Transform tabs respond to the arrow, Home and End keys, and Escape closes the CSS color picker.
+            </li>
+            <li>
+              <strong>Sharper, more legible interface</strong> &mdash; The minimap renders crisply on high-DPI displays, and muted labels meet the WCAG AA contrast ratio in both themes.
+            </li>
+            <li>
+              <strong>Better navigation and conversion</strong> &mdash; The Document Navigator jumps to keys containing dots and shows XML nesting, YAML to JSON keeps dates as text, and Diagram exports strip control characters so SVG and PNG exports always succeed.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Performance</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Faster on large documents</strong> &mdash; Semantic compare with many changes, minimap redraws while scrolling, regex search start-up, scroll-position saving and the font-size slider all do far less work, and long dotted TOML lines or backslash-heavy JSON keys no longer freeze the viewer.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.56 -->
+      <article class="version-card" id="release-v1-0-56">
+<div class="version-header">
+          <h2 class="version-number">v1.0.56</h2>
+          <span class="version-date">September 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Reliable remote source pages</strong> &mdash; Toolbar and dialog icons now display correctly on pages with strict security policies, and downloads work from sandboxed sources such as GitHub Raw.
+            </li>
+            <li>
+              <strong>Correct original file type</strong> &mdash; Original downloads keep the source file extension, so Markdown files remain <code>.md</code> instead of becoming <code>.txt</code> files.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.55 -->
+      <article class="version-card" id="release-v1-0-55">
+<div class="version-header">
+          <h2 class="version-number">v1.0.55</h2>
+          <span class="version-date">August 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Cleaner Table view row count</strong> &mdash; The red <strong>Virtualized</strong> notice is now hidden when it only repeats the table&rsquo;s total row count, leaving the useful total visible without duplicate information.
+            </li>
+            <li>
+              <strong>Table view has a way out again</strong> &mdash; Opening a JSON Lines file as a table left no way back to the code view: the Original/Formatted checkbox in the top-right corner covered the table's close button. The top-right controls are now hidden while a table is showing, so the close button is reachable.
+            </li>
+            <li>
+              <strong>Vivaldi RSS scrolling</strong> &mdash; Long RSS feeds opened through Vivaldi&rsquo;s built-in feed viewer with <strong>Show Original</strong> now retain their vertical scrollbar. The rendered source stays in the document scroll range, so it can be scrolled without toggling Vivaldi&rsquo;s bottom panel.
+            </li>
+            <li>
+              <strong>Clean localized text</strong> &mdash; Damaged translations that could appear as question-mark placeholders in affected languages have been repaired.
+            </li>
+            <li>
+              <strong>Accessible editors and menus</strong> &mdash; Document, HTTP response, and Playground editors now expose clear screen-reader names, while compact More Actions headings and Settings text meet contrast requirements in dark and mobile layouts.
+            </li>
+            <li>
+              <strong>Bounded workspace imports</strong> &mdash; CodePrettify JSON imports now enforce the 10 MiB limit against the exact UTF-8 byte count, including multibyte text.
+            </li>
+            <li>
+              <strong>Stable transform-field focus</strong> &mdash; Adding a JSON Repair &amp; Transform step no longer moves focus back to its first field a frame later, so rapid keyboard entry remains in the Field, Condition, or Value control the user selected.
+            </li>
+            <li>
+              <strong>Reliable minimap startup</strong> &mdash; Dense editor layout updates no longer postpone the first minimap draw indefinitely, and a pending draw is canceled safely if the minimap is hidden before it runs.
+            </li>
+            <li>
+              <strong>Complete toolbar icons in development</strong> &mdash; SVG toolbar icons now render in unpacked builds and automated screenshots, while sandbox resources keep their per-session dynamic URLs and production packages continue to inline the icon subset.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Security</h3>
+          <ul class="feature-list">
+            <li>
+              Sandbox messages now require cryptographically secure request identifiers and stop safely when the browser cannot provide them instead of using predictable randomness.
+            </li>
+            <li>
+              HTTP Client replay history now removes URL fragments alongside credentials, sensitive headers and query parameters, and request bodies. Older entries are rewritten through the sanitizer when read, and stored failures retain only a generic summary rather than transport-error details.
+            </li>
+            <li>
+              <strong>Session-only structured secrets</strong> &mdash; Authentication fields, sensitive-named URL/query/header/form values, and environment variables marked Secret are removed before requests or workspaces are saved or exported. Exports warn when unmarked free-form bodies may still contain sensitive values.
+            </li>
+            <li>
+              <strong>Fail-closed redirects and view state</strong> &mdash; Only redirects that can be verified as same-origin are followed, with a ten-hop limit; cross-origin, opaque, and unverifiable redirects stop before another request. Stored view-state keys remove credentials, fragments, and sensitive query values, and web-accessible assets now use dynamic URLs.
+            </li>
+            <li>
+              <strong>Auditable release contents</strong> &mdash; Dependencies are exactly pinned and audited at moderate severity or higher, exceptions must be narrow and expire, and production/source ZIPs include a deterministic CycloneDX 1.5 software bill of materials verified from the lockfile.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.54 -->
+      <article class="version-card" id="release-v1-0-54">
+<div class="version-header">
+          <h2 class="version-number">v1.0.54</h2>
+          <span class="version-date">August 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Reliable horizontal scrolling for very wide documents</strong> &mdash; Formatted code with exceptionally long lines, including large JSON Lines and NDJSON records, now scrolls horizontally without jumping back or repeatedly repainting text.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.53 -->
+      <article class="version-card" id="release-v1-0-53">
+<div class="version-header">
+          <h2 class="version-number">v1.0.53</h2>
+          <span class="version-date">August 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Added</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Readable JSON Lines and NDJSON</strong> &mdash; A separate, default-on <strong>Formatted</strong> checkbox in the Prettified view now expands and indents each record independently without adding an array wrapper or commas. Clear it to return to the original physical one-record-per-line display; the preference is remembered separately from JavaScript formatting. Copy, download, Compare, and JavaScript Playground actions continue to receive valid one-record-per-line JSONL instead of the display-only multiline layout.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Reliable full-document selection</strong> &mdash; The read-only code surface now receives keyboard focus when clicked. <code>Ctrl+A</code>/<code>Cmd+A</code> from the viewer, page background, or toolbar selects the complete displayed document, including folded and off-screen content, without selecting the surrounding interface. Deliberately focused text fields retain their normal select-all behavior, and Escape from Find returns focus to the document.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.52 -->
+      <article class="version-card" id="release-v1-0-52">
+<div class="version-header">
+          <h2 class="version-number">v1.0.52</h2>
+          <span class="version-date">August 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              The floating search toolbar now keeps the complete match counter and both previous/next navigation buttons visible, preserves a usable search-field width across compact resolutions, expands toward the viewport sides when space is constrained, and hides adaptive quick actions before they can crowd the search controls.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.51 -->
+      <article class="version-card" id="release-v1-0-51">
+<div class="version-header">
+          <h2 class="version-number">v1.0.51</h2>
+          <span class="version-date">July 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Added</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Diagram Generator</strong> &mdash; Turn JSON, JSON Lines, YAML, TOML, and XML/RSS documents into bounded field-card diagrams directly from More Actions or the Command Palette. A near-full-window workspace moves controls, status, and downloads into a compact left sidebar, maximizing the live diagram area. The interactive preview uses semantic HTML cards and field rows with inline SVG connectors instead of a scaled image, keeping focused text crisp and preparing the scene for future editing. Primitive arrays such as <code>regions</code> remain readable inline, YAML and TOML timestamps render as ISO date values, and a multi-document YAML source becomes one card per document. Reference-row minus and plus buttons collapse and restore child branches, while clicking a <strong>more fields</strong> row reveals that card's remaining bounded fields; both preserve the card position and zoom. Top-to-bottom layouts align these controls along the card's bottom edge with their connector origins. Stable compositor layers keep rapid touchpad zoom clear without stale card fragments. Normal clicks select without zooming, field rows highlight on hover, and double-clicking a card heading focuses that element. Pastel record cards group properties into field rows, hexadecimal colors get swatches, and the dotted canvas is preserved in SVG and PNG exports. Choose either layout direction, show or hide compact values, pan with the arrow keys, and use the floating zoom and fit controls.
+            </li>
+            <li>
+              <strong>Diagram search</strong> &mdash; A sidebar search box rings matching cards, highlights their matching field rows, and dims everything else while a counter reports the match total. Enter and the previous/next controls step through the matches and center each hit, and Escape clears the query without closing the tool.
+            </li>
+            <li>
+              <strong>Diagram inspector, structure controls, and Mermaid export</strong> &mdash; Clicking a field row opens a sidebar Field details panel with the full untruncated value and its document path, each one click from the clipboard. Selecting any card highlights its complete ancestor chain of cards and connectors. A Levels control bounds the scene to two, three, or four card levels, Collapse All folds every branch behind re-expandable ports while Expand All restores them, and Copy Mermaid exports the same cards, fields, and connections as a Mermaid class diagram for documentation and issue trackers; the export includes every field of each card, even rows the bounded on-screen card keeps behind its more fields disclosure.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              TOML integers outside the signed 64-bit range now fail validation at their exact line instead of silently wrapping to a wrong value, as the TOML specification requires. This protects every TOML consumer, including formatting, validation, and the Diagram Generator.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.50 -->
+      <article class="version-card" id="release-v1-0-50">
+<div class="version-header">
+          <h2 class="version-number">v1.0.50</h2>
+          <span class="version-date">July 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Improved</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>New CodePrettify identity</strong> &mdash; The browser extension, Windows app, website, favicons, and store artwork now share one original raw-to-clean transformation mark. Every production size comes from the same vector master, including the compact 16px toolbar icon.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.49 -->
+      <article class="version-card" id="release-v1-0-49">
+<div class="version-header">
+          <h2 class="version-number">v1.0.49</h2>
+          <span class="version-date">July 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Added</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>JSON to Code Generator</strong> &mdash; Paste strict JSON, load the active JSON document, or start from an example and generate TypeScript, Zod, C#, Java/Jackson, Kotlin, Python/Pydantic, Go, Rust/Serde, Swift Codable, Dart/json_serializable, or JSON Schema. Multiple array records improve optional/nullable inference; nested models, source-key mappings, root naming, package/namespace controls, copy, export, and open-as-document actions are included. Everything runs locally.
+            </li>
+            <li>
+              <strong>Data Converter utilities</strong> &mdash; Data Converter now includes dedicated Convert, Hash &amp; HMAC, Timestamp, and ID Generator tabs. Create SHA-256, SHA-384, or SHA-512 hashes and HMACs with hex and Base64 output; convert Unix seconds, Unix milliseconds, and timezone-explicit ISO 8601 values; or generate secure UUID v4, time-sortable UUID v7, and ULIDs without adding more entries to General Tools. Compare remains focused on comparing two sources. Processing stays local, and UUID v7/ULID batches remain monotonic.
+            </li>
+            <li>
+              <strong>JSON Repair &amp; Transform</strong> &mdash; Paste JSON-like input or optionally load a compatible current document, normalize it into a local JSON model, then build a live ordered recipe with Filter, Select, Remove, Rename, Sort, Unique, Flatten, Group/Aggregate, and Limit/Offset. Recipes are retained locally, never alter the source document, and results can be copied, downloaded, or opened separately.
+            </li>
+            <li>
+              <strong>Repair &amp; Salvage</strong> &mdash; Recover common copied, logged, or hand-edited structured-data damage with a reviewable report. It handles Markdown fences and surrounding prose, comments, single-quoted strings, unquoted keys, trailing commas, JavaScript/Python literals, raw string controls, and JSON Lines records. Excluding broken JSON Lines records is always an explicit opt-in and reports every discarded source line.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improved</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Cleaner compact toolbar</strong> &mdash; Narrow browser windows hide the three adaptive quick-action shortcuts and their divider, retain the intended side margins, and keep copy, search, go-to-line, and More uncluttered. Every hidden shortcut remains available from the More menu.
+            </li>
+            <li>
+              <strong>General-tool availability</strong> &mdash; Structured Data Workbench is renamed to JSON Repair &amp; Transform and is now always available in More Actions, the Command Palette, and adaptive quick actions. Users can paste independent JSON-like input from any document type, while a compatible current document remains an optional starting point.
+            </li>
+            <li>
+              <strong>Two-column More Actions</strong> &mdash; The extension separates actions for the active document from reusable utilities. Export, table/navigation/schema tools, Statistics &amp; Diagnostics, Security Scan, and Collapse/Expand stay in the primary left column; JavaScript keeps its lightweight Document Navigator and separate Inspect Runtime workflow there too. Compare, JSON to Code Generator, JSON Repair &amp; Transform, JavaScript Playground, Data Converter, Regex Playground, and HTTP Client are always available in the visually quieter general-tools column. Share configuration URL stays with the active web document because it captures that document&rsquo;s viewer state. On wider screens the primary column is centered above the More Actions button, while constrained layouts stay inside the viewport and very narrow windows stack both groups.
+            </li>
+            <li>
+              <strong>Paired folding controls</strong> &mdash; Collapse All and Expand All now share one equal-width row beneath the active-document tools, shortening the menu while preserving separate keyboard-accessible actions.
+            </li>
+            <li>
+              <strong>General-purpose Compare</strong> &mdash; Compare now opens as a two-source workbench. The left input starts with the current document, while both sides remain independently editable and can be cleared, restored from the document, or swapped before comparison. Semantic JSON/JSONC/JSON Lines/YAML/TOML mode is detected from the two inputs even when another file type is open, and a semantic result links back to the editor only while the matching source is still the current document. Identical Semantic and Text results show one horizontal, centered empty state across the result viewport.
+            </li>
+            <li>
+              <strong>Guided JSON Repair &amp; Transform experience</strong> &mdash; Transform uses a focused recipe-and-result layout with one-click common actions, advanced actions tucked under More transformations, detected field suggestions with samples, plain-language conditions and step summaries, and direct recovery guidance when no rows match. Incomplete steps leave the last valid preview intact. Repair and Transform keep one stable dialog height, while their code textareas use compact type without collapsing the editor viewport.
+            </li>
+            <li>
+              <strong>Feature-focused update notes</strong> &mdash; Maintenance-only updates without a cataloged major feature are acknowledged silently instead of opening a generic What&rsquo;s New card.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Universal tab styling</strong> &mdash; Collections/History, request-composer tabs, and response tabs in HTTP Client now use the same shared compact tab component as Data Converter. The duplicated HTTP-only tab appearance has been removed.
+            </li>
+            <li>
+              <strong>HTTP Client startup after extension updates</strong> &mdash; An already-open page with a stale, invalidated extension storage context no longer aborts while opening HTTP Client. The modal opens from its in-memory state; reloading the page restores saved collections, environments, history, and request execution.
+            </li>
+            <li>
+              <strong>Unified interface controls</strong> &mdash; Settings and tools now share small, medium, and large scales for inputs, selects, textareas, buttons, and icon buttons. Every visible technical textarea in Compare, JSON to Code Generator, JSON Repair &amp; Transform, Data Converter, Schema Validator, HTTP Client, Regex, JavaScript Playground fallback, and JSON decode uses the same compact 13px code-text scale and monospace stack. Modal titles, section headings, field labels, help text, and status messages use shared typography, while task-specific layout, state colors, and editor sizing remain specialized.
+            </li>
+            <li>
+              <strong>Nested-array filtering</strong> &mdash; Fields such as <code>owners[].name</code> now test every item in the nested array, while the forgiving <code>owners.name</code> form works too. The field picker describes this as &ldquo;any item&rdquo; instead of requiring users to discover wildcard syntax.
+            </li>
+            <li>
+              <strong>Responsive Security Scan</strong> &mdash; The scan now opens at its intended wide, viewport-responsive size instead of inheriting the generic 400px modal limit, and its height fits the findings instead of leaving a large empty area. <strong>Copy endpoints</strong> stays on one line, while compact windows and longer translated labels use a clean stacked header; long scans still grow to the viewport limit and scroll.
+            </li>
+            <li>
+              <strong>Exact finding navigation</strong> &mdash; Selecting a Security Scan result now reveals its folded parent blocks before centering and highlighting the exact source line. Unrelated folds stay collapsed, and other line-linked tools receive the same correction.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Security</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Local, fail-closed processing</strong> &mdash; JSON Repair &amp; Transform input and results never leave the device. Unsafe or lossy numbers, prototype-sensitive paths, excessive nesting, oversized input/output, excessive nodes or rows, and overlong recipes are rejected instead of being silently changed or allowed to consume unbounded resources.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.48 -->
+      <article class="version-card" id="release-v1-0-48">
+<div class="version-header">
+          <h2 class="version-number">v1.0.48</h2>
+          <span class="version-date">July 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Added</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Permanent What&rsquo;s New opt-out</strong> &mdash; The update modal now offers <strong>Never show again</strong>. The preference stays local to this browser installation, clears pending prompts immediately, and remains respected by future extension versions. It also saves correctly if the extension refreshes while an older update modal remains open; a genuine failed save keeps the modal open and reports the error.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Compact Data Converter layout</strong> &mdash; Stacked input and output panels remain separate and the work area scrolls instead of allowing the editors to overlap in short or narrow browser windows.
+            </li>
+            <li>
+              <strong>Reliable update opt-out</strong> &mdash; <strong>Never show again</strong> now saves from an already-open older update dialog after the extension refreshes, rather than mistaking the harmless version difference for a storage failure.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.47 -->
+      <article class="version-card" id="release-v1-0-47">
+<div class="version-header">
+          <h2 class="version-number">v1.0.47</h2>
+          <span class="version-date">July 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Added</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Offline Data Converter</strong> &mdash; One dedicated tool now prettifies, minifies, stringifies, parses, escapes, and unescapes JSON; converts JSON to and from XML, CSV, YAML, and TSV; and encodes or decodes Base64 and URL-encoded text.
+            </li>
+            <li>
+              <strong>One-time What&rsquo;s New</strong> &mdash; After an extension update, the first normal document view highlights recent changes once. The last-seen version stays local to each browser installation instead of syncing prompt state between devices.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improved</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>One conversion workflow</strong> &mdash; Formatting, structured-data conversion, and text encoding now share a dedicated input/output experience instead of requiring separate tools or a download-only conversion path.
+            </li>
+            <li>
+              <strong>Focused release highlights</strong> &mdash; The viewer presents localized, accessible updates from the previously seen version through the current release, falls back safely for unknown releases, and links to the full changelog.
+            </li>
+            <li>
+              <strong>Consistent action feedback</strong> &mdash; Data Converter, Regex Playground, and Security Scan now confirm copy actions on the clicked button. Disabled controls, button order, live status messages, reduced-motion behavior, high-contrast styling, notification severity, and keyboard navigation for interactive tool rows and menus are consistent across tools.
+            </li>
+            <li>
+              <strong>Actions where they belong</strong> &mdash; Data Converter places <strong>Convert</strong> beside the operation selector and groups <strong>Copy</strong> and <strong>Download</strong> with the output they act on.
+            </li>
+            <li>
+              <strong>Guided operation choices</strong> &mdash; Only conversions proven incompatible with the current document are disabled, with an explanation. Unknown input and lazy-loaded YAML operations stay selectable until they can be validated.
+            </li>
+            <li>
+              <strong>Flexible regex input</strong> &mdash; Regex Playground switches between the displayed document and session-local custom text, and copies the complete <code>/pattern/flags</code> expression. Custom test text is never persisted to history or settings.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Reliable conversion state</strong> &mdash; Empty CSV and TSV inputs now produce valid <code>[]</code> JSON, while closing, changing, or reopening a conversion during lazy YAML startup cleanly cancels the old work.
+            </li>
+            <li>
+              <strong>Lossless-number guardrails</strong> &mdash; JSON, YAML, and typed XML numbers that cannot be represented without changing value are rejected instead of rounded. YAML aliases, nesting, node count, and generated output are bounded against runaway expansion.
+            </li>
+            <li>
+              <strong>Reliable clipboard and failure feedback</strong> &mdash; Copying falls back when the Clipboard API is missing or rejects a request, restores repeated button feedback correctly, and always surfaces localized failures. HTTP Client export failures no longer report success, and selection drags cannot accidentally close dismissible tool modals.
+            </li>
+            <li>
+              <strong>Visible copied state</strong> &mdash; Copied-success buttons remain visibly green while hovered, focused, or pressed, including in dark theme.
+            </li>
+            <li>
+              <strong>Accurate JSON errors</strong> &mdash; Data Converter validates JSON syntax before lossless-number checks, so JavaScript and other invalid JSON report a syntax error instead of a misleading <code>-0</code> or numeric-corruption warning.
+            </li>
+            <li>
+              <strong>Prominent conversion failures</strong> &mdash; Blocking conversion failures appear in an accessible in-modal alert with the detailed cause.
+            </li>
+            <li>
+              <strong>Reliable alert icons</strong> &mdash; Converter alert icons render in DEV/source and packaged runtime views, with regression coverage preventing the runtime icon subset from drifting out of sync.
+            </li>
+            <li>
+              <strong>Worker-safe regex highlights</strong> &mdash; Document highlighting paints match ranges precomputed by the timeout-controlled worker instead of executing the pattern again in the viewer, so hostile expressions cannot bypass the timeout and block the UI during decoration.
+            </li>
+            <li>
+              <strong>Stable Regex Playground layout</strong> &mdash; The guide remains in a right-hand panel at normal desktop widths, and hiding it immediately reclaims the panel's space instead of leaving an empty gap.
+            </li>
+            <li>
+              <strong>Reliable Command Palette focus</strong> &mdash; Closing the palette no longer leaves focus trapped in its hidden input, so <code>Ctrl+Shift+P</code> can reopen it immediately and other shortcuts remain responsive.
+            </li>
+            <li>
+              <strong>Stable modal geometry</strong> &mdash; Opening a dialog on a document with a classic scrollbar preserves its occupied gutter, so the editor, minimap, floating toolbar, and horizontal scrollbar stay in place while background scrolling is locked. The reserved rail now matches the light or dark modal backdrop instead of exposing a white canvas strip, while scrolling dialogs retain their native track color.
+            </li>
+            <li>
+              <strong>HTTP Client spacing</strong> &mdash; The HTTP Client includes its padding inside its declared width and keeps symmetric backdrop margins instead of being flex-shrunk into an edge-to-edge dialog.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Security</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Local processing</strong> &mdash; Every Data Converter operation runs locally and offline; input and output are never uploaded or sent to a remote conversion service.
+            </li>
+            <li>
+              <strong>Safer spreadsheet export</strong> &mdash; CSV and TSV conversion neutralizes formula-leading text cells before they reach spreadsheet software.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.46 -->
+      <article class="version-card" id="release-v1-0-46">
+<div class="version-header">
+          <h2 class="version-number">v1.0.46</h2>
+          <span class="version-date">July 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Improved</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Useful included scripts</strong> &mdash; The JavaScript Playground now defaults to <strong>Safe definitions</strong>, retaining top-level functions and passive values while skipping page startup that depends on <code>window</code>, <code>document</code>, the DOM, jQuery, or page-provided globals. <strong>Run entire file</strong> remains available explicitly.
+            </li>
+            <li>
+              <strong>Console-style results</strong> &mdash; A final expression such as <code>fApiUrl('test')</code> now displays its value automatically without requiring an explicit <code>return</code>.
+            </li>
+            <li>
+              <strong>Accurate environment guidance</strong> &mdash; The Playground now clearly identifies its Web Worker runtime and explains that DOM APIs, Node.js APIs, and local files are unavailable.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Security</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Isolation preserved</strong> &mdash; Safe definitions use strict syntax analysis and preserve source lines for diagnostics. Code still runs only in the offline, terminable Worker; no page-DOM, iframe, network, or synthetic-page access was added.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.45 -->
+      <article class="version-card" id="release-v1-0-45">
+<div class="version-header">
+          <h2 class="version-number">v1.0.45</h2>
+          <span class="version-date">July 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Improved</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Clear browser-only guidance</strong> &mdash; The JavaScript Playground now explains that it runs browser JavaScript in a sandboxed Web Worker. Node.js modules, <code>require</code>, <code>fs</code>, <code>process</code>, and local-file access remain unavailable even when the current document is included.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Useful Playground errors</strong> &mdash; Unsupported Node.js/CommonJS modules now produce a clear <code>SandboxCapabilityError</code>. Runtime failures point to the correct Playground or included-document source line, and stack locations are sanitized instead of exposing internal Worker <code>blob:</code> URLs.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Security</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Sandbox unchanged</strong> &mdash; The improved diagnostics do not add Node.js, filesystem, native, or network access; Playground code remains offline and isolated.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.44 -->
+      <article class="version-card" id="release-v1-0-44">
+<div class="version-header">
+          <h2 class="version-number">v1.0.44</h2>
+          <span class="version-date">July 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Added</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Local JSON Schema Validator</strong> &mdash; Paste a schema to check the open JSON or JSONC document against common keywords and local <code>$ref</code> references. Nothing is fetched or uploaded, validation is cooperatively scheduled and capped, and every violation can jump to its JSON path and source line.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Security</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Private Markdown previews</strong> &mdash; Remote and network images are now shown as explicit links instead of loading automatically, so opening an untrusted Markdown file cannot silently contact an external host. Safe embedded images can still render.
+            </li>
+            <li>
+              <strong>Hardened viewer boundary</strong> &mdash; Live HTML pages are rejected even when their URL ends in a supported source extension. Privileged HTTP actions require a verified top-level viewer and a trusted user gesture, and launcher tools return only to the exact verified source tab.
+            </li>
+            <li>
+              <strong>Offline, fail-closed sandboxes</strong> &mdash; JavaScript and regular-expression execution now validates its private bridge, stays in bounded workers, locks down network primitives, and uses a connection-denying sandbox policy. Syntax-aware module handling no longer rewrites import-like text inside literals, templates, comments, or regular expressions.
+            </li>
+            <li>
+              <strong>Local-only HTTP secrets</strong> &mdash; Saved requests, environments, secret variables, and replay history are migrated out of sync storage. Sensitive headers, query values, URL credentials, and bodies are omitted from history; encoded and inactive secrets remain masked.
+            </li>
+            <li>
+              <strong>Bounded hostile-input handling</strong> &mdash; Search and JSON Schema validation reject dangerous regular expressions before execution, while Security Scan remains responsive on large near-match-heavy documents and clearly labels partial scans.
+            </li>
+            <li>
+              <strong>Secure build dependency</strong> &mdash; The build-time esbuild dependency is updated to <code>0.28.1</code>, containing the Windows development-server path-traversal fix.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Launcher source context</strong> &mdash; Launching a tool from a <code>.jsonc</code>, <code>.toml</code>, or supported extensionless resource now keeps the current document as its source instead of losing the context.
+            </li>
+            <li>
+              <strong>No source-URL mutation</strong> &mdash; Tools focus the original verified viewer instead of reopening it with a control query parameter. Signed/API URLs are preserved, duplicate requests are avoided, and local uploaded or <code>file://</code> viewers work correctly.
+            </li>
+            <li>
+              <strong>Reliable HTTP Client</strong> &mdash; A completed response is retained even if history storage fails. Concurrent history writes, timeout/cancel reporting, save errors, duplicate auth headers, URL credentials, and cURL <code>-I</code>/<code>-G</code> imports are handled correctly.
+            </li>
+            <li>
+              <strong>Lossless formatting</strong> &mdash; JSON Lines records, YAML block scalars, CSS strings and data URLs, XML mixed content/CDATA/<code>xml:space</code>, Markdown code blocks and hard breaks, and fractional TOML times no longer change during formatting or minification. Unterminated JSONC comments are rejected.
+            </li>
+            <li>
+              <strong>Correct structured-data tools</strong> &mdash; Large numeric literals, dates, semantic array identities, mixed tables, <code>__proto__</code> keys, exact schema multiples, IPv6, <code>-0</code>, and quoted property paths now produce correct results. Unsupported <code>unevaluatedProperties</code> is reported instead of silently ignored.
+            </li>
+            <li>
+              <strong>Stable view state</strong> &mdash; Rapid Raw/Prettified switching cannot apply stale formatting. CodeMirror folds, deep scroll position, live Auto theme, multi-tab settings, and per-URL state restore reliably.
+            </li>
+            <li>
+              <strong>UI and accessibility fixes</strong> &mdash; Modal focus restoration and repeated shortcuts, debounced and one-character search, 10,000-result truncation, Markdown minimaps, hidden-toolbar palette actions, 320 px layouts, keyboard menus, local-viewer reloads, legacy settings, labels, and live status regions are corrected.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.43 -->
+      <article class="version-card" id="release-v1-0-43">
+<div class="version-header">
+          <h2 class="version-number">v1.0.43</h2>
+          <span class="version-date">July 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Added</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Choose which file types to run on</strong> &mdash; A new File Types section in Settings lets you switch each supported type on or off. Turn one off and the extension no longer takes over those pages &mdash; the browser shows them as usual. You can also set each type to open Rendered or Raw by default.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improved</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Clearer view toggle</strong> &mdash; The Prettify/Raw button is now a two-state switch that shows both options with the current one highlighted, so it is obvious which view you are in. The wording adapts to the file &mdash; Rendered/Source for Markdown and XML/RSS, Prettified/Raw for code and data.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Syntax warning could be missed</strong> &mdash; On pages with a heavy first render, the JavaScript syntax check could give up while its sandbox was still loading, and the invalid-code warning never appeared. The check now waits properly and re-runs in the background if needed, so the warning still shows a moment later.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.42 -->
+      <article class="version-card" id="release-v1-0-42">
+<div class="version-header">
+          <h2 class="version-number">v1.0.42</h2>
+          <span class="version-date">July 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Inline code in the Markdown preview</strong> &mdash; Back-tick <code>code</code> spans now render inline the way they should, instead of stretching into full-width boxes on their own line.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.41 -->
+      <article class="version-card" id="release-v1-0-41">
+<div class="version-header">
+          <h2 class="version-number">v1.0.41</h2>
+          <span class="version-date">July 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Added</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Security Scan</strong> &mdash; A one-keystroke recon pass over the open document, from the Command Palette, for code review and penetration testing. It flags hardcoded secrets &mdash; API keys and tokens from the major cloud and SaaS providers, JWTs, private keys, and database connection strings with embedded credentials &mdash; with the values masked and ranked by severity, and it pulls out the URLs, API routes, and endpoints hidden inside a script bundle. Every finding jumps to its line, endpoints copy in one click, and it all runs locally.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improved</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Better Markdown Preview</strong> &mdash; Task lists now render as real checkboxes, footnotes work properly with clickable references, <code>:shortcode:</code> emoji are converted, and every heading gets an anchor so in-page links work. Tables with column alignment, strikethrough, and nested lists keep working, and raw HTML stays safely escaped.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.40 -->
+      <article class="version-card" id="release-v1-0-40">
+<div class="version-header">
+          <h2 class="version-number">v1.0.40</h2>
+          <span class="version-date">June 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Added</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Semantic Compare</strong> &mdash; The Compare tool now has a Semantic mode for structured files that diffs the data itself rather than the text. Reformatting, reordering keys, or minifying no longer shows up as thousands of phantom changes &mdash; you see only what genuinely changed, and reordered list items are matched by their id. The classic line-by-line Text mode is still one click away.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.39 -->
+      <article class="version-card" id="release-v1-0-39">
+<div class="version-header">
+          <h2 class="version-number">v1.0.39</h2>
+          <span class="version-date">June 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Improved &amp; Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Localization &amp; Grammar</strong> &mdash; Fixed grammar issues and corrected language translations in the locale files.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.38 -->
+      <article class="version-card" id="release-v1-0-38">
+<div class="version-header">
+          <h2 class="version-number">v1.0.38</h2>
+          <span class="version-date">June 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Added</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>TOML Support</strong> &mdash; Open, format, and validate TOML files, now with full syntax highlighting.
+            </li>
+            <li>
+              <strong>Cross-Format Conversion</strong> &mdash; Convert the open document between JSON, YAML, and TOML and download the result, right from the Download dialog.
+            </li>
+            <li>
+              <strong>JSON with Comments (JSONC)</strong> &mdash; Files with comments and trailing commas (like tsconfig.json) now format and validate correctly instead of showing as raw text.
+            </li>
+            <li>
+              <strong>Command Palette</strong> &mdash; Press Ctrl+Shift+P to fuzzy-search and run any viewer action straight from the keyboard.
+            </li>
+            <li>
+              <strong>Open Local Files</strong> &mdash; Drag and drop or pick a file on the launcher or welcome page to view it instantly &mdash; no extra browser permission needed.
+            </li>
+            <li>
+              <strong>Rating &amp; Feedback Prompt</strong> &mdash; A gentle, dismissible prompt invites long-time users to leave a review or share feedback, shown at most once.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Security</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Safer Links &amp; Requests</strong> &mdash; Links in CSS files and HTTP Client requests are now limited to safe http(s) URLs, blocking javascript:, file:, data:, and similar schemes.
+            </li>
+            <li>
+              <strong>Tighter Secret Handling</strong> &mdash; Saved secrets stay masked across every environment, and very large HTTP responses are capped so a huge reply can't overwhelm the extension.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improved &amp; Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Launcher Opens Tools in a New Tab</strong> &mdash; Picking a tool from the launcher now opens it in a new tab and leaves the launcher open, so you can launch several in a row.
+            </li>
+            <li>
+              <strong>More Accurate Diagnostics</strong> &mdash; Corrected XML/RSS line numbering, several diagnostics edge cases (deep schemas, timestamps, Base64 detection), and a flickering JSON breadcrumb tooltip.
+            </li>
+            <li>
+              <strong>Smoother Editing</strong> &mdash; As-you-type search is debounced, the color picker is steadier, and CSV and table exports keep a consistent column order.
+            </li>
+            <li>
+              <strong>More Reliable Tools</strong> &mdash; Runtime Inspect now captures modern const/let/class code, Export JSON no longer stalls on a false secrets warning, and the document outline recognizes more declaration styles.
+            </li>
+            <li>
+              <strong>Faster &amp; Steadier</strong> &mdash; Smoother scrolling with a sharper high-DPI minimap, quicker Statistics &amp; Diagnostics and diff/compare, plus assorted rendering and stability fixes.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.37 -->
+      <article class="version-card" id="release-v1-0-37">
+<div class="version-header">
+          <h2 class="version-number">v1.0.37</h2>
+          <span class="version-date">June 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Security</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Parser-Only Validation</strong> &mdash; Replaced the executor-based syntax validator with a secure parser-only check using Acorn to prevent code execution in the sandbox during document viewing.
+            </li>
+            <li>
+              <strong>Formula Injection Prevention</strong> &mdash; Neutralized formula injections in CSV exports by prefixing formula-triggering characters with a quote.
+            </li>
+            <li>
+              <strong>Credential Redaction</strong> &mdash; HTTP Client history now automatically redacts sensitive headers like Authorization and Cookie before saving.
+            </li>
+            <li>
+              <strong>View State Validation</strong> &mdash; Hardened shared settings URLs by strictly type-validating and range-clamping inputs.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Catastrophic Backtracking Protection</strong> &mdash; Regex Playground now evaluates patterns inside a sandboxed worker with a 1.5-second timeout, preventing app freezes.
+            </li>
+            <li>
+              <strong>HTTP Client Replay Fix</strong> &mdash; Replaying POST/PUT requests from history now correctly restores the request body.
+            </li>
+            <li>
+              <strong>Formatting Safeguards</strong> &mdash; XML/RSS CDATA sections, comments, and CSS string literals are now preserved byte-for-byte during formatting.
+            </li>
+            <li>
+              <strong>Smarter JSON Queries</strong> &mdash; Bracket parsing in JSON Path is now escape-aware, correcting queries on keys containing special characters.
+            </li>
+            <li>
+              <strong>Diagnostics Depth Cap</strong> &mdash; Prevented UI freezes by capping diagnostics traversal depth on highly nested JSON.
+            </li>
+            <li>
+              <strong>General Fixes</strong> &mdash; Resolved NDJSON auto-detection, modal scroll locking, document-level event listener leaks, and duplicate injection bugs.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Changed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Excel-Friendly CSVs</strong> &mdash; CSV exports now use UTF-8 BOM and CRLF line endings to display correctly in Excel.
+            </li>
+            <li>
+              <strong>Improved Table Exports</strong> &mdash; HTML table exports now respect active filtering, search query, sorting, and column arrangements.
+            </li>
+            <li>
+              <strong>Optimized Theme Syncing</strong> &mdash; The welcome and launcher pages now fully align with user-configured light and dark themes.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.36 -->
+      <article class="version-card" id="release-v1-0-36">
+<div class="version-header">
+          <h2 class="version-number">v1.0.36</h2>
+          <span class="version-date">May 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Search Paste Replacement</strong> &mdash;
+              Pressing Ctrl+F in the floating search tool now selects the
+              existing search text, so pasting a new query replaces it
+              immediately.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.35 -->
+      <article class="version-card" id="release-v1-0-35">
+<div class="version-header">
+          <h2 class="version-number">v1.0.35</h2>
+          <span class="version-date">April 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Clean XML Source</strong> &mdash;
+              XML and RSS pages no longer show the loader's early-hide CSS as a
+              visible node before the formatter starts.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.34 -->
+      <article class="version-card" id="release-v1-0-34">
+<div class="version-header">
+          <h2 class="version-number">v1.0.34</h2>
+          <span class="version-date">April 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Search Result Navigation</strong> &mdash;
+              Pressing Enter repeatedly in the floating search field now moves
+              to the next result instead of getting stranded on the first match.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.33 -->
+      <article class="version-card" id="release-v1-0-33">
+<div class="version-header">
+          <h2 class="version-number">v1.0.33</h2>
+          <span class="version-date">April 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Changed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Search Without Losing Your Place</strong> &mdash;
+              Typing or pasting in the floating search field now highlights
+              every match and updates the result count without moving the
+              editor viewport. Press Enter, click the new search button, or use
+              the previous / next arrows to navigate explicitly from the current
+              visible position.
+            </li>
+            <li>
+              <strong>Smarter Reload Recovery</strong> &mdash;
+              Per-file view state now keeps only the 10 most recent files and
+              expires entries after one hour, so accidental reload recovery
+              stays useful without stale state piling up.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              Fixed restored search text re-running navigation during reload;
+              saved queries now re-highlight passively so the remembered line
+              position remains intact.
+            </li>
+            <li>
+              Fixed reload recovery storing only explicit highlighted lines;
+              view state now saves and restores the actual viewport line and
+              scroll position.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.32 -->
+      <article class="version-card" id="release-v1-0-32">
+<div class="version-header">
+          <h2 class="version-number">v1.0.32</h2>
+          <span class="version-date">April 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Runtime Inspect Module Neutralization</strong> &mdash;
+              Fixed Runtime Inspect falsely reporting
+              <code>SyntaxError: missing ) after argument list</code> on valid
+              JavaScript bundles that generate <code>import</code> and
+              <code>export</code> module source inside template literals,
+              including <code>es-module-shims</code>. The sandbox module
+              neutralizer now skips strings, comments, and template-literal
+              text before rewriting real module syntax for the classic worker
+              harness.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.31 -->
+      <article class="version-card" id="release-v1-0-31">
+<div class="version-header">
+          <h2 class="version-number">v1.0.31</h2>
+          <span class="version-date">April 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Markdown Preview</strong> &mdash;
+              CodePrettify now supports <code>.md</code> and
+              <code>.markdown</code> pages plus Markdown HTTP responses, with a
+              safe rendered preview that keeps embedded HTML visible without
+              executing scripts.
+            </li>
+            <li>
+              <strong>Regex Playground Upgrade</strong> &mdash;
+              The Regex Playground now includes replace mode, live replacement
+              preview, named saved patterns, reusable test cases, and snippet
+              export for JavaScript, C#, and PowerShell.
+            </li>
+            <li>
+              <strong>Table View Upgrade</strong> &mdash;
+              Table View now adds per-column filters, drag-and-drop column
+              reordering, column type summary chips, selected-row CSV / JSON
+              export, and smoother large-table handling.
+            </li>
+            <li>
+              <strong>HTTP Client Upgrade</strong> &mdash;
+              The HTTP Client now includes timeout and cancel controls, timing
+              breakdowns, <code>multipart/form-data</code> and GraphQL body
+              modes, and secret masking in previews, history, and Copy As
+              snippets.
+            </li>
+            <li>
+              <strong>Smarter JSON Diagnostics</strong> &mdash;
+              Statistics &amp; Diagnostics for JSON now flags duplicate keys,
+              suspicious timestamps, and likely OpenAPI / JSON Schema structure
+              issues, with quick-fix guidance in the results.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improvements</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Clearer HTTP Error Guidance</strong> &mdash;
+              HTTP Client failures now distinguish timeout, cancellation, and
+              blocked-response cases with clearer guidance for CORS, mixed
+              content, DNS, certificate, and offline issues.
+            </li>
+            <li>
+              <strong>More Accurate JS Runtime Tools</strong> &mdash;
+              JavaScript Playground autocomplete and Runtime Inspect now
+              understand modern JavaScript and TypeScript declarations more
+              accurately, including destructuring, imports, exports, and code
+              outside strings or comments.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Table View Filtering</strong> &mdash;
+              Filtering large virtualized tables now stays stable after
+              scrolling, and the filter inputs render directly inside the
+              column headers.
+            </li>
+            <li>
+              <strong>Cleaner JS Suggestions and Inspect Results</strong>
+              &mdash; Fixed false JavaScript Playground autocomplete and Runtime
+              Inspect entries that were previously being created from
+              JavaScript-looking text inside strings or comments.
+            </li>
+          </ul>
+        </div>
+
+
+</div>
+</article>
+
+      <!-- Version 1.0.30 -->
+      <article class="version-card" id="release-v1-0-30">
+<div class="version-header">
+          <h2 class="version-number">v1.0.30</h2>
+          <span class="version-date">April 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Launcher Page and Install-only Welcome</strong> &mdash;
+              Clicking the extension icon now opens a dedicated launcher with
+              direct buttons for the prettify editor, <code>HTTP Client</code>,
+              <code>JavaScript Playground</code>, and
+              <code>Regex Playground</code>. The welcome page is now reserved
+              for first install so regular use starts from actionable tools
+              instead of onboarding.
+            </li>
+            <li>
+              <strong>HTTP Client</strong> &mdash;
+              The old cURL / fetch generator is now a full request editor
+              available on any HTTP page. Build and send requests from one
+              modal with dedicated <code>Params</code>, <code>Auth</code>,
+              <code>Headers</code>, and <code>Body</code> tabs, then inspect
+              the response in <code>Body</code>, <code>Headers</code>,
+              <code>Cookies</code>, and <code>Raw</code> tabs.
+            </li>
+            <li>
+              <strong>Saved Requests and Environments</strong> &mdash;
+              Save named requests per environment, sync them across supported
+              browsers, and use <code>{{variable}}</code> placeholders in URLs,
+              headers, auth fields, and bodies with a live resolved-URL preview
+              before you send.
+            </li>
+            <li>
+              <strong>Import and Copy-As Workflows</strong> &mdash;
+              Import existing cURL commands, then copy the current request as
+              <code>cURL</code>, <code>fetch()</code>, or PowerShell
+              <code>Invoke-RestMethod</code> snippets after editing it.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improvements</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Localized Launcher and Welcome</strong> &mdash;
+              The new launcher flow and the refreshed welcome page are now
+              localized across all supported browser languages instead of only
+              shipping complete copy in the initial rollout languages.
+            </li>
+            <li>
+              <strong>Playground Editor Polish</strong> &mdash;
+              The JavaScript Playground editor now keeps the caret visible on
+              blank new lines, and reopening saved Playground content places
+              the cursor at the end of the restored code so you can keep typing
+              immediately.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Performance and UI Stability</strong> &mdash;
+              Fixed overlapping animation frame hook issues, scroll-position loss when toggling formatted views, and restored the "Copy" floating action on HTTP (non-secure) domains via a fallback copy mechanism.
+            </li>
+          </ul>
+        </div>
+
+
+</div>
+</article>
+
+      <!-- Version 1.0.29 -->
+      <article class="version-card" id="release-v1-0-29">
+<div class="version-header">
+          <h2 class="version-number">v1.0.29</h2>
+          <span class="version-date">April 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Regex Playground</strong> &mdash;
+              A new focused modal (<code>Ctrl+Alt+R</code> or floating toolbar
+              &ldquo;More actions&rdquo;) for testing patterns against the
+              currently displayed document. Enter a pattern without slashes,
+              toggle <code>gimsuy</code> flags, and matches highlight live in
+              the main CodeMirror viewer. A cursor-aware details panel shows
+              capture groups and named groups for the active match. Includes a
+              built-in guide with quick-reference examples you can load with one
+              click, a show/hide toggle remembered in local storage, and a
+              wide-screen layout that docks the guide as a full-height right
+              sidebar. The last 10 patterns are saved to synced storage so
+              recent expressions follow your browser profile.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improvements</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Copy Button Mode Memory</strong> &mdash;
+              The floating Copy button now remembers the last copy mode selected
+              from its dropdown (<code>Original</code>, <code>Formatted</code>,
+              or <code>Minified</code>) in synced settings and reuses that mode
+              on direct clicks. Its tooltip and accessible label reflect the
+              active mode, and the copy confirmation toast names the exact mode
+              that was used.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Regex Playground Backdrop Dismiss)</strong> &mdash;
+              Fixed the Regex Playground closing when clicking outside the
+              modal, matching the safer behavior of the JavaScript Playground
+              and protecting in-progress regex work from accidental dismissal.
+            </li>
+            <li>
+              <strong>Bug Fix (Regex Playground Layout)</strong> &mdash;
+              Fixed the wide-screen Regex Playground layout so the lower
+              match/details area stretches to fill the available modal height
+              instead of leaving unused space.
+            </li>
+            <li>
+              <strong>Bug Fix (Regex Playground Localization)</strong> &mdash;
+              Fixed localized Regex Playground strings across browser locales,
+              including restoring broken non-ASCII characters in languages such
+              as Norwegian, while keeping the help/examples section
+              intentionally English-only.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.28 -->
+      <article class="version-card" id="release-v1-0-28">
+<div class="version-header">
+          <h2 class="version-number">v1.0.28</h2>
+          <span class="version-date">April 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Runtime Inspect Panel</strong> &mdash;
+              On JavaScript files, a new More actions entry
+              (<code>Ctrl+Alt+I</code>) runs the current document in the
+              existing sandbox iframe through a blob Web Worker and reports
+              every top-level declaration with its captured value. Variables
+              show their final value, functions their parameter signature,
+              classes are listed, and any runtime or syntax errors are
+              surfaced at the top. Each row is a jump-to-line button and the
+              panel also shows any <code>console.*</code> output emitted
+              during load.
+            </li>
+            <li>
+              <strong>Inline Value Annotations</strong> &mdash;
+              After Inspect runs, each top-level <code>let</code>,
+              <code>const</code>, <code>var</code>, <code>function</code>,
+              and <code>class</code> declaration gets a small muted arrow
+              with a summary of its captured value at end-of-line
+              (<code>let total = price * 1.25;   &rarr; 125</code>). A
+              &ldquo;Show values inline in the viewer&rdquo; checkbox in the
+              Inspect modal toggles them live, and a dedicated
+              &ldquo;Clear inline values&rdquo; entry is added to the More
+              actions menu for quick dismissal.
+            </li>
+            <li>
+              <strong>Hover Tooltips in the Viewer</strong> &mdash;
+              After Inspect runs, hovering any identifier reference in the
+              main JavaScript viewer pops a tooltip showing the captured
+              <code>name &rarr; value</code> for that symbol. Works on every
+              usage, not just at the declaration. Tooltips flip around the
+              cursor to stay inside the viewport and disappear when you
+              leave the editor, scroll, or press &ldquo;Clear inline
+              values&rdquo;.
+            </li>
+            <li>
+              <strong>Include JSON &amp; JSON Lines in the Playground</strong> &mdash;
+              The Playground&apos;s &ldquo;Include {filename}&rdquo; option
+              now works on <code>.json</code> files &mdash; the parsed
+              payload is prepended as <code>const json = &hellip;;</code>
+              &mdash; and on <code>.jsonl</code> files, which become
+              <code>const json = [ &hellip;records ]</code> with malformed
+              lines skipped. The variable is always called <code>json</code>
+              regardless of filename, autocomplete surfaces it, and an
+              inline &ldquo;Note &mdash; the document is available as the
+              <code>json</code> variable in your code.&rdquo; banner is
+              shown above the output panel while the option is active.
+            </li>
+            <li>
+              <strong>Quick-Access Toolbar Buttons</strong> &mdash;
+              CodePrettify now learns which &ldquo;More actions&rdquo; items
+              you use most. Every time you open one of the modals from the
+              &#8942; menu a per-action counter is saved to browser sync
+              storage, and once you&apos;ve used an action more than ten
+              times it&apos;s promoted to a dedicated toolbar button
+              immediately after the More button &mdash; up to three at a
+              time. The list is filtered by the current file type, so
+              &ldquo;JSON path inspector&rdquo; only surfaces on JSON
+              documents and &ldquo;Inspect Runtime&rdquo; only on
+              JavaScript. Counts persist across devices when sync storage
+              is available, so your personal shortcuts follow you between
+              profiles. Counts also tick up when the action is triggered by
+              a keyboard shortcut, not just menu clicks.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Playground Error Line Numbers)</strong> &mdash;
+              Syntax errors in the Playground used to report line numbers
+              from the worker&apos;s internal harness rather than your
+              actual code &mdash; a typo on line 1 could surface as
+              &ldquo;line 184&rdquo;. Error messages now use the line
+              number in your combined buffer, label the location as
+              &ldquo;in your code&rdquo; or &ldquo;in included
+              document&rdquo; when the &ldquo;Include {filename}&rdquo;
+              option is active, and echo the actual text of the offending
+              line beneath the error so you can see at a glance what the
+              parser tripped on.
+            </li>
+            <li>
+              <strong>Bug Fix (ES Modules with Block Comments)</strong> &mdash;
+              Fixed the Playground / Inspect preprocessor occasionally
+              corrupting files that contained <code>import</code> or
+              <code>export</code> example lines inside multi-line
+              <code>/* &hellip; */</code> comments. The preprocessor now
+              emits only comment-neutral replacements, so rewriting inside
+              comments is a no-op and can no longer leak into executable
+              code as phantom parse errors on lines the user never wrote.
+            </li>
+            <li>
+              <strong>Bug Fix (Sandbox Initialisation Warning)</strong> &mdash;
+              Silenced a sporadic
+              <code>Unsafe attempt to load URL &hellip;/sandbox.html from
+              frame with URL &hellip;/sandbox.html</code> console warning
+              by consolidating the JS validator and the Playground / Inspect
+              harness onto a single shared sandbox iframe bridge. Each page
+              now creates the iframe exactly once and routes all validation,
+              execution, and inspection traffic through a single message
+              listener with per-request timeouts.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improvements</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>ES Module Syntax in the Sandbox</strong> &mdash;
+              Both the Playground and Inspect harnesses now neutralize ES
+              module syntax before the code reaches the classic Worker, so
+              real-world module files no longer fail with
+              <code>Cannot use import statement outside a module</code>.
+              Static <code>import</code> statements are rewritten into
+              local <code>const</code> stubs, re-exports and export lists
+              are stripped, <code>export</code> keywords are dropped from
+              declarations, dynamic <code>import(&hellip;)</code> resolves
+              to <code>{}</code>, <code>import.meta</code> becomes an empty
+              object, and a <code>self.require</code> stub is injected so
+              CommonJS files also keep running.
+            </li>
+            <li>
+              <strong>Editable CodeMirror API</strong> &mdash;
+              The bundled viewer gains two opt-in decoration channels:
+              <code>setInlineAnnotations</code> /
+              <code>clearInlineAnnotations</code> /
+              <code>hasInlineAnnotations</code> for end-of-line widgets, and
+              <code>setHoverValues</code> / <code>clearHoverValues</code> /
+              <code>hasHoverValues</code> for cursor-driven identifier
+              tooltips. Both fields map defensively through changes so
+              stale ranges can never surface as uncaught errors during
+              input.
+            </li>
+            <li>
+              <strong>Symbol Extraction with Line Numbers</strong> &mdash;
+              <code>extractJsSymbolsFromCode</code> now carries every
+              captured symbol&apos;s 1-based source line, computed with a
+              precomputed line-offset table and binary search. This powers
+              the Inspect panel&apos;s jump-to-line buttons, the inline
+              annotation placement, and refines the Playground&apos;s
+              autocomplete ordering.
+            </li>
+            <li>
+              <strong>Refreshed Settings Shortcuts Overview</strong> &mdash;
+              The settings modal&apos;s Keyboard Shortcuts section now
+              includes <code>Ctrl+Alt+P</code> (JavaScript Playground) and,
+              when viewing a JavaScript file, <code>Ctrl+Alt+I</code>
+              (Inspect Runtime). Shortcuts that don&apos;t apply to the
+              current file type stay out of sight.
+            </li>
+            <li>
+              Registered the <code>fa-eraser</code> and
+              <code>fa-magnifying-glass-chart</code> Font Awesome solid
+              icons used by the new toolbar entries.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.27 -->
+      <article class="version-card" id="release-v1-0-27">
+<div class="version-header">
+          <h2 class="version-number">v1.0.27</h2>
+          <span class="version-date">April 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>JavaScript Playground</strong> &mdash;
+              Added a sandboxed scratchpad accessible from the floating toolbar&apos;s
+              More actions menu or with <code>Ctrl+Alt+P</code>. Runs your code
+              inside a blob Web Worker with configurable 1 / 5 / 15 second
+              timeouts and top-level <code>await</code> support. Captures
+              <code>console.log</code>, <code>info</code>, <code>warn</code>,
+              <code>error</code>, <code>debug</code>, and <code>console.table</code>
+              (rendered as a real HTML table with sticky headers), and reports the
+              return value, execution time, and full stack traces for syntax and
+              runtime errors.
+            </li>
+            <li>
+              <strong>Include Current Document</strong> &mdash;
+              When viewing a JavaScript file, an opt-in
+              &ldquo;Include <em>filename</em>&rdquo; checkbox prepends the
+              displayed source to your Playground code so top-level functions
+              and variables from the page are in scope.
+            </li>
+            <li>
+              <strong>Autocomplete in the Playground</strong> &mdash;
+              A floating suggestion list surfaces functions, methods, classes,
+              and variables extracted from both the Playground buffer and the
+              current document (when the include option is on). Parameter
+              signatures are shown inline, and accepting a callable appends
+              <code>()</code> with the caret placed between the parentheses.
+              Auto-triggers after two characters or with <code>Ctrl+Space</code>,
+              navigate with <code>&uarr;</code>/<code>&darr;</code>, accept with
+              <code>Enter</code> or <code>Tab</code>, dismiss with
+              <code>Esc</code>.
+            </li>
+            <li>
+              <strong>Playground Persistence</strong> &mdash;
+              Playground code, timeout, and &ldquo;Include&rdquo; preference
+              autosave to <code>chrome.storage.local</code> five seconds after
+              your last keystroke and immediately on every Run, so you can close
+              the modal, switch tabs, and resume your scratchpad where you left
+              off regardless of which file you open it from.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improvements</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Editable CodeMirror Viewer</strong> &mdash;
+              Opt-in editable mode unlocks in the bundled CodeMirror wrapper so
+              the Playground (and future editors) get history, indent-on-input,
+              bracket matching, folding, and line numbers. Existing read-only
+              viewers are unaffected.
+            </li>
+            <li>
+              <strong>Tab &amp; Shift+Tab Indent</strong> &mdash;
+              Tab and Shift+Tab indent and dedent inside the Playground editor
+              (two-space unit, multi-line aware) instead of cycling focus to the
+              surrounding modal buttons.
+            </li>
+            <li>
+              <strong>Safer Modal Close</strong> &mdash;
+              The Playground modal closes only via <code>Esc</code> or the
+              explicit close button. Backdrop clicks no longer dismiss it, so
+              unsaved scratchpad work stays put.
+            </li>
+            <li>
+              <strong>Playground Scrollbar &amp; Caret</strong> &mdash;
+              Overrode the shared read-only CodeMirror theme inside the
+              Playground so vertical scroll, sensible min-height, and a visible
+              text caret all work correctly in the editable editor.
+            </li>
+            <li>
+              <strong>Textarea Fallback</strong> &mdash;
+              Added a plain <code>&lt;textarea&gt;</code> fallback for the
+              Playground editor if the CodeMirror editable viewer fails to
+              initialize in degraded environments, keeping the feature usable.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Decoration RangeError)</strong> &mdash;
+              Hardened the shared decoration state field in the bundled
+              CodeMirror viewer so a transient out-of-range range set cannot
+              bubble up as an uncaught
+              <code>RangeError: Position X is out of range for changeset of length Y</code>
+              during editor input. Falls back to an empty decoration set instead
+              of crashing.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.26 -->
+      <article class="version-card" id="release-v1-0-26">
+<div class="version-header">
+          <h2 class="version-number">v1.0.26</h2>
+          <span class="version-date">April 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Improvements</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Go To Line Memory</strong> &mdash;
+              The Go To Line modal now remembers the last line number you used
+              during the session and pre-selects it when reopened, so repeated
+              jumps near the same line require less retyping.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (parseInt Radix)</strong> &mdash;
+              Fixed CSS <code>rgb()</code> and <code>rgba()</code> color parsing
+              and the settings modal font size and indent size readers to pass
+              an explicit decimal radix to <code>parseInt</code>, avoiding
+              ambiguous numeric parsing on values with leading zeros.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.25 -->
+      <article class="version-card" id="release-v1-0-25">
+<div class="version-header">
+          <h2 class="version-number">v1.0.25</h2>
+          <span class="version-date">April 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Loader Fallback)</strong> &mdash;
+              Fixed the loader so normal HTML pages served on extension-like
+              routes such as <code>.json</code> or <code>.ts</code> are no
+              longer briefly hidden before CodePrettify decides not to activate.
+            </li>
+            <li>
+              <strong>Bug Fix (XML Source Round-trip)</strong> &mdash;
+              Fixed XML source round-tripping in the browser viewer so
+              downloading the original XML preserves legitimate source
+              attributes instead of stripping values that happened to match
+              CodePrettify loader markers.
+            </li>
+            <li>
+              <strong>Bug Fix (PNG Export Scope Selector)</strong> &mdash;
+              Fixed PNG export options so the &ldquo;As shown in browser&rdquo;
+              and &ldquo;Full code&rdquo; scope selector is now available across
+              supported PNG-exportable document types, with the selected scope
+              applied consistently.
+            </li>
+            <li>
+              <strong>Bug Fix (Download Modal CSV Details)</strong> &mdash;
+              Fixed the download modal so CSV readiness details are hidden while
+              the PNG export options panel is open.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.24 -->
+      <article class="version-card" id="release-v1-0-24">
+<div class="version-header">
+          <h2 class="version-number">v1.0.24</h2>
+          <span class="version-date">April 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>Fixed multiple potential crashes from missing null checks, including in the settings modal, code folding handlers, and CSS color parser.</li>
+            <li>Hardened security by sanitizing ZIP export paths to prevent path traversal and by correctly escaping URLs for fetch command generation.</li>
+            <li>Improved performance by adding memoization to JSON path mapping, reducing the threshold for expensive diff operations, and adding a depth limit to recursive analysis.</li>
+            <li>Replaced all inline <code>onclick</code> event handlers with delegated listeners to improve security and maintainability.</li>
+            <li>Added a timeout to the UTF-8 recovery fetch to prevent indefinite hangs on unresponsive servers.</li>
+            <li>Prevented a potential crash on invalid color values in CSS and ensured the minimap redraws when font size changes.</li>
+            <li>Clarified the browser build and install guidance so manual unpacked installs use the generated build ZIP or source checkout instead of Chrome-managed extension folders that include reserved <code>_metadata</code> files.</li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.23 -->
+      <article class="version-card" id="release-v1-0-23">
+<div class="version-header">
+          <h2 class="version-number">v1.0.23</h2>
+          <span class="version-date">April 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Export Filenames)</strong> —
+              Fixed export filenames so downloads no longer repeat labels such
+              as <code>formatted</code>, <code>min</code>, or <code>table</code>
+              when the original filename already ends with the same label.
+            </li>
+            <li>
+              <strong>Bug Fix (PNG Export Fallback Feedback)</strong> —
+              Improved image export fallback behavior so highlighted PNG
+              exports keep their colored formatting when the primary DOM
+              capture path is unavailable, and empty captures now show an
+              error state instead of a success toast.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.22 -->
+      <article class="version-card" id="release-v1-0-22">
+<div class="version-header">
+          <h2 class="version-number">v1.0.22</h2>
+          <span class="version-date">April 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Sandbox Validation Isolation)</strong> —
+              Fixed sandboxed JavaScript validation leaking page-side security
+              errors on some raw script documents by moving the classic-script
+              syntax check into a worker-backed parse path that never runs
+              top-level page code during validation.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.21 -->
+      <article class="version-card" id="release-v1-0-21">
+<div class="version-header">
+          <h2 class="version-number">v1.0.21</h2>
+          <span class="version-date">April 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Search Navigation)</strong> —
+              Fixed large-document search navigation so the active result now
+              lands near the middle of the editor viewport when possible,
+              making next and previous result jumps easier to follow.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.20 -->
+      <article class="version-card" id="release-v1-0-20">
+<div class="version-header">
+          <h2 class="version-number">v1.0.20</h2>
+          <span class="version-date">April 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Improvements</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Settings Sync Storage</strong> —
+              Persistent extension settings now move into browser sync storage
+              so supported browsers can keep CodePrettify preferences aligned
+              across profiles.
+            </li>
+            <li>
+              <strong>Legacy Storage Migration</strong> —
+              Existing local <code>codePrettifySettings</code> and
+              <code>codePrettifyViewStates</code> entries now migrate
+              automatically to the shorter <code>settings</code> and
+              <code>viewStates</code> keys, with cleanup of the old local
+              settings key after migration.
+            </li>
+          </ul>
+        </div>
+
+
+</div>
+</article>
+
+      <!-- Version 1.0.19 -->
+      <article class="version-card" id="release-v1-0-19">
+<div class="version-header">
+          <h2 class="version-number">v1.0.19</h2>
+          <span class="version-date">March 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Minimap Viewport Alignment)</strong> —
+              Fixed the minimap viewport drifting lower than the actual editor
+              scrollbar on large CodeMirror-backed documents, including CSS
+              files with word wrap disabled, by mapping the overlay to the
+              real scrollable range.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.18 -->
+      <article class="version-card" id="release-v1-0-18">
+<div class="version-header">
+          <h2 class="version-number">v1.0.18</h2>
+          <span class="version-date">March 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Classic JavaScript Validation)</strong> —
+              Fixed the syntax checker falsely rejecting some valid minified
+              classic JavaScript files, including real-world bundles such as
+              <code>moment.min.js</code>, by validating standard scripts with
+              the browser parser before falling back to module-aware parsing
+              when needed.
+            </li>
+            <li>
+              <strong>Bug Fix (TypeScript Script Handling)</strong> —
+              Fixed TypeScript documents being validated and linkified as
+              plain JavaScript by preserving the actual script file type for
+              syntax checks and extensionless relative imports.
+            </li>
+            <li>
+              <strong>Bug Fix (Validation Diagnostics)</strong> —
+              Fixed sandbox startup and validation transport failures being
+              reported as successful checks. Diagnostics now surface an
+              unavailable-validation warning instead of silently marking the
+              script as valid.
+            </li>
+            <li>
+              <strong>Bug Fix (Legacy Charset JS Source)</strong> —
+              Fixed valid UTF-8 JavaScript bundles being read as mojibake on
+              some raw browser pages that fell back to legacy document
+              encodings, which could surface false syntax errors.
+            </li>
+            <li>
+              <strong>Bug Fix (Release Packaging)</strong> —
+              Fixed the browser release build so the packaged extension keeps
+              the shared CodeMirror validator bundle while excluding the
+              unused browser <code>js/html.js</code> asset.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.17 -->
+      <article class="version-card" id="release-v1-0-17">
+<div class="version-header">
+          <h2 class="version-number">v1.0.17</h2>
+          <span class="version-date">March 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Fixed</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Localization</strong> &mdash; Minor corrections to translated interface strings.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.16 -->
+      <article class="version-card" id="release-v1-0-16">
+<div class="version-header">
+          <h2 class="version-number">v1.0.16</h2>
+          <span class="version-date">March 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Copy Format Menu</strong> —
+              Added a copy format context menu on the floating toolbar copy
+              button with options to copy original, formatted, or minified
+              code to the clipboard.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (XML Word Wrap)</strong> —
+              Fixed prettified XML and RSS word wrap adding an extra blank
+              continuation line for long values by removing the trailing
+              rendered space from each XML line.
+            </li>
+            <li>
+              <strong>Bug Fix (JavaScript Navigator)</strong> —
+              Fixed the Document Navigator showing an empty outline for
+              JavaScript documents in the shared CodeMirror viewer by
+              deriving navigator items from the displayed source text
+              instead of legacy DOM fold markers.
+            </li>
+            <li>
+              <strong>Bug Fix (Centered Line Navigation)</strong> —
+              Improved line navigation so both Document Navigator jumps and
+              the Go To Line modal center the target line within the active
+              editor viewport when possible.
+            </li>
+            <li>
+              <strong>Bug Fix (HTML Injection Boundary)</strong> —
+              Stopped injecting the desktop-only HTML handler into browser
+              pages so regular HTML documents remain untouched and the
+              extension stays limited to supported raw-code formats.
+            </li>
+            <li>
+              <strong>Bug Fix (Build Packaging)</strong> —
+              Fixed the browser release build so the generated ZIP now
+              places the extension files at the archive root and removes
+              stale Font Awesome SVG entries from the built manifest after
+              asset inlining.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.15 -->
+      <article class="version-card" id="release-v1-0-15">
+<div class="version-header">
+          <h2 class="version-number">v1.0.15</h2>
+          <span class="version-date">March 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Welcome Page Sample Links</strong> —
+              Replaced third-party "Try it now" example links on the
+              localized welcome page with hosted sample files from
+              <code>https://prettify.cloud/testfiles/</code>, including both
+              basic and product-list JSON fixtures alongside JSONL, YAML,
+              JavaScript, CSS, and XML samples.
+            </li>
+            <li>
+              <strong>RSS/XML JWT &amp; Base64 Decoding</strong> —
+              JWT tokens and Base64 encoded strings in XML and RSS text
+              content are now detected inline with decode icons and hover
+              tooltips, matching the existing JSON decode feature.
+            </li>
+            <li>
+              <strong>RSS/XML Unix Timestamp Formatting</strong> —
+              Unix timestamps in seconds and milliseconds are now detected
+              in XML/RSS text content and show human-readable date/time
+              hover tooltips alongside ISO 8601 and RFC 822 dates.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (XML Decode Tooltip)</strong> —
+              Fixed the decode hover tooltip crashing with
+              <code>Cannot set properties of undefined</code> on XML pages.
+              Element creation now uses the XHTML namespace so tooltips
+              render correctly in XML document contexts.
+            </li>
+            <li>
+              <strong>Bug Fix (JSON Decode Hover)</strong> —
+              Fixed JSON JWT and Base64 decode hover tooltips silently
+              failing in the browser extension. The decode methods were
+              moved to UiHelper but the container and codeBlock event
+              handlers still referenced JsonHandler, causing the hover to
+              be skipped.
+            </li>
+            <li>
+              <strong>Bug Fix (Raw View Toolbar Spacing)</strong> —
+              Fixed the top-right toolbar button keeping minimap padding on
+              raw CSS and other raw-code views when the minimap itself was
+              hidden. The toolbar and content gutter now only reserve
+              right-side space when the minimap is actually visible.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.14 -->
+      <article class="version-card" id="release-v1-0-14">
+<div class="version-header">
+          <h2 class="version-number">v1.0.14</h2>
+          <span class="version-date">March 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Inline JWT &amp; Base64 Decode)</strong> —
+              Restored inline JWT and Base64 decode affordances across
+              prettified CodeMirror-backed documents. HTML text nodes and
+              JavaScript string values that render decode widgets now get the
+              same hover tooltip and decode-icon click behavior as the
+              existing JSON and RSS/XML viewers.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.13 -->
+      <article class="version-card" id="release-v1-0-13">
+<div class="version-header">
+          <h2 class="version-number">v1.0.13</h2>
+          <span class="version-date">March 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Export Filenames</strong> — Downloads now use the source
+              file's base name with a <code>HHMMSS</code> timestamp suffix so
+              repeated exports are easier to distinguish. Formatted, minified,
+              and table exports keep a short label before the timestamp, and
+              image export follows the same naming pattern.
+            </li>
+            <li>
+              <strong>Welcome Page (Local Files Note)</strong> — Added a note
+              on the welcome page informing users they must enable "Allow
+              access to file URLs" in Chrome's extension management page
+              (<code>chrome://extensions</code>) to use CodePrettify with
+              local <code>file:///</code> URLs. Localized in all 14 languages.
+            </li>
+            <li>
+              <strong>Code Viewer Migration</strong> — Replaced the in-page
+              content viewer with a bundled CodeMirror 6 surface so raw-code
+              documents now render inside a modern editor engine instead of the
+              previous Prism-driven DOM renderer.
+            </li>
+            <li>
+              <strong>RSS/XML Timestamp Formatter</strong> — RSS and XML date
+              values now show the same human-readable hover tooltip formatting
+              for ISO 8601 and RSS-style publication dates in text nodes and
+              attribute values.
+            </li>
+            <li>
+              <strong>VS Code Theme Pass</strong> — Tuned the shared light and
+              dark editor palettes to track VS Code more closely, including
+              gutter, selection, active-line, fold placeholder, and
+              search-match colors.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (JSON Inspector &amp; Breadcrumbs)</strong>
+              — Fixed several JSON interaction regressions. Selected paths,
+              copied paths, pasted
+              queries, and autocomplete now normalize consistently to valid
+              <code>$</code>-prefixed JSONPath; clicking a JSON property key
+              maps the clicked editor line back to the correct path and opens
+              the inspector again; value clicks plus gutter and fold clicks no
+              longer trigger it accidentally; inspector result actions now
+              resolve the correct destination line immediately, including
+              top-level arrays; and JSON breadcrumb hover is visible again,
+              stays stable on screen, omits the hover copy button, and still
+              excludes gutter and fold controls.
+            </li>
+            <li>
+              <strong>Bug Fix (JSON Viewer Tools)</strong> —
+              Fixed JSON-only viewer tools that regressed after the viewer
+              migration. The Document Navigator now derives its
+              outline from the parsed JSON structure and jumps to the correct
+              formatted lines, and Unix timestamps plus ISO 8601 string values
+              once again show human-readable date/time tooltips in prettified
+              and raw JSON documents.
+            </li>
+            <li>
+              <strong>Bug Fix (CSS Color Picker)</strong> —
+              Restored the CSS color picker. CSS swatches in read-only
+              documents once again open the popup
+              with live preview and copyable HEX, RGB, and HSL values, and the
+              CSS color picker setting now properly enables or disables those
+              swatches.
+            </li>
+            <li>
+              <strong>Bug Fix (Viewer Layout &amp; Minimap)</strong> — Fixed
+              several browser viewer layout issues. The theme class now
+              updates before the minimap redraw so
+              palette changes apply immediately, the pretty view resets the
+              browser page's default body margin and repaints the minimap
+              background with the active light or dark palette, and short
+              documents now keep their padded content inside the
+              viewport-sized minimum height instead of forcing a page-level
+              vertical scrollbar.
+            </li>
+            <li>
+              <strong>Bug Fix (RSS/XML Browser Rendering)</strong> — Fixed the
+              remaining RSS/XML browser-view regressions after the viewer
+              migration. The minimap no longer crashes on Chromium XML viewer
+              pages because the offscreen cache now uses an XHTML canvas
+              element, and XML, RSS, and Atom documents are routed back through
+              the stable legacy markup renderer after the viewer migration
+              exposed a mount failure there.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.12 -->
+      <article class="version-card" id="release-v1-0-12">
+<div class="version-header">
+          <h2 class="version-number">v1.0.12</h2>
+          <span class="version-date">March 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>YAML Support</strong> — Added support for
+              <code>.yaml</code> and <code>.yml</code> files plus common YAML
+              response content types (<code>application/yaml</code>,
+              <code>application/x-yaml</code>, <code>text/yaml</code>,
+              <code>text/x-yaml</code>). YAML documents now load automatically
+              in the extension with syntax highlighting, prettified indentation
+              cleanup, line numbers, export support, search, diff, and the
+              existing toolbar tools.
+            </li>
+            <li>
+              <strong>YAML Settings</strong> — Added a YAML file-type checkbox
+              in settings so you can disable default prettified mode for YAML.
+              When turned off, YAML documents open in raw view by default.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improvements</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Performance (Large Files)</strong> — Replaced DOM parsing
+              with direct <code>insertAdjacentHTML</code> injection across all
+              language handlers (JS, JSON, CSS, XML/RSS, HTML, YAML)
+              eliminating major memory bottlenecks, exponential string concats,
+              and GC thrashing. Files load significantly faster.
+            </li>
+            <li>
+              <strong>Performance (Minimap Render)</strong> — Offloaded code
+              minimap rendering to an internal Canvas element, ending UI
+              blocking main-thread pauses when calculating the preview map.
+            </li>
+            <li>
+              <strong>Performance (Bracket Matching)</strong> — Re-worked JS
+              and JSON bracket hover matching to cache structural positions
+              rather than doing repetitive N-depth DOM queries on every
+              pointermove.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Locale Encoding Repair)</strong> — Fixed corrupted
+              localized UI strings in the Portuguese browser locale so the
+              extension renders the intended text again.
+            </li>
+            <li>
+              <strong>Bug Fix (YAML Settings Selector)</strong> — Fixed the
+              settings modal not selecting <code>.YAML</code> automatically for
+              YAML files. The file-type dropdown now includes YAML so the
+              active file type is shown correctly when opening settings on
+              <code>.yaml</code> and <code>.yml</code> documents.
+            </li>
+            <li>
+              <strong>Bug Fix (Line Scroll Nudge)</strong> — Fixed a UI bug
+              where clicking "Go To Line" or clicking a line number would cause
+              the entire parent container to mysteriously nudge 1 pixel to the
+              left on horizontally scrolled pages due to inconsistent
+              <code>inline</code> behavior in browser
+              <code>scrollIntoView</code> implementations. Replaced with strict
+              Y-axis coordinate scrolling.
+            </li>
+            <li>
+              <strong>Bug Fix (YAML Error Detection)</strong> — The lightweight
+              YAML validator now catches malformed flow collections such as
+              unclosed <code>[</code> / <code>{</code>, unexpected closing
+              tokens, and mismatched flow delimiters so invalid YAML files
+              surface an error toast instead of silently rendering as valid.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.11 -->
+      <article class="version-card" id="release-v1-0-11">
+<div class="version-header">
+          <h2 class="version-number">v1.0.11</h2>
+          <span class="version-date">March 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Welcome Page</strong> — Added a localized
+              welcome/onboarding page that opens automatically on first install
+              and anytime the user clicks the extension toolbar icon. Explains
+              how the extension works, lists supported formats with try-it-now
+              links, highlights key features, keyboard shortcuts, and points
+              users to the settings gear. Localized in all 14 languages.
+            </li>
+            <li>
+              <strong>UI Icons</strong> — Switched the extension UI icons to
+              Font Awesome 7.2 Pro. Toolbar actions, menus, export actions,
+              toasts, and decode affordances now use the bundled Font Awesome
+              assets under <code>css/fa/</code>, and the build keeps only the
+              CSS and WOFF2 files that are actually used.
+            </li>
+            <li>
+              <strong>TypeScript Support</strong> — Added support for
+              <code>.ts</code>, <code>.mts</code>, and <code>.cts</code>
+              files. TypeScript files are detected by file extension and
+              <code>text/typescript</code> /
+              <code>application/typescript</code> content types, and are
+              formatted and highlighted using the JavaScript handler.
+            </li>
+            <li>
+              <strong>UI Language Override</strong> — Added a language dropdown
+              to the settings modal that lets users override the automatic
+              system locale with any of the 14 supported languages (English,
+              Dansk, Deutsch, Español, Français, Italiano, 日本語, 한국어, Norsk,
+              Português, Русский, Svenska, Tiếng Việt, 中文). Defaults to
+              Auto (system). Changing the language saves the preference and
+              reloads the page with the chosen locale applied to all UI
+              strings.
+            </li>
+            <li>
+              <strong>Theme Setting</strong> — Added a theme dropdown to the
+              settings modal allowing users to switch between Light, Dark, and
+              Auto (system) themes directly from the settings panel.
+            </li>
+            <li>
+              <strong>CSS Validation Line Numbers</strong> — Rewrote the CSS
+              syntax validator to use a stack-based approach that tracks the
+              exact line and column of each unmatched brace, parenthesis, or
+              bracket. The error toast now shows a clickable line number that
+              jumps to the first error. Strings and comments are correctly
+              skipped to avoid false positives.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Language Setting Persistence)</strong> — Fixed
+              the language setting not persisting across page reloads. The
+              reload now waits for <code>chrome.storage.local.set</code> to
+              complete before triggering, preventing a race condition where
+              the old value was read back on reload.
+            </li>
+            <li>
+              <strong>Bug Fix (Line Number Gutter)</strong> — Increased the
+              shared code gutter spacing so formatted code no longer sits
+              cramped against the line-number column. The wider gutter applies
+              to the browser extension and keeps fold toggles aligned.
+            </li>
+            <li>
+              <strong>Bug Fix (CSS Selector Spacing)</strong> — Fixed the
+              shared CSS formatter adding an extra space before
+              <code>{</code> when selectors already had spacing. CSS
+              beautification now normalizes selector-to-brace spacing to a
+              single space.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.10 -->
+      <article class="version-card" id="release-v1-0-10">
+<div class="version-header">
+          <h2 class="version-number">v1.0.10</h2>
+          <span class="version-date">March 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>JSONL / NDJSON Support</strong> — Added support for JSON
+              Lines (<code>.jsonl</code>) files and
+              <code>application/x-ndjson</code> /
+              <code>application/jsonl</code> content types. JSONL files are
+              parsed line-by-line and displayed as a JSON array, with full
+              access to all existing JSON features including collapsible tree
+              view, breadcrumb navigation, inspector, table view, CSV export,
+              statistics, diagnostics, and code folding. Validation reports
+              errors per-line. The raw view preserves the original JSONL
+              format.
+            </li>
+            <li>
+              <strong>JSON Path Autocomplete</strong> — The JSON path query
+              input now offers real-time autocomplete suggestions as you type,
+              with keyboard navigation (Arrow keys, Tab/Enter to accept,
+              Escape to dismiss). Suggestions are derived from the actual
+              document structure.
+            </li>
+            <li>
+              <strong>JSON Path Validation</strong> — The query input
+              highlights in red when the typed path is invalid (index out of
+              range, non-existent key), while allowing partial input as the
+              user is still typing.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Inspector Modal Close)</strong> — Fixed the
+              JSON path inspector modal closing when clicking inside it or
+              selecting text. The modal now only closes when clicking outside
+              it, pressing Escape, or clicking the close button.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improvements</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>UX (Local File Menu)</strong> — Removed the HTTP context
+              and cURL/fetch buttons from the More menu when viewing local
+              files (<code>file://</code> URLs), since there is no HTTP
+              request data to display.
+            </li>
+            <li>
+              <strong>UX (Inspector Result Actions)</strong> — Added a
+              copy-to-clipboard button on each JSON path query result and
+              reduced the button size for a more compact layout.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.9 -->
+      <article class="version-card" id="release-v1-0-9">
+<div class="version-header">
+          <h2 class="version-number">v1.0.9</h2>
+          <span class="version-date">March 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Improvements</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Privacy Update (Removed webRequest)</strong> — Removed
+              the <code>webRequest</code> permission and background HTTP
+              caching entirely to strictly adhere to Browser Plugin
+              least-privilege guidelines. The application now exclusively
+              relies on parsing directly readable DOM elements and fallback
+              data, drastically improving compliance without compromising
+              rendering functionality. The HTTP Context and cURL/Fetch
+              generators have been cleanly stripped of unavailable header
+              data.
+            </li>
+            <li>
+              <strong>Shareable View State</strong> — Disabled automatic URL
+              hashing to prevent cluttering browser history. Replaced it with
+              an explicit "Share configuration URL" button in the More actions
+              menu (only visible on non-local web URLs).
+            </li>
+            <li>
+              <strong>UX (cURL/Fetch button visibility)</strong> — The cURL /
+              fetch generator button is now only shown for JSON and RSS/XML
+              files, where it is most relevant, and hidden for JavaScript and
+              CSS views.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Toolbar Position on Small Files)</strong> —
+              Fixed the top toolbar buttons (settings, show raw) keeping
+              unnecessary right-side spacing when the minimap is hidden
+              because the file is too small to scroll. The toolbar now adjusts
+              its position together with the minimap visibility.
+            </li>
+            <li>
+              <strong>Bug Fix (Image Export Content Corruption)</strong> —
+              Fixed the PNG image export rendering UI-only elements such as
+              fold toggles (<code>▼</code>) and fold previews
+              (<code>Array(2)</code>, <code>20 keys</code>) into the exported
+              image. The export now strips these decorative elements so the
+              image contains only the actual code.
+            </li>
+            <li>
+              <strong>Bug Fix (Sandbox PostMessage)</strong> — Fixed the
+              sandbox validator reply using a reconstructed origin that could
+              silently fail to deliver responses. The sandbox now always
+              replies with <code>window.parent.postMessage</code> and a
+              wildcard target origin, which is safe because the content script
+              validates responses by unique random id.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.8 -->
+      <article class="version-card" id="release-v1-0-8">
+<div class="version-header">
+          <h2 class="version-number">v1.0.8</h2>
+          <span class="version-date">March 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Compare with Clipboard (Diff View)</strong> — Added a
+              full-screen split-view diff tool accessible from the More menu
+              or via <code>Ctrl+Alt+D</code>. Paste or type code in the input
+              area and click Compare to see a side-by-side highlighted diff
+              against the current document. Features line-level diff using an
+              LCS algorithm (with a fast fallback for documents over 20,000
+              lines), color-coded added/removed/unchanged lines, synchronized
+              scrolling between panels, line statistics, and a swap-sides
+              button. Close with the × button or press Escape. Available in
+              all 14 locales.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (XML Declaration &amp; Attributes)</strong> —
+              Fixed the XML declaration
+              (<code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</code>)
+              being silently stripped from XML files after Chrome's DOM parser
+              discarded it during serialization. The declaration is now
+              reconstructed from <code>document.xmlVersion</code> and
+              <code>document.xmlEncoding</code>. Also fixed
+              extension-injected attributes
+              (<code>class="pretty-loader-active"</code>,
+              <code>data-code-prettify-injected</code>) leaking into the
+              captured original source for XML files.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.7 -->
+      <article class="version-card" id="release-v1-0-7">
+<div class="version-header">
+          <h2 class="version-number">v1.0.7</h2>
+          <span class="version-date">March 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Table View</strong> — Added a Table View for JSON files
+              containing arrays of objects and for XML/RSS files with repeating
+              elements (e.g. RSS feeds, data catalogs). Accessible from the
+              More menu, it renders the data as a sortable, scrollable HTML
+              table with type-aware cell formatting (color-coded nulls,
+              booleans, numbers, strings, and nested objects). Includes
+              search/filter, truncated cells that expand on click, and large
+              datasets load in 500-row chunks with "Load more" and "Load all"
+              buttons. Close with the × button or press ESC. Available in all
+              14 locales.
+            </li>
+            <li>
+              <strong>HTML Table Export</strong> — New download option that
+              exports table-viewable data (JSON arrays or XML repeating
+              elements) as a plain <code>.html</code> file with a basic
+              <code>&lt;table&gt;</code>. Works for both JSON and XML/RSS.
+            </li>
+            <li>
+              <strong>CSV Export for all XML structures</strong> — CSV export
+              now works for any XML file whose data can be displayed as a
+              table, not just RSS/Atom feeds with <code>&lt;item&gt;</code> or
+              <code>&lt;entry&gt;</code> elements.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Minified ES Module Validation)</strong> — Fixed
+              false <code>Invalid JS syntax detected</code> warnings on valid
+              minified or single-line JavaScript modules ending with top-level
+              <code>export</code> statements. The sandbox validator now
+              recognizes module syntax that appears after minified statement
+              boundaries such as <code>;</code> and <code>}</code> instead of
+              only at the start of a new line.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.6 -->
+      <article class="version-card" id="release-v1-0-6">
+<div class="version-header">
+          <h2 class="version-number">v1.0.6</h2>
+          <span class="version-date">March 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Settings Shortcuts</strong> — Added a direct
+              <code>Report Issues &amp; Ideas</code> button in the settings
+              modal alongside the changelog link, pointing to
+              <code>https://support.prettify.cloud/</code>.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (Localization — Simplified Chinese)</strong> —
+              Completed the missing Simplified Chinese UI strings for RSS
+              statistics/settings, HTTP context, and JSON path tools, and
+              replaced English fallback text with native labels so the Chinese
+              UI is no longer partially untranslated.
+            </li>
+            <li>
+              <strong>Bug Fix (Localization — Remaining Locales)</strong> —
+              Added the missing RSS statistics and RSS settings strings to the
+              remaining locale bundles so every shipped locale now has full
+              message-key parity with English.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.5 -->
+      <article class="version-card" id="release-v1-0-5">
+<div class="version-header">
+          <h2 class="version-number">v1.0.5</h2>
+          <span class="version-date">March 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Base64 &amp; JWT Decode Modal</strong> — Clicking a JSON
+              decode icon now opens a dedicated modal showing both the original
+              encoded value and the decoded content in separate read-only
+              textareas, making long payloads much easier to inspect and copy.
+            </li>
+            <li>
+              <strong>Regex Search</strong> — Added regex support to the
+              floating search bar using <code>/pattern/flags</code> syntax,
+              while keeping plain-text search as the default. Invalid regex
+              input now shows an inline error instead of failing silently.
+            </li>
+            <li>
+              <strong>Persistent View State</strong> — Added capped per-URL
+              state storage in extension local storage so fold state, search
+              text, highlighted line, and display mode are restored
+              automatically for recently viewed files, while keeping the
+              existing shareable URL-hash state.
+            </li>
+            <li>
+              <strong>Document Navigator</strong> — Added a new outline
+              navigator for JSON, JavaScript, and XML/RSS documents so large
+              files can be browsed structurally and jumped to quickly from the
+              More menu.
+            </li>
+            <li>
+              <strong>Diagnostics &amp; Warnings</strong> — Added a diagnostics
+              panel that combines syntax status, document warnings such as very
+              long lines or mixed indentation, and file-type-specific insights
+              for JSON, JS, CSS, and XML/RSS.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improvements</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>CSV Export Guardrails</strong> — Tightened Download as CSV
+              so it only enables for table-like data. JSON export now requires a
+              top-level array of flat objects, while RSS export requires at
+              least one <code>item</code> or <code>entry</code> with child
+              fields. When the structure does not qualify, the CSV option is
+              disabled and explains why.
+            </li>
+            <li>
+              <strong>CSV Explainability</strong> — Expanded CSV export feedback
+              with readiness details such as detected rows, columns, root type,
+              and unavailable-state reasons in both the download flow and
+              diagnostics panel.
+            </li>
+            <li>
+              <strong>UX (Decode Tooltip Label)</strong> — Updated the hover
+              tooltip for Base64/JWT values to clearly label the content as
+              decoded output before showing the decoded value.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Bug Fix (JSON Folding State)</strong> — Fixed an
+              intermittent issue where prettified JSON could appear stuck in a
+              collapsed one-line state. JSON folding now uses structural line
+              metadata instead of counting braces/brackets in rendered text, so
+              string values containing <code>{</code>, <code>}</code>,
+              <code>[</code>, or <code>]</code> no longer corrupt
+              expand/collapse behavior or restored fold state.
+            </li>
+            <li>
+              <strong>Bug Fix (cURL Generator on Windows)</strong> — Fixed
+              generated cURL commands failing in Windows shells. The command
+              generator now strips the extension's shareable view-state hash
+              from copied URLs and emits Windows-safe
+              <code>curl.exe</code> commands with compatible quoting for headers
+              and URLs.
+            </li>
+            <li>
+              <strong>Bug Fix (Base64/JWT Decode Rendering)</strong> — Fixed
+              JSON decode affordances not appearing reliably because the
+              structured JSON renderer could fall back to plain Prism output
+              when localized decode labels were not available inside the JSON
+              handler.
+            </li>
+            <li>
+              <strong>Bug Fix (Decode Icon Click Conflict)</strong> — Fixed
+              decode icon clicks also triggering the JSON path inspector. Decode
+              icon interactions are now isolated from the JSON value click
+              handler.
+            </li>
+            <li>
+              <strong>Bug Fix (Decode Modal Selection)</strong> — Fixed the
+              decode modal closing while selecting text inside its textareas.
+              The modal now closes only when clicking outside the modal surface.
+            </li>
+            <li>
+              <strong>Bug Fix (XML Loader Crash)</strong> — Fixed the
+              lightweight page loader crashing on some raw XML and XHTML
+              documents opened from <code>file:</code> URLs because the root
+              element did not expose <code>dataset</code>. The loader now uses a
+              plain root attribute marker instead of
+              <code>documentElement.dataset</code>, so supported XML files can
+              be detected and injected safely.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.4 -->
+      <article class="version-card" id="release-v1-0-4">
+<div class="version-header">
+          <h2 class="version-number">v1.0.4</h2>
+          <span class="version-date">March 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>cURL / fetch Generator</strong> — Generate copy-pasteable
+              cURL and <code>fetch()</code> commands for the current URL
+              directly from the More menu in the floating toolbar.
+            </li>
+            <li>
+              <strong>Timestamp Formatter</strong> — Detect Unix timestamps
+              (seconds and milliseconds) and ISO 8601 date strings in JSON
+              values and show human-readable date/time tooltips on hover.
+            </li>
+            <li>
+              <strong>Clickable URLs in JSON</strong> — URL string values in
+              JSON are now detected and rendered as clickable links, including
+              URLs embedded within longer string values, similar to the existing
+              RSS/XML link feature.
+            </li>
+            <li>
+              <strong>Export to CSV</strong> — Convert structured JSON
+              objects/arrays or RSS/Atom feed items into downloadable CSV tables
+              directly from the page.
+            </li>
+            <li>
+              <strong>Code Minimap</strong> — A scrollable, syntax-aware minimap
+              injected on the right edge of the screen for quick navigation
+              through large document structures. Can be disabled in settings and
+              automatically hides on short files.
+            </li>
+            <li>
+              <strong>Beautify to Image</strong> — Export a cropped PNG
+              rendering of the currently visible formatted code natively via
+              <code>&lt;canvas&gt;</code>.
+            </li>
+            <li>
+              <strong>Base64 &amp; JWT Decoding</strong> — Inline tooltips that
+              securely decode Base64 payloads and JWT tokens hovering directly
+              over the JSON values.
+            </li>
+            <li>
+              <strong>HTTP Context Panel</strong> — Added a request details
+              panel that shows the current resource URL, content type,
+              encoding, response and transfer size hints, and timing
+              information.
+            </li>
+            <li>
+              <strong>JSON Path Tools</strong> — Added a JSON path inspector for
+              the selected breadcrumb path plus query support for quickly
+              locating matching values in large JSON documents.
+            </li>
+            <li>
+              <strong>Shareable View State</strong> — Added URL-hash state
+              sharing so search text, line navigation, fold state, and view
+              settings can be restored from a copied link.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improvements</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Toolbar</strong> — Reduced the floating toolbar clutter by
+              moving secondary actions into a compact More menu that opens on
+              hover or keyboard focus.
+            </li>
+            <li>
+              <strong>JSON Interaction Settings</strong> — Split JSON hover
+              breadcrumbs from click-to-open inspector behavior. Hover
+              breadcrumbs are now disabled by default, while JSON inspector on
+              click is enabled by default and configurable in settings.
+            </li>
+            <li>
+              <strong>Performance</strong> — Replaced global CSS/script content
+              script injection with a lightweight detector plus on-demand
+              background injection for supported raw-code pages.
+            </li>
+            <li>
+              <strong>Localization</strong> — Moved runtime UI strings into
+              Chrome/Firefox locale bundles so the extension uses one i18n
+              system instead of a separate <code>lang.json</code> file.
+            </li>
+            <li>
+              <strong>Accessibility</strong> — Improved modal keyboard handling
+              with focus trapping, ESC-to-close behavior, button semantics, and
+              better ARIA labels.
+            </li>
+            <li>
+              <strong>Security</strong> — Tightened the sandbox CSP and added
+              stricter message validation in the syntax-checking sandbox.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Word Wrap Fix</strong> — Fixed word wrap so it now applies
+              correctly to rendered JSON lines in pretty view instead of being
+              overridden by per-line white-space rules.
+            </li>
+            <li>
+              <strong>Bug Fix (ES Module Validation)</strong> — Fixed false
+              syntax error warnings on valid JavaScript files that use ES module
+              <code>import</code>/<code>export</code> statements. The sandbox
+              validator now detects module syntax and skips the classic-script
+              wrapper check.
+            </li>
+            <li>
+              <strong>Bug Fix (Breadcrumb Localization)</strong> — Replaced
+              hardcoded breadcrumb tooltip strings such as "Jump to root" and
+              "Copy path" with localized messages from the locale bundles, and
+              propagated the newer JSON settings labels across all locale
+              bundles.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.3 -->
+      <article class="version-card" id="release-v1-0-3">
+<div class="version-header">
+          <h2 class="version-number">v1.0.3</h2>
+          <span class="version-date">March 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Prism.js Auto-Highlighting</strong> — Fixed Prism.js
+              running <code>highlightAll()</code> on every website, which could
+              break syntax highlighting on sites like GitHub, Stack Overflow,
+              and MDN. Prism is now set to manual mode so it only highlights
+              within the extension's own container.
+            </li>
+            <li>
+              <strong>CSS Leaking to Other Sites</strong> — Fixed unscoped
+              <code>.token</code> CSS rules (syntax highlighting colors) being
+              injected globally on all pages. All token styles are now scoped
+              under <code>#pretty-container</code> to prevent interference with
+              other websites.
+            </li>
+            <li>
+              <strong>View Source Interference</strong> — Added protocol guards
+              to prevent the extension from activating on
+              <code>view-source:</code>, <code>chrome:</code>, and
+              <code>about:</code> pages.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.2 -->
+      <article class="version-card" id="release-v1-0-2">
+<div class="version-header">
+          <h2 class="version-number">v1.0.2</h2>
+          <span class="version-date">January 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Content-Type Detection</strong> — The extension now
+              detects file types using HTTP Content-Type headers in addition to
+              URL file extensions. This enables proper formatting of API
+              endpoints like
+              <code>https://api.github.com/users/github</code> that serve JSON
+              without a <code>.json</code> extension.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>RSS Code Folding</strong> — Fixed collapse/expand
+              functionality for RSS/XML files not working correctly. Rewrote the
+              fold system to use data attributes and indexed line access,
+              matching the JS handler approach.
+            </li>
+            <li>
+              <strong>Toolbar Buttons</strong> — Fixed collapse/expand buttons
+              in the toolbar not appearing or disappearing dynamically when
+              toggling the code folding setting. Buttons are now always created
+              for supported file types and show/hide based on settings.
+            </li>
+            <li>
+              <strong>Page Rendering</strong> — Fixed an issue where normal
+              websites could turn white when the extension loaded. Added a
+              pre-check loader that only applies content hiding for supported
+              file types.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.1 -->
+      <article class="version-card" id="release-v1-0-1">
+<div class="version-header">
+          <h2 class="version-number">v1.0.1</h2>
+          <span class="version-date">January 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="version-section">
+          <h3>New Features</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>RSS/Atom Feed Support</strong> — New file format support
+              for <code>.rss</code> and <code>.atom</code> files with syntax
+              highlighting, auto-formatting, code folding for XML elements,
+              clickable URLs (with entity decoding), and feed statistics (tags,
+              attributes, namespaces, etc.).
+            </li>
+            <li>
+              <strong>Code Folding (JS)</strong> — Collapse/expand functions,
+              classes, objects, and code blocks. Hover over a foldable line to
+              see the fold toggle. Use Collapse All / Expand All buttons in the
+              toolbar. Can be enabled/disabled in settings.
+            </li>
+            <li>
+              <strong>Bracket Matching (JS)</strong> — Hover over
+              <code>{</code>, <code>(</code>, or <code>[</code> to highlight its
+              matching pair. Both brackets are highlighted with visual feedback.
+              Can be enabled/disabled in settings.
+            </li>
+            <li>
+              <strong>Code Folding Setting (JSON)</strong> — Added a setting to
+              enable/disable the collapsible JSON feature.
+            </li>
+            <li>
+              <strong>Code Statistics Panel</strong> — View file size, line
+              count, and character count. Language-specific stats: JSON (object
+              depth, key count, array sizes), JS (function count, variable
+              count), CSS (selector count, rule count, media queries).
+            </li>
+            <li>
+              <strong>Hex/RGB Color Preview (CSS)</strong> — Color swatches
+              appear next to color values. Click to copy color in different
+              formats. Includes a color picker.
+            </li>
+            <li>
+              <strong>Breadcrumb Navigation (JSON)</strong> — Shows path like
+              <code>root › data › users[0] › name</code> when hovering/clicking.
+              Click any breadcrumb to jump to that level.
+            </li>
+            <li>
+              <strong>Clickable URLs & Imports</strong> — URLs in strings and
+              import/require paths are now clickable links.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Improvements</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>Unified Layout</strong> — Adjusted all modal windows,
+              toolbars, and UI elements to use CSS variables instead of
+              hardcoded colors for consistent theming.
+            </li>
+            <li>
+              <strong>Enhanced Syntax Checker</strong> — Removed vanilla
+              JavaScript validation and replaced it with a sandboxed environment
+              for safer and more accurate syntax checking.
+            </li>
+          </ul>
+        </div>
+
+        <div class="version-section">
+          <h3>Bug Fixes</h3>
+          <ul class="feature-list">
+            <li>
+              <strong>RSS Feed Rendering</strong> — Fixed issue where RSS feeds
+              opened in a background tab (XHTML mode) failed to render correctly
+              or caused high CPU usage. Now waits for tab visibility before
+              rendering.
+            </li>
+          </ul>
+        </div>
+
+</div>
+</article>
+
+      <!-- Version 1.0.0 -->
+      <article class="version-card" id="release-v1-0-0">
+<div class="version-header">
+          <h2 class="version-number">v1.0.0</h2>
+          <span class="version-badge badge-initial">Initial Release</span>
+          <span class="version-date">January 2026</span>
+        </div>
+<div class="version-body">
+
+        <div class="feature-category">
+          <h4>Smart Automation</h4>
+          <ul>
+            <li>
+              <strong>Auto-Format:</strong> Automatically detects messily
+              formatted code and beautifies it with your preferred indentation
+            </li>
+            <li>
+              <strong>Intelligent Minification Detection:</strong> Analyzes code
+              density—if a file is minified, it formats it automatically; if
+              it's already clean, it adds syntax highlighting
+            </li>
+            <li>
+              <strong>Local File Support:</strong> Works seamlessly on web URLs
+              and local files (<code>file://</code>) opened in the browser
+            </li>
+            <li>
+              <strong>Zero-Flash Loading:</strong> Engineered to prevent raw
+              text from flashing before the beautifier loads
+            </li>
+          </ul>
+        </div>
+
+        <div class="feature-category">
+          <h4>Syntax Validation & Error Checking</h4>
+          <p>
+            Don't just read code—debug it. CodePrettify scans your files for
+            common errors with instant feedback.
+          </p>
+          <ul>
+            <li>
+              <strong>JSON:</strong> Detects syntax errors and provides the
+              exact line number
+            </li>
+            <li>
+              <strong>JavaScript:</strong> Identifies mismatched braces,
+              brackets, and common typos
+            </li>
+            <li><strong>CSS:</strong> Validates structural integrity</li>
+            <li>
+              <strong>Instant Feedback:</strong> Invalid code triggers
+              non-intrusive toast notifications with error details
+            </li>
+          </ul>
+        </div>
+
+        <div class="feature-category">
+          <h4>Interactive JSON Viewer</h4>
+          <ul>
+            <li>
+              <strong>Collapsible Data:</strong> Fold arrays and objects to
+              navigate large datasets easily
+            </li>
+            <li>
+              <strong>Smart Previews:</strong> See summary info (e.g.,
+              <code>Array(5)</code> or <code>{3 keys}</code>) when blocks are
+              collapsed
+            </li>
+            <li>
+              <strong>Clickable Links:</strong> URLs inside JSON strings
+              automatically become clickable hyperlinks
+            </li>
+            <li>
+              <strong>Expand/Collapse All:</strong> Dedicated buttons to manage
+              massive JSON files instantly
+            </li>
+          </ul>
+        </div>
+
+        <div class="feature-category">
+          <h4>Powerful Toolkit</h4>
+          <ul>
+            <li>
+              <strong>Advanced Search:</strong> Custom search bar
+              (<code>Ctrl+F</code>) with result counting and navigation—works
+              even on huge files
+            </li>
+            <li>
+              <strong>Go To Line:</strong> Jump straight to specific lines
+              (<code>Ctrl+G</code>), perfect for debugging stack traces
+            </li>
+            <li>
+              <strong>Export Options:</strong> Download your file in three
+              formats: Original, Formatted, or Minified
+            </li>
+            <li>
+              <strong>Copy to Clipboard:</strong> Quick one-click copy
+              functionality
+            </li>
+          </ul>
+        </div>
+
+        <div class="feature-category">
+          <h4>Fully Customizable</h4>
+          <ul>
+            <li>
+              <strong>Themes:</strong> Choose between Light, Dark, or Auto
+              (syncs with system)
+            </li>
+            <li>
+              <strong>Format Settings:</strong> Adjustable font size (10-24px),
+              indentation (2 or 4 spaces), and line numbers
+            </li>
+            <li>
+              <strong>Privacy First:</strong> 100% client-side—your code never
+              leaves your browser
+            </li>
+          </ul>
+        </div>
+
+        <div class="feature-category">
+          <h4>Keyboard Shortcuts</h4>
+          <ul>
+            <li><code>Ctrl+B</code> — Toggle Raw/Pretty view</li>
+            <li><code>Ctrl+Alt+C</code> — Copy to Clipboard</li>
+            <li><code>Ctrl+F</code> — Open Search Toolbar</li>
+            <li><code>Ctrl+G</code> — Go to Line</li>
+            <li><code>Ctrl+Alt+T</code> — Toggle Toolbar</li>
+          </ul>
+        </div>
+
+        <div class="feature-category">
+          <h4>Multi-Language Support</h4>
+          <p>
+            Supports 14 languages including English, Norwegian, German, Spanish,
+            and Chinese.
+          </p>
+        </div>
+
+</div>
+</article>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-links">
+          <a href="pricing.html">Pricing</a>
+          <a href="manual.html">User Manual</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="changelog.html">Changelog</a>
+          <a href="contact.html"
+            >Feedback &amp; Support</a
+          >
+        </div>
+        <p class="copyright">
+          &copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://apps.fixquotes.com" target="_blank" rel="noopener noreferrer">FixQuotes</a>.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

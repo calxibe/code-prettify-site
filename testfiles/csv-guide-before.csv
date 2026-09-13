@@ -1,0 +1,13 @@
+ID;Name;City;Group;Balance;Email
+0001;Aster Studio;Oslo;Retail;125.50;aster@example.com
+0002;Birch Works;Bergen;Partner;0.00;birch@example.com
+0003;Cedar Lab;Tromsø;Retail;42.00;cedar@example.com
+0004;Dahlia Design;Ålesund;Partner;18.75;dahlia@example.com
+0005;Elm Supply;Oslo;Retail;0.00;elm@example.com
+0006;Fern Systems;Bergen;Partner;230.00;fern@example.com
+0007;Grove Digital;Trondheim;Retail;95.25;grove@example.com
+0008;Hazel Craft;Oslo;Partner;0.00;hazel@example.com
+0009;Iris Media;Tromsø;Retail;81.00;iris@example.com
+0010;Juniper Tools;Ålesund;Partner;16.50;juniper@example.com
+0011;Kelp Research;Bergen;Retail;64.00;kelp@example.com
+0012;Linden Press;Trondheim;Partner;0.00;linden@example.com

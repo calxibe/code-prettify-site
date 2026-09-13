@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">TabConnect logo</title>
+  <desc id="desc">A crisp browser-tab icon with a stronger outline and brighter connection path, used as the TabConnect plugin logo.</desc>
+  <defs>
+    <linearGradient id="panelFront" x1="64" y1="58" x2="446" y2="438" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.56" stop-color="#f1f7fd"/>
+      <stop offset="1" stop-color="#dee9f6"/>
+    </linearGradient>
+    <linearGradient id="tabTop" x1="78" y1="28" x2="316" y2="156" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f6fbff"/>
+      <stop offset="1" stop-color="#d5e4f4"/>
+    </linearGradient>
+    <linearGradient id="signal" x1="130" y1="352" x2="390" y2="176" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0b66dd"/>
+      <stop offset="1" stop-color="#44b6ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="20" y="126" width="472" height="332" rx="92" fill="url(#panelFront)" stroke="#29496f" stroke-width="14"/>
+  <rect x="72" y="30" width="252" height="116" rx="44" fill="url(#tabTop)" stroke="#29496f" stroke-width="14"/>
+
+  <rect x="120" y="196" width="214" height="18" rx="9" fill="#c6d7ea"/>
+  <rect x="120" y="244" width="142" height="15" rx="7.5" fill="#d7e4f2"/>
+
+  <path d="M130 350C210 288 274 246 388 178" stroke="url(#signal)" stroke-width="40" stroke-linecap="round" fill="none"/>
+
+  <circle cx="130" cy="350" r="44" fill="#ffffff" stroke="#163d62" stroke-width="12"/>
+  <circle cx="130" cy="350" r="15" fill="#0b66dd"/>
+
+  <circle cx="388" cy="178" r="37" fill="#ffffff" stroke="#163d62" stroke-width="12"/>
+  <circle cx="388" cy="178" r="13" fill="#44b6ff"/>
+
+  <path d="M316 312H408" stroke="#163d62" stroke-width="20" stroke-linecap="round"/>
+  <path d="M408 312l32-40" stroke="#163d62" stroke-width="20" stroke-linecap="round"/>
+</svg>

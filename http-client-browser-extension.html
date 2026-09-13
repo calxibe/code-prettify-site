@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; font-src 'self'; img-src 'self' data: https://www.google-analytics.com https://wonderlaunch.app https://api.producthunt.com https://peerpush.com https://www.uneed.best https://fazier.com https://www.directree.io; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com; frame-src https://www.youtube-nocookie.com; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTTP Client Browser Extension – Local REST Client | CodePrettify</title>
+  <meta name="description" content="A local HTTP client in your browser: build REST requests, import cURL, inspect headers, cookies, and timing. No proxy servers — install free for Chrome." />
+  <meta name="application-name" content="CodePrettify" />
+  <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://prettify.cloud/http-client-browser-extension.html" />
+  <link rel="icon" href="favicon.ico?v=20260725" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20260725" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260725" />
+  <meta property="og:site_name" content="CodePrettify" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="HTTP Client Browser Extension – Local REST Client" />
+  <meta property="og:description" content="A free HTTP client extension: build requests, import cURL, use environments, and inspect body, headers, cookies, timing, and raw response data." />
+  <meta property="og:url" content="https://prettify.cloud/http-client-browser-extension.html" />
+  <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-http-client.png" />
+  <meta property="og:image:alt" content="CodePrettify HTTP Client showing a GET request and formatted JSON response" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="HTTP Client Browser Extension – Local REST Client" />
+  <meta name="twitter:description" content="Compose, send, inspect, save, and copy requests without opening a separate API tool." />
+  <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-http-client.png" />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
+  <link rel="stylesheet" href="style.min.css?v=e1ce1dd4" />
+  <link rel="stylesheet" href="consent.css?v=20260826-2" />
+  <script src="site.js?v=20260826-3" defer></script>
+  <script src="feature-guide.js?v=20260906-2" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "CodePrettify HTTP Client",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Chrome, Edge, Windows",
+          "url": "https://prettify.cloud/http-client-browser-extension.html",
+          "description": "A local HTTP and REST client in the browser: build requests, import cURL, use environments, and inspect body, headers, cookies, and timing.",
+          "installUrl": "https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "CodePrettify", "item": "https://prettify.cloud/" },
+            { "@type": "ListItem", "position": 2, "name": "HTTP Client", "item": "https://prettify.cloud/http-client-browser-extension.html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "Is the HTTP client browser extension subject to CORS?", "acceptedAnswer": { "@type": "Answer", "text": "Usually not: requests run with the extension's granted host permissions in Chrome and Edge, so most CORS restrictions do not apply there. When host access has not been granted, the target server's CORS policy can still block the response; CodePrettify reports likely CORS failures with targeted guidance. The Windows app is subject to standard CORS." } },
+            { "@type": "Question", "name": "When is a request sent?", "acceptedAnswer": { "@type": "Answer", "text": "Only when you press Send. Editing the URL, importing cURL, changing an environment, or copying a snippet does not send the request." } },
+            { "@type": "Question", "name": "What happens to saved secrets?", "acceptedAnswer": { "@type": "Answer", "text": "Authentication fields, sensitive-named URL, query, header, and form values, and environment variables marked Secret remain session-only and are removed before saving or export. Unmarked values embedded in free-form bodies may still be persisted, so review every export and protect the local profile." } },
+            { "@type": "Question", "name": "Can I move a request into a script?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Copy the active request as cURL, JavaScript fetch(), or PowerShell and review the generated command before running it." } }
+          ]
+        }
+      ]
+    }
+  </script>
+</head>
+<body class="feature-detail-body supporting-page http-client-browser-extension-page">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="bg-glow"></div>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo"><img src="img/code_32.png?v=20260725" srcset="img/code_32.png?v=20260725 1x, img/code_64.png?v=20260725 2x" width="32" height="32" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span></a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
+      <nav id="site-navigation" aria-label="Primary navigation"><a href="/#install">Install</a>
+        <a href="tools.html">Tools</a>
+        <a href="guides.html">Guides</a><a href="pricing.html">Price</a><a href="manual.html">Manual</a><a href="changelog.html">Changelog</a><a href="contact.html">Contact</a></nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="feature-detail-main">
+    <nav class="feature-breadcrumb" aria-label="Breadcrumb"><a href="/">CodePrettify</a><span aria-hidden="true">/</span><span>HTTP Client</span></nav>
+    <section class="feature-detail-hero">
+      <div>
+        <span class="feature-detail-eyebrow">Requests beside the response</span>
+        <h1>An HTTP client in your browser — build, send, and inspect requests</h1>
+        <p class="feature-detail-lead">Compose a REST or GraphQL request with params, authorization, headers, and several body modes; import cURL; use local environments; save useful requests; and inspect response body, headers, cookies, raw output, status, size, and timing in one workspace.</p>
+        <div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener noreferrer">Install for Chrome</a><a class="btn btn-secondary" href="manual.html#http-client">Read the manual section</a></div>
+        <ul class="feature-proof-list"><li>Import cURL</li><li>Local environments</li><li>Saved requests</li><li>Response inspection</li></ul>
+      </div>
+      <figure class="feature-hero-shot"><picture data-site-image>
+        <source srcset="img/screenshots/feature-http-client.webp?v=4e99ba83" type="image/webp" />
+        <img src="img/screenshots/feature-http-client.png" alt="CodePrettify HTTP client browser extension with a GET request, query parameter, status, timing, and formatted JSON response" width="1280" height="800" fetchpriority="high" />
+      </picture><figcaption>A request and its formatted JSON response remain visible together, including status, size, content type, and timing.</figcaption></figure>
+    </section>
+
+    <nav class="feature-learning-nav" aria-label="Lessons in this HTTP Client guide">
+      <strong>Learn on this page</strong>
+      <div class="feature-learning-links">
+        <a href="#http-flow-title">Understand the request flow</a>
+        <a href="#http-tutorial-title">Send a request step by step</a>
+        <a href="#http-response-title">Read the response</a>
+        <a href="#http-debug-title">Diagnose failures</a>
+        <a href="#http-privacy-title">Handle secrets safely</a>
+      </div>
+    </nav>
+
+    <section class="feature-detail-section" aria-labelledby="http-flow-title">
+      <div class="feature-detail-heading"><span class="section-badge">Request flow</span><h2 id="http-flow-title">Compose, send, inspect, reuse</h2></div>
+      <div class="feature-step-grid">
+        <article class="feature-step"><span class="feature-step-number">1</span><h3>Build or import</h3><p>Choose the method and URL, add query params, auth, headers, and a body, or import an existing cURL command.</p></article>
+        <article class="feature-step"><span class="feature-step-number">2</span><h3>Send deliberately</h3><p>Set a timeout, inspect the resolved URL and environment values, then press Send. Network activity begins only after that action.</p></article>
+        <article class="feature-step"><span class="feature-step-number">3</span><h3>Inspect and save</h3><p>Review the body, headers, cookies, and raw response; save the request or copy it as cURL, <code>fetch()</code>, or PowerShell.</p></article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="http-example-title">
+      <div class="feature-detail-heading"><span class="section-badge">Example</span><h2 id="http-example-title">Turn a simple GET into a reproducible request</h2><p>The client keeps structured controls and copyable code aligned so you can move between interactive debugging and a script.</p></div>
+      <div class="feature-example-grid">
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">Request</span><h3>GET with a query parameter</h3><p>Environment variables can replace stable values while the resolved URL stays visible before sending.</p></div>
+          <pre class="feature-code" tabindex="0"><code>Method: GET
+URL: {{baseUrl}}/v1/products
+Params:
+  view = summary
+Headers:
+  Accept = application/json
+Timeout:
+  30000 ms</code></pre>
+        </article>
+        <article class="feature-example-card">
+          <div class="feature-example-copy"><span class="feature-example-label">Copy as fetch</span><h3>Carry the verified request into code</h3><p>Generated snippets reflect the active method, resolved URL, headers, auth, and body choices.</p></div>
+          <pre class="feature-code" tabindex="0"><code>fetch(
+  <span class="code-accent">"https://api.example.com/v1/products?view=summary"</span>,
+  {
+    headers: {
+      "Accept": "application/json"
+    }
+  }
+)</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="http-tutorial-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Hands-on tutorial</span>
+        <h2 id="http-tutorial-title">Build, send, inspect, and preserve one API request</h2>
+        <p>Use an API you are authorized to call. The example uses a development base URL and a products route; replace those values with your own service while keeping the same learning sequence.</p>
+      </div>
+      <ol class="feature-tutorial-steps">
+        <li>
+          <div><h3>Open HTTP Client and choose the environment first</h3><p>Launch HTTP Client from General tools, the extension launcher, or the Windows Tools menu. Create or select a development environment and add <code>baseUrl</code> with a value such as <code>https://api.example.com</code>. Use a non-secret variable first so you can see how resolution works safely.</p></div>
+        </li>
+        <li>
+          <div><h3>Compose the URL from stable and changing parts</h3><p>Choose <strong>GET</strong> and enter <code>{{baseUrl}}/v1/products</code>. Add a query parameter named <code>view</code> with value <code>summary</code>. Inspect the resolved URL before sending; a missing or misspelled variable should be fixed now, not diagnosed after a network error.</p></div>
+        </li>
+        <li>
+          <div><h3>State what representation you expect</h3><p>Add <code>Accept: application/json</code>. Leave authorization and body set to None for this lesson unless your endpoint requires them. Set a practical timeout such as 30,000 ms so a stalled request does not remain active indefinitely.</p></div>
+        </li>
+        <li>
+          <div><h3>Send deliberately and observe the transition</h3><p>Review method, resolved URL, params, and headers, then press <strong>Send</strong>. This is the point where network activity begins. A Cancel button appears beside Send while the request is active; editing the request, importing cURL, or generating a snippet does not send anything.</p></div>
+        </li>
+        <li>
+          <div><h3>Read status and metadata before the body</h3><p>Start with the status code, duration, size, and content type. A 200 JSON response supports the Body workflow below. A redirect, 401, 404, 415, or HTML content type changes the question you should ask before inspecting individual fields.</p></div>
+        </li>
+        <li>
+          <div><h3>Compare formatted Body, Raw, and Headers</h3><p>Use Body to understand structured JSON, Raw to verify the exact response text, and Headers to inspect caching, content type, dates, rate limits, and server behavior. Check Cookies only when the response actually uses them and your product’s browser policy exposes them.</p></div>
+        </li>
+        <li>
+          <div><h3>Copy a reproducible handoff and save only what is useful</h3><p>Copy the verified request as cURL, <code>fetch()</code>, or PowerShell. Known secret values are masked as <code>******</code> in the snippet, so re-insert real credentials before running it — and still review it before sharing. Save the request or add it to a collection when it is worth repeating. Give it a name that describes the behavior being tested, not simply “GET request.”</p></div>
+        </li>
+      </ol>
+      <div class="feature-practice-lab">
+        <h3>Practice: turn the GET into a controlled JSON POST</h3>
+        <p>Duplicate the request instead of overwriting your working GET. Change one concern at a time and inspect the generated snippet after each change.</p>
+        <ul class="feature-checklist">
+          <li>Change the method to POST and select the JSON body mode.</li>
+          <li>Add a small valid JSON object and verify its syntax.</li>
+          <li>Confirm <code>Content-Type: application/json</code> is present.</li>
+          <li>Add authorization only if your own endpoint requires it.</li>
+          <li>Send to a development or test endpoint you control.</li>
+          <li>Review status, response content type, and Raw before trusting Body.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="http-response-title">
+      <div class="feature-detail-heading"><span class="section-badge">Response inspection</span><h2 id="http-response-title">The body is only one part of the answer</h2><p>Status, content type, response headers, cookies, timing, and the raw response can explain behavior that a formatted JSON body cannot. Compare these views when investigating caching, authentication, redirects, content negotiation, compressed responses, or a server that returns useful diagnostics outside the body.</p></div>
+      <div class="feature-shot-grid">
+        <figure class="feature-guide-shot"><picture data-site-image>
+          <source srcset="img/screenshots/feature-http-client.webp?v=4e99ba83" type="image/webp" />
+          <img src="img/screenshots/feature-http-client.png" alt="HTTP response body rendered as formatted JSON in CodePrettify HTTP Client" width="1280" height="800" loading="lazy" />
+        </picture><figcaption>Body view formats a successful JSON response and keeps request controls visible above it.</figcaption></figure>
+        <figure class="feature-guide-shot"><picture data-site-image>
+          <source srcset="img/screenshots/feature-http-client-headers.webp?v=9441d59a" type="image/webp" />
+          <img src="img/screenshots/feature-http-client-headers.png" alt="HTTP response headers including cache-control, content-type, date, and connection details" width="1280" height="800" loading="lazy" />
+        </picture><figcaption>Headers view exposes caching, content type, date, connection, and transfer behavior beside the request.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="http-debug-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Response lesson</span>
+        <h2 id="http-debug-title">Let the status, headers, and timing choose the next question</h2>
+        <p>A formatted body is useful only after you know what kind of response you received. Use this order to avoid debugging application data when the real problem is authentication, routing, media type, browser policy, or server availability.</p>
+      </div>
+      <div class="feature-guide-table-wrap" tabindex="0">
+        <table class="feature-guide-table">
+          <thead><tr><th>Signal</th><th>Investigate next</th><th>Useful evidence to capture</th></tr></thead>
+          <tbody>
+            <tr><td>200–299 success</td><td>Confirm content type, body shape, headers, and whether the response matches the requested representation.</td><td>Status, response body, relevant headers, and duration.</td></tr>
+            <tr><td>301, 302, 307, or 308 redirect</td><td>A verified same-origin location may be followed. Cross-origin, opaque, or otherwise unverifiable redirects stop before the next request; confirm the intended destination and send a new request explicitly if appropriate.</td><td>Location-related headers, blocked-redirect message, and sanitized copied request.</td></tr>
+            <tr><td>401 or 403</td><td>Check auth type, token value, API-key placement, scopes, environment selection, and target host.</td><td>Sanitized request details and response authentication headers—never the secret itself.</td></tr>
+            <tr><td>404</td><td>Check the resolved base URL, route version, path variables, and whether the resource exists in this environment.</td><td>Resolved URL, method, and response body.</td></tr>
+            <tr><td>400 or 415</td><td>Review JSON syntax, body mode, <code>Content-Type</code>, required fields, and encoding.</td><td>Sanitized body, request headers, and server validation message.</td></tr>
+            <tr><td>429</td><td>Inspect rate-limit and retry headers, then reduce or delay requests.</td><td>Limit, remaining, reset, and retry values.</td></tr>
+            <tr><td>500–599</td><td>Separate a reproducible client request from a server-side failure.</td><td>Request ID, timestamp, status, duration, and sanitized request snippet.</td></tr>
+            <tr><td>CORS or browser network failure</td><td>Compare with generated cURL or PowerShell outside the browser. The extension’s granted host permissions usually exempt its requests from CORS in Chrome and Edge; with host access revoked, the server’s CORS policy can still block the response.</td><td>Browser error, target origin, method, and server CORS configuration.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="feature-troubleshooting-grid">
+        <article class="feature-learning-card"><h3>A variable remains unresolved</h3><p>Confirm the active environment, exact variable spelling, and braces. Resolve the URL before adding authentication or body complexity.</p></article>
+        <article class="feature-learning-card"><h3>Body view is empty or unreadable</h3><p>Check status, content type, size, and Raw. A HEAD response, empty success, binary payload, or HTML error page may not have a formatted JSON body.</p></article>
+        <article class="feature-learning-card"><h3>The same call works in cURL but not the extension</h3><p>Compare generated commands and then inspect CORS, browser credential policy, cookies, and headers the browser is allowed to expose. A redirect the browser exposes only as opaque or cross-origin is intentionally blocked before it can issue a second request.</p></article>
+        <article class="feature-learning-card"><h3>The request contains sensitive values</h3><p>Authentication controls, sensitive-named structured fields, and Secret environment variables remain session-only and are removed before saving or export. Avoid screenshots, and review free-form bodies because unmarked embedded values may still be persisted.</p></article>
+      </div>
+      <p class="feature-learning-outcome"><strong>Learning outcome:</strong> you should be able to preserve one reproducible request, explain when network activity occurs, and diagnose a failure from status and metadata before guessing at the body.</p>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="http-controls-title">
+      <div class="feature-detail-heading"><span class="section-badge">Capabilities</span><h2 id="http-controls-title">Enough request control for daily REST API investigation</h2></div>
+      <div class="feature-capability-grid">
+        <article class="feature-capability"><h3>Methods and URLs</h3><ul><li>Common HTTP methods</li><li>Query parameter editor</li><li>Resolved environment preview</li><li>URL validation</li></ul></article>
+        <article class="feature-capability"><h3>Authorization</h3><ul><li>Bearer token</li><li>Basic authentication</li><li>API key (header or query parameter)</li><li>Custom headers</li></ul></article>
+        <article class="feature-capability"><h3>Request bodies</h3><ul><li>Raw text and JSON</li><li>Form URL encoded</li><li>Multipart form data</li><li>GraphQL</li></ul></article>
+        <article class="feature-capability"><h3>Response views</h3><ul><li>Formatted body</li><li>Headers</li><li>Cookies</li><li>Raw response</li></ul></article>
+        <article class="feature-capability"><h3>Reuse</h3><ul><li>Saved requests</li><li>Local environments</li><li>JSON imports capped at 10 MiB</li><li>Import cURL and copy reviewed snippets</li></ul></article>
+        <article class="feature-capability"><h3>Control and feedback</h3><ul><li>Timeout and cancel</li><li>Status, type, and size</li><li>Timing breakdown</li><li>CORS and network error guidance</li></ul></article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="http-privacy-title">
+      <div class="feature-detail-heading"><span class="section-badge">Privacy and storage</span><h2 id="http-privacy-title">Know what leaves the device</h2></div>
+      <div class="feature-capability-grid">
+        <article class="feature-capability"><h3>Explicit network action</h3><p>The client contacts the URL displayed in the composer only after you press Send. The destination service receives the request directly.</p></article>
+        <article class="feature-capability"><h3>Local saved data</h3><p>Saved requests, environments, and sanitized replay history stay in local extension storage. Known sensitive structured values and Secret variables are not written there; unmarked values in free-form bodies can be.</p></article>
+        <article class="feature-capability"><h3>Sanitized history</h3><p>In both the browser extension and Windows app, replay history omits request bodies and form fields, credential headers, URL credentials and fragments, sensitive query parameters, and detailed transport-error text. Older entries are rewritten through the same sanitizer when they are read.</p></article>
+      </div>
+      <div class="feature-privacy-note"><span class="feature-privacy-icon" aria-hidden="true">!</span><div><strong>Session-only protection is structured, not magical.</strong><p>Use the Auth controls and mark sensitive environment variables as Secret. CodePrettify removes known sensitive fields before persistence, but it cannot safely rewrite arbitrary JSON, text, multipart, or GraphQL bodies without changing the request. Review every export and the target service&rsquo;s policy.</p></div></div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="http-faq-title">
+      <div class="feature-detail-heading"><span class="section-badge">FAQ</span><h2 id="http-faq-title">HTTP Client questions</h2></div>
+      <div class="feature-detail-faq">
+        <details><summary>Is the HTTP client browser extension subject to CORS?</summary><p>Usually not: requests run with the extension’s granted host permissions in Chrome and Edge, so most CORS restrictions do not apply there. When host access has not been granted, the target server’s CORS policy can still block the response; CodePrettify reports likely CORS failures with targeted guidance. The Windows app is subject to standard CORS.</p></details>
+        <details><summary>When is a request sent?</summary><p>Only when you press Send. Editing the URL, importing cURL, changing an environment, or copying a snippet does not send the request.</p></details>
+        <details><summary>What happens to saved secrets?</summary><p>Authentication fields, sensitive-named URL/query/header/form values, and environment variables marked Secret remain session-only and are removed before saving or export. Unmarked values embedded in free-form bodies may still be persisted, so protect the local profile and review every export.</p></details>
+        <details><summary>Can I move a request into a script?</summary><p>Yes. Copy the active request as cURL, JavaScript <code>fetch()</code>, or PowerShell and review the generated command before running it.</p></details>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="http-related-title">
+      <div class="feature-detail-heading"><span class="section-badge">Related guides</span><h2 id="http-related-title">Inspect what the API returns</h2></div>
+      <div class="feature-related-grid">
+        <a class="feature-related-card" href="json-formatter-browser-extension.html"><h3>JSON Formatter and Viewer</h3><p>Query, validate, compare, convert, and export the JSON responses you are investigating.</p><span>Explore JSON inspection →</span></a>
+        <a class="feature-related-card" href="json-to-code-generator.html"><h3>JSON to Code Generator</h3><p>Turn a representative API response into typed client or server models.</p><span>Explore code generation →</span></a>
+        <a class="feature-related-card" href="manual.html#http-client"><h3>Complete Manual</h3><p>Review auth modes, bodies, environments, storage, history, imports, exports, and error behavior.</p><span>Open the manual →</span></a>
+      </div>
+    </section>
+
+    <section class="feature-page-cta" aria-labelledby="http-cta-title"><h2 id="http-cta-title">Keep the request and response in one workspace</h2><p>Compose the call, inspect more than the body, and copy a reproducible request — a lightweight REST client without a separate desktop app.</p><div class="feature-detail-actions"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener noreferrer">Install for Chrome</a><a class="btn btn-secondary" href="pricing.html">See $0 early access</a></div></section>
+  </main>
+
+  <footer><div class="footer-inner"><div class="footer-links"><a href="pricing.html">Pricing</a><a href="guides.html">Guides</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="contact.html">Feedback &amp; Support</a></div><p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://apps.fixquotes.com" target="_blank" rel="noopener noreferrer">FixQuotes</a>.</p></div></footer>
+</body>
+</html>

@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; font-src 'self'; img-src 'self' data: https://www.google-analytics.com https://wonderlaunch.app https://api.producthunt.com https://peerpush.com https://www.uneed.best https://fazier.com https://www.directree.io; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com; frame-src https://www.youtube-nocookie.com; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSON Formatter &amp; Viewer Chrome Extension – Local &amp; Free | CodePrettify</title>
+  <meta name="description" content="JSON formatter and viewer Chrome extension that works locally — format, search, query, validate, and compare JSON with no upload and no account. Install free." />
+  <meta name="application-name" content="CodePrettify" />
+  <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://prettify.cloud/json-formatter-browser-extension.html" />
+  <link rel="icon" href="favicon.ico?v=20260725" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20260725" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260725" />
+  <meta property="og:site_name" content="CodePrettify" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="JSON Formatter &amp; Viewer Chrome Extension – Local &amp; Free" />
+  <meta property="og:description" content="A free Chrome and Edge extension that turns raw JSON responses and local files into a searchable, foldable, private workspace." />
+  <meta property="og:url" content="https://prettify.cloud/json-formatter-browser-extension.html" />
+  <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-json-format.png" />
+  <meta property="og:image:alt" content="CodePrettify formatting a nested JSON API response in a browser tab" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="JSON Formatter &amp; Viewer Chrome Extension – Local &amp; Free" />
+  <meta name="twitter:description" content="Free Chrome and Edge extension: format, query, validate, and inspect JSON locally." />
+  <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-json-format.png" />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
+  <link rel="stylesheet" href="style.min.css?v=e1ce1dd4" />
+  <link rel="stylesheet" href="consent.css?v=20260826-2" />
+  <script src="site.js?v=20260826-3" defer></script>
+  <script src="feature-guide.js?v=20260906-2" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "CodePrettify",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Chrome, Edge, Windows",
+          "url": "https://prettify.cloud/",
+          "description": "A local JSON formatter, viewer, validator, converter, and developer workspace for browser and Windows.",
+          "installUrl": "https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "WebPage",
+          "name": "JSON Formatter and Viewer Chrome Extension",
+          "url": "https://prettify.cloud/json-formatter-browser-extension.html",
+          "description": "Format, search, query, validate, compare, and export JSON locally with the CodePrettify extension for Chrome and Edge."
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "CodePrettify", "item": "https://prettify.cloud/" },
+            { "@type": "ListItem", "position": 2, "name": "JSON Formatter and Viewer", "item": "https://prettify.cloud/json-formatter-browser-extension.html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "Does CodePrettify upload my JSON?", "acceptedAnswer": { "@type": "Answer", "text": "No. Formatting, search, JSONPath, schema validation, comparison, conversion, and code generation are performed locally by the browser extension or Windows app." } },
+            { "@type": "Question", "name": "Does it work with API URLs that do not end in .json?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The extension also recognizes supported response content types, so an API route can activate the JSON viewer without a file extension." } },
+            { "@type": "Question", "name": "Can it open local JSON files?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Drag a file onto the extension launcher or use its file picker. That workflow does not require general file:// access." } },
+            { "@type": "Question", "name": "What about comments and trailing commas?", "acceptedAnswer": { "@type": "Answer", "text": "JSONC is supported separately from strict JSON, including common comment and trailing-comma patterns used by files such as tsconfig.json." } }
+          ]
+        }
+      ]
+    }
+  </script>
+</head>
+<body class="feature-detail-body supporting-page json-formatter-browser-extension-page">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="bg-glow"></div>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <img src="img/code_32.png?v=20260725" srcset="img/code_32.png?v=20260725 1x, img/code_64.png?v=20260725 2x" width="32" height="32" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span>
+      </a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation">
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg>
+      </button>
+      <nav id="site-navigation" aria-label="Primary navigation">
+        <a href="/#install">Install</a>
+        <a href="tools.html">Tools</a>
+        <a href="guides.html">Guides</a>
+        <a href="pricing.html">Price</a>
+        <a href="manual.html">Manual</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="feature-detail-main">
+    <nav class="feature-breadcrumb" aria-label="Breadcrumb">
+      <a href="/">CodePrettify</a><span aria-hidden="true">/</span><span>JSON Formatter and Viewer</span>
+    </nav>
+
+    <section class="feature-detail-hero feature-detail-hero-compact">
+      <div>
+        <span class="feature-detail-eyebrow">Local JSON workspace</span>
+        <h1>JSON formatter and viewer for Chrome and Edge</h1>
+        <p class="feature-detail-lead">
+          Install CodePrettify to automatically format raw JSON responses in your browser. Open API URLs or local files,
+          fold nested objects, search values, and run JSONPath queries. Formatting runs locally, with no upload and no account.
+        </p>
+        <div class="feature-detail-actions">
+          <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener noreferrer">Install for Chrome</a>
+          <a class="btn btn-secondary" href="#json-workflow-title">How to use it</a>
+        </div>
+        <ul class="feature-proof-list" aria-label="Product highlights">
+          <li>Automatic formatting</li>
+          <li>JSON and JSONC</li>
+          <li>Local processing</li>
+          <li>No account</li>
+        </ul>
+      </div>
+      <figure class="feature-hero-shot">
+        <picture data-site-image>
+          <source srcset="img/screenshots/feature-json-format.webp?v=694b183d" type="image/webp" />
+          <img src="img/screenshots/feature-json-format.png" alt="A formatted JSON API response with folding, syntax highlighting, line numbers, and a minimap in CodePrettify" width="1280" height="800" fetchpriority="high" />
+        </picture>
+        <figcaption>A dense deployment response becomes a structured document with folding, links, timestamps, and navigation.</figcaption>
+      </figure>
+    </section>
+
+    <nav class="feature-learning-nav" aria-label="Lessons in this JSON guide">
+      <strong>Learn on this page</strong>
+      <div class="feature-learning-links">
+        <a href="#json-workflow-title">Open and navigate</a>
+        <a href="#json-tutorial-title">Follow a complete investigation</a>
+        <a href="#json-query-title">Query and validate</a>
+        <a href="#json-tool-choice-title">Choose the right tool</a>
+        <a href="#json-faq-title">Troubleshoot</a>
+      </div>
+    </nav>
+
+    <section class="feature-detail-section" aria-labelledby="json-workflow-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Quick start</span>
+        <h2 id="json-workflow-title">How to format JSON in Chrome</h2>
+        <p>Install the extension, then open <a href="testfiles/test_json.json" target="_blank" rel="noopener noreferrer">this sample JSON file</a> to check that it is working. The same extension works in Microsoft Edge.</p>
+      </div>
+      <div class="feature-step-grid">
+        <article class="feature-step">
+          <span class="feature-step-number">1</span>
+          <h3>Install and open a response</h3>
+          <p>Install CodePrettify from the Chrome Web Store, then open or reload a raw JSON URL. The extension recognizes JSON by URL and HTTP content type, including supported API responses without a <code>.json</code> suffix.</p>
+        </article>
+        <article class="feature-step">
+          <span class="feature-step-number">2</span>
+          <h3>Inspect the structure</h3>
+          <p>Fold nested objects, search values, jump by line, use the minimap, open Document Navigator, or switch an array into Table View.</p>
+        </article>
+        <article class="feature-step">
+          <span class="feature-step-number">3</span>
+          <h3>Validate or reuse it</h3>
+          <p>Run a JSONPath query, validate against a pasted schema, compare another payload, convert formats, generate typed code, copy, or export.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="json-example-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Example</span>
+        <h2 id="json-example-title">Pretty print JSON, without the wall of text</h2>
+        <p>CodePrettify works as a JSON beautifier and pretty printer in one: it preserves the data, changes the presentation, and layers useful tools around the exact document you opened.</p>
+      </div>
+      <div class="feature-example-grid">
+        <article class="feature-example-card">
+          <div class="feature-example-copy">
+            <span class="feature-example-label">Raw response</span>
+            <h3>Hard to scan and harder to debug</h3>
+            <p>A minified response hides the boundary between services, releases, metrics, and incident details.</p>
+          </div>
+          <pre class="feature-code" tabindex="0"><code>{"services":[{"id":"svc_api_gateway","name":"API Gateway","status":"healthy","metrics":{"p95LatencyMs":91,"errorRate":0.0008}},{"id":"svc_insights","name":"Insights","status":"degraded","metrics":{"p95LatencyMs":144,"errorRate":0.0124}}]}</code></pre>
+        </article>
+        <article class="feature-example-card">
+          <div class="feature-example-copy">
+            <span class="feature-example-label">Prettified view</span>
+            <h3>The hierarchy becomes visible</h3>
+            <p>Indentation, syntax color, folding, and line references make the same values easier to compare.</p>
+          </div>
+          <pre class="feature-code" tabindex="0"><code>{
+  <span class="code-accent">"services"</span>: [
+    {
+      "id": "svc_api_gateway",
+      "name": "API Gateway",
+      "status": <span class="code-success">"healthy"</span>,
+      "metrics": {
+        "p95LatencyMs": 91,
+        "errorRate": 0.0008
+      }
+    }
+  ]
+}</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="json-tutorial-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Hands-on tutorial</span>
+        <h2 id="json-tutorial-title">Investigate a slow service response from start to finish</h2>
+        <p>Use the deployment payload shown on this page as the scenario: several services report status and latency, and you need to find the unhealthy entry, understand its location, and decide whether the response still follows its contract.</p>
+      </div>
+      <ol class="feature-tutorial-steps">
+        <li>
+          <div><h3>Open the response in Prettified view</h3><p>Visit the raw API URL, drag the saved response onto the extension launcher, or open it in the Windows app. Confirm that the top-right view toggle says <strong>Prettified</strong>. If you opened a local <code>file://</code> URL directly and nothing happens, use the launcher or enable file URL access for the extension.</p></div>
+        </li>
+        <li>
+          <div><h3>Learn the shape before searching values</h3><p>Collapse the document, then expand only the root and <code>services</code> array. This tells you whether the response is an object, which top-level sections exist, and where repeated service records begin. For a large document, open <strong>Document Navigator</strong> and filter its paths instead of scrolling.</p></div>
+        </li>
+        <li>
+          <div><h3>Find the symptom in context</h3><p>Press <kbd>Ctrl</kbd>+<kbd>F</kbd> and search for <code>degraded</code>. Move through the result count and inspect the surrounding service name, metrics, and release data. Ordinary search is the fastest choice when you know a value but not its exact JSON path.</p></div>
+        </li>
+        <li>
+          <div><h3>Ask a repeatable structural question</h3><p>Open <strong>More Actions → JSON Path Inspector</strong>, enter <code>$.services[*].name</code>, and run the query. The result list should contain one value for every service name. Select a result to connect the extracted value to its source line, then copy a matched value either compact (single line) or pretty-printed, or copy the selected path itself.</p></div>
+        </li>
+        <li>
+          <div>
+            <h3>Check the response against a small contract</h3>
+            <p>Open the <strong>JSON Schema Validator</strong> and paste a schema that requires every service to have an owner and a healthy status. Run validation and read each result as <em>path → rule → source line</em>. A useful validator result tells you both what rule failed and where the offending value lives.</p>
+            <pre class="feature-code" tabindex="0"><code>{
+  "type": "object",
+  "required": ["services"],
+  "properties": {
+    "services": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "owner"],
+        "properties": {
+          "status": { "enum": ["healthy"] }
+        }
+      }
+    }
+  }
+}</code></pre>
+          </div>
+        </li>
+        <li>
+          <div><h3>Switch perspective when the array behaves like a table</h3><p><strong>Table View</strong> requires the document root to be an array of objects, so for a wrapper object like this one, extract the <code>services</code> array first — request the endpoint that returns the array directly, or copy the array into its own document. Then open Table View, search or sort by name and status, and compare records without repeatedly expanding objects. Nested objects such as <code>metrics</code> appear as compact JSON cells; return to the structured viewer when you need values that do not fit naturally into columns.</p></div>
+        </li>
+        <li>
+          <div><h3>Separate real changes from formatting noise</h3><p>Copy a second response, open <strong>Compare</strong>, and choose semantic JSON comparison when key order or whitespace changed. Review additions, removals, and changed values, then copy or export only after you understand which representation—original, formatted, or transformed—you need.</p></div>
+        </li>
+      </ol>
+      <div class="feature-practice-lab">
+        <h3>Practice checkpoint</h3>
+        <p>Repeat the workflow with one of your own API responses. You are finished when you can answer these questions without manually reading every line.</p>
+        <ul class="feature-checklist">
+          <li>What is the root type and which arrays contain repeated records?</li>
+          <li>Which source line contains the first degraded status?</li>
+          <li>What does <code>$.services[*].name</code> return?</li>
+          <li>Which schema rule produces each reported violation?</li>
+          <li>Which rows remain when you filter Table View by status?</li>
+          <li>Which values truly changed between two responses?</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="json-query-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Query and validate</span>
+        <h2 id="json-query-title">Ask targeted questions without uploading the document</h2>
+        <p>JSONPath extracts the values you care about. JSON Schema checks whether the current document follows the contract you expect. Both workflows stay attached to the open source document.</p>
+      </div>
+      <div class="feature-shot-grid">
+        <figure class="feature-guide-shot">
+          <picture data-site-image>
+            <source srcset="img/screenshots/feature-json-path-inspector.webp?v=ae789218" type="image/webp" />
+            <img src="img/screenshots/feature-json-path-inspector.png" alt="JSON Path Inspector returning the names of three services from a nested JSON document" width="1280" height="800" loading="lazy" />
+          </picture>
+          <figcaption><code>$.services[*].name</code> returns three matching values with copy and Go to Line actions.</figcaption>
+        </figure>
+        <figure class="feature-guide-shot">
+          <picture data-site-image>
+            <source srcset="img/screenshots/feature-schema-validator.webp?v=c8a631fe" type="image/webp" />
+            <img src="img/screenshots/feature-schema-validator.png" alt="JSON Schema Validator listing six schema violations with JSON paths and line numbers" width="1280" height="800" loading="lazy" />
+          </picture>
+          <figcaption>A local schema flags an environment mismatch, a short array, missing owners, and an unexpected status.</figcaption>
+        </figure>
+      </div>
+      <div class="feature-privacy-note">
+        <span class="feature-privacy-icon" aria-hidden="true">✓</span>
+        <div>
+          <strong>The query and schema stay on your device.</strong>
+          <p>CodePrettify does not fetch remote schema references. Paste the schema you intend to trust, use local <code>#</code> references, and validate the current document in place.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="json-tool-choice-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">Decision guide</span>
+        <h2 id="json-tool-choice-title">Choose the smallest tool that answers the question</h2>
+        <p>Several tools can inspect JSON, but they solve different problems. Start with the least complex option and move to a structural tool only when the question demands it.</p>
+      </div>
+      <div class="feature-guide-table-wrap" tabindex="0">
+        <table class="feature-guide-table">
+          <thead><tr><th>Your question</th><th>Start with</th><th>What a useful result looks like</th></tr></thead>
+          <tbody>
+            <tr><td>“Where does this text or identifier appear?”</td><td>Find with <kbd>Ctrl</kbd>+<kbd>F</kbd></td><td>A highlighted value with match count and surrounding fields.</td></tr>
+            <tr><td>“Give me the same field from every record.”</td><td>JSON Path Inspector</td><td>A repeatable path such as <code>$.services[*].name</code> and a list of matched values.</td></tr>
+            <tr><td>“Does this payload follow our expected contract?”</td><td>JSON Schema Validator</td><td>Zero violations, or precise paths and line numbers for every failed rule.</td></tr>
+            <tr><td>“Which rows are slow, missing, or out of order?”</td><td>Table View</td><td>A filtered or sorted array where differences are visible by column.</td></tr>
+            <tr><td>“How is this payload actually structured?”</td><td>Diagram Generator</td><td>A zoomable map of connected field cards you can search, inspect, and export as SVG, PNG, or Mermaid.</td></tr>
+            <tr><td>“What changed between releases?”</td><td>Semantic Compare</td><td>Changed data values without whitespace and key-order noise.</td></tr>
+            <tr><td>“Is the payload unusually deep or structurally suspicious?”</td><td>Statistics &amp; Diagnostics</td><td>Depth, counts, syntax status, duplicate-key warnings, and other structural evidence.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="feature-troubleshooting-grid">
+        <article class="feature-learning-card"><h3>Extension not working or not activating?</h3><p>Confirm the resource is raw JSON rather than an HTML page, check that JSON is enabled in Settings, and reload. For a local file, use the launcher when direct file URL permission is unavailable. The <a href="manual.html#troubleshooting">manual&rsquo;s troubleshooting section</a> has the full activation checklist.</p></article>
+        <article class="feature-learning-card"><h3>The query returns no values</h3><p>Inspect the root shape and spelling first. A document rooted at an array needs a different starting path than an object containing a <code>services</code> property.</p></article>
+        <article class="feature-learning-card"><h3>Schema results look overwhelming</h3><p>Begin with one required field or one enum rule, validate, then add constraints gradually. This separates a wrong schema assumption from a genuinely invalid payload.</p></article>
+        <article class="feature-learning-card"><h3>The formatted result should not replace the source</h3><p>Formatting changes presentation, not the original response. Choose the original, formatted, converted, or transformed representation explicitly when copying or exporting.</p></article>
+      </div>
+      <p class="feature-learning-outcome"><strong>Learning outcome:</strong> you should be able to move from “this response is too large to read” to a specific path, source line, validation rule, or changed value—and explain how you found it.</p>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="json-capabilities-title">
+      <div class="feature-detail-heading">
+        <span class="section-badge">What you can do</span>
+        <h2 id="json-capabilities-title">A JSON viewer that continues past “pretty print”</h2>
+      </div>
+      <div class="feature-capability-grid">
+        <article class="feature-capability">
+          <h3>Navigate large payloads</h3>
+          <ul><li>Fold objects and arrays</li><li>Search text or regular expressions</li><li>Jump by line, outline, minimap, or JSON path</li></ul>
+        </article>
+        <article class="feature-capability">
+          <h3>Understand the data</h3>
+          <ul><li>Syntax and structural diagnostics</li><li>Statistics, depth, and duplicate-key warnings</li><li>Timestamp, Base64, JWT, URL, and color helpers</li></ul>
+        </article>
+        <article class="feature-capability">
+          <h3>Work with rows</h3>
+          <ul><li>Sortable and searchable Table View</li><li>Per-column filters and column reordering</li><li>CSV, JSON, and HTML table exports</li></ul>
+        </article>
+        <article class="feature-capability">
+          <h3>Compare JSON with a semantic diff</h3>
+          <ul><li>Text or semantic JSON comparison</li><li>Ignore formatting and key-order noise</li><li>Jump through real additions and removals</li></ul>
+        </article>
+        <article class="feature-capability">
+          <h3>Visualize the structure</h3>
+          <ul><li>Zoomable diagram of connected field cards</li><li>Search, inspect fields, and copy value or path</li><li>Export as SVG, PNG, or a Mermaid class diagram</li></ul>
+        </article>
+        <article class="feature-capability">
+          <h3>Repair and transform</h3>
+          <ul><li>Recover common JSON-like input</li><li>Build filter, select, rename, sort, and group recipes</li><li>Keep the original document unchanged</li></ul>
+        </article>
+        <article class="feature-capability">
+          <h3>Move to code</h3>
+          <ul><li>Generate TypeScript, Pydantic, C#, Java, Go, Rust, and more</li><li>Convert JSON to YAML, XML, CSV, or TSV</li><li>Copy, export, or open the result as a document</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="json-faq-title">
+      <div class="feature-detail-heading"><span class="section-badge">FAQ</span><h2 id="json-faq-title">JSON formatter questions</h2></div>
+      <div class="feature-detail-faq">
+        <details><summary>Does CodePrettify upload my JSON?</summary><p>No. Formatting, search, JSONPath, schema validation, comparison, conversion, and code generation are performed locally by the browser extension or Windows app.</p></details>
+        <details><summary>Does it work with API URLs that do not end in .json?</summary><p>Yes. The extension also recognizes supported response content types, so an API route can activate the JSON viewer without a file extension.</p></details>
+        <details><summary>Can it open local JSON files?</summary><p>Yes. Drag a file onto the extension launcher or use its file picker. That workflow does not require general <code>file://</code> access.</p></details>
+        <details><summary>What about comments and trailing commas?</summary><p>JSONC is supported separately from strict JSON, including common comment and trailing-comma patterns used by files such as <code>tsconfig.json</code>.</p></details>
+      </div>
+    </section>
+
+    <section class="feature-detail-section" aria-labelledby="json-related-title">
+      <div class="feature-detail-heading"><span class="section-badge">Continue the workflow</span><h2 id="json-related-title">Go deeper with related tools</h2></div>
+      <div class="feature-related-grid">
+        <a class="feature-related-card" href="json-to-code-generator.html"><h3>JSON to Code Generator</h3><p>Infer typed models from real samples for TypeScript, Pydantic, C#, Java, Go, Rust, Swift, Dart, and more.</p><span>Explore code generation →</span></a>
+        <a class="feature-related-card" href="json-repair-transform.html"><h3>JSON Repair &amp; Transform</h3><p>Recover useful data from logs, copied snippets, fenced output, and hand-edited JSON-like text.</p><span>Explore repair and transform →</span></a>
+        <a class="feature-related-card" href="http-client-browser-extension.html"><h3>HTTP Client</h3><p>Send a request and inspect its JSON response in the same browser workspace.</p><span>Explore the HTTP Client →</span></a>
+        <a class="feature-related-card" href="json-compare.html"><h3>JSON Compare &amp; Diff</h3><p>Compare two payloads semantically — key order and formatting noise disappear from the diff.</p><span>Explore JSON compare →</span></a>
+        <a class="feature-related-card" href="json-schema-validator.html"><h3>JSON Schema Validator</h3><p>Check the open document against a pasted schema with exact paths and source lines for every violation.</p><span>Explore schema validation →</span></a>
+      </div>
+    </section>
+
+    <section class="feature-page-cta" aria-labelledby="json-cta-title">
+      <h2 id="json-cta-title">Make the next raw response readable</h2>
+      <p>Install CodePrettify, open a JSON response, and keep the complete inspection workflow in the tab where the data already lives.</p>
+      <div class="feature-detail-actions">
+        <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" target="_blank" rel="noopener noreferrer">Install for Chrome</a>
+        <a class="btn btn-secondary" href="pricing.html">See $0 early access</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links"><a href="pricing.html">Pricing</a><a href="guides.html">Guides</a><a href="manual.html">User Manual</a><a href="privacy.html">Privacy Policy</a><a href="changelog.html">Changelog</a><a href="contact.html">Feedback &amp; Support</a></div>
+      <p class="copyright">&copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://apps.fixquotes.com" target="_blank" rel="noopener noreferrer">FixQuotes</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

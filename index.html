@@ -1,0 +1,933 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; font-src 'self'; img-src 'self' data: https://www.google-analytics.com https://wonderlaunch.app https://api.producthunt.com https://peerpush.com https://www.uneed.best https://fazier.com https://www.directree.io; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com; frame-src https://www.youtube-nocookie.com; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSON Formatter &amp; Developer Tools for Chrome and Windows | CodePrettify</title>
+  <meta name="description" content="Free JSON formatter, beautifier, and viewer for Chrome, Edge, and Windows. Format, validate, compare, repair, and convert JSON, YAML, XML, Markdown — locally." />
+  <meta name="application-name" content="CodePrettify" />
+  <meta name="apple-mobile-web-app-title" content="CodePrettify" />
+  <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://prettify.cloud" />
+  <link rel="icon" href="favicon.ico?v=20260725" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20260725" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260725" />
+  <link rel="manifest" href="site.webmanifest?v=20260725" />
+  <meta property="og:site_name" content="CodePrettify" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="JSON Formatter &amp; Developer Tools for Chrome and Windows" />
+  <meta property="og:description"
+    content="Free JSON formatter and beautifier for Chrome, Edge, and Windows: format, validate, compare, repair, diagram, and generate typed code from JSON — all locally." />
+  <meta property="og:url" content="https://prettify.cloud" />
+  <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-json-format.png" />
+  <meta property="og:image:alt"
+    content="CodePrettify formatting a structured JSON API response with nested services, metrics, links, arrays, and syntax highlighting" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="JSON Formatter &amp; Developer Tools for Chrome and Windows" />
+  <meta name="twitter:description"
+    content="Free JSON formatter and beautifier for Chrome, Edge, and Windows: format, validate, compare, repair, diagram, and generate typed code from JSON — all locally." />
+  <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-json-format.png" />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
+  <link rel="stylesheet" href="style.min.css?v=e1ce1dd4" />
+  <link rel="stylesheet" href="consent.css?v=20260826-2" />
+  <script src="site.js?v=20260826-3" defer></script>
+  <script src="index.js?v=20260907-2" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "CodePrettify",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Chrome, Edge, Windows",
+      "url": "https://prettify.cloud/",
+      "description": "A local JSON formatter, viewer, validator, diagram generator, repair and transformation workbench, code generator, and developer toolkit for browser and Windows.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+  </script>
+</head>
+
+<body class="homepage">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="bg-glow"></div>
+
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <img src="img/code_32.png?v=20260725" srcset="img/code_32.png?v=20260725 1x, img/code_64.png?v=20260725 2x" width="32" height="32" alt="" class="logo-icon" /><span>Code<span>Prettify</span></span>
+      </a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation">
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18" />
+        </svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6 6 18M6 6l12 12" />
+        </svg>
+      </button>
+      <nav id="site-navigation" aria-label="Primary navigation">
+        <a href="/#install">Install</a>
+        <a href="tools.html">Tools</a>
+        <a href="guides.html">Guides</a>
+        <a href="pricing.html">Price</a>
+        <a href="manual.html">Manual</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero">
+      <div class="container">
+        <p class="product-eyebrow"><span class="availability-dot" aria-hidden="true"></span> A local workspace for developers</p>
+        <div class="product-intro">
+          <h1>Your data,<br />made readable.</h1>
+          <div class="product-intro-copy">
+            <p class="subtitle">A clear view of every response, config, and file. Format, explore, and work with structured data right where you find it.</p>
+            <div class="cta-buttons" id="install">
+              <a href="https://chromewebstore.google.com/detail/codeprettify-js-json-css/ijhgclhipdfnaphhcipbnblgoemcaioj" class="btn btn-primary" target="_blank" rel="noopener noreferrer"><img src="img/chrome.svg" alt="" width="20" height="20" />Install for Chrome <span aria-hidden="true">&nearr;</span></a>
+              <a href="https://microsoftedge.microsoft.com/addons/detail/codeprettify-js-json-c/ckmnkbdicbcbajedhngfaamomlgpgchc" class="btn btn-secondary" target="_blank" rel="noopener noreferrer"><img src="img/edge.svg" alt="" width="20" height="20" />Edge</a>
+              <a href="https://apps.microsoft.com/detail/9p0lp3pt6j7d" class="btn btn-secondary store-cta" target="_blank" rel="noopener noreferrer"><img src="img/microsoft.svg" alt="" width="20" height="20" />Windows</a>
+            </div>
+            <p class="hero-proof">Free to use. Files processed on your device.</p>
+            <p class="hero-resource-links"><a href="tools.html">Try the online tools &rarr;</a><a href="manual.html">Manual</a><a href="pricing.html">Pricing</a></p>
+          </div>
+        </div>
+        <div class="data-workspace" aria-label="Interactive JSON example">
+          <div class="workspace-titlebar"><span class="workspace-file"><span aria-hidden="true">{ }</span> api-response.json</span><div class="workspace-controls" role="group" aria-label="Example view"><button type="button" data-demo-view="formatted" aria-pressed="true">Formatted</button><button type="button" data-demo-view="raw" aria-pressed="false">Raw</button><button type="button" data-demo-view="tree" aria-pressed="false">Tree</button></div><button class="workspace-copy" type="button" id="demo-copy">Copy JSON</button></div>
+          <div class="workspace-body">
+            <aside class="workspace-sidebar" aria-label="Example document information"><span class="workspace-label">DOCUMENT</span><div class="workspace-document"><span aria-hidden="true">{ }</span> api-response.json</div><dl><div><dt>Format</dt><dd>JSON</dd></div><div><dt>Root</dt><dd>Object</dd></div><div><dt>Properties</dt><dd>4</dd></div></dl><div class="workspace-sidebar-note"><span class="workspace-label">A LITTLE LESS FRICTION</span><p>Switch views.<br />Explore the structure.<br />Keep the context.</p><button type="button" id="demo-open-product">See the full application &nearr;</button></div></aside>
+            <div class="workspace-editor" id="demo-output" tabindex="0" role="region" aria-label="JSON example output"><pre>{
+  "service": "payments-api",
+  "environment": "production",
+  "healthy": true,
+  "regions": [
+    { "name": "eu-west", "latency_ms": 42 },
+    { "name": "us-east", "latency_ms": 68 }
+  ]
+}</pre></div>
+          </div>
+          <div class="workspace-status"><span><span class="availability-dot" aria-hidden="true"></span> Valid JSON</span><span id="demo-status" role="status">Interactive example &middot; Select a view to explore</span><span>UTF-8</span></div>
+        </div>
+        <div class="format-ribbon"><span>One workspace. Many formats.</span><p>JSON <span>/</span> YAML <span>/</span> XML <span>/</span> JavaScript <span>/</span> Markdown <span>/</span> TOML</p><a href="#compatibility">View all formats &rarr;</a></div>
+      </div>
+    </section>
+    <section class="workflow-story" id="workflow">
+      <div class="container">
+        <div class="story-heading"><span class="section-badge">FROM RESPONSE TO RESULT</span><h2>Stay with the problem.<br />The tools are already here.</h2><p>Follow a value, find a mismatch, or turn a payload into a model. Without moving your data between tabs.</p></div>
+        <div class="workflow-columns">
+          <article><span class="workflow-number">01 / READ</span><h3>Find what matters.</h3><p>Fold nested objects, follow JSON paths, and view arrays as tables. Even a sprawling response becomes navigable.</p><a href="json-formatter-browser-extension.html">Explore the viewer &rarr;</a></article>
+          <article><span class="workflow-number">02 / RESOLVE</span><h3>See the difference.</h3><p>Compare by meaning, not key order. Find changed records, validate a schema, and review repairs before you apply them.</p><a href="json-compare.html">Compare your data &rarr;</a></article>
+          <article><span class="workflow-number">03 / BUILD</span><h3>Take the next step.</h3><p>Generate TypeScript interfaces, Pydantic models, or diagrams from real data. Copy the result straight into your work.</p><a href="json-to-code-generator.html">Generate typed code &rarr;</a></article>
+        </div>
+      </div>
+    </section>
+    <section class="product-tour-section"><div class="container"><div class="screenshot-gallery" id="product-tour">
+          <div class="screenshot-header">
+            <span class="section-badge">A LOOK INSIDE</span>
+            <h3>The workspace, in detail.</h3>
+            <p>
+              Real screenshots from the browser extension. Select one to take a closer look.
+            </p>
+          </div>
+          <div class="gallery-navigation"><span>Browse the workspace</span><div><button type="button" data-gallery-direction="-1" aria-label="Scroll screenshots left">&larr;</button><button type="button" data-gallery-direction="1" aria-label="Scroll screenshots right">&rarr;</button></div></div><div class="screenshot-tabs" aria-label="Product screenshots">
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <picture>
+                  <source srcset="img/screenshots/feature-json-format_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-json-format_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
+              </span>
+              <span class="screenshot-tab-kicker">Format</span>
+              <span class="screenshot-tab-label">JSON</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <picture>
+                  <source srcset="img/screenshots/feature-json-to-code_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-json-to-code_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
+              </span>
+              <span class="screenshot-tab-kicker">Generate</span>
+              <span class="screenshot-tab-label">JSON to Code</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <picture>
+                  <source srcset="img/screenshots/feature-workbench-repair_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-workbench-repair_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
+              </span>
+              <span class="screenshot-tab-kicker">JSON</span>
+              <span class="screenshot-tab-label">Repair</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <picture>
+                  <source srcset="img/screenshots/feature-workbench-transform_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-workbench-transform_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
+              </span>
+              <span class="screenshot-tab-kicker">JSON</span>
+              <span class="screenshot-tab-label">Transform</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <picture>
+                  <source srcset="img/screenshots/feature-data-converter-utilities_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-data-converter-utilities_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
+              </span>
+              <span class="screenshot-tab-kicker">Utilities</span>
+              <span class="screenshot-tab-label">Data Converter</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <picture>
+                  <source srcset="img/screenshots/feature-security-scan_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-security-scan_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
+              </span>
+              <span class="screenshot-tab-kicker">Inspect</span>
+              <span class="screenshot-tab-label">Security Scan</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <picture>
+                  <source srcset="img/screenshots/feature-js-transform_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-js-transform_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
+              </span>
+              <span class="screenshot-tab-kicker">Transform</span>
+              <span class="screenshot-tab-label">JavaScript</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <picture>
+                  <source srcset="img/screenshots/feature-js-playground_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-js-playground_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
+              </span>
+              <span class="screenshot-tab-kicker">Debug</span>
+              <span class="screenshot-tab-label">JS Playground</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <picture>
+                  <source srcset="img/screenshots/feature-markdown_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-markdown_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
+              </span>
+              <span class="screenshot-tab-kicker">Docs</span>
+              <span class="screenshot-tab-label">Markdown</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <picture>
+                  <source srcset="img/screenshots/feature-http-client_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-http-client_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
+              </span>
+              <span class="screenshot-tab-kicker">Request</span>
+              <span class="screenshot-tab-label">HTTP Client</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <picture>
+                  <source srcset="img/screenshots/feature-diff-view_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-diff-view_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
+              </span>
+              <span class="screenshot-tab-kicker">Compare</span>
+              <span class="screenshot-tab-label">Diff View</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <picture>
+                  <source srcset="img/screenshots/feature-table-view_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-table-view_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
+              </span>
+              <span class="screenshot-tab-kicker">Explore</span>
+              <span class="screenshot-tab-label">Table View</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <picture>
+                  <source srcset="img/screenshots/feature-diagram-generator_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-diagram-generator_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
+              </span>
+              <span class="screenshot-tab-kicker">Visualize</span>
+              <span class="screenshot-tab-label">Diagram Generator</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <picture>
+                  <source srcset="img/screenshots/feature-stats-diagnostics_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-stats-diagnostics_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
+              </span>
+              <span class="screenshot-tab-kicker">Measure</span>
+              <span class="screenshot-tab-label">Diagnostics</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <picture>
+                  <source srcset="img/screenshots/feature-settings_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-settings_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
+              </span>
+              <span class="screenshot-tab-kicker">Customize</span>
+              <span class="screenshot-tab-label">Settings</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <picture>
+                  <source srcset="img/screenshots/feature-diff-view-dark_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-diff-view-dark_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
+              </span>
+              <span class="screenshot-tab-kicker">Dark Mode</span>
+              <span class="screenshot-tab-label">Diff View</span>
+            </button>
+            <button class="screenshot-tab" type="button">
+              <span class="screenshot-tab-thumb">
+                <picture>
+                  <source srcset="img/screenshots/feature-regex-playground_thumb.webp" type="image/webp" />
+                  <img src="img/screenshots/feature-regex-playground_thumb.png" alt="" aria-hidden="true" width="320" height="200"
+                    loading="lazy" decoding="async" />
+                </picture>
+              </span>
+              <span class="screenshot-tab-kicker">Regex</span>
+              <span class="screenshot-tab-label">Regex Playground</span>
+            </button>
+          </div>
+        </div></div></section>
+    <section class="watch-section"><div class="container watch-layout"><div><span class="section-badge">IN YOUR WORKFLOW</span><h2>Open a file.<br />Get your bearings.</h2><p>The browser extension opens supported responses in place. The Windows app brings the same tools to your local files.</p><a href="manual.html#getting-started">Get started with the manual &rarr;</a></div><div class="video-section">
+          <h3 class="video-title">See It In Action</h3>
+          <div class="video-container">
+            <button class="video-facade" type="button" data-video-id="uOfxMU0bSw8"
+              aria-label="Play the CodePrettify demo video. Nothing loads from YouTube until you press play.">
+              <picture>
+                <source type="image/webp"
+                  srcset="img/video-poster-640.webp 640w, img/video-poster-960.webp 960w, img/video-poster-1280.webp 1280w"
+                  sizes="(min-width: 1024px) 800px, calc(100vw - 48px)" />
+                <img class="video-facade-poster" src="img/video-poster.png?v=20260812" alt="" width="1280" height="720"
+                  loading="lazy" decoding="async" />
+              </picture>
+              <span class="video-facade-play" aria-hidden="true"></span>
+              <span class="video-facade-note">Nothing loads from YouTube until you press play</span>
+            </button>
+          </div>
+        </div></div></section>
+    <section id="feature-guides" class="feature-guides">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Tools and practical guides</span>
+          <h2>Pick a tool. Get to work.</h2>
+          <p class="section-desc">Small, focused tools for the task in front of you. <a href="tools.html">Open the online toolkit</a> or <a href="guides.html">browse all guides</a>.</p>
+        </div>
+        <div class="feature-related-grid">
+          <a class="feature-related-card" href="json-formatter-browser-extension.html">
+            <h3>JSON Formatter &amp; Viewer</h3>
+            <p>Format and beautify raw responses, navigate nested data, query JSONPath, validate schemas, compare, convert, and export.</p>
+            <span>Explore the JSON workflow →</span>
+          </a>
+          <a class="feature-related-card" href="json-to-code-generator.html">
+            <h3>JSON to Code Generator</h3>
+            <p>Infer TypeScript, Zod, Pydantic, C#, Java, Kotlin, Go, Rust, Swift, Dart, or JSON Schema locally.</p>
+            <span>Explore code generation →</span>
+          </a>
+          <a class="feature-related-card" href="json-to-typescript.html">
+            <h3>JSON to TypeScript — Online</h3>
+            <p>Paste JSON, generate nested interfaces, and copy or download the result. Free, local processing, no installation.</p>
+            <span>Use the online converter →</span>
+          </a>
+          <a class="feature-related-card" href="json-repair-transform.html">
+            <h3>JSON Repair — Online</h3>
+            <p>Recover JSON from copied logs and almost-JSON, review the repair categories, and download the result.</p>
+            <span>Repair JSON online →</span>
+          </a>
+          <a class="feature-related-card" href="json-to-diagram.html"><h3>JSON to Diagram — Online</h3><p>Turn nested JSON into connected field cards. Hide values and export SVG or Mermaid for documentation.</p><span>Generate a diagram →</span></a>
+          <a class="feature-related-card" href="json-array-diff.html"><h3>JSON Array Diff by ID — Online</h3><p>Compare two result lists by id or sku. Find added, removed, and changed records despite reordering.</p><span>Compare records →</span></a>
+          <a class="feature-related-card" href="markdown-viewer-browser-extension.html">
+            <h3>Markdown Viewer</h3>
+            <p>Read local or remote Markdown as a rendered document and keep the exact source one click away.</p>
+            <span>Explore Markdown viewing →</span>
+          </a>
+          <a class="feature-related-card" href="regex-playground.html">
+            <h3>Regex Playground</h3>
+            <p>A regex tester for the open document: inspect live matches and groups, preview replacements, keep test cases, and copy reusable snippets.</p>
+            <span>Explore the regex tester →</span>
+          </a>
+          <a class="feature-related-card" href="http-client-browser-extension.html">
+            <h3>HTTP Client</h3>
+            <p>Compose and replay requests, use local environments, and inspect response body, headers, cookies, and timing.</p>
+            <span>Explore the HTTP Client →</span>
+          </a>
+          <a class="feature-related-card" href="json-compare.html">
+            <h3>JSON Compare &amp; Diff</h3>
+            <p>Compare JSON semantically or line by line — ignore key order and formatting noise, and match array items by id.</p>
+            <span>Explore JSON compare →</span>
+          </a>
+          <a class="feature-related-card" href="json-schema-validator.html">
+            <h3>JSON Schema Validator</h3>
+            <p>Validate the open document against a pasted schema locally, with an exact path and source line for every violation.</p>
+            <span>Explore schema validation →</span>
+          </a>
+          <a class="feature-related-card" href="yaml-formatter.html">
+            <h3>YAML Formatter &amp; Validator</h3>
+            <p>Validate and read YAML without re-dumping the file — comments and anchors stay intact — and convert YAML to JSON.</p>
+            <span>Explore the YAML formatter →</span>
+          </a>
+          <a class="feature-related-card" href="unix-timestamp-converter.html">
+            <h3>Unix Timestamp Converter</h3>
+            <p>Turn epoch seconds or milliseconds into UTC ISO 8601 and local time — locally, with explicit timezone handling.</p>
+            <span>Explore the timestamp converter →</span>
+          </a>
+          <a class="feature-related-card" href="xml-formatter.html">
+            <h3>XML Formatter &amp; Viewer</h3>
+            <p>Strict validation with folding, safe links, and feeds — formatting that refuses rewrites that could change your data.</p>
+            <span>Explore the XML formatter →</span>
+          </a>
+          <a class="feature-related-card" href="csv-guide.html">
+            <h3>CSV Guide — Windows app</h3>
+            <p>Filter rows, reorder columns, export CSV, JSON, HTML or Excel, and compare table schemas in the Windows application.</p>
+            <span>Explore the Windows CSV workflow →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="reference-section" id="features"><div class="container"><details class="reference-disclosure"><summary><span>Full feature reference</span><span class="disclosure-hint">Formatting, validation, generation &amp; more</span></summary><div class="features-grid">
+          <article class="feature-card feature-card-wide" id="json-to-code-feature">
+            <div class="feature-icon codegen" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m12 3 1.2 3.8L17 8l-3.8 1.2L12 13l-1.2-3.8L7 8l3.8-1.2L12 3Z"/><path d="m18 14 .8 2.2L21 17l-2.2.8L18 20l-.8-2.2L15 17l2.2-.8L18 14Z"/></svg></div>
+            <span class="section-badge">Local-only</span>
+            <h3>Turn JSON Samples Into Production-Ready Code</h3>
+            <p>
+              Paste a JSON sample once and generate clean typed models or a schema without creating an account,
+              installing another converter, or uploading the payload anywhere.
+            </p>
+            <ul class="feature-list feature-list-columns">
+              <li>Eleven targets: TypeScript, Zod, C#, Java, Kotlin, Python/Pydantic, Go, Rust, Swift, Dart, and JSON Schema</li>
+              <li>Uses every record in a sample array to distinguish required, optional, and nullable fields</li>
+              <li>Creates nested models, safe identifiers, and exact JSON field-name mappings automatically</li>
+              <li>Adjust the root name and package or namespace, then copy, export, or open the result as a document</li>
+            </ul>
+            <div class="feature-card-actions">
+              <a class="feature-cta" href="json-to-code-generator.html">Explore JSON to Code in depth</a>
+              <a class="feature-cta feature-cta-secondary" href="manual.html#json-to-code">Open the manual section</a>
+            </div>
+          </article>
+
+          <div class="feature-card">
+            <div class="feature-icon auto" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m13 2-8 11h7l-1 9 8-12h-7l1-8Z"/></svg></div>
+            <h3>Open It And Start Reading</h3>
+            <p>
+              CodePrettify recognizes supported raw-code resources and turns
+              them into a usable workspace immediately.
+            </p>
+            <ul class="feature-list">
+              <li>
+                Detects supported resources by URL and HTTP content type
+              </li>
+              <li>Supports JavaScript, TypeScript, Markdown, JSON, JSON&nbsp;with&nbsp;Comments (JSONC), JSONL, TOML, CSS, YAML, XML, and RSS/Atom feeds</li>
+              <li>
+                Intelligent minification detection formats dense files automatically
+              </li>
+              <li>
+                Switch between original, formatted, minified, and raw views with a clear two-state Rendered/Raw toggle &mdash; no clumsy page refresh
+              </li>
+            </ul>
+            <div class="feature-card-actions">
+              <a class="feature-cta" href="json-formatter-browser-extension.html">Explore the JSON workflow</a>
+              <a class="feature-cta feature-cta-secondary" href="json-repair-transform.html">Repair and transform JSON</a>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon validate" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+            <h3>Spot Problems Faster</h3>
+            <p>
+              See what is wrong with the document and what came back from the
+              server in the same place.
+            </p>
+            <ul class="feature-list">
+              <li>JSON syntax errors include exact line references</li>
+              <li>Line-accurate validation for JavaScript, TypeScript, CSS, multi-document YAML, XML, and spec-accurate TOML provides instant feedback</li>
+              <li>JSON Schema Validator checks the document against a pasted schema entirely on-device, with a JSON path and line link for every violation</li>
+              <li>
+                Statistics &amp; Diagnostics surfaces syntax status, warnings,
+                request metadata, and file-type-specific insights in one place
+              </li>
+              <li>
+                Request details include the resource URL, content type,
+                encoding, size details, and timing hints when available
+              </li>
+              <li>
+                Document metrics surface file size, line count, and
+                format-specific structure details
+              </li>
+              <li>
+                Security Scan flags hardcoded secrets &mdash; API keys, tokens, JWTs, private keys, and connection strings with embedded credentials &mdash; and extracts the URLs and endpoints hidden inside a script bundle, entirely on your machine
+              </li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon json" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M3 6h7l2 2h9v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6Z"/><path d="M3 10h18"/></svg></div>
+            <h3>Inspect Structured Data Without Friction</h3>
+            <p>
+              Query, decode, and inspect large structured payloads without
+              losing your place.
+            </p>
+            <ul class="feature-list">
+              <li>Collapsible arrays and objects for easy navigation</li>
+              <li>JSON path inspector and query tools with autocomplete, validation, and copy actions</li>
+              <li>
+                Table View renders JSON arrays and XML or RSS data as sortable, searchable tables
+              </li>
+              <li>
+                Clickable URLs, timestamp tooltips, and inline decode helpers speed up inspection
+              </li>
+              <li>
+                Base64 and JWT decoding opens a dedicated read-only modal for safer analysis
+              </li>
+            </ul>
+          </div>
+
+          <div class="feature-card" id="diagram-generator-feature">
+            <div class="feature-icon json" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="5" cy="12" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="m7 11 10-4M7 13l10 4"/></svg></div>
+            <span class="section-badge">New &middot; Local-only</span>
+            <h3>See the Document as a Diagram</h3>
+            <p>
+              The Diagram Generator turns JSON, JSON Lines, YAML, TOML, and
+              XML/RSS documents &mdash; plus CSV in the Windows app &mdash; into
+              a zoomable map of connected field cards, entirely on your machine.
+            </p>
+            <ul class="feature-list">
+              <li>Search across cards and fields with match highlighting and one-keystroke navigation between hits</li>
+              <li>Click any field to inspect its full value and document path, each one click from the clipboard</li>
+              <li>Limit the scene to two, three, or four levels, or collapse and expand every branch at once</li>
+              <li>Export the same scene as SVG, PNG, or a Mermaid class diagram for wikis and issue trackers</li>
+            </ul>
+            <div class="feature-card-actions">
+              <a class="feature-cta" href="manual.html#diagram-generator">Open the manual section</a>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon tools" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="12" cy="12" r="9"/><path d="m15 9-2 4-4 2 2-4 4-2Z"/></svg></div>
+            <h3>Navigate, Compare &amp; Export</h3>
+            <p>
+              Move through large documents, compare revisions, copy the right
+              variant, and export the exact format you need.
+            </p>
+            <ul class="feature-list">
+              <li>
+                Document Navigator and syntax-aware code minimap make long files easy to scan and jump through
+              </li>
+              <li>
+                Full-screen side-by-side JSON compare (<code>Ctrl+Alt+D</code>) with synchronized scrolling, line stats, and swap sides &mdash; plus a Semantic mode, a JSON diff that compares the data structure itself, so reformatting or reordering keys no longer shows up as noise
+              </li>
+              <li>
+                Built-in Data Converter tabs for SHA-256/384/512 and HMAC, a Unix timestamp converter (Unix seconds/milliseconds and ISO 8601), and secure UUID v4, UUID v7, or ULID generation
+              </li>
+              <li>
+                Advanced search with regex (<code>/pattern/flags</code>), result counting, and Go To Line (<code>Ctrl+G</code>)
+              </li>
+              <li>
+                Command Palette (<code>Ctrl+Shift+P</code>) to fuzzy-find and run any viewer action from the keyboard
+              </li>
+              <li>
+                Copy original, formatted, or minified code; use the offline Data Converter for structured formats, Base64 or URL encoding, hashes and HMACs, timestamps, UUIDs, and ULIDs; export as CSV, HTML table, or PNG image; or download the open document converted to JSON, YAML, or TOML
+              </li>
+              <li>
+                Generate copy-ready <code>cURL</code>, <code>fetch()</code>, and PowerShell commands and share a view-state URL with teammates
+              </li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon playground" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/><path d="M7.5 16h9"/></svg></div>
+            <h3>Run JavaScript Right There</h3>
+            <p>
+              A sandboxed Playground modal lets you prototype, debug, and poke
+              at the file you are looking at without ever leaving the tab.
+            </p>
+            <ul class="feature-list">
+              <li>
+                Runs code in an isolated Web Worker with configurable 1 / 5 / 15 second timeouts and top-level <code>await</code>
+              </li>
+              <li>
+                Captures <code>console.log</code>, <code>info</code>, <code>warn</code>, <code>error</code>, <code>debug</code>, and <code>console.table</code> (rendered as a real HTML table)
+              </li>
+              <li>
+                Optional &ldquo;Include <em>filename</em>&rdquo; mode brings the current file into scope so you can call its top-level functions &mdash; Safe definitions mode loads them without running the file's side effects
+              </li>
+              <li>
+                JSON and JSON Lines documents arrive as a ready-made <code>json</code> variable, so you can query the open payload with plain JavaScript
+              </li>
+              <li>
+                Inspect Runtime (<code>Ctrl+Alt+I</code>) runs the file once and lists every top-level declaration with its captured value, inline annotations, and jump-to-line
+              </li>
+              <li>
+                Autocomplete for functions, methods, classes, and variables with parameter signatures
+              </li>
+              <li>
+                Code, timeout, and preferences autosave so you can return to your scratchpad from any page
+              </li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon keyboard" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+            <h3>Fits Your Workflow And Stays Local</h3>
+            <p>Your code stays on your machine, and the viewer adapts to how you work.</p>
+            <ul class="feature-list">
+              <li>Formatting, validation, conversion, JSON-to-code generation, inspection, and playground tools run client-side</li>
+              <li>
+                Only an HTTP request you explicitly send from the HTTP Client leaves your device; CodePrettify does not proxy it
+              </li>
+              <li>
+                Playground code runs in a null-origin sandbox iframe and a fresh Web Worker per execution &mdash; no access to the host page, the extension, or the network
+              </li>
+              <li>
+                Choose Light, Dark, or Auto theme and override the UI language when needed
+              </li>
+              <li>Adjust line numbers, word wrap, toolbar, and minimap &mdash; and, from the File Types settings, choose which file types the extension runs on and whether each opens Rendered or Raw by default</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon customize" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 9v11"/></svg></div>
+            <h3>A Real Windows App, Not a Wrapper</h3>
+            <p>
+              The Microsoft Store app brings the same toolkit to local files
+              with native ergonomics on x64 and Arm64.
+            </p>
+            <ul class="feature-list">
+              <li>Multi-file tabs with drag and drop, file associations, an Explorer context menu, and command-line opening</li>
+              <li>Paste &amp; Prettify (<code>Ctrl+N</code>) detects the format of whatever is on the clipboard</li>
+              <li>Save in place or Save As with encoding and line-ending preservation and atomic writes</li>
+              <li>A paged native viewer keeps very large files responsive, and checkpointed sessions survive restarts and crashes</li>
+              <li>Adds CSV and HTML support plus a native Tools menu mirroring the in-page tools</li>
+            </ul>
+            <div class="feature-card-actions">
+              <a class="feature-cta" href="https://apps.microsoft.com/detail/9p0lp3pt6j7d" target="_blank" rel="noopener noreferrer">Get it from the Microsoft Store</a>
+              <a class="feature-cta feature-cta-secondary" href="manual.html#app-files-tabs">Windows app manual</a>
+            </div>
+          </div>
+        </div>
+      </details></div></section>
+    <section class="compatibility-section" id="compatibility"><div class="container"><details class="reference-disclosure"><summary><span>Formats &amp; languages</span><span class="disclosure-hint">Browser and Windows compatibility</span></summary><div class="supported-section">
+          <div class="supported-box">
+            <h2>Supported Code Formats</h2>
+            <div class="format-tags">
+              <span class="format-tag">JavaScript <code>.js</code> <code>.mjs</code> <code>.cjs</code></span>
+              <span class="format-tag">TypeScript <code>.ts</code> <code>.mts</code> <code>.cts</code></span>
+              <span class="format-tag">Markdown <code>.md</code> <code>.markdown</code></span>
+              <span class="format-tag">JSON <code>.json</code> <code>.jsonc</code> <code>.jsonl</code> <code>.ndjson</code></span>
+              <span class="format-tag">TOML <code>.toml</code></span>
+              <span class="format-tag">CSS <code>.css</code></span>
+              <span class="format-tag">YAML <code>.yaml</code> <code>.yml</code></span>
+              <span class="format-tag">XML <code>.xml</code></span>
+              <span class="format-tag">RSS/Atom <code>.rss</code> <code>.atom</code></span>
+              <span class="format-tag">CSV <code>.csv</code> <small>App only</small></span>
+              <span class="format-tag">HTML <code>.html</code> <code>.htm</code> <small>App only</small></span>
+            </div>
+            <p>
+              The extension detects supported files by URL and HTTP content type.
+              The Windows app adds CSV and HTML plus native local-file workflows.
+            </p>
+          </div>
+          <div class="supported-box">
+            <h2>14 Interface Languages</h2>
+            <div class="language-tags">
+              <span class="lang-tag">English</span>
+              <span class="lang-tag">Norwegian</span>
+              <span class="lang-tag">Swedish</span>
+              <span class="lang-tag">Danish</span>
+              <span class="lang-tag">German</span>
+              <span class="lang-tag">French</span>
+              <span class="lang-tag">Spanish</span>
+              <span class="lang-tag">Italian</span>
+              <span class="lang-tag">Portuguese</span>
+              <span class="lang-tag">Russian</span>
+              <span class="lang-tag">Chinese</span>
+              <span class="lang-tag">Japanese</span>
+              <span class="lang-tag">Korean</span>
+              <span class="lang-tag">Vietnamese</span>
+            </div>
+            <p>
+              Keep the UI on auto-detect or choose your preferred language,
+              theme, and file-type behavior from settings.
+            </p>
+          </div>
+        </div></details></div></section>
+    <section class="reference-section" id="shortcuts"><div class="container"><details class="reference-disclosure"><summary><span>Shortcuts, local files &amp; privacy</span><span class="disclosure-hint">The practical details</span></summary>
+        <div class="shortcuts-section">
+          <div class="section-header">
+            <span class="section-badge">Efficiency</span>
+        <h2>Keyboard Shortcuts</h2>
+            <p class="section-desc">
+              Master CodePrettify with these quick commands
+            </p>
+          </div>
+
+          <div class="shortcuts-grid">
+            <div class="shortcut-item">
+              <span class="kbd">Ctrl + B</span>
+              <span class="shortcut-label">Toggle Raw/Pretty</span>
+            </div>
+            <div class="shortcut-item">
+              <span class="kbd">Ctrl + Alt + C</span>
+              <span class="shortcut-label">Copy to Clipboard</span>
+            </div>
+            <div class="shortcut-item">
+              <span class="kbd">Ctrl + F</span>
+              <span class="shortcut-label">Open Search</span>
+            </div>
+            <div class="shortcut-item">
+              <span class="kbd">Ctrl + G</span>
+              <span class="shortcut-label">Go to Line</span>
+            </div>
+            <div class="shortcut-item">
+              <span class="kbd">Ctrl + Shift + P</span>
+              <span class="shortcut-label">Command Palette</span>
+            </div>
+            <div class="shortcut-item">
+              <span class="kbd">Ctrl + Alt + D</span>
+              <span class="shortcut-label">Compare / Diff View</span>
+            </div>
+            <div class="shortcut-item">
+              <span class="kbd">Ctrl + Alt + P</span>
+              <span class="shortcut-label">JavaScript Playground</span>
+            </div>
+            <div class="shortcut-item">
+              <span class="kbd">Ctrl + Alt + I</span>
+              <span class="shortcut-label">Inspect Runtime</span>
+            </div>
+            <div class="shortcut-item">
+              <span class="kbd">Ctrl + Alt + T</span>
+              <span class="shortcut-label">Toggle Toolbar</span>
+            </div>
+            <div class="shortcut-item">
+              <span class="kbd">Ctrl + Alt + R</span>
+              <span class="shortcut-label">Regex Playground</span>
+            </div>
+            <div class="shortcut-item">
+              <span class="kbd">Ctrl + Enter</span>
+              <span class="shortcut-label">Run Playground Code</span>
+            </div>
+            <div class="shortcut-item">
+              <span class="kbd">Ctrl + Space</span>
+              <span class="shortcut-label">Force Autocomplete</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M6 3h9l3 3v15H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg></span>
+          <div>
+            <h3>Note for Local Files</h3>
+            <p>
+              To open local files in place (e.g.,
+              <code>file:///C:/code/data.json</code>), you must enable
+              <strong>"Allow access to file URLs"</strong> in your browser's
+              extension management page, such as <code>chrome://extensions</code>
+              or <code>edge://extensions</code>. Or open any supported file with
+              no permission at all by dragging it onto &mdash; or picking it from
+              &mdash; the upload field on the extension's launcher and welcome pages.
+            </p>
+          </div>
+        </div>
+
+        <div class="privacy-access-card">
+          <div class="privacy-access-copy">
+            <span class="section-badge">Privacy & Access</span>
+            <h3>Why The Extension Needs Page Access</h3>
+            <p>
+              CodePrettify reads supported raw-code pages in the current tab so
+              it can format, validate, compare, search, and export the file you
+              are already viewing. That handling stays local in your browser and
+              is limited to the user-facing features described on this site, in
+              the product UI, and in the browser extension marketplace listings.
+            </p>
+          </div>
+          <div class="privacy-access-points">
+            <div class="privacy-access-item">
+              <h4>What it uses</h4>
+              <p>
+                Supported page content, the resource URL, browser-reported content type,
+                character encoding, response-size hints, timing hints, and local settings.
+              </p>
+            </div>
+            <div class="privacy-access-item">
+              <h4>What it does not do</h4>
+              <p>
+                It does not send your file contents to FixQuotes, sell browsing data,
+                inject ads, or read request headers, response headers, cookies, or request bodies.
+              </p>
+            </div>
+            <div class="privacy-access-item">
+              <h4>Rare network retry</h4>
+              <p>
+                If a JavaScript file looks incorrectly decoded with a legacy charset,
+                CodePrettify may re-request the same URL directly from the site you are on
+                to recover valid UTF-8 text.
+              </p>
+            </div>
+          </div>
+          <p class="privacy-access-footnote">
+            Full details are in the <a href="privacy.html">privacy policy</a>.
+          </p>
+        </div>
+      </details></div></section>
+    <section class="closing-section"><div class="container closing-layout"><div><span class="section-badge">YOUR NEXT RESPONSE, A LITTLE CLEARER</span><h2>Make yourself at home<br />in your data.</h2></div><div><a class="btn btn-primary" href="#install">Get CodePrettify <span aria-hidden="true">&nearr;</span></a><p>Chrome, Edge, and Windows. Free.</p></div></div></section>
+    <section id="more-extensions">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">More from FixQuotes</span>
+          <h2>More useful tools from FixQuotes</h2>
+          <p class="section-desc">Explore our apps and browser extensions for video, browsing, sharing, inspiration, and notes.</p>
+        </div>
+        <div class="extensions-grid">
+          <a href="https://clipturn.app/" class="extension-card" target="_blank" rel="noopener noreferrer">
+            <div class="extension-icon">
+              <img src="img/plugins/clipturn-logo.svg" alt="" aria-hidden="true" />
+            </div>
+            <h3>ClipTurn</h3>
+            <p>Rotate videos like photos in Windows 11, from File Explorer or the app.</p>
+          </a>
+          <a href="https://fixguard.org/" class="extension-card" target="_blank" rel="noopener noreferrer">
+            <div class="extension-icon">
+              <img src="img/plugins/fixguard-logo.svg" alt="" aria-hidden="true" />
+            </div>
+            <h3>FixGuard</h3>
+            <p>Block ads, hide cookie banners, and browse clean with zero tracking.</p>
+          </a>
+          <a href="https://tabconnect.app/" class="extension-card" target="_blank" rel="noopener noreferrer">
+            <div class="extension-icon">
+              <img src="img/plugins/tabconnect-logo.svg" alt="" aria-hidden="true" />
+            </div>
+            <h3>TabConnect</h3>
+            <p>Secure tab sharing with short passwords and encrypted remote viewing.</p>
+          </a>
+          <a href="https://notepin.cloud/" class="extension-card" target="_blank" rel="noopener noreferrer">
+            <div class="extension-icon">
+              <img src="img/plugins/notepin-logo.svg" alt="" aria-hidden="true" />
+            </div>
+            <h3>NotePin</h3>
+            <p>Sticky notes for any page with sync, colors, search, and dark mode.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+    <div class="screenshot-modal" id="screenshot-modal" role="dialog" aria-modal="true"
+      aria-labelledby="screenshot-modal-title"
+      aria-describedby="screenshot-modal-description screenshot-modal-instructions" tabindex="-1" hidden>
+      <figure class="screenshot-modal-content">
+        <div class="screenshot-modal-toolbar">
+          <span class="screenshot-modal-label">Screenshots</span>
+          <div class="screenshot-modal-controls">
+            <button class="screenshot-modal-nav screenshot-modal-prev" id="screenshot-modal-prev" type="button" aria-label="Previous screenshot">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 18 9 12l6-6"></path></svg>
+            </button>
+            <button class="screenshot-modal-nav screenshot-modal-next" id="screenshot-modal-next" type="button" aria-label="Next screenshot">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg>
+            </button>
+            <button class="screenshot-modal-close" id="screenshot-modal-close" type="button" aria-label="Close screenshot viewer">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+            </button>
+          </div>
+        </div>
+        <div class="screenshot-modal-image-wrap">
+          <img id="screenshot-modal-image" alt="" />
+        </div>
+        <figcaption class="screenshot-modal-caption" aria-live="polite" aria-atomic="true" tabindex="0">
+          <div class="screenshot-modal-caption-heading">
+            <div class="screenshot-modal-caption-meta">
+              <span class="screenshot-kicker" id="screenshot-modal-kicker"></span>
+              <span class="screenshot-modal-counter" id="screenshot-modal-counter"></span>
+            </div>
+            <h4 id="screenshot-modal-title"></h4>
+          </div>
+          <p id="screenshot-modal-description"></p>
+        </figcaption>
+      </figure>
+      <p class="sr-only" id="screenshot-modal-instructions">
+        Use the left and right arrow keys to browse screenshots. Press Escape to close.
+      </p>
+    </div>
+
+
+</main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="pricing.html">Pricing</a>
+        <a href="manual.html">User Manual</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="media.html">Media</a>
+        <a href="contact.html">Feedback &amp; Support</a>
+      </div>
+      <p class="copyright">
+        &copy; 2026 FixQuotes. CodePrettify is a browser extension and Windows app by <a href="https://apps.fixquotes.com" target="_blank" rel="noopener noreferrer">FixQuotes</a>.
+      </p>
+      <details class="listing-disclosure"><summary>Find us on</summary><nav class="footer-badges" aria-label="External badges">
+        <a class="footer-badge" href="https://wonderlaunch.app/p/codeprettify" target="_blank" rel="noopener noreferrer">
+          <img src="https://wonderlaunch.app/badges/featured.svg" alt="Featured on Wonderlaunch" width="167" height="36" loading="lazy" />
+        </a>
+        <a class="footer-badge" href="https://www.producthunt.com/products/codeprettify?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-codeprettify" target="_blank" rel="noopener noreferrer">
+          <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1100762&amp;theme=neutral&amp;t=1786287550452" alt="CodePrettify - The private way to view raw JSON, JS, CSS, and RSS feeds. | Product Hunt" width="167" height="36" loading="lazy" />
+        </a>
+        <a class="footer-badge" href="https://peerpush.com/p/codeprettify" target="_blank" rel="noopener noreferrer">
+          <img src="https://peerpush.com/p/codeprettify/badge.png" alt="CodePrettify on PeerPush" width="127" height="36" loading="lazy" />
+        </a>
+        <a class="footer-badge" href="https://www.uneed.best/tool/codeprettify" target="_blank" rel="noopener noreferrer">
+          <img src="https://www.uneed.best/EMBED1B.png" alt="Featured on Uneed" width="109" height="36" loading="lazy" />
+        </a>
+        <a class="footer-badge" href="https://fazier.com" target="_blank" rel="noopener noreferrer">
+          <img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&amp;theme=light" alt="Launched on Fazier" width="103" height="44" loading="lazy" />
+        </a>
+        <a class="footer-badge" href="https://www.directree.io" target="_blank" rel="noopener noreferrer">
+          <img src="https://www.directree.io/badge/directree-badge-lightmode.svg" width="200" height="33" alt="Verified on directree" loading="lazy" referrerpolicy="no-referrer" />
+        </a>
+      </nav></details>
+    </div>
+  </footer>
+
+</body>
+
+</html>
