@@ -97,10 +97,10 @@
         </a>
       </div>
 
-      <!-- Version 2.0.4 -->
-      <article class="version-card" id="release-v2-0-4">
+      <!-- Version 2.0.5 -->
+      <article class="version-card" id="release-v2-0-5">
         <div class="version-header">
-          <h2 class="version-number">v2.0.4</h2>
+          <h2 class="version-number">v2.0.5</h2>
           <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">September 2026</span>
         </div>
@@ -108,7 +108,24 @@
           <div class="version-section">
             <h3>Fixed</h3>
             <ul class="feature-list">
+              <li><strong>Reliable source search</strong> &mdash; Search and Go to Line reach the correct position when reduced motion is enabled in Windows. Searching with Formatted unchecked also handles Windows line endings correctly, and the minimap shows every search marker in large files.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Version 2.0.4 -->
+      <article class="version-card" id="release-v2-0-4">
+        <div class="version-header">
+          <h2 class="version-number">v2.0.4</h2>
+          <span class="version-date">September 2026</span>
+        </div>
+        <div class="version-body">
+          <div class="version-section">
+            <h3>Fixed</h3>
+            <ul class="feature-list">
               <li><strong>One document search</strong> &mdash; Ctrl+F in JavaScript and other code files now focuses the floating toolbar without opening an extra search bar at the bottom. Ctrl+G opens Go to Line.</li>
+              <li><strong>Search the active tab</strong> &mdash; Ctrl+F now reaches the selected document's search field when focus is on the app's menus or tab strip, including before the Edit menu has been opened. Table View uses its own search field, and a hidden toolbar is revealed for searching.</li>
             </ul>
           </div>
         </div>
