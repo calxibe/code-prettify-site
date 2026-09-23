@@ -154,7 +154,7 @@ not an assignment</code></pre>
           </div>
         </li>
         <li>
-          <div><h3>Start with line boundaries and one complete match</h3><p>Enter <code>^[A-Z][A-Z0-9_]*=.*$</code> without surrounding slash characters. Enable multiline <code>m</code> so <code>^</code> and <code>$</code> apply to each line, then enable global <code>g</code> so your replacement preview, the copied <code>/pattern/flags</code> expression, and the JavaScript snippet act on all three assignments instead of only the first. (The live result list always shows every occurrence, even without <code>g</code>.)</p></div>
+          <div><h3>Start with line boundaries and one complete match</h3><p>Enter <code>^[A-Z][A-Z0-9_]*=.*$</code> without surrounding slash characters. Enable multiline <code>m</code> so <code>^</code> and <code>$</code> apply to each line, then enable global <code>g</code> so your replacement preview, the copied <code>/pattern/flags</code> expression, and the JavaScript snippet act on all three assignments instead of only the first. The result list also respects <code>g</code>: disable it to inspect only the first match.</p></div>
         </li>
         <li>
           <div><h3>Replace anonymous pieces with named groups</h3><p>Change the pattern to <code>^(?&lt;key&gt;[A-Z][A-Z0-9_]*)=(?&lt;value&gt;.*)$</code>. Select a match and verify that the details show the complete line plus named groups <code>key</code> and <code>value</code>. Named groups make later replacement text and generated snippets easier to understand.</p></div>
@@ -163,7 +163,7 @@ not an assignment</code></pre>
           <div><h3>Inspect every match in its original context</h3><p>Move through the three result rows. Confirm that <code>not an assignment</code> is excluded and that the value group may contain punctuation such as <code>:</code>, <code>/</code>, and periods. When using Current document, selecting a result also jumps to its highlighted source location.</p></div>
         </li>
         <li>
-          <div><h3>Preview a named-group replacement</h3><p>Open <strong>Advanced</strong> and enter <code>"$&lt;key&gt;": "$&lt;value&gt;"</code> as the replacement. The preview should turn each assignment into a JSON-like property line. Replacement is a preview only; it does not mutate the document or custom text.</p></div>
+          <div><h3>Preview a named-group replacement</h3><p>In the visible <strong>Replace</strong> section, enter <code>"$&lt;key&gt;": "$&lt;value&gt;"</code> as the replacement. The preview should turn each assignment into a JSON-like property line. Replacement is a preview only; it does not mutate the document or custom text.</p></div>
         </li>
         <li>
           <div><h3>Add tests for both success and rejection</h3><p>Add a match assertion for <code>PORT=8080</code>, a no-match assertion for <code>lowercase=value</code>, and a count-equals assertion of three for the complete sample. If you depend on the exact replacement, add a replacement-equals test as well.</p></div>
@@ -181,7 +181,7 @@ not an assignment</code></pre>
           <li>Add a line beginning with <code>#</code> and prove it does not match.</li>
           <li>Add a value containing another equals sign and inspect the captured value.</li>
           <li>Disable multiline and explain why only whole-input anchors remain.</li>
-          <li>Remove global and observe that the result list is unchanged, but the replacement preview now rewrites only the first assignment — the playground always lists every occurrence, while <code>g</code> still governs the copied expression and the JavaScript snippet.</li>
+          <li>Remove global and observe that both the result list and replacement preview use only the first assignment.</li>
         </ul>
       </div>
     </section>
@@ -228,7 +228,7 @@ not an assignment</code></pre>
         <article class="feature-learning-card"><h3>The expression is valid but finds nothing</h3><p>Check input source, case, anchors, and flags. Test a smaller literal fragment, then rebuild the boundary rules around a known match.</p></article>
         <article class="feature-learning-card"><h3>A match consumes too much text</h3><p>Inspect greedy quantifiers such as <code>.*</code>. Use a narrower character class, a reluctant quantifier, or a clear delimiter when the input has one.</p></article>
         <article class="feature-learning-card"><h3>The replacement looks right but the document is unchanged</h3><p>That is intentional. Replacement is a preview. Copy the result only after its test cases and visible output are correct.</p></article>
-        <article class="feature-learning-card"><h3>A complex pattern times out</h3><p>Simplify nested repetition and ambiguous alternatives. Patterns run in a worker, stop after roughly 1.5 seconds, and cap results at 500 so a catastrophic expression cannot freeze the viewer.</p></article>
+        <article class="feature-learning-card"><h3>A complex pattern takes a long time</h3><p>The full JavaScript regex engine runs locally in a separate worker without a fixed timeout or pattern-complexity filter. Select Stop to cancel, or edit the pattern to start again. Unicode sets (<code>v</code>), lookbehind, backreferences, and named groups are supported by current runtimes. The preview retains the first 500 matches; the complete input is used, and replacement output is not shortened.</p></article>
       </div>
       <p class="feature-learning-outcome"><strong>Learning outcome:</strong> you should be able to explain the input, boundaries, groups, flags, positive cases, negative cases, and replacement behavior of a pattern before copying it into code.</p>
     </section>

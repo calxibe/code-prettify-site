@@ -933,9 +933,9 @@
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Build and verify patterns</span><h2>Regex Playground</h2></div><span class="product-badge product-shared">Both products</span></div>
             <ol>
               <li>Choose <strong>Current document</strong> or <strong>Custom text</strong>. Custom text is session-only; document mode highlights matches in the viewer and can jump to them, and moving the editor cursor onto a highlighted match selects it and shows its capture groups.</li>
-              <li>Enter the pattern without surrounding slashes. Toggle global <code>g</code> (on by default), ignore case <code>i</code>, multiline <code>m</code>, dot-all <code>s</code>, Unicode <code>u</code>, or sticky <code>y</code>.</li>
+              <li>Enter the pattern without surrounding slashes. Toggle global <code>g</code> (on by default), ignore case <code>i</code>, multiline <code>m</code>, dot-all <code>s</code>, Unicode <code>u</code>, Unicode sets <code>v</code>, match indices <code>d</code>, or sticky <code>y</code>. You can also paste a complete <code>/pattern/flags</code> expression.</li>
               <li>Review the matches with line/column. The list shows the first 100 (all matches up to 500 are still counted and highlighted); select a match to see its numbered and named capture groups in the details panel. The right side always shows the complete <code>/pattern/flags</code> form with Copy Regex.</li>
-              <li>Open Advanced for replacement preview (<code>$1</code> and <code>$&lt;name&gt;</code>), a combined saved-and-recent list holding the last ten patterns (recent runs are recorded automatically; Save pattern adds a named entry to the same ten-slot list), and up to 20 test assertions: Matches, No match, Match count, or Replace equals.</li>
+              <li>Replacement preview and Copy are available directly (<code>$1</code> and <code>Open Advanced for replacement preview (<code>$1</code> and <code>$&lt;name&gt;</code>), a combinedlt;name&gt;</code>). Open Advanced for a combined saved-and-recent list holding the last ten patterns (recent runs are recorded automatically; Save pattern adds a named entry to the same ten-slot list), and up to 20 test assertions: Matches, No match, Match count, or Replace equals.</li>
               <li>Copy generated JavaScript, C#, or PowerShell snippets, or load an example from the guide.</li>
             </ol>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
@@ -954,7 +954,7 @@
                 </button>
               </figure>
             </div>
-            <p class="manual-limit"><strong>Safety:</strong> patterns run only in a worker, time out after roughly 1.5 seconds, and stop after 500 matches. This prevents a catastrophic expression from freezing the viewer.</p>
+            <p class="manual-limit"><strong>Local execution:</strong> advanced patterns run in a separate worker without a fixed timeout or complexity filter. Select Stop, edit the pattern, or close the tool to cancel. Global controls one/all matches. The result preview retains up to 500 matches; matching uses the complete input, and replacement output is complete.</p>
             <p class="manual-deep-link"><strong>In-depth guide:</strong> See live named-group matches, replacement preview, tests, and language snippets in <a href="regex-playground.html">Regex Playground</a>.</p>
           </section>
 
