@@ -6,7 +6,7 @@
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>App Changelog - CodePrettify</title>
-    <meta name="description" content="See CodePrettify updates, including an improved Regex Playground with advanced patterns, visible test input, replacements, and Stop controls." />
+    <meta name="description" content="See CodePrettify updates: reliable large-CSV paging and search, accessible menus, stable column controls, and developer tools with current results." />
     <meta name="application-name" content="CodePrettify" />
     <meta name="apple-mobile-web-app-title" content="CodePrettify" />
     <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
@@ -22,13 +22,13 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="App Changelog - CodePrettify" />
-    <meta property="og:description" content="See CodePrettify updates, including an improved Regex Playground with advanced patterns, visible test input, replacements, and Stop controls." />
+    <meta property="og:description" content="See CodePrettify updates: reliable large-CSV paging and search, accessible menus, stable column controls, and developer tools with current results." />
     <meta property="og:url" content="https://prettify.cloud/changelog-app.html" />
     <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-stats-diagnostics.png" />
     <meta property="og:image:alt" content="CodePrettify statistics and diagnostics panel showing warnings, request metadata, and document metrics" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="App Changelog - CodePrettify" />
-    <meta name="twitter:description" content="See CodePrettify updates, including an improved Regex Playground with advanced patterns, visible test input, replacements, and Stop controls." />
+    <meta name="twitter:description" content="See CodePrettify updates: reliable large-CSV paging and search, accessible menus, stable column controls, and developer tools with current results." />
     <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-stats-diagnostics.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
@@ -97,11 +97,43 @@
         </a>
       </div>
 
+      <!-- Version 2.0.8 -->
+      <article class="version-card" id="release-v2-0-8">
+        <div class="version-header">
+          <h2 class="version-number">v2.0.8</h2>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">September 2026</span>
+        </div>
+        <div class="version-body"><div class="version-section"><h3>Fixed</h3>
+          <ul class="feature-list">
+            <li><strong>Reliable large-CSV browsing</strong> &mdash; Canceling a load preserves row boundaries and paging history. Search visits repeated matches within a cell and reveals matching text in long values.</li>
+            <li><strong>Stable column settings</strong> &mdash; Changing visibility, pinning, or width keeps your place and keyboard focus in the Columns panel.</li>
+            <li><strong>Menus and tools fit your window</strong> &mdash; Floating menus stay reachable in short windows, tool buttons keep their height, and long Regex and Compare labels wrap within the dialog. Keyboard navigation skips hidden search buttons.</li>
+            <li><strong>Trust the current result</strong> &mdash; Editing a schema clears its previous verdict, failed inspections remove old inline values, clearing Playground output suppresses unfinished results, and changing an HTTP request prevents an old reply from appearing under the new request.</li>
+            <li><strong>More accurate navigation and repair</strong> &mdash; Go to Line validates whole line numbers and handles scientific notation correctly. Repair &amp; Transform accepts valid values such as false, zero, null, and empty strings.</li>
+          </ul>
+        </div></div>
+      </article>
+
+      <!-- Version 2.0.7 -->
+      <article class="version-card" id="release-v2-0-7">
+        <div class="version-header">
+          <h2 class="version-number">v2.0.7</h2>
+          
+          <span class="version-date">September 2026</span>
+        </div>
+        <div class="version-body"><div class="version-section"><h3>Fixed</h3>
+          <ul class="feature-list">
+            <li><strong>Clearer tool controls</strong> &mdash; RegEx guide buttons have consistent height and padding. JavaScript Playground and JSON to Code actions align with their fields.</li>
+            <li><strong>Tools fit smaller windows</strong> &mdash; HTTP Client keeps request fields and actions reachable, and Diagram Generator export buttons wrap without clipping translated labels.</li>
+          </ul>
+        </div></div>
+      </article>
+
       <!-- Version 2.0.6 -->
       <article class="version-card" id="release-v2-0-6">
         <div class="version-header">
           <h2 class="version-number">v2.0.6</h2>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">September 2026</span>
         </div>
         <div class="version-body"><div class="version-section"><h3>Improved</h3>
