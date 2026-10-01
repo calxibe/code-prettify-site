@@ -12,6 +12,9 @@ function initializeManualFilters() {
   }
 
   let activeProduct = "all";
+  // Native fragment navigation can then move keyboard focus to the section,
+  // including when the compact contents list closes after activating a link.
+  topics.forEach((topic) => { topic.tabIndex = -1; });
   const searchableText = new Map(
     topics.map((topic) => [topic, topic.textContent.toLocaleLowerCase()]),
   );
@@ -60,6 +63,18 @@ function initializeManualFilters() {
     updateFilters();
   };
 
+  const revealHashTarget = () => {
+    let id;
+    try { id = decodeURIComponent(window.location.hash.slice(1)); }
+    catch { return; }
+    const target = document.getElementById(id);
+    const topic = target?.closest(".manual-topic");
+    if (!topic?.hidden) return;
+    searchInput.value = "";
+    selectProduct("all");
+    target.scrollIntoView({ block: "start" });
+  };
+
   searchInput.addEventListener("input", updateFilters);
   searchInput.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && searchInput.value) {
@@ -79,6 +94,8 @@ function initializeManualFilters() {
   });
 
   updateFilters();
+  revealHashTarget();
+  window.addEventListener("hashchange", revealHashTarget);
 }
 
 function initializeManualContentsToggle() {

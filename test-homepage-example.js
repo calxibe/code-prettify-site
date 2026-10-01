@@ -35,9 +35,26 @@ module.exports = async function checkHomepageExample(browser, baseUrl) {
       assert(await page.locator('#json-to-code-feature').isVisible());
     }
     await page.goto(`${baseUrl}/index.html`);
-    await page.evaluate(() => Object.defineProperty(navigator.clipboard, 'writeText', { value: () => Promise.reject(new Error('Unavailable')) }));
-    await page.getByRole('button', { name: 'Copy JSON', exact: true }).click();
-    await page.waitForFunction(() => document.getElementById('demo-status').textContent.includes('Copy unavailable'));
+    const expected = JSON.parse(await page.locator('#demo-output pre').textContent());
+    await page.evaluate(() => Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: () => Promise.reject(new Error('Unavailable')) } }));
+    for (const view of ['tree', 'raw', 'formatted']) {
+      await page.locator(`[data-demo-view="${view}"]`).click();
+      await page.getByRole('button', { name: 'Copy JSON', exact: true }).click();
+      await page.waitForFunction(() => document.getElementById('demo-status').textContent.includes('JSON is selected'));
+      const selected = await page.evaluate(() => getSelection().toString());
+      assert.deepEqual(JSON.parse(selected), expected, `${view}: fallback must select complete, valid JSON`);
+      if (view === 'raw') assert(!selected.includes('\n'), 'Raw fallback must preserve the compact output');
+      assert.equal(await page.locator('[data-demo-view][aria-pressed="true"]').getAttribute('data-demo-view'), view === 'raw' ? 'raw' : 'formatted');
+    }
+    for (const reject of [false, true]) {
+      await page.evaluate(() => Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: () => new Promise((resolve, reject) => { window.finishCopy = resolve; window.rejectCopy = reject; }) } }));
+      await page.getByRole('button', { name: 'Copy JSON', exact: true }).click();
+      await page.getByRole('button', { name: 'Tree', exact: true }).click();
+      await page.evaluate((reject) => reject ? window.rejectCopy(new Error('Unavailable')) : window.finishCopy(), reject);
+      assert.equal(await page.locator('#demo-status').textContent(), 'Tree view · Select a branch to fold it', 'A delayed clipboard result must not overwrite the new view');
+      assert(await page.locator('.demo-tree').isVisible());
+      await page.getByRole('button', { name: 'Formatted', exact: true }).click();
+    }
     console.log('Homepage example: views, tree folding, clipboard success/failure, gallery scrolling, disclosure links, and mobile layout passed.');
   } finally {
     await context.close();

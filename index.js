@@ -355,6 +355,7 @@ function initializeDataExample() {
   const controls = Array.from(document.querySelectorAll("[data-demo-view]"));
   const status = document.getElementById("demo-status");
   let selectedView = "formatted";
+  let revision = 0;
 
   function codeView(raw) {
     const pre = document.createElement("pre");
@@ -396,6 +397,7 @@ function initializeDataExample() {
   }
 
   function selectView(view) {
+    revision++;
     selectedView = view;
     controls.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.demoView === view)));
     if (view === "tree") {
@@ -411,11 +413,23 @@ function initializeDataExample() {
   }
   controls.forEach((button) => button.addEventListener("click", () => selectView(button.dataset.demoView)));
   document.getElementById("demo-copy").addEventListener("click", async () => {
+    const copiedRevision = ++revision;
+    const copiedView = selectedView;
     try {
-      await navigator.clipboard.writeText(selectedView === "raw" ? JSON.stringify(example) : formatted);
-      status.textContent = "JSON copied to clipboard";
+      await navigator.clipboard.writeText(copiedView === "raw" ? JSON.stringify(example) : formatted);
+      if (revision === copiedRevision) status.textContent = "JSON copied to clipboard";
     } catch {
-      status.textContent = "Copy unavailable. Select the JSON and copy it manually.";
+      if (revision !== copiedRevision) return;
+      if (copiedView === "tree") selectView("formatted");
+      const pre = output.querySelector("pre");
+      pre.tabIndex = -1;
+      pre.focus({ preventScroll: true });
+      const range = document.createRange();
+      range.selectNodeContents(pre);
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      status.textContent = "Copy unavailable. JSON is selected; press Ctrl/Cmd+C.";
     }
   });
   document.getElementById("demo-open-product").addEventListener("click", () => document.querySelector(".screenshot-tab")?.click());

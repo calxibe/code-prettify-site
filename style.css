@@ -5588,6 +5588,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.35rem); font-weight: 600; letter-spacing: -
 .privacy-page .content h2 { font-size: 1.25rem; font-weight: 500; }
 .contact-page .feature-detail-main { min-height: calc(100vh - 265px); }
 .contact-page .page-hero__content { max-width: 680px; }
+.contact-page .contact-email-fallback { margin-top: 20px; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; }
 
 @media (max-width: 1000px) {
     .supporting-page .manual-hero, .supporting-page .pricing-hero { gap: 40px; }

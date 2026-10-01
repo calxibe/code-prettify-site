@@ -208,16 +208,17 @@ function createAnalyticsConsentControls() {
   });
 
   window.addEventListener("storage", (event) => {
-    if (event.key !== ANALYTICS_CONSENT_KEY) {
+    if (event.key !== ANALYTICS_CONSENT_KEY && event.key !== null) {
       return;
     }
     analyticsSessionChoice = null;
-    if (event.newValue === ANALYTICS_GRANTED) {
+    const choice = readAnalyticsChoice();
+    if (choice === ANALYTICS_GRANTED) {
       loadAnalytics();
     } else {
       disableAnalytics();
     }
-    showPanel(event.newValue !== ANALYTICS_GRANTED && event.newValue !== ANALYTICS_DENIED);
+    showPanel(choice === null);
   });
 
   const choice = readAnalyticsChoice();
