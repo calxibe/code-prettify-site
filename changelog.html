@@ -82,11 +82,46 @@
         </a>
       </nav>
 
+      <!-- Version 1.0.65 -->
+      <article class="version-card" id="release-v1-0-65">
+        <div class="version-header">
+          <h2 class="version-number">v1.0.65</h2>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">November 2026</span>
+        </div>
+        <div class="version-body"><div class="version-section"><h3>Added</h3>
+          <ul class="feature-list">
+            <li><strong>View more local files</strong> &mdash; Choose or drop text, log, configuration, and other files from your computer. Unrecognized formats open as read-only text without JSON syntax warnings or automatic formatting.</li>
+          </ul>
+        </div><div class="version-section"><h3>Fixed</h3>
+          <ul class="feature-list">
+            <li><strong>Markdown links and tasks</strong> &mdash; Relative document links open in new tabs, heading and footnote links stay within the preview, international heading anchors handle punctuation correctly, and empty task checkboxes render.</li>
+            <li><strong>Keep your Markdown destination</strong> &mdash; Heading and footnote links keep their selected position even when saved scrolling is still pending after switching from Source.</li>
+            <li><strong>Read Windows text files correctly</strong> &mdash; Detect UTF-16 text without an encoding marker in common log and configuration files, avoiding interleaved blank characters.</li>
+            <li><strong>Preserve text responses</strong> &mdash; Plain HTTP responses keep their original text without being treated as JavaScript or JSON.</li>
+          </ul>
+        </div></div>
+      </article>
+
+      <!-- Version 1.0.64 -->
+      <article class="version-card" id="release-v1-0-64">
+        <div class="version-header">
+          <h2 class="version-number">v1.0.64</h2>
+          <span class="version-date">October 2026</span>
+        </div>
+        <div class="version-body"><div class="version-section"><h3>Fixed</h3>
+          <ul class="feature-list">
+            <li><strong>One viewer per page</strong> &mdash; Simultaneously installed copies no longer create conflicting viewers and search controls. Repeated initialization requests are handled together.</li>
+            <li><strong>See the whole match</strong> &mdash; Search navigation reveals the full highlighted phrase on long lines, including its right-hand end.</li>
+            <li><strong>Reliable regex boundaries</strong> &mdash; Empty matches at the end of a document stay navigable, and Unicode empty matches no longer repeat at the same position. The active line identifies an empty match.</li>
+          </ul>
+        </div></div>
+      </article>
+
       <!-- Version 1.0.63 -->
       <article class="version-card" id="release-v1-0-63">
         <div class="version-header">
           <h2 class="version-number">v1.0.63</h2>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">October 2026</span>
         </div>
         <div class="version-body"><div class="version-section"><h3>Maintenance</h3>

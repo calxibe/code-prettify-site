@@ -64,7 +64,7 @@
     </header>
     <main id="main-content" class="content privacy-content site-frame">
       <h1>Privacy Policy</h1>
-      <p class="last-updated">Last Updated: September 6, 2026</p>
+      <p class="last-updated">Last Updated: October 27, 2026</p>
       <p>
         This Privacy Policy describes how CodePrettify ("we", "us", or "our")
         handles your information when you use our desktop application and
@@ -80,6 +80,10 @@
         the same URL directly from the site you are already visiting. If you
         explicitly use the HTTP Client, your browser sends the request you
         compose directly to the target URL; CodePrettify does not proxy it.
+        Selected preferences and frequently used action counts can sync
+        through your browser account, using the browser provider's service;
+        viewed documents, resource URLs, HTTP requests, and credentials are
+        excluded from that settings sync.
         The public CodePrettify website offers optional Google Analytics only
         after you explicitly allow it, as described in the Website Analytics
         and Cookies section below.
@@ -93,6 +97,55 @@
           humans read it unless you explicitly choose to share information with
           us for support.
       </div>
+
+      <h2 id="marketplace-privacy-disclosures">Why Chrome lists these data types</h2>
+      <p>
+        The Chrome Web Store's Privacy section describes data an extension
+        <strong>handles</strong>, including information processed or stored
+        locally. The categories do not mean that CodePrettify uploads your
+        documents, browsing history, or credentials to our servers.
+        <a href="https://developer.chrome.com/docs/webstore/program-policies/user-data-faq" target="_blank" rel="noopener noreferrer">Google requires disclosures for local processing too.</a>
+      </p>
+      <ul>
+        <li>
+          <strong>Website content:</strong> The code or data you open or paste
+          is read on your device to provide formatting, search, validation,
+          comparison, conversion, and other tools.
+        </li>
+        <li>
+          <strong>Web history:</strong> The extension checks resource URLs and
+          content types to recognize supported raw-code pages. Resource URLs
+          also identify locally saved view state and appear in diagnostics.
+          It does not read Chrome's complete browsing-history database or
+          send us a record of your browsing.
+        </li>
+        <li>
+          <strong>User activity:</strong> Preferences, view state, and usage
+          counters support features such as frequently used actions and review
+          prompts. We do not receive them as extension analytics. Selected
+          preferences and action counts may sync through your browser account,
+          as explained in Local Storage below.
+        </li>
+        <li>
+          <strong>Authentication information:</strong> The HTTP Client handles
+          API keys, tokens, or other credentials you choose to provide, and
+          content you open can also contain credentials. Pressing
+          <strong>Send</strong> sends your request and supplied credentials
+          directly to the target service. We do not receive those credentials
+          on our servers.
+        </li>
+      </ul>
+      <p>
+        <strong>Local processing does not mean there are no network requests.</strong>
+        Opening a remote resource or external link contacts that website; the
+        viewer may re-request the same resource in the encoding-recovery cases
+        described below. HTTP Client requests go to the target you select, and
+        settings sync uses your browser provider's service. These connections
+        do not send your documents to a CodePrettify processing server.
+        Optional analytics on the public website are separate from the
+        extension, as explained in
+        <a href="#website-analytics">Website Analytics and Cookies</a>.
+      </p>
 
       <h2>1. Data Handling</h2>
       <p>

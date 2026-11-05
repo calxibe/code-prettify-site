@@ -179,9 +179,11 @@
                   <tr><td>XML / RSS / Atom</td><td><code>.xml .rss .atom</code></td><td>Yes</td><td>Yes</td><td>Rendered</td></tr>
                   <tr><td>CSV</td><td><code>.csv</code></td><td>No</td><td>Yes</td><td>Table</td></tr>
                   <tr><td>HTML</td><td><code>.html .htm</code></td><td>No</td><td>Yes</td><td>Rendered</td></tr>
+                  <tr><td>Plain text</td><td><code>.txt .log .ini .cfg</code> and other local files</td><td>Manual open</td><td>Yes</td><td>Raw</td></tr>
                 </tbody>
               </table>
             </div>
+            <p>Other local files, including TXT, LOG, INI, CFG, and extensionless files, can be selected manually and viewed as read-only text without language validation or formatting. CSV/HTML formatting remains specific to the Windows app.</p>
             <p>The extension can also activate when a supported response MIME type is returned without a recognizable filename. It intentionally leaves normal HTML pages alone. The Windows app can use Paste &amp; Prettify to detect a format even when no filename exists.</p>
           </section>
 
@@ -246,7 +248,7 @@
             <h3>Automatic activation</h3>
             <p>The extension examines the resource URL and response content type. Supported raw documents are enhanced automatically; ordinary web pages are not. Disabling a type in Settings affects newly opened resources.</p>
             <h3>Launcher and local files</h3>
-            <p>The launcher can open a supported file by picker or drag-and-drop without broad file access. It can also start the Editor, JSON to Code Generator, HTTP Client, JavaScript Playground, Regex Playground, or Data Converter. If the tab you clicked from is a supported viewer, the tool opens on that document in the same tab; otherwise the tool opens on a hosted sample document in a new tab. Launcher files are limited to 10 MiB. Encoding is detected from a UTF-8 or UTF-16 (LE/BE) byte-order mark; without one, strict UTF-8 is tried with a Windows-1252 fallback.</p>
+            <p>The launcher can open a local file by picker or drag-and-drop without broad file access. Recognized formats use their format handlers; other files, including TXT, LOG, INI, CFG, and extensionless files, open as read-only plain text without language validation or formatting. It can also start the Editor, JSON to Code Generator, HTTP Client, JavaScript Playground, Regex Playground, or Data Converter. If the tab you clicked from is a supported viewer, the tool opens on that document in the same tab; otherwise the tool opens on a hosted sample document in a new tab. Launcher files are limited to 10 MiB. Encoding is detected from a UTF-8 or UTF-16 (LE/BE) byte-order mark. A bounded check also detects likely UTF-16 text without a byte-order mark; otherwise strict UTF-8 is tried with a Windows-1252 fallback.</p>
             <div class="manual-screenshot-grid manual-screenshot-grid-single">
               <figure class="manual-screenshot">
                 <button type="button" class="manual-screenshot-open" id="manual-screenshot-extension-launcher"
