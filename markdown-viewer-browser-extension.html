@@ -140,7 +140,10 @@
           <div><h3>Trace one table row from source to output</h3><p>Find a rendered cell containing a literal pipe. In Source view, confirm that the pipe is escaped as <code>\|</code> and that the header has a separator row. Then return to Rendered view and verify the text remains in one cell.</p></div>
         </li>
         <li>
-          <div><h3>Verify tasks and fenced code deliberately</h3><p>Check that <code>- [x]</code> is rendered as complete, <code>- [ ]</code> remains open, and the closing code fence uses at least as many backticks as the opening fence. A missing fence can make the rest of a document look like code.</p></div>
+          <div><h3>Verify tasks and fenced code deliberately</h3><p>Check that <code>- [x]</code> is rendered as complete, <code>- [ ]</code> remains open, and the closing code fence uses at least as many backticks as the opening fence. A missing fence can make the rest of a document look like code. Use <strong>Copy code</strong> to copy one fenced or indented code block, including Mermaid source, with its indentation and spacing intact. The button confirms success or reports a failed copy. Search covers visible document text, skips toolbar labels and hidden diagram source, and counts nested content once.</p></div>
+        </li>
+        <li>
+          <div><h3>Read Mermaid diagrams in context</h3><p>Fenced <code>mermaid</code> blocks render as diagrams in both products, including flowcharts, sequence diagrams, and class diagrams. Use Source to inspect the diagram text, zoom for detail, or Fit to restore its size. Diagrams follow your light/dark theme and render offline. Zoom and Fit stay disabled in Source mode, including after theme changes. Switching between diagram and source updates search results without moving the page. Invalid or oversized diagrams keep their readable source; external resources and diagram links stay inactive.</p></div>
         </li>
         <li>
           <div><h3>Compare another revision before exporting</h3><p>Open <strong>Compare</strong> and paste the previous or proposed Markdown. Review the text diff for changed wording, links, code, and structure. Copy or export the source when another editor needs Markdown; use the rendered document only as the reading view.</p></div>
