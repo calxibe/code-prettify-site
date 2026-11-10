@@ -32,7 +32,7 @@
     <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-json-format.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=09d2caec" />
+  <link rel="stylesheet" href="style.min.css?v=1f0ee072" />
   <link rel="stylesheet" href="consent.css?v=20260826-2" />
     <script src="site.js?v=20261001-1" defer></script>
     <script src="manual.js?v=20261001-1" defer></script>
@@ -104,6 +104,7 @@
             <a href="#app-menus">Windows app menus</a>
             <a href="#search-navigation">Search and navigation</a>
             <a href="#format-behavior">Formatting by file type</a>
+            <a href="#webvtt">WebVTT subtitles</a>
             <a href="#json-tools">JSON helpers and JSON Path</a>
             <a href="#table-view">Table View</a>
             <a href="#diagram-generator">Diagram Generator</a>
@@ -179,11 +180,13 @@
                   <tr><td>XML / RSS / Atom</td><td><code>.xml .rss .atom</code></td><td>Yes</td><td>Yes</td><td>Rendered</td></tr>
                   <tr><td>CSV</td><td><code>.csv</code></td><td>No</td><td>Yes</td><td>Table</td></tr>
                   <tr><td>HTML</td><td><code>.html .htm</code></td><td>No</td><td>Yes</td><td>Rendered</td></tr>
+                  <tr><td>WebVTT subtitles</td><td><code>.vtt</code></td><td>No</td><td>Yes, from v2.0.13</td><td>Subtitles</td></tr>
                   <tr><td>Plain text</td><td><code>.txt .log .ini .cfg</code> and other local files</td><td>Manual open</td><td>Yes</td><td>Raw</td></tr>
                 </tbody>
               </table>
             </div>
-            <p>Other local files, including TXT, LOG, INI, CFG, and extensionless files, can be selected manually and viewed as read-only text without language validation or formatting. CSV/HTML formatting remains specific to the Windows app.</p>
+            <p>Other local files, including TXT, LOG, INI, CFG, and extensionless files, can be selected manually and viewed as read-only text without language validation or formatting. CSV, HTML and WebVTT viewers are specific to the Windows app.</p>
+            <p class="manual-deep-link"><strong>Format reference:</strong> See <a href="supported-formats.html">every recognized file extension with a short description and product availability</a>.</p>
             <p>The extension can also activate when a supported response MIME type is returned without a recognizable filename. It intentionally leaves normal HTML pages alone. The Windows app can use Paste &amp; Prettify to detect a format even when no filename exists.</p>
           </section>
 
@@ -451,6 +454,17 @@
               <div><h3>CSV and HTML (app)</h3><p>CSV detects comma, semicolon, tab, or pipe delimiters with quote-aware parsing and provides Table plus source. HTML formatting preserves raw script/style text (reformatting can change whitespace inside <code>&lt;pre&gt;</code> blocks), escapes rendering safely, supports folding, and can make safe URLs clickable.</p></div>
             </div>
             <p class="manual-deep-link"><strong>In-depth guides:</strong> See the comment-safe YAML behavior in <a href="yaml-formatter.html">YAML Formatter &amp; Validator</a> and the data-safety guards for XML in <a href="xml-formatter.html">XML Formatter &amp; Viewer</a>.</p>
+          </section>
+
+          <section id="webvtt" class="manual-topic" data-products="app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Subtitles</span><h2>WebVTT subtitles</h2></div><span class="product-badge product-app">Windows app</span></div>
+            <p>From version 2.0.13, the Windows app opens <code>.vtt</code> files as subtitles. Use <strong>File &gt; Open</strong>, drag a file into the app, or use <strong>Paste &amp; Prettify</strong> with WebVTT content.</p>
+            <ol>
+              <li>Choose <strong>Subtitles</strong> to see each cue&rsquo;s start, end, duration and text with the original line breaks. Select a cue to inspect its identifier, timing settings and source line in <strong>Cue details</strong>.</li>
+              <li>Choose <strong>Transcript</strong> for continuous reading with wrapped cue text joined into paragraphs. Choose <strong>Source</strong> to inspect the original file, including identifiers, comments and styling blocks.</li>
+              <li>Search subtitle text, identifiers or timestamps, and use <strong>Previous</strong> / <strong>Next</strong> to browse long files. <strong>Copy cue</strong>, <strong>Copy transcript</strong> and <strong>Copy source</strong> follow the selected view.</li>
+            </ol>
+            <p>Transcript is a reading view. <strong>Save</strong> and <strong>Save As</strong> retain the original VTT structure, timestamps, identifiers, line breaks and encoding. If a block cannot be read, the viewer reports it and keeps the original content accessible in Source.</p>
           </section>
 
           <section id="json-tools" class="manual-topic" data-products="shared browser app">

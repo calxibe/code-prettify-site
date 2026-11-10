@@ -27,8 +27,10 @@ module.exports = async function checkHomepageExample(browser, baseUrl) {
       await page.getByRole('button', { name: 'Formatted', exact: true }).click();
       assert.equal(await page.locator('#demo-output pre').textContent(), formatted);
       await page.getByRole('link', { name: 'View all formats' }).click();
-      assert(await page.locator('#compatibility .supported-section').isVisible());
+      await page.waitForURL('**/supported-formats.html');
+      assert(await page.locator('.formats-table').isVisible());
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
+      await page.goto(`${baseUrl}/index.html`);
       await page.getByRole('button', { name: 'Scroll screenshots right', exact: true }).click();
       await page.waitForFunction(() => document.querySelector('.screenshot-tabs').scrollLeft > 0);
       await page.goto(`${baseUrl}/index.html#json-to-code-feature`);

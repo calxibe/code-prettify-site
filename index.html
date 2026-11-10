@@ -36,7 +36,7 @@
   <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-json-format.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="style.min.css?v=09d2caec" />
+  <link rel="stylesheet" href="style.min.css?v=1f0ee072" />
   <link rel="stylesheet" href="consent.css?v=20260826-2" />
   <script src="site.js?v=20261001-1" defer></script>
   <script src="index.js?v=20261001-1" defer></script>
@@ -121,7 +121,7 @@
           </div>
           <div class="workspace-status"><span><span class="availability-dot" aria-hidden="true"></span> Valid JSON</span><span id="demo-status" role="status">Interactive example &middot; Select a view to explore</span><span>UTF-8</span></div>
         </div>
-        <div class="format-ribbon"><span>One workspace. Many formats.</span><p>JSON <span>/</span> YAML <span>/</span> XML <span>/</span> JavaScript <span>/</span> Markdown <span>/</span> TOML</p><a href="#compatibility">View all formats &rarr;</a></div>
+        <div class="format-ribbon"><span>One workspace. Many formats.</span><p>JSON <span>/</span> YAML <span>/</span> XML <span>/</span> JavaScript <span>/</span> Markdown <span>/</span> TOML</p><a href="supported-formats.html">View all formats &rarr;</a></div>
       </div>
     </section>
     <section class="workflow-story" id="workflow">
@@ -639,7 +639,7 @@
               <li>Paste &amp; Prettify (<code>Ctrl+N</code>) detects the format of whatever is on the clipboard</li>
               <li>Save in place or Save As with encoding and line-ending preservation and atomic writes</li>
               <li>A paged native viewer keeps very large files responsive, and checkpointed sessions survive restarts and crashes</li>
-              <li>Adds CSV and HTML support plus a native Tools menu mirroring the in-page tools</li>
+              <li>Adds CSV, HTML and WebVTT subtitle viewers plus a native Tools menu mirroring the in-page tools</li>
             </ul>
             <div class="feature-card-actions">
               <a class="feature-cta" href="https://apps.microsoft.com/detail/9p0lp3pt6j7d" target="_blank" rel="noopener noreferrer">Get it from the Microsoft Store</a>
@@ -663,11 +663,13 @@
               <span class="format-tag">RSS/Atom <code>.rss</code> <code>.atom</code></span>
               <span class="format-tag">CSV <code>.csv</code> <small>App only</small></span>
               <span class="format-tag">HTML <code>.html</code> <code>.htm</code> <small>App only</small></span>
+              <span class="format-tag">WebVTT <code>.vtt</code> <small>App only</small></span>
             </div>
             <p>
               The extension detects supported files by URL and HTTP content type.
-              The Windows app adds CSV and HTML plus native local-file workflows.
+              The Windows app adds CSV, HTML and WebVTT plus native local-file workflows.
             </p>
+            <p><a href="supported-formats.html">See every file extension, format description and product availability &rarr;</a></p>
           </div>
           <div class="supported-box">
             <h2>14 Interface Languages</h2>

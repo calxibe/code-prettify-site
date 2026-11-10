@@ -9,6 +9,7 @@ CodePrettify is made by FixQuotes. It is available as a browser extension for Ch
 - [Website](https://prettify.cloud/): product overview, supported formats, and download links.
 - [Free online tools](https://prettify.cloud/tools.html): working browser tools for JSON diagrams, repair with a report, array comparison by ID, and TypeScript generation. No installation is needed; input and results are not uploaded or saved by the website.
 - [User manual](https://prettify.cloud/manual.html): complete instructions for the browser extension and Windows app.
+- [Supported file formats](https://prettify.cloud/supported-formats.html): every recognized file extension, a short format description, and availability in the browser extension or Windows app. Other text files have a separate read-only fallback.
 - [Guides index](https://prettify.cloud/guides.html): every hands-on tool guide in one place.
 - [Pricing and availability](https://prettify.cloud/pricing.html): current early-tester access and installation details.
 - [Browser extension changelog](https://prettify.cloud/changelog.html)
@@ -20,7 +21,7 @@ CodePrettify is made by FixQuotes. It is available as a browser extension for Ch
 ## Main capabilities
 
 - Format, inspect, query, validate, repair, compare, convert, and export JSON.
-- Work with JSON Lines, YAML, TOML, XML, RSS, JavaScript, Markdown, CSS, and supported raw-code resources in the browser extension. The Windows app also supports CSV and HTML with native local-file workflows.
+- Work with JSON Lines, YAML, TOML, XML, RSS, JavaScript, TypeScript, Markdown, CSS, and supported raw-code resources in the browser extension. The Windows app also supports CSV, HTML and WebVTT subtitles with native local-file workflows. WebVTT (.vtt) has Subtitles, Transcript and original Source views from app version 2.0.13.
 - Generate typed models and schemas from JSON, including TypeScript, Zod, Pydantic, C#, Java, Kotlin, Go, Rust, Swift, Dart, and JSON Schema.
 - Use the free online JSON to TypeScript converter without installation: paste JSON, generate interfaces, then copy or download a .ts file. Processing stays in the tab; input and output are not uploaded or saved by the website. The other generation targets require the extension or Windows app.
 - Use the Regex Playground, HTTP Client, JavaScript Playground, Diagram Generator, Data Converter, Table View, Security Scan, and diagnostics tools.
