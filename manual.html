@@ -105,6 +105,7 @@
             <a href="#search-navigation">Search and navigation</a>
             <a href="#format-behavior">Formatting by file type</a>
             <a href="#webvtt">WebVTT subtitles</a>
+            <a href="#patch-files">Diff and patch files</a>
             <a href="#json-tools">JSON helpers and JSON Path</a>
             <a href="#table-view">Table View</a>
             <a href="#diagram-generator">Diagram Generator</a>
@@ -180,6 +181,7 @@
                   <tr><td>XML / RSS / Atom</td><td><code>.xml .rss .atom</code></td><td>Yes</td><td>Yes</td><td>Rendered</td></tr>
                   <tr><td>CSV</td><td><code>.csv</code></td><td>No</td><td>Yes</td><td>Table</td></tr>
                   <tr><td>HTML</td><td><code>.html .htm</code></td><td>No</td><td>Yes</td><td>Rendered</td></tr>
+                  <tr><td>Unified diff / patch</td><td><code>.diff</code>, <code>.patch</code>, <code>.dff</code></td><td>No</td><td>Yes, from v2.0.14</td><td>Side by side</td></tr>
                   <tr><td>WebVTT subtitles</td><td><code>.vtt</code></td><td>No</td><td>Yes, from v2.0.13</td><td>Subtitles</td></tr>
                   <tr><td>Plain text</td><td><code>.txt .log .ini .cfg</code> and other local files</td><td>Manual open</td><td>Yes</td><td>Raw</td></tr>
                 </tbody>
@@ -454,6 +456,17 @@
               <div><h3>CSV and HTML (app)</h3><p>CSV detects comma, semicolon, tab, or pipe delimiters with quote-aware parsing and provides Table plus source. HTML formatting preserves raw script/style text (reformatting can change whitespace inside <code>&lt;pre&gt;</code> blocks), escapes rendering safely, supports folding, and can make safe URLs clickable.</p></div>
             </div>
             <p class="manual-deep-link"><strong>In-depth guides:</strong> See the comment-safe YAML behavior in <a href="yaml-formatter.html">YAML Formatter &amp; Validator</a> and the data-safety guards for XML in <a href="xml-formatter.html">XML Formatter &amp; Viewer</a>.</p>
+          </section>
+
+          <section id="patch-files" class="manual-topic" data-products="app">
+            <div class="manual-heading-row"><div><span class="manual-eyebrow">Changes</span><h2>Diff and patch files</h2></div><span class="product-badge product-app">Windows app</span></div>
+            <p>From version 2.0.14, open unified patches with <code>.diff</code>, <code>.patch</code> or <code>.dff</code> extensions. Use <strong>File &gt; Open</strong>, drag a file into the app, or paste patch text with <strong>Paste &amp; Prettify</strong>.</p>
+            <ol>
+              <li>Choose <strong>Side by side</strong> for paired old/new lines or <strong>Unified</strong> for the original sequence of context, removed and added lines. Line numbers come from the patch. Identical removed and added text remains marked.</li>
+              <li>Choose the file and change block from the selectors, or use <strong>Previous change</strong> and <strong>Next change</strong>. Search filters change blocks in the selected file. Large blocks have their own Previous/Next pages.</li>
+              <li>Choose <strong>Source</strong> for the complete original patch, including metadata and binary or unsupported blocks. Search then covers the full source. Native <strong>Find</strong> and <strong>Go to Line</strong> work with the viewer.</li>
+            </ol>
+            <p><strong>Copy patch</strong>, <strong>Save</strong> and <strong>Save As</strong> preserve the original patch. This is an inspection view: paths and commands inside the patch are never applied to your files. Binary and combined-diff data remain available in Source.</p>
           </section>
 
           <section id="webvtt" class="manual-topic" data-products="app">
@@ -1055,7 +1068,8 @@
           <section id="large-files-encoding" class="manual-topic" data-products="app">
             <div class="manual-heading-row"><div><span class="manual-eyebrow">Desktop safeguards</span><h2>Large files, encoding, and line endings</h2></div><span class="product-badge product-app">Windows app</span></div>
             <h3>Native large-file mode</h3>
-            <p>Files of 64 MiB or more use a read-only native pager instead of loading the full WebView document. Generic pages contain about 750,000 characters; CSV pages contain 500 rows with a synchronized raw view. The CSV reader accepts at most 4,096 columns, 1,048,576 characters in one field, a 4 MiB logical row, and 16 MiB of parsed data per page before showing a bounded error or Raw fallback. Previous/Next, page search, forward cross-page search with progress/cancel/wrap, and Go to line/row remain available. Most WebView tools are disabled. Native CSV Table View offers the table Save As dialog for the complete file, including rows beyond the loaded page; unavailable selection, filtering and ordering choices are disabled. In native Raw and generic large-file views, Save As copies the original file. File-to-file Compare accepts at most 128 MiB for each input.</p>
+            <p>Files of 64 MiB or more use a read-only native pager instead of loading the full WebView document. Generic pages contain about 750,000 characters. CSV starts with 500 data rows per page and shares its paging controls between <strong>Table View</strong> and <strong>Raw</strong>. The CSV reader accepts at most 4,096 columns, 1,048,576 characters in one field, a 4 MiB logical row, and 16 MiB of parsed data per page before showing a bounded error or Raw fallback. Previous/Next, page search, forward cross-page search with progress/cancel/wrap, and Go to line/row remain available. Most WebView tools are disabled. Native CSV Table View offers the table Save As dialog for the complete file, including rows beyond the loaded page; unavailable selection, filtering and ordering choices are disabled. In native Raw and generic large-file views, Save As copies the original file. File-to-file Compare accepts at most 128 MiB for each input.</p>
+            <p>When the background CSV count finishes, the <strong>Page</strong> field shows the current page beside the total. Enter a page number and press <strong>Enter</strong> or <strong>Go</strong> to jump there. <strong>First page</strong> and <strong>Last page</strong> reach either end; <strong>Previous page</strong> also works after jumping to Last. Choose 100, 250, 500, 1,000, 2,000 or 5,000 under <strong>Rows per page</strong>. The current row stays on the new page, and the choice applies to both Table View and Raw. Reloading retains that choice. The bottom-left status shows the file size and total data rows, excluding the header.</p>
             <h3>Network files and linked files</h3>
             <p>UNC and other network files skip live file watching because remote watcher notifications are unreliable; the app still fingerprints the exact source bytes and checks for external changes before saving, including BOM- or encoding-only edits. Local files retain live change detection. When a path is a hard link or reparse-backed file, Save preserves that identity with a rollback-backed in-place write instead of atomic replacement; this avoids silently breaking the link but cannot offer atomic power-loss behavior for that linked-file case.</p>
             <h3>Encoding</h3>

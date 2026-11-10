@@ -21,7 +21,7 @@ CodePrettify is made by FixQuotes. It is available as a browser extension for Ch
 ## Main capabilities
 
 - Format, inspect, query, validate, repair, compare, convert, and export JSON.
-- Work with JSON Lines, YAML, TOML, XML, RSS, JavaScript, TypeScript, Markdown, CSS, and supported raw-code resources in the browser extension. The Windows app also supports CSV, HTML and WebVTT subtitles with native local-file workflows. WebVTT (.vtt) has Subtitles, Transcript and original Source views from app version 2.0.13.
+- Work with JSON Lines, YAML, TOML, XML, RSS, JavaScript, TypeScript, Markdown, CSS, and supported raw-code resources in the browser extension. The Windows app also supports unified diff/patch files (.diff, .patch, .dff) from version 2.0.14, CSV, HTML and WebVTT subtitles with native local-file workflows. WebVTT (.vtt) has Subtitles, Transcript and original Source views from app version 2.0.13.
 - Generate typed models and schemas from JSON, including TypeScript, Zod, Pydantic, C#, Java, Kotlin, Go, Rust, Swift, Dart, and JSON Schema.
 - Use the free online JSON to TypeScript converter without installation: paste JSON, generate interfaces, then copy or download a .ts file. Processing stays in the tab; input and output are not uploaded or saved by the website. The other generation targets require the extension or Windows app.
 - Use the Regex Playground, HTTP Client, JavaScript Playground, Diagram Generator, Data Converter, Table View, Security Scan, and diagnostics tools.
