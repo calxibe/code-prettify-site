@@ -82,11 +82,35 @@
         </a>
       </nav>
 
+      <!-- Version 1.0.67 -->
+      <article class="version-card" id="release-v1-0-67">
+        <div class="version-header">
+          <h2 class="version-number">v1.0.67</h2>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">November 2026</span>
+        </div>
+        <div class="version-body"><div class="version-section"><h3>Added</h3>
+          <ul class="feature-list">
+            <li><strong>Richer Markdown</strong>: Code blocks are syntax-highlighted in light and dark themes. Notes, tips and warnings written as GitHub alerts stand out, front matter is shown as a tidy table, and formulas written with <code>$...$</code> are rendered as math.</li>
+            <li><strong>Keyboard keys and collapsible sections</strong>: Markdown can use a small, safe set of HTML such as <code>kbd</code>, <code>sub</code>, <code>sup</code>, <code>mark</code> and <code>details</code>. Everything else is still shown as plain text.</li>
+            <li><strong>Markdown outline</strong>: Open Document Navigator on a Markdown page to see its headings and jump to any of them.</li>
+            <li><strong>Export Markdown as HTML or PDF</strong>: Save the rendered document as a single web page, or print it and choose Save as PDF. The printout contains only your document.</li>
+            <li><strong>Lossless JSON formatting</strong>: Formatting and minifying keep every digit of very large or very precise numbers, the original key order and duplicate keys.</li>
+            <li><strong>TOML 1.0</strong>: Modern TOML files open without false errors. Formatting keeps comments, number spelling and date-time offsets.</li>
+            <li><strong>Statistics for numeric columns</strong>: Turn on Advanced in Table View to see minimum, maximum, average and sum for each numeric column.</li>
+          </ul>
+        </div><div class="version-section"><h3>Fixed</h3>
+          <ul class="feature-list">
+            <li><strong>Formatting never changes data</strong>: Formatted TOML no longer drops comments or rewrites numbers and dates, and formatted XML keeps empty elements, whitespace-only values and processing instructions as written.</li>
+            <li><strong>Exact timestamp conversion</strong>: Decimal Unix timestamps convert to the exact millisecond.</li>
+          </ul>
+        </div></div>
+      </article>
+
       <!-- Version 1.0.66 -->
       <article class="version-card" id="release-v1-0-66">
         <div class="version-header">
           <h2 class="version-number">v1.0.66</h2>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">November 2026</span>
         </div>
         <div class="version-body"><div class="version-section"><h3>Added</h3>

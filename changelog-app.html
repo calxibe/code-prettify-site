@@ -6,7 +6,7 @@
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>App Changelog - CodePrettify</title>
-    <meta name="description" content="See CodePrettify Windows app updates, including safer saves and line-ending conversion that protect changes made while confirmation dialogs are open." />
+    <meta name="description" content="See CodePrettify Windows app updates, including complete diff and patch views, CSV page navigation and fixes for local-file workflows." />
     <meta name="application-name" content="CodePrettify" />
     <meta name="apple-mobile-web-app-title" content="CodePrettify" />
     <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)" />
@@ -22,13 +22,13 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="App Changelog - CodePrettify" />
-    <meta property="og:description" content="See CodePrettify Windows app updates, including safer saves and line-ending conversion that protect changes made while confirmation dialogs are open." />
+    <meta property="og:description" content="See CodePrettify Windows app updates, including complete diff and patch views, CSV page navigation and fixes for local-file workflows." />
     <meta property="og:url" content="https://prettify.cloud/changelog-app.html" />
     <meta property="og:image" content="https://prettify.cloud/img/screenshots/feature-stats-diagnostics.png" />
     <meta property="og:image:alt" content="CodePrettify statistics and diagnostics panel showing warnings, request metadata, and document metrics" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="App Changelog - CodePrettify" />
-    <meta name="twitter:description" content="See CodePrettify Windows app updates, including safer saves and line-ending conversion that protect changes made while confirmation dialogs are open." />
+    <meta name="twitter:description" content="See CodePrettify Windows app updates, including complete diff and patch views, CSV page navigation and fixes for local-file workflows." />
     <meta name="twitter:image" content="https://prettify.cloud/img/screenshots/feature-stats-diagnostics.png" />
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin.woff2" crossorigin />
@@ -97,11 +97,52 @@
         </a>
       </div>
 
+      <!-- Version 2.0.16 -->
+      <article class="version-card" id="release-v2-0-16">
+        <div class="version-header">
+          <h2 class="version-number">v2.0.16</h2>
+          <span class="version-badge badge-latest">Latest</span>
+          <span class="version-date">November 2026</span>
+        </div>
+        <div class="version-body"><div class="version-section"><h3>Added</h3>
+          <ul class="feature-list">
+            <li><strong>Richer Markdown</strong>: Code blocks are syntax-highlighted in light and dark themes. Notes, tips and warnings written as GitHub alerts stand out, front matter is shown as a tidy table, and formulas written with <code>$...$</code> are rendered as math.</li>
+            <li><strong>Keyboard keys and collapsible sections</strong>: Markdown can use a small, safe set of HTML such as <code>kbd</code>, <code>sub</code>, <code>sup</code>, <code>mark</code> and <code>details</code>. Everything else is still shown as plain text.</li>
+            <li><strong>Export Markdown as HTML or PDF</strong>: Save the rendered document as a single web page, or print it and choose Save as PDF. The printout contains only your document.</li>
+            <li><strong>Jump to Markdown headings</strong>: Document Navigator now scrolls to the selected heading in the rendered view.</li>
+            <li><strong>Excel separator line in CSV</strong>: A first line such as <code>sep=;</code> now selects the delimiter instead of becoming the header row, also in very large files. Saving keeps the line.</li>
+            <li><strong>Statistics for numeric columns</strong>: Turn on Advanced in Table View to see minimum, maximum, average and sum for each numeric column, following your current filter. Decimal commas are understood.</li>
+            <li><strong>Folded sections are remembered</strong>: Reopen or reload a document and the regions you collapsed are collapsed again, as long as the file has not changed.</li>
+            <li><strong>Deeper JSON</strong>: JSON nested up to 512 levels is now validated and formatted.</li>
+          </ul>
+        </div><div class="version-section"><h3>Fixed</h3>
+          <ul class="feature-list">
+            <li><strong>HTML formatting keeps your page intact</strong>: Commented-out scripts and styles stay commented out, and no spaces are added between inline elements such as bold and italic text.</li>
+            <li><strong>Formatting never changes data</strong>: TOML date-times keep their time zone and comments, whitespace-only XML values are kept, line breaks inside CSV cells stay as they were, and JSON numbers keep every digit.</li>
+            <li><strong>Complete diff blocks</strong>: Changes with blank context lines are no longer cut short, and file names containing spaces are read correctly.</li>
+            <li><strong>Exact timestamp conversion</strong>: Decimal Unix timestamps convert to the exact millisecond.</li>
+          </ul>
+        </div></div>
+      </article>
+
+      <!-- Version 2.0.15 -->
+      <article class="version-card" id="release-v2-0-15">
+        <div class="version-header">
+          <h2 class="version-number">v2.0.15</h2>
+          <span class="version-date">November 2026</span>
+        </div>
+        <div class="version-body"><div class="version-section"><h3>Fixed</h3>
+          <ul class="feature-list">
+            <li><strong>All changes or one block</strong>: The first dropdown item, All changes, shows every block in the selected file by default. Choose a numbered block to view it alone in Side by side or Unified. The change count makes multiple blocks visible immediately.</li>
+            <li><strong>Consistent change navigation</strong>: Next/Previous change follow the dropdown order, from All changes through the individual blocks, with disabled controls at the boundaries. Search filters the choices, paging covers the current selection, and saved views retain your choice.</li>
+          </ul>
+        </div></div>
+      </article>
+
       <!-- Version 2.0.14 -->
       <article class="version-card" id="release-v2-0-14">
         <div class="version-header">
           <h2 class="version-number">v2.0.14</h2>
-          <span class="version-badge badge-latest">Latest</span>
           <span class="version-date">November 2026</span>
         </div>
         <div class="version-body"><div class="version-section"><h3>Added</h3>
